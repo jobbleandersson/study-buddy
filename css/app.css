@@ -191,6 +191,10 @@ a.streakbadge:hover {
 }
 .sidebar__theme-btn:hover { color: var(--ink); }
 .sidebar__theme-btn[aria-pressed="true"] { background: var(--surface); color: var(--brand-ink); box-shadow: var(--shadow-1); }
+/* The pressed state's box-shadow above outranks the global focus ring (higher
+   specificity), so tabbing to the currently-active theme button showed no
+   focus indicator at all — this outranks the pressed state in turn. */
+.sidebar__theme-btn[aria-pressed="true"]:focus-visible { box-shadow: var(--ring); }
 
 /* No visible scrollbar on the sidebar. It still scrolls (wheel, trackpad,
    keyboard) when the nav outgrows a short screen — only the bar is hidden,
@@ -344,6 +348,9 @@ body.has-topmenu .sitechat__fab { display: none; }
   transition: border-color var(--dur-fast), background var(--dur-fast);
 }
 .iconbtn:hover { background: var(--surface-sunk); border-color: var(--line-strong); }
+/* Same cascade collision as .btn above: .iconbtn's own resting shadow otherwise
+   silently beats the global focus ring on equal specificity + later source order. */
+.iconbtn:focus-visible { box-shadow: var(--ring); }
 .iconbtn svg { stroke-width: 1.8; }
 
 /* Language toggle: the globe alone is ambiguous, so it carries the code it
@@ -384,6 +391,11 @@ body.has-topmenu .sitechat__fab { display: none; }
 }
 /* Darken on hover rather than lift: a button that jumps reads as a toy. */
 .btn:hover { background: color-mix(in srgb, var(--brand) 86%, #000); }
+/* .btn's own resting box-shadow above has the same specificity as the global
+   :focus-visible rule (app.css:29) and comes later in the file, so it silently
+   wins and a tabbed-to button shows no ring at all — this restores it by
+   outranking both .btn and .btn--ghost's box-shadow on specificity alone. */
+.btn:focus-visible { box-shadow: var(--ring); }
 .btn--ghost { background: var(--surface); color: var(--ink); border: 1px solid var(--line-strong); box-shadow: 0 1px 2px rgba(16, 24, 40, .05); }
 .btn--ghost:hover { background: var(--surface-sunk); }
 .btn--ok { background: var(--ok); }
