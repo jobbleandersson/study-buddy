@@ -19,6 +19,7 @@ import {
   voiceForBcp, recognitionSupported, listenOnce, similarity,
 } from "../lib/speech.js";
 import { targetPhrases, maskTargetSpans, choicesAreTarget, segmentPrompt } from "../lib/lang-detect.js";
+import { firstSentence } from "../lib/text.js";
 
 // The language being learned in the question being built ({ code, bcp }), or
 // null for every other subject. Set for the duration of renderQuestion so
@@ -161,7 +162,7 @@ function languageBar(question, target, promptEl) {
   const shadow = phrases.length
     ? (() => {
         const longest = phrases.reduce((a, b) => (b.split(/\s+/).length > a.split(/\s+/).length ? b : a));
-        return longest.split(/\s+/).length > 20 ? (longest.split(/(?<=[.!?])\s+/)[0] || longest) : longest;
+        return longest.split(/\s+/).length > 20 ? firstSentence(longest) : longest;
       })()
     : null;
   const choicesInTarget = question.kind === "mc" && Array.isArray(question.choices)

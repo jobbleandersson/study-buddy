@@ -43,6 +43,16 @@ describe("markdown tables", () => {
     assert.match(html, /<td>x \| y<\/td><td>z<\/td>/);
   });
 
+  test("a row with several escaped pipes still has the right number of cells", () => {
+    const html = markdown("| A | B | C |\n|---|---|---|\n| a\\|b | c\\|d\\|e | f |");
+    assert.match(html, /<td>a\|b<\/td><td>c\|d\|e<\/td><td>f<\/td>/);
+  });
+
+  test("an escaped pipe right at the start or end of a cell", () => {
+    const html = markdown("| A | B |\n|---|---|\n| \\|lead | trail\\| |");
+    assert.match(html, /<td>\|lead<\/td><td>trail\|<\/td>/);
+  });
+
   test("a header with no rows yet (mid-stream) still renders", () => {
     const html = markdown("| A | B |\n|---|---|");
     assert.match(html, /<table><thead>/);

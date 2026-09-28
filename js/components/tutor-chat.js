@@ -12,6 +12,7 @@ import { passageContext } from "../lib/passages.js";
 import { t, getLang } from "../lib/i18n.js";
 import { tutorStream, ClaudeError } from "../claude.js";
 import { speak } from "../lib/speech.js";
+import { firstSentence } from "../lib/text.js";
 
 // Cached per language — switching language should pick up the other script,
 // not keep serving the one loaded first.
@@ -39,7 +40,7 @@ async function loadScripted() {
 function ruleHint(question) {
   const text = String(question.explanation || "").trim();
   if (!text) return null;
-  let rule = text.split(/(?<=[.!?])\s+/)[0] || "";
+  let rule = firstSentence(text);
   const cut = rule.search(/[:=$]|\\\(/);
   if (cut >= 0) rule = rule.slice(0, cut);
   rule = rule

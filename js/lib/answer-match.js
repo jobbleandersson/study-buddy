@@ -15,7 +15,9 @@ export function normalizeAnswer(s) {
   // Numeric-shaped tokens only: "2 880" -> "2880" (thousands space),
   // "0,5" -> "0.5" (Swedish decimal comma). Left alone otherwise, so a real
   // comma in prose is never touched.
-  str = str.replace(/-?\d[\d ]*(?:,\d+)?/g, (tok) => tok.replace(/(?<=\d) (?=\d)/g, "").replace(",", "."));
+  // "(digit) (lookahead digit)" instead of "(lookbehind digit) (lookahead digit)": consumes the
+  // leading digit and puts it back via $1, since a lookbehind is a SyntaxError on Safari < 16.4.
+  str = str.replace(/-?\d[\d ]*(?:,\d+)?/g, (tok) => tok.replace(/(\d) (?=\d)/g, "$1").replace(",", "."));
   return str.toLowerCase();
 }
 
