@@ -15,7 +15,7 @@ export function normalizeAnswer(s) {
   // Numeric-shaped tokens only: "2 880" -> "2880" (thousands space),
   // "0,5" -> "0.5" (Swedish decimal comma). Left alone otherwise, so a real
   // comma in prose is never touched.
-  str = str.replace(/-?\d[\d ]*(?:,\d+)?/g, (tok) => tok.replace(/(?<=\d) (?=\d)/g, "").replace(",", "."));
+  str = str.replace(/-?\d[\d ]*(?:,\d+)?/g, (tok) => tok.replace(/(\d) (?=\d)/g, "$1").replace(",", "."));
   return str.toLowerCase();
 }
 

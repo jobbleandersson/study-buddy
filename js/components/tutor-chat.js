@@ -39,7 +39,7 @@ async function loadScripted() {
 function ruleHint(question) {
   const text = String(question.explanation || "").trim();
   if (!text) return null;
-  let rule = text.split(/(?<=[.!?])\s+/)[0] || "";
+  let rule = text.replace(/([.!?])\s[\s\S]*$/, "$1") || "";
   const cut = rule.search(/[:=$]|\\\(/);
   if (cut >= 0) rule = rule.slice(0, cut);
   rule = rule

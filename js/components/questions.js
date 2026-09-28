@@ -161,7 +161,7 @@ function languageBar(question, target, promptEl) {
   const shadow = phrases.length
     ? (() => {
         const longest = phrases.reduce((a, b) => (b.split(/\s+/).length > a.split(/\s+/).length ? b : a));
-        return longest.split(/\s+/).length > 20 ? (longest.split(/(?<=[.!?])\s+/)[0] || longest) : longest;
+        return longest.split(/\s+/).length > 20 ? (longest.replace(/([.!?])\s[\s\S]*$/, "$1") || longest) : longest;
       })()
     : null;
   const choicesInTarget = question.kind === "mc" && Array.isArray(question.choices)

@@ -74,7 +74,7 @@ function isTableStart(lines, i) {
 }
 
 function tableCells(line) {
-  return line.trim().replace(/^\|/, "").replace(/\|$/, "").split(/(?<!\\)\|/).map((c) => c.replace(/\\\|/g, "|").trim());
+  return line.trim().replace(/^\|/, "").replace(/\|$/, "").replace(/\\\|/g, "\u0000").split("|").map((c) => c.replace(/\u0000/g, "|").trim());
 }
 
 /** Header, separator and every following line that has a pipe -> one scrollable table. */
