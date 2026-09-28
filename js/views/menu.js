@@ -690,13 +690,11 @@ function nearPanel() {
   if (!items.length) return null;
   const rows = items.map(({ assignment: a, best, attempts }) => {
     const pct = Math.round(best);
-    const filled = Math.round(best / 10);
     return el("a.near__row", { href: `#/session/${a.id}`, "aria-label": t("menu.nearAria", { title: a.title, best: pct }) }, [
-      el("span.near__ic", {}, icon(ICONS.target, 16)),
       el("span.near__txt", {}, [
         el("b", {}, a.title),
         el("small", {}, [t("menu.nearBest", { best: pct }), plural(attempts, "menu.nearTriesOne", "menu.nearTriesMany", { n: attempts })].join(" · ")),
-        el("span.near__dots", { "aria-hidden": "true" }, Array.from({ length: 10 }, (_, i) => el("i" + (i < filled ? ".is-f" : "")))),
+        el("span.near__bar", { "aria-hidden": "true" }, [el("i", { style: { width: `${pct}%` } })]),
       ]),
       el("span.near__go", {}, [t("menu.nearGo"), icon(ICONS.arrow, 14)]),
     ]);
