@@ -241,35 +241,70 @@ function navItems() {
   return navGroups().flatMap((g) => g.items);
 }
 
-/** "Verktyg" collapses behind a header row instead of always taking its full
- *  row count — everything else ("Lära", "Uppföljning", the unlabeled account
- *  group) stays fully expanded; three items wasn't worth folding away. A
- *  collapsed section auto-opens whenever the current page is one of its own
- *  items, so navigating there never leaves the active link hidden behind a
- *  closed header — unless it was folded by hand on this very page, which has
- *  to stick or the header would look broken there. */
-const SIDEBAR_COLLAPSIBLE = new Set(["tools"]);
-const sidebarOpenKey = (key) => `studybuddy.navOpen.${key}`;
-const sidebarFoldedOn = {};
-function isSidebarSectionOpen(group) {
-  if (sidebarFoldedOn[group.key] === currentPath()) return false;
-  if (group.items.some((it) => navActive(it.match))) return true;
-  try { return localStorage.getItem(sidebarOpenKey(group.key)) === "1"; } catch { return false; }
+/** Keyboard and screen-reader wiring for a button that opens an openPopover()
+ *  menu. Focus moves into the menu (the popover sits at the end of <body>, so
+ *  Tab alone would never reach it), arrow keys step through it, Escape returns
+ *  to the button, and aria-expanded follows the menu however it closes. */
+function wireMenu(btn, menu, startAt) {
+  btn.setAttribute("aria-expanded", "true");
+  const items = [...menu.querySelectorAll("button, a")];
+  menu.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") { btn.focus(); return; }
+    // Tab closes the menu and carries on from its button, as with a native menu.
+    if (e.key === "Tab") { closePopover(); btn.focus(); return; }
+    const step = e.key === "ArrowDown" ? 1 : e.key === "ArrowUp" ? -1 : 0;
+    if (!step) return;
+    e.preventDefault();
+    items[(items.indexOf(document.activeElement) + step + items.length) % items.length].focus();
+  });
+  const watch = new MutationObserver(() => {
+    if (menu.isConnected) return;
+    btn.setAttribute("aria-expanded", "false");
+    watch.disconnect();
+  });
+  watch.observe(document.body, { childList: true });
+  (startAt || items[0])?.focus();
 }
-function toggleSidebarSection(group) {
-  const next = !isSidebarSectionOpen(group);
-  sidebarFoldedOn[group.key] = next ? null : currentPath();
-  try { localStorage.setItem(sidebarOpenKey(group.key), next ? "1" : "0"); } catch { /* private mode — fine, it'll just default shut again */ }
-  render({ chromeOnly: true });
+
+/** "Verktyg" opens its three pages in a flyout beside the sidebar instead of
+ *  unfolding them into the list, so the nav never grows. The row itself is
+ *  marked current while one of those pages is open, since its links aren't
+ *  on screen to show it. */
+const SIDEBAR_FLYOUT = new Set(["tools"]);
+function flyoutButton(g) {
+  const active = g.items.some((it) => navActive(it.match));
+  const btn = el("button.sidebar__acc" + (active ? ".is-active" : ""), {
+    type: "button", "aria-haspopup": "menu", "aria-expanded": "false",
+  }, [
+    icon(g.items[0].icon, 16),
+    el("span.sidebar__acc-label", {}, g.label),
+    el("span.sidebar__acc-count", {}, String(g.items.length)),
+    icon(ICONS.chevronRight, 14),
+  ]);
+  let menu = null;
+  btn.addEventListener("click", () => {
+    if (menu?.isConnected) { closePopover(); btn.focus(); return; }
+    menu = openPopover(btn, [
+      el("p.toolfly__title", { role: "presentation" }, g.label),
+      ...g.items.map((it) => el("a.toolfly__item" + (navActive(it.match) ? ".is-active" : ""), {
+        href: it.href, role: "menuitem",
+        "aria-current": navActive(it.match) ? "page" : null,
+        onclick: closePopover,
+      }, [el("span.toolfly__icon", {}, icon(it.icon, 17)), el("span", {}, it.label)])),
+    ], { placement: "right", fixed: true, offset: 21, width: 220, label: g.label });
+    menu.classList.add("popover--flyout");
+    wireMenu(btn, menu, menu.querySelector(".toolfly__item.is-active"));
+  });
+  return btn;
 }
 
 /** The desktop sidebar's nav. The first group (the everyday pages) sits directly
  *  in the list; everything after it lives in `.sidebar__more`, which is
  *  `display: contents` — invisible to layout — until the window is very short.
  *  Then CSS turns it into a compact icon dock, so the whole nav still fits with
- *  no scrolling (the links carry a title/aria-label for exactly that mode) —
- *  overriding a collapsed section open there, since the dock has room for
- *  every icon regardless. */
+ *  no scrolling (the links carry a title/aria-label for exactly that mode). The
+ *  dock shows a flyout group's icons inline too (from its hidden
+ *  .sidebar__acc-body), since there's room for every icon there. */
 function sidebarNav() {
   const groups = navGroups();
   const link = (it, inMore) => el("a.sidebar__link" + (navActive(it.match) ? ".is-active" : ""), {
@@ -278,19 +313,10 @@ function sidebarNav() {
     ...(inMore ? { title: it.label, "aria-label": it.label } : {}),
   }, [icon(it.icon, 18), it.label]);
   const part = (g, gi, inMore) => {
-    if (SIDEBAR_COLLAPSIBLE.has(g.key)) {
-      const open = isSidebarSectionOpen(g);
+    if (SIDEBAR_FLYOUT.has(g.key)) {
       return [
-        el("button.sidebar__acc" + (open ? ".is-open" : ""), {
-          type: "button", "aria-expanded": String(open),
-          onclick: () => toggleSidebarSection(g),
-        }, [
-          icon(g.items[0].icon, 16),
-          el("span.sidebar__acc-label", {}, g.label),
-          el("span.sidebar__acc-count", {}, String(g.items.length)),
-          icon(ICONS.chevronDown, 14),
-        ]),
-        el("div.sidebar__acc-body" + (open ? "" : ".is-closed"), {}, g.items.map((it) => link(it, inMore))),
+        flyoutButton(g),
+        el("div.sidebar__acc-body", {}, g.items.map((it) => link(it, inMore))),
       ];
     }
     return [
@@ -478,11 +504,9 @@ const themeLabel = (value) => t(`set.theme${value[0].toUpperCase()}${value.slice
 
 /** Sidebar footer theme control: one button showing the current theme, opening
  *  the four choices upward. A rarely-touched preference shouldn't hold a full
- *  row of the footer next to the streak. Focus moves into the menu (arrow keys
- *  step through it, Escape or a pick returns to the button) — the popover sits
- *  at the end of <body>, so Tab alone would never reach it. Repaints on
- *  sb:themechange (fired by setTheme from anywhere) and unhooks once its node
- *  leaves the page, same as themePicker above. */
+ *  row of the footer next to the streak. Repaints on sb:themechange (fired by
+ *  setTheme from anywhere) and unhooks once its node leaves the page, same as
+ *  themePicker above. */
 function themeMenuButton() {
   const btn = el("button.sidebar__themebtn", { type: "button", "aria-haspopup": "menu", "aria-expanded": "false" });
   let menu = null;
@@ -504,25 +528,8 @@ function themeMenuButton() {
       icon(THEME_ICONS[value], 15),
       el("span", {}, themeLabel(value)),
       value === current ? icon(ICONS.check, 15) : null,
-    ])), { align: "right", width: 200, label: t("set.theme"), placement: "above" });
-    btn.setAttribute("aria-expanded", "true");
-    const items = [...menu.querySelectorAll("button")];
-    menu.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") { btn.focus(); return; }
-      const step = e.key === "ArrowDown" ? 1 : e.key === "ArrowUp" ? -1 : 0;
-      if (!step) return;
-      e.preventDefault();
-      items[(items.indexOf(document.activeElement) + step + items.length) % items.length].focus();
-    });
-    // However the menu goes (a pick, Escape, a click elsewhere), the button
-    // stops announcing it as open.
-    const watch = new MutationObserver(() => {
-      if (menu.isConnected) return;
-      btn.setAttribute("aria-expanded", "false");
-      watch.disconnect();
-    });
-    watch.observe(document.body, { childList: true });
-    (menu.querySelector('[aria-checked="true"]') || items[0]).focus();
+    ])), { align: "right", width: 200, label: t("set.theme"), placement: "above", fixed: true });
+    wireMenu(btn, menu, menu.querySelector('[aria-checked="true"]'));
   });
   function onExternalChange() {
     if (!btn.isConnected) { window.removeEventListener("sb:themechange", onExternalChange); return; }

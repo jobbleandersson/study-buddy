@@ -126,8 +126,8 @@ a.streakbadge:hover {
 .sidebar__nav > .sidebar__group:first-child { margin-top: 0; }
 .sidebar__div { height: 1px; margin: var(--s-3) var(--s-3) var(--s-2); background: var(--line); }
 
-/* Collapsible sections ("Uppföljning", "Verktyg") — a header row standing in
-   for the group's own rows until it's opened, same footprint as a link. */
+/* "Verktyg" — one row, same footprint as a link, that opens its pages in a
+   flyout beside the sidebar (.toolfly below) instead of unfolding them. */
 .sidebar__acc {
   display: flex; align-items: center; gap: var(--s-3); width: 100%;
   margin-top: var(--s-3);
@@ -144,22 +144,36 @@ a.streakbadge:hover {
   background: var(--surface-sunk); padding: 1px 7px; border-radius: var(--r-full);
 }
 .sidebar__acc svg:last-child { flex: none; color: var(--ink-faint); transition: transform var(--dur-fast); }
-.sidebar__acc.is-open svg:last-child { transform: rotate(180deg); }
-/* A real block, not display:contents — keeps these links out of .sidebar__nav's
-   flex-grow pool (see the `flex: 1 1 auto` rule on .sidebar__link further down).
-   Otherwise opening Verktyg adds 3 more grow-items competing for the same fixed
-   sidebar height, squeezing every row in the nav, not just these three. */
-.sidebar__acc-body {
-  display: flex; flex-direction: column; gap: 1px;
-  margin: 1px 0 3px 17px; padding-left: 7px; border-left: 1px solid var(--line);
+.sidebar__acc[aria-expanded="true"] { background: var(--surface-sunk); color: var(--ink); }
+.sidebar__acc[aria-expanded="true"] svg:last-child { transform: translateX(2px); color: var(--ink-soft); }
+.sidebar__acc.is-active { background: var(--brand-tint); color: var(--brand-ink); }
+.sidebar__acc.is-active svg:first-child { color: var(--brand); }
+/* The flyout group's own links: hidden in the normal sidebar (they live in the
+   flyout), shown inline only by the very-short-window icon dock further down. */
+.sidebar__acc-body { display: none; }
+
+/* The flyout itself: a popover pinned beside the sidebar, opened from the row. */
+.popover--flyout { padding: 6px; gap: 2px; animation: flyout-in var(--dur-fast) var(--ease-out); }
+@keyframes flyout-in { from { opacity: 0; transform: translateX(-6px); } }
+@media (prefers-reduced-motion: reduce) { .popover--flyout { animation: none; } }
+.toolfly__title {
+  margin: 4px 8px 4px; font-size: 11px; font-weight: 650; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--ink-faint);
 }
-.sidebar__acc-body.is-closed { display: none; }
-/* :where() keeps this at .sidebar__link's own specificity so the short-window
-   overrides further down (clamp()-based sizing, then the icon-dock grid) still
-   win by source order instead of getting outranked by the extra .sidebar__acc-body
-   ancestor class. */
-:where(.sidebar__acc-body) .sidebar__link { padding: 6px var(--s-3); font-size: 13px; }
-:where(.sidebar__acc-body) .sidebar__link svg { width: 15px; height: 15px; }
+.toolfly__item {
+  display: flex; align-items: center; gap: 10px; padding: 6px 8px; border-radius: 10px;
+  color: var(--ink-soft); text-decoration: none; font-size: var(--fs-sm); font-weight: 500;
+  transition: background var(--dur-fast), color var(--dur-fast);
+}
+.toolfly__item:hover { background: var(--surface-sunk); color: var(--ink); }
+.toolfly__item.is-active { background: var(--brand-tint); color: var(--brand-ink); font-weight: 600; }
+.toolfly__icon {
+  width: 30px; height: 30px; flex: none; display: grid; place-items: center;
+  border-radius: 8px; background: var(--surface-sunk); color: var(--ink-soft);
+  transition: background var(--dur-fast);
+}
+.toolfly__item:hover .toolfly__icon { background: var(--line); }
+.toolfly__item.is-active .toolfly__icon { background: var(--surface); color: var(--brand); }
 
 /* One row: the streak card takes the width, the theme button sits beside it at
    the same height and on the same fill, so the two read as one footer. */
