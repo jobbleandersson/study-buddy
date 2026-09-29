@@ -2027,6 +2027,13 @@ body.has-welcome { overflow: hidden; }
 .msg pre { max-width: 100%; overflow-x: auto; margin: .5em 0; padding: .5em .75em; border-radius: var(--r-sm); background: rgba(0,0,0,.08); font-size: .92em; line-height: 1.45; }
 .msg pre code { padding: 0; background: none; white-space: pre; overflow-wrap: normal; }
 .msg .katex-display { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
+/* KaTeX puts an absolutely positioned (visually hidden) MathML copy inside every
+   formula. Its containing block would otherwise be the nearest positioned
+   ancestor — e.g. the sticky .tutor, outside the scrolling .tutor__log — so the
+   log can't clip it, and a long thread of formulas pushed those copies below the
+   page: the document grew taller than the shell and the sticky sidebar and topbar
+   scrolled away. Anchoring each copy to its own formula keeps it in place. */
+.katex { position: relative; }
 .msg .mdtable { max-width: 100%; margin: .5em 0; overflow-x: auto; }
 .msg table { border-collapse: collapse; min-width: 100%; font-size: .95em; }
 .msg th, .msg td { padding: 6px 10px; border: 1px solid var(--line-strong); text-align: left; vertical-align: top; overflow-wrap: normal; }
