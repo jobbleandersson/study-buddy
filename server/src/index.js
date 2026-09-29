@@ -84,9 +84,10 @@ app.use((req, res, next) => {
     "default-src 'self'",
     // 'unsafe-eval': vendor/pdf.min.js and its worker (vendor/pdf.worker.min.js) call
     // new Function()/eval() internally — importing a PDF breaks without it. The Google origin is
-    // for "Sign in with Google" (dormant until GOOGLE_CLIENT_ID is set): its script and the
-    // sign-in iframe it opens.
-    "script-src 'self' 'unsafe-eval' https://accounts.google.com",
+    // for "Sign in with Google": its script and the sign-in iframe it opens. The sha256 is a small
+    // inline bootstrap script gsi/client itself injects — without it, every page logs 2-3 CSP
+    // violations on load even though the button still renders.
+    "script-src 'self' 'unsafe-eval' https://accounts.google.com 'sha256-+YyO6uRdVbz4fwYAveWC6Sp0/p3qruQaBUKOk99RgOc='",
     // 'unsafe-inline': a few places build an inline style="" attribute into an HTML string
     // (e.g. js/components/questions.js) rather than setting it through the DOM. The one outside
     // stylesheet is Google's own for its sign-in button (dormant until GOOGLE_CLIENT_ID is set) -
