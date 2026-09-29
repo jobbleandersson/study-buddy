@@ -145,8 +145,21 @@ a.streakbadge:hover {
 }
 .sidebar__acc svg:last-child { flex: none; color: var(--ink-faint); transition: transform var(--dur-fast); }
 .sidebar__acc.is-open svg:last-child { transform: rotate(180deg); }
-.sidebar__acc-body { display: contents; }
+/* A real block, not display:contents — keeps these links out of .sidebar__nav's
+   flex-grow pool (see the `flex: 1 1 auto` rule on .sidebar__link further down).
+   Otherwise opening Verktyg adds 3 more grow-items competing for the same fixed
+   sidebar height, squeezing every row in the nav, not just these three. */
+.sidebar__acc-body {
+  display: flex; flex-direction: column; gap: 1px;
+  margin: 1px 0 3px 17px; padding-left: 7px; border-left: 1px solid var(--line);
+}
 .sidebar__acc-body.is-closed { display: none; }
+/* :where() keeps this at .sidebar__link's own specificity so the short-window
+   overrides further down (clamp()-based sizing, then the icon-dock grid) still
+   win by source order instead of getting outranked by the extra .sidebar__acc-body
+   ancestor class. */
+:where(.sidebar__acc-body) .sidebar__link { padding: 6px var(--s-3); font-size: 13px; }
+:where(.sidebar__acc-body) .sidebar__link svg { width: 15px; height: 15px; }
 
 .sidebar__foot { display: flex; flex-direction: column; gap: var(--s-2); margin-top: var(--s-4); }
 
