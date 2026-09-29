@@ -3539,7 +3539,7 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 /* sidebar: share spare height between the rows (up to a comfortable cap) instead of
    leaving it as a gap above the streak card */
 @media (min-width: 900px) and (min-height: 640px) {
-  .sidebar__nav > .sidebar__link, .sidebar__more > .sidebar__link { flex: 1 1 auto; max-height: 46px; }
+  .sidebar__nav > .sidebar__link, .sidebar__more > .sidebar__link { flex: 1 1 auto; max-height: 50px; }
 }
 
 /* ===== "för lärare" front page (#/teachers) — reuses the consumer front
