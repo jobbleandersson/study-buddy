@@ -24,15 +24,18 @@ export function closePopover() {
   document.removeEventListener("keydown", escClose);
 }
 
-export function openPopover(anchor, children, { align = "left", width = 260, role = "menu", label } = {}) {
+export function openPopover(anchor, children, { align = "left", width = 260, role = "menu", label, placement = "below" } = {}) {
   closePopover();
   const menu = el("div.popover", { role, "aria-label": label }, children);
   const r = anchor.getBoundingClientRect();
   const left = align === "right" ? r.right + window.scrollX - width : r.left + window.scrollX;
-  menu.style.top = `${r.bottom + window.scrollY + 6}px`;
   menu.style.left = `${Math.max(8, Math.min(left, window.innerWidth - width - 8))}px`;
   menu.style.width = `${width}px`;
   document.body.appendChild(menu);
+  // "above" needs the rendered height, so it's placed after the menu is in the page.
+  menu.style.top = placement === "above"
+    ? `${r.top + window.scrollY - 6 - menu.offsetHeight}px`
+    : `${r.bottom + window.scrollY + 6}px`;
 
   setTimeout(() => {
     document.addEventListener("click", outsideClick);

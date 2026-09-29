@@ -198,9 +198,9 @@ function nextLang() {
 }
 
 /** The full app nav, grouped so the sidebar reads as sections rather than one
- *  long list — "Learn" (make + study material), "Track" (see how it's going),
- *  and an unlabelled account group at the bottom. Used by the desktop sidebar
- *  and the mobile ⋮ menu alike, so the two never drift. */
+ *  long list — everyday studying, exam prep (a different, formal mode), how
+ *  it's going, tools, and account. Used by the desktop sidebar and the mobile
+ *  ⋮ menu alike, so the two never drift. */
 function navGroups() {
   const learn = [
     { href: "#/",         match: "/",          icon: ICONS.home,      label: t("nav.home") },
@@ -208,6 +208,8 @@ function navGroups() {
     { href: "#/library",  match: "/library",   icon: ICONS.book,      label: t("nav.library") },
     { href: "#/create",   match: "/create",    icon: ICONS.plus,      label: t("nav.create") },
     { href: "#/solve",    match: "/solve",     icon: ICONS.spark,     label: t("nav.solve") },
+  ];
+  const exam = [
     { href: "#/exam-prep", match: "/exam-prep", icon: ICONS.graduation, label: t("nav.examPrep") },
     { href: "#/hp",       match: "/hp",        icon: ICONS.award,     label: t("nav.hp") },
   ];
@@ -229,10 +231,11 @@ function navGroups() {
   account.push({ href: "#/settings", match: "/settings", icon: ICONS.gear, label: t("common.settings") });
 
   return [
-    { key: "learn",   label: t("nav.groupLearn"), items: learn },
-    { key: "track",   label: t("nav.groupTrack"), items: track },
-    { key: "tools",   label: t("nav.groupTools"), items: tools },
-    { key: "account", label: null,                items: account },
+    { key: "learn",   label: t("nav.groupLearn"),   items: learn },
+    { key: "exam",    label: t("nav.groupExam"),    items: exam },
+    { key: "track",   label: t("nav.groupTrack"),   items: track },
+    { key: "tools",   label: t("nav.groupTools"),   items: tools },
+    { key: "account", label: t("nav.groupAccount"), items: account },
   ];
 }
 
@@ -241,66 +244,68 @@ function navItems() {
   return navGroups().flatMap((g) => g.items);
 }
 
-/** "Verktyg" collapses behind a header row instead of always taking its full
- *  row count — everything else ("Lära", "Uppföljning", the unlabeled account
- *  group) stays fully expanded; three items wasn't worth folding away. A
- *  collapsed section auto-opens whenever the current page is one of its own
- *  items, so navigating there never leaves the active link hidden behind a
- *  closed header. */
+/** "Verktyg" can fold away behind its own section heading — the other sections
+ *  are the pages people move between daily. A folded section auto-opens
+ *  whenever the current page is one of its own items, so navigating there
+ *  never leaves the active link hidden — unless it was folded by hand on this
+ *  very page, which has to stick or the heading would look broken there. */
 const SIDEBAR_COLLAPSIBLE = new Set(["tools"]);
 const sidebarOpenKey = (key) => `studybuddy.navOpen.${key}`;
+const sidebarFoldedOn = {};
 function isSidebarSectionOpen(group) {
+  if (sidebarFoldedOn[group.key] === currentPath()) return false;
   if (group.items.some((it) => navActive(it.match))) return true;
   try { return localStorage.getItem(sidebarOpenKey(group.key)) === "1"; } catch { return false; }
 }
 function toggleSidebarSection(group) {
   const next = !isSidebarSectionOpen(group);
+  sidebarFoldedOn[group.key] = next ? null : currentPath();
   try { localStorage.setItem(sidebarOpenKey(group.key), next ? "1" : "0"); } catch { /* private mode — fine, it'll just default shut again */ }
   render({ chromeOnly: true });
 }
 
-/** The desktop sidebar's nav. The first group (the everyday pages) sits directly
- *  in the list; everything after it lives in `.sidebar__more`, which is
- *  `display: contents` — invisible to layout — until the window is very short.
- *  Then CSS turns it into a compact icon dock, so the whole nav still fits with
- *  no scrolling (the links carry a title/aria-label for exactly that mode) —
- *  overriding a collapsed section open there, since the dock has room for
- *  every icon regardless. */
+/** The desktop sidebar's nav: one labelled section per group, every row the
+ *  same height. Rows never shrink to fit a short window — this middle part
+ *  scrolls instead, between the pinned logo and footer. Every render builds a
+ *  fresh shell, so the scroll position is carried over from the nav being
+ *  replaced (otherwise it snaps to the top on each navigation or fold). After
+ *  an actual page change it's also nudged, if needed, to show that page's link
+ *  — but not after folding a section, where the section is what's wanted. */
+let sidebarLastPath = null;
 function sidebarNav() {
-  const groups = navGroups();
-  const link = (it, inMore) => el("a.sidebar__link" + (navActive(it.match) ? ".is-active" : ""), {
+  const prevScroll = document.querySelector(".sidebar__nav")?.scrollTop || 0;
+  const pageChanged = sidebarLastPath !== currentPath();
+  sidebarLastPath = currentPath();
+  const link = (it) => el("a.sidebar__link" + (navActive(it.match) ? ".is-active" : ""), {
     href: it.href,
     "aria-current": navActive(it.match) ? "page" : null,
-    ...(inMore ? { title: it.label, "aria-label": it.label } : {}),
-  }, [icon(it.icon, 18), it.label]);
-  const part = (g, gi, inMore) => {
-    if (SIDEBAR_COLLAPSIBLE.has(g.key)) {
-      const open = isSidebarSectionOpen(g);
-      return [
-        el("button.sidebar__acc" + (open ? ".is-open" : ""), {
-          type: "button", "aria-expanded": String(open),
-          onclick: () => toggleSidebarSection(g),
-        }, [
-          icon(g.items[0].icon, 16),
-          el("span.sidebar__acc-label", {}, g.label),
-          el("span.sidebar__acc-count", {}, String(g.items.length)),
-          icon(ICONS.chevronDown, 14),
-        ]),
-        el("div.sidebar__acc-body" + (open ? "" : ".is-closed"), {}, g.items.map((it) => link(it, inMore))),
-      ];
+  }, [icon(it.icon, 18), el("span", {}, it.label)]);
+  const nav = el("div.sidebar__nav", {}, navGroups().map((g) => {
+    if (!SIDEBAR_COLLAPSIBLE.has(g.key)) {
+      return el("section.sidebar__section", {}, [
+        el("p.sidebar__group", {}, g.label),
+        el("div.sidebar__items", {}, g.items.map(link)),
+      ]);
     }
-    return [
-      g.label ? el("p.sidebar__group", {}, g.label) : gi > 0 ? el("div.sidebar__div") : null,
-      ...g.items.map((it) => link(it, inMore)),
-    ].filter(Boolean);
-  };
-  return el("div.sidebar__nav", {}, [
-    ...part(groups[0], 0, false),
-    el("div.sidebar__more", {}, [
-      el("p.sidebar__morecap", {}, t("nav.more")),
-      ...groups.slice(1).flatMap((g, i) => part(g, i + 1, true)),
-    ]),
-  ]);
+    const open = isSidebarSectionOpen(g);
+    const bodyId = `sidebar-${g.key}`;
+    return el("section.sidebar__section", {}, [
+      el("button.sidebar__group.sidebar__group--toggle", {
+        type: "button", "aria-expanded": String(open), "aria-controls": bodyId,
+        onclick: () => toggleSidebarSection(g),
+      }, [el("span", {}, g.label), icon(ICONS.chevronDown, 14)]),
+      el("div.sidebar__items", { id: bodyId, hidden: !open }, g.items.map(link)),
+    ]);
+  }));
+  // A microtask, not rAF: render() mounts the shell in the same statement that
+  // builds it, so this runs right after mount and before paint — and unlike
+  // rAF it still runs in a hidden tab (a background store sync re-renders too).
+  queueMicrotask(() => {
+    if (!nav.isConnected) return;
+    nav.scrollTop = prevScroll;
+    if (pageChanged) nav.querySelector(".sidebar__link.is-active")?.scrollIntoView({ block: "nearest" });
+  });
+  return nav;
 }
 
 function currentPath() {
@@ -435,7 +440,7 @@ const THEME_ICONS = { system: ICONS.monitor, light: ICONS.sun, paper: ICONS.file
 // own order, just this widget's layout.
 const THEME_ORDER = ["light", "paper", "system", "dark"];
 
-/** Segmented light/system/dark switcher for the sidebar footer. Self-painting
+/** Segmented light/system/dark switcher for the mobile ⋮ menu. Self-painting
  *  so a click doesn't have to re-render the whole shell just to update itself.
  *  Also listens for a theme change made elsewhere (the Settings dropdown,
  *  while staying on that page) — a full render() would work too, but flashes
@@ -468,6 +473,65 @@ function themePicker() {
   window.addEventListener("sb:themechange", onExternalChange);
   paint();
   return wrap;
+}
+
+const themeLabel = (value) => t(`set.theme${value[0].toUpperCase()}${value.slice(1)}`);
+
+/** Sidebar footer theme control: one button showing the current theme, opening
+ *  the four choices upward. A rarely-touched preference shouldn't hold a full
+ *  row of the footer next to the streak. Focus moves into the menu (arrow keys
+ *  step through it, Escape or a pick returns to the button) — the popover sits
+ *  at the end of <body>, so Tab alone would never reach it. Repaints on
+ *  sb:themechange (fired by setTheme from anywhere) and unhooks once its node
+ *  leaves the page, same as themePicker above. */
+function themeMenuButton() {
+  const btn = el("button.sidebar__themebtn", { type: "button", "aria-haspopup": "menu", "aria-expanded": "false" });
+  let menu = null;
+  function paint() {
+    const current = getTheme();
+    const label = `${t("set.theme")}: ${themeLabel(current)}`;
+    btn.setAttribute("aria-label", label);
+    btn.title = label;
+    btn.replaceChildren(icon(THEME_ICONS[current], 18));
+  }
+  function close() { closePopover(); btn.focus(); }
+  btn.addEventListener("click", () => {
+    if (menu?.isConnected) { close(); return; }
+    const current = getTheme();
+    menu = openPopover(btn, THEME_ORDER.map((value) => el("button.cardmenu__item.cardmenu__item--pick", {
+      type: "button", role: "menuitemradio", "aria-checked": String(value === current),
+      onclick: () => { setTheme(value); close(); },
+    }, [
+      icon(THEME_ICONS[value], 15),
+      el("span", {}, themeLabel(value)),
+      value === current ? icon(ICONS.check, 15) : null,
+    ])), { align: "right", width: 200, label: t("set.theme"), placement: "above" });
+    btn.setAttribute("aria-expanded", "true");
+    const items = [...menu.querySelectorAll("button")];
+    menu.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") { btn.focus(); return; }
+      const step = e.key === "ArrowDown" ? 1 : e.key === "ArrowUp" ? -1 : 0;
+      if (!step) return;
+      e.preventDefault();
+      items[(items.indexOf(document.activeElement) + step + items.length) % items.length].focus();
+    });
+    // However the menu goes (a pick, Escape, a click elsewhere), the button
+    // stops announcing it as open.
+    const watch = new MutationObserver(() => {
+      if (menu.isConnected) return;
+      btn.setAttribute("aria-expanded", "false");
+      watch.disconnect();
+    });
+    watch.observe(document.body, { childList: true });
+    (menu.querySelector('[aria-checked="true"]') || items[0]).focus();
+  });
+  function onExternalChange() {
+    if (!btn.isConnected) { window.removeEventListener("sb:themechange", onExternalChange); return; }
+    paint();
+  }
+  window.addEventListener("sb:themechange", onExternalChange);
+  paint();
+  return btn;
 }
 
 const DAY_MS = 86400000;
@@ -717,8 +781,8 @@ function shell(contentNode) {
     sidebarNav(),
     el("div.sidebar__foot", {}, [
       sidebarStreak(streak, atRisk),
-      themePicker(),
-    ].filter(Boolean)),
+      themeMenuButton(),
+    ]),
   ]);
 
   return el("div.shell" + (immersive ? ".shell--immersive" : ""), {}, [

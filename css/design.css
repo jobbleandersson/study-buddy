@@ -81,37 +81,6 @@ h1 { font-weight: 750; }
 
 /* ---------- desktop shell ---------- */
 @media (min-width: 900px) {
-  .sidebar {
-    width: var(--sidebar-w); margin: 0; top: 0; height: 100vh;
-    padding: 0 12px 14px;
-    border: 0; border-right: 1px solid var(--line); border-radius: 0;
-    background: var(--surface);
-  }
-  .sidebar__brand {
-    position: sticky; top: 0; z-index: 2;
-    height: var(--topbar-h); margin: 0 -12px 10px; padding: 0 22px;
-    font-size: 1.15rem; font-weight: 750; letter-spacing: -.02em;
-    border-bottom: 1px solid var(--line); background: var(--surface);
-  }
-  .sidebar__brand img { width: 28px; height: 28px; }
-  .sidebar__link {
-    min-height: 36px; max-height: 40px; padding: 0 10px; gap: 11px;
-    border-radius: 8px; font-size: 14px; font-weight: 500; color: var(--ink-soft);
-  }
-  .sidebar__link svg { width: 18px; height: 18px; stroke-width: 1.8; color: var(--ink-faint); }
-  .sidebar__link:hover svg { color: var(--ink-soft); }
-  .sidebar__link.is-active { background: var(--brand-tint); color: var(--brand-ink); font-weight: 600; }
-  .sidebar__link.is-active svg { color: var(--brand); }
-  .sidebar__group { margin: 18px 10px 6px; font-size: 11px; letter-spacing: .07em; font-weight: 650; }
-  .sidebar__acc { min-height: 36px; padding: 0 10px; border-radius: 8px; font-weight: 500; font-size: 14px; }
-  .sidebar__acc svg:first-child { stroke-width: 1.8; color: var(--ink-faint); }
-  .sidebar__acc-count { border-radius: 6px; }
-  .sidebar__div { margin: 10px 10px; }
-  .sidebar__foot { gap: 8px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
-  .sidebar__streak { border-radius: var(--r-md); }
-  .sidebar__theme { border-radius: var(--r-md); }
-  .sidebar__theme-btn { border-radius: 7px; }
-
   /* A real top bar: search on the left, account controls on the right, a hairline underneath. */
   .topbar {
     height: var(--topbar-h);
