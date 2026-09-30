@@ -106,7 +106,7 @@ export function renderResetPassword(qs) {
   const node = el("div.settings", {}, [
     el("h1", {}, t("reset.title")),
     el("section.panel.formcard", {}, [body]),
-    el("a.btn.btn--ghost", { href: "#/login" }, [icon(ICONS.back, 16), t("login.back")]),
+    el("a.btn.btn--ghost", { href: "#/login" }, [icon(ICONS.back, 16), t("login.backToSignIn")]),
   ]);
 
   return { title: t("reset.title"), node };

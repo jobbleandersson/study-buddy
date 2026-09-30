@@ -13,9 +13,27 @@ export function fitText(s) {
   return collapsed.length > MAX_CHARS ? collapsed.slice(0, MAX_CHARS) + "\n\n[...truncated]" : collapsed;
 }
 
+// pdf.js (~320 KB) and JSZip (~95 KB) are only needed when someone imports a file, so they load
+// then — not on every visit. One shared promise per script, cleared on failure so a later import
+// can retry (a flaky connection, say) instead of being stuck with the first failure.
+const vendorLoads = {};
+function loadVendor(src, globalName) {
+  if (window[globalName]) return Promise.resolve(window[globalName]);
+  vendorLoads[src] ??= new Promise((resolve, reject) => {
+    const s = document.createElement("script");
+    s.src = src;
+    s.async = true;
+    const fail = () => { delete vendorLoads[src]; s.remove(); reject(new Error(globalName)); };
+    s.onload = () => (window[globalName] ? resolve(window[globalName]) : fail());
+    s.onerror = fail;
+    document.head.appendChild(s);
+  });
+  return vendorLoads[src];
+}
+
 async function extractPdfTextFromBuffer(buf) {
-  const lib = window.pdfjsLib;
-  if (!lib) throw new Error(t("err.pdfNoLib"));
+  let lib;
+  try { lib = await loadVendor("vendor/pdf.min.js", "pdfjsLib"); } catch { throw new Error(t("err.pdfNoLib")); }
   lib.GlobalWorkerOptions.workerSrc = "vendor/pdf.worker.min.js";
 
   const pdf = await lib.getDocument({ data: buf }).promise;
@@ -42,8 +60,9 @@ export async function extractPdfText(file) {
  *  downloads) and concatenates it — audio files (listening comprehension)
  *  are counted but skipped; there's no transcription here. */
 export async function extractZipText(file) {
-  if (!window.JSZip) throw new Error(t("err.zipNoLib"));
-  const zip = await window.JSZip.loadAsync(file);
+  let JSZip;
+  try { JSZip = await loadVendor("vendor/jszip.min.js", "JSZip"); } catch { throw new Error(t("err.zipNoLib")); }
+  const zip = await JSZip.loadAsync(file);
   const entries = Object.values(zip.files).filter((f) => !f.dir);
   const pdfEntries = entries.filter((f) => /\.pdf$/i.test(f.name)).slice(0, 20); // cap runaway zips
   if (!pdfEntries.length) throw new Error(t("err.zipNoPdf"));

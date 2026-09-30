@@ -48,6 +48,20 @@ const FRONTEND_ROOT = findFrontendRoot();
 const INDEX_HTML = path.join(FRONTEND_ROOT, "index.html");
 console.log(`[study-buddy-server] frontend root: ${FRONTEND_ROOT} (index.html ${fs.existsSync(INDEX_HTML) ? "found" : "MISSING"})`);
 
+// CSP hashes for index.html's inline <script>s, taken from the file itself at startup. The
+// redirect script there has to stay inline (it runs before <base href="/">, which would break any
+// relative src on GitHub Pages), and a hash pasted in here by hand would silently stop matching —
+// and get the script blocked — the first time anyone edited it.
+const INLINE_SCRIPT_HASHES = (() => {
+  try {
+    const html = fs.readFileSync(INDEX_HTML, "utf8");
+    return [...html.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g)]
+      .map((m) => `'sha256-${crypto.createHash("sha256").update(m[1]).digest("base64")}'`);
+  } catch {
+    return [];
+  }
+})();
+
 const PORT = process.env.PORT || 8787;
 const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN; // unset = same-origin only, which is now the default deployment shape
 
@@ -84,9 +98,9 @@ app.use((req, res, next) => {
     "default-src 'self'",
     // 'unsafe-eval': vendor/pdf.min.js and its worker (vendor/pdf.worker.min.js) call
     // new Function()/eval() internally — importing a PDF breaks without it. The Google origin is
-    // for "Sign in with Google" (dormant until GOOGLE_CLIENT_ID is set): its script and the
-    // sign-in iframe it opens.
-    "script-src 'self' 'unsafe-eval' https://accounts.google.com",
+    // for "Sign in with Google": its script and the sign-in iframe it opens. index.html's inline
+    // scripts are allowed by hash (INLINE_SCRIPT_HASHES above), never by 'unsafe-inline'.
+    ["script-src 'self' 'unsafe-eval' https://accounts.google.com", ...INLINE_SCRIPT_HASHES].join(" "),
     // 'unsafe-inline': a few places build an inline style="" attribute into an HTML string
     // (e.g. js/components/questions.js) rather than setting it through the DOM. The one outside
     // stylesheet is Google's own for its sign-in button (dormant until GOOGLE_CLIENT_ID is set) -
@@ -143,7 +157,14 @@ if (process.env.SITE_PASSWORD) {
 if (ALLOWED_ORIGIN) app.use(cors({ origin: ALLOWED_ORIGIN, credentials: true })); // only needed if the frontend is ever hosted separately from this server
 app.use(compress);   // gzip/brotli for text responses; see compress.js
 app.use(cookieParser());
-app.use(express.json({ limit: "10mb" })); // material.js caps uploaded images at 5MB, base64 inflates that ~33%
+// Only these carry whole documents: a tutor message with photos (material.js caps an image at 5MB,
+// base64 inflates that ~33%), a full study-state sync, a set a parent assigns. Everything else is
+// a few fields, so it gets a small cap — an anonymous request to, say, the waitlist can't make the
+// server parse 10MB of JSON.
+const LARGE_JSON_ROUTES = /^\/api\/(messages|state|assigned)\/?$/i;   // routing ignores case and a trailing slash, so this must too
+const jsonLarge = express.json({ limit: "10mb" });
+const jsonSmall = express.json({ limit: "100kb" });
+app.use((req, res, next) => (LARGE_JSON_ROUTES.test(req.path) ? jsonLarge : jsonSmall)(req, res, next));
 
 app.use("/api", health);
 app.use("/api", messages);
@@ -159,6 +180,10 @@ app.use("/api", account);
 app.use("/api", waitlist);
 app.use("/api", analytics);
 app.use("/api", reviews);
+// An /api path no router claimed: answer in the API's own shape, not Express's HTML "Cannot GET".
+// (The static stand-in api/health, for hosts with no server, is never reached here — the health
+// router above answers that path first.)
+app.use("/api", (req, res) => res.status(404).json({ error: { message: "Not found.", code: "not_found" } }));
 
 // Never let the static server reach into server/ itself — it holds .env,
 // the sqlite db, and node_modules, none of which are meant to be fetchable.
@@ -196,6 +221,17 @@ app.get("*", (req, res, next) => {
 // "Internal Server Error" with nothing to go on. The app reads API errors as
 // {error:{message}}, so /api gets that shape; everything else gets plain text.
 app.use((err, req, res, next) => {
+  // The client's fault, not ours: malformed JSON (400), a body over the size cap (413). Answer with
+  // that status instead of a 500, and skip the stack trace, so anyone posting junk can't fill the
+  // log with fake "server errors". Only express.json's own errors (they carry a `type`, e.g.
+  // "entity.parse.failed") — other 4xx-tagged errors, like sendFile failing on a missing
+  // index.html, are real server problems and still get logged as 500s below.
+  const status = err.status || err.statusCode;
+  if (typeof err.type === "string" && status >= 400 && status < 500 && !res.headersSent) {
+    const message = status === 413 ? "That request is too large." : "The request couldn't be read.";
+    if (req.originalUrl.startsWith("/api/")) return res.status(status).json({ error: { message, code: "bad_request" } });
+    return res.status(status).send(message);
+  }
   console.error(`[study-buddy-server] error on ${req.method} ${req.originalUrl}:`, err);
   if (res.headersSent) return next(err);
   if (req.originalUrl.startsWith("/api/")) {

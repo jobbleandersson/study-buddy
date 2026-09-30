@@ -1,7 +1,7 @@
 // Router + persistent app shell.
 
 import { store } from "./store.js";
-import { CONTACT_EMAIL, PAGEVIEW_URL } from "./config.js";
+import { CONTACT_EMAIL, PAGEVIEW_URL, PROXY_HEALTH_URL } from "./config.js";
 import { el, clear, mount, append, icon, ICONS, toast, showBanner, hideBanner, downloadText } from "./lib/dom.js";
 import { announce, focusHeading } from "./lib/a11y.js";
 import { t, plural, getLang, setLang, applyLang, LANGS, daysUntil } from "./lib/i18n.js";
@@ -182,14 +182,36 @@ let renderGen = 0;
 
 function parseHash() {
   const full = location.hash.replace(/^#/, "");
-  const [path, qs] = full.split("?");
+  const [rawPath, qs] = full.split("?");
+  // "#/library/" is still the library — a stray trailing slash mustn't read as "page not found".
+  const path = rawPath.length > 1 ? rawPath.replace(/\/+$/, "") : rawPath;
   const params = new URLSearchParams(qs || "");
   for (const r of routes) {
     const m = path.match(r.rx);
     if (m) return () => r.view(m, params);
   }
-  return () => import("./views/menu.js").then((mod) => mod.renderMenu());
+  // A mistyped or outdated link says so, rather than quietly showing the home screen.
+  return async () => ({
+    title: t("common.notFoundTitle"),
+    node: el("div.empty", {}, [
+      el("h1", {}, t("common.notFoundTitle")),
+      el("p", {}, t("common.notFoundBody")),
+      el("a.btn", { href: "#/", style: { marginTop: "16px" } }, t("common.backToMenu")),
+    ]),
+  });
 }
+
+// "Skip to content" (index.html) is an in-page link to #main — but this is a hash router, so letting
+// it change the hash navigated away from the current page. Move focus to the content instead and
+// leave the URL alone. (Enter on a focused link fires click, so keyboard use goes through here too.)
+document.addEventListener("click", (e) => {
+  if (!e.target.closest?.("a.skiplink")) return;
+  e.preventDefault();
+  const main = document.getElementById("main");
+  if (!main) return;
+  if (!main.hasAttribute("tabindex")) main.setAttribute("tabindex", "-1");
+  main.focus();
+});
 
 /** Cycles through the supported languages — with two, it's a straight toggle. */
 function nextLang() {
@@ -241,31 +263,70 @@ function navItems() {
   return navGroups().flatMap((g) => g.items);
 }
 
-/** "Verktyg" collapses behind a header row instead of always taking its full
- *  row count — everything else ("Lära", "Uppföljning", the unlabeled account
- *  group) stays fully expanded; three items wasn't worth folding away. A
- *  collapsed section auto-opens whenever the current page is one of its own
- *  items, so navigating there never leaves the active link hidden behind a
- *  closed header. */
-const SIDEBAR_COLLAPSIBLE = new Set(["tools"]);
-const sidebarOpenKey = (key) => `studybuddy.navOpen.${key}`;
-function isSidebarSectionOpen(group) {
-  if (group.items.some((it) => navActive(it.match))) return true;
-  try { return localStorage.getItem(sidebarOpenKey(group.key)) === "1"; } catch { return false; }
+/** Keyboard and screen-reader wiring for a button that opens an openPopover()
+ *  menu. Focus moves into the menu (the popover sits at the end of <body>, so
+ *  Tab alone would never reach it), arrow keys step through it, Escape returns
+ *  to the button, and aria-expanded follows the menu however it closes. */
+function wireMenu(btn, menu, startAt) {
+  btn.setAttribute("aria-expanded", "true");
+  const items = [...menu.querySelectorAll("button, a")];
+  menu.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") { btn.focus(); return; }
+    // Tab closes the menu and carries on from its button, as with a native menu.
+    if (e.key === "Tab") { closePopover(); btn.focus(); return; }
+    const step = e.key === "ArrowDown" ? 1 : e.key === "ArrowUp" ? -1 : 0;
+    if (!step) return;
+    e.preventDefault();
+    items[(items.indexOf(document.activeElement) + step + items.length) % items.length].focus();
+  });
+  const watch = new MutationObserver(() => {
+    if (menu.isConnected) return;
+    btn.setAttribute("aria-expanded", "false");
+    watch.disconnect();
+  });
+  watch.observe(document.body, { childList: true });
+  (startAt || items[0])?.focus();
 }
-function toggleSidebarSection(group) {
-  const next = !isSidebarSectionOpen(group);
-  try { localStorage.setItem(sidebarOpenKey(group.key), next ? "1" : "0"); } catch { /* private mode — fine, it'll just default shut again */ }
-  render({ chromeOnly: true });
+
+/** "Verktyg" opens its three pages in a flyout beside the sidebar instead of
+ *  unfolding them into the list, so the nav never grows. The row itself is
+ *  marked current while one of those pages is open, since its links aren't
+ *  on screen to show it. */
+const SIDEBAR_FLYOUT = new Set(["tools"]);
+function flyoutButton(g) {
+  const active = g.items.some((it) => navActive(it.match));
+  const btn = el("button.sidebar__acc" + (active ? ".is-active" : ""), {
+    type: "button", "aria-haspopup": "menu", "aria-expanded": "false",
+  }, [
+    icon(g.items[0].icon, 16),
+    el("span.sidebar__acc-label", {}, g.label),
+    el("span.sidebar__acc-count", {}, String(g.items.length)),
+    icon(ICONS.chevronRight, 14),
+  ]);
+  let menu = null;
+  btn.addEventListener("click", () => {
+    if (menu?.isConnected) { closePopover(); btn.focus(); return; }
+    menu = openPopover(btn, [
+      el("p.toolfly__title", { role: "presentation" }, g.label),
+      ...g.items.map((it) => el("a.toolfly__item" + (navActive(it.match) ? ".is-active" : ""), {
+        href: it.href, role: "menuitem",
+        "aria-current": navActive(it.match) ? "page" : null,
+        onclick: closePopover,
+      }, [el("span.toolfly__icon", {}, icon(it.icon, 17)), el("span", {}, it.label)])),
+    ], { placement: "right", fixed: true, offset: 21, width: 220, label: g.label });
+    menu.classList.add("popover--flyout");
+    wireMenu(btn, menu, menu.querySelector(".toolfly__item.is-active"));
+  });
+  return btn;
 }
 
 /** The desktop sidebar's nav. The first group (the everyday pages) sits directly
  *  in the list; everything after it lives in `.sidebar__more`, which is
  *  `display: contents` — invisible to layout — until the window is very short.
  *  Then CSS turns it into a compact icon dock, so the whole nav still fits with
- *  no scrolling (the links carry a title/aria-label for exactly that mode) —
- *  overriding a collapsed section open there, since the dock has room for
- *  every icon regardless. */
+ *  no scrolling (the links carry a title/aria-label for exactly that mode). The
+ *  dock shows a flyout group's icons inline too (from its hidden
+ *  .sidebar__acc-body), since there's room for every icon there. */
 function sidebarNav() {
   const groups = navGroups();
   const link = (it, inMore) => el("a.sidebar__link" + (navActive(it.match) ? ".is-active" : ""), {
@@ -274,19 +335,10 @@ function sidebarNav() {
     ...(inMore ? { title: it.label, "aria-label": it.label } : {}),
   }, [icon(it.icon, 18), it.label]);
   const part = (g, gi, inMore) => {
-    if (SIDEBAR_COLLAPSIBLE.has(g.key)) {
-      const open = isSidebarSectionOpen(g);
+    if (SIDEBAR_FLYOUT.has(g.key)) {
       return [
-        el("button.sidebar__acc" + (open ? ".is-open" : ""), {
-          type: "button", "aria-expanded": String(open),
-          onclick: () => toggleSidebarSection(g),
-        }, [
-          icon(g.items[0].icon, 16),
-          el("span.sidebar__acc-label", {}, g.label),
-          el("span.sidebar__acc-count", {}, String(g.items.length)),
-          icon(ICONS.chevronDown, 14),
-        ]),
-        el("div.sidebar__acc-body" + (open ? "" : ".is-closed"), {}, g.items.map((it) => link(it, inMore))),
+        flyoutButton(g),
+        el("div.sidebar__acc-body", {}, g.items.map((it) => link(it, inMore))),
       ];
     }
     return [
@@ -435,7 +487,7 @@ const THEME_ICONS = { system: ICONS.monitor, light: ICONS.sun, paper: ICONS.file
 // own order, just this widget's layout.
 const THEME_ORDER = ["light", "paper", "system", "dark"];
 
-/** Segmented light/system/dark switcher for the sidebar footer. Self-painting
+/** Segmented light/system/dark switcher for the mobile ⋮ menu. Self-painting
  *  so a click doesn't have to re-render the whole shell just to update itself.
  *  Also listens for a theme change made elsewhere (the Settings dropdown,
  *  while staying on that page) — a full render() would work too, but flashes
@@ -468,6 +520,46 @@ function themePicker() {
   window.addEventListener("sb:themechange", onExternalChange);
   paint();
   return wrap;
+}
+
+const themeLabel = (value) => t(`set.theme${value[0].toUpperCase()}${value.slice(1)}`);
+
+/** Sidebar footer theme control: one button showing the current theme, opening
+ *  the four choices upward. A rarely-touched preference shouldn't hold a full
+ *  row of the footer next to the streak. Repaints on sb:themechange (fired by
+ *  setTheme from anywhere) and unhooks once its node leaves the page, same as
+ *  themePicker above. */
+function themeMenuButton() {
+  const btn = el("button.sidebar__themebtn", { type: "button", "aria-haspopup": "menu", "aria-expanded": "false" });
+  let menu = null;
+  function paint() {
+    const current = getTheme();
+    const label = `${t("set.theme")}: ${themeLabel(current)}`;
+    btn.setAttribute("aria-label", label);
+    btn.title = label;
+    btn.replaceChildren(icon(THEME_ICONS[current], 18));
+  }
+  function close() { closePopover(); btn.focus(); }
+  btn.addEventListener("click", () => {
+    if (menu?.isConnected) { close(); return; }
+    const current = getTheme();
+    menu = openPopover(btn, THEME_ORDER.map((value) => el("button.cardmenu__item.cardmenu__item--pick", {
+      type: "button", role: "menuitemradio", "aria-checked": String(value === current),
+      onclick: () => { setTheme(value); close(); },
+    }, [
+      icon(THEME_ICONS[value], 15),
+      el("span", {}, themeLabel(value)),
+      value === current ? icon(ICONS.check, 15) : null,
+    ])), { align: "right", width: 200, label: t("set.theme"), placement: "above", fixed: true });
+    wireMenu(btn, menu, menu.querySelector('[aria-checked="true"]'));
+  });
+  function onExternalChange() {
+    if (!btn.isConnected) { window.removeEventListener("sb:themechange", onExternalChange); return; }
+    paint();
+  }
+  window.addEventListener("sb:themechange", onExternalChange);
+  paint();
+  return btn;
 }
 
 const DAY_MS = 86400000;
@@ -717,8 +809,8 @@ function shell(contentNode) {
     sidebarNav(),
     el("div.sidebar__foot", {}, [
       sidebarStreak(streak, atRisk),
-      themePicker(),
-    ].filter(Boolean)),
+      themeMenuButton(),
+    ]),
   ]);
 
   return el("div.shell" + (immersive ? ".shell--immersive" : ""), {}, [
@@ -979,6 +1071,9 @@ async function render({ chromeOnly = false, softRefresh = false } = {}) {
       el("a.btn.btn--ghost", { href: "#/", style: { marginTop: "16px" } }, t("common.backToMenu")),
     ])));
     announce(t("common.somethingWrongShort"));
+    // A tab open across a deploy loads new view code next to its old, already-
+    // loaded libraries, and a mismatch between the two surfaces here first.
+    checkForNewVersion({ force: true });
   }
 }
 
@@ -1004,6 +1099,42 @@ window.addEventListener("sb:langchange", async () => {
   }
 });
 
+// A tab that was already open keeps running the old scripts until it's reloaded. Say so instead of
+// leaving someone on stale code — without reloading for them, which could throw away a half-finished
+// exam. Shown once per tab; dismissing it is final.
+let updateBar = null;
+function showUpdateBar() {
+  if (updateBar) return;
+  updateBar = el("div.savebar.savebar--update.show", { role: "status" }, [
+    el("span", {}, t("app.updateReady")),
+    el("button.savebar__action", { type: "button", onclick: () => location.reload() }, t("app.updateReload")),
+    el("button.savebar__close", { type: "button", "aria-label": t("common.close"), onclick: () => updateBar.remove() }, "×"),
+  ]);
+  document.body.appendChild(updateBar);
+}
+
+// Most deploys don't touch sw.js, so the service worker alone rarely notices one. Ask the server which
+// deploy it's on (store.appVersion is the one this tab booted with) whenever the tab comes back to the
+// front, and every 30 minutes while it's visible — not more, since each check can wake a stopped
+// server. Null on either side (an older server, a static host) means "unknown": no banner.
+let lastVersionCheck = 0;
+async function checkForNewVersion({ force = false } = {}) {
+  if (!store.appVersion || updateBar) return;
+  if (!force && Date.now() - lastVersionCheck < 60_000) return;
+  lastVersionCheck = Date.now();
+  try {
+    const res = await fetch(PROXY_HEALTH_URL, { cache: "no-store" });
+    const data = res.ok ? await res.json() : null;
+    if (data?.version && data.version !== store.appVersion) showUpdateBar();
+  } catch { /* offline — the next check will try again */ }
+}
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") checkForNewVersion();
+});
+setInterval(() => {
+  if (document.visibilityState === "visible") checkForNewVersion();
+}, 30 * 60_000);
+
 // Offline support + home-screen install. Only over http(s) — a service worker
 // can't register from file://, and failing to register is not fatal.
 if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
@@ -1012,19 +1143,10 @@ if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
       console.warn("Service worker not registered:", e.message);
     });
   });
-  // A new version takes over silently, but a tab that was already open keeps running the old scripts
-  // until it is reloaded. Say so instead of leaving someone on stale code - without reloading for
-  // them, which could throw away a half-finished exam. (No banner on the very first install.)
+  // No banner on the very first install — only when a new worker replaces an old one.
   const hadController = !!navigator.serviceWorker.controller;
-  let updateBar = null;
   navigator.serviceWorker.addEventListener("controllerchange", () => {
-    if (!hadController || updateBar) return;
-    updateBar = el("div.savebar.savebar--update.show", { role: "status" }, [
-      el("span", {}, t("app.updateReady")),
-      el("button.savebar__action", { type: "button", onclick: () => location.reload() }, t("app.updateReload")),
-      el("button.savebar__close", { type: "button", "aria-label": t("common.close"), onclick: () => updateBar.remove() }, "×"),
-    ]);
-    document.body.appendChild(updateBar);
+    if (hadController) showUpdateBar();
   });
 }
 

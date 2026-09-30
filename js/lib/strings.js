@@ -9,6 +9,8 @@ export const STRINGS = {
     /* ---- common ---- */
     "common.back": "Back",
     "common.backToMenu": "Back to menu",
+    "common.notFoundTitle": "Page not found",
+    "common.notFoundBody": "The link may be mistyped, or the page has moved.",
     "common.cancel": "Cancel",
     "common.close": "Close",
     "common.copy": "Copy",
@@ -1880,6 +1882,7 @@ export const STRINGS = {
     "calc.err.name": "Unknown name: {name}",
     "calc.err.unexpected": "Unexpected: {what}",
     "calc.err.trailing": "Unexpected input after the expression",
+    "calc.undefined": "undefined",
     "calc.funcsNote": "Functions: sin cos tan asin… sqrt ln log exp abs. Constants: π, e. Use x for the graph.",
     "calc.fnLabel": "f(x) =",
     "calc.fnAria": "Function of x",
@@ -2363,6 +2366,8 @@ export const STRINGS = {
     /* ---- common ---- */
     "common.back": "Tillbaka",
     "common.backToMenu": "Tillbaka till menyn",
+    "common.notFoundTitle": "Sidan finns inte",
+    "common.notFoundBody": "Länken kan vara felstavad, eller så har sidan flyttats.",
     "common.cancel": "Avbryt",
     "common.close": "Stäng",
     "common.copy": "Kopiera",
@@ -4234,6 +4239,7 @@ export const STRINGS = {
     "calc.err.name": "Okänt namn: {name}",
     "calc.err.unexpected": "Oväntat: {what}",
     "calc.err.trailing": "Oväntat efter uttrycket",
+    "calc.undefined": "odefinierat",
     "calc.funcsNote": "Funktioner: sin cos tan asin… sqrt ln log exp abs. Konstanter: π, e. Använd x för grafen.",
     "calc.fnLabel": "f(x) =",
     "calc.fnAria": "Funktion av x",

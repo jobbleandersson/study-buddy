@@ -157,6 +157,7 @@ export const ICONS = {
   sigma: "M18 7V4H6l6 8-6 8h12v-3",
   download: "M12 3v12 M8 11l4 4 4-4 M4 21h16",
   chevronDown: "M6 9l6 6 6-6",
+  chevronRight: "M9 6l6 6-6 6",
 
   /* --- achievement track / milestone icons --- */
   trophy: "M6 9H4.5a2.5 2.5 0 0 1 0-5H6 M18 9h1.5a2.5 2.5 0 0 0 0-5H18 M4 22h16 M10 14.7V17c0 .6-.5 1-1 1.2C7.9 18.8 7 20.2 7 22 M14 14.7V17c0 .6.5 1 1 1.2 1.1.6 2 2 2 4.8 M6 2h12v7a6 6 0 0 1-12 0V2Z",

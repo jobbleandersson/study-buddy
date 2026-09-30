@@ -542,6 +542,8 @@ class Store extends EventTarget {
       this.emailConfigured = !!data?.emailConfigured;
 
       this.premiumUrl = typeof data?.premiumUrl === "string" && /^https:\/\//.test(data.premiumUrl) ? data.premiumUrl : null;
+      // The deploy this tab booted into; main.js compares later answers against it.
+      this.appVersion = typeof data?.version === "string" ? data.version : null;
     } catch {
       this.proxyUp = false;
       this.proxyKeyConfigured = false;

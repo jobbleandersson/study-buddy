@@ -126,8 +126,8 @@ a.streakbadge:hover {
 .sidebar__nav > .sidebar__group:first-child { margin-top: 0; }
 .sidebar__div { height: 1px; margin: var(--s-3) var(--s-3) var(--s-2); background: var(--line); }
 
-/* Collapsible sections ("Uppföljning", "Verktyg") — a header row standing in
-   for the group's own rows until it's opened, same footprint as a link. */
+/* "Verktyg" — one row, same footprint as a link, that opens its pages in a
+   flyout beside the sidebar (.toolfly below) instead of unfolding them. */
 .sidebar__acc {
   display: flex; align-items: center; gap: var(--s-3); width: 100%;
   margin-top: var(--s-3);
@@ -144,19 +144,49 @@ a.streakbadge:hover {
   background: var(--surface-sunk); padding: 1px 7px; border-radius: var(--r-full);
 }
 .sidebar__acc svg:last-child { flex: none; color: var(--ink-faint); transition: transform var(--dur-fast); }
-.sidebar__acc.is-open svg:last-child { transform: rotate(180deg); }
-.sidebar__acc-body { display: contents; }
-.sidebar__acc-body.is-closed { display: none; }
+.sidebar__acc[aria-expanded="true"] { background: var(--surface-sunk); color: var(--ink); }
+.sidebar__acc[aria-expanded="true"] svg:last-child { transform: translateX(2px); color: var(--ink-soft); }
+.sidebar__acc.is-active { background: var(--brand-tint); color: var(--brand-ink); }
+.sidebar__acc.is-active svg:first-child { color: var(--brand); }
+/* The flyout group's own links: hidden in the normal sidebar (they live in the
+   flyout), shown inline only by the very-short-window icon dock further down. */
+.sidebar__acc-body { display: none; }
 
-.sidebar__foot { display: flex; flex-direction: column; gap: var(--s-2); margin-top: var(--s-4); }
+/* The flyout itself: a popover pinned beside the sidebar, opened from the row. */
+.popover--flyout { padding: 6px; gap: 2px; animation: flyout-in var(--dur-fast) var(--ease-out); }
+@keyframes flyout-in { from { opacity: 0; transform: translateX(-6px); } }
+@media (prefers-reduced-motion: reduce) { .popover--flyout { animation: none; } }
+.toolfly__title {
+  margin: 4px 8px 4px; font-size: 11px; font-weight: 650; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.toolfly__item {
+  display: flex; align-items: center; gap: 10px; padding: 6px 8px; border-radius: 10px;
+  color: var(--ink-soft); text-decoration: none; font-size: var(--fs-sm); font-weight: 500;
+  transition: background var(--dur-fast), color var(--dur-fast);
+}
+.toolfly__item:hover { background: var(--surface-sunk); color: var(--ink); }
+.toolfly__item.is-active { background: var(--brand-tint); color: var(--brand-ink); font-weight: 600; }
+.toolfly__icon {
+  width: 30px; height: 30px; flex: none; display: grid; place-items: center;
+  border-radius: 8px; background: var(--surface-sunk); color: var(--ink-soft);
+  transition: background var(--dur-fast);
+}
+.toolfly__item:hover .toolfly__icon { background: var(--line); }
+.toolfly__item.is-active .toolfly__icon { background: var(--surface); color: var(--brand); }
+
+/* One row: the streak card takes the width, the theme button sits beside it at
+   the same height and on the same fill, so the two read as one footer. */
+.sidebar__foot { display: flex; align-items: stretch; gap: var(--s-2); margin-top: var(--s-4); }
 
 /* Fuller streak row (icon + the day count in words) — sidebar only, the
    topbar keeps the compact .streakbadge pill. */
 .sidebar__streak {
-  display: flex; align-items: center; gap: var(--s-3);
-  padding: var(--s-3); border-radius: var(--r-md);
+  flex: 1; min-width: 0;
+  display: flex; align-items: center; gap: 10px;
+  padding: 7px 10px 7px 7px; border-radius: var(--r-md);
   background: var(--surface-sunk); color: var(--ink);
-  font-size: var(--fs-sm); font-weight: 700; text-decoration: none;
+  font-size: 13px; font-weight: 700; line-height: 1.25; text-decoration: none;
   transition: background var(--dur-fast);
 }
 .sidebar__streak:hover { background: var(--line); }
@@ -182,7 +212,17 @@ a.streakbadge:hover {
   color: var(--ink-faint); background: var(--surface); box-shadow: none; animation: none;
 }
 
-/* Segmented light/system/dark switcher, sidebar footer. */
+.sidebar__themebtn {
+  flex: none; width: 46px; display: grid; place-items: center;
+  font: inherit; border: none; border-radius: var(--r-md); cursor: pointer;
+  background: var(--surface-sunk); color: var(--ink-soft);
+  transition: background var(--dur-fast), color var(--dur-fast);
+}
+.sidebar__themebtn:hover { background: var(--line); color: var(--ink); }
+/* The theme menu's rows: label takes the width so the check sits at the right edge. */
+.cardmenu__item--pick span { flex: 1; }
+
+/* Segmented light/system/dark switcher, mobile ⋮ menu footer. */
 .sidebar__theme { display: flex; gap: 2px; padding: 3px; border-radius: var(--r-full); background: var(--surface-sunk); }
 .sidebar__theme-btn {
   flex: 1; display: grid; place-items: center; height: 30px; font: inherit;
@@ -745,7 +785,7 @@ button.plan-cal__cell:hover { background: var(--brand-tint); border-color: var(-
 /* The "+" grows to fill whatever height the chips leave, so any empty part of
    a today/future cell is a click target. Hidden until the cell is hovered. */
 .plan-cal__add {
-  flex: 1 1 auto; align-self: stretch; min-height: 14px;
+  flex: 1 1 auto; align-self: stretch; min-height: 24px;   /* WCAG 2.5.8: a 24px minimum target */
   border: none; background: none; cursor: pointer; border-radius: 4px;
   display: grid; place-items: center; color: var(--ink-faint);
   opacity: 0; transition: opacity var(--dur-fast), background var(--dur-fast);
@@ -1000,7 +1040,12 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .linkbtn {
   font: inherit; font-size: inherit; padding: 0; border: none; background: none;
   color: var(--brand-ink); text-decoration: underline; cursor: pointer;
+  position: relative;
 }
+/* Text-sized buttons (.linkbtn, .auth__link) are only ~21px tall. An invisible hit area around them
+   reaches the 24px minimum target (WCAG 2.5.8) without moving anything — they often sit in a line
+   of text, where padding would push the line apart. */
+.linkbtn::after, .auth__link::after { content: ""; position: absolute; inset: -4px -2px; }
 .linkbtn:hover { color: var(--brand); }
 
 .sortsel {
@@ -1655,7 +1700,7 @@ body.no-chrome .sitechat__panel { display: none; }
 .voicectl__row { display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap; }
 .voicectl__speed { display: flex; align-items: center; gap: var(--s-2); flex: 1 1 140px; min-width: 0; font-size: var(--fs-sm); color: var(--ink-soft); }
 .voicectl__speed > span { flex: none; }
-.voicectl__speed input[type=range] { flex: 1; min-width: 60px; accent-color: var(--brand); }
+.voicectl__speed input[type=range] { flex: 1; min-width: 60px; height: 24px; accent-color: var(--brand); }   /* 24px: WCAG 2.5.8 target */
 .voicectl__rate { flex: none; min-width: 2.6em; text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); }
 .voicectl__tip { margin: 0; font-size: var(--fs-sm); line-height: 1.4; }
 .voicectl--compact .voicectl__tip { font-size: 12px; }
@@ -2001,6 +2046,13 @@ body.has-welcome { overflow: hidden; }
 .msg pre { max-width: 100%; overflow-x: auto; margin: .5em 0; padding: .5em .75em; border-radius: var(--r-sm); background: rgba(0,0,0,.08); font-size: .92em; line-height: 1.45; }
 .msg pre code { padding: 0; background: none; white-space: pre; overflow-wrap: normal; }
 .msg .katex-display { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
+/* KaTeX puts an absolutely positioned (visually hidden) MathML copy inside every
+   formula. Its containing block would otherwise be the nearest positioned
+   ancestor — e.g. the sticky .tutor, outside the scrolling .tutor__log — so the
+   log can't clip it, and a long thread of formulas pushed those copies below the
+   page: the document grew taller than the shell and the sticky sidebar and topbar
+   scrolled away. Anchoring each copy to its own formula keeps it in place. */
+.katex { position: relative; }
 .msg .mdtable { max-width: 100%; margin: .5em 0; overflow-x: auto; }
 .msg table { border-collapse: collapse; min-width: 100%; font-size: .95em; }
 .msg th, .msg td { padding: 6px 10px; border: 1px solid var(--line-strong); text-align: left; vertical-align: top; overflow-wrap: normal; }
@@ -2370,8 +2422,16 @@ body.route-chat .sitechat__panel { display: none; }
 .subjchips .chip { font-size: var(--fs-sm); font-weight: 600; }
 
 /* Sign in with Google: Google's own button (its size/colours are fixed by
-   Google), centred above the email form with an "or" rule beneath. */
-.gbtn { display: flex; justify-content: center; min-height: 44px; }
+   Google), centred above the email form with an "or" rule beneath. The button
+   lives in Google's iframe, whose page is light-scheme; on a dark theme the
+   iframe would inherit color-scheme: dark, and that mismatch makes browsers
+   paint its canvas opaque white — a white box around the dark pill.
+   Fixed height, clipped: while it loads, Google's script shows its own
+   placeholder button with the iframe stacked underneath, and the iframe grows
+   to full size a moment before the placeholder is hidden — so for a second or
+   two there were two buttons and the form below jumped down and back. Clipped
+   to one button's height, only the top one ever shows. */
+.gbtn { display: flex; justify-content: center; height: 44px; overflow: hidden; color-scheme: light; }
 .field { display: block; margin-bottom: var(--s-4); }
 .field > span { display: block; font-weight: 700; font-size: var(--fs-sm); margin-bottom: var(--s-2); }
 .field input[type=text], .field input[type=number], .field input[type=email], .field input[type=password], .field select, .field textarea {
@@ -3118,14 +3178,15 @@ kbd {
   .sidebar__group { margin: clamp(6px, 1.2vh, 14px) var(--s-3) 2px; }
   .sidebar__div { margin: var(--s-2) var(--s-3); }
   .sidebar__foot { margin-top: var(--s-2); gap: 4px; }
-  .sidebar__streak { padding: 4px var(--s-3); }
-  .sidebar__theme { padding: 2px; }
 }
 @media (min-width: 900px) and (min-height: 820px) and (max-height: 1010px) {
   .sidebar__link { min-height: clamp(30px, 3.9vh, 38px); }
 }
 @media (min-width: 900px) and (max-height: 819px) {
   .sidebar__group { height: 1px; margin: clamp(4px, 1vh, 9px) var(--s-3); padding: 0; font-size: 0; background: var(--line); }
+  /* design.css (loaded later) re-sets the heading's font-size, which drew the
+     label text on top of this thin rule. */
+  .sidebar .sidebar__group { font-size: 0; }
   .sidebar__nav > .sidebar__group:first-child { display: none; }
   .sidebar__div { display: none; }
 }
@@ -3512,7 +3573,7 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 /* sidebar: share spare height between the rows (up to a comfortable cap) instead of
    leaving it as a gap above the streak card */
 @media (min-width: 900px) and (min-height: 640px) {
-  .sidebar__nav > .sidebar__link, .sidebar__more > .sidebar__link { flex: 1 1 auto; max-height: 46px; }
+  .sidebar__nav > .sidebar__link, .sidebar__more > .sidebar__link { flex: 1 1 auto; max-height: 50px; }
 }
 
 /* ===== "för lärare" front page (#/teachers) — reuses the consumer front
@@ -3794,6 +3855,7 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .auth__sub { margin: -6px 0 var(--s-2); color: var(--ink-soft); font-size: 1rem; line-height: 1.5; }
 
 .auth__link {
+  position: relative;
   display: inline-flex; align-items: center; gap: 6px; padding: 0; border: 0; background: none; cursor: pointer;
   font: inherit; font-weight: 700; color: var(--brand-ink); text-decoration: underline; text-underline-offset: 3px;
   text-decoration-color: color-mix(in srgb, var(--brand) 35%, transparent);

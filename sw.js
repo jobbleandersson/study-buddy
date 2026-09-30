@@ -47,6 +47,7 @@ const APP_SHELL = [
   "./js/lib/popover.js",
   "./js/lib/achievement-toast.js",
   "./js/lib/answer-match.js",
+  "./js/lib/text.js",
   "./js/lib/server-errors.js",
   "./js/lib/mastery.js",
   "./js/lib/markdown.js",
