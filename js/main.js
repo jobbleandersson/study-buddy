@@ -1,7 +1,7 @@
 // Router + persistent app shell.
 
 import { store } from "./store.js";
-import { CONTACT_EMAIL, PAGEVIEW_URL } from "./config.js";
+import { CONTACT_EMAIL, PAGEVIEW_URL, PROXY_HEALTH_URL } from "./config.js";
 import { el, clear, mount, append, icon, ICONS, toast, showBanner, hideBanner, downloadText } from "./lib/dom.js";
 import { announce, focusHeading } from "./lib/a11y.js";
 import { t, plural, getLang, setLang, applyLang, LANGS, daysUntil } from "./lib/i18n.js";
@@ -1049,6 +1049,9 @@ async function render({ chromeOnly = false, softRefresh = false } = {}) {
       el("a.btn.btn--ghost", { href: "#/", style: { marginTop: "16px" } }, t("common.backToMenu")),
     ])));
     announce(t("common.somethingWrongShort"));
+    // A tab open across a deploy loads new view code next to its old, already-
+    // loaded libraries, and a mismatch between the two surfaces here first.
+    checkForNewVersion({ force: true });
   }
 }
 
@@ -1074,6 +1077,42 @@ window.addEventListener("sb:langchange", async () => {
   }
 });
 
+// A tab that was already open keeps running the old scripts until it's reloaded. Say so instead of
+// leaving someone on stale code — without reloading for them, which could throw away a half-finished
+// exam. Shown once per tab; dismissing it is final.
+let updateBar = null;
+function showUpdateBar() {
+  if (updateBar) return;
+  updateBar = el("div.savebar.savebar--update.show", { role: "status" }, [
+    el("span", {}, t("app.updateReady")),
+    el("button.savebar__action", { type: "button", onclick: () => location.reload() }, t("app.updateReload")),
+    el("button.savebar__close", { type: "button", "aria-label": t("common.close"), onclick: () => updateBar.remove() }, "×"),
+  ]);
+  document.body.appendChild(updateBar);
+}
+
+// Most deploys don't touch sw.js, so the service worker alone rarely notices one. Ask the server which
+// deploy it's on (store.appVersion is the one this tab booted with) whenever the tab comes back to the
+// front, and every 30 minutes while it's visible — not more, since each check can wake a stopped
+// server. Null on either side (an older server, a static host) means "unknown": no banner.
+let lastVersionCheck = 0;
+async function checkForNewVersion({ force = false } = {}) {
+  if (!store.appVersion || updateBar) return;
+  if (!force && Date.now() - lastVersionCheck < 60_000) return;
+  lastVersionCheck = Date.now();
+  try {
+    const res = await fetch(PROXY_HEALTH_URL, { cache: "no-store" });
+    const data = res.ok ? await res.json() : null;
+    if (data?.version && data.version !== store.appVersion) showUpdateBar();
+  } catch { /* offline — the next check will try again */ }
+}
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") checkForNewVersion();
+});
+setInterval(() => {
+  if (document.visibilityState === "visible") checkForNewVersion();
+}, 30 * 60_000);
+
 // Offline support + home-screen install. Only over http(s) — a service worker
 // can't register from file://, and failing to register is not fatal.
 if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
@@ -1082,19 +1121,10 @@ if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
       console.warn("Service worker not registered:", e.message);
     });
   });
-  // A new version takes over silently, but a tab that was already open keeps running the old scripts
-  // until it is reloaded. Say so instead of leaving someone on stale code - without reloading for
-  // them, which could throw away a half-finished exam. (No banner on the very first install.)
+  // No banner on the very first install — only when a new worker replaces an old one.
   const hadController = !!navigator.serviceWorker.controller;
-  let updateBar = null;
   navigator.serviceWorker.addEventListener("controllerchange", () => {
-    if (!hadController || updateBar) return;
-    updateBar = el("div.savebar.savebar--update.show", { role: "status" }, [
-      el("span", {}, t("app.updateReady")),
-      el("button.savebar__action", { type: "button", onclick: () => location.reload() }, t("app.updateReload")),
-      el("button.savebar__close", { type: "button", "aria-label": t("common.close"), onclick: () => updateBar.remove() }, "×"),
-    ]);
-    document.body.appendChild(updateBar);
+    if (hadController) showUpdateBar();
   });
 }
 

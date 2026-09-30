@@ -3,7 +3,7 @@
 // is drawn on a <canvas>). No key, no network.
 
 import { el, clear, icon, ICONS } from "../lib/dom.js";
-import { t } from "../lib/i18n.js";
+import { t, getLang } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { compile, evaluate, fmtNumber } from "../lib/expr.js";
 
@@ -104,7 +104,7 @@ function calcPanel() {
     ["7", "8", "9", "÷", "C"],
     ["4", "5", "6", "×", "("],
     ["1", "2", "3", "−", ")"],
-    ["0", ".", "^", "+", "⌫"],
+    ["0", getLang() === "sv" ? "," : ".", "^", "+", "⌫"],
     ["π", "e", "√(", "x²", "="],
     ["sin(", "cos(", "tan(", "ln(", "log("],
   ];

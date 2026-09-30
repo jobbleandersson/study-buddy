@@ -8,17 +8,19 @@ import { renderRich } from "../lib/rich.js";
 import { t, getLang } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 
-let cached = null;
+// Per language — the app switches language in place, so one shared slot would
+// keep showing whichever language was loaded first.
+const cached = {};
 
 async function loadFormulas() {
-  if (cached) return cached;
   const lang = getLang();
+  if (cached[lang]) return cached[lang];
   const primary = lang === "en" ? "data/reference/formulas.en.json" : "data/reference/formulas.sv.json";
   let res = await fetch(primary);
   if (!res.ok && lang === "en") res = await fetch("data/reference/formulas.sv.json");
   if (!res.ok) throw new Error(String(res.status));
-  cached = await res.json();
-  return cached;
+  cached[lang] = await res.json();
+  return cached[lang];
 }
 
 export async function renderReference() {

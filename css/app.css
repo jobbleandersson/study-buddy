@@ -2420,8 +2420,13 @@ body.route-chat .sitechat__panel { display: none; }
    Google), centred above the email form with an "or" rule beneath. The button
    lives in Google's iframe, whose page is light-scheme; on a dark theme the
    iframe would inherit color-scheme: dark, and that mismatch makes browsers
-   paint its canvas opaque white — a white box around the dark pill. */
-.gbtn { display: flex; justify-content: center; min-height: 44px; color-scheme: light; }
+   paint its canvas opaque white — a white box around the dark pill.
+   Fixed height, clipped: while it loads, Google's script shows its own
+   placeholder button with the iframe stacked underneath, and the iframe grows
+   to full size a moment before the placeholder is hidden — so for a second or
+   two there were two buttons and the form below jumped down and back. Clipped
+   to one button's height, only the top one ever shows. */
+.gbtn { display: flex; justify-content: center; height: 44px; overflow: hidden; color-scheme: light; }
 .field { display: block; margin-bottom: var(--s-4); }
 .field > span { display: block; font-weight: 700; font-size: var(--fs-sm); margin-bottom: var(--s-2); }
 .field input[type=text], .field input[type=number], .field input[type=email], .field input[type=password], .field select, .field textarea {

@@ -68,14 +68,51 @@ describe("expr.compile: error handling", () => {
   });
 });
 
-describe("expr.fmtNumber", () => {
-  test("trims floating-point noise", () => {
-    assert.equal(fmtNumber(0.1 + 0.2), "0.3");
+describe("expr: decimal comma and number syntax", () => {
+  test("a comma between digits is a decimal separator", () => {
+    assert.equal(evaluate("3,5+1,5"), 5);
+    assert.equal(evaluate(",5*2"), 1);
+    assert.equal(evaluate("2,5·4"), 10);
   });
-  test("renders +/-Infinity and NaN specially", () => {
+  test("spaces are digit grouping, the way Swedish writes 5 000", () => {
+    assert.equal(evaluate("5 000 * 0,02"), 100);
+  });
+  test("a second decimal separator in one number is an error, not silently dropped", () => {
+    assert.throws(() => compile("1.2.3"));
+    assert.throws(() => compile("1,2,3"));
+  });
+});
+
+const LANG_KEY = "studybuddy.lang";
+const inLang = (lang, fn) => {
+  localStorage.setItem(LANG_KEY, lang);
+  try { fn(); } finally { localStorage.removeItem(LANG_KEY); }
+};
+
+describe("expr.fmtNumber", () => {
+  test("trims floating-point noise, with the language's decimal separator", () => {
+    inLang("sv", () => assert.equal(fmtNumber(0.1 + 0.2), "0,3"));
+    inLang("en", () => assert.equal(fmtNumber(0.1 + 0.2), "0.3"));
+  });
+  test("renders +/-Infinity and NaN specially, NaN in the UI language", () => {
     assert.equal(fmtNumber(Infinity), "∞");
     assert.equal(fmtNumber(-Infinity), "−∞");
-    assert.equal(fmtNumber(NaN), "odefinierat");
+    inLang("sv", () => assert.equal(fmtNumber(NaN), "odefinierat"));
+    inLang("en", () => assert.equal(fmtNumber(NaN), "undefined"));
+  });
+  test("very large and small numbers use school notation, not 1e+20", () => {
+    inLang("sv", () => {
+      assert.equal(fmtNumber(1e20), "1 · 10²⁰");
+      assert.equal(fmtNumber(2.5e-12), "2,5 · 10⁻¹²");
+    });
+    inLang("en", () => assert.equal(fmtNumber(-3.25e15), "-3.25 · 10¹⁵"));
+  });
+  test("no JavaScript exponent notation anywhere in the small range", () => {
+    inLang("sv", () => {
+      assert.equal(fmtNumber(5e-7), "5 · 10⁻⁷");
+      assert.equal(fmtNumber(0.000001234), "0,000001234");
+    });
+    for (const n of [5e-7, 1.5e-9, 2.5e-8, 7e-11, 3e13]) assert.doesNotMatch(fmtNumber(n), /e[+-]?\d/);
   });
   test("normalizes negative zero to zero", () => {
     assert.equal(fmtNumber(-0), "0");

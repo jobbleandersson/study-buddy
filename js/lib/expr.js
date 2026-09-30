@@ -8,7 +8,7 @@
 // Supports the variable x, constants pi/π/e/tau, and the functions below.
 // compile(src) returns f(x) => Number, or throws with a short message.
 
-import { t } from "./i18n.js";
+import { t, getLang } from "./i18n.js";
 
 const FUNCS = {
   sin: Math.sin, cos: Math.cos, tan: Math.tan,
@@ -28,16 +28,23 @@ function tokenize(src) {
   const isDigit = (c) => c >= "0" && c <= "9";
   const isAlpha = (c) => /[a-zA-Zπ]/.test(c);
   let i = 0;
+  // A decimal separator is "." or "," (Swedish students write 3,5) — only between
+  // digits and only once per number. No function takes a second argument, so a
+  // comma has no other job. Whitespace was dropped above, so "5 000" reads as 5000.
+  const isSep = (k) => (s[k] === "." || s[k] === ",") && isDigit(s[k + 1]);
   while (i < s.length) {
     const c = s[i];
-    if (isDigit(c) || (c === "." && isDigit(s[i + 1]))) {
+    if (isDigit(c) || isSep(i)) {
+      let hasSep = !isDigit(c);
       let j = i + 1;
-      while (j < s.length && (isDigit(s[j]) || s[j] === ".")) j++;
+      while (j < s.length && (isDigit(s[j]) || (!hasSep && isSep(j)))) { if (!isDigit(s[j])) hasSep = true; j++; }
+      // "1.2.3" must not quietly become 1.2 · 0.3 through implicit multiplication.
+      if (isSep(j)) throw new Error(t("calc.err.char", { c: s[j] }));
       if ((s[j] === "e" || s[j] === "E") && (isDigit(s[j + 1]) || ((s[j + 1] === "+" || s[j + 1] === "-") && isDigit(s[j + 2])))) {
         j += (s[j + 1] === "+" || s[j + 1] === "-") ? 2 : 1;
         while (j < s.length && isDigit(s[j])) j++;
       }
-      tokens.push({ t: "num", v: parseFloat(s.slice(i, j)) });
+      tokens.push({ t: "num", v: parseFloat(s.slice(i, j).replace(",", ".")) });
       i = j;
     } else if (isAlpha(c)) {
       let j = i + 1;
@@ -141,11 +148,20 @@ export function evaluate(src, opts) {
   return compile(src, opts)(0);
 }
 
-/** A number formatted for a small display — trims float noise, keeps it short. */
+const SUPERSCRIPT = { "-": "⁻", 0: "⁰", 1: "¹", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 6: "⁶", 7: "⁷", 8: "⁸", 9: "⁹" };
+
+/** A number formatted for a small display — trims float noise, keeps it short.
+ *  Decimal comma in Swedish, and very large/small numbers the way school writes
+ *  them (2,5 · 10⁸) rather than JavaScript's 2.5e+8. Display only: the
+ *  calculator never parses its own output back. */
 export function fmtNumber(n) {
-  if (!isFinite(n)) return n > 0 ? "∞" : (n < 0 ? "−∞" : "odefinierat");
+  if (!isFinite(n)) return n > 0 ? "∞" : (n < 0 ? "−∞" : t("calc.undefined"));
   if (Object.is(n, -0)) n = 0;
-  if (n !== 0 && (Math.abs(n) >= 1e12 || Math.abs(n) < 1e-9)) return n.toExponential(6).replace(/\.?0+e/, "e");
-  const r = Math.round(n * 1e10) / 1e10;
-  return String(r);
+  const dec = (str) => (getLang() === "sv" ? str.replace(".", ",") : str);
+  // 1e-6, not smaller: below it String() itself switches to "5e-7".
+  if (n !== 0 && (Math.abs(n) >= 1e12 || Math.abs(n) < 1e-6)) {
+    const [mant, exp] = n.toExponential(6).split("e");
+    return `${dec(mant.replace(/\.?0+$/, ""))} · 10${String(Number(exp)).replace(/[-\d]/g, (ch) => SUPERSCRIPT[ch])}`;
+  }
+  return dec(String(Math.round(n * 1e10) / 1e10));
 }

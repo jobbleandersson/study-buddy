@@ -1,7 +1,16 @@
 import { Router } from "express";
+import crypto from "node:crypto";
 import { emailEnabled } from "../email.js";
 
 export const health = Router();
+
+// Changes on every deploy and nowhere else: Fly sets FLY_IMAGE_REF per machine
+// from the deployed image, so it survives restarts and scale-to-zero wake-ups.
+// A tab that's been open across a deploy compares this against what it booted
+// with and offers a reload (js/main.js). Hashed so the registry path isn't
+// published; APP_VERSION overrides it on other hosts. Null = unknown, no check.
+const VERSION_SOURCE = process.env.APP_VERSION || process.env.FLY_IMAGE_REF || "";
+const VERSION = VERSION_SOURCE ? crypto.createHash("sha256").update(VERSION_SOURCE).digest("hex").slice(0, 12) : null;
 
 health.get("/health", (req, res) => {
   res.json({
@@ -22,5 +31,6 @@ health.get("/health", (req, res) => {
     // who want more (e.g. a Stripe Payment Link). Unset = the prompt only
     // explains the limit, with no upgrade button.
     premiumUrl: /^https:\/\//.test(process.env.PREMIUM_URL || "") ? process.env.PREMIUM_URL : null,
+    version: VERSION,
   });
 });
