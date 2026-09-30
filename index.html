@@ -7,7 +7,9 @@
        redirect there) and the Fly app's fallback host, studybuddy-jobble.fly.dev
        (which does have a server-side redirect already, but this covers the
        edge case of served-from-cache / CDN-cached HTML on that host too) — bounce
-       both of those to the real domain before anything else loads. -->
+       both of those to the real domain before anything else loads. Inline and above
+       <base> on purpose: on GitHub Pages a relative src would resolve against the
+       wrong root. The server allows it in the CSP by hashing this file at startup. -->
   <script>
     if (location.hostname !== "pluggera.se" && !/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) {
       location.replace(
@@ -64,9 +66,8 @@
   <link rel="stylesheet" href="css/landing.css" />
 
   <script src="vendor/canvas-confetti.min.js" defer></script>
-  <script src="vendor/pdf.min.js" defer></script>
   <script src="vendor/katex.min.js" defer></script>
-  <script src="vendor/jszip.min.js" defer></script>
+  <!-- pdf.js and JSZip aren't here: js/material.js loads them the first time a file is imported. -->
 
   <!-- Sets the palette/font/language attributes <html> needs before first paint (no flash of the
        wrong one) and finishes the KaTeX media-swap above. A plain external script, not inline, so
