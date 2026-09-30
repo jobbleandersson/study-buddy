@@ -23,6 +23,7 @@ export function renderLogin(qs) {
   const dest = safeNext(qs?.get?.("next"));
   let mode = "login"; // "login" | "signup" | "forgot" | "forgotSent" | "twofa"
   let pendingChallenge = null;   // set once login()/resetPassword() ask for a 2FA code
+  let pendingMethod = "totp";    // 'email' (a code was mailed) or 'totp' (authenticator app)
 
   // No server reachable → the whole form is inert; disable it rather than let
   // someone fill it in and hit a network error.
@@ -38,6 +39,7 @@ export function renderLogin(qs) {
   const subline = el("p.auth__sub");
   const toggleBtn = el("button.auth__link", { type: "button" }, "");
   const forgotLink = el("button.auth__link.auth__forgot", { type: "button" }, t("login.forgotPassword"));
+  const resendBtn = el("button.auth__link", { type: "button", hidden: true }, t("login.twofaResend"));
   const backToSignInLink = el("button.auth__link", { type: "button" }, [icon(ICONS.back, 15), t("login.backToSignIn")]);
   const forgotSentNote = el("p.auth__notice", { hidden: true, role: "status" }, [icon(ICONS.check, 18), el("span", {}, t("login.forgotSent"))]);
   const introNote = el("p.auth__optional", {}, t("login.optionalNote"));
@@ -81,7 +83,7 @@ export function renderLogin(qs) {
     subline.replaceChildren(...(forgotting
       ? [t("login.forgotBody")]
       : twofa
-      ? [t("login.twofaBody")]
+      ? [t(pendingMethod === "email" ? "login.twofaBodyEmail" : "login.twofaBody")]
       : [(mode === "login" ? t("login.noAccountYet") : t("login.alreadyHave")) + " ", toggleBtn]));
     toggleBtn.textContent = mode === "login" ? t("login.createFree") : t("login.signInLink");
     // No reset link can be sent unless the server has email set up — showing the control anyway
@@ -93,6 +95,8 @@ export function renderLogin(qs) {
     emailRow.hidden = forgotDone || twofa;
     passRow.hidden = mode === "forgot" || forgotDone || twofa;
     codeRow.hidden = !twofa;
+    resendBtn.hidden = !(twofa && pendingMethod === "email");
+    codeInput.inputMode = twofa && pendingMethod === "email" ? "numeric" : "text";
     confirmRow.hidden = mode !== "signup";
     passInput.autocomplete = mode === "login" ? "current-password" : "new-password";
     consentRow.hidden = mode !== "signup" && !googleCredential;
@@ -108,7 +112,38 @@ export function renderLogin(qs) {
   }
   toggleBtn.addEventListener("click", () => setMode(mode === "login" ? "signup" : "login"));
   forgotLink.addEventListener("click", () => setMode("forgot"));
-  backToSignInLink.addEventListener("click", () => { pendingChallenge = null; setMode("login"); });
+  backToSignInLink.addEventListener("click", () => { pendingChallenge = null; clearInterval(resendTimer); setMode("login"); });
+
+  // "Send a new code" for an emailed code: disabled while the server's cooldown runs, with the seconds left.
+  let resendLeft = 0;
+  let resendTimer = null;
+  function paintResend() {
+    resendBtn.textContent = resendLeft > 0 ? t("login.twofaResendWait", { n: resendLeft }) : t("login.twofaResend");
+    resendBtn.disabled = resendLeft > 0;
+  }
+  function startResendCountdown(sec) {
+    clearInterval(resendTimer);
+    resendLeft = Math.max(0, Math.ceil(sec || 0));
+    paintResend();
+    if (resendLeft > 0) {
+      resendTimer = setInterval(() => { resendLeft -= 1; paintResend(); if (resendLeft <= 0) clearInterval(resendTimer); }, 1000);
+    }
+  }
+  resendBtn.addEventListener("click", async () => {
+    if (!pendingChallenge || resendLeft > 0) return;
+    resendBtn.disabled = true;
+    errorNote.hidden = true;
+    try {
+      const r = await store.resend2faCode(pendingChallenge);
+      toast(t("login.twofaResent"));
+      startResendCountdown(r.cooldownSec);
+    } catch (err) {
+      if (err.code === "twofa_restart") { pendingChallenge = null; setMode("login"); }
+      errorNote.textContent = err.message || t("login.somethingWrong");
+      errorNote.hidden = false;
+      startResendCountdown(err.code === "twofa_cooldown" ? err.cooldownSec : 0);
+    }
+  });
 
   // Google's button: only when the server has it set up. If Google's script
   // can't load (blocked, offline) the whole section stays hidden and the form
@@ -184,9 +219,14 @@ export function renderLogin(qs) {
         toast(t("login.signedInToast"));
         location.hash = dest;
       } catch (err) {
+        if (err.code === "twofa_restart") {
+          // The challenge itself is gone (expired, spent, too many wrong guesses): back to the password.
+          pendingChallenge = null;
+          setMode("login");
+        }
         errorNote.textContent = err.message || t("login.loginFailed");
         errorNote.hidden = false;
-        codeInput.focus();
+        if (mode === "twofa") codeInput.focus();
       } finally {
         submitBtn.disabled = false;
       }
@@ -217,9 +257,15 @@ export function renderLogin(qs) {
         const result = await store.login(email, password);
         if (result?.twoFactorRequired) {
           pendingChallenge = result.challenge;
+          pendingMethod = result.method;
           mode = "twofa";
           paintMode();
+          startResendCountdown(result.cooldownSec);
           codeInput.focus();
+          if (result.method === "email" && !result.emailSent) {
+            errorNote.textContent = t("login.twofaNotSent");
+            errorNote.hidden = false;
+          }
           return;
         }
         toast(t("login.signedInToast"));
@@ -246,6 +292,7 @@ export function renderLogin(qs) {
     forgotSentNote,
     errorNote,
     submitBtn,
+    resendBtn,
     googleConfirmBtn,
     backToSignInLink,
   ]);

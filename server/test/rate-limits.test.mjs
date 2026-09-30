@@ -4,7 +4,7 @@
 // the 429 path itself.
 import { test, describe, before, after } from "node:test";
 import assert from "node:assert/strict";
-import { startServer, makeClient } from "./harness.mjs";
+import { startServer, makeClient, startFakeResend } from "./harness.mjs";
 import { totpAt } from "../src/totp.js";
 
 const uniqueEmail = () => `ratelimit-${Date.now()}-${Math.random().toString(36).slice(2)}@example.com`;
@@ -192,5 +192,72 @@ describe("set-password rate limiting: bad Google credentials", () => {
     }
     const blocked = await client.post("/api/auth/set-password", { credential: "not-a-real-jwt", password: "newpassword1" });
     assert.equal(blocked.status, 429);
+  });
+});
+
+describe("email 2FA rate limiting", () => {
+  let server, client, fake;
+  before(async () => {
+    fake = await startFakeResend();
+    server = await startServer({
+      RESEND_API_KEY: "test-key", RESEND_API_URL: fake.url,
+      TWOFA_EMAIL_COOLDOWN_SEC: "60", TWOFA_EMAIL_SENDS_PER_DAY_PER_ACCOUNT: "3", TWOFA_EMAIL_RESENDS: "1",
+      TWOFA_RESEND_PER_HOUR_PER_IP: "4",
+    });
+    client = makeClient(server.baseUrl);
+  });
+  after(async () => { await server.stop(); await fake.stop(); });
+
+  const PW = "correctpw1";
+  async function enroll(email) {
+    await client.post("/api/auth/signup", { email, password: PW, consent: true });
+    const setup = await client.post("/api/auth/2fa/setup", { method: "email", password: PW });
+    assert.equal(setup.status, 200, JSON.stringify(setup.json));
+    const confirm = await client.post("/api/auth/2fa/confirm", { method: "email", challenge: setup.json.challenge, code: fake.lastCode(email) });
+    assert.equal(confirm.status, 200);
+    client.clearCookie();
+  }
+
+  test("a second sign-in inside the cooldown reuses the live challenge and sends no second mail", async () => {
+    const email = `ratelimit-email2fa-${Date.now()}@example.com`;
+    await enroll(email);
+    const sent = fake.mailsTo(email).length;
+    const a = await client.post("/api/auth/login", { email, password: PW });
+    const b = await client.post("/api/auth/login", { email, password: PW });
+    assert.equal(a.json.challenge, b.json.challenge);
+    assert.equal(b.json.emailSent, true);
+    assert.equal(fake.mailsTo(email).length, sent + 1);
+  });
+
+  test("re-sending inside the cooldown is refused, with the seconds left", async () => {
+    const email = `ratelimit-email2fa-resend-${Date.now()}@example.com`;
+    await enroll(email);
+    const ch = await client.post("/api/auth/login", { email, password: PW });
+    const tooSoon = await client.post("/api/auth/2fa/resend", { challenge: ch.json.challenge });
+    assert.equal(tooSoon.status, 429);
+    assert.equal(tooSoon.json.error.code, "twofa_cooldown");
+    assert.ok(tooSoon.json.error.cooldownSec > 0);
+  });
+
+  test("once the daily cap on codes is spent, sign-in still returns a challenge — but with no code sent", async () => {
+    const email = `ratelimit-email2fa-day-${Date.now()}@example.com`;
+    await enroll(email);   // enrolment used 1 of the 3 daily codes
+    server.db.prepare("UPDATE twofa_challenges SET last_sent_at = 1 WHERE user_id = (SELECT id FROM users WHERE email = ?)").run(email);   // age out the cooldown
+    const second = await client.post("/api/auth/login", { email, password: PW });   // code 2
+    assert.equal(second.json.emailSent, true);
+    server.db.prepare("UPDATE twofa_challenges SET last_sent_at = 1 WHERE user_id = (SELECT id FROM users WHERE email = ?)").run(email);
+    const third = await client.post("/api/auth/login", { email, password: PW });    // code 3
+    assert.equal(third.json.emailSent, true);
+    server.db.prepare("UPDATE twofa_challenges SET last_sent_at = 1 WHERE user_id = (SELECT id FROM users WHERE email = ?)").run(email);
+    const capped = await client.post("/api/auth/login", { email, password: PW });   // over the cap
+    assert.equal(capped.status, 200);
+    assert.equal(capped.json.twoFactorRequired, true);
+    assert.equal(capped.json.emailSent, false);
+  });
+
+  test("the resend route is limited per IP", async () => {
+    let last;
+    for (let i = 0; i < 6; i++) last = await client.post("/api/auth/2fa/resend", { challenge: "nope" });
+    assert.equal(last.status, 429);
   });
 });

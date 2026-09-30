@@ -100,6 +100,24 @@ export const setPasswordLimit = attemptLimit({
   key: (req) => req.user?.userId, failureStatuses: [401, 403],
 });
 
+// Emailed 2FA codes. Every code costs a real email on a small free quota (see email.js), and a
+// 6-digit code is only safe behind hard caps, so these are all tunable and 0 turns one off (tests).
+//   cooldownSec    - minimum gap between two mails for one challenge/enrolment
+//   sendsPerDay    - codes generated per account per day: the real brute-force bound (attempts x this)
+//   attempts       - wrong guesses one code absorbs before it is burned
+//   resends        - how many times one sign-in challenge may have its code re-sent
+export const twoFaEmail = {
+  cooldownSec: num("TWOFA_EMAIL_COOLDOWN_SEC", 60),
+  sendsPerDay: num("TWOFA_EMAIL_SENDS_PER_DAY_PER_ACCOUNT", 10),
+  attempts: num("TWOFA_EMAIL_ATTEMPTS", 5) || 5,
+  resends: num("TWOFA_EMAIL_RESENDS", 3),
+  ttlMs: 10 * MIN,
+};
+export const DAY_MS = DAY;
+
+// Re-sending a code needs no session (you're mid-sign-in), so IP is the only key available.
+export const twoFaResendIpLimit = attemptLimit({ name: "twofa-resend-ip", max: num("TWOFA_RESEND_PER_HOUR_PER_IP", 30), windowMs: HOUR });
+
 // One ping per app load (see js/main.js) — generous enough that a whole class
 // opening the app on one school IP at once never gets blocked, tight enough
 // that a script hammering the endpoint can't grow the page_views table without bound.

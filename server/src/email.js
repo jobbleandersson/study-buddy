@@ -7,21 +7,46 @@
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const EMAIL_FROM = process.env.EMAIL_FROM || "PluggEra <onboarding@resend.dev>";
+// Overridable so tests can point the real send path at a local fake instead of api.resend.com.
+const RESEND_API_URL = process.env.RESEND_API_URL || "https://api.resend.com/emails";
 
 export function emailEnabled() {
   return !!RESEND_API_KEY;
 }
 
+// Resend's free tier is 100 emails/day, and sign-in codes now ride on it: if unauthenticated
+// routes (forgot-password, signup verification) could burn the whole day's quota, every account
+// with email 2FA would be locked out of signing in. So ordinary mail stops at 60% of the daily
+// budget and only `critical` mail (2FA codes) may use the rest. In-memory, per process, resets at
+// UTC midnight and on restart — like every limiter here. EMAIL_DAILY_BUDGET=0 switches it off.
+const DAILY_BUDGET = (() => {
+  const n = Number(process.env.EMAIL_DAILY_BUDGET);
+  return Number.isFinite(n) && n >= 0 && process.env.EMAIL_DAILY_BUDGET?.trim() ? n : 100;
+})();
+let budgetDay = "";
+let budgetUsed = 0;
+function takeBudget(critical) {
+  if (!(DAILY_BUDGET > 0)) return true;
+  const day = new Date().toISOString().slice(0, 10);
+  if (day !== budgetDay) { budgetDay = day; budgetUsed = 0; }
+  const ceiling = critical ? DAILY_BUDGET : Math.floor(DAILY_BUDGET * 0.6);
+  if (budgetUsed >= ceiling) { console.warn("[email] daily budget reached", { critical, budgetUsed }); return false; }
+  budgetUsed++;
+  return true;
+}
+
 /** Best-effort: returns false (and logs) on any failure rather than throwing, so a flaky provider
  *  never turns into a 500 on signup or password reset — the token is already stored either way,
  *  and resend-verification exists for exactly this case. */
-export async function sendEmail({ to, subject, html }) {
+export async function sendEmail({ to, subject, html, critical = false }) {
   if (!RESEND_API_KEY) return false;
+  if (!takeBudget(critical)) return false;
   try {
-    const res = await fetch("https://api.resend.com/emails", {
+    const res = await fetch(RESEND_API_URL, {
       method: "POST",
       headers: { authorization: `Bearer ${RESEND_API_KEY}`, "content-type": "application/json" },
       body: JSON.stringify({ from: EMAIL_FROM, to, subject, html }),
+      signal: AbortSignal.timeout(8000),
     });
     if (!res.ok) {
       console.error("[email] send failed", res.status, await res.text().catch(() => ""));
@@ -92,6 +117,20 @@ export function sendTwoFaDisabledEmail(to) {
     html: layout(`
       <p>Two-factor authentication was just turned off for this PluggEra account. Signing in now only needs your password.</p>
       <p style="font-size:13px;color:#6B7386">If this wasn't you, sign in, turn it back on from Settings, and change your password.</p>
+    `),
+  });
+}
+
+// The sign-in / enrolment code. The code is deliberately NOT in the subject: subjects show on lock
+// screens and in notification previews. `critical` lets it use the quota reserve (see takeBudget).
+export function sendTwoFaCodeEmail(to, code, purpose) {
+  const what = purpose === "enroll" ? "turn on two-factor authentication" : "sign in";
+  return sendEmail({
+    to, critical: true, subject: "Your PluggEra verification code",
+    html: layout(`
+      <p>Your code to ${what}:</p>
+      <p style="font-size:30px;letter-spacing:6px;font-weight:700;margin:12px 0">${code}</p>
+      <p style="font-size:13px;color:#6B7386">It works for 10 minutes. If you didn't just try to ${what}, someone may have your password — change it, and don't share this code with anyone.</p>
     `),
   });
 }

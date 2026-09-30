@@ -1,7 +1,7 @@
 import { test, describe, before, after } from "node:test";
 import assert from "node:assert/strict";
 import crypto from "node:crypto";
-import { startServer, makeClient } from "./harness.mjs";
+import { startServer, makeClient, startFakeResend } from "./harness.mjs";
 import { totpAt } from "../src/totp.js";
 
 const uniqueEmail = () => `twofa-${Date.now()}-${Math.random().toString(36).slice(2)}@example.com`;
@@ -237,5 +237,247 @@ describe("two-factor authentication", () => {
 
     assert.equal(server.db.prepare("SELECT COUNT(*) AS n FROM totp_backup_codes WHERE user_id = ?").get(userId).n, 0);
     assert.equal(server.db.prepare("SELECT COUNT(*) AS n FROM twofa_challenges WHERE user_id = ?").get(userId).n, 0);
+  });
+});
+
+describe("two-factor authentication: email method", () => {
+  let server, client, fake;
+  before(async () => {
+    fake = await startFakeResend();
+    server = await startServer({ RESEND_API_KEY: "test-key", RESEND_API_URL: fake.url });
+    client = makeClient(server.baseUrl);
+  });
+  after(async () => { await server.stop(); await fake.stop(); });
+
+  async function signup() {
+    const email = uniqueEmail();
+    await client.post("/api/auth/signup", { email, password: PASSWORD, consent: true });
+    return email;
+  }
+  const row = (email) => server.db.prepare(
+    "SELECT id, twofa_method AS method, totp_secret AS secret, totp_enabled_at AS enabledAt FROM users WHERE email = ?").get(email);
+  const challengeRow = (id) => server.db.prepare("SELECT attempts, used_at AS usedAt, resends FROM twofa_challenges WHERE id = ?").get(id);
+
+  /** Signs up and turns email 2FA on, ending signed out. */
+  async function enrolled() {
+    const email = await signup();
+    const setup = await client.post("/api/auth/2fa/setup", { method: "email", password: PASSWORD });
+    assert.equal(setup.status, 200, JSON.stringify(setup.json));
+    const confirm = await client.post("/api/auth/2fa/confirm", { method: "email", challenge: setup.json.challenge, code: fake.lastCode(email) });
+    assert.equal(confirm.status, 200, JSON.stringify(confirm.json));
+    client.clearCookie();
+    return { email, backupCodes: confirm.json.backupCodes };
+  }
+  async function loginChallenge(email) {
+    const login = await client.post("/api/auth/login", { email, password: PASSWORD });
+    assert.equal(login.json.twoFactorRequired, true);
+    return login.json;
+  }
+  const otherThan = (code) => (code === "000000" ? "111111" : "000000");
+
+  test("setup mails a code, needs the password, and turns nothing on by itself", async () => {
+    const email = await signup();
+    const before = fake.mailsTo(email).length;
+    const wrong = await client.post("/api/auth/2fa/setup", { method: "email", password: "wrongpassword1" });
+    assert.equal(wrong.status, 403);
+    assert.equal(fake.mailsTo(email).length, before, "a wrong password must not send anything");
+
+    const setup = await client.post("/api/auth/2fa/setup", { method: "email", password: PASSWORD });
+    assert.equal(setup.status, 200);
+    assert.equal(setup.json.method, "email");
+    assert.match(fake.lastCode(email), /^\d{6}$/);
+    assert.equal(row(email).enabledAt, null);
+    const mail = fake.mailsTo(email).at(-1);
+    assert.ok(!/\d{6}/.test(mail.subject), "the code must not be in the subject line");
+  });
+
+  test("confirming with the emailed code turns email 2FA on and returns 10 backup codes", async () => {
+    const email = await signup();
+    const setup = await client.post("/api/auth/2fa/setup", { method: "email", password: PASSWORD });
+    const confirm = await client.post("/api/auth/2fa/confirm", { method: "email", challenge: setup.json.challenge, code: fake.lastCode(email) });
+    assert.equal(confirm.status, 200);
+    assert.equal(confirm.json.backupCodes.length, 10);
+    const r = row(email);
+    assert.equal(r.method, "email");
+    assert.equal(r.secret, null);
+    const me = await client.get("/api/auth/me");
+    assert.equal(me.json.totpEnabled, true);
+    assert.equal(me.json.twofaMethod, "email");
+
+    const again = await client.post("/api/auth/2fa/setup", { method: "email", password: PASSWORD });
+    assert.equal(again.status, 400);
+    assert.equal(again.json.error.code, "twofa_already_on");
+  });
+
+  test("a wrong enrolment code is rejected, and five of them burn the challenge", async () => {
+    const email = await signup();
+    const setup = await client.post("/api/auth/2fa/setup", { method: "email", password: PASSWORD });
+    const real = fake.lastCode(email);
+    for (let i = 0; i < 5; i++) {
+      const r = await client.post("/api/auth/2fa/confirm", { method: "email", challenge: setup.json.challenge, code: otherThan(real) });
+      assert.equal(r.status, 400);
+    }
+    const late = await client.post("/api/auth/2fa/confirm", { method: "email", challenge: setup.json.challenge, code: real });
+    assert.equal(late.status, 400, "the right code is no use once the attempts are spent");
+    assert.equal(row(email).enabledAt, null);
+  });
+
+  test("signing in mails a code; the code (not just the password) opens a session", async () => {
+    const { email } = await enrolled();
+    const sent = fake.mailsTo(email).length;
+    const ch = await loginChallenge(email);
+    assert.equal(ch.method, "email");
+    assert.equal(ch.emailSent, true);
+    assert.equal(fake.mailsTo(email).length, sent + 1);
+    assert.equal(client.cookie, null);
+
+    const { status, json } = await client.post("/api/auth/2fa/verify", { challenge: ch.challenge, code: fake.lastCode(email) });
+    assert.equal(status, 200);
+    assert.equal(json.twofaMethod, "email");
+    assert.equal((await client.get("/api/auth/me")).json.authed, true);
+  });
+
+  test("a wrong code can be retried; five wrong ones kill the challenge", async () => {
+    const { email } = await enrolled();
+    const ch = await loginChallenge(email);
+    const real = fake.lastCode(email);
+    const first = await client.post("/api/auth/2fa/verify", { challenge: ch.challenge, code: otherThan(real) });
+    assert.equal(first.status, 401);
+    const ok = await client.post("/api/auth/2fa/verify", { challenge: ch.challenge, code: real });
+    assert.equal(ok.status, 200);
+
+    client.clearCookie();
+    const ch2 = await loginChallenge(email);
+    const real2 = fake.lastCode(email);
+    for (let i = 0; i < 5; i++) await client.post("/api/auth/2fa/verify", { challenge: ch2.challenge, code: otherThan(real2) });
+    const dead = await client.post("/api/auth/2fa/verify", { challenge: ch2.challenge, code: real2 });
+    assert.equal(dead.status, 401);
+    assert.equal(dead.json.error.code, "twofa_restart");
+  });
+
+  test("a burst of parallel guesses can never exceed the attempt cap", async () => {
+    const { email } = await enrolled();
+    const ch = await loginChallenge(email);
+    const real = fake.lastCode(email);
+    await Promise.all(Array.from({ length: 15 }, () => client.post("/api/auth/2fa/verify", { challenge: ch.challenge, code: otherThan(real) })));
+    assert.ok(challengeRow(ch.challenge).attempts <= 5);
+  });
+
+  test("two parallel submits of the right code: exactly one signs in", async () => {
+    const { email } = await enrolled();
+    const ch = await loginChallenge(email);
+    const code = fake.lastCode(email);
+    const [a, b] = await Promise.all([
+      client.post("/api/auth/2fa/verify", { challenge: ch.challenge, code }),
+      client.post("/api/auth/2fa/verify", { challenge: ch.challenge, code }),
+    ]);
+    assert.deepEqual([a.status, b.status].sort(), [200, 401]);
+  });
+
+  test("a backup code signs in an email user too, once", async () => {
+    const { email, backupCodes } = await enrolled();
+    const ch = await loginChallenge(email);
+    assert.equal((await client.post("/api/auth/2fa/verify", { challenge: ch.challenge, code: backupCodes[0] })).status, 200);
+    client.clearCookie();
+    const ch2 = await loginChallenge(email);
+    assert.equal((await client.post("/api/auth/2fa/verify", { challenge: ch2.challenge, code: backupCodes[0] })).status, 401);
+  });
+
+  test("if the mail can't be sent, sign-in still gets a challenge and a backup code works", async () => {
+    const { email, backupCodes } = await enrolled();
+    fake.failing = true;
+    try {
+      const ch = await loginChallenge(email);
+      assert.equal(ch.emailSent, false);
+      assert.equal((await client.post("/api/auth/2fa/verify", { challenge: ch.challenge, code: backupCodes[1] })).status, 200);
+    } finally { fake.failing = false; }
+  });
+
+  test("resending replaces the code: the old one stops working, the new one works", async () => {
+    const { email } = await enrolled();
+    const ch = await loginChallenge(email);
+    const first = fake.lastCode(email);
+    const resend = await client.post("/api/auth/2fa/resend", { challenge: ch.challenge });
+    assert.equal(resend.status, 200);
+    const second = fake.lastCode(email);
+    if (second !== first) {
+      assert.equal((await client.post("/api/auth/2fa/verify", { challenge: ch.challenge, code: first })).status, 401);
+    }
+    assert.equal((await client.post("/api/auth/2fa/verify", { challenge: ch.challenge, code: second })).status, 200);
+  });
+
+  test("a failed resend reports 502 and counts nothing", async () => {
+    const { email } = await enrolled();
+    const ch = await loginChallenge(email);
+    fake.failing = true;
+    try {
+      const r = await client.post("/api/auth/2fa/resend", { challenge: ch.challenge });
+      assert.equal(r.status, 502);
+      assert.equal(challengeRow(ch.challenge).resends, 0);
+    } finally { fake.failing = false; }
+  });
+
+  test("an enrolment challenge cannot be redeemed as a sign-in, nor a sign-in challenge as an enrolment", async () => {
+    const email = await signup();
+    const setup = await client.post("/api/auth/2fa/setup", { method: "email", password: PASSWORD });
+    const enrollCode = fake.lastCode(email);
+    const asLogin = await makeClient(server.baseUrl).post("/api/auth/2fa/verify", { challenge: setup.json.challenge, code: enrollCode });
+    assert.equal(asLogin.status, 401);
+    assert.equal(asLogin.json.error.code, "twofa_restart");
+
+    const other = makeClient(server.baseUrl);
+    const otherEmail = uniqueEmail();
+    await other.post("/api/auth/signup", { email: otherEmail, password: PASSWORD, consent: true });
+    const otherSetup = await other.post("/api/auth/2fa/setup", { method: "email", password: PASSWORD });
+    await other.post("/api/auth/2fa/confirm", { method: "email", challenge: otherSetup.json.challenge, code: fake.lastCode(otherEmail) });
+    const ch = await makeClient(server.baseUrl).post("/api/auth/login", { email: otherEmail, password: PASSWORD });
+    const loginCode = fake.lastCode(otherEmail);
+    const asEnroll = await client.post("/api/auth/2fa/confirm", { method: "email", challenge: ch.json.challenge, code: loginCode });
+    assert.equal(asEnroll.status, 400);
+    assert.equal(row(email).enabledAt, null);
+  });
+
+  test("turning it off clears the method and any pending challenge", async () => {
+    const { email } = await enrolled();
+    const ch = await loginChallenge(email);
+    await client.post("/api/auth/2fa/verify", { challenge: ch.challenge, code: fake.lastCode(email) });
+    const pending = await makeClient(server.baseUrl).post("/api/auth/login", { email, password: PASSWORD });
+    const off = await client.post("/api/auth/2fa/disable", { password: PASSWORD });
+    assert.equal(off.status, 200);
+    const r = row(email);
+    assert.equal(r.method, null);
+    assert.equal(r.enabledAt, null);
+    const after = await makeClient(server.baseUrl).post("/api/auth/2fa/verify", { challenge: pending.json.challenge, code: "123456" });
+    assert.equal(after.json.error.code, "twofa_restart");
+  });
+
+  test("resetting the password signs an email-2FA account straight in (same inbox, no second code)", async () => {
+    const { email } = await enrolled();
+    const userId = row(email).id;
+    const token = crypto.randomBytes(32).toString("hex");
+    const now = Date.now();
+    server.db.prepare("INSERT INTO password_reset_tokens (id, user_id, token, expires_at, created_at) VALUES (?, ?, ?, ?, ?)")
+      .run(crypto.randomUUID(), userId, token, now + 3600_000, now);
+    const reset = await client.post("/api/auth/reset-password", { token, password: "brandnewpw1" });
+    assert.equal(reset.status, 200);
+    assert.equal(reset.json.twoFactorRequired, undefined);
+    assert.equal((await client.get("/api/auth/me")).json.authed, true);
+  });
+
+  test("an authenticator-app account sends no mail at sign-in, and a pre-method row still counts as TOTP", async () => {
+    const email = await signup();
+    const setup = await client.post("/api/auth/2fa/setup");
+    assert.equal(setup.json.method, "totp");
+    const secret = setup.json.secret;
+    const confirm = await client.post("/api/auth/2fa/confirm", { password: PASSWORD, secret, code: codeFor(secret, { step: -1 }) });
+    assert.equal(confirm.json.method, "totp");
+    client.clearCookie();
+    server.db.prepare("UPDATE users SET twofa_method = NULL WHERE email = ?").run(email);   // what an old row looks like
+
+    const sent = fake.mailsTo(email).length;
+    const login = await client.post("/api/auth/login", { email, password: PASSWORD });
+    assert.equal(login.json.method, "totp");
+    assert.equal(fake.mailsTo(email).length, sent);
+    assert.equal((await client.post("/api/auth/2fa/verify", { challenge: login.json.challenge, code: codeFor(secret, { step: 0 }) })).status, 200);
   });
 });

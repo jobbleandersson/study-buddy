@@ -32,6 +32,7 @@ export const VERIFY_EMAIL_URL = `${API}/api/auth/verify-email`;
 export const FORGOT_PASSWORD_URL = `${API}/api/auth/forgot-password`;
 export const RESET_PASSWORD_URL = `${API}/api/auth/reset-password`;
 export const AUTH_2FA_VERIFY_URL = `${API}/api/auth/2fa/verify`;
+export const AUTH_2FA_RESEND_URL = `${API}/api/auth/2fa/resend`;
 export const AUTH_2FA_SETUP_URL = `${API}/api/auth/2fa/setup`;
 export const AUTH_2FA_CONFIRM_URL = `${API}/api/auth/2fa/confirm`;
 export const AUTH_2FA_DISABLE_URL = `${API}/api/auth/2fa/disable`;

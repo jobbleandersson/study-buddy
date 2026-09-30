@@ -106,6 +106,11 @@ async function startOnce(env) {
       TWOFA_FAILS_PER_15MIN_PER_IP: "0",
       TWOFA_PASSWORD_FAILS_PER_15MIN_PER_ACCOUNT: "0",
       SET_PASSWORD_FAILS_PER_15MIN_PER_ACCOUNT: "0",
+      TWOFA_EMAIL_COOLDOWN_SEC: "0",
+      TWOFA_EMAIL_SENDS_PER_DAY_PER_ACCOUNT: "0",
+      TWOFA_EMAIL_RESENDS: "0",
+      TWOFA_RESEND_PER_HOUR_PER_IP: "0",
+      EMAIL_DAILY_BUDGET: "0",
       ...env,
     },
     stdio: ["ignore", "pipe", "pipe"],
@@ -152,6 +157,39 @@ async function startOnce(env) {
       rmSync(dir, { recursive: true, force: true });
     },
   };
+}
+
+/** A local stand-in for Resend's POST /emails, so tests run the server's real send path and can read
+ *  the plaintext code out of the mail it "sent". Pass `{ RESEND_API_URL: fake.url }` to startServer.
+ *  `mails` is every message received ({to, subject, html}); `lastCode(to)` pulls the 6-digit code out
+ *  of the newest one for that address; `failing = true` makes it answer 500. */
+export async function startFakeResend() {
+  const http = await import("node:http");
+  const mails = [];
+  const fake = {
+    mails, failing: false,
+    lastCode(to) {
+      for (let i = mails.length - 1; i >= 0; i--) {
+        if (mails[i].to === to) return mails[i].html.match(/>(\d{6})</)?.[1] ?? null;
+      }
+      return null;
+    },
+    mailsTo: (to) => mails.filter((m) => m.to === to),
+  };
+  const srv = http.createServer((req, res) => {
+    let body = "";
+    req.on("data", (d) => { body += d; });
+    req.on("end", () => {
+      if (fake.failing) { res.statusCode = 500; return res.end("nope"); }
+      try { mails.push(JSON.parse(body)); } catch { /* ignore */ }
+      res.setHeader("content-type", "application/json");
+      res.end(JSON.stringify({ id: "fake" }));
+    });
+  });
+  await new Promise((r) => srv.listen(0, "127.0.0.1", r));
+  fake.url = `http://127.0.0.1:${srv.address().port}/emails`;
+  fake.stop = () => new Promise((r) => srv.close(r));
+  return fake;
 }
 
 /** Extracts the session cookie's value from a fetch Response's Set-Cookie headers. */

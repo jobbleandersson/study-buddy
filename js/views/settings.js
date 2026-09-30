@@ -387,7 +387,7 @@ export function renderSettings() {
       // re-authenticates via Google every time, so there's no second factor to add here.
       const showTwofa = store.authed && !store.authPasswordless;
       twofaRow.hidden = !showTwofa;
-      if (showTwofa) twofaRow.textContent = t(store.totpEnabled ? "twofa.statusOn" : "twofa.statusOff");
+      if (showTwofa) twofaRow.textContent = t(!store.totpEnabled ? "twofa.statusOff" : store.twofaMethod === "email" ? "twofa.statusOnEmail" : "twofa.statusOn");
 
       clear(actions);
       if (store.authed) {
