@@ -1,15 +1,13 @@
 // Turn on two-factor authentication — a Promise-based modal, same focus-trapped pattern as
 // delete-account-dialog.js. Email is the default method (a 6-digit code mailed at sign-in: nothing to
 // install); the authenticator app (a secret as text + an otpauth:// link, no QR library — see
-// routes/auth.js) is the alternative. Either way the dialog ends by showing the 10 backup codes
-// exactly once.
+// routes/auth.js) is the alternative.
 //
-//   const enabled = await twofaSetupDialog();   // true once 2FA is on and the codes were shown
+//   const enabled = await twofaSetupDialog();   // true once 2FA is on
 
 import { store } from "../store.js";
 import { el, toast, icon, ICONS } from "../lib/dom.js";
 import { t } from "../lib/i18n.js";
-import { backupCodesDialog } from "./backup-codes-dialog.js";
 
 async function copyText(text) {
   try { await navigator.clipboard.writeText(text); toast(t("common.copied")); return true; }
@@ -40,11 +38,9 @@ export function twofaSetupDialog() {
     document.addEventListener("keydown", onKey, true);
     if (store.emailConfigured) paintEmail(); else paintTotp();
 
-    async function finish(result) {
+    function finish() {
       toast(t("twofa.enabledToast"));
-      teardown();   // this dialog's job is done; the backup-codes one resolves the outer promise
-      await backupCodesDialog(result.backupCodes);
-      resolve(true);
+      close(true);
     }
 
     // ---- email (default) ----
@@ -106,7 +102,8 @@ export function twofaSetupDialog() {
         if (!code || challenge === null) { codeInput.focus(); return; }
         busy = true; confirmBtn.disabled = true; cancelBtn.disabled = true; err.hidden = true;
         try {
-          finish(await store.confirm2fa({ method: "email", challenge, code }));
+          await store.confirm2fa({ method: "email", challenge, code });
+          finish();
         } catch (ex) {
           busy = false;
           err.textContent = ex.message || t("login.somethingWrong");
@@ -166,9 +163,9 @@ export function twofaSetupDialog() {
         busy = true;
         confirmBtn.disabled = true; cancelBtn.disabled = true; err.hidden = true;
         try {
-          const result = await store.confirm2fa({ method: "totp", password, secret: setup.secret, code });
+          await store.confirm2fa({ method: "totp", password, secret: setup.secret, code });
           busy = false;
-          finish(result);
+          finish();
         } catch (ex) {
           busy = false;
           err.textContent = ex.message || t("login.somethingWrong");

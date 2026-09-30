@@ -83,13 +83,3 @@ export function otpauthUri(secretBase32, { email, issuer = "PluggEra" } = {}) {
   const params = new URLSearchParams({ secret: secretBase32, issuer, digits: "6", period: "30", algorithm: "SHA1" });
   return `otpauth://totp/${encodeURIComponent(label)}?${params.toString()}`;
 }
-
-/** `n` single-use backup codes, each 10 hex characters (~40 bits) grouped as "XXXXX-XXXXX" for
- *  readability — comparable to what GitHub/Google ship. Plaintext; the caller bcrypt-hashes each
- *  one before storing it and returns this array to the user exactly once. */
-export function generateBackupCodes(n = 10) {
-  return Array.from({ length: n }, () => {
-    const raw = crypto.randomBytes(5).toString("hex").toUpperCase();
-    return `${raw.slice(0, 5)}-${raw.slice(5)}`;
-  });
-}

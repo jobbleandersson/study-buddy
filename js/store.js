@@ -29,7 +29,7 @@ import { cleanRuleText, rulesForQuestion, RULE_MAX_COUNT } from "./lib/rules.js"
 import {
   PROXY_HEALTH_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_GOOGLE_URL, AUTH_SET_PASSWORD_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, ACCOUNT_URL,
   RESEND_VERIFICATION_URL, VERIFY_EMAIL_URL, FORGOT_PASSWORD_URL, RESET_PASSWORD_URL, STATE_URL, USAGE_URL,
-  AUTH_2FA_VERIFY_URL, AUTH_2FA_RESEND_URL, AUTH_2FA_SETUP_URL, AUTH_2FA_CONFIRM_URL, AUTH_2FA_DISABLE_URL, AUTH_2FA_BACKUP_REGEN_URL,
+  AUTH_2FA_VERIFY_URL, AUTH_2FA_RESEND_URL, AUTH_2FA_SETUP_URL, AUTH_2FA_CONFIRM_URL, AUTH_2FA_DISABLE_URL,
 } from "./config.js";
 
 const KEY = "studybuddy.v1";
@@ -1631,7 +1631,7 @@ class Store extends EventTarget {
   }
 
   /** The code step after `login()` or `resetPassword()` returned `twoFactorRequired` — the 6-digit
-   *  code (emailed, or from an authenticator app) or one of the account's backup codes. Success
+   *  code (emailed, or from an authenticator app, whichever the account uses). Success
    *  signs in exactly like a plain login would have. A `twofa_restart` error code means the
    *  challenge itself is gone (expired, spent, too many wrong guesses): go back to the password. */
   async verify2fa(challenge, code) {
@@ -1691,8 +1691,7 @@ class Store extends EventTarget {
 
   /** Setup step 2. TOTP: `{ method: "totp", password, secret, code }` — the password is re-proved so a
    *  stolen session alone can't enroll a new authenticator. Email: `{ method: "email", challenge,
-   *  code }` (the password was proved at step 1). Returns the 10 backup codes — shown to the person
-   *  exactly once, never retrievable again. */
+   *  code }` (the password was proved at step 1). */
   async confirm2fa({ method = "totp", password, secret, challenge, code }) {
     const res = await fetch(AUTH_2FA_CONFIRM_URL, {
       method: "POST", credentials: "include",
@@ -1704,7 +1703,6 @@ class Store extends EventTarget {
     this.totpEnabled = true;
     this.twofaMethod = method === "email" ? "email" : "totp";
     this.emit();
-    return { backupCodes: data.backupCodes };
   }
 
 
@@ -1719,18 +1717,6 @@ class Store extends EventTarget {
     this.totpEnabled = false;
     this.twofaMethod = null;
     this.emit();
-  }
-
-  /** Old backup codes stop working the moment this succeeds — only the returned 10 are valid. */
-  async regenerateBackupCodes(password) {
-    const res = await fetch(AUTH_2FA_BACKUP_REGEN_URL, {
-      method: "POST", credentials: "include",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ password }),
-    });
-    const data = await res.json().catch(() => ({}));
-    if (!res.ok) throw authError(data, t("login.somethingWrong"));
-    return { backupCodes: data.backupCodes };
   }
 
   /** Sends a reset link if that address has a password account — always resolves the same way

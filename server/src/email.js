@@ -105,7 +105,7 @@ export function sendTwoFaEnabledEmail(to) {
   return sendEmail({
     to, subject: "Two-factor authentication turned on",
     html: layout(`
-      <p>Two-factor authentication was just turned on for this PluggEra account. From now on, signing in needs a code from your authenticator app (or a backup code) as well as your password.</p>
+      <p>Two-factor authentication was just turned on for this PluggEra account. From now on, signing in needs a code from your authenticator app as well as your password.</p>
       <p style="font-size:13px;color:#6B7386">If this wasn't you, sign in and turn it off again from Settings, then change your password.</p>
     `),
   });
