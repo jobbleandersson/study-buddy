@@ -5,6 +5,7 @@
 import { test, describe, before, after } from "node:test";
 import assert from "node:assert/strict";
 import { startServer, makeClient } from "./harness.mjs";
+import { totpAt } from "../src/totp.js";
 
 const uniqueEmail = () => `ratelimit-${Date.now()}-${Math.random().toString(36).slice(2)}@example.com`;
 
@@ -108,5 +109,57 @@ describe("Google sign-in rate limiting: a non-401/403 response never counts", ()
       assert.equal(status, 501);
       assert.equal(json.error.code, "google_not_configured");
     }
+  });
+});
+
+describe("2FA verify rate limiting: minting a fresh challenge doesn't reset the account's budget", () => {
+  let server, client;
+  before(async () => {
+    server = await startServer({ TWOFA_FAILS_PER_15MIN_PER_ACCOUNT: "3", TWOFA_FAILS_PER_15MIN_PER_IP: "0", RESEND_API_KEY: "dummy-test-key" });
+    client = makeClient(server.baseUrl);
+  });
+  after(async () => { await server.stop(); });
+
+  test("wrong codes across several separately-minted challenges for one account still add up to the same limit", async () => {
+    const email = `ratelimit-2fa-${Date.now()}@example.com`;
+    await client.post("/api/auth/signup", { email, password: "correctpw1", consent: true });
+    const { json: { secret } } = await client.post("/api/auth/2fa/setup");
+    const counter = Math.floor(Date.now() / 1000 / 30) + 1;
+    await client.post("/api/auth/2fa/confirm", { password: "correctpw1", secret, code: totpAt(secret, counter) });
+    client.clearCookie();
+
+    // Three wrong guesses, each against its OWN freshly-minted challenge (a correct password
+    // always mints a new one) — an attacker who already knows the password would do exactly this
+    // to try to dodge a per-challenge limiter. The account-resolved key must still catch it.
+    for (let i = 0; i < 3; i++) {
+      const login = await client.post("/api/auth/login", { email, password: "correctpw1" });
+      const { status } = await client.post("/api/auth/2fa/verify", { challenge: login.json.challenge, code: "000000" });
+      assert.equal(status, 401);
+    }
+    const login = await client.post("/api/auth/login", { email, password: "correctpw1" });
+    const blocked = await client.post("/api/auth/2fa/verify", { challenge: login.json.challenge, code: "000000" });
+    assert.equal(blocked.status, 429);
+  });
+});
+
+describe("2FA management rate limiting: password re-entry", () => {
+  let server, client;
+  before(async () => {
+    server = await startServer({ TWOFA_PASSWORD_FAILS_PER_15MIN_PER_ACCOUNT: "3", RESEND_API_KEY: "dummy-test-key" });
+    client = makeClient(server.baseUrl);
+  });
+  after(async () => { await server.stop(); });
+
+  test("wrong passwords confirming a setup add up, a right one doesn't count", async () => {
+    const email = `ratelimit-2fapw-${Date.now()}@example.com`;
+    await client.post("/api/auth/signup", { email, password: "correctpw1", consent: true });
+    const { json: { secret } } = await client.post("/api/auth/2fa/setup");
+
+    for (let i = 0; i < 3; i++) {
+      const { status } = await client.post("/api/auth/2fa/confirm", { password: "wrongpassword1", secret, code: "000000" });
+      assert.equal(status, 403);
+    }
+    const blocked = await client.post("/api/auth/2fa/confirm", { password: "wrongpassword1", secret, code: "000000" });
+    assert.equal(blocked.status, 429);
   });
 });

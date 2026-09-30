@@ -30,6 +30,11 @@ export const RESEND_VERIFICATION_URL = `${API}/api/auth/verify-email/resend`;
 export const VERIFY_EMAIL_URL = `${API}/api/auth/verify-email`;
 export const FORGOT_PASSWORD_URL = `${API}/api/auth/forgot-password`;
 export const RESET_PASSWORD_URL = `${API}/api/auth/reset-password`;
+export const AUTH_2FA_VERIFY_URL = `${API}/api/auth/2fa/verify`;
+export const AUTH_2FA_SETUP_URL = `${API}/api/auth/2fa/setup`;
+export const AUTH_2FA_CONFIRM_URL = `${API}/api/auth/2fa/confirm`;
+export const AUTH_2FA_DISABLE_URL = `${API}/api/auth/2fa/disable`;
+export const AUTH_2FA_BACKUP_REGEN_URL = `${API}/api/auth/2fa/backup-codes/regenerate`;
 // Reviews: students write one in #/rate; approved ones show on the front page. See routes/reviews.js.
 export const REVIEWS_URL = `${API}/api/reviews`;
 export const MY_REVIEW_URL = `${API}/api/reviews/mine`;

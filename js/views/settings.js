@@ -11,6 +11,9 @@ import { homeButton } from "../components/nav.js";
 import { voiceControls } from "../components/voice-controls.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { deleteAccountDialog } from "../components/delete-account-dialog.js";
+import { twofaSetupDialog } from "../components/twofa-setup-dialog.js";
+import { passwordConfirmDialog } from "../components/password-confirm-dialog.js";
+import { backupCodesDialog } from "../components/backup-codes-dialog.js";
 import { openWelcomeQuiz } from "../components/onboarding.js";
 import { playFanfare } from "../lib/sound.js";
 import { offlineSupported, isLibraryCached, cacheLibraryOffline } from "../lib/offline.js";
@@ -362,6 +365,7 @@ export function renderSettings() {
   function accountSection() {
     const status = el("p.note", { style: { margin: "6px 0 12px" } });
     const verifyRow = el("p.note", { style: { margin: "0 0 12px" }, hidden: true });
+    const twofaRow = el("p.note", { style: { margin: "0 0 12px" }, hidden: true });
     const actions = el("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap" } });
 
     function paint() {
@@ -378,6 +382,12 @@ export function renderSettings() {
         verifyRow.textContent = t(store.authEmailVerified ? "set.acctEmailVerified" : "set.acctEmailNotVerified");
       }
 
+      // Only a password account has a local sign-in step to gate — a Google-linked one
+      // re-authenticates via Google every time, so there's no second factor to add here.
+      const showTwofa = store.authed && !store.authPasswordless;
+      twofaRow.hidden = !showTwofa;
+      if (showTwofa) twofaRow.textContent = t(store.totpEnabled ? "twofa.statusOn" : "twofa.statusOff");
+
       clear(actions);
       if (store.authed) {
         if (showVerify && !store.authEmailVerified) {
@@ -391,6 +401,35 @@ export function renderSettings() {
               finally { btn.disabled = false; }
             },
           }, t("set.acctResendVerification")));
+        }
+        if (showTwofa && !store.totpEnabled) {
+          actions.appendChild(el("button.btn.btn--ghost.btn--sm", {
+            type: "button",
+            onclick: async () => { if (await twofaSetupDialog()) paint(); },
+          }, t("twofa.enable")));
+        }
+        if (showTwofa && store.totpEnabled) {
+          actions.appendChild(el("button.btn.btn--ghost.btn--sm", {
+            type: "button",
+            onclick: async () => {
+              const ok = await passwordConfirmDialog({
+                title: t("twofa.disableTitle"), body: t("twofa.disableBody"), confirmLabel: t("twofa.disableConfirm"),
+                submit: (password) => store.disable2fa(password),
+              });
+              if (ok) { toast(t("twofa.disabledToast")); paint(); }
+            },
+          }, t("twofa.disable")));
+          actions.appendChild(el("button.btn.btn--ghost.btn--sm", {
+            type: "button",
+            onclick: async () => {
+              let codes = null;
+              const ok = await passwordConfirmDialog({
+                title: t("twofa.regenerateTitle"), body: t("twofa.regenerateBody"), confirmLabel: t("twofa.regenerateConfirm"),
+                submit: async (password) => { ({ backupCodes: codes } = await store.regenerateBackupCodes(password)); },
+              });
+              if (ok && codes) { toast(t("twofa.regeneratedToast")); await backupCodesDialog(codes); }
+            },
+          }, t("twofa.regenerate")));
         }
         actions.appendChild(el("button.btn.btn--ghost.btn--sm", {
           type: "button",
@@ -420,6 +459,7 @@ export function renderSettings() {
       !store.proxyUp && el("p.note.note--warn", {}, t("set.acctNoServer")),
       status,
       verifyRow,
+      twofaRow,
       actions,
     ]);
   }

@@ -61,6 +61,7 @@ const KNOWN = {
   "Email isn't set up on this server.": "srv.err.emailOff",
   "Couldn't send the email. Try again shortly.": "srv.err.emailSendFailed",
   "Too many attempts. Try again in a few minutes.": "srv.err.tooManyAttempts",
+  "Two-factor authentication isn't on for this account.": "srv.err.twofaOff",
 };
 
 export function serverMessage(message, fallback) {
