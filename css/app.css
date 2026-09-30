@@ -785,7 +785,7 @@ button.plan-cal__cell:hover { background: var(--brand-tint); border-color: var(-
 /* The "+" grows to fill whatever height the chips leave, so any empty part of
    a today/future cell is a click target. Hidden until the cell is hovered. */
 .plan-cal__add {
-  flex: 1 1 auto; align-self: stretch; min-height: 14px;
+  flex: 1 1 auto; align-self: stretch; min-height: 24px;   /* WCAG 2.5.8: a 24px minimum target */
   border: none; background: none; cursor: pointer; border-radius: 4px;
   display: grid; place-items: center; color: var(--ink-faint);
   opacity: 0; transition: opacity var(--dur-fast), background var(--dur-fast);
@@ -1040,7 +1040,12 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .linkbtn {
   font: inherit; font-size: inherit; padding: 0; border: none; background: none;
   color: var(--brand-ink); text-decoration: underline; cursor: pointer;
+  position: relative;
 }
+/* Text-sized buttons (.linkbtn, .auth__link) are only ~21px tall. An invisible hit area around them
+   reaches the 24px minimum target (WCAG 2.5.8) without moving anything — they often sit in a line
+   of text, where padding would push the line apart. */
+.linkbtn::after, .auth__link::after { content: ""; position: absolute; inset: -4px -2px; }
 .linkbtn:hover { color: var(--brand); }
 
 .sortsel {
@@ -1695,7 +1700,7 @@ body.no-chrome .sitechat__panel { display: none; }
 .voicectl__row { display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap; }
 .voicectl__speed { display: flex; align-items: center; gap: var(--s-2); flex: 1 1 140px; min-width: 0; font-size: var(--fs-sm); color: var(--ink-soft); }
 .voicectl__speed > span { flex: none; }
-.voicectl__speed input[type=range] { flex: 1; min-width: 60px; accent-color: var(--brand); }
+.voicectl__speed input[type=range] { flex: 1; min-width: 60px; height: 24px; accent-color: var(--brand); }   /* 24px: WCAG 2.5.8 target */
 .voicectl__rate { flex: none; min-width: 2.6em; text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); }
 .voicectl__tip { margin: 0; font-size: var(--fs-sm); line-height: 1.4; }
 .voicectl--compact .voicectl__tip { font-size: 12px; }
@@ -3850,6 +3855,7 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .auth__sub { margin: -6px 0 var(--s-2); color: var(--ink-soft); font-size: 1rem; line-height: 1.5; }
 
 .auth__link {
+  position: relative;
   display: inline-flex; align-items: center; gap: 6px; padding: 0; border: 0; background: none; cursor: pointer;
   font: inherit; font-weight: 700; color: var(--brand-ink); text-decoration: underline; text-underline-offset: 3px;
   text-decoration-color: color-mix(in srgb, var(--brand) 35%, transparent);

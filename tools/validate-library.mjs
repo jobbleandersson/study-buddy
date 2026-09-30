@@ -8,7 +8,9 @@
 // kind and (for mc) the same correct answer index and number of choices;
 // question ids unique across the library; mc has 3–5 distinct choices and an
 // answer in range; text/worked/flashcard have an answer; worked has steps;
-// every non-flashcard question explains itself (explanation or steps).
+// every non-flashcard question explains itself (explanation or steps); every
+// question's topic is in its set's topics list (per-topic class stats and
+// mastery group by that list, so a missing one drops those questions from them).
 
 import { readFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -64,15 +66,24 @@ for (const entry of index.sets) {
   if (qs.length !== entry.count) fail(`${entry.id}: index count ${entry.count} != ${qs.length} questions`);
   if (target && qs.length < target) below.push(`${entry.id} (${qs.length})`);
 
+  const checkTopics = (doc, suffix) => {
+    const topics = new Set(doc.topics || []);
+    for (const q of doc.questions || []) {
+      if (q.topic && !topics.has(q.topic)) fail(`${entry.id}/${q.id}${suffix}: topic "${q.topic}" isn't in the set's topics`);
+    }
+  };
+
   for (const q of qs) {
     const tag = `${entry.id}/${q.id}`;
     if (allIds.has(q.id)) fail(`${tag}: id also used in ${allIds.get(q.id)}`);
     allIds.set(q.id, entry.id);
     checkQuestion(q, tag);
   }
+  checkTopics(sv, "");
 
   if (!en) continue;
   if (en.id !== entry.id) fail(`${entry.id} (en): doc.id is "${en.id}"`);
+  checkTopics(en, " (en)");
   const eq = en.questions || [];
   if (eq.map((q) => q.id).join("|") !== qs.map((q) => q.id).join("|")) {
     fail(`${entry.id}: sv and en question ids differ (sv ${qs.length}, en ${eq.length})`);

@@ -420,12 +420,15 @@ export async function renderStartSet(setId) {
   const startHash = location.hash;
   (async () => {
     let target = "#/library";
+    let missing = false;
     try {
       const index = await loadLibraryIndex();
       const entry = index.sets.find((s) => s.id === setId);
       if (entry) {
         if (!isImported(entry.id)) await importSet(entry);
         target = `#/session/${entry.id}`;
+      } else {
+        missing = true;
       }
     } catch (e) {
       console.error(e); // offline or a bad id: the library is still the useful place to land
@@ -434,6 +437,9 @@ export async function renderStartSet(setId) {
     // Arriving from a practice page counts as having seen the intro.
     store.markOnboarded();
     location.replace(`${location.pathname}${location.search}${target}`);
+    // Landing in the library instead of the set needs a word, or it looks like the link just broke.
+    // Only when the set really isn't in the library — not when the index failed to load (offline).
+    if (missing) toast(t("session.goneSet"));
   })();
   return { title: t("lib.title"), node };
 }

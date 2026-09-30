@@ -9,6 +9,8 @@ export const STRINGS = {
     /* ---- common ---- */
     "common.back": "Back",
     "common.backToMenu": "Back to menu",
+    "common.notFoundTitle": "Page not found",
+    "common.notFoundBody": "The link may be mistyped, or the page has moved.",
     "common.cancel": "Cancel",
     "common.close": "Close",
     "common.delete": "Delete",
@@ -2329,6 +2331,8 @@ export const STRINGS = {
     /* ---- common ---- */
     "common.back": "Tillbaka",
     "common.backToMenu": "Tillbaka till menyn",
+    "common.notFoundTitle": "Sidan finns inte",
+    "common.notFoundBody": "Länken kan vara felstavad, eller så har sidan flyttats.",
     "common.cancel": "Avbryt",
     "common.close": "Stäng",
     "common.delete": "Ta bort",

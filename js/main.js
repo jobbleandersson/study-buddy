@@ -182,14 +182,36 @@ let renderGen = 0;
 
 function parseHash() {
   const full = location.hash.replace(/^#/, "");
-  const [path, qs] = full.split("?");
+  const [rawPath, qs] = full.split("?");
+  // "#/library/" is still the library — a stray trailing slash mustn't read as "page not found".
+  const path = rawPath.length > 1 ? rawPath.replace(/\/+$/, "") : rawPath;
   const params = new URLSearchParams(qs || "");
   for (const r of routes) {
     const m = path.match(r.rx);
     if (m) return () => r.view(m, params);
   }
-  return () => import("./views/menu.js").then((mod) => mod.renderMenu());
+  // A mistyped or outdated link says so, rather than quietly showing the home screen.
+  return async () => ({
+    title: t("common.notFoundTitle"),
+    node: el("div.empty", {}, [
+      el("h1", {}, t("common.notFoundTitle")),
+      el("p", {}, t("common.notFoundBody")),
+      el("a.btn", { href: "#/", style: { marginTop: "16px" } }, t("common.backToMenu")),
+    ]),
+  });
 }
+
+// "Skip to content" (index.html) is an in-page link to #main — but this is a hash router, so letting
+// it change the hash navigated away from the current page. Move focus to the content instead and
+// leave the URL alone. (Enter on a focused link fires click, so keyboard use goes through here too.)
+document.addEventListener("click", (e) => {
+  if (!e.target.closest?.("a.skiplink")) return;
+  e.preventDefault();
+  const main = document.getElementById("main");
+  if (!main) return;
+  if (!main.hasAttribute("tabindex")) main.setAttribute("tabindex", "-1");
+  main.focus();
+});
 
 /** Cycles through the supported languages — with two, it's a straight toggle. */
 function nextLang() {
