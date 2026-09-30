@@ -1,6 +1,6 @@
-// The "Deadline" dialog: a date picker plus an "is this a test?" toggle.
-// Shared between the home card ⋮ menu and the exam-prep page (which needs a
-// way to set a test date without sending the student back to the home grid).
+// The "Deadline" dialog: a date picker plus an "is this a test?" toggle, for
+// one set, from the home card ⋮ menu. (Exam prep has its own dialog that
+// dates a whole test at once — components/exam-dialog.js.)
 //
 // Marking a set as a test is what unlocks its countdown line, the dated exam
 // plan and the reminder notification — the library ships every set as a plain

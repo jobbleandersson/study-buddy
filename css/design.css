@@ -65,12 +65,6 @@ h1 { font-weight: 750; }
 .continue-banner, .house-ad { border-left-width: 1px; border-color: color-mix(in srgb, var(--brand) 35%, var(--line)); }
 .plan-row { border-left: 1px solid var(--line); }
 .plan-row.is-soon, .plan-row.is-overdue { border-left-color: var(--retry); }
-.exam-prep__head, .exam-prep__plan { border-left: 1px solid var(--line); }
-.exam-prep__pick-card { border-left: 1px solid var(--line); }
-.exam-prep__pick-card::before {
-  content: ""; flex: none; width: 10px; height: 10px; border-radius: 3px;
-  background: var(--subject, var(--brand));
-}
 .source-opt--subject { border-left-width: 1px; }
 .review-so-far__item { border-left-width: 1px; }
 .review-so-far__item.is-ok { border-color: color-mix(in srgb, var(--ok) 45%, var(--line)); }

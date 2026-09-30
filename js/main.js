@@ -625,7 +625,8 @@ function buildNotifications() {
         icon: ICONS.graduation,
         title: d === 0 ? t("notif.examToday") : d === 1 ? t("notif.examTomorrow") : t("notif.examInDays", { n: d }),
         body: t("notif.examBody"),
-        meta: test.title,
+        // A test can cover several sets (exam prep) — name the subject, not one set.
+        meta: store.subjects.find((s) => s.id === test.subjectId)?.name || test.title,
         // The day before, the evening plan is the useful place to land.
         href: d === 1 ? `#/tonight/${test.id}`
           : test.subjectId ? `#/exam-prep/${test.subjectId}` : `#/session/${test.id}`,
