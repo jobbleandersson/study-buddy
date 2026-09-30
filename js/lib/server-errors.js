@@ -62,6 +62,9 @@ const KNOWN = {
   "Couldn't send the email. Try again shortly.": "srv.err.emailSendFailed",
   "Too many attempts. Try again in a few minutes.": "srv.err.tooManyAttempts",
   "Two-factor authentication isn't on for this account.": "srv.err.twofaOff",
+  "This account isn't linked to Google.": "srv.err.noGoogleAccount",
+  "This account already has a password.": "srv.err.passwordAlreadySet",
+  "That Google account doesn't match this one.": "srv.err.googleSubMismatch",
 };
 
 export function serverMessage(message, fallback) {

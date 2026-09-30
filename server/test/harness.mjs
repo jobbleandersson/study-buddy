@@ -105,6 +105,7 @@ async function startOnce(env) {
       TWOFA_FAILS_PER_15MIN_PER_ACCOUNT: "0",
       TWOFA_FAILS_PER_15MIN_PER_IP: "0",
       TWOFA_PASSWORD_FAILS_PER_15MIN_PER_ACCOUNT: "0",
+      SET_PASSWORD_FAILS_PER_15MIN_PER_ACCOUNT: "0",
       ...env,
     },
     stdio: ["ignore", "pipe", "pipe"],

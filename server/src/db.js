@@ -309,3 +309,15 @@ for (const [col, type] of [["totp_secret", "TEXT"], ["totp_enabled_at", "INTEGER
     db.exec(`ALTER TABLE users ADD COLUMN ${col} ${type}`);
   }
 }
+
+// NULL = no usable password right now (a Google-linked account that never added one); a timestamp
+// = a real, user-chosen password exists. An explicit fact recorded at write-time, not something
+// inferred from password_hash's content after the fact — there's no way to tell a real hash from
+// the random-unusable one Google-linking installs by inspecting it. No backfill needed: every
+// pre-existing plain-password row has google_sub NULL, so "passwordless" (computed as
+// `google_sub IS NOT NULL AND password_set_at IS NULL`) is already false for it regardless of this
+// column; every pre-existing pure-Google row has google_sub set and this NULL, reading as
+// passwordless exactly as before. See routes/auth.js.
+if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === "password_set_at")) {
+  db.exec("ALTER TABLE users ADD COLUMN password_set_at INTEGER");
+}

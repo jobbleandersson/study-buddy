@@ -23,6 +23,7 @@ export const USAGE_URL = `${API}/api/usage`;
 export const AUTH_SIGNUP_URL = `${API}/api/auth/signup`;
 export const AUTH_LOGIN_URL = `${API}/api/auth/login`;
 export const AUTH_GOOGLE_URL = `${API}/api/auth/google`;
+export const AUTH_SET_PASSWORD_URL = `${API}/api/auth/set-password`;
 export const AUTH_LOGOUT_URL = `${API}/api/auth/logout`;
 export const AUTH_ME_URL = `${API}/api/auth/me`;
 export const ACCOUNT_URL = `${API}/api/account`;

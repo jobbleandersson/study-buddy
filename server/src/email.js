@@ -95,3 +95,13 @@ export function sendTwoFaDisabledEmail(to) {
     `),
   });
 }
+
+export function sendPasswordAddedEmail(to) {
+  return sendEmail({
+    to, subject: "A password was added to your PluggEra account",
+    html: layout(`
+      <p>A password was just added to this PluggEra account, confirmed through your Google sign-in. From now on you can sign in either with Google or with your email and this password.</p>
+      <p style="font-size:13px;color:#6B7386">If this wasn't you, sign in with Google to check your account — whoever did this would need your Google sign-in to do it again.</p>
+    `),
+  });
+}

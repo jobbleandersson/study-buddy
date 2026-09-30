@@ -14,6 +14,7 @@ import { deleteAccountDialog } from "../components/delete-account-dialog.js";
 import { twofaSetupDialog } from "../components/twofa-setup-dialog.js";
 import { passwordConfirmDialog } from "../components/password-confirm-dialog.js";
 import { backupCodesDialog } from "../components/backup-codes-dialog.js";
+import { setPasswordDialog } from "../components/set-password-dialog.js";
 import { openWelcomeQuiz } from "../components/onboarding.js";
 import { playFanfare } from "../lib/sound.js";
 import { offlineSupported, isLibraryCached, cacheLibraryOffline } from "../lib/offline.js";
@@ -401,6 +402,12 @@ export function renderSettings() {
               finally { btn.disabled = false; }
             },
           }, t("set.acctResendVerification")));
+        }
+        if (store.authPasswordless) {
+          actions.appendChild(el("button.btn.btn--ghost.btn--sm", {
+            type: "button",
+            onclick: async () => { if (await setPasswordDialog()) { toast(t("setpw.addedToast")); paint(); } },
+          }, t("setpw.add")));
         }
         if (showTwofa && !store.totpEnabled) {
           actions.appendChild(el("button.btn.btn--ghost.btn--sm", {

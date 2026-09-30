@@ -8,11 +8,11 @@ import { asyncHandler } from "../middleware/asyncHandler.js";
 import {
   signupHourly, signupDaily, loginFailures, googleSignInLimit,
   resendVerificationLimit, forgotPasswordLimits, verifyEmailIpLimit, resetPasswordIpLimit,
-  twoFaVerifyLimits, twoFaPasswordLimit,
+  twoFaVerifyLimits, twoFaPasswordLimit, setPasswordLimit,
 } from "../middleware/authLimits.js";
 import { isUniqueViolation } from "../errors.js";
 import { requireAuth } from "../middleware/requireAuth.js";
-import { emailEnabled, sendVerifyEmail, sendResetEmail, sendTwoFaEnabledEmail, sendTwoFaDisabledEmail } from "../email.js";
+import { emailEnabled, sendVerifyEmail, sendResetEmail, sendTwoFaEnabledEmail, sendTwoFaDisabledEmail, sendPasswordAddedEmail } from "../email.js";
 import { generateSecret, verifyTotp, otpauthUri, generateBackupCodes } from "../totp.js";
 
 export const auth = Router();
@@ -55,6 +55,16 @@ function issueTwoFaChallenge(userId) {
 
 const emailTaken = (res) =>
   res.status(409).json({ error: { message: "An account with that email already exists." } });
+
+// The check /auth/set-password's whole security rests on: a fresh Google credential proves someone
+// currently controls *some* Google account, not that it's the one already linked to *this* row —
+// without this, a stolen session cookie plus the attacker's own (different, valid) Google account
+// would let them add a password to the victim's account. Compares `sub`, never `email`: email is
+// mutable on Google's side and isn't the identity key `users_google_sub`'s unique index uses.
+// Pulled out on its own so it can be unit-tested directly without any HTTP/JWT test scaffolding.
+export function googleIdentityMatches(row, profile) {
+  return !!row?.googleSub && row.googleSub === profile?.sub;
+}
 
 const VERIFY_TTL_MS = 24 * 60 * 60 * 1000;
 const RESET_TTL_MS = 60 * 60 * 1000;
@@ -124,8 +134,8 @@ auth.post("/auth/signup", signupHourly, signupDaily, asyncHandler(async (req, re
   const hash = await bcrypt.hash(password, 10);
   try {
     const now = Date.now();
-    db.prepare("INSERT INTO users (id, email, password_hash, created_at, consent_at, terms_version, email_verify_required) VALUES (?, ?, ?, ?, ?, ?, ?)")
-      .run(id, email, hash, now, now, TERMS_VERSION, emailEnabled() ? 1 : null);
+    db.prepare("INSERT INTO users (id, email, password_hash, created_at, consent_at, terms_version, email_verify_required, password_set_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)")
+      .run(id, email, hash, now, now, TERMS_VERSION, emailEnabled() ? 1 : null, now);
   } catch (e) {
     // The check above ran before the bcrypt await, so two signups for the same
     // new address can both get past it — the UNIQUE index turns the loser away.
@@ -159,7 +169,9 @@ auth.post("/auth/login", ...loginFailures, asyncHandler(async (req, res) => {
   }
 
   createSession(res, user.id);
-  res.json({ email, emailVerified: !emailEnabled() || !!user.emailVerifiedAt });
+  // Signing in with a password at all proves this account has one — never passwordless here,
+  // regardless of whether it's also Google-linked.
+  res.json({ email, emailVerified: !emailEnabled() || !!user.emailVerifiedAt, passwordless: false });
 }));
 
 // The code (from an authenticator app) or backup code that follows a password/reset-token check on
@@ -248,7 +260,9 @@ auth.post("/auth/google", googleSignInLimit, asyncHandler(async (req, res) => {
       // Linking to an account that already agreed at signup needs no new yes; making a new one does.
       if (!existing && req.body?.consent !== true) return consentRequired(res);
 
-      // A random hash nobody knows: this account signs in with Google only.
+      // A random hash nobody knows: this account signs in with Google only. password_set_at stays
+      // NULL below for a brand-new account (omitted from the INSERT) — passwordless from birth,
+      // same as the unusable hash right here.
       const unusableHash = await bcrypt.hash(crypto.randomBytes(32).toString("hex"), 10);
       try {
         // Either way the email is Google-verified right now — there's nothing for our own
@@ -256,7 +270,10 @@ auth.post("/auth/google", googleSignInLimit, asyncHandler(async (req, res) => {
         const now = Date.now();
         if (existing) {
           db.transaction(() => {
-            db.prepare("UPDATE users SET google_sub = ?, password_hash = ?, email_verified_at = ? WHERE id = ?")
+            // password_set_at = NULL right here, atomic with the password_hash that's becoming
+            // unusable — this is the one event that turns the password off, so the two travel
+            // together in one statement rather than being spread across the transaction.
+            db.prepare("UPDATE users SET google_sub = ?, password_hash = ?, email_verified_at = ?, password_set_at = NULL WHERE id = ?")
               .run(sub, unusableHash, now, existing.id);
             db.prepare("DELETE FROM sessions WHERE user_id = ?").run(existing.id);
             retireResetTokens(existing.id, now);
@@ -303,13 +320,15 @@ auth.post("/auth/logout", (req, res) => {
 auth.get("/auth/me", (req, res) => {
   const sid = req.cookies?.[COOKIE_NAME];
   const row = sid && db.prepare(
-    `SELECT users.email AS email, users.google_sub AS googleSub, users.email_verified_at AS emailVerifiedAt, users.totp_enabled_at AS totpEnabledAt
+    `SELECT users.email AS email, users.google_sub AS googleSub, users.password_set_at AS passwordSetAt, users.email_verified_at AS emailVerifiedAt, users.totp_enabled_at AS totpEnabledAt
      FROM sessions JOIN users ON users.id = sessions.user_id
      WHERE sessions.id = ? AND sessions.expires_at > ?`
   ).get(sid, Date.now());
-  // passwordless: a Google-linked account has no usable password, so account deletion asks for its email instead.
+  // passwordless: Google-linked with no password ever added, so there's no local sign-in step to
+  // type — account deletion asks for the Google email instead, and 2FA has nothing to protect.
+  // A hybrid account (linked to Google *and* has since added a password) is not passwordless.
   res.json(row
-    ? { authed: true, email: row.email, passwordless: !!row.googleSub, emailVerified: !emailEnabled() || !!row.emailVerifiedAt, totpEnabled: !!row.totpEnabledAt }
+    ? { authed: true, email: row.email, passwordless: !!row.googleSub && !row.passwordSetAt, emailVerified: !emailEnabled() || !!row.emailVerifiedAt, totpEnabled: !!row.totpEnabledAt }
     : { authed: false });
 });
 
@@ -352,9 +371,9 @@ auth.post("/auth/verify-email", verifyEmailIpLimit, asyncHandler(async (req, res
 }));
 
 // Always the same reply, whether or not that address has an account — otherwise this endpoint
-// would let anyone check which emails are registered. A Google-linked account has no password to
-// reset (it signs in with Google only), so it's silently skipped too; the reply doesn't say which
-// case applied. Two things follow from that:
+// would let anyone check which emails are registered. An account with no usable password (Google-
+// linked, never added one via /auth/set-password) has nothing to reset, so it's silently skipped
+// too; the reply doesn't say which case applied. Two things follow from that:
 //   • the email is sent in the background - waiting for the provider only when the account exists
 //     would make "has an account" measurably slower than "doesn't";
 //   • throttling can't be keyed on the address (a per-email counter that answers 429 tells anyone
@@ -365,8 +384,8 @@ const RESET_COOLDOWN_MS = 2 * 60 * 1000;
 auth.post("/auth/forgot-password", ...forgotPasswordLimits, asyncHandler(async (req, res) => {
   const email = String(req.body?.email || "").trim().toLowerCase();
   if (email && emailEnabled()) {
-    const user = db.prepare("SELECT id, google_sub AS googleSub FROM users WHERE email = ?").get(email);
-    if (user && !user.googleSub) {
+    const user = db.prepare("SELECT id, password_set_at AS passwordSetAt FROM users WHERE email = ?").get(email);
+    if (user && user.passwordSetAt) {
       const recent = db.prepare("SELECT 1 AS x FROM password_reset_tokens WHERE user_id = ? AND created_at > ?")
         .get(user.id, Date.now() - RESET_COOLDOWN_MS);
       if (!recent) sendResetEmail(email, issueResetToken(user.id)).catch(() => {});
@@ -398,8 +417,8 @@ auth.post("/auth/reset-password", resetPasswordIpLimit, asyncHandler(async (req,
     if (looksPreRegistered(before)) revokeTies(row.userId);   // see revokeTies: this hands the account to whoever owns the inbox
     // Clicking a link mailed to this address proves the address as surely as the verify-email flow
     // does, so an unverified account is now verified too — COALESCE leaves an already-set date alone.
-    db.prepare("UPDATE users SET password_hash = ?, email_verified_at = COALESCE(email_verified_at, ?) WHERE id = ?")
-      .run(hash, now, row.userId);
+    db.prepare("UPDATE users SET password_hash = ?, password_set_at = ?, email_verified_at = COALESCE(email_verified_at, ?) WHERE id = ?")
+      .run(hash, now, now, row.userId);
     // A reset that wasn't the account owner's idea is exactly the case where every other signed-in
     // device should be signed out — same move as linking a Google account (see /auth/google above).
     // This runs unconditionally, even when a 2FA step still follows below: proving control of the
@@ -495,4 +514,58 @@ auth.post("/auth/2fa/backup-codes/regenerate", requireAuth, twoFaPasswordLimit, 
     for (const plain of backupCodes) insert.run(crypto.randomUUID(), req.user.userId, bcrypt.hashSync(plain, 10), now);
   })();
   res.json({ ok: true, backupCodes });
+}));
+
+// Lets a Google-linked account add a password, so either method reaches the same account from
+// then on — asked for by a user who'd linked Google and found password sign-in (and
+// forgot-password) permanently dead for that address afterward, by the original design. Requires
+// a *fresh* Google credential for THIS account (not just an existing session — see
+// googleIdentityMatches above): at the moment it's presented, Google has just re-proven current
+// ownership, so the freshly-chosen password poses none of the pre-registration risk that made
+// /auth/google turn the old password off in the first place (it's never inherited from whatever an
+// earlier squatter might have set). Purely additive — unlike 2FA disable or a password reset, it
+// doesn't remove any existing protection or hand control to a new party — so it doesn't revoke
+// other sessions; a best-effort notification email is the safety net for a stolen-session attempt.
+auth.post("/auth/set-password", requireAuth, setPasswordLimit, asyncHandler(async (req, res) => {
+  const clientId = process.env.GOOGLE_CLIENT_ID;
+  if (!clientId) {
+    return res.status(501).json({ error: { message: "Google sign-in isn't set up on this server.", code: "google_not_configured" } });
+  }
+  const credential = String(req.body?.credential || "");
+  const password = String(req.body?.password || "");
+  const invalid = () => res.status(401).json({ error: { message: "Couldn't verify your Google sign-in.", code: "google_invalid" } });
+  if (!credential || credential.length > 4096) return invalid();
+  if (password.length < 8) return res.status(400).json({ error: { message: "Password must be at least 8 characters." } });
+  if (password.length > 200) return res.status(400).json({ error: { message: "Password is too long." } });
+
+  const row = db.prepare("SELECT google_sub AS googleSub, password_set_at AS passwordSetAt FROM users WHERE id = ?").get(req.user.userId);
+  if (!row?.googleSub) {
+    return res.status(400).json({ error: { message: "This account isn't linked to Google.", code: "no_google_account" } });
+  }
+  if (row.passwordSetAt) {
+    return res.status(400).json({ error: { message: "This account already has a password.", code: "password_already_set" } });
+  }
+
+  let profile;
+  try {
+    profile = await verifyGoogleIdToken(credential, { clientId });
+  } catch (e) {
+    const code = e instanceof GoogleTokenError ? e.code : "";
+    if (code === "email_unverified") {
+      return res.status(403).json({ error: { message: "Your Google account's email isn't verified.", code: "google_email_unverified" } });
+    }
+    if (code === "keys_unavailable") {
+      return res.status(503).json({ error: { message: "Google sign-in is unavailable right now. Try again shortly.", code: "google_unavailable" } });
+    }
+    return invalid();
+  }
+  if (!googleIdentityMatches(row, profile)) {
+    return res.status(403).json({ error: { message: "That Google account doesn't match this one.", code: "google_sub_mismatch" } });
+  }
+
+  const hash = await bcrypt.hash(password, 10);
+  const now = Date.now();
+  db.prepare("UPDATE users SET password_hash = ?, password_set_at = ? WHERE id = ?").run(hash, now, req.user.userId);
+  sendPasswordAddedEmail(req.user.email).catch(() => {});
+  res.json({ ok: true });
 }));

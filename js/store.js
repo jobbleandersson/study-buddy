@@ -17,7 +17,7 @@ import { findQuestion as findQuestionPure, dueQuestions as dueQuestionsPure } fr
 import { loadLibraryIndex, loadLibraryTranslations, englishFile } from "./lib/library-content.js";
 import { cleanRuleText, rulesForQuestion, RULE_MAX_COUNT } from "./lib/rules.js";
 import {
-  PROXY_HEALTH_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_GOOGLE_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, ACCOUNT_URL,
+  PROXY_HEALTH_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_GOOGLE_URL, AUTH_SET_PASSWORD_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, ACCOUNT_URL,
   RESEND_VERIFICATION_URL, VERIFY_EMAIL_URL, FORGOT_PASSWORD_URL, RESET_PASSWORD_URL, STATE_URL, USAGE_URL,
   AUTH_2FA_VERIFY_URL, AUTH_2FA_SETUP_URL, AUTH_2FA_CONFIRM_URL, AUTH_2FA_DISABLE_URL, AUTH_2FA_BACKUP_REGEN_URL,
 } from "./config.js";
@@ -1735,6 +1735,21 @@ class Store extends EventTarget {
     await this.refreshUsage();
     this.emit();
     return { created: !!data.created, linked: !!data.linked };
+  }
+
+  /** Adds a real, freshly-chosen password to a Google-linked account that doesn't have one yet —
+   *  `credential` is a *fresh* Google sign-in (re-proving current ownership), not the existing
+   *  session. Purely additive: either sign-in method reaches the same account afterward. */
+  async setPassword(credential, password) {
+    const res = await fetch(AUTH_SET_PASSWORD_URL, {
+      method: "POST", credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ credential, password }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw authError(data, t("login.somethingWrong"));
+    this.authPasswordless = false;
+    this.emit();
   }
 
   async logout() {

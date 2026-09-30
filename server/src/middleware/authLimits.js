@@ -92,6 +92,14 @@ export const twoFaPasswordLimit = attemptLimit({
   key: (req) => req.user?.userId, failureStatuses: [403],
 });
 
+// Presenting a Google credential to add a password (/auth/set-password) — same failure statuses as
+// googleSignInLimit (a bad/mismatched credential is a 401 or 403, not a wrong password), but keyed
+// per account since a session is already required to reach this route at all.
+export const setPasswordLimit = attemptLimit({
+  name: "set-password-fail", max: num("SET_PASSWORD_FAILS_PER_15MIN_PER_ACCOUNT", 5), windowMs: 15 * MIN,
+  key: (req) => req.user?.userId, failureStatuses: [401, 403],
+});
+
 // One ping per app load (see js/main.js) — generous enough that a whole class
 // opening the app on one school IP at once never gets blocked, tight enough
 // that a script hammering the endpoint can't grow the page_views table without bound.
