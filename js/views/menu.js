@@ -404,16 +404,15 @@ export function renderMenu(mode) {
   // Right-hand rail: upcoming deadlines (calendar) + an achievements teaser.
   // Nothing to show yet (fresh library, everything unlocked with no next
   // badge) → no rail, and the layout falls back to one column.
-  const rail = homeRail();
   // Only once there's at least one set: homeStarter() above already covers the empty state with
   // its own "pick a set" call to action, and showing this too would just repeat it.
   const ad = store.assignments.length ? houseAd() : null;
-  const layout = el(rail ? "div.home-layout" : "div.home-layout.home-layout--solo", {}, [
-    el("div.home-main", {}, [homeStarter(), todayPanel(), chatPanel(), ad, setsPanel].filter(Boolean)),
-    rail,
+  // One calm column, in the order a student acts: continue, this week, ask the AI, the sets.
+  const column = el("div.home-column", {}, [
+    homeStarter(), todayPanel(), backupPanel(), reviewPanel(), calendarPanel(), chatPanel(), ad, setsPanel,
   ].filter(Boolean));
 
-  return { title: t("menu.title"), node: el("div", {}, [greetingBlock, tonightCard(), dailySlot(), layout].filter(Boolean)), cleanup: menuCleanup };
+  return { title: t("menu.title"), node: el("div.home-page", {}, [greetingBlock, tonightCard(), dailySlot(), column].filter(Boolean)), cleanup: menuCleanup };
 }
 
 /** "AI study help": one row into the study chat, where the ways of studying are picked. Only when the
@@ -447,13 +446,6 @@ function tonightCard() {
     ]),
     el("span.tonightcard__cta", {}, finished ? t("tonight.cardOpen") : t("tonight.cardCta")),
   ]);
-}
-
-/** The right-hand rail on the home page: an always-present mini calendar +
- *  Upcoming list (plus the backup and review nudges when they apply). */
-function homeRail() {
-  const panels = [backupPanel(), reviewPanel(), calendarPanel()].filter(Boolean);
-  return panels.length ? el("aside.home-rail", {}, panels) : null;
 }
 
 /** "Your work is only on this device." — for a signed-out student with real
@@ -706,7 +698,7 @@ function deadlineRailContent() {
       calWrap.appendChild(monthCalendar({ marks, onPick, onAdd, onView: onMonthView }).el);
       calEmpty.hidden = true;
     } else {
-      calWrap.appendChild(weekStrip({ marks, onPick, onAdd, onView: onWeekView }).el);
+      calWrap.appendChild(weekStrip({ marks, onPick, onAdd, onView: onWeekView, labels: true }).el);
     }
     calToggle.textContent = calendarExpanded ? t("menu.calendarShowWeek") : t("menu.calendarShowMonth");
     calToggle.setAttribute("aria-expanded", String(calendarExpanded));
@@ -816,9 +808,7 @@ function homeHead() {
 
 /** For a brand-new student with no sets yet: one clear action plus a real
  *  starter set to open. Rendered as the first block of the main column
- *  (inside home-layout) rather than full-width above it — full-width would
- *  push the whole two-column grid down while leaving the rail's side empty,
- *  so Kommande/Utmärkelser end up floating with a big gap above them. */
+ *  (inside the home column), first. */
 function homeStarter() {
   if (store.assignments.length) return null;
   const needsSignIn = store.aiNeedsSignIn();

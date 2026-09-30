@@ -253,14 +253,23 @@ h1 { font-weight: 750; }
 /* A set close to full marks, in "Dina set" on the home page. */
 .acard__tag--near { background: var(--retry-tint); color: var(--retry-ink); }
 
-/* Below the two-column width the calendar follows the top card instead of sinking under every set. */
-@media (max-width: 1100px) {
-  .home-layout { display: flex; flex-direction: column; gap: 0; }
-  .home-layout .home-main { display: contents; }
-  .home-main > * { order: 3; }
-  .home-main > .home-hero, .home-main > .home__starter { order: 1; }
-  .home-layout > .home-rail { order: 2; margin-bottom: var(--s-5); }
+/* ---------- home: one centred column ---------- */
+.home-page { max-width: 960px; margin: 0 auto; }
+.home-column .home-panel--sets .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+/* "Kalender" spans the column: this week as seven big day buttons, the month on demand. */
+.home-column .cal--week .cal__grid { gap: 8px; }
+.home-column .cal--week .cal__cell {
+  aspect-ratio: auto; height: 68px; border-radius: 14px; background: var(--surface-sunk);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  font-family: var(--font-display); font-size: 18px; font-weight: 800;
 }
+.cal__wdl { font-family: var(--font-body); font-size: 11px; font-weight: 700; color: var(--ink-faint); text-transform: capitalize; }
+.home-column .cal--week .cal__cell.is-today { background: var(--brand); color: #fff; box-shadow: none; }
+.home-column .cal--week .cal__cell.is-today .cal__wdl { color: rgba(255, 255, 255, .85); }
+.home-column .cal--week .cal__dot { bottom: 7px; background: var(--retry); }
+.home-column .cal--week .cal__cell.is-today .cal__dot { background: #fff; }
+.home-column .cal:not(.cal--week) .cal__cell { aspect-ratio: auto; height: 44px; }
+.home-column .upcoming .cal { margin-bottom: var(--s-4); }
 @media (max-width: 620px) {
   .home-hero { padding: var(--s-4); }
   .home-hero__top { gap: var(--s-3); }
@@ -269,5 +278,8 @@ h1 { font-weight: 750; }
   .home-hero__goal-num { font-size: 14px; }
   .home-hero__goal-label { font-size: 9px; }
   .home-hero__cta { flex: 1 1 100%; justify-content: center; }
+  .home-column .home-panel--sets .grid { grid-template-columns: 1fr; }
+  .home-column .cal--week .cal__grid { gap: 4px; }
+  .home-column .cal--week .cal__cell { height: 58px; font-size: 15px; border-radius: 10px; }
   .home-hero--quiet { flex-wrap: wrap; }
 }

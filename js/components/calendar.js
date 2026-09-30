@@ -285,7 +285,8 @@ export function monthCalendar({ marks = new Map(), onPick, onView, onAdd } = {})
  *  fires on every paint — initial and after paging — with the day keys of
  *  the visible week, so the caller can filter its own list/empty-state to
  *  match whichever week is currently in view. */
-export function weekStrip({ marks = new Map(), onPick, onView, onAdd } = {}) {
+export function weekStrip({ marks = new Map(), onPick, onView, onAdd, labels = false } = {}) {
+  const weekday = new Intl.DateTimeFormat(locale(), { weekday: "short" });
   const today = localDayKey();
   let weekStart = addDays(keyOf(new Date()), -mondayIndex(new Date()));
 
@@ -326,6 +327,7 @@ export function weekStrip({ marks = new Map(), onPick, onView, onAdd } = {}) {
         onclick: mark && onPick ? (e) => onPick(key, mark, e.currentTarget)
           : canAdd ? (e) => onAdd(key, e.currentTarget) : undefined,
       }, [
+        labels && el("span.cal__wdl", {}, weekday.format(date).replace(".", "")),
         String(date.getDate()),
         mark && el("span.cal__dot" + (mark.ids.length > 1 ? ".cal__dot--multi" : "")),
         canAdd && el("span.cal__add", { "aria-hidden": "true" }, "+"),
