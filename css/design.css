@@ -202,3 +202,91 @@ h1 { font-weight: 750; }
 .home-panel { border-radius: var(--r-lg); box-shadow: var(--shadow-card); }
 .home-panel__label > span:first-child { font-size: 15px; font-weight: 650; letter-spacing: -.01em; }
 .home-panel__label .linkbtn { font-size: 13.5px; font-weight: 600; }
+
+/* ---------- home: the top card ---------- */
+/* One card leads the page: the run to pick back up with one big button, today's goal as a ring,
+   and links to what's due and the weak spots. Without an open run it drops to a quiet strip. */
+.home-hero {
+  display: flex; flex-direction: column; gap: var(--s-4); padding: var(--s-5) var(--s-6);
+  background: var(--brand-tint); border-color: color-mix(in srgb, var(--brand) 55%, var(--line));
+}
+.home-hero__top { display: flex; align-items: center; gap: var(--s-5); }
+.home-hero__text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.home-hero__eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--brand-ink); }
+.home-hero__title { margin: 0; font-size: var(--fs-xl); font-weight: 800; letter-spacing: -.015em; line-height: 1.2; overflow-wrap: anywhere; }
+.home-hero__meta { font-size: var(--fs-sm); color: var(--ink-soft); }
+.home-hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2) var(--s-5); }
+.home-hero__cta { min-height: 48px; padding: 0 22px; font-size: var(--fs-md); }
+.home-hero__link {
+  display: inline-flex; align-items: center; gap: 4px; min-height: 44px;
+  font-weight: 600; font-size: var(--fs-sm); color: var(--brand-ink); text-decoration: none;
+}
+.home-hero__link svg { transition: transform var(--dur-fast); }
+.home-hero__link:hover svg { transform: translateX(2px); }
+.home-hero__goal {
+  --ring: var(--brand-bright, var(--brand));
+  flex: none; width: 88px; height: 88px; border-radius: 50%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-decoration: none; color: var(--ink);
+  background:
+    radial-gradient(closest-side, var(--brand-tint) calc(100% - 7px), transparent calc(100% - 6px)),
+    conic-gradient(var(--ring) calc(var(--v) * 1%), var(--line-strong) 0);
+}
+.home-hero__goal.is-done { --ring: var(--ok-bright); }
+.home-hero__goal-num { font-family: var(--font-display); font-weight: 800; font-size: 18px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.home-hero__goal-label { font-size: 10.5px; color: var(--ink-soft); }
+.home-hero--quiet { flex-direction: row; align-items: center; gap: var(--s-5); padding: var(--s-4) var(--s-5); background: var(--surface); border-color: var(--line); }
+.home-hero--quiet .home-hero__goal { width: 72px; height: 72px; background:
+    radial-gradient(closest-side, var(--surface) calc(100% - 6px), transparent calc(100% - 5px)),
+    conic-gradient(var(--ring) calc(var(--v) * 1%), var(--line-strong) 0); }
+.home-hero--quiet .home-hero__eyebrow { color: var(--ink); font-size: 15px; letter-spacing: -.01em; text-transform: none; margin-right: var(--s-2); }
+
+/* The AI study help: one row into the chat. */
+.home-chatrow { display: flex; align-items: center; gap: var(--s-4); padding: var(--s-4) var(--s-5); color: inherit; text-decoration: none; }
+.home-chatrow:hover { border-color: var(--line-strong); }
+.home-chatrow__ic { width: 44px; height: 44px; flex: none; border-radius: 12px; display: grid; place-items: center; background: var(--c-grape-tint); color: var(--c-grape); }
+.home-chatrow__body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.home-chatrow__body strong { font-family: var(--font-display); font-size: var(--fs-md); }
+.home-chatrow__body span { font-size: var(--fs-sm); color: var(--ink-soft); }
+.home-chatrow > svg:last-child { flex: none; color: var(--ink-faint); }
+
+/* "Dina set" on the home page reads as a list: one row per set, the subject as a small square. */
+.home-panel--sets .grid { display: flex; flex-direction: column; gap: 0; }
+.home-panel--sets .acard {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "title meta" "tags meta";
+  align-items: center; column-gap: var(--s-4); row-gap: 6px; min-height: 0;
+  padding: 14px 48px 14px 34px; border: 0; border-top: 1px solid var(--line); border-radius: 0;
+  box-shadow: none; background: transparent; animation: none;
+}
+.home-panel--sets .acard:hover { box-shadow: none; background: color-mix(in srgb, var(--brand) 4%, transparent); }
+.home-panel--sets .acard::before { left: 12px; top: 19px; right: auto; width: 10px; height: 10px; border-radius: 3px; opacity: 1; }
+.home-panel--sets .acard__title { grid-area: title; font-size: var(--fs-md); }
+.home-panel--sets .acard__tags { grid-area: tags; padding-right: 0 !important; }
+.home-panel--sets .acard__meta { grid-area: meta; margin: 0; gap: var(--s-4); }
+.home-panel--sets .acard__menu { top: 50%; transform: translateY(-50%); }
+.home-panel--sets .acard--new {
+  display: flex; flex-direction: row; justify-content: flex-start; gap: var(--s-2); min-height: 48px;
+  padding: 12px 12px; border: 0; border-top: 1px solid var(--line); color: var(--brand-ink);
+}
+.acard__tag--near { background: var(--retry-tint); color: var(--retry-ink); }
+
+/* Below the two-column width the calendar follows the top card instead of sinking under every set. */
+@media (max-width: 1100px) {
+  .home-layout { display: flex; flex-direction: column; gap: 0; }
+  .home-layout .home-main { display: contents; }
+  .home-main > * { order: 3; }
+  .home-main > .home-hero, .home-main > .home__starter { order: 1; }
+  .home-layout > .home-rail { order: 2; margin-bottom: var(--s-5); }
+}
+@media (max-width: 620px) {
+  .home-hero { padding: var(--s-4); }
+  .home-hero__top { gap: var(--s-3); }
+  .home-hero__title { font-size: 1.3rem; }
+  .home-hero__goal { width: 64px; height: 64px; }
+  .home-hero__goal-num { font-size: 14px; }
+  .home-hero__goal-label { font-size: 9px; }
+  .home-hero__cta { flex: 1 1 100%; justify-content: center; }
+  .home-hero--quiet { flex-wrap: wrap; }
+  .home-panel--sets .acard { grid-template-columns: minmax(0, 1fr); grid-template-areas: "title" "tags" "meta"; }
+  .home-panel--sets .acard__meta { justify-content: flex-start; }
+}
