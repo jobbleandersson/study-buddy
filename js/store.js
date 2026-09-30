@@ -102,6 +102,13 @@ function libraryQuestion(d) {
 
 const DAY_RE = /^\d{4}-\d{2}-\d{2}$/;
 
+/** Take a set off a test: no date, and back to a plain set if the exam-prep
+ *  dialog is what made it a test (see Store.setExam). */
+function unmarkExamSet(a) {
+  a.dueAt = null;
+  if (a.examMark) { a.type = "assignment"; delete a.examMark; }
+}
+
 // `ink` is the text-safe variant: >= 4.5:1 against both white and its own tint.
 // `solid` is for fills and borders, where 3:1 is the bar.
 export const PALETTE = [
@@ -614,7 +621,10 @@ class Store extends EventTarget {
   _sweepStaleDueDates() {
     const cutoff = addDays(localDayKey(), -DUE_GRACE_DAYS);
     for (const a of this.state.assignments) {
-      if (a.dueAt && a.dueAt < cutoff) a.dueAt = null;
+      if (a.dueAt && a.dueAt < cutoff) {
+        if (a.examMark) unmarkExamSet(a);
+        else a.dueAt = null;
+      }
     }
   }
 
@@ -1179,7 +1189,40 @@ class Store extends EventTarget {
     const next = type === "test" ? "test" : "assignment";
     this.update((s) => {
       const a = s.assignments.find((x) => x.id === id);
-      if (a) a.type = next;
+      // Chosen by hand now, so it stays whatever the student picked.
+      if (a) { a.type = next; delete a.examMark; }
+    });
+  }
+
+  /** Save a subject's test from the exam-prep dialog: the ticked sets become
+   *  "test" sets due that day, and sets that were on this test before but got
+   *  unticked lose the date. `prevDate` is the date the test had before an
+   *  edit (null for a new one). A set the dialog turned into a test remembers
+   *  it (`examMark`), so taking it off again — or the test passing — makes it
+   *  a plain set again instead of one that opens in test mode forever. */
+  setExam(subjectId, dayKey, setIds, prevDate = null) {
+    if (!DAY_RE.test(dayKey || "")) return false;
+    const keep = new Set(setIds);
+    this.update((s) => {
+      for (const a of s.assignments) {
+        if (a.subjectId !== subjectId) continue;
+        if (keep.has(a.id)) {
+          if (a.type !== "test") { a.type = "test"; a.examMark = true; }
+          a.dueAt = dayKey;
+        } else if (prevDate && a.type === "test" && a.dueAt === prevDate) {
+          unmarkExamSet(a);
+        }
+      }
+    });
+    return true;
+  }
+
+  /** Remove a subject's test on `dayKey` (the exam-prep dialog's delete). */
+  clearExam(subjectId, dayKey) {
+    this.update((s) => {
+      for (const a of s.assignments) {
+        if (a.subjectId === subjectId && a.type === "test" && a.dueAt === dayKey) unmarkExamSet(a);
+      }
     });
   }
 

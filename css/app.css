@@ -2251,63 +2251,272 @@ body.route-chat .sitechat__panel { display: none; }
 .sparkline circle.last { fill: var(--ok); }
 
 /* ---------- exam prep ---------- */
-.exam-prep { display: grid; gap: var(--s-4); }
+.exam-prep { display: grid; gap: var(--s-5); }
+.exam-prep h1 { margin: 0; }
+.exam-prep .panel { margin: 0; }
 .exam-prep__cols { display: grid; gap: var(--s-4); align-items: start; }
 .exam-prep__col { display: grid; gap: var(--s-4); min-width: 0; }
 @media (min-width: 1100px) {
   .exam-prep__cols { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
 }
-.exam-prep h1 { margin: 0; }
-.exam-prep .panel { margin: 0; }
-.exam-prep__head { border-left: 3px solid var(--brand); }
-.exam-prep__when { margin: 0; font-weight: 700; display: flex; align-items: center; gap: 6px; }
-.exam-prep__when svg { flex: none; color: var(--brand-ink); }
-.exam-prep__sets { display: flex; flex-direction: column; gap: var(--s-2); }
-.exam-prep__set {
-  display: flex; align-items: center; gap: var(--s-2);
-  padding: 4px 8px 4px var(--s-3); border-radius: var(--r-md);
-  background: var(--surface); border: 1px solid var(--line);
-  transition: border-color var(--dur-fast);
+.exam-dot {
+  display: inline-block; flex: none; width: 10px; height: 10px; border-radius: 3px;
+  background: var(--subject, var(--brand));
 }
-.exam-prep__set:hover { border-color: var(--brand); }
-.exam-prep__set-link { display: flex; align-items: center; gap: var(--s-3); flex: 1; min-width: 0; text-decoration: none; color: inherit; padding: 6px 0; }
-.exam-prep__set-title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
-.exam-prep__set-pct { flex: none; font-weight: 700; color: var(--ink-soft); }
-.exam-prep__set svg { flex: none; color: var(--ink-faint); }
-.exam-prep__actions { display: flex; flex-wrap: wrap; gap: var(--s-3); align-items: center; }
-.exam-prep__mock { display: flex; gap: var(--s-2); align-items: flex-end; flex-wrap: wrap; }
-.exam-prep__pick { display: flex; flex-direction: column; gap: var(--s-2); margin-top: var(--s-3); }
-.exam-prep__pick-card {
+
+/* Hero: the countdown and today's session, the readiness ring beside it. */
+.exam-hero {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s-5); align-items: center;
+  padding: var(--s-5) var(--s-6, 28px);
+  border: 1px solid var(--line); border-radius: var(--r-lg);
+  background:
+    radial-gradient(120% 140% at 0% 0%, color-mix(in srgb, var(--subject) 14%, transparent), transparent 60%),
+    var(--surface);
+  box-shadow: var(--shadow-1);
+}
+.exam-hero__main { min-width: 0; }
+.exam-hero__eyebrow {
+  display: flex; align-items: center; gap: 8px; margin: 0 0 6px;
+  font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft);
+}
+.exam-hero__title {
+  font-family: var(--font-display); font-weight: 800; letter-spacing: -.025em; line-height: 1.05;
+  font-size: clamp(30px, 4.2vw, 44px); text-wrap: balance;
+}
+.exam-hero__meta {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px;
+  margin: 10px 0 0; font-size: var(--fs-sm); color: var(--ink-soft);
+}
+.exam-hero__meta .linkbtn { display: inline-flex; align-items: center; gap: 4px; }
+.exam-hero__lede { margin: 10px 0 0; max-width: 58ch; color: var(--ink-soft); }
+.exam-hero__cta { margin-top: var(--s-4); }
+.exam-hero__side { display: grid; justify-items: center; gap: 8px; }
+.exam-hero__cover { margin: 0; font-size: 12px; color: var(--ink-faint); text-align: center; }
+
+.exam-ring { position: relative; width: 136px; aspect-ratio: 1; }
+.exam-ring svg { display: block; width: 100%; height: 100%; }
+.exam-ring__track { fill: none; stroke: var(--surface-sunk); stroke-width: 8; }
+.exam-ring__fill {
+  fill: none; stroke: var(--subject, var(--brand)); stroke-width: 8; stroke-linecap: round;
+  transition: stroke-dasharray var(--dur-slow) var(--ease-out);
+}
+.exam-ring__val {
+  position: absolute; inset: 0; display: grid; place-content: center; text-align: center; line-height: 1.1;
+}
+.exam-ring__val b { font-family: var(--font-display); font-size: 30px; font-weight: 800; letter-spacing: -.02em; }
+.exam-ring__val span { font-size: 12px; font-weight: 600; color: var(--ink-faint); }
+
+/* Today's session — the one thing to do now. */
+.exam-today {
+  display: flex; align-items: center; gap: var(--s-3) var(--s-4); flex-wrap: wrap;
+  margin-top: var(--s-4); padding: var(--s-3) var(--s-3) var(--s-3) var(--s-4);
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md);
+}
+.exam-today__text { display: grid; gap: 2px; flex: 1 1 220px; min-width: 0; }
+.exam-today__label {
+  font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-faint);
+}
+.exam-today__task { font-weight: 650; color: var(--ink); }
+.exam-today .btn { flex: none; }
+.exam-today.is-done { border-color: color-mix(in srgb, var(--ok) 45%, var(--line)); background: var(--ok-tint); }
+.exam-today.is-done .exam-today__label { color: var(--ok-ink); }
+.exam-today.is-done .exam-today__task { font-weight: 500; color: var(--ink-soft); }
+.exam-today__check {
+  flex: none; display: grid; place-items: center; width: 34px; height: 34px;
+  border-radius: var(--r-full); background: var(--ok); color: #fff;
+}
+
+/* Panels below the hero. */
+.exam-panel__head { margin: 0 0 4px; font-family: var(--font-display); font-size: var(--fs-md); font-weight: 700; }
+.exam-sub { margin: var(--s-5) 0 var(--s-2); font-size: var(--fs-sm); font-weight: 700; color: var(--ink); }
+
+/* The plan, today → test day. */
+.exam-plan { list-style: none; margin: var(--s-3) 0 0; padding: 0; display: grid; gap: 2px; }
+.exam-plan__day {
+  display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; align-items: center;
+  gap: var(--s-3); min-height: 40px; padding: 6px 10px; border-radius: var(--r-sm); font-size: var(--fs-sm);
+}
+.exam-plan__day.is-folded { display: none; }
+.exam-plan__when { color: var(--ink-faint); font-weight: 700; font-size: 12px; text-transform: capitalize; }
+.exam-plan__task { min-width: 0; color: var(--ink-soft); }
+.exam-plan__min { color: var(--ink-faint); font-size: 12px; }
+.exam-plan__day.is-today { background: var(--brand-tint); }
+.exam-plan__day.is-today .exam-plan__when { color: var(--brand-ink); }
+.exam-plan__day.is-today .exam-plan__task { color: var(--ink); font-weight: 600; }
+.exam-plan__day.is-done { background: var(--ok-tint); }
+.exam-plan__day.is-done .exam-plan__when, .exam-plan__tick { color: var(--ok-ink); }
+.exam-plan__tick { display: grid; place-items: center; padding-right: 6px; }
+.exam-plan__day.is-test .exam-plan__task { color: var(--ink); font-weight: 600; }
+.exam-plan__day .btn--sm { padding: 4px 12px; white-space: nowrap; }
+.exam-plan__more { padding: 2px 10px; font-size: var(--fs-sm); }
+
+/* Mock exam. */
+.exam-mock__row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3); margin-top: var(--s-3); }
+.exam-mock__last { margin: 6px 0 0; font-size: var(--fs-sm); font-weight: 600; color: var(--ink-soft); }
+.exam-seg { display: inline-flex; gap: 2px; padding: 3px; border-radius: var(--r-full); background: var(--surface-sunk); }
+.exam-seg__opt {
+  min-height: 34px; padding: 0 14px; border: 0; border-radius: var(--r-full); background: transparent;
+  font: inherit; font-size: var(--fs-sm); font-weight: 600; color: var(--ink-soft); cursor: pointer;
+}
+.exam-seg__opt:hover { color: var(--ink); }
+.exam-seg__opt[aria-checked="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-1); }
+
+/* Where you stand: one row per set on the test. */
+.exam-sets { display: flex; flex-direction: column; gap: var(--s-2); margin-top: var(--s-3); }
+.exam-set {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto auto auto; align-items: center; gap: var(--s-3);
+  padding: 10px 10px 10px var(--s-3); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface);
+}
+.exam-set__main { display: grid; gap: 4px; min-width: 0; }
+.exam-set__title { font-weight: 600; overflow-wrap: break-word; }
+.exam-set__meta { font-size: 12px; color: var(--ink-faint); }
+.exam-set__pct { min-width: 38px; text-align: right; font-weight: 700; color: var(--ink-soft); }
+.exam-bar { height: 6px; border-radius: var(--r-full); background: var(--surface-sunk); overflow: hidden; }
+.exam-bar i {
+  display: block; height: 100%; border-radius: inherit; background: var(--subject, var(--brand));
+  transition: width var(--dur-slow) var(--ease-out);
+}
+.exam-others { margin: var(--s-2) 0 0; font-size: var(--fs-sm); color: var(--ink-faint); }
+.exam-weak { display: grid; gap: var(--s-3); justify-items: start; }
+.exam-weak__chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.exam-chip {
+  display: inline-flex; align-items: center; min-height: 32px; padding: 0 12px;
+  border: 1px solid var(--line-strong); border-radius: var(--r-full);
+  font-size: var(--fs-sm); font-weight: 600; color: var(--ink-soft); text-decoration: none;
+  transition: border-color var(--dur-fast), color var(--dur-fast);
+}
+.exam-chip:hover { border-color: var(--subject, var(--brand)); color: var(--ink); }
+.exam-due { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin: var(--s-4) 0 0; font-size: var(--fs-sm); }
+.exam-due svg { color: var(--brand-ink); }
+.exam-topics { margin-top: var(--s-4); border-top: 1px solid var(--line); padding-top: var(--s-3); }
+.exam-topics summary { cursor: pointer; font-size: var(--fs-sm); font-weight: 600; color: var(--ink-soft); min-height: 24px; }
+.exam-topics summary:hover { color: var(--ink); }
+.exam-topics__list { display: grid; gap: 8px; margin-top: var(--s-3); }
+.exam-topic {
+  display: grid; grid-template-columns: minmax(0, 1fr) 36% 40px; align-items: center; gap: var(--s-3); font-size: var(--fs-sm);
+}
+.exam-topic__name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink-soft); }
+.exam-topic__pct { text-align: right; font-weight: 700; color: var(--ink-soft); }
+
+/* #/exam-prep — coming tests as cards, other subjects as rows. */
+.exam-lede { margin: -8px 0 0; max-width: 62ch; color: var(--ink-soft); }
+.exam-section { display: grid; gap: var(--s-3); }
+.exam-section__head { margin: 0; font-family: var(--font-display); font-size: var(--fs-md); font-weight: 700; }
+.exam-cards { display: grid; gap: var(--s-3); grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+.exam-card {
+  display: grid; gap: var(--s-3); align-content: start;
+  padding: var(--s-4); border: 1px solid var(--line); border-radius: var(--r-lg);
+  background:
+    radial-gradient(90% 120% at 0% 0%, color-mix(in srgb, var(--subject) 10%, transparent), transparent 55%),
+    var(--surface);
+}
+.exam-card__top { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); }
+.exam-card__name {
+  display: inline-flex; align-items: center; gap: 8px; min-width: 0;
+  font-family: var(--font-display); font-size: var(--fs-md); font-weight: 700; color: var(--ink); text-decoration: none;
+}
+.exam-card__name:hover { text-decoration: underline; text-underline-offset: 3px; }
+.exam-card__meta { margin: -6px 0 0; font-size: var(--fs-sm); color: var(--ink-faint); }
+.exam-pill {
+  flex: none; padding: 3px 10px; border-radius: var(--r-full);
+  font-size: 12px; font-weight: 700; background: var(--surface-sunk); color: var(--ink-soft);
+}
+.exam-pill.is-soon { background: var(--retry-tint); color: var(--retry-ink); }
+.exam-card__ready { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--s-3); }
+.exam-card__ready span { font-size: var(--fs-sm); font-weight: 600; color: var(--ink-soft); }
+.exam-card__today {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--s-3);
+  padding-top: var(--s-3); border-top: 1px solid var(--line);
+}
+.exam-card__task { min-width: 0; font-size: var(--fs-sm); color: var(--ink-soft); }
+.exam-card__task b { color: var(--ink); }
+.exam-card__done { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-sm); font-weight: 600; color: var(--ok-ink); }
+.exam-card__today .btn--sm { flex: none; padding: 4px 12px; white-space: nowrap; }
+.exam-rows { display: flex; flex-direction: column; gap: var(--s-2); }
+.exam-row {
   display: flex; align-items: center; gap: var(--s-3);
-  padding: var(--s-3) var(--s-4); border-radius: var(--r-md);
-  background: var(--surface); border: 1px solid var(--line);
-  border-left: 3px solid var(--subject, var(--brand));
-  text-decoration: none; color: inherit;
-  transition: border-color var(--dur-fast), background var(--dur-fast);
+  min-height: 52px; padding: 6px 8px 6px var(--s-4);
+  border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface);
 }
-.exam-prep__pick-card:hover { background: var(--surface-sunk); }
-.exam-prep__pick-name { flex: 1; min-width: 0; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.exam-prep__pick-when {
-  flex: none; font-size: 12px; font-weight: 600; color: var(--ink-soft);
-  background: var(--surface-sunk); padding: 2px 8px; border-radius: var(--r-full);
+.exam-row__name {
+  display: inline-flex; align-items: center; gap: 10px; flex: 1; min-width: 0;
+  font-weight: 700; color: var(--ink); text-decoration: none;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
-.exam-prep__pick-pct { flex: none; font-weight: 700; color: var(--ink-soft); }
-.exam-prep__pick-card svg { flex: none; color: var(--ink-faint); }
+.exam-row__name:hover { text-decoration: underline; text-underline-offset: 3px; }
+.exam-row__ready { flex: none; font-size: var(--fs-sm); color: var(--ink-faint); }
+.exam-row > svg { flex: none; color: var(--ink-faint); margin-right: 8px; }
 
-/* Subject % sits in the heading; the body is a per-topic breakdown, weakest
-   first — one whole-subject bar isn't much to prep from. */
-.exam-prep__mastery-head { display: flex; align-items: baseline; gap: var(--s-2); flex-wrap: wrap; }
-.exam-prep__pct { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-md); color: var(--ink-soft); }
-.exam-prep__topics { display: flex; flex-direction: column; gap: 2px; margin-top: var(--s-2); }
-.exam-prep__topics .meter { grid-template-columns: minmax(88px, 42%) 1fr 44px; }
+/* How it works — a real sequence, so it's numbered. */
+.exam-how {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: var(--s-3); grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+}
+.exam-how__step {
+  display: flex; gap: var(--s-3); align-items: flex-start;
+  padding: var(--s-4); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface);
+}
+.exam-how__n {
+  flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: var(--r-full);
+  background: var(--brand-tint); color: var(--brand-ink); font-weight: 800; font-size: var(--fs-sm);
+}
+.exam-how__text { display: grid; gap: 2px; min-width: 0; }
+.exam-how__text b { display: flex; align-items: center; gap: 6px; font-size: var(--fs-sm); }
+.exam-how__text b svg { color: var(--ink-faint); }
+.exam-how__text span { font-size: var(--fs-sm); color: var(--ink-soft); }
 
-/* The dated study plan — today → test day, one task per row. */
-.exam-prep__plan { border-left: 3px solid var(--brand); }
-.exam-prep__days { list-style: none; margin: var(--s-3) 0 0; padding: 0; display: grid; gap: 2px; }
+/* "Lägg till prov" dialog. */
+.exam-dlg { max-width: 460px; max-height: calc(100dvh - 32px); overflow-y: auto; }
+.exam-dlg h3 { margin: 0; }
+.exam-dlg__lede { margin: 4px 0 0; }
+.exam-dlg__label {
+  display: flex; align-items: center; gap: 6px; margin: var(--s-4) 0 var(--s-2);
+  font-size: var(--fs-sm); font-weight: 700; color: var(--ink);
+}
+.exam-dlg__label svg { color: var(--ink-faint); }
+.exam-dlg__label--row { justify-content: space-between; }
+.exam-dlg__label--row > span { display: inline-flex; align-items: center; gap: 6px; }
+.exam-dlg__all { font-size: var(--fs-sm); font-weight: 600; }
+.exam-dlg__sets {
+  display: flex; flex-direction: column; gap: 2px; max-height: 240px; overflow-y: auto;
+  padding: 4px; border: 1px solid var(--line); border-radius: var(--r-md);
+}
+.exam-dlg__set {
+  display: flex; align-items: center; gap: var(--s-3); min-height: 40px; padding: 6px 10px;
+  border-radius: var(--r-sm); font-size: var(--fs-sm); cursor: pointer;
+}
+.exam-dlg__set:hover { background: var(--surface-sunk); }
+.exam-dlg__set input { flex: none; width: 18px; height: 18px; accent-color: var(--brand); }
+.exam-dlg__set > span:first-of-type { flex: 1; min-width: 0; }
+.exam-dlg__n { flex: none; font-size: 12px; color: var(--ink-faint); }
+.exam-dlg__err { margin: var(--s-2) 0 0; font-size: var(--fs-sm); font-weight: 600; color: var(--retry-ink); }
+.exam-dlg__err:empty { display: none; }
+.exam-dlg__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: var(--s-4); }
+.exam-dlg__remove { margin-left: auto; color: var(--retry-ink); }
+
+@media (max-width: 700px) {
+  .exam-hero { grid-template-columns: minmax(0, 1fr); padding: var(--s-4); gap: var(--s-4); }
+  .exam-hero__side { grid-row: 1; grid-template-columns: auto 1fr; justify-items: start; align-items: center; }
+  .exam-hero__cover { text-align: left; }
+  .exam-ring { width: 84px; }
+  .exam-ring__val b { font-size: 20px; }
+  .exam-ring__val span { display: none; }
+  .exam-today .btn { width: 100%; justify-content: center; }
+  .exam-set { grid-template-columns: minmax(0, 1fr) auto auto; }
+  .exam-set__pct { display: none; }
+  .exam-row { flex-wrap: wrap; row-gap: 0; }
+}
+
+/* The Högskoleprov hub (views/hp.js) still lays its dated plan out with the
+   old exam-prep plan markup. */
 .exam-prep__day {
   display: grid; grid-template-columns: 66px 1fr auto; align-items: center;
   gap: var(--s-3); padding: 8px 10px; border-radius: var(--r-sm); font-size: var(--fs-sm);
 }
+.exam-prep__actions { display: flex; flex-wrap: wrap; gap: var(--s-3); align-items: center; }
+.exam-prep__mastery-head { display: flex; align-items: baseline; gap: var(--s-2); flex-wrap: wrap; }
+.exam-prep__pct { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-md); color: var(--ink-soft); }
+.exam-prep__days { list-style: none; margin: var(--s-3) 0 0; padding: 0; display: grid; gap: 2px; }
 .exam-prep__day-when { color: var(--ink-faint); font-weight: 700; font-size: 12px; text-transform: capitalize; }
 .exam-prep__day-task { min-width: 0; color: var(--ink-soft); }
 .exam-prep__day-min { color: var(--ink-faint); font-size: 12px; flex: none; }

@@ -60,6 +60,9 @@ export async function renderSession(assignmentId, qs) {
   // answered by voice or tap (components/bus-question.js). It always counts as
   // practice, even on a test set — feedback is spoken straight away.
   const bus = !examMode && qs?.get?.("bus") === "1";
+  // ?practice=1 runs a test set as ordinary practice — tutor on, feedback as
+  // you go. Exam prep links here: getting ready for a test shouldn't lock help.
+  const practice = !examMode && !bus && qs?.get?.("practice") === "1";
   const allIds = assignment.questions
     .filter((q) => !bus || isBusQuestion(q))
     .map((q) => q.id);
@@ -69,6 +72,7 @@ export async function renderSession(assignmentId, qs) {
   const questionIds = count ? shuffled(allIds).slice(0, count) : allIds;
   const retryQuery = count ? (examQuery ? `${examQuery}&count=${count}` : `?count=${count}`) : examQuery;
   const busQuery = bus ? (retryQuery ? "&bus=1" : "?bus=1") : "";
+  const practiceQuery = practice ? (retryQuery ? "&practice=1" : "?practice=1") : "";
 
   // A friend's challenge (#/utmaning): remembered on the attempt so the results
   // screen can compare. A retry is an ordinary run, hence not in retryQuery.
@@ -77,18 +81,18 @@ export async function renderSession(assignmentId, qs) {
   return runSession({
     // A shorter run keeps its own resumable slot, so it can't resume into a
     // full run of the same set (or the other way round); same for a challenge.
-    key: `${assignment.id}${examMode ? "::exam" : ""}${count ? `::n${count}` : ""}${challenge ? "::ch" : ""}${bus ? "::bus" : ""}`,
+    key: `${assignment.id}${examMode ? "::exam" : ""}${count ? `::n${count}` : ""}${challenge ? "::ch" : ""}${bus ? "::bus" : ""}${practice ? "::practice" : ""}`,
     challenge,
     assignmentId: assignment.id,
     title: assignment.title,
-    type: bus ? "assignment" : assignment.type,
+    type: bus || practice ? "assignment" : assignment.type,
     bus,
-    forceTutor: bus || undefined,
+    forceTutor: bus || practice || undefined,
     examMode,
     timeLimitMin,
     hp,
     hpTestId: hp ? parseHpSetId(assignment.id).test : null,
-    retryHash: `#/session/${assignment.id}${retryQuery}${busQuery}`,
+    retryHash: `#/session/${assignment.id}${retryQuery}${busQuery}${practiceQuery}`,
     questionIds,
     shuffle: isRetry || examMode || !!count,
   });
@@ -153,29 +157,41 @@ export async function renderPractice(attemptId) {
  *  default; scoped to one subject when `?subject=<id>` is set (the
  *  exam-prep page uses this) or to one set with `?set=<id>` (a library
  *  card's "weak spots" button) — weakSpotQuestions already filters on the
- *  assignments array it's handed, so a subset scopes it for free. */
+ *  assignments array it's handed, so a subset scopes it for free.
+ *  `?sets=a,b` scopes it to the sets a test covers, and `&topic=` narrows it
+ *  to one topic (both from the exam-prep plan). */
 export async function renderWeakPractice(qs) {
   const subjectId = qs?.get?.("subject") || null;
   const setId = qs?.get?.("set") || null;
+  const setIds = (qs?.get?.("sets") || "").split(",").filter(Boolean);
+  const topic = qs?.get?.("topic") || null;
   const pool = setId
     ? store.assignments.filter((a) => a.id === setId)
-    : subjectId
-      ? store.assignments.filter((a) => a.subjectId === subjectId)
-      : store.assignments;
-  const weak = weakSpotQuestions(pool, store.attempts);
+    : setIds.length
+      ? store.assignments.filter((a) => setIds.includes(a.id))
+      : subjectId
+        ? store.assignments.filter((a) => a.subjectId === subjectId)
+        : store.assignments;
+  const all = weakSpotQuestions(pool, store.attempts);
+  // A topic that has since stopped being weak falls back to every weak spot.
+  const onTopic = topic ? all.filter((w) => w.question.topic === topic) : [];
+  const weak = onTopic.length ? onTopic : all;
   if (!weak.length) {
     return emptyScreen(t("session.noWeakTitle"), t("session.noWeakBody"), t("session.badgeWeak"));
   }
 
+  const testScope = !setId && setIds.length
+    ? `sets=${setIds.join(",")}${topic ? `&topic=${encodeURIComponent(topic)}` : ""}` : "";
   return runSession({
-    // A set-scoped drill gets its own resumable slot, so it can't resume into
-    // (or over) the all-sets drill.
-    key: setId ? `${WEAK_ID}::${setId}` : WEAK_ID,
+    // A set- or test-scoped drill gets its own resumable slot, so it can't
+    // resume into (or over) the all-sets drill.
+    key: setId ? `${WEAK_ID}::${setId}` : testScope ? `${WEAK_ID}::${testScope}` : WEAK_ID,
     assignmentId: WEAK_ID,
     title: t("session.weakTitle"),
     type: "assignment",
     retryHash: setId ? `#/practice-weak?set=${setId}`
-      : subjectId ? `#/practice-weak?subject=${subjectId}` : "#/practice-weak",
+      : testScope ? `#/practice-weak?${testScope}`
+        : subjectId ? `#/practice-weak?subject=${subjectId}` : "#/practice-weak",
     questionIds: weak.map((w) => w.question.id),
     forceTutor: true,
   });
@@ -221,10 +237,16 @@ export async function renderTonightPractice(setId) {
 }
 
 /** Mix questions from every set imported under one subject (e.g. every year
- *  of a national exam a student has added) into one randomized session. */
+ *  of a national exam a student has added) into one randomized session.
+ *  `?sets=a,b` keeps it to the sets a test covers (the exam-prep mock). */
 export async function renderNationalMix(subjectId, qs) {
   const subject = store.subjects.find((s) => s.id === subjectId);
-  const sets = store.assignments.filter((a) => a.subjectId === subjectId);
+  const only = (qs?.get?.("sets") || "").split(",").filter(Boolean);
+  const inSubject = store.assignments.filter((a) => a.subjectId === subjectId);
+  const scoped = only.length ? inSubject.filter((a) => only.includes(a.id)) : [];
+  // Sets since removed from the test fall back to the whole subject.
+  const sets = scoped.length ? scoped : inSubject;
+  const setsQuery = scoped.length ? `&sets=${scoped.map((a) => a.id).join(",")}` : "";
   const pool = sets.flatMap((a) => a.questions.map((q) => q.id));
 
   if (!pool.length) return notFound(t("session.nationalMixEmpty"));
@@ -242,13 +264,13 @@ export async function renderNationalMix(subjectId, qs) {
   return runSession({
     // A mock keeps its own resumable slot so it can't collide with a plain
     // mix left in progress.
-    key: examMode ? `${nationalMixId(subjectId)}::exam` : nationalMixId(subjectId),
+    key: `${examMode ? `${nationalMixId(subjectId)}::exam` : nationalMixId(subjectId)}${setsQuery ? "::sets" : ""}`,
     assignmentId: nationalMixId(subjectId),
     title: t("session.nationalMixTitle", { subject: subject?.name || t("session.nationalMixFallback") }),
     type: "assignment",
     examMode,
     timeLimitMin,
-    retryHash: `#/national/mix/${subjectId}?count=${count}${examMode ? `&exam=1${timeLimitMin ? `&min=${timeLimitMin}` : ""}` : ""}`,
+    retryHash: `#/national/mix/${subjectId}?count=${count}${examMode ? `&exam=1${timeLimitMin ? `&min=${timeLimitMin}` : ""}` : ""}${setsQuery}`,
     questionIds: ids,
     shuffle: true,
   });

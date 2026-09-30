@@ -67,7 +67,9 @@ export function renderTonight(setId) {
   function paint() {
     const plan = tonightPlan(set);
     const finished = !!plan.day.finishedAt;
-    const others = tests.filter((x) => x.id !== set.id);
+    // One link per other subject — a test can cover several sets (exam prep).
+    const others = tests.filter((x, i) => x.subjectId !== set.subjectId
+      && tests.findIndex((y) => y.subjectId === x.subjectId) === i);
     root.replaceChildren(...[
       homeButton(),
       el("div.tonight.theme-night" + (finished ? ".tonight--done" : ""), {}, finished ? doneBody(plan) : body(plan)),
