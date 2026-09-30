@@ -62,7 +62,7 @@ h1 { font-weight: 750; }
 
 /* The remaining left-edge stripes become an even hairline border. */
 .tile--resume { border-left-width: 1px; }
-.continue-banner, .house-ad { border-left-width: 1px; border-color: color-mix(in srgb, var(--brand) 35%, var(--line)); }
+.house-ad { border-left-width: 1px; border-color: color-mix(in srgb, var(--brand) 35%, var(--line)); }
 .plan-row { border-left: 1px solid var(--line); }
 .plan-row.is-soon, .plan-row.is-overdue { border-left-color: var(--retry); }
 .source-opt--subject { border-left-width: 1px; }
@@ -96,12 +96,17 @@ h1 { font-weight: 750; }
   .sidebar__link:hover svg { color: var(--ink-soft); }
   .sidebar__link.is-active { background: var(--brand-tint); color: var(--brand-ink); font-weight: 600; }
   .sidebar__link.is-active svg { color: var(--brand); }
-  .sidebar__group { margin: 18px 10px 6px; font-size: 11px; letter-spacing: .07em; font-weight: 650; }
+  /* Section labels read like quiet headings, not shouted caps. */
+  .sidebar__group { margin: 16px 10px 4px; font-size: 12px; letter-spacing: 0; font-weight: 500; text-transform: none; }
   .sidebar__acc { min-height: 36px; padding: 0 10px; border-radius: 8px; font-weight: 500; font-size: 14px; }
   .sidebar__acc svg:first-child { stroke-width: 1.8; color: var(--ink-faint); }
   .sidebar__acc-count { border-radius: 6px; }
   .sidebar__div { margin: 10px 10px; }
-  .sidebar__foot { gap: 8px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
+  .sidebar__foot { gap: 6px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
+  /* Two icon buttons (settings, theme) beside the streak — kept narrow so "N dagar i rad" usually fits on one line; longer labels ("Svit i fara …") wrap. */
+  .sidebar__themebtn { width: 40px; }
+  .sidebar__streak { gap: 8px; padding: 7px 8px 7px 6px; }
+  .sidebar__streak-icon { width: 28px; height: 28px; }
   .sidebar__streak { border-radius: var(--r-md); }
 
   /* A real top bar: search on the left, account controls on the right, a hairline underneath. */

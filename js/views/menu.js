@@ -6,15 +6,14 @@ import { el, clear, icon, ICONS, toast, downloadText } from "../lib/dom.js";
 import { t, plural, fmtDate, relativeDay, daysUntil, getLang } from "../lib/i18n.js";
 import { importSet } from "../data/library.js";
 import { loadLibraryIndex, loadLibraryTranslations, baseSubjectName } from "../lib/library-content.js";
-import { localDayKey, questionsAnsweredToday } from "../lib/activity.js";
+import { localDayKey } from "../lib/activity.js";
 import { weeklyRecap, isoWeek } from "../lib/recap.js";
-import { masteryByTopic, masteryForAssignment, weakSpotQuestions } from "../lib/mastery.js";
+import { masteryByTopic, masteryForAssignment } from "../lib/mastery.js";
 import { monthCalendar, weekStrip } from "../components/calendar.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { homeButton } from "../components/nav.js";
 import { openDueDialog, closeDueDialog } from "../components/due-dialog.js";
 import { openQuickAdd, closeQuickAdd } from "../components/quick-add.js";
-import { playFanfare } from "../lib/sound.js";
 import { ACHIEVEMENTS, nextAchievement } from "../lib/achievements.js";
 import { countdownLabel } from "../lib/date-phrases.js";
 import { testsTomorrow } from "../lib/tonight.js";
@@ -22,7 +21,6 @@ import { dailySlot } from "../components/daily-card.js";
 import { houseAd } from "../components/house-ad.js";
 import { tonightPlan } from "./tonight.js";
 import { shareSet } from "../lib/share-set.js";
-import { STUDY_MODES } from "../lib/study-modes.js";
 import { nearlyThere } from "../lib/near.js";
 import { openTalk } from "../components/talk-player.js";
 import { loadScript, scriptKey } from "../lib/podcast.js";
@@ -368,7 +366,7 @@ export function renderMenu(mode) {
     countLabel,
     grid,
   ];
-  const menuCleanup = () => { closeCardMenu(); closeDueDialog(); closeDayChooser(); closeCalendarDialog(); closeQuickAdd(); };
+  const menuCleanup = () => { closeCardMenu(); closeDueDialog(); closeDayChooser(); closeQuickAdd(); };
 
   // "Study" = just the set library on its own page (reached from the nav).
   if (mode === "study") {
@@ -418,26 +416,11 @@ export function renderMenu(mode) {
   // its own "pick a set" call to action, and showing this too would just repeat it.
   const ad = store.assignments.length ? houseAd() : null;
   const layout = el(rail ? "div.home-layout" : "div.home-layout.home-layout--solo", {}, [
-    el("div.home-main", {}, [homeStarter(), todayPanel(), nearPanel(), chatPanel(), ad, setsPanel].filter(Boolean)),
+    el("div.home-main", {}, [homeStarter(), nearPanel(), ad, setsPanel].filter(Boolean)),
     rail,
   ].filter(Boolean));
 
   return { title: t("menu.title"), node: el("div", {}, [greetingBlock, tonightCard(), dailySlot(), layout].filter(Boolean)), cleanup: menuCleanup };
-}
-
-/** "AI study help": one tap into the study chat already set to a way of studying. Only when the AI is
- *  available - a strip of buttons that lead to "needs a server" would be a dead end on the home page. */
-function chatPanel() {
-  if (!store.hasKey()) return null;
-  return el("section.home-panel.home-panel--chat", {}, [
-    el("div.home-panel__label", {}, [
-      el("span", {}, t("menu.chatPanel")),
-      el("a.linkbtn", { href: "#/solve" }, t("menu.chatOpen")),
-    ]),
-    el("div.chatmodes", {}, STUDY_MODES.map((m) => el("a.chatmode", { href: `#/solve?mode=${m.id}` }, [
-      icon(ICONS[m.icon] || ICONS.spark, 16), t(`chat.mode.${m.id}`),
-    ]))),
-  ]);
 }
 
 /** The evening before a test the home page leads with a calm card that opens the
@@ -459,11 +442,12 @@ function tonightCard() {
   ]);
 }
 
-/** The right-hand rail on the home page: an always-present mini calendar +
+/** The right-hand rail on the home page: the weekly recap (until dismissed),
+ *  backup and review nudges when due, an always-present mini calendar +
  *  Upcoming list, and an achievements teaser (the badge closest to
  *  unlocking, or a "you got them all" note). */
 function homeRail() {
-  const panels = [backupPanel(), reviewPanel(), calendarPanel(), achievementsPanel()].filter(Boolean);
+  const panels = [recapCard(), backupPanel(), reviewPanel(), calendarPanel(), achievementsPanel()].filter(Boolean);
   return panels.length ? el("aside.home-rail", {}, panels) : null;
 }
 
@@ -637,52 +621,6 @@ function recapCard() {
   return card;
 }
 
-/**
- * The "Idag" panel: a slim weekly recap, the "continue where you left off"
- * banner, a row of small stat pills (goal · due · weak · streak), and — when
- * there are deadlines — a "Kommande (N)" button that opens the calendar.
- * Renders nothing when there's genuinely nothing to say.
- */
-function todayPanel() {
-  const dueList = store.dueQuestions();
-  const due = dueList.length;
-  const streak = store.streak;
-  const openKey = Object.keys(store.state.sessions)[0];
-  const open = openKey ? store.state.sessions[openKey] : null;
-  const weak = weakSpotQuestions(store.assignments, store.attempts).length;
-  const goal = Number(store.settings.dailyGoal) || 0;
-  const showGoal = goal > 0 && store.assignments.length;
-  const upcoming = store.upcomingDue();
-  const recap = recapCard();
-
-  if (!open && !showGoal && !due && !weak && streak <= 0 && !recap && !upcoming.length) return null;
-
-  const pills = [
-    showGoal ? goalStat(goal) : null,
-    due ? stat({ href: "#/review", label: t("menu.statDue"), value: due, action: t("menu.statReview") }) : null,
-    weak ? stat({ href: "#/practice-weak", label: t("menu.statWeak"), value: weak, action: t("menu.statPractise") }) : null,
-    streak > 0 ? stat({
-      href: "#/progress", label: t("menu.statStreak"), value: streak,
-      unit: streak === 1 ? t("menu.statDay") : t("menu.statDays"), action: t("menu.statSeeProgress"),
-    }) : null,
-  ].filter(Boolean);
-
-  const kommandeBtn = upcoming.length
-    ? el("button.btn.btn--ghost.btn--sm", {
-        type: "button", onclick: () => openCalendarDialog(),
-      }, [icon(ICONS.calendar, 15), t("menu.upcomingCount", { n: upcoming.length })])
-    : null;
-
-  // Order by what a returning student acts on: resume first, then what's due /
-  // the streak, and the week's reflection last (it's read once, not clicked).
-  return el("section.home-panel.home-panel--today", {}, [
-    el("div.home-panel__label", {}, [el("span", {}, t("menu.panelToday")), kommandeBtn].filter(Boolean)),
-    open ? continueBanner(open) : null,
-    pills.length ? el("div.stats", { style: { "--stat-n": String(pills.length) } }, pills) : null,
-    recap,
-  ].filter(Boolean));
-}
-
 /** "Nästan där": the sets you got close on but never finished at 100 %, closest first. Each row shows
  *  the best score as a strip of ten dots and links straight into the set. Null when there are none. */
 function nearPanel() {
@@ -708,99 +646,16 @@ function nearPanel() {
   ]);
 }
 
-function continueBanner(open) {
-  const answered = Object.keys(open.items || {}).length;
-  const href = open.retryHash || (open.isReview ? "#/review" : `#/session/${open.assignmentId}`);
-  // Prefer the set's current title over the snapshot's — a demo/library set
-  // renamed by a language switch (e.g. "Antikens Rom – prov" → "Ancient Rome
-  // Quiz") would otherwise show its stale title here until the run finishes.
-  const title = store.getAssignment(open.assignmentId)?.title || open.title;
-  return el("a.continue-banner", { href }, [
-    el("span.continue-banner__ic", {}, icon(ICONS.play, 20)),
-    el("span.continue-banner__body", {}, [
-      el("strong", {}, t("menu.tileContinue")),
-      el("span", {}, t("menu.tileContinueSub", { title, n: answered, total: open.order.length })),
-    ]),
-    el("span.continue-banner__go", {}, t("menu.resumeGo")),
-  ]);
-}
-
-/** One cell of the "Idag" stat strip: a label, a number, and what clicking it does. The whole
- *  cell is the link (a stretched ::after on the action), so an extra link inside — "Lyssna" on
- *  the review cell — can sit on top of it without nesting one <a> in another. */
-function stat({ href, label, value, unit = "", action, extra = null, foot = null }) {
-  // The link's own text is just the action verb ("Repetera") — the stretched ::after makes it the
-  // whole cell's click target, but a screen reader tabbing between links (or using a links list)
-  // would hear only that verb with no idea what it's acting on. aria-label restores the full
-  // context ("Att repetera 31, Repetera") without changing what's shown on screen.
-  const fullLabel = `${label} ${value}${unit ? ` ${unit}` : ""}, ${action}`;
-  return el("div.stat", {}, [
-    el("span.stat__label", {}, label),
-    el("span.stat__value", {}, [String(value), unit ? el("small", {}, unit) : null].filter(Boolean)),
-    foot,
-    el("span.stat__foot", {}, [
-      el("a.stat__link", { href, "aria-label": fullLabel }, [action, icon(ICONS.arrow, 14)]),
-      extra,
-    ].filter(Boolean)),
-  ].filter(Boolean));
-}
-
-/** The daily-goal cell: answered today out of the goal, with a thin bar. Plays a fanfare the
- *  first time the goal is reached each day (same side effect the old pill carried). */
-function goalStat(goal) {
-  const done = questionsAnsweredToday(store.attempts);
-  const hit = done >= goal;
-  // markGoalReached() writes to the store (and can fire an achievement) — keep
-  // that out of the render call stack so its "change" event doesn't re-enter
-  // render() mid-paint.
-  if (hit) queueMicrotask(() => { if (store.markGoalReached()) playFanfare(); });
-  const pct = Math.min(100, Math.round((done / goal) * 100));
-  return stat({
-    href: "#/progress", label: t("menu.statGoal"), value: done, unit: `/ ${goal}`,
-    action: hit ? t("menu.statGoalDone") : t("menu.statSeeProgress"),
-    foot: el("span.stat__bar" + (hit ? ".is-done" : ""), { role: "img", "aria-label": t("menu.goalToday", { done, goal }) },
-      [el("i", { style: { width: `${pct}%` } })]),
-  });
-}
-
 
 /**
  * A calendar (a dot on every day with a deadline) above the "Upcoming" list,
- * soonest-first. Full month in the "Kommande" dialog; the home-rail copy
- * defaults to a single collapsed week, expandable to the full month.
+ * soonest-first. The home rail shows a single collapsed week, expandable to
+ * the full month.
  * Returns null when nothing is due.
  */
 const UPCOMING_COLLAPSED = 3;
 let upcomingExpanded = false;
 let calendarExpanded = false;
-
-let calDialogEl = null;
-function calDialogEsc(e) { if (e.key === "Escape") closeCalendarDialog(); }
-function closeCalendarDialog() {
-  calDialogEl?.remove();
-  calDialogEl = null;
-  document.removeEventListener("keydown", calDialogEsc);
-}
-function openCalendarDialog() {
-  closeCalendarDialog();
-  const content = deadlineRailContent();
-  if (!content) return;
-  calDialogEl = el("div.modal", {
-    role: "dialog", "aria-modal": "true", "aria-label": t("menu.upcoming"),
-    onclick: (e) => { if (e.target === calDialogEl) closeCalendarDialog(); },
-  }, [
-    el("div.modal__card.caldialog", {}, [
-      el("div.caldialog__head", {}, [
-        el("h3", {}, [icon(ICONS.calendar, 18), t("menu.upcoming")]),
-        el("button.iconbtn.iconbtn--sm", { type: "button", "aria-label": t("common.close"), onclick: closeCalendarDialog }, "×"),
-      ]),
-      content.el,
-    ]),
-  ]);
-  document.body.appendChild(calDialogEl);
-  document.addEventListener("keydown", calDialogEsc);
-  calDialogEl.querySelector(".cal__cell, .upcoming__row, button")?.focus();
-}
 
 function deadlineRailContent({ collapsible = false, forceCalendar = false } = {}) {
   const items = store.upcomingDue();
@@ -822,12 +677,12 @@ function deadlineRailContent({ collapsible = false, forceCalendar = false } = {}
   }
 
   const onPick = (_day, mark, cellEl) => {
-    if (mark.items.length === 1) { closeCalendarDialog(); location.hash = `#/session/${mark.items[0].id}`; return; }
+    if (mark.items.length === 1) { location.hash = `#/session/${mark.items[0].id}`; return; }
     openDayChooser(cellEl, mark);
   };
 
   // Tap an empty future day → name a set for that deadline.
-  const onAdd = (day) => { closeCalendarDialog(); openQuickAdd(day); };
+  const onAdd = (day) => openQuickAdd(day);
 
   // Only the home-rail copy collapses to a single, navigable week — the
   // "Kommande" dialog is an explicit "show me everything" action, so it
@@ -918,7 +773,6 @@ function deadlineRailContent({ collapsible = false, forceCalendar = false } = {}
       class: "upcoming__row" + (overdue ? " is-overdue" : soon ? " is-soon" : ""),
       style: { "--subject": color.solid },
       "aria-label": t("menu.upcomingStudyAria", { title: a.title }),
-      onclick: () => closeCalendarDialog(),
     }, [
       el("span.upcoming__dot"),
       el("span.upcoming__main", {}, [
@@ -941,7 +795,6 @@ function nextDeadlineLine(a) {
   const card = el("a.next-test" + (soon ? ".next-test--soon" : ""), {
     href: `#/session/${a.id}`,
     "aria-label": t("menu.upcomingStudyAria", { title: a.title }),
-    onclick: () => closeCalendarDialog(),
   }, [
     el("span.next-test__when", {}, [icon(ICONS.clock, 14), el("span", {}, countdownLabel(a.dueAt))]),
     el("span.next-test__title", {}, a.title),
@@ -951,7 +804,6 @@ function nextDeadlineLine(a) {
     card,
     a.subjectId ? el("a.next-test__prep", {
       href: `#/exam-prep/${a.subjectId}`,
-      onclick: () => closeCalendarDialog(),
     }, [icon(ICONS.target, 13), t("exam.prepLink")]) : null,
   ].filter(Boolean));
 }

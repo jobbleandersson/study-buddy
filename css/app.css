@@ -219,6 +219,7 @@ a.streakbadge:hover {
   transition: background var(--dur-fast), color var(--dur-fast);
 }
 .sidebar__themebtn:hover { background: var(--line); color: var(--ink); }
+.sidebar__themebtn.is-active { background: var(--brand-tint); color: var(--brand-ink); }
 /* The theme menu's rows: label takes the width so the check sits at the right edge. */
 .cardmenu__item--pick span { flex: 1; }
 
@@ -620,22 +621,8 @@ body.has-topmenu .sitechat__fab { display: none; }
 }
 .ach-next__fill { height: 100%; background: var(--brand); border-radius: inherit; }
 
-/* "Continue where you left off" — the wide banner at the top of Today. */
-.continue-banner {
-  display: flex; align-items: center; gap: var(--s-3); text-decoration: none;
-  padding: var(--s-3) var(--s-4); border-radius: var(--r-md);
-  background: var(--brand-tint); border: 1px solid var(--brand); border-left-width: 4px;
-  color: inherit; margin-bottom: var(--s-3);
-  transition: box-shadow var(--dur-fast);
-}
-.continue-banner:hover { box-shadow: 0 4px 20px -6px color-mix(in srgb, var(--brand) 55%, transparent); }
-.continue-banner__ic {
-  width: 34px; height: 34px; flex: none; border-radius: var(--r-full);
-  display: grid; place-items: center; background: var(--brand); color: #fff;
-}
-
-/* Studify promoting Studify (see js/components/house-ad.js) — same tinted-banner language as
-   .continue-banner so it reads as "part of the app," not an inserted ad slot. */
+/* Studify promoting Studify (see js/components/house-ad.js) — a tinted banner so it reads as
+   "part of the app," not an inserted ad slot. */
 .house-ad {
   display: flex; align-items: flex-start; gap: var(--s-3);
   padding: var(--s-3) var(--s-4); border-radius: var(--r-md);
@@ -651,59 +638,11 @@ body.has-topmenu .sitechat__fab { display: none; }
   color: var(--ink-faint); border-radius: var(--r-sm); cursor: pointer;
 }
 .house-ad__x:hover { background: color-mix(in srgb, var(--brand) 14%, transparent); color: var(--brand-ink); }
-.continue-banner__body { flex: 1; min-width: 0; }
-.continue-banner__body strong { display: block; font-family: var(--font-display); color: var(--brand-ink); }
-.continue-banner__body span { display: block; font-size: var(--fs-sm); color: var(--ink-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.continue-banner__go { flex: none; font-family: var(--font-display); font-weight: 700; font-size: var(--fs-sm); color: var(--brand-ink); }
-.continue-banner__go::after { content: " ›"; }
 
-/* the small stat pills below the banner */
-.pillrow { display: flex; flex-wrap: wrap; gap: var(--s-2); }
-.pill {
-  display: inline-flex; align-items: center; gap: var(--s-2); text-decoration: none;
-  font-size: var(--fs-sm); font-weight: 700; color: var(--ink-soft);
-  padding: 6px var(--s-3); border-radius: var(--r-full);
-  background: var(--surface); border: 1px solid var(--line-strong);
-  transition: transform var(--dur-fast) var(--ease-spring);
-}
-.pill:hover { transform: translateY(-1px); color: var(--ink); }
-.pill__ic { width: 18px; height: 18px; flex: none; border-radius: var(--r-full); display: grid; place-items: center; background: var(--surface-sunk); color: var(--ink-soft); }
-.pill .ring { width: 26px; height: 26px; flex: none; }
-.pill--due .pill__ic { background: var(--brand); color: #fff; }
-.pill--goal { border-color: color-mix(in srgb, var(--ok-bright) 45%, var(--line-strong)); }
-.pill--weak { border-color: color-mix(in srgb, var(--c-berry) 45%, var(--line-strong)); }
-.pill--weak .pill__ic { background: var(--c-berry); color: #fff; }
-/* The streak pill glows in the same warm amber as the top-bar badge — a
-   running streak should read as "lit", not just another stat. */
-.pill--streak {
-  border-color: color-mix(in srgb, var(--retry) 55%, var(--line-strong));
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--retry) 30%, transparent),
-              0 2px 16px -4px color-mix(in srgb, var(--retry) 60%, transparent);
-}
-.pill--streak:hover {
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--retry) 45%, transparent),
-              0 4px 22px -4px color-mix(in srgb, var(--retry) 78%, transparent);
-}
-.pill--streak .pill__ic { background: var(--retry); color: #2B2B3A; }
-:root[data-theme="dark"] .pill--streak .pill__ic { color: #21170C; }
-
-/* "Filter" toggle + the collapsible drawer holding sort + subject chips */
-.filtertoggle .caret { display: inline-block; margin-left: 4px; transition: transform var(--dur-fast); }
-.filtertoggle.is-on .caret { transform: rotate(180deg); }
 .filterdrawer { display: flex; flex-direction: column; gap: var(--s-3); margin: var(--s-2) 0 var(--s-3); }
 .filterdrawer .sortsel { align-self: flex-start; }
 
-/* calendar / upcoming, shown in a dialog off the Today panel */
-.caldialog { max-width: 460px; }
-.caldialog__head { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); margin-bottom: var(--s-3); }
-.caldialog__head h3 { display: flex; align-items: center; gap: var(--s-2); }
-.caldialog .upcoming { margin-bottom: 0; }
 
-@media (max-width: 480px) {
-  /* In the calendar dialog on a phone the month grid is more bulk than help —
-     the Upcoming list already says when everything is due. */
-  .caldialog .cal { display: none; }
-}
 
 /* ---------- calendar page: the month planner (js/views/calendar.js) ---------- */
 .planner-page { display: flex; flex-direction: column; gap: var(--s-3); }
@@ -2018,9 +1957,6 @@ body.has-welcome { overflow: hidden; }
   font-size: 18px; line-height: 1; color: var(--ink-faint); padding: 2px 4px;
 }
 .recap__x:hover { color: var(--ink); }
-/* In the "Idag" panel the recap sits last now — after the resume banner and
-   the stat pills — so it needs a top gap, not a bottom one. */
-.home-panel--today > .recap { margin: var(--s-3) 0 0; }
 
 .nav-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s-3); margin-top: var(--s-5); }
 .nav-row > div { flex-wrap: wrap; justify-content: flex-end; }
@@ -3934,7 +3870,6 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .chatmode svg { flex: none; }
 .chatmode:disabled { opacity: .5; cursor: not-allowed; }
 .chatmode:disabled:hover { border-color: var(--line-strong); color: var(--ink-soft); }
-.home-panel--chat .chatmodes { margin: 6px 0 0; }
 .solve .msg.me { white-space: pre-wrap; overflow-wrap: anywhere; }
 /* Left-aligned with the page, wide, and the chat fills the screen: the composer sits at the bottom of
    the viewport and only the message list scrolls, so the footer is a scroll away instead of in view. */
@@ -4213,40 +4148,6 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .docpage > .panel { background: none; border: 0; border-top: 1px solid var(--line); border-radius: 0; padding: var(--s-5) 0 var(--s-2); box-shadow: none; }
 .docpage > .panel h3 { font-size: 1.15rem; letter-spacing: -.01em; }
 .docpage > .panel p { line-height: 1.7; color: var(--ink-soft); max-width: 68ch; }
-
-/* Home "Idag": a stat strip — equal cells split by hairlines, each with a label, one number and
-   what clicking it does. Neutral on purpose; the number carries the weight, not coloured pills. */
-.stats {
-  display: grid; grid-template-columns: repeat(var(--stat-n, 4), minmax(0, 1fr));
-  border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); overflow: hidden;
-}
-.stat { position: relative; display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 10px; row-gap: 2px; padding: 11px 16px; min-width: 0; }
-.stat + .stat { border-left: 1px solid var(--line); }
-.stat:hover { background: color-mix(in srgb, var(--brand) 4%, var(--surface)); }
-.stat__label { flex: 1 1 auto; font-size: 14px; font-weight: 600; color: var(--ink-faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.stat__value {
-  font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; line-height: 1.15; letter-spacing: -.01em;
-  color: var(--ink); font-variant-numeric: tabular-nums;
-}
-.stat__value small { margin-left: 3px; font-size: .8rem; font-weight: 600; letter-spacing: 0; color: var(--ink-faint); }
-.stat__bar { display: block; flex-basis: 100%; height: 1px; margin: 3px 0 0; border-radius: 1px; background: var(--surface-sunk); overflow: hidden; }
-.stat__bar i { display: block; height: 100%; background: var(--brand); border-radius: inherit; }
-.stat__bar.is-done i { background: var(--ok); }
-.stat__foot { display: flex; flex-basis: 100%; flex-wrap: wrap; align-items: center; gap: 2px 8px; font-size: 14.5px; }
-.stat__link { display: inline-flex; align-items: center; gap: 4px; font-weight: 600; color: var(--brand-ink); text-decoration: none; }
-.stat__link svg { transition: transform var(--dur-fast); }
-.stat:hover .stat__link svg { transform: translateX(2px); }
-.stat__link::after { content: ""; position: absolute; inset: 0; }
-.stat__link:focus-visible { outline: none; }
-.stat:has(.stat__link:focus-visible) { box-shadow: inset 0 0 0 2px var(--brand); }
-@media (max-width: 620px) {
-  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .stat + .stat { border-left: 0; }
-  .stat:nth-child(even) { border-left: 1px solid var(--line); }
-  .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
-  .stats:has(.stat:only-child) { grid-template-columns: 1fr; }
-}
-@media (max-width: 620px) { .stat:last-child:nth-child(odd) { grid-column: 1 / -1; border-left: 0; } }
 
 /* ---------- Studify AI: chat history, bookmarks, attached material ---------- */
 .solvehead__hist { flex: none; }

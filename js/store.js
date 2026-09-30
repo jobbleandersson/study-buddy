@@ -2,7 +2,7 @@
 // future cloud/account backend can replace persistence without touching views.
 
 import { uid } from "./lib/dom.js";
-import { localDayKey, currentStreak, addDays, studiedToday } from "./lib/activity.js";
+import { localDayKey, currentStreak, addDays, studiedToday, questionsAnsweredToday } from "./lib/activity.js";
 import { getLang, t } from "./lib/i18n.js";
 import { serverMessage } from "./lib/server-errors.js";
 
@@ -1440,6 +1440,12 @@ class Store extends EventTarget {
     }
     if (unlocked.length) {
       this.dispatchEvent(new CustomEvent("achievements", { detail: unlocked }));
+    }
+    // The daily goal is checked where answers land, not only when some page
+    // that shows it happens to be open — so goal days (and their badges) count.
+    const goal = Number(this.state.settings.dailyGoal) || 0;
+    if (goal > 0 && questionsAnsweredToday(this.state.attempts) >= goal && this.markGoalReached()) {
+      this.dispatchEvent(new CustomEvent("goalReached"));
     }
   }
 

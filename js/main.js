@@ -12,6 +12,7 @@ import { showAchievementUnlocks } from "./lib/achievement-toast.js";
 import { isSessionActive } from "./lib/session-active.js";
 import { mountUpgradePrompt } from "./components/upgrade-prompt.js";
 import { loadLibraryIndex } from "./lib/library-content.js";
+import { playFanfare } from "./lib/sound.js";
 
 const app = document.getElementById("app");
 
@@ -219,17 +220,22 @@ function nextLang() {
   return codes[(codes.indexOf(getLang()) + 1) % codes.length];
 }
 
-/** The full app nav, grouped so the sidebar reads as sections rather than one
- *  long list — "Learn" (make + study material), "Track" (see how it's going),
- *  and an unlabelled account group at the bottom. Used by the desktop sidebar
- *  and the mobile ⋮ menu alike, so the two never drift. */
+/** The full app nav, grouped so the sidebar reads as short labelled sections:
+ *  the two everyday pages on top (unlabelled), then "Plugga" (your sets and
+ *  making them), "Prov" (getting ready for a test), "Uppföljning" (how it's
+ *  going), the Verktyg flyout, and an unlabelled account group at the bottom.
+ *  Used by the desktop sidebar and the mobile ⋮ menu alike, so they never drift. */
 function navGroups() {
-  const learn = [
+  const main = [
     { href: "#/",         match: "/",          icon: ICONS.home,      label: t("nav.home") },
+    { href: "#/solve",    match: "/solve",     icon: ICONS.spark,     label: t("nav.solve") },
+  ];
+  const study = [
     { href: "#/study",    match: "/study",     icon: ICONS.clipboard, label: t("nav.study") },
     { href: "#/library",  match: "/library",   icon: ICONS.book,      label: t("nav.library") },
     { href: "#/create",   match: "/create",    icon: ICONS.plus,      label: t("nav.create") },
-    { href: "#/solve",    match: "/solve",     icon: ICONS.spark,     label: t("nav.solve") },
+  ];
+  const tests = [
     { href: "#/exam-prep", match: "/exam-prep", icon: ICONS.graduation, label: t("nav.examPrep") },
     { href: "#/hp",       match: "/hp",        icon: ICONS.award,     label: t("nav.hp") },
   ];
@@ -248,10 +254,13 @@ function navGroups() {
   const account = [];
   if (store.authed) account.push({ href: "#/classes", match: "/classes", icon: ICONS.presentation, label: t("nav.classes") });
   if (store.authed) account.push({ href: "#/parent", match: "/parent", icon: ICONS.users, label: t("common.parent") });
-  account.push({ href: "#/settings", match: "/settings", icon: ICONS.gear, label: t("common.settings") });
+  // `foot`: the desktop sidebar shows this as an icon button in its footer, not a row.
+  account.push({ href: "#/settings", match: "/settings", icon: ICONS.gear, label: t("common.settings"), foot: true });
 
   return [
-    { key: "learn",   label: t("nav.groupLearn"), items: learn },
+    { key: "main",    label: null,                items: main },
+    { key: "study",   label: t("nav.groupStudy"), items: study },
+    { key: "tests",   label: t("nav.groupTests"), items: tests },
     { key: "track",   label: t("nav.groupTrack"), items: track },
     { key: "tools",   label: t("nav.groupTools"), items: tools },
     { key: "account", label: null,                items: account },
@@ -328,7 +337,9 @@ function flyoutButton(g) {
  *  dock shows a flyout group's icons inline too (from its hidden
  *  .sidebar__acc-body), since there's room for every icon there. */
 function sidebarNav() {
-  const groups = navGroups();
+  const groups = navGroups()
+    .map((g) => ({ ...g, items: g.items.filter((it) => !it.foot) }))
+    .filter((g) => g.items.length);
   const link = (it, inMore) => el("a.sidebar__link" + (navActive(it.match) ? ".is-active" : ""), {
     href: it.href,
     "aria-current": navActive(it.match) ? "page" : null,
@@ -382,8 +393,8 @@ function moreMenu(active) {
     ].filter(Boolean)),
     // The sidebar's theme switcher has no home on mobile (no sidebar) — so it
     // lives here, in the menu, rather than only in Settings. Language keeps
-    // its own topbar button; the streak shows in the topbar badge and the
-    // "Idag" panel — so this footer is theme only.
+    // its own topbar button; the streak shows in the topbar badge — so this
+    // footer is theme only.
     el("div.topmenu__div", { role: "presentation" }),
     el("div.topmenu__foot", { role: "presentation" }, [
       el("p.topmenu__group", { role: "presentation" }, t("set.theme")),
@@ -810,6 +821,10 @@ function shell(contentNode) {
     sidebarNav(),
     el("div.sidebar__foot", {}, [
       sidebarStreak(streak, atRisk),
+      el("a.sidebar__themebtn" + (navActive("/settings") ? ".is-active" : ""), {
+        href: "#/settings", "aria-label": t("common.settings"), title: t("common.settings"),
+        "aria-current": navActive("/settings") ? "page" : null,
+      }, [icon(ICONS.gear, 18)]),
       themeMenuButton(),
     ]),
   ]);
@@ -1214,6 +1229,8 @@ store.init().then(() => {
     if (h === "" || h === "/" || h === "/study" || h === "/calendar" || h === "/progress"
         || h === "/achievements" || h === "/hp" || h === "/exam-prep" || h.startsWith("/exam-prep/")) render({ softRefresh: true });
   });
+  // Daily goal hit (store.recordAttempt) — the same short fanfare the home page used to play.
+  store.addEventListener("goalReached", () => playFanfare());
   store.addEventListener("syncMerged", () => toast(t("sync.merged")));
   store.addEventListener("syncConflict", (e) => {
     if (e.detail?.recoverable && store.syncDiscard) {
