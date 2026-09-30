@@ -167,7 +167,10 @@ describe("2FA management rate limiting: password re-entry", () => {
 describe("set-password rate limiting: bad Google credentials", () => {
   let server, client;
   before(async () => {
-    server = await startServer({ SET_PASSWORD_FAILS_PER_15MIN_PER_ACCOUNT: "3" });
+    server = await startServer({
+      GOOGLE_CLIENT_ID: "fake-client-id.apps.googleusercontent.com",
+      SET_PASSWORD_FAILS_PER_15MIN_PER_ACCOUNT: "3",
+    });
     client = makeClient(server.baseUrl);
   });
   after(async () => { await server.stop(); });

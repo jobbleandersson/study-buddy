@@ -24,9 +24,29 @@ describe("googleIdentityMatches", () => {
 
 const uniqueEmail = () => `setpw-${Date.now()}-${Math.random().toString(36).slice(2)}@example.com`;
 
+describe("POST /api/auth/set-password: Google sign-in not configured", () => {
+  let server, client;
+  before(async () => { server = await startServer(); client = makeClient(server.baseUrl); });
+  after(async () => { await server.stop(); });
+
+  test("answers 501 when the server has no GOOGLE_CLIENT_ID", async () => {
+    const email = uniqueEmail();
+    await client.post("/api/auth/signup", { email, password: "correctpw1", consent: true });
+    const { status, json } = await client.post("/api/auth/set-password", { credential: "whatever", password: "newpassword1" });
+    assert.equal(status, 501);
+    assert.equal(json.error.code, "google_not_configured");
+  });
+});
+
 describe("POST /api/auth/set-password", () => {
   let server, client;
-  before(async () => { server = await startServer({ RESEND_API_KEY: "dummy-test-key" }); client = makeClient(server.baseUrl); });
+  // A fake client id is enough: the route only checks that one is set before looking at the
+  // account, and a garbage credential is rejected before any call out to Google (same trick the
+  // Google rate-limit test in rate-limits.test.mjs relies on).
+  before(async () => {
+    server = await startServer({ RESEND_API_KEY: "dummy-test-key", GOOGLE_CLIENT_ID: "fake-client-id.apps.googleusercontent.com" });
+    client = makeClient(server.baseUrl);
+  });
   after(async () => { await server.stop(); });
 
   /** A signed-in, Google-linked account with no password yet — the direct-row-insertion pattern
