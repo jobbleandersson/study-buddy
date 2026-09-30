@@ -474,10 +474,11 @@ describe("two-factor authentication: email method", () => {
     client.clearCookie();
     server.db.prepare("UPDATE users SET twofa_method = NULL WHERE email = ?").run(email);   // what an old row looks like
 
-    const sent = fake.mailsTo(email).length;
+    const codeMails = () => fake.mailsTo(email).filter((m) => />\d{6}</.test(m.html)).length;   // the async "2FA turned on" notice can land late, so count only mails carrying a code
+    const sent = codeMails();
     const login = await client.post("/api/auth/login", { email, password: PASSWORD });
     assert.equal(login.json.method, "totp");
-    assert.equal(fake.mailsTo(email).length, sent);
+    assert.equal(codeMails(), sent);
     assert.equal((await client.post("/api/auth/2fa/verify", { challenge: login.json.challenge, code: codeFor(secret, { step: 0 }) })).status, 200);
   });
 });
