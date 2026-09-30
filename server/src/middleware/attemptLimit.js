@@ -52,6 +52,26 @@ export function clientIp(req) {
 /** The default limiter key: the client's address, IPv6 cut to its /64. */
 export const clientKey = (req) => ipKey(clientIp(req));
 
+/** Takes one unit from a named bucket outside of any request middleware (e.g. "codes generated for
+ *  this account today"). Returns true and records it if under `max`, false if the bucket is full.
+ *  Shares the sliding-window store above, so it resets on restart like every other limit here.
+ *  `max` of 0 or less means no limit. */
+export function consume({ name, key, max, windowMs }) {
+  if (!(max > 0) || !key) return true;
+  const id = `${name}|${key}`;
+  const now = Date.now();
+  let b = buckets.get(id);
+  if (!b) {
+    if (buckets.size >= MAX_KEYS) return true;
+    b = { hits: [], windowMs };
+    buckets.set(id, b);
+  }
+  while (b.hits.length && b.hits[0] <= now - windowMs) b.hits.shift();
+  if (b.hits.length >= max) return false;
+  b.hits.push(now);
+  return true;
+}
+
 /**
  * name: bucket namespace (limiters with the same name share a count).
  * max: attempts allowed per window; 0 or less turns the limit off.

@@ -310,6 +310,28 @@ for (const [col, type] of [["totp_secret", "TEXT"], ["totp_enabled_at", "INTEGER
   }
 }
 
+// Which second factor, when totp_enabled_at is set: 'email' (a code mailed at sign-in) or 'totp'
+// (an authenticator app). NOTE totp_enabled_at is now simply "2FA is on, any method" — the name is
+// historical; renaming it would touch every reader for no behaviour change. Invariant: 'email' =>
+// totp_secret is NULL, 'totp' => it is set. A row with totp_enabled_at set and this NULL predates
+// the column and is TOTP (backfilled below; routes/auth.js's twoFaMethod() also treats it so).
+if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === "twofa_method")) {
+  db.exec("ALTER TABLE users ADD COLUMN twofa_method TEXT");
+}
+db.exec("UPDATE users SET twofa_method = 'totp' WHERE totp_enabled_at IS NOT NULL AND twofa_method IS NULL");
+
+// Email-code support on the pending-login/enrolment marker: the emailed code's HMAC, how many wrong
+// guesses it has absorbed, how many times it was re-sent, when it was last sent, and whether the row
+// is for signing in or for turning 2FA on (a code for one must never redeem the other).
+for (const [col, def] of [
+  ["code_hash", "TEXT"], ["attempts", "INTEGER NOT NULL DEFAULT 0"], ["resends", "INTEGER NOT NULL DEFAULT 0"],
+  ["last_sent_at", "INTEGER"], ["purpose", "TEXT NOT NULL DEFAULT 'login'"],
+]) {
+  if (!db.prepare("PRAGMA table_info(twofa_challenges)").all().some((c) => c.name === col)) {
+    db.exec(`ALTER TABLE twofa_challenges ADD COLUMN ${col} ${def}`);
+  }
+}
+
 // NULL = no usable password right now (a Google-linked account that never added one); a timestamp
 // = a real, user-chosen password exists. An explicit fact recorded at write-time, not something
 // inferred from password_hash's content after the fact — there's no way to tell a real hash from
