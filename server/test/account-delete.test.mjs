@@ -1,6 +1,7 @@
 import { test, describe, before, after } from "node:test";
 import assert from "node:assert/strict";
 import crypto from "node:crypto";
+import bcrypt from "bcryptjs";
 import { startServer, makeClient } from "./harness.mjs";
 
 const uniqueEmail = () => `delete-${Date.now()}-${Math.random().toString(36).slice(2)}@example.com`;
@@ -45,6 +46,27 @@ describe("DELETE /api/account", () => {
     assert.equal(wrongEmail.json.error.code, "confirm_mismatch");
 
     const right = await client.delete("/api/account", { email });
+    assert.equal(right.status, 200);
+    assert.equal(server.db.prepare("SELECT id FROM users WHERE id = ?").get(id), undefined);
+  });
+
+  test("a hybrid account (Google-linked, but has since added a password) is confirmed by its password, not its email", async () => {
+    const email = uniqueEmail();
+    const now = Date.now();
+    const id = crypto.randomUUID();
+    const hash = await bcrypt.hash("correctpw1", 10);
+    server.db.prepare(
+      "INSERT INTO users (id, email, password_hash, google_sub, password_set_at, created_at) VALUES (?, ?, ?, ?, ?, ?)"
+    ).run(id, email, hash, "google-sub-hybrid", now, now);
+    server.db.prepare("INSERT INTO sessions (id, user_id, expires_at, created_at) VALUES (?, ?, ?, ?)")
+      .run(crypto.randomUUID(), id, now + 3600_000, now);
+    client.cookie = `sb_session=${server.db.prepare("SELECT id FROM sessions WHERE user_id = ?").get(id).id}`;
+
+    // Typing the email (the Google-only flow) doesn't work once a password exists.
+    const wrongEmail = await client.delete("/api/account", { email });
+    assert.equal(wrongEmail.status, 403);
+
+    const right = await client.delete("/api/account", { password: "correctpw1" });
     assert.equal(right.status, 200);
     assert.equal(server.db.prepare("SELECT id FROM users WHERE id = ?").get(id), undefined);
   });

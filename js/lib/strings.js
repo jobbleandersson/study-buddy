@@ -745,6 +745,19 @@ export const STRINGS = {
     "twofa.enabledToast": "Two-factor authentication turned on",
     "srv.err.twofaOff": "Two-factor authentication isn't on for this account.",
 
+    /* ---- add a password to a Google-linked account ---- */
+    "setpw.add": "Add a password",
+    "setpw.addedToast": "Password added — you can now sign in with either method",
+    "setpw.title": "Add a password",
+    "setpw.confirmIntro": "First, confirm it's you by signing in with Google again.",
+    "setpw.passwordIntro": "Choose a password. From now on you can sign in either with Google or with your email and this password.",
+    "setpw.newPassword": "New password",
+    "setpw.confirm": "Add password",
+    "setpw.googleUnavailable": "Google sign-in isn't available right now — try again shortly.",
+    "srv.err.noGoogleAccount": "This account isn't linked to Google.",
+    "srv.err.passwordAlreadySet": "This account already has a password.",
+    "srv.err.googleSubMismatch": "That Google account doesn't match this one.",
+
     "session.nationalMixEmpty": "No imported sets for this subject yet.",
     "session.nationalMixTitle": "Mixed — {subject}",
     "session.nationalMixFallback": "National exam",
@@ -3174,6 +3187,19 @@ export const STRINGS = {
     "twofa.done": "Klar",
     "twofa.enabledToast": "Tvåstegsverifiering aktiverad",
     "srv.err.twofaOff": "Tvåstegsverifiering är inte på för det här kontot.",
+
+    /* ---- lägg till lösenord för ett Google-konto ---- */
+    "setpw.add": "Lägg till lösenord",
+    "setpw.addedToast": "Lösenord tillagt — du kan nu logga in med båda metoderna",
+    "setpw.title": "Lägg till lösenord",
+    "setpw.confirmIntro": "Bekräfta först att det är du genom att logga in med Google igen.",
+    "setpw.passwordIntro": "Välj ett lösenord. Från nu kan du logga in antingen med Google eller med din e-post och det här lösenordet.",
+    "setpw.newPassword": "Nytt lösenord",
+    "setpw.confirm": "Lägg till lösenord",
+    "setpw.googleUnavailable": "Google-inloggning är inte tillgänglig just nu — försök igen snart.",
+    "srv.err.noGoogleAccount": "Det här kontot är inte kopplat till Google.",
+    "srv.err.passwordAlreadySet": "Det här kontot har redan ett lösenord.",
+    "srv.err.googleSubMismatch": "Det Google-kontot matchar inte det här.",
 
     "session.nationalMixEmpty": "Inga importerade set för det här ämnet ännu.",
     "session.nationalMixTitle": "Blandat — {subject}",

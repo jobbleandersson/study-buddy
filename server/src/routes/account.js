@@ -24,14 +24,16 @@ const deleteFailures = attemptLimit({
 // purpose; the schema also cascades (db.js turns that enforcement on), but a delete that people
 // rely on for their privacy shouldn't depend on a pragma.
 //
-// To make sure it's really them (a session cookie alone can be left on a shared computer), a
-// password account must send its password; a Google-only account has none, so it sends its email.
+// To make sure it's really them (a session cookie alone can be left on a shared computer), an
+// account with a usable password sends it; an account with none (Google-linked, never added one
+// via /auth/set-password) sends its email instead — a hybrid account (both) sends its password,
+// the stronger, more specific proof.
 account.delete("/account", requireAuth, deleteFailures, asyncHandler(async (req, res) => {
   const { userId } = req.user;
-  const user = db.prepare("SELECT id, email, password_hash, google_sub FROM users WHERE id = ?").get(userId);
+  const user = db.prepare("SELECT id, email, password_hash, password_set_at AS passwordSetAt FROM users WHERE id = ?").get(userId);
   if (!user) return res.status(404).json({ error: { message: "Not found." } });
 
-  if (user.google_sub) {
+  if (!user.passwordSetAt) {
     const typed = String(req.body?.email || "").trim().toLowerCase();
     if (typed !== user.email) {
       return res.status(403).json({ error: { message: "That email doesn't match this account.", code: "confirm_mismatch" } });

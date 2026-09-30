@@ -51,6 +51,19 @@ describe("POST /api/auth/forgot-password - email ON", () => {
     assert.equal(resetTokenCount(server.db, email), 0);
   });
 
+  test("a hybrid account (Google-linked, but has since added a password) gets a real reset token", async () => {
+    const email = uniqueEmail();
+    const now = Date.now();
+    server.db.prepare(
+      "INSERT INTO users (id, email, password_hash, google_sub, password_set_at, created_at, email_verified_at) VALUES (?, ?, ?, ?, ?, ?, ?)"
+    ).run(crypto.randomUUID(), email, "some-real-hash", "google-sub-hybrid", now, now, now);
+
+    const { status, json } = await client.post("/api/auth/forgot-password", { email });
+    assert.equal(status, 200);
+    assert.deepEqual(json, { ok: true });
+    assert.equal(resetTokenCount(server.db, email), 1);
+  });
+
   test("asking twice in a row does not issue a second token within the cooldown", async () => {
     const email = uniqueEmail();
     await client.post("/api/auth/signup", { email, password: "correctpw1", consent: true });

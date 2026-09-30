@@ -163,3 +163,34 @@ describe("2FA management rate limiting: password re-entry", () => {
     assert.equal(blocked.status, 429);
   });
 });
+
+describe("set-password rate limiting: bad Google credentials", () => {
+  let server, client;
+  before(async () => {
+    server = await startServer({
+      GOOGLE_CLIENT_ID: "fake-client-id.apps.googleusercontent.com",
+      SET_PASSWORD_FAILS_PER_15MIN_PER_ACCOUNT: "3",
+    });
+    client = makeClient(server.baseUrl);
+  });
+  after(async () => { await server.stop(); });
+
+  test("repeated bad credentials on a Google-linked account trip the limit", async () => {
+    const email = `ratelimit-setpw-${Date.now()}@example.com`;
+    const now = Date.now();
+    const id = "id-" + now;
+    server.db.prepare(
+      "INSERT INTO users (id, email, password_hash, google_sub, created_at) VALUES (?, ?, ?, ?, ?)"
+    ).run(id, email, "unusable-hash", "google-sub-ratelimit", now);
+    server.db.prepare("INSERT INTO sessions (id, user_id, expires_at, created_at) VALUES (?, ?, ?, ?)")
+      .run("sess-" + now, id, now + 3600_000, now);
+    client.cookie = "sb_session=sess-" + now;
+
+    for (let i = 0; i < 3; i++) {
+      const { status } = await client.post("/api/auth/set-password", { credential: "not-a-real-jwt", password: "newpassword1" });
+      assert.equal(status, 401);
+    }
+    const blocked = await client.post("/api/auth/set-password", { credential: "not-a-real-jwt", password: "newpassword1" });
+    assert.equal(blocked.status, 429);
+  });
+});
