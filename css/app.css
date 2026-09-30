@@ -612,7 +612,10 @@ body.has-topmenu .sitechat__fab { display: none; }
 /* The rail is a slim companion column: smaller cards, tighter type. */
 @media (min-width: 1101px) {
   .home-layout { grid-template-columns: minmax(0, 1fr) 260px; }
-  .home-rail { gap: var(--s-3); top: var(--s-4); }
+  .home-rail { gap: var(--s-3); top: var(--s-4); margin-top: 12px; }
+  /* Out toward the window's edge, into the space beside the centred content —
+     as much of it as there is (none on a laptop), never past the edge. */
+  .home-rail { translate: clamp(0px, calc((100vw - 260px - var(--maxw)) / 2 + 3vw - 16px), 72px) 0; }
   .home-rail .home-panel { padding: var(--s-3) var(--s-4); }
   .home-rail .home-panel__label { font-size: var(--fs-sm); margin-bottom: var(--s-2); }
   /* Seven day cells have to fit the slimmer card (34px each would overflow it). */
