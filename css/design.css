@@ -196,12 +196,6 @@ h1 { font-weight: 750; }
 }
 .home__title { min-width: 0; }
 .home__date { margin: 0 0 6px; font-size: 13px; font-weight: 600; color: var(--ink-faint); letter-spacing: .01em; }
-.home__hi { margin-top: 6px; }
-.home__head .home__actions { margin: 0; }
-@media (max-width: 620px) {
-  .home__head .home__actions { width: 100%; }
-  .home__head .home__actions .btn { flex: 1 1 auto; justify-content: center; }
-}
 
 /* Panel headings on the home page read as section titles, not bold body text. */
 .home-panel { border-radius: var(--r-lg); box-shadow: var(--shadow-card); }

@@ -394,19 +394,9 @@ export function renderMenu(mode) {
     ...libraryUI,
   ]);
 
-  // The Solve / Library / New-set shortcuts sit in the page head, to the right of
-  // the greeting, like any dashboard's page actions — only once there's at least
-  // one set (see greetingBlock). Solve first, New-set last (the one filled button);
-  // in demo mode a Library shortcut slots in between.
-  const headActions = el("div.home__actions", {}, [
-    el("a.btn.btn--ghost", { href: "#/solve" }, [icon(ICONS.camera, 18), t("menu.solveLink")]),
-    !store.hasKey() && el("a.btn.btn--ghost", { href: "#/library" }, [icon(ICONS.book, 18), t("nav.library")]),
-    el("a.btn", { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
-  ].filter(Boolean));
-
-  // The head stays at the very top, full width: what to do right now. A brand-new
-  // student gets homeStarter()'s own call to action instead of these shortcuts.
-  const greetingBlock = homeHead(store.assignments.length ? headActions : null);
+  // The page head: a greeting and one question, then the big shortcuts under it
+  // (homeTiles) do the job the head's buttons used to.
+  const greetingBlock = homeHead();
 
   // Right-hand rail: upcoming deadlines (calendar) + an achievements teaser.
   // Nothing to show yet (fresh library, everything unlocked with no next
@@ -416,11 +406,13 @@ export function renderMenu(mode) {
   // its own "pick a set" call to action, and showing this too would just repeat it.
   const ad = store.assignments.length ? houseAd() : null;
   const layout = el(rail ? "div.home-layout" : "div.home-layout.home-layout--solo", {}, [
-    el("div.home-main", {}, [homeStarter(), nearPanel(), ad, setsPanel].filter(Boolean)),
+    // The rail starts level with the greeting, up in the corner, rather than
+    // under a full-width head.
+    el("div.home-main", {}, [greetingBlock, tonightCard(), dailySlot(), homeTiles(), homeStarter(), nearPanel(), ad, setsPanel].filter(Boolean)),
     rail,
   ].filter(Boolean));
 
-  return { title: t("menu.title"), node: el("div", {}, [greetingBlock, tonightCard(), dailySlot(), layout].filter(Boolean)), cleanup: menuCleanup };
+  return { title: t("menu.title"), node: layout, cleanup: menuCleanup };
 }
 
 /** The evening before a test the home page leads with a calm card that opens the
@@ -830,20 +822,32 @@ function greeting() {
   return name ? `${hello}, ${name}` : hello;
 }
 
-/** The top of the home page: just the greeting and one line. Kept full-width
- *  and short for every student, so the rail (Kommande/Utmärkelser) always
- *  lines up with the top of the main column — see homeStarter() below for
- *  the brand-new-student content, which lives inside the grid instead. */
-function homeHead(actions) {
-  const today = new Date().toLocaleDateString(getLang() === "en" ? "en-GB" : "sv-SE", { weekday: "long", day: "numeric", month: "long" });
+/** The top of the home page: the greeting, small, over one question. */
+function homeHead() {
   return el("div.home__head", {}, [
     el("div.home__title", {}, [
-      el("p.home__date", {}, today.charAt(0).toUpperCase() + today.slice(1)),
-      el("h1", {}, greeting()),
-      el("p.home__hi", {}, t("menu.subHasKey")),
+      el("p.home__date", {}, greeting()),
+      el("h1", {}, t("menu.askToday")),
     ]),
-    actions,
-  ].filter(Boolean));
+  ]);
+}
+
+/** "Vad vill du plugga idag?" — the big shortcuts to the app's main jobs, each
+ *  an icon, a name and one line on what it's for. Same pages as the sidebar;
+ *  this is just the obvious place to start from. */
+const HOME_TILES = [
+  { href: "#/create",    icon: ICONS.plus,       label: "nav.create",   sub: "menu.pickCreateSub",  color: "#7A5CFF" },
+  { href: "#/library",   icon: ICONS.book,       label: "nav.library",  sub: "menu.pickLibrarySub", color: "#1F9FB5" },
+  { href: "#/exam-prep", icon: ICONS.graduation, label: "nav.examPrep", sub: "menu.pickExamSub",    color: "#4C9F55" },
+  { href: "#/solve",     icon: ICONS.spark,      label: "nav.solve",    sub: "menu.pickAiSub",      color: "#E4588A" },
+  { href: "#/hp",        icon: ICONS.award,      label: "nav.hp",       sub: "menu.pickHpSub",      color: "#F0913C" },
+];
+function homeTiles() {
+  return el("nav.home-tiles", { "aria-label": t("menu.askToday") }, HOME_TILES.map((x) =>
+    el("a.home-tile", { href: x.href, style: { "--tile": x.color } }, [
+      el("span.home-tile__ic", { "aria-hidden": "true" }, icon(x.icon, 20)),
+      el("span", {}, [el("b", {}, t(x.label)), el("small", {}, t(x.sub))]),
+    ])));
 }
 
 /** For a brand-new student with no sets yet: one clear action plus a real
