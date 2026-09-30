@@ -21,7 +21,8 @@ function safeNext(raw) {
 
 export function renderLogin(qs) {
   const dest = safeNext(qs?.get?.("next"));
-  let mode = "login"; // "login" | "signup" | "forgot" | "forgotSent"
+  let mode = "login"; // "login" | "signup" | "forgot" | "forgotSent" | "twofa"
+  let pendingChallenge = null;   // set once login()/resetPassword() ask for a 2FA code
 
   // No server reachable → the whole form is inert; disable it rather than let
   // someone fill it in and hit a network error.
@@ -29,6 +30,7 @@ export function renderLogin(qs) {
 
   const emailInput = el("input", { id: "auth-email", type: "email", autocomplete: "email", required: true, placeholder: t("login.emailPlaceholder"), disabled: serverDown });
   const passInput = el("input", { id: "auth-password", type: "password", placeholder: "••••••••", disabled: serverDown });
+  const codeInput = el("input", { id: "auth-code", type: "text", autocomplete: "one-time-code", placeholder: t("login.twofaPlaceholder"), disabled: serverDown });
   const confirmInput = el("input", { id: "auth-confirm", type: "password", placeholder: "••••••••", disabled: serverDown, autocomplete: "new-password" });
   const errorNote = el("p.auth__error", { hidden: true, role: "alert" });
   const submitBtn = el("button.auth__submit", { type: "submit", disabled: serverDown }, t("login.signIn"));
@@ -48,6 +50,7 @@ export function renderLogin(qs) {
     withIcon(ICONS.lock, passwordField(passInput)),
   ]);
   const confirmRow = el("label.auth__field", { for: "auth-confirm" }, [el("span", {}, t("login.confirmPassword")), withIcon(ICONS.lock, passwordField(confirmInput))]);
+  const codeRow = el("label.auth__field", { for: "auth-code" }, [el("span", {}, t("login.twofaLabel")), withIcon(ICONS.shield, codeInput)]);
 
   // Making an account needs a yes to the Terms + Privacy Policy and the age statement. The box
   // shows in sign-up mode, and for Google when the server says the sign-in would create a new account.
@@ -68,24 +71,28 @@ export function renderLogin(qs) {
   function paintMode() {
     const forgotDone = mode === "forgotSent";
     const forgotting = mode === "forgot" || forgotDone;
+    const twofa = mode === "twofa";
     submitBtn.replaceChildren(
-      mode === "forgot" ? t("login.forgotSubmit") : mode === "login" ? t("login.signIn") : t("login.createAccount"),
+      mode === "forgot" ? t("login.forgotSubmit") : twofa ? t("login.twofaSubmit") : mode === "login" ? t("login.signIn") : t("login.createAccount"),
       icon(ICONS.arrow, 18),
     );
     submitBtn.hidden = forgotDone;
-    heading.textContent = forgotting ? t("login.forgotTitle") : mode === "login" ? t("login.welcomeBack") : t("login.createTitle");
+    heading.textContent = forgotting ? t("login.forgotTitle") : twofa ? t("login.twofaTitle") : mode === "login" ? t("login.welcomeBack") : t("login.createTitle");
     subline.replaceChildren(...(forgotting
       ? [t("login.forgotBody")]
+      : twofa
+      ? [t("login.twofaBody")]
       : [(mode === "login" ? t("login.noAccountYet") : t("login.alreadyHave")) + " ", toggleBtn]));
     toggleBtn.textContent = mode === "login" ? t("login.createFree") : t("login.signInLink");
     // No reset link can be sent unless the server has email set up — showing the control anyway
     // would promise a message that never arrives (store.emailConfigured, from /api/health).
     forgotLink.hidden = mode !== "login" || !store.emailConfigured;
-    backToSignInLink.hidden = mode !== "forgot" && !forgotDone;
+    backToSignInLink.hidden = mode !== "forgot" && !forgotDone && !twofa;
     forgotSentNote.hidden = !forgotDone;
-    introNote.hidden = forgotting;
-    emailRow.hidden = forgotDone;
-    passRow.hidden = mode === "forgot" || forgotDone;
+    introNote.hidden = forgotting || twofa;
+    emailRow.hidden = forgotDone || twofa;
+    passRow.hidden = mode === "forgot" || forgotDone || twofa;
+    codeRow.hidden = !twofa;
     confirmRow.hidden = mode !== "signup";
     passInput.autocomplete = mode === "login" ? "current-password" : "new-password";
     consentRow.hidden = mode !== "signup" && !googleCredential;
@@ -101,7 +108,7 @@ export function renderLogin(qs) {
   }
   toggleBtn.addEventListener("click", () => setMode(mode === "login" ? "signup" : "login"));
   forgotLink.addEventListener("click", () => setMode("forgot"));
-  backToSignInLink.addEventListener("click", () => setMode("login"));
+  backToSignInLink.addEventListener("click", () => { pendingChallenge = null; setMode("login"); });
 
   // Google's button: only when the server has it set up. If Google's script
   // can't load (blocked, offline) the whole section stays hidden and the form
@@ -136,7 +143,7 @@ export function renderLogin(qs) {
     await onGoogle(googleCredential);
   }
   async function paintGoogle() {
-    if (serverDown || !store.googleClientId || mode === "forgot" || mode === "forgotSent") { googleSection.hidden = true; return; }
+    if (serverDown || !store.googleClientId || mode === "forgot" || mode === "forgotSent" || mode === "twofa") { googleSection.hidden = true; return; }
     googleSection.hidden = false;   // reserve the space first so the button can measure its width
     const ok = await renderGoogleButton(googleBox, {
       clientId: store.googleClientId,
@@ -167,6 +174,25 @@ export function renderLogin(qs) {
       return;
     }
 
+    if (mode === "twofa") {
+      const code = codeInput.value.trim();
+      if (!code || !pendingChallenge) return;
+      submitBtn.disabled = true;
+      errorNote.hidden = true;
+      try {
+        await store.verify2fa(pendingChallenge, code);
+        toast(t("login.signedInToast"));
+        location.hash = dest;
+      } catch (err) {
+        errorNote.textContent = err.message || t("login.loginFailed");
+        errorNote.hidden = false;
+        codeInput.focus();
+      } finally {
+        submitBtn.disabled = false;
+      }
+      return;
+    }
+
     const password = passInput.value;
     if (!email || !password) return;
     if (mode === "signup") {
@@ -188,7 +214,14 @@ export function renderLogin(qs) {
     errorNote.hidden = true;
     try {
       if (mode === "login") {
-        await store.login(email, password);
+        const result = await store.login(email, password);
+        if (result?.twoFactorRequired) {
+          pendingChallenge = result.challenge;
+          mode = "twofa";
+          paintMode();
+          codeInput.focus();
+          return;
+        }
         toast(t("login.signedInToast"));
       } else {
         await store.signup(email, password, { consent: consentInput.checked });
@@ -207,6 +240,7 @@ export function renderLogin(qs) {
   const form = el("form.auth__form", { onsubmit: submit, novalidate: false }, [
     emailRow,
     passRow,
+    codeRow,
     confirmRow,
     consentRow,
     forgotSentNote,

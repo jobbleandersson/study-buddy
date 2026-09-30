@@ -247,6 +247,28 @@ db.exec(`
     utm_campaign TEXT,
     created_at INTEGER NOT NULL
   );
+
+  -- Single-use backup codes for two-factor login, generated in a batch of 10 whenever 2FA is
+  -- enabled or regenerated. bcrypt-hashed like a password, never stored in plaintext.
+  CREATE TABLE IF NOT EXISTS totp_backup_codes (
+    id TEXT PRIMARY KEY,
+    user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    code_hash TEXT NOT NULL,
+    used_at INTEGER,
+    created_at INTEGER NOT NULL
+  );
+
+  -- A short-lived marker that a password (or reset token) already checked out on a 2FA-enabled
+  -- account, waiting on the second factor before a real session is created. Same shape and
+  -- claim-once discipline as password_reset_tokens; kept as its own table for the same reason
+  -- that one is separate from email_verify_tokens — it must never be redeemable anywhere else.
+  CREATE TABLE IF NOT EXISTS twofa_challenges (
+    id TEXT PRIMARY KEY,
+    user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    expires_at INTEGER NOT NULL,
+    used_at INTEGER,
+    created_at INTEGER NOT NULL
+  );
 `);
 
 // Sign in with Google: the Google account's stable id ("sub"), on the same user
@@ -277,4 +299,13 @@ if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === "email_
 // where "unverified" says nothing about who registered it. Read by routes/auth.js (revokeTies).
 if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === "email_verify_required")) {
   db.exec("ALTER TABLE users ADD COLUMN email_verify_required INTEGER");
+}
+
+// Two-factor auth. totp_secret is base32, NULL until enabled; totp_enabled_at NULL = off.
+// totp_last_counter is the last 30s time-step a code was accepted for — rejecting anything at or
+// before it stops the same code (or one guessed a step early) being replayed inside its own window.
+for (const [col, type] of [["totp_secret", "TEXT"], ["totp_enabled_at", "INTEGER"], ["totp_last_counter", "INTEGER"]]) {
+  if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === col)) {
+    db.exec(`ALTER TABLE users ADD COLUMN ${col} ${type}`);
+  }
 }

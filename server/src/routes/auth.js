@@ -8,10 +8,12 @@ import { asyncHandler } from "../middleware/asyncHandler.js";
 import {
   signupHourly, signupDaily, loginFailures, googleSignInLimit,
   resendVerificationLimit, forgotPasswordLimits, verifyEmailIpLimit, resetPasswordIpLimit,
+  twoFaVerifyLimits, twoFaPasswordLimit,
 } from "../middleware/authLimits.js";
 import { isUniqueViolation } from "../errors.js";
 import { requireAuth } from "../middleware/requireAuth.js";
-import { emailEnabled, sendVerifyEmail, sendResetEmail } from "../email.js";
+import { emailEnabled, sendVerifyEmail, sendResetEmail, sendTwoFaEnabledEmail, sendTwoFaDisabledEmail } from "../email.js";
+import { generateSecret, verifyTotp, otpauthUri, generateBackupCodes } from "../totp.js";
 
 export const auth = Router();
 
@@ -37,6 +39,18 @@ function createSession(res, userId) {
   db.prepare("INSERT INTO sessions (id, user_id, expires_at, created_at) VALUES (?, ?, ?, ?)")
     .run(id, userId, now + SESSION_TTL_MS, now);
   res.cookie(COOKIE_NAME, id, cookieOpts());
+}
+
+// A password (or reset token) just checked out on a 2FA-enabled account: hold off on the real
+// session until the second factor clears. Five minutes is long enough to type a code, short
+// enough that an abandoned challenge doesn't sit around.
+const TWOFA_CHALLENGE_TTL_MS = 5 * 60 * 1000;
+function issueTwoFaChallenge(userId) {
+  const id = crypto.randomBytes(32).toString("hex");
+  const now = Date.now();
+  db.prepare("INSERT INTO twofa_challenges (id, user_id, expires_at, created_at) VALUES (?, ?, ?, ?)")
+    .run(id, userId, now + TWOFA_CHALLENGE_TTL_MS, now);
+  return id;
 }
 
 const emailTaken = (res) =>
@@ -130,14 +144,65 @@ auth.post("/auth/login", ...loginFailures, asyncHandler(async (req, res) => {
   const email = String(req.body?.email || "").trim().toLowerCase();
   const password = String(req.body?.password || "").slice(0, 200);
 
-  const user = db.prepare("SELECT id, password_hash, email_verified_at AS emailVerifiedAt FROM users WHERE email = ?").get(email);
+  const user = db.prepare(
+    "SELECT id, password_hash, email_verified_at AS emailVerifiedAt, totp_enabled_at AS totpEnabledAt FROM users WHERE email = ?"
+  ).get(email);
   const ok = await bcrypt.compare(password, user ? user.password_hash : DUMMY_HASH);
   if (!user || !ok) {
     return res.status(401).json({ error: { message: "Wrong email or password." } });
   }
 
+  // The password is right, but that's only the first factor on this account — hold off on a real
+  // session until /auth/2fa/verify clears the second one.
+  if (user.totpEnabledAt) {
+    return res.json({ twoFactorRequired: true, challenge: issueTwoFaChallenge(user.id) });
+  }
+
   createSession(res, user.id);
   res.json({ email, emailVerified: !emailEnabled() || !!user.emailVerifiedAt });
+}));
+
+// The code (from an authenticator app) or backup code that follows a password/reset-token check on
+// a 2FA-enabled account. Shared by /auth/login and /auth/reset-password, which is why it isn't
+// nested under either — a wrong code never consumes the challenge (so a mistyped digit can be
+// retried), but a right one always does, in the same statement that checks it was still unused, so
+// two parallel submits of the same challenge+code can't both create a session.
+auth.post("/auth/2fa/verify", ...twoFaVerifyLimits, asyncHandler(async (req, res) => {
+  const challengeId = String(req.body?.challenge || "");
+  const code = String(req.body?.code || "").trim();
+  const invalid = () => res.status(401).json({ error: { message: "That code is invalid or has expired." } });
+  if (!challengeId || !code) return invalid();
+
+  const challenge = db.prepare("SELECT id, user_id AS userId FROM twofa_challenges WHERE id = ? AND used_at IS NULL AND expires_at > ?")
+    .get(challengeId, Date.now());
+  if (!challenge) return invalid();
+
+  const user = db.prepare("SELECT id, email, email_verified_at AS emailVerifiedAt, totp_secret AS totpSecret, totp_last_counter AS totpLastCounter FROM users WHERE id = ?")
+    .get(challenge.userId);
+  if (!user || !user.totpSecret) return invalid();   // 2FA was disabled after the challenge was minted
+
+  const totp = verifyTotp(user.totpSecret, code, { afterCounter: user.totpLastCounter || 0 });
+  let backupRow = null;
+  if (!totp.ok) {
+    for (const row of db.prepare("SELECT id, code_hash FROM totp_backup_codes WHERE user_id = ? AND used_at IS NULL").all(user.id)) {
+      if (await bcrypt.compare(code, row.code_hash)) { backupRow = row; break; }
+    }
+  }
+  if (!totp.ok && !backupRow) return invalid();
+
+  const now = Date.now();
+  const claimed = db.transaction(() => {
+    // Claim the challenge first: whichever of two parallel correct submits gets here first wins,
+    // the other's claim reports 0 rows changed and falls through to the failure response below.
+    if (db.prepare("UPDATE twofa_challenges SET used_at = ? WHERE id = ? AND used_at IS NULL").run(now, challenge.id).changes === 0) return false;
+    if (totp.ok) db.prepare("UPDATE users SET totp_last_counter = ? WHERE id = ?").run(totp.counter, user.id);
+    else db.prepare("UPDATE totp_backup_codes SET used_at = ? WHERE id = ? AND used_at IS NULL").run(now, backupRow.id);
+    return true;
+  })();
+  if (!claimed) return invalid();
+
+  createSession(res, user.id);
+  res.json({ email: user.email, emailVerified: !emailEnabled() || !!user.emailVerifiedAt });
 }));
 
 // Sign in with Google — and, for someone new, how the account gets made. The
@@ -196,6 +261,11 @@ auth.post("/auth/google", googleSignInLimit, asyncHandler(async (req, res) => {
             db.prepare("DELETE FROM sessions WHERE user_id = ?").run(existing.id);
             retireResetTokens(existing.id, now);
             if (looksPreRegistered(existing)) revokeTies(existing.id);
+            // This account becomes passwordless (signs in with Google only), so there's no local
+            // password step left to gate with a second factor — clear it rather than leave it
+            // orphaned and unreachable (Settings hides 2FA management once passwordless).
+            db.prepare("UPDATE users SET totp_secret = NULL, totp_enabled_at = NULL, totp_last_counter = NULL WHERE id = ?").run(existing.id);
+            db.prepare("DELETE FROM totp_backup_codes WHERE user_id = ?").run(existing.id);
           })();
           user = { id: existing.id, email: existing.email };
           linked = true;
@@ -233,13 +303,13 @@ auth.post("/auth/logout", (req, res) => {
 auth.get("/auth/me", (req, res) => {
   const sid = req.cookies?.[COOKIE_NAME];
   const row = sid && db.prepare(
-    `SELECT users.email AS email, users.google_sub AS googleSub, users.email_verified_at AS emailVerifiedAt
+    `SELECT users.email AS email, users.google_sub AS googleSub, users.email_verified_at AS emailVerifiedAt, users.totp_enabled_at AS totpEnabledAt
      FROM sessions JOIN users ON users.id = sessions.user_id
      WHERE sessions.id = ? AND sessions.expires_at > ?`
   ).get(sid, Date.now());
   // passwordless: a Google-linked account has no usable password, so account deletion asks for its email instead.
   res.json(row
-    ? { authed: true, email: row.email, passwordless: !!row.googleSub, emailVerified: !emailEnabled() || !!row.emailVerifiedAt }
+    ? { authed: true, email: row.email, passwordless: !!row.googleSub, emailVerified: !emailEnabled() || !!row.emailVerifiedAt, totpEnabled: !!row.totpEnabledAt }
     : { authed: false });
 });
 
@@ -324,7 +394,7 @@ auth.post("/auth/reset-password", resetPasswordIpLimit, asyncHandler(async (req,
     const claimed = db.prepare("UPDATE password_reset_tokens SET used_at = ? WHERE id = ? AND used_at IS NULL").run(now, row.id);
     if (claimed.changes === 0) return null;
     retireResetTokens(row.userId, now);   // any other link mailed for this account dies with this one
-    const before = db.prepare("SELECT email, email_verified_at AS emailVerifiedAt, email_verify_required AS verifyRequired FROM users WHERE id = ?").get(row.userId);
+    const before = db.prepare("SELECT email, email_verified_at AS emailVerifiedAt, email_verify_required AS verifyRequired, totp_enabled_at AS totpEnabledAt FROM users WHERE id = ?").get(row.userId);
     if (looksPreRegistered(before)) revokeTies(row.userId);   // see revokeTies: this hands the account to whoever owns the inbox
     // Clicking a link mailed to this address proves the address as surely as the verify-email flow
     // does, so an unverified account is now verified too — COALESCE leaves an already-set date alone.
@@ -332,11 +402,97 @@ auth.post("/auth/reset-password", resetPasswordIpLimit, asyncHandler(async (req,
       .run(hash, now, row.userId);
     // A reset that wasn't the account owner's idea is exactly the case where every other signed-in
     // device should be signed out — same move as linking a Google account (see /auth/google above).
+    // This runs unconditionally, even when a 2FA step still follows below: proving control of the
+    // inbox is reason enough to kill every other session regardless of what happens next.
     db.prepare("DELETE FROM sessions WHERE user_id = ?").run(row.userId);
-    return { email: before.email };
+    return { email: before.email, totpEnabledAt: before.totpEnabledAt };
   })();
   if (!user) return badToken(res);
 
+  // A compromised inbox shouldn't bypass 2FA any more than a compromised password should — the
+  // new password is already live and every other session already dead either way; only the final
+  // sign-in step waits on the second factor.
+  if (user.totpEnabledAt) {
+    return res.json({ twoFactorRequired: true, challenge: issueTwoFaChallenge(row.userId) });
+  }
+
   createSession(res, row.userId);
   res.json({ email: user.email, emailVerified: true });   // they just proved they control the inbox
+}));
+
+// ---------------- two-factor authentication ----------------
+
+// Generates a fresh secret and returns it unpersisted — nothing is written until /auth/2fa/confirm
+// proves the person actually set it up (scanned/typed it into an authenticator app correctly).
+// That statelessness means an abandoned setup needs no cleanup job.
+auth.post("/auth/2fa/setup", requireAuth, (req, res) => {
+  const secret = generateSecret();
+  res.json({ secret, otpauthUri: otpauthUri(secret, { email: req.user.email }) });
+});
+
+// Requires the current password, not just a session: without this, a stolen session cookie alone
+// would let an attacker enroll their own authenticator on the victim's account and lock them out on
+// their next real login.
+auth.post("/auth/2fa/confirm", requireAuth, twoFaPasswordLimit, asyncHandler(async (req, res) => {
+  const password = String(req.body?.password || "").slice(0, 200);
+  const secret = String(req.body?.secret || "");
+  const code = String(req.body?.code || "").trim();
+  const wrongPassword = () => res.status(403).json({ error: { message: "That password is wrong.", code: "confirm_mismatch" } });
+  const badCode = () => res.status(400).json({ error: { message: "That code is invalid or has expired." } });
+  if (!secret || !code) return badCode();
+
+  const user = db.prepare("SELECT password_hash FROM users WHERE id = ?").get(req.user.userId);
+  if (!user || !(await bcrypt.compare(password, user.password_hash))) return wrongPassword();
+
+  const totp = verifyTotp(secret, code, { afterCounter: 0 });
+  if (!totp.ok) return badCode();
+
+  const backupCodes = generateBackupCodes();
+  const now = Date.now();
+  db.transaction(() => {
+    db.prepare("UPDATE users SET totp_secret = ?, totp_enabled_at = ?, totp_last_counter = ? WHERE id = ?")
+      .run(secret, now, totp.counter, req.user.userId);
+    db.prepare("DELETE FROM totp_backup_codes WHERE user_id = ?").run(req.user.userId);   // re-enrolling replaces any stale set
+    const insert = db.prepare("INSERT INTO totp_backup_codes (id, user_id, code_hash, created_at) VALUES (?, ?, ?, ?)");
+    for (const plain of backupCodes) insert.run(crypto.randomUUID(), req.user.userId, bcrypt.hashSync(plain, 10), now);
+  })();
+  sendTwoFaEnabledEmail(req.user.email).catch(() => {});
+  res.json({ ok: true, backupCodes });
+}));
+
+auth.post("/auth/2fa/disable", requireAuth, twoFaPasswordLimit, asyncHandler(async (req, res) => {
+  const password = String(req.body?.password || "").slice(0, 200);
+  const user = db.prepare("SELECT password_hash FROM users WHERE id = ?").get(req.user.userId);
+  if (!user || !(await bcrypt.compare(password, user.password_hash))) {
+    return res.status(403).json({ error: { message: "That password is wrong.", code: "confirm_mismatch" } });
+  }
+  const sid = req.cookies?.[COOKIE_NAME];
+  db.transaction(() => {
+    db.prepare("UPDATE users SET totp_secret = NULL, totp_enabled_at = NULL, totp_last_counter = NULL WHERE id = ?").run(req.user.userId);
+    db.prepare("DELETE FROM totp_backup_codes WHERE user_id = ?").run(req.user.userId);
+    // Kill every *other* session — the one making this request already just re-proved the
+    // password, so leaving it alive isn't a risk, and killing it too would just be confusing.
+    // Revoking the rest still matters: it makes any other signed-in device notice something changed.
+    db.prepare("DELETE FROM sessions WHERE user_id = ? AND id != ?").run(req.user.userId, sid || "");
+  })();
+  sendTwoFaDisabledEmail(req.user.email).catch(() => {});
+  res.json({ ok: true });
+}));
+
+auth.post("/auth/2fa/backup-codes/regenerate", requireAuth, twoFaPasswordLimit, asyncHandler(async (req, res) => {
+  const password = String(req.body?.password || "").slice(0, 200);
+  const user = db.prepare("SELECT password_hash, totp_enabled_at AS totpEnabledAt FROM users WHERE id = ?").get(req.user.userId);
+  if (!user || !(await bcrypt.compare(password, user.password_hash))) {
+    return res.status(403).json({ error: { message: "That password is wrong.", code: "confirm_mismatch" } });
+  }
+  if (!user.totpEnabledAt) return res.status(400).json({ error: { message: "Two-factor authentication isn't on for this account.", code: "twofa_off" } });
+
+  const backupCodes = generateBackupCodes();
+  const now = Date.now();
+  db.transaction(() => {
+    db.prepare("DELETE FROM totp_backup_codes WHERE user_id = ?").run(req.user.userId);
+    const insert = db.prepare("INSERT INTO totp_backup_codes (id, user_id, code_hash, created_at) VALUES (?, ?, ?, ?)");
+    for (const plain of backupCodes) insert.run(crypto.randomUUID(), req.user.userId, bcrypt.hashSync(plain, 10), now);
+  })();
+  res.json({ ok: true, backupCodes });
 }));

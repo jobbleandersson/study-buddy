@@ -19,6 +19,7 @@ import { cleanRuleText, rulesForQuestion, RULE_MAX_COUNT } from "./lib/rules.js"
 import {
   PROXY_HEALTH_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_GOOGLE_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, ACCOUNT_URL,
   RESEND_VERIFICATION_URL, VERIFY_EMAIL_URL, FORGOT_PASSWORD_URL, RESET_PASSWORD_URL, STATE_URL, USAGE_URL,
+  AUTH_2FA_VERIFY_URL, AUTH_2FA_SETUP_URL, AUTH_2FA_CONFIRM_URL, AUTH_2FA_DISABLE_URL, AUTH_2FA_BACKUP_REGEN_URL,
 } from "./config.js";
 
 const KEY = "studybuddy.v1";
@@ -473,6 +474,10 @@ class Store extends EventTarget {
     // Meaningless while emailConfigured is false — the server reports true in that case so
     // nothing here ever nags about a feature that isn't switched on.
     this.authEmailVerified = false;
+    // Whether the signed-in account has TOTP two-factor turned on. Only ever true for a password
+    // account — a Google-linked one re-authenticates via Google every time, so there's no local
+    // password step to layer a second factor onto (Settings hides 2FA management accordingly).
+    this.totpEnabled = false;
 
     // Claude usage this month, once signed in: { used, limit, resetsAt } or
     // null when unknown / not metered. `_aiQuotaOut` latches true when a call
@@ -554,6 +559,7 @@ class Store extends EventTarget {
           this.authEmail = data.email;
           this.authPasswordless = !!data.passwordless;
           this.authEmailVerified = !!data.emailVerified;
+          this.totpEnabled = !!data.totpEnabled;
         }
       } catch { /* not signed in / server unreachable — stay local-only */ }
     }
@@ -1537,12 +1543,16 @@ class Store extends EventTarget {
     if (!res.ok) throw authError(data, t("login.signupFailed"));
     this._adoptSignIn(data.email, { passwordless: false });
     this.authEmailVerified = !!data.emailVerified;
+    this.totpEnabled = false;   // a brand-new account has no 2FA to have set up yet
     this._setSyncVersion(0);
     await this._pushNow(); // this device's local data becomes the account's data
     await this.refreshUsage();
     this.emit();
   }
 
+  /** Resolves `{ twoFactorRequired: true, challenge }` instead of signing in when the account has
+   *  2FA on — the caller (js/views/login.js) shows a code step and finishes with `verify2fa()`.
+   *  Otherwise behaves exactly as before: resolves to undefined once signed in. */
   async login(email, password) {
     const res = await fetch(AUTH_LOGIN_URL, {
       method: "POST", credentials: "include",
@@ -1551,11 +1561,80 @@ class Store extends EventTarget {
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) throw new Error(serverMessage(data?.error?.message, t("login.loginFailed")));
+    if (data.twoFactorRequired) return { twoFactorRequired: true, challenge: data.challenge };
     this._adoptSignIn(data.email, { passwordless: false });
     this.authEmailVerified = !!data.emailVerified;
+    this.totpEnabled = false;   // reaching this branch at all means the account has 2FA off
     await this._pullOnLogin();
     await this.refreshUsage();
     this.emit();
+  }
+
+  /** The code step after `login()` or `resetPassword()` returned `twoFactorRequired` — a 6-digit
+   *  authenticator code or one of the account's backup codes. Success signs in exactly like a
+   *  plain login would have. */
+  async verify2fa(challenge, code) {
+    const res = await fetch(AUTH_2FA_VERIFY_URL, {
+      method: "POST", credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ challenge, code }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw authError(data, t("login.loginFailed"));
+    this._adoptSignIn(data.email, { passwordless: false });
+    this.authEmailVerified = !!data.emailVerified;
+    this.totpEnabled = true;   // reaching this endpoint at all means the account has 2FA on
+    await this._pullOnLogin();
+    await this.refreshUsage();
+    this.emit();
+  }
+
+  /** Setup step 1: a fresh, unpersisted secret + otpauth:// link to show in the enrollment dialog. */
+  async setup2fa() {
+    const res = await fetch(AUTH_2FA_SETUP_URL, { method: "POST", credentials: "include" });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw authError(data, t("login.somethingWrong"));
+    return { secret: data.secret, otpauthUri: data.otpauthUri };
+  }
+
+  /** Setup step 2: proves the secret was actually set up (a matching code) and the password, so a
+   *  stolen session alone can't enroll a new authenticator. Returns the 10 backup codes — shown
+   *  to the person exactly once, never retrievable again. */
+  async confirm2fa(password, secret, code) {
+    const res = await fetch(AUTH_2FA_CONFIRM_URL, {
+      method: "POST", credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ password, secret, code }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw authError(data, t("login.somethingWrong"));
+    this.totpEnabled = true;
+    this.emit();
+    return { backupCodes: data.backupCodes };
+  }
+
+  async disable2fa(password) {
+    const res = await fetch(AUTH_2FA_DISABLE_URL, {
+      method: "POST", credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ password }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw authError(data, t("login.somethingWrong"));
+    this.totpEnabled = false;
+    this.emit();
+  }
+
+  /** Old backup codes stop working the moment this succeeds — only the returned 10 are valid. */
+  async regenerateBackupCodes(password) {
+    const res = await fetch(AUTH_2FA_BACKUP_REGEN_URL, {
+      method: "POST", credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ password }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw authError(data, t("login.somethingWrong"));
+    return { backupCodes: data.backupCodes };
   }
 
   /** Sends a reset link if that address has a password account — always resolves the same way
@@ -1572,7 +1651,9 @@ class Store extends EventTarget {
   }
 
   /** The token from a reset-password email. Success signs the browser in with the new password,
-   *  same as loginWithGoogle does for a brand-new account — no separate login step needed. */
+   *  same as loginWithGoogle does for a brand-new account — no separate login step needed. Unless
+   *  the account has 2FA on: then, like login(), this resolves `{ twoFactorRequired, challenge }`
+   *  instead — the new password is already live either way, only the sign-in step waits. */
   async resetPassword(token, password) {
     const res = await fetch(RESET_PASSWORD_URL, {
       method: "POST", credentials: "include",
@@ -1581,8 +1662,10 @@ class Store extends EventTarget {
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) throw authError(data, t("reset.failed"));   // err.code === "bad_token" when the link is dead
+    if (data.twoFactorRequired) return { twoFactorRequired: true, challenge: data.challenge };
     this._adoptSignIn(data.email, { passwordless: false });
     this.authEmailVerified = !!data.emailVerified;
+    this.totpEnabled = false;   // reaching this branch at all means the account has 2FA off
     await this._pullOnLogin();
     await this.refreshUsage();
     this.emit();
@@ -1640,6 +1723,7 @@ class Store extends EventTarget {
     if (!res.ok) throw authError(data, t("login.googleFailed"));   // err.code === "consent_required" when a new account needs the checkbox
     this._adoptSignIn(data.email, { passwordless: true });
     this.authEmailVerified = true;   // Google already verified it — see routes/auth.js
+    this.totpEnabled = false;   // linking clears any 2FA the account had (see routes/auth.js) — passwordless has none to have
     if (data.created) {
       this._setSyncVersion(0);
       await this._pushNow();
@@ -1668,6 +1752,7 @@ class Store extends EventTarget {
     this.authEmail = null;
     this.authPasswordless = false;
     this.authEmailVerified = false;
+    this.totpEnabled = false;
     this.aiUsage = null;
     this._aiQuotaOut = false;
     clearTimeout(this._pushTimer);
@@ -1703,6 +1788,7 @@ class Store extends EventTarget {
     this.authEmail = null;
     this.authPasswordless = false;
     this.authEmailVerified = false;
+    this.totpEnabled = false;
     this.aiUsage = null;
     this._aiQuotaOut = false;
     this._clearDevice();

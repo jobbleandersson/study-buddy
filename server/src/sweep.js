@@ -15,6 +15,7 @@ const stmts = [
   db.prepare("DELETE FROM friend_codes WHERE expires_at < ? OR used_at IS NOT NULL"),
   db.prepare("DELETE FROM email_verify_tokens WHERE expires_at < ? OR used_at IS NOT NULL"),
   db.prepare("DELETE FROM password_reset_tokens WHERE expires_at < ? OR used_at IS NOT NULL"),
+  db.prepare("DELETE FROM twofa_challenges WHERE expires_at < ? OR used_at IS NOT NULL"),
 ];
 
 function runSweep() {

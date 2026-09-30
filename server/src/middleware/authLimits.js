@@ -1,4 +1,5 @@
 import { attemptLimit, clientKey } from "./attemptLimit.js";
+import { db } from "../db.js";
 
 // The limits on signup, login and code guessing. All adjustable from the
 // environment — a school signing up a few classes from one Wi-Fi is the case
@@ -64,6 +65,32 @@ export const forgotPasswordLimits = [
 ];
 export const verifyEmailIpLimit = attemptLimit({ name: "verify-email-ip", max: num("VERIFY_EMAIL_PER_HOUR_PER_IP", 60), windowMs: HOUR });
 export const resetPasswordIpLimit = attemptLimit({ name: "reset-pw-ip", max: num("RESET_PW_PER_HOUR_PER_IP", 30), windowMs: HOUR });
+
+// Two-factor code guessing. A per-challenge key would reset every time an attacker who already
+// knows the password calls /auth/login again for a fresh challenge — so this resolves the challenge
+// to the account it belongs to and keys on that instead, collapsing every challenge minted for one
+// account into the same bucket. Falls back to the raw (bogus/expired) token when it doesn't resolve.
+const twoFaAccountKey = (req) => {
+  const challenge = String(req.body?.challenge || "");
+  const row = challenge && db.prepare("SELECT user_id AS userId FROM twofa_challenges WHERE id = ?").get(challenge);
+  return `${clientKey(req)}|${row ? row.userId : challenge}`;
+};
+export const twoFaVerifyLimits = [
+  attemptLimit({
+    name: "twofa-verify-account", max: num("TWOFA_FAILS_PER_15MIN_PER_ACCOUNT", 10), windowMs: 15 * MIN,
+    key: twoFaAccountKey, failureStatuses: [401],
+  }),
+  attemptLimit({
+    name: "twofa-verify-ip", max: num("TWOFA_FAILS_PER_15MIN_PER_IP", 300), windowMs: 15 * MIN, failureStatuses: [401],
+  }),
+];
+
+// Re-entering the current password to manage 2FA (confirm/disable/regenerate) — same shape as
+// account.js's own delete-account limiter: only a wrong password counts, keyed per account.
+export const twoFaPasswordLimit = attemptLimit({
+  name: "twofa-password-fail", max: num("TWOFA_PASSWORD_FAILS_PER_15MIN_PER_ACCOUNT", 5), windowMs: 15 * MIN,
+  key: (req) => req.user?.userId, failureStatuses: [403],
+});
 
 // One ping per app load (see js/main.js) — generous enough that a whole class
 // opening the app on one school IP at once never gets blocked, tight enough
