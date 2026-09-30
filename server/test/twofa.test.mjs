@@ -23,12 +23,18 @@ describe("two-factor authentication", () => {
   }
 
   /** Signs up, enables 2FA, and hands back the secret + backup codes for the tests that need
-   *  them. Ends signed out (a fresh client) so each test starts from a clean login. */
+   *  them. Ends signed out (a fresh client) so each test starts from a clean login.
+   *
+   *  Uses step: -1 (the oldest counter verifyTotp's ±1 window still accepts) to confirm, not the
+   *  default step: 1 — the replay guard's `afterCounter` is genuinely a real per-account value
+   *  set the instant this call lands, and a test calling codeFor(secret) again moments later
+   *  (same 30s wall-clock window, no real time elapsed) needs a *later* counter still inside that
+   *  window to avoid colliding with the one enrollment itself just consumed. */
   async function enrolled() {
     const email = await signup();
     const setup = await client.post("/api/auth/2fa/setup");
     const secret = setup.json.secret;
-    const confirm = await client.post("/api/auth/2fa/confirm", { password: PASSWORD, secret, code: codeFor(secret) });
+    const confirm = await client.post("/api/auth/2fa/confirm", { password: PASSWORD, secret, code: codeFor(secret, { step: -1 }) });
     assert.equal(confirm.status, 200, JSON.stringify(confirm.json));
     const backupCodes = confirm.json.backupCodes;
     client.clearCookie();
@@ -147,16 +153,17 @@ describe("two-factor authentication", () => {
 
   test("disabling 2FA needs the password, revokes other sessions, but keeps the acting one", async () => {
     const { email, secret } = await enrolled();
-    // Sign in on "this" client via the 2FA gate.
+    // Each successful TOTP check ratchets the account's accepted-counter watermark forward, and
+    // the ±1-step window only ever spans 3 distinct counters at a time — so two independent
+    // logins in the same test must use *ascending* steps (enrolled() already used -1) or the
+    // second would look like a replay of something older than what's already been accepted.
     const login1 = await client.post("/api/auth/login", { email, password: PASSWORD });
-    await client.post("/api/auth/2fa/verify", { challenge: login1.json.challenge, code: codeFor(secret) });
+    await client.post("/api/auth/2fa/verify", { challenge: login1.json.challenge, code: codeFor(secret, { step: 0 }) });
     const thisCookie = client.cookie;
 
-    // A second "device" signs in too, with a *different* code (step: 0, still inside the server's
-    // ±1-step window) — the same code twice would look like a replay, not two independent sign-ins.
     const other = makeClient(server.baseUrl);
     const login2 = await other.post("/api/auth/login", { email, password: PASSWORD });
-    const otherVerify = await other.post("/api/auth/2fa/verify", { challenge: login2.json.challenge, code: codeFor(secret, { step: 0 }) });
+    const otherVerify = await other.post("/api/auth/2fa/verify", { challenge: login2.json.challenge, code: codeFor(secret, { step: 1 }) });
     assert.equal(otherVerify.status, 200, JSON.stringify(otherVerify.json));
     assert.equal((await other.get("/api/auth/me")).json.authed, true);
 
