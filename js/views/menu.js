@@ -8,7 +8,6 @@ import { importSet } from "../data/library.js";
 import { loadLibraryIndex, loadLibraryTranslations, baseSubjectName } from "../lib/library-content.js";
 import { localDayKey, questionsAnsweredToday } from "../lib/activity.js";
 import { masteryByTopic, masteryForAssignment, weakSpotQuestions } from "../lib/mastery.js";
-import { monthCalendar, weekStrip } from "../components/calendar.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { homeButton } from "../components/nav.js";
 import { openDueDialog, closeDueDialog } from "../components/due-dialog.js";
@@ -372,7 +371,7 @@ export function renderMenu(mode) {
     countLabel,
     grid,
   ];
-  const menuCleanup = () => { closeCardMenu(); closeDueDialog(); closeDayChooser(); closeQuickAdd(); };
+  const menuCleanup = () => { closeCardMenu(); closeDueDialog(); closeQuickAdd(); };
 
   // "Study" = just the set library on its own page (reached from the nav).
   if (mode === "study") {
@@ -404,16 +403,14 @@ export function renderMenu(mode) {
   // Right-hand rail: upcoming deadlines (calendar) + an achievements teaser.
   // Nothing to show yet (fresh library, everything unlocked with no next
   // badge) → no rail, and the layout falls back to one column.
-  const rail = homeRail();
   // Only once there's at least one set: homeStarter() above already covers the empty state with
   // its own "pick a set" call to action, and showing this too would just repeat it.
   const ad = store.assignments.length ? houseAd() : null;
-  const layout = el(rail ? "div.home-layout" : "div.home-layout.home-layout--solo", {}, [
-    el("div.home-main", {}, [homeStarter(), todayPanel(), chatPanel(), ad, setsPanel].filter(Boolean)),
-    rail,
+  const column = el("div.home-column", {}, [
+    homeStarter(), todayPanel(), backupPanel(), reviewPanel(), weekPanel(), chatPanel(), ad, setsPanel,
   ].filter(Boolean));
 
-  return { title: t("menu.title"), node: el("div", {}, [greetingBlock, tonightCard(), dailySlot(), layout].filter(Boolean)), cleanup: menuCleanup };
+  return { title: t("menu.title"), node: el("div.home-page", {}, [greetingBlock, tonightCard(), dailySlot(), column].filter(Boolean)), cleanup: menuCleanup };
 }
 
 /** "AI study help": one row into the study chat, where the ways of studying are picked. Only when the
@@ -447,13 +444,6 @@ function tonightCard() {
     ]),
     el("span.tonightcard__cta", {}, finished ? t("tonight.cardOpen") : t("tonight.cardCta")),
   ]);
-}
-
-/** The right-hand rail on the home page: an always-present mini calendar +
- *  Upcoming list (plus the backup and review nudges when they apply). */
-function homeRail() {
-  const panels = [backupPanel(), reviewPanel(), calendarPanel()].filter(Boolean);
-  return panels.length ? el("aside.home-rail", {}, panels) : null;
 }
 
 /** "Your work is only on this device." — for a signed-out student with real
@@ -519,55 +509,6 @@ function reviewPanel() {
   ]);
   ownReview.then((has) => { if (!has) panel.hidden = false; });
   return panel;
-}
-
-function calendarPanel() {
-  const content = deadlineRailContent();
-  return el("section.home-panel.home-panel--cal", {}, [
-    el("div.home-panel__label", {}, [
-      el("span", {}, t("nav.calendar")),
-      content.calToggle,
-    ].filter(Boolean)),
-    content.el,
-  ]);
-}
-
-/* ---------------- calendar day chooser (2+ deadlines on one day) ---------- */
-
-let dayMenuEl = null;
-function dayChooserDocClick(e) { if (dayMenuEl && !dayMenuEl.contains(e.target)) closeDayChooser(); }
-function dayChooserEsc(e) { if (e.key === "Escape") closeDayChooser(); }
-function closeDayChooser() {
-  dayMenuEl?.remove();
-  dayMenuEl = null;
-  document.removeEventListener("click", dayChooserDocClick, true);
-  document.removeEventListener("keydown", dayChooserEsc);
-}
-function openDayChooser(anchor, mark) {
-  closeDayChooser();
-  const menu = el("div.cardmenu.daymenu", { role: "menu" },
-    mark.items.map((a) => {
-      const color = store.subjectColor(a.subjectId);
-      return el("a.cardmenu__item", {
-        href: `#/session/${a.id}`, role: "menuitem",
-        onclick: () => closeDayChooser(),
-      }, [
-        el("span.daymenu__dot", { style: { background: color.solid } }),
-        el("span", {}, a.title),
-      ]);
-    }));
-
-  const r = anchor.getBoundingClientRect();
-  menu.style.top = `${r.bottom + window.scrollY + 4}px`;
-  menu.style.left = `${Math.max(8, Math.min(r.left + window.scrollX, window.innerWidth - 210))}px`;
-  document.body.appendChild(menu);
-  dayMenuEl = menu;
-  menu.querySelector("a")?.focus();
-
-  setTimeout(() => {
-    document.addEventListener("click", dayChooserDocClick, true);
-    document.addEventListener("keydown", dayChooserEsc);
-  }, 0);
 }
 
 /**
@@ -638,145 +579,61 @@ function goalRing(goal) {
 
 
 /**
- * The home rail's calendar: this week (a dot on every day with a deadline), expandable to the full
- * month, above the deadlines in view, soonest-first. Shown even with nothing due, so the rail doesn't
- * jump in and out of existence as deadlines come and go — an empty day is still a tap target for
- * adding one.
+ * "Den här veckan": the week as seven columns, each listing what's due that day. Today is
+ * highlighted, an empty day ahead offers "Lägg till" (name a set due then), and ‹ › page the week.
  */
-const UPCOMING_COLLAPSED = 3;
-let upcomingExpanded = false;
-let calendarExpanded = false;
-
-function deadlineRailContent() {
+let weekOffset = 0;
+function weekPanel() {
   const items = store.upcomingDue();
+  const today = localDayKey();
+  const fmtShort = new Intl.DateTimeFormat(getLang() === "en" ? "en-GB" : "sv-SE", { day: "numeric", month: "short" });
+  const fmtDay = new Intl.DateTimeFormat(getLang() === "en" ? "en-GB" : "sv-SE", { weekday: "short" });
+  const range = el("span.weekboard__range");
+  const board = el("div.weekboard");
+  const navBtn = (label, path, delta) => el("button.iconbtn.iconbtn--sm", {
+    type: "button", "aria-label": label, onclick: () => { weekOffset += delta; paint(); },
+  }, [icon(path, 16)]);
 
-  // items is soonest-first, so items[0] is the next deadline due — a test or a
-  // plain assignment. Shown as a countdown + study shortcut under the calendar,
-  // independent of which week/month the calendar is currently paged to.
-  const nextDeadline = items[0];
-
-  // day key -> { ids, titles, items } for the calendar dots + the day chooser.
-  const marks = new Map();
-  for (const a of items) {
-    const m = marks.get(a.dueAt) || { ids: [], titles: [], items: [] };
-    m.ids.push(a.id); m.titles.push(a.title); m.items.push(a);
-    marks.set(a.dueAt, m);
+  function paint() {
+    const now = new Date();
+    const monday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - ((now.getDay() + 6) % 7) + weekOffset * 7);
+    const days = Array.from({ length: 7 }, (_, i) => new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + i));
+    range.textContent = `${fmtShort.format(days[0])} – ${fmtShort.format(days[6])}`;
+    board.replaceChildren(...days.map((date) => {
+      const key = localDayKey(date);
+      const due = items.filter((a) => a.dueAt === key);
+      const past = key < today;
+      return el("div", { class: "weekboard__day" + (key === today ? " is-today" : "") + (past ? " is-past" : "") }, [
+        el("div.weekboard__head", {}, [
+          el("span", {}, fmtDay.format(date).replace(".", "")),
+          el("strong", {}, String(date.getDate())),
+        ]),
+        ...due.map((a) => el("a.weekboard__item", {
+          href: `#/session/${a.id}`, style: { "--subject": store.subjectColor(a.subjectId).solid },
+          class: daysUntil(a.dueAt) <= 1 ? "is-soon" : "",
+          "aria-label": t("menu.upcomingStudyAria", { title: a.title }),
+        }, [el("strong", {}, a.title), el("span", {}, countdownLabel(a.dueAt))])),
+        !due.length && (past
+          ? el("span.weekboard__none", {}, t("menu.weekNothing"))
+          : el("button.weekboard__add", {
+              type: "button", "aria-label": t("cal.addOn", { date: fmtShort.format(date) }),
+              onclick: () => openQuickAdd(key),
+            }, [icon(ICONS.plus, 13), t("menu.weekAdd")])),
+      ].filter(Boolean));
+    }));
   }
+  paint();
 
-  const onPick = (_day, mark, cellEl) => {
-    if (mark.items.length === 1) { location.hash = `#/session/${mark.items[0].id}`; return; }
-    openDayChooser(cellEl, mark);
-  };
-
-  // Tap an empty future day → name a set for that deadline.
-  const onAdd = (day) => openQuickAdd(day);
-
-  const calWrap = el("div.cal-collapse");
-  // When the viewed week is empty, point at what *is* coming rather than just
-  // saying "nothing" — the deadline the student cares about is often a week or
-  // two out, exactly when this used to read as a flat dead end.
-  const calEmpty = el("p.note.cal-empty", {}, items.length
-    ? t("menu.calendarEmptyWeekNext", { when: countdownLabel(items[0].dueAt) })
-    : t("menu.calendarEmptyWeek"));
-  const calToggle = el("button.linkbtn.cal-collapse__toggle", { type: "button" });
-  calToggle.addEventListener("click", () => { calendarExpanded = !calendarExpanded; paintCal(); });
-
-  const list = el("div.upcoming__list");
-  const more = el("button.upcoming__more", { type: "button" });
-  more.addEventListener("click", () => { upcomingExpanded = !upcomingExpanded; paintList(visibleItems); });
-
-  // The list always mirrors whichever week/month the calendar is showing.
-  let visibleItems = items;
-  paintCal();
-
-  return {
-    el: el("section.upcoming", {}, [
-      calEmpty,
-      calWrap,
-      items.length ? nextDeadlineLine(nextDeadline) : null,
-      items.length ? list : null,
-      items.length ? more : null,
-    ].filter(Boolean)),
-    calToggle,
-  };
-
-  function paintCal() {
-    clear(calWrap);
-    if (calendarExpanded) {
-      calWrap.appendChild(monthCalendar({ marks, onPick, onAdd, onView: onMonthView }).el);
-      calEmpty.hidden = true;
-    } else {
-      calWrap.appendChild(weekStrip({ marks, onPick, onAdd, onView: onWeekView }).el);
-    }
-    calToggle.textContent = calendarExpanded ? t("menu.calendarShowWeek") : t("menu.calendarShowMonth");
-    calToggle.setAttribute("aria-expanded", String(calendarExpanded));
-  }
-
-  function onWeekView(start, end) {
-    visibleItems = items.filter((a) => a.dueAt >= start && a.dueAt <= end);
-    calEmpty.hidden = visibleItems.length > 0;
-    paintList(visibleItems);
-  }
-
-  function onMonthView(start, end) {
-    visibleItems = items.filter((a) => a.dueAt >= start && a.dueAt <= end);
-    paintList(visibleItems);
-  }
-
-  function paintList(shownItems) {
-    const overflow = shownItems.length - UPCOMING_COLLAPSED;
-    const shown = overflow > 0 && !upcomingExpanded ? shownItems.slice(0, UPCOMING_COLLAPSED) : shownItems;
-    list.replaceChildren(...shown.map(row));
-    more.hidden = overflow <= 0;
-    if (overflow > 0) {
-      more.textContent = upcomingExpanded ? t("menu.upcomingLess") : t("menu.upcomingAll", { n: shownItems.length });
-      more.setAttribute("aria-expanded", String(upcomingExpanded));
-    }
-  }
-
-  function row(a) {
-    const left = daysUntil(a.dueAt);
-    const overdue = left < 0;
-    const soon = left >= 0 && left <= 1;
-    const color = store.subjectColor(a.subjectId);
-    return el("a", {
-      href: `#/session/${a.id}`,
-      class: "upcoming__row" + (overdue ? " is-overdue" : soon ? " is-soon" : ""),
-      style: { "--subject": color.solid },
-      "aria-label": t("menu.upcomingStudyAria", { title: a.title }),
-    }, [
-      el("span.upcoming__dot"),
-      el("span.upcoming__main", {}, [
-        el("strong", {}, a.title),
-        el("span.upcoming__meta", {}, `${fmtDate(a.dueAt)} · ${relativeDay(a.dueAt)}`),
-      ]),
-      el("span.upcoming__go", {}, icon(ICONS.play, 14)),
-    ]);
-  }
-}
-
-/** Countdown + one-tap shortcut to the soonest deadline, sat under the
- *  calendar, with a small "Prep" link through to its exam-prep page.
- *  Days elsewhere, but hours once it's due today. Null when nothing has a
- *  due date. */
-function nextDeadlineLine(a) {
-  if (!a) return null;
-  const d = daysUntil(a.dueAt);
-  const soon = d <= 1;
-  const card = el("a.next-test" + (soon ? ".next-test--soon" : ""), {
-    href: `#/session/${a.id}`,
-    "aria-label": t("menu.upcomingStudyAria", { title: a.title }),
-  }, [
-    el("span.next-test__when", {}, [icon(ICONS.clock, 14), el("span", {}, countdownLabel(a.dueAt))]),
-    el("span.next-test__title", {}, a.title),
-    el("span.next-test__go", {}, icon(ICONS.play, 14)),
+  return el("section.home-panel.home-panel--week", {}, [
+    el("div.home-panel__label", {}, [
+      el("span", {}, t("menu.weekTitle")),
+      el("a.linkbtn", { href: "#/calendar" }, t("menu.weekCalendar")),
+    ]),
+    el("div.weekboard__nav", {}, [
+      navBtn(t("cal.prevWeek"), ICONS.back, -1), range, navBtn(t("cal.nextWeek"), ICONS.chevronRight, 1),
+    ]),
+    board,
   ]);
-  return el("div.next-test-wrap", {}, [
-    card,
-    a.subjectId ? el("a.next-test__prep", {
-      href: `#/exam-prep/${a.subjectId}`,
-    }, [icon(ICONS.target, 13), t("exam.prepLink")]) : null,
-  ].filter(Boolean));
 }
 
 function ring(v, color) {
@@ -815,10 +672,7 @@ function homeHead() {
 }
 
 /** For a brand-new student with no sets yet: one clear action plus a real
- *  starter set to open. Rendered as the first block of the main column
- *  (inside home-layout) rather than full-width above it — full-width would
- *  push the whole two-column grid down while leaving the rail's side empty,
- *  so Kommande/Utmärkelser end up floating with a big gap above them. */
+ *  starter set to open, first in the home column. */
 function homeStarter() {
   if (store.assignments.length) return null;
   const needsSignIn = store.aiNeedsSignIn();
