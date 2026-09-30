@@ -222,7 +222,7 @@ export function renderMenu(mode) {
       },
     }, [
       menuBtn,
-      el("div.acard__tags", { style: { display: "flex", gap: "6px", flexWrap: "wrap", paddingRight: "28px" } }, [
+      el("div", { style: { display: "flex", gap: "6px", flexWrap: "wrap", paddingRight: "28px" } }, [
         el("span.acard__tag", {}, subjectName),
         nearBest.has(a.id) && el("span.acard__tag.acard__tag--near", {}, t("menu.nearBadge", { best: nearBest.get(a.id) })),
         open && el("span.acard__tag.acard__tag--open", {}, t("menu.inProgress")),

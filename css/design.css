@@ -250,24 +250,7 @@ h1 { font-weight: 750; }
 .home-chatrow__body span { font-size: var(--fs-sm); color: var(--ink-soft); }
 .home-chatrow > svg:last-child { flex: none; color: var(--ink-faint); }
 
-/* "Dina set" on the home page reads as a list: one row per set, the subject as a small square. */
-.home-panel--sets .grid { display: flex; flex-direction: column; gap: 0; }
-.home-panel--sets .acard {
-  display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "title meta" "tags meta";
-  align-items: center; column-gap: var(--s-4); row-gap: 6px; min-height: 0;
-  padding: 14px 48px 14px 34px; border: 0; border-top: 1px solid var(--line); border-radius: 0;
-  box-shadow: none; background: transparent; animation: none;
-}
-.home-panel--sets .acard:hover { box-shadow: none; background: color-mix(in srgb, var(--brand) 4%, transparent); }
-.home-panel--sets .acard::before { left: 12px; top: 19px; right: auto; width: 10px; height: 10px; border-radius: 3px; opacity: 1; }
-.home-panel--sets .acard__title { grid-area: title; font-size: var(--fs-md); }
-.home-panel--sets .acard__tags { grid-area: tags; padding-right: 0 !important; }
-.home-panel--sets .acard__meta { grid-area: meta; margin: 0; gap: var(--s-4); }
-.home-panel--sets .acard__menu { top: 50%; transform: translateY(-50%); }
-.home-panel--sets .acard--new {
-  display: flex; flex-direction: row; justify-content: flex-start; gap: var(--s-2); min-height: 48px;
-  padding: 12px 12px; border: 0; border-top: 1px solid var(--line); color: var(--brand-ink);
-}
+/* A set close to full marks, in "Dina set" on the home page. */
 .acard__tag--near { background: var(--retry-tint); color: var(--retry-ink); }
 
 /* Below the two-column width the calendar follows the top card instead of sinking under every set. */
@@ -287,6 +270,4 @@ h1 { font-weight: 750; }
   .home-hero__goal-label { font-size: 9px; }
   .home-hero__cta { flex: 1 1 100%; justify-content: center; }
   .home-hero--quiet { flex-wrap: wrap; }
-  .home-panel--sets .acard { grid-template-columns: minmax(0, 1fr); grid-template-areas: "title" "tags" "meta"; }
-  .home-panel--sets .acard__meta { justify-content: flex-start; }
 }
