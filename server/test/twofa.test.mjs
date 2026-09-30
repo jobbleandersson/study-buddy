@@ -22,8 +22,8 @@ describe("two-factor authentication", () => {
     return email;
   }
 
-  /** Signs up, enables 2FA, and hands back the secret + backup codes for the tests that need
-   *  them. Ends signed out (a fresh client) so each test starts from a clean login.
+  /** Signs up, enables 2FA, and hands back the secret for the tests that need
+   *  it. Ends signed out (a fresh client) so each test starts from a clean login.
    *
    *  Uses step: -1 (the oldest counter verifyTotp's ±1 window still accepts) to confirm, not the
    *  default step: 1 — the replay guard's `afterCounter` is genuinely a real per-account value
@@ -36,9 +36,8 @@ describe("two-factor authentication", () => {
     const secret = setup.json.secret;
     const confirm = await client.post("/api/auth/2fa/confirm", { password: PASSWORD, secret, code: codeFor(secret, { step: -1 }) });
     assert.equal(confirm.status, 200, JSON.stringify(confirm.json));
-    const backupCodes = confirm.json.backupCodes;
     client.clearCookie();
-    return { email, secret, backupCodes };
+    return { email, secret };
   }
 
   test("setup returns a fresh secret and otpauth link, unpersisted", async () => {
@@ -66,13 +65,12 @@ describe("two-factor authentication", () => {
     assert.equal(status, 400);
   });
 
-  test("confirm with the right password and code turns 2FA on and returns 10 backup codes", async () => {
+  test("confirm with the right password and code turns 2FA on", async () => {
     const email = await signup();
     const { json: { secret } } = await client.post("/api/auth/2fa/setup");
     const { status, json } = await client.post("/api/auth/2fa/confirm", { password: PASSWORD, secret, code: codeFor(secret) });
     assert.equal(status, 200);
-    assert.equal(json.backupCodes.length, 10);
-    for (const c of json.backupCodes) assert.match(c, /^[0-9A-F]{5}-[0-9A-F]{5}$/);
+    assert.equal(json.backupCodes, undefined);
 
     const row = server.db.prepare("SELECT totp_enabled_at FROM users WHERE email = ?").get(email);
     assert.ok(row.totp_enabled_at > 0);
@@ -121,15 +119,13 @@ describe("two-factor authentication", () => {
     assert.equal(second.status, 401);
   });
 
-  test("a backup code signs in once, then is rejected on reuse", async () => {
-    const { email, backupCodes } = await enrolled();
-    const login1 = await client.post("/api/auth/login", { email, password: PASSWORD });
-    const first = await client.post("/api/auth/2fa/verify", { challenge: login1.json.challenge, code: backupCodes[0] });
-    assert.equal(first.status, 200);
-
-    const login2 = await client.post("/api/auth/login", { email, password: PASSWORD });
-    const second = await client.post("/api/auth/2fa/verify", { challenge: login2.json.challenge, code: backupCodes[0] });
-    assert.equal(second.status, 401);
+  test("there are no backup codes: enrolment returns none and a code-shaped string never signs in", async () => {
+    const { email, secret } = await enrolled();
+    const login = await client.post("/api/auth/login", { email, password: PASSWORD });
+    const guess = await client.post("/api/auth/2fa/verify", { challenge: login.json.challenge, code: "AAAAA-11111" });
+    assert.equal(guess.status, 401);
+    const real = await client.post("/api/auth/2fa/verify", { challenge: login.json.challenge, code: codeFor(secret) });
+    assert.equal(real.status, 200);
   });
 
   test("two concurrent verifies with the same challenge and code: exactly one 200", async () => {
@@ -186,23 +182,12 @@ describe("two-factor authentication", () => {
     assert.equal(freshLogin.json.twoFactorRequired, undefined);
   });
 
-  test("regenerating backup codes invalidates the old ones", async () => {
-    const { email, secret, backupCodes } = await enrolled();
-    const login1 = await client.post("/api/auth/login", { email, password: PASSWORD });
-    await client.post("/api/auth/2fa/verify", { challenge: login1.json.challenge, code: codeFor(secret) });
-
-    const regen = await client.post("/api/auth/2fa/backup-codes/regenerate", { password: PASSWORD });
-    assert.equal(regen.status, 200);
-    assert.equal(regen.json.backupCodes.length, 10);
-    assert.notDeepEqual(regen.json.backupCodes, backupCodes);
-
-    const login2 = await makeClient(server.baseUrl).post("/api/auth/login", { email, password: PASSWORD });
-    const oldStillDead = await makeClient(server.baseUrl).post("/api/auth/2fa/verify", { challenge: login2.json.challenge, code: backupCodes[1] });
-    assert.equal(oldStillDead.status, 401);
-
-    const login3 = await makeClient(server.baseUrl).post("/api/auth/login", { email, password: PASSWORD });
-    const newWorks = await makeClient(server.baseUrl).post("/api/auth/2fa/verify", { challenge: login3.json.challenge, code: regen.json.backupCodes[1] });
-    assert.equal(newWorks.status, 200);
+  test("the backup-code regenerate route no longer exists", async () => {
+    const { email, secret } = await enrolled();
+    const login = await client.post("/api/auth/login", { email, password: PASSWORD });
+    await client.post("/api/auth/2fa/verify", { challenge: login.json.challenge, code: codeFor(secret) });
+    const res = await client.post("/api/auth/2fa/backup-codes/regenerate", { password: PASSWORD });
+    assert.notEqual(res.status, 200);
   });
 
   test("resetting the password on a 2FA account gates on a code too, but the new password is already live", async () => {
@@ -227,8 +212,8 @@ describe("two-factor authentication", () => {
     assert.equal(oldPw.status, 401);
   });
 
-  test("account deletion removes backup codes and any pending challenge", async () => {
-    const { email, secret, backupCodes } = await enrolled();
+  test("account deletion removes any pending challenge and leftover legacy backup rows", async () => {
+    const { email, secret} = await enrolled();
     const login = await client.post("/api/auth/login", { email, password: PASSWORD });
     await client.post("/api/auth/2fa/verify", { challenge: login.json.challenge, code: codeFor(secret) });
     const userId = server.db.prepare("SELECT id FROM users WHERE email = ?").get(email).id;
@@ -266,7 +251,7 @@ describe("two-factor authentication: email method", () => {
     const confirm = await client.post("/api/auth/2fa/confirm", { method: "email", challenge: setup.json.challenge, code: fake.lastCode(email) });
     assert.equal(confirm.status, 200, JSON.stringify(confirm.json));
     client.clearCookie();
-    return { email, backupCodes: confirm.json.backupCodes };
+    return { email };
   }
   async function loginChallenge(email) {
     const login = await client.post("/api/auth/login", { email, password: PASSWORD });
@@ -291,12 +276,12 @@ describe("two-factor authentication: email method", () => {
     assert.ok(!/\d{6}/.test(mail.subject), "the code must not be in the subject line");
   });
 
-  test("confirming with the emailed code turns email 2FA on and returns 10 backup codes", async () => {
+  test("confirming with the emailed code turns email 2FA on and returns no backup codes", async () => {
     const email = await signup();
     const setup = await client.post("/api/auth/2fa/setup", { method: "email", password: PASSWORD });
     const confirm = await client.post("/api/auth/2fa/confirm", { method: "email", challenge: setup.json.challenge, code: fake.lastCode(email) });
     assert.equal(confirm.status, 200);
-    assert.equal(confirm.json.backupCodes.length, 10);
+    assert.equal(confirm.json.backupCodes, undefined);
     const r = row(email);
     assert.equal(r.method, "email");
     assert.equal(r.secret, null);
@@ -374,24 +359,20 @@ describe("two-factor authentication: email method", () => {
     assert.deepEqual([a.status, b.status].sort(), [200, 401]);
   });
 
-  test("a backup code signs in an email user too, once", async () => {
-    const { email, backupCodes } = await enrolled();
-    const ch = await loginChallenge(email);
-    assert.equal((await client.post("/api/auth/2fa/verify", { challenge: ch.challenge, code: backupCodes[0] })).status, 200);
-    client.clearCookie();
-    const ch2 = await loginChallenge(email);
-    assert.equal((await client.post("/api/auth/2fa/verify", { challenge: ch2.challenge, code: backupCodes[0] })).status, 401);
+  test("if the mail can't be sent, sign-in still gets a challenge, and a resend works once the provider recovers", async () => {
+    const { email } = await enrolled();
+    fake.failing = true;
+    let ch;
+    try {
+      ch = await loginChallenge(email);
+      assert.equal(ch.emailSent, false);
+    } finally { fake.failing = false; }
+    const resend = await client.post("/api/auth/2fa/resend", { challenge: ch.challenge });
+    assert.equal(resend.status, 200);
+    const signedIn = await client.post("/api/auth/2fa/verify", { challenge: ch.challenge, code: fake.lastCode(email) });
+    assert.equal(signedIn.status, 200);
   });
 
-  test("if the mail can't be sent, sign-in still gets a challenge and a backup code works", async () => {
-    const { email, backupCodes } = await enrolled();
-    fake.failing = true;
-    try {
-      const ch = await loginChallenge(email);
-      assert.equal(ch.emailSent, false);
-      assert.equal((await client.post("/api/auth/2fa/verify", { challenge: ch.challenge, code: backupCodes[1] })).status, 200);
-    } finally { fake.failing = false; }
-  });
 
   test("resending replaces the code: the old one stops working, the new one works", async () => {
     const { email } = await enrolled();

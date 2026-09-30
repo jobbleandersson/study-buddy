@@ -13,7 +13,6 @@ import { confirmDialog } from "../components/confirm-dialog.js";
 import { deleteAccountDialog } from "../components/delete-account-dialog.js";
 import { twofaSetupDialog } from "../components/twofa-setup-dialog.js";
 import { passwordConfirmDialog } from "../components/password-confirm-dialog.js";
-import { backupCodesDialog } from "../components/backup-codes-dialog.js";
 import { setPasswordDialog } from "../components/set-password-dialog.js";
 import { openWelcomeQuiz } from "../components/onboarding.js";
 import { playFanfare } from "../lib/sound.js";
@@ -426,17 +425,6 @@ export function renderSettings() {
               if (ok) { toast(t("twofa.disabledToast")); paint(); }
             },
           }, t("twofa.disable")));
-          actions.appendChild(el("button.btn.btn--ghost.btn--sm", {
-            type: "button",
-            onclick: async () => {
-              let codes = null;
-              const ok = await passwordConfirmDialog({
-                title: t("twofa.regenerateTitle"), body: t("twofa.regenerateBody"), confirmLabel: t("twofa.regenerateConfirm"),
-                submit: async (password) => { ({ backupCodes: codes } = await store.regenerateBackupCodes(password)); },
-              });
-              if (ok && codes) { toast(t("twofa.regeneratedToast")); await backupCodesDialog(codes); }
-            },
-          }, t("twofa.regenerate")));
         }
         actions.appendChild(el("button.btn.btn--ghost.btn--sm", {
           type: "button",

@@ -1,5 +1,5 @@
-// A centred "type your password to confirm" dialog — the shared shape behind disabling 2FA and
-// regenerating backup codes (delete-account-dialog.js is the same pattern for account deletion,
+// A centred "type your password to confirm" dialog — the shared shape behind turning 2FA off
+// (delete-account-dialog.js is the same pattern for account deletion,
 // kept separate since that one also branches on a passwordless account typing its email instead).
 //
 //   const ok = await passwordConfirmDialog({

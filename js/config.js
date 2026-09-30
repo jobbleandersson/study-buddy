@@ -36,7 +36,6 @@ export const AUTH_2FA_RESEND_URL = `${API}/api/auth/2fa/resend`;
 export const AUTH_2FA_SETUP_URL = `${API}/api/auth/2fa/setup`;
 export const AUTH_2FA_CONFIRM_URL = `${API}/api/auth/2fa/confirm`;
 export const AUTH_2FA_DISABLE_URL = `${API}/api/auth/2fa/disable`;
-export const AUTH_2FA_BACKUP_REGEN_URL = `${API}/api/auth/2fa/backup-codes/regenerate`;
 // Reviews: students write one in #/rate; approved ones show on the front page. See routes/reviews.js.
 export const REVIEWS_URL = `${API}/api/reviews`;
 export const MY_REVIEW_URL = `${API}/api/reviews/mine`;

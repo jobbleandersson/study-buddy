@@ -14,7 +14,7 @@ import { consume } from "../middleware/attemptLimit.js";
 import { isUniqueViolation } from "../errors.js";
 import { requireAuth } from "../middleware/requireAuth.js";
 import { emailEnabled, sendVerifyEmail, sendResetEmail, sendTwoFaEnabledEmail, sendTwoFaDisabledEmail, sendPasswordAddedEmail, sendTwoFaCodeEmail } from "../email.js";
-import { generateSecret, verifyTotp, otpauthUri, generateBackupCodes } from "../totp.js";
+import { generateSecret, verifyTotp, otpauthUri } from "../totp.js";
 
 export const auth = Router();
 
@@ -58,8 +58,9 @@ function issueTwoFaChallenge(userId) {
 // predates users.twofa_method is TOTP.
 const twoFaMethod = (row) => (row?.totpEnabledAt ? row.twofaMethod || "totp" : null);
 
-// The one place 2FA is switched off (disable, linking to Google): method, secret, counter, backup
-// codes, and any pending challenge — a sign-in challenge minted earlier must not outlive this.
+// The one place 2FA is switched off (disable, linking to Google): method, secret, counter and any
+// pending challenge — a sign-in challenge minted earlier must not outlive this. The backup-code
+// table is gone from the product but still exists; rows from before its removal are cleared here.
 function clearTwoFa(userId) {
   db.prepare("UPDATE users SET twofa_method = NULL, totp_secret = NULL, totp_enabled_at = NULL, totp_last_counter = NULL WHERE id = ?").run(userId);
   db.prepare("DELETE FROM totp_backup_codes WHERE user_id = ?").run(userId);
@@ -77,15 +78,12 @@ function codeMatches(challengeId, code, hash) {
   const b = Buffer.from(hash, "hex");
   return a.length === b.length && crypto.timingSafeEqual(a, b);
 }
-// What a backup code looks like. Anything else never reaches the bcrypt loop over backup codes —
-// otherwise every wrong 6-digit guess would cost ~10 bcrypt compares of CPU.
-const BACKUP_CODE_SHAPE = /^[0-9A-F]{5}-[0-9A-F]{5}$/i;
 const tooManyCodes = (res, extra = {}) =>
   res.status(429).json({ error: { message: "Too many attempts. Try again in a few minutes.", code: "twofa_cooldown", ...extra } });
 
 // A sign-in (or enrolment) challenge whose code goes out by email. Never hard-fails on a send
 // problem: the challenge is returned either way with `emailSent`, so a provider outage or a spent
-// quota degrades to "use a backup code / try again", not a lockout. Within the cooldown a second
+// quota degrades to "try again shortly", not a hard failure. Within the cooldown a second
 // sign-in reuses the live challenge rather than mailing a code that would not match it.
 async function issueEmailChallenge(user, purpose = "login") {
   const now = Date.now();
@@ -237,8 +235,8 @@ auth.post("/auth/login", ...loginFailures, asyncHandler(async (req, res) => {
 }));
 
 // The code that follows a password/reset-token check on a 2FA-enabled account: a 6-digit code from
-// an authenticator app (method 'totp') or one we emailed (method 'email'), or — either way — a
-// single-use backup code. Shared by /auth/login and /auth/reset-password, which is why it isn't
+// an authenticator app (method 'totp') or one we emailed (method 'email'). There is deliberately no
+// backup/recovery code: if the email can't be sent, the person retries (resend) later. Shared by /auth/login and /auth/reset-password, which is why it isn't
 // nested under either. A wrong code never consumes the challenge (a mistyped digit can be retried;
 // an emailed code absorbs a limited number of wrong guesses, then the challenge is dead), but a
 // right one always does, in the same statement that checks it was still unused, so two parallel
@@ -260,17 +258,11 @@ auth.post("/auth/2fa/verify", ...twoFaVerifyLimits, asyncHandler(async (req, res
   const method = twoFaMethod(user);
   if (!method) return restart();   // 2FA was turned off after the challenge was minted
 
-  const asBackup = BACKUP_CODE_SHAPE.test(code);
   let totp = { ok: false };
   let emailOk = false;
-  let backupRow = null;
-  if (asBackup) {
-    for (const row of db.prepare("SELECT id, code_hash FROM totp_backup_codes WHERE user_id = ? AND used_at IS NULL").all(user.id)) {
-      if (await bcrypt.compare(code.toUpperCase(), row.code_hash)) { backupRow = row; break; }
-    }
-  } else if (method === "email") {
-    // Reserve the attempt BEFORE comparing: the awaits above/below would otherwise let a parallel
-    // burst of guesses all be evaluated against one read of the counter.
+  if (method === "email") {
+    // Reserve the attempt BEFORE comparing, so a parallel burst of guesses can't all be evaluated
+    // against one read of the counter.
     const reserved = db.prepare("UPDATE twofa_challenges SET attempts = attempts + 1 WHERE id = ? AND used_at IS NULL AND expires_at > ? AND attempts < ?")
       .run(challenge.id, Date.now(), twoFaEmail.attempts).changes === 1;
     if (!reserved) return restart();
@@ -278,7 +270,7 @@ auth.post("/auth/2fa/verify", ...twoFaVerifyLimits, asyncHandler(async (req, res
   } else {
     totp = verifyTotp(user.totpSecret, code, { afterCounter: user.totpLastCounter || 0 });
   }
-  if (!totp.ok && !emailOk && !backupRow) return invalid();
+  if (!totp.ok && !emailOk) return invalid();
 
   const now = Date.now();
   const claimed = db.transaction(() => {
@@ -291,7 +283,6 @@ auth.post("/auth/2fa/verify", ...twoFaVerifyLimits, asyncHandler(async (req, res
       : db.prepare("UPDATE twofa_challenges SET used_at = ? WHERE id = ? AND used_at IS NULL").run(now, challenge.id);
     if (r.changes === 0) return false;
     if (totp.ok) db.prepare("UPDATE users SET totp_last_counter = ? WHERE id = ?").run(totp.counter, user.id);
-    else if (backupRow) db.prepare("UPDATE totp_backup_codes SET used_at = ? WHERE id = ? AND used_at IS NULL").run(now, backupRow.id);
     return true;
   })();
   if (!claimed) return invalid();
@@ -558,14 +549,6 @@ const wrongPasswordRes = (res) =>
   res.status(403).json({ error: { message: "That password is wrong.", code: "confirm_mismatch" } });
 const badCodeRes = (res) => res.status(400).json({ error: { message: "That code is invalid or has expired." } });
 
-function insertBackupCodes(userId, now) {
-  const backupCodes = generateBackupCodes();
-  db.prepare("DELETE FROM totp_backup_codes WHERE user_id = ?").run(userId);   // re-enrolling replaces any stale set
-  const insert = db.prepare("INSERT INTO totp_backup_codes (id, user_id, code_hash, created_at) VALUES (?, ?, ?, ?)");
-  for (const plain of backupCodes) insert.run(crypto.randomUUID(), userId, bcrypt.hashSync(plain, 10), now);
-  return backupCodes;
-}
-
 // Step one of turning 2FA on. Body `{method}`: 'totp' (the default, for clients that send nothing)
 // generates a secret and returns it unpersisted — nothing is written until /auth/2fa/confirm proves
 // it was set up, so an abandoned setup needs no cleanup. 'email' needs the password right here (a
@@ -626,13 +609,13 @@ auth.post("/auth/2fa/confirm", requireAuth, twoFaPasswordLimit, asyncHandler(asy
       .run(challenge.id, now, twoFaEmail.attempts).changes === 1;
     if (!reserved || !codeMatches(challenge.id, code.replace(/\s/g, ""), challenge.codeHash)) return badCodeRes(res);
 
-    const backupCodes = db.transaction(() => {
-      if (db.prepare("UPDATE twofa_challenges SET used_at = ? WHERE id = ? AND used_at IS NULL AND code_hash IS ?").run(now, challenge.id, challenge.codeHash).changes === 0) return null;
+    const enabled = db.transaction(() => {
+      if (db.prepare("UPDATE twofa_challenges SET used_at = ? WHERE id = ? AND used_at IS NULL AND code_hash IS ?").run(now, challenge.id, challenge.codeHash).changes === 0) return false;
       db.prepare("UPDATE users SET twofa_method = 'email', totp_enabled_at = ?, totp_secret = NULL, totp_last_counter = NULL WHERE id = ?").run(now, req.user.userId);
-      return insertBackupCodes(req.user.userId, now);
+      return true;
     })();
-    if (!backupCodes) return badCodeRes(res);
-    return res.json({ ok: true, method: "email", backupCodes });   // no "2FA turned on" mail: the code mail + password already prove it
+    if (!enabled) return badCodeRes(res);
+    return res.json({ ok: true, method: "email" });   // no "2FA turned on" mail: the code mail + password already prove it
   }
 
   const password = String(req.body?.password || "").slice(0, 200);
@@ -642,13 +625,10 @@ auth.post("/auth/2fa/confirm", requireAuth, twoFaPasswordLimit, asyncHandler(asy
   const totp = verifyTotp(secret, code, { afterCounter: 0 });
   if (!totp.ok) return badCodeRes(res);
 
-  const backupCodes = db.transaction(() => {
-    db.prepare("UPDATE users SET twofa_method = 'totp', totp_secret = ?, totp_enabled_at = ?, totp_last_counter = ? WHERE id = ?")
-      .run(secret, now, totp.counter, req.user.userId);
-    return insertBackupCodes(req.user.userId, now);
-  })();
+  db.prepare("UPDATE users SET twofa_method = 'totp', totp_secret = ?, totp_enabled_at = ?, totp_last_counter = ? WHERE id = ?")
+    .run(secret, now, totp.counter, req.user.userId);
   sendTwoFaEnabledEmail(req.user.email).catch(() => {});
-  res.json({ ok: true, method: "totp", backupCodes });
+  res.json({ ok: true, method: "totp" });
 }));
 
 auth.post("/auth/2fa/disable", requireAuth, twoFaPasswordLimit, asyncHandler(async (req, res) => {
@@ -665,24 +645,6 @@ auth.post("/auth/2fa/disable", requireAuth, twoFaPasswordLimit, asyncHandler(asy
   })();
   sendTwoFaDisabledEmail(req.user.email).catch(() => {});
   res.json({ ok: true });
-}));
-
-auth.post("/auth/2fa/backup-codes/regenerate", requireAuth, twoFaPasswordLimit, asyncHandler(async (req, res) => {
-  const password = String(req.body?.password || "").slice(0, 200);
-  const user = db.prepare("SELECT password_hash, totp_enabled_at AS totpEnabledAt FROM users WHERE id = ?").get(req.user.userId);
-  if (!user || !(await bcrypt.compare(password, user.password_hash))) {
-    return res.status(403).json({ error: { message: "That password is wrong.", code: "confirm_mismatch" } });
-  }
-  if (!user.totpEnabledAt) return res.status(400).json({ error: { message: "Two-factor authentication isn't on for this account.", code: "twofa_off" } });
-
-  const backupCodes = generateBackupCodes();
-  const now = Date.now();
-  db.transaction(() => {
-    db.prepare("DELETE FROM totp_backup_codes WHERE user_id = ?").run(req.user.userId);
-    const insert = db.prepare("INSERT INTO totp_backup_codes (id, user_id, code_hash, created_at) VALUES (?, ?, ?, ?)");
-    for (const plain of backupCodes) insert.run(crypto.randomUUID(), req.user.userId, bcrypt.hashSync(plain, 10), now);
-  })();
-  res.json({ ok: true, backupCodes });
 }));
 
 // Lets a Google-linked account add a password, so either method reaches the same account from

@@ -247,9 +247,9 @@ db.exec(`
     utm_campaign TEXT,
     created_at INTEGER NOT NULL
   );
-
-  -- Single-use backup codes for two-factor login, generated in a batch of 10 whenever 2FA is
-  -- enabled or regenerated. bcrypt-hashed like a password, never stored in plaintext.
+  -- LEGACY: backup codes were removed from the product (email codes are the recovery-free default;
+  -- nothing reads or writes this table any more). Kept so old rows and deployed databases stay
+  -- valid; they are cleared when 2FA is turned off or the account is deleted.
   CREATE TABLE IF NOT EXISTS totp_backup_codes (
     id TEXT PRIMARY KEY,
     user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
