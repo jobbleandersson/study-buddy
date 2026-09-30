@@ -6,7 +6,7 @@
 // matches index.json, norm tables monotonic in [0, 2.00].
 
 import { readFileSync, existsSync } from "node:fs";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, join } from "node:path";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -87,7 +87,8 @@ for (const entry of hpSets) {
 }
 
 // norm tables — load hp.js as a module
-const hp = await import(join(ROOT, "js/lib/hp.js"));
+// import() needs a file:// URL — a bare absolute path fails on Windows ("C:" reads as a URL scheme).
+const hp = await import(pathToFileURL(join(ROOT, "js/lib/hp.js")).href);
 for (const [id, table] of Object.entries(hp.NORM_TABLES)) {
   for (const part of ["verbal", "kvant"]) {
     const arr = table[part];
