@@ -780,8 +780,7 @@ function homeHead() {
 /** "Vad vill du plugga idag?" — the big shortcuts to the app's main jobs, each
  *  an icon, a name and one line on what it's for. Same pages as the sidebar;
  *  this is just the obvious place to start from. */
-// Each tile is filled with its colour, under white type — bright, saturated
-// hues; the CSS gradient deepens each one so the type stays readable.
+// Bright, slightly neon hues — each tile's edge, glow and icon chip.
 const HOME_TILES = [
   { href: "#/create",    icon: ICONS.plus,       label: "nav.create",   sub: "menu.pickCreateSub",  color: "#7650FF" },
   { href: "#/library",   icon: ICONS.book,       label: "nav.library",  sub: "menu.pickLibrarySub", color: "#0FA3C2" },

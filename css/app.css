@@ -628,24 +628,28 @@ body.has-topmenu .sitechat__fab { display: none; }
   display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
   gap: var(--s-3); margin-bottom: var(--s-5);
 }
-/* Each tile is filled with its own colour (--tile, set per tile in menu.js):
-   a bright, slightly neon hue that deepens across the tile, with a soft glow. */
+/* Each tile is a card in the page's own colour with a faint tint of its hue
+   (--tile, set per tile in menu.js), a neon edge with a soft glow, and the
+   icon on a chip of the full colour. */
 .home-tile {
-  --tile-fill: var(--tile);
   display: grid; gap: 14px; align-content: start; min-height: 148px; padding: 18px 16px;
-  border-radius: var(--r-lg); border: 1px solid transparent; color: #fff; text-decoration: none;
-  background: linear-gradient(150deg, var(--tile-fill), color-mix(in oklab, var(--tile-fill) 78%, #000));
-  box-shadow: 0 8px 22px -10px color-mix(in srgb, var(--tile-fill) 75%, transparent);
+  border-radius: var(--r-lg); color: var(--ink); text-decoration: none;
+  background: color-mix(in oklab, var(--tile) 9%, var(--surface));
+  border: 1.5px solid var(--tile);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--tile) 25%, transparent), 0 0 18px -4px color-mix(in srgb, var(--tile) 55%, transparent);
   transition: box-shadow var(--dur-fast), transform var(--dur-fast);
 }
-.home-tile:hover { transform: translateY(-2px); box-shadow: 0 12px 28px -10px color-mix(in srgb, var(--tile-fill) 90%, transparent); }
+.home-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--tile) 45%, transparent), 0 0 26px -2px color-mix(in srgb, var(--tile) 70%, transparent);
+}
 .home-tile:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
 .home-tile__ic {
   width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center;
-  background: rgba(255, 255, 255, .16); color: #fff;
+  background: var(--tile); color: #fff; box-shadow: 0 0 12px -2px color-mix(in srgb, var(--tile) 70%, transparent);
 }
-.home-tile b { display: block; font-size: 15px; font-weight: 700; color: #fff; }
-.home-tile small { display: block; margin-top: 4px; font-size: 13px; line-height: 1.4; color: rgba(255, 255, 255, .86); }
+.home-tile b { display: block; font-size: 15px; font-weight: 700; color: var(--ink); }
+.home-tile small { display: block; margin-top: 4px; font-size: 13px; line-height: 1.4; color: var(--ink-soft); }
 @media (max-width: 620px) {
   .home-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .home-tile { min-height: 0; }
