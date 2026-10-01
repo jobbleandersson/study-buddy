@@ -628,19 +628,21 @@ body.has-topmenu .sitechat__fab { display: none; }
   display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
   gap: var(--s-3); margin-bottom: var(--s-5);
 }
-/* Each tile is filled with its own colour (--tile, set per tile in menu.js). */
+/* Each tile is filled with its own colour (--tile, set per tile in menu.js),
+   toned down with a slate grey so the row reads calm rather than loud. */
 .home-tile {
+  --tile-fill: color-mix(in oklab, var(--tile) 74%, #5b6474);
   display: grid; gap: 14px; align-content: start; min-height: 148px; padding: 18px 16px;
   border-radius: var(--r-lg); border: 1px solid transparent; color: #fff; text-decoration: none;
-  background: linear-gradient(150deg, var(--tile), color-mix(in srgb, var(--tile) 74%, #000));
-  box-shadow: 0 6px 16px -8px color-mix(in srgb, var(--tile) 70%, transparent);
+  background: linear-gradient(150deg, var(--tile-fill), color-mix(in oklab, var(--tile-fill) 84%, #000));
+  box-shadow: 0 6px 14px -10px color-mix(in srgb, var(--tile-fill) 60%, transparent);
   transition: box-shadow var(--dur-fast), transform var(--dur-fast);
 }
-.home-tile:hover { transform: translateY(-2px); box-shadow: 0 10px 22px -8px color-mix(in srgb, var(--tile) 80%, transparent); }
+.home-tile:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -10px color-mix(in srgb, var(--tile-fill) 75%, transparent); }
 .home-tile:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
 .home-tile__ic {
   width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center;
-  background: rgba(255, 255, 255, .2); color: #fff;
+  background: rgba(255, 255, 255, .16); color: #fff;
 }
 .home-tile b { display: block; font-size: 15px; font-weight: 700; color: #fff; }
 .home-tile small { display: block; margin-top: 4px; font-size: 13px; line-height: 1.4; color: rgba(255, 255, 255, .86); }
