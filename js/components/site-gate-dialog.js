@@ -23,7 +23,7 @@ export function openSiteGate(next = "#/") {
   const overlay = el("div.modal.confirmdlg.sitegate", { role: "dialog", "aria-modal": "true", "aria-label": t("gate.title") }, [
     el("form.modal__card.confirmdlg__card", { onsubmit: onSubmit }, [
       el("p.confirmdlg__body", {}, t("gate.title")),
-      el("p.confirmdlg__note", {}, t("gate.body")),
+      el("p.note", { style: { margin: "0 0 var(--s-3)" } }, t("gate.body")),
       el("label.field", {}, [el("span", {}, t("gate.label")), input]),
       err,
       el("div.confirmdlg__actions", {}, [cancel, submit]),

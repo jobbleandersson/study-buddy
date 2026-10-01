@@ -17,7 +17,7 @@ import { siteLocked } from "../gate.js";
 //
 // Indexing is off until PUBLIC_INDEXING=true: every response carries noindex (meta tag here, plus an
 // X-Robots-Tag header on everything in index.js), so a private deployment stays out of search results. (SITE_PASSWORD, when
-// set, also puts these pages behind the password like the rest of the site.)
+// set, also hides these pages entirely: see the first route below.)
 
 export const practicePages = Router();
 
