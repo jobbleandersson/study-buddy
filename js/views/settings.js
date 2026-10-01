@@ -1,5 +1,10 @@
-// Settings: look & feel, AI (tutor server + models), account, demo content,
-// your data, roadmap.
+// Settings: look & feel, studying, AI (tutor server + models), account, demo
+// content, your data.
+//
+// Laid out like a settings screen rather than a form: each section is a card
+// of rows — what the setting is and does on the left, its control on the
+// right — with real switches for on/off, segmented buttons for short choices
+// and a stepper for the daily goal.
 
 import { store } from "../store.js";
 import { el, clear, toast, icon, ICONS, downloadText } from "../lib/dom.js";
@@ -18,6 +23,72 @@ import { openWelcomeQuiz } from "../components/onboarding.js";
 import { playFanfare } from "../lib/sound.js";
 import { offlineSupported, isLibraryCached, cacheLibraryOffline } from "../lib/offline.js";
 
+/* ---------------- building blocks ---------------- */
+
+/** One setting: its name and what it does on the left, the control on the right.
+ *  `stack` puts the control under the text (for wide controls). */
+function row(label, note, control, { stack = false, danger = false } = {}) {
+  return el("div.set-row" + (stack ? ".set-row--stack" : "") + (danger ? ".set-row--danger" : ""), {}, [
+    el("div.set-row__text", {}, [
+      el("span.set-row__label", {}, label),
+      note ? el("p.set-row__note", {}, note) : null,
+    ].filter(Boolean)),
+    control ? el("div.set-row__ctl", {}, Array.isArray(control) ? control : [control]) : null,
+  ].filter(Boolean));
+}
+
+/** A section card with an icon, a title and one line on what's in it. */
+function card(iconPath, title, sub, body) {
+  return el("section.set-card", {}, [
+    el("header.set-card__head", {}, [
+      el("span.set-card__ic", { "aria-hidden": "true" }, icon(iconPath, 18)),
+      el("div", {}, [el("h2", {}, title), sub ? el("p", {}, sub) : null].filter(Boolean)),
+    ]),
+    ...body.filter(Boolean),
+  ]);
+}
+
+/** An on/off switch. */
+function toggle(label, on, onChange, { disabled = false } = {}) {
+  const b = el("button.set-switch", {
+    type: "button", role: "switch", "aria-checked": String(!!on), "aria-label": label, disabled,
+  }, [el("span.set-switch__knob")]);
+  b.addEventListener("click", () => {
+    const next = b.getAttribute("aria-checked") !== "true";
+    b.setAttribute("aria-checked", String(next));
+    onChange(next);
+  });
+  return b;
+}
+
+/** A short choice as segmented buttons (a radio group; arrow keys move it). */
+function seg(label, options, value, onChange) {
+  const group = el("div.set-seg", { role: "radiogroup", "aria-label": label });
+  const btns = options.map(([v, text]) => el("button.set-seg__opt", {
+    type: "button", role: "radio", "aria-checked": String(v === value), tabindex: v === value ? "0" : "-1",
+  }, text));
+  const pick = (b, focus) => {
+    btns.forEach((x) => { x.setAttribute("aria-checked", String(x === b)); x.tabIndex = x === b ? 0 : -1; });
+    if (focus) b.focus();
+    onChange(options[btns.indexOf(b)][0]);
+  };
+  btns.forEach((b, i) => {
+    b.addEventListener("click", () => { if (b.getAttribute("aria-checked") !== "true") pick(b); });
+    b.addEventListener("keydown", (e) => {
+      const step = e.key === "ArrowRight" || e.key === "ArrowDown" ? 1 : e.key === "ArrowLeft" || e.key === "ArrowUp" ? -1 : 0;
+      if (!step) return;
+      e.preventDefault();
+      pick(btns[(i + step + btns.length) % btns.length], true);
+    });
+  });
+  if (!btns.some((b) => b.tabIndex === 0) && btns[0]) btns[0].tabIndex = 0;
+  group.append(...btns);
+  return group;
+}
+
+/** The short form of an option label: "Kortfattat — korta tips" → "Kortfattat". */
+const short = (label) => String(label).split(/ — | \(/)[0];
+
 export function renderSettings() {
   const s = store.settings;
 
@@ -25,70 +96,16 @@ export function renderSettings() {
   // last known figure now and the fresh one on the next visit.
   store.refreshUsage?.();
 
-  // Declared here, ahead of aiSection() being called below — aiSection() is a
-  // hoisted function declaration so the call itself is fine wherever it sits,
-  // but a `const` it closes over is not: defining this after the call site
-  // threw "Cannot access before initialization" the moment a signed-in
-  // account with real usage data hit the branch that reads it, which made
-  // the whole Settings page fail to render.
+  // Declared ahead of aiSection() — a `const` it closes over can't be read before
+  // this line runs (that once made the whole page fail to render).
   const fmtResetDate = (ts) => ts
     ? new Date(ts).toLocaleDateString(getLang() === "sv" ? "sv-SE" : "en-GB", { day: "numeric", month: "long" })
     : "";
 
-  /* ---------------- appearance ----------------
-   * Theme + language live in the sidebar footer (and the ⋮ menu on mobile) —
-   * not duplicated here. This panel keeps font, text size, sound and the
-   * daily goal. */
-  const fontSel = el("select", { "aria-label": t("set.font") }, [
-    opt("system", t("set.fontSystem")),
-    opt("hyperlegible", t("set.fontHyperlegible")),
-  ]);
-  fontSel.value = getFont();
-  fontSel.addEventListener("change", () => { setFont(fontSel.value); toast(t("set.saved")); });
-
-  const sizeSel = el("select", { "aria-label": t("set.textSize") }, [
-    opt("s", t("set.textSizeS")),
-    opt("m", t("set.textSizeM")),
-    opt("l", t("set.textSizeL")),
-  ]);
-  sizeSel.value = getTextSize();
-  sizeSel.addEventListener("change", () => { setTextSize(sizeSel.value); toast(t("set.saved")); });
-
-  /* ---------------- model, per job ----------------
-   * Fixed, not a choice: writing a set is saved and reused by everyone who
-   * studies it afterward, so it gets a stronger model; tutoring and marking
-   * are one-off and forgotten the moment they're done, so they run on the
-   * fast, cheap one. See js/claude.js MODELS. */
-  const modelTable = el("table.preset-table", {}, [
-    el("tbody", {}, [
-      modelRow(t("set.jobWriting"), MODELS.generate, t("set.whenPerSet")),
-      modelRow(t("set.jobTutoring"), MODELS.tutor, t("set.whenEveryMsg")),
-      modelRow(t("set.jobMarking"), MODELS.grade, t("set.whenEveryAnswer")),
-    ]),
-  ]);
-  function modelRow(job, model, when) {
-    return el("tr", {}, [el("th", {}, job), el("td", {}, prettyModel(model)), el("td.note", {}, when)]);
-  }
-
-  const verbSel = el("select", { "aria-label": t("set.replyLength") }, [
-    opt("concise", t("set.verbConcise")),
-    opt("normal", t("set.verbNormal")),
-    opt("detailed", t("set.verbDetailed")),
-  ]);
-  verbSel.value = s.tutorVerbosity || "normal";
-  verbSel.addEventListener("change", () => {
-    store.setSettings({ tutorVerbosity: verbSel.value });
-    toast(t("set.tutorStyleUpdated"));
-  });
-
-  /* ---------------- sound ---------------- */
-  const soundSel = el("select", { "aria-label": t("set.sound") }, [
-    opt("on", t("set.soundOn")),
-    opt("off", t("set.soundOff")),
-  ]);
-  soundSel.value = s.sound === false ? "off" : "on";
-  soundSel.addEventListener("change", () => {
-    const on = soundSel.value === "on";
+  /* ---------------- appearance & sound ----------------
+   * Theme + language live in the sidebar footer / topbar (and the ⋮ menu on
+   * mobile) — not duplicated here. */
+  const soundCtl = toggle(t("set.sound"), s.sound !== false, (on) => {
     store.setSettings({ sound: on });
     toast(t("set.soundUpdated"));
     // Turning it on should demonstrate what "on" sounds like.
@@ -96,142 +113,104 @@ export function renderSettings() {
   });
 
   const goalInput = el("input", {
-    type: "number", min: "0", max: "100", inputmode: "numeric",
+    type: "number", min: "0", max: "100", inputmode: "numeric", id: "set-goal",
     value: String(s.dailyGoal ?? 10), "aria-label": t("set.dailyGoal"),
   });
-  goalInput.addEventListener("change", () => {
-    const n = Math.max(0, Math.min(100, Math.round(Number(goalInput.value) || 0)));
+  const setGoal = (raw) => {
+    const n = Math.max(0, Math.min(100, Math.round(Number(raw) || 0)));
     goalInput.value = String(n);
     store.setSettings({ dailyGoal: n });
     toast(t("set.dailyGoalUpdated"));
-  });
+  };
+  goalInput.addEventListener("change", () => setGoal(goalInput.value));
+  const goalCtl = el("div.set-stepper", {}, [
+    el("button", { type: "button", "aria-label": "−5", onclick: () => setGoal(Number(goalInput.value) - 5) }, "−"),
+    goalInput,
+    el("button", { type: "button", "aria-label": "+5", onclick: () => setGoal(Number(goalInput.value) + 5) }, "+"),
+  ]);
+
+  const fontCtl = seg(t("set.font"), [
+    ["system", t("set.fontSystem")],
+    ["hyperlegible", t("set.fontHyperlegible")],
+  ], getFont(), (v) => { setFont(v); toast(t("set.saved")); });
+
+  const sizeCtl = seg(t("set.textSize"), [
+    ["s", t("set.textSizeS")], ["m", t("set.textSizeM")], ["l", t("set.textSizeL")],
+  ], getTextSize(), (v) => { setTextSize(v); toast(t("set.saved")); });
+
+  const lookPanel = card(ICONS.sun, t("set.lookFeel"), t("set.lookSub"), [
+    row(t("set.sound"), t("set.soundNote"), soundCtl),
+    row(t("set.dailyGoal"), t("set.dailyGoalNote"), goalCtl),
+    row(t("set.font"), t("set.fontNote"), fontCtl),
+    row(t("set.textSize"), null, sizeCtl),
+    el("p.set-card__foot", {}, t("set.appearanceElsewhere")),
+  ]);
 
   /* ---------------- studying ---------------- */
-  const hintsSel = el("select", { "aria-label": t("set.testHints") }, [
-    opt("0", t("set.testHints0")),
-    opt("1", t("set.testHints1")),
-    opt("2", t("set.testHints2")),
-    opt("3", t("set.testHints3")),
-  ]);
-  hintsSel.value = String(s.testHints ?? 2);
-  hintsSel.addEventListener("change", () => {
-    store.setSettings({ testHints: Number(hintsSel.value) });
+  const hintsCtl = seg(t("set.testHints"), [
+    ["0", short(t("set.testHints0"))], ["1", "1"], ["2", "2"], ["3", "3"],
+  ], String(s.testHints ?? 2), (v) => { store.setSettings({ testHints: Number(v) }); toast(t("set.saved")); });
+
+  const adaptiveCtl = toggle(t("set.adaptive"), s.adaptive !== false, (on) => {
+    store.setSettings({ adaptive: on });
     toast(t("set.saved"));
   });
 
-  const adaptiveSel = el("select", { "aria-label": t("set.adaptive") }, [
-    opt("on", t("set.adaptiveOn")),
-    opt("off", t("set.adaptiveOff")),
-  ]);
-  adaptiveSel.value = s.adaptive === false ? "off" : "on";
-  adaptiveSel.addEventListener("change", () => {
-    store.setSettings({ adaptive: adaptiveSel.value === "on" });
-    toast(t("set.saved"));
-  });
-
-  const pomoSel = el("select", { "aria-label": t("set.pomodoro") }, [
-    opt("off", t("set.pomodoroOff")),
-    opt("25", t("set.pomodoro25")),
-    opt("50", t("set.pomodoro50")),
-  ]);
-  pomoSel.value = String(s.pomodoro || "off");
-  pomoSel.addEventListener("change", () => {
-    store.setSettings({ pomodoro: pomoSel.value });
-    toast(t("set.saved"));
-  });
+  const pomoCtl = seg(t("set.pomodoro"), [
+    ["off", t("set.pomodoroOff")], ["25", t("set.pomodoro25")], ["50", t("set.pomodoro50")],
+  ], String(s.pomodoro || "off"), (v) => { store.setSettings({ pomodoro: v }); toast(t("set.saved")); });
 
   const voiceSupported = "speechSynthesis" in window;
-  const voiceSel = el("select", { "aria-label": t("set.voice"), disabled: !voiceSupported }, [
-    opt("off", t("set.voiceOff")),
-    opt("on", t("set.voiceOn")),
-  ]);
-  voiceSel.value = s.voice === true ? "on" : "off";
-  voiceSel.addEventListener("change", () => {
-    store.setSettings({ voice: voiceSel.value === "on" });
+  const voiceCtl = toggle(t("set.voice"), s.voice === true, (on) => {
+    store.setSettings({ voice: on });
+    toast(t("set.saved"));
+  }, { disabled: !voiceSupported });
+
+  const rulesCtl = toggle(t("set.rulePrompts"), s.rulePrompts !== false, (on) => {
+    store.setSettings({ rulePrompts: on });
     toast(t("set.saved"));
   });
 
-  const rulesSel = el("select", { "aria-label": t("set.rulePrompts") }, [
-    opt("on", t("set.rulePromptsOn")),
-    opt("off", t("set.rulePromptsOff")),
+  const studyPanel = card(ICONS.book, t("set.studying"), t("set.studySub"), [
+    row(t("set.adaptive"), t("set.adaptiveNote"), adaptiveCtl),
+    row(t("set.testHints"), t("set.testHintsNote"), hintsCtl),
+    row(t("set.pomodoro"), t("set.pomodoroNote"), pomoCtl),
+    row(t("set.rulePrompts"), t("set.rulePromptsNote"), rulesCtl),
+    row(t("set.voice"), t(voiceSupported ? "set.voiceNote" : "set.voiceUnsupported"), voiceCtl),
+    // Which voice reads aloud, a sample of it, its speed, and how to get a better one.
+    voiceSupported ? row(t("voice.title"), null, voiceControls(), { stack: true }) : null,
+    row(t("set.welcomeRedo"), t("set.welcomeRedoNote"),
+      el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => openWelcomeQuiz({ force: true }) }, t("set.welcomeRedoBtn"))),
   ]);
-  rulesSel.value = s.rulePrompts === false ? "off" : "on";
-  rulesSel.addEventListener("change", () => {
-    store.setSettings({ rulePrompts: rulesSel.value === "on" });
-    toast(t("set.saved"));
-  });
-
-  /* ---------------- tutor server status ---------------- */
-  // The Claude key lives in the backend proxy now, so there's nothing to type
-  // here — just whether live mode is available.
-  const serverStatus = !store.proxyUp ? t("set.serverDown")
-    : !store.proxyKeyConfigured ? t("set.serverNoKey")
-    : t("set.serverLive");
-
-  // One field + its own help text directly beneath it, rather than a row of
-  // controls with all the notes clumped underneath.
-  const noted = (labelKey, control, noteKey) => el("label.field", {}, [
-    el("span", {}, t(labelKey)),
-    control,
-    noteKey ? el("p.note.field__note", {}, typeof noteKey === "function" ? noteKey() : t(noteKey)) : null,
-  ].filter(Boolean));
-
-  const lookPanel = el("section.panel", {}, [
-      el("h3", {}, t("set.lookFeel")),
-      el("p.note", {}, t("set.appearanceElsewhere")),
-      el("div.settings__fields", {}, [
-        noted("set.sound", soundSel, "set.soundNote"),
-        noted("set.dailyGoal", goalInput, "set.dailyGoalNote"),
-        noted("set.font", fontSel),
-        noted("set.textSize", sizeSel),
-      ]),
-    ]);
-
-  const studyPanel = el("section.panel", {}, [
-      el("h3", {}, t("set.studying")),
-      el("div.settings__fields", {}, [
-        noted("set.testHints", hintsSel, "set.testHintsNote"),
-        noted("set.adaptive", adaptiveSel, "set.adaptiveNote"),
-        noted("set.pomodoro", pomoSel, "set.pomodoroNote"),
-        noted("set.voice", voiceSel, voiceSupported ? "set.voiceNote" : "set.voiceUnsupported"),
-        // Which voice reads aloud, a sample of it, its speed, and how to get a better one.
-        ...(voiceSupported ? [el("div.field.voicectl-field", {}, [el("span", {}, t("voice.title")), voiceControls()])] : []),
-        noted("set.rulePrompts", rulesSel, "set.rulePromptsNote"),
-      ]),
-      el("div.settings__redo", {}, [
-        el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => openWelcomeQuiz({ force: true }) }, t("set.welcomeRedo")),
-        el("p.note", {}, t("set.welcomeRedoNote")),
-      ]),
-    ]);
 
   // Each section gets an anchor so the side menu can jump straight to it.
   const sections = [
-    ["appearance", "set.lookFeel", lookPanel],
-    ["studying", "set.studying", studyPanel],
-    ["ai", "set.aiTitle", aiSection()],
-    ["account", "set.acctTitle", accountSection()],
-    ["demo", "set.demoTitle", demoSection()],
-    ["data", "set.dataTitle", dataSection()],
-  ].filter(([, , panel]) => panel);
-  for (const [id, , panel] of sections) panel.id = `settings-${id}`;
+    ["appearance", "set.lookFeel", ICONS.sun, lookPanel],
+    ["studying", "set.studying", ICONS.book, studyPanel],
+    ["ai", "set.aiTitle", ICONS.spark, aiSection()],
+    ["account", "set.acctTitle", ICONS.user, accountSection()],
+    ["demo", "set.demoTitle", ICONS.play, demoSection()],
+    ["data", "set.dataTitle", ICONS.download, dataSection()],
+  ].filter(([, , , panel]) => panel);
+  for (const [id, , , panel] of sections) panel.id = `settings-${id}`;
 
-  const navLinks = sections.map(([id, labelKey], i) => el("a.settings__navlink" + (i === 0 ? ".is-active" : ""), {
-    href: `#/settings`,
+  const navLinks = sections.map(([id, labelKey, ic], i) => el("a.settings__navlink" + (i === 0 ? ".is-active" : ""), {
+    href: "#/settings",
     onclick: (e) => {
       e.preventDefault();
       document.getElementById(`settings-${id}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
     },
-  }, t(labelKey)));
+  }, [icon(ic, 16), t(labelKey)]));
 
   const node = el("div.settings", {}, [
     homeButton({ grid: true }),
-    el("h1", {}, t("set.title")),
+    el("header.settings__head", {}, [
+      el("h1", {}, t("set.title")),
+      el("p", {}, t("set.pageSub")),
+    ]),
     el("div.settings__layout", {}, [
       el("nav.settings__nav", { "aria-label": t("set.title") }, navLinks),
-      el("div.settings__sections", {}, [
-        ...sections.map(([, , panel]) => panel),
-        el("a.btn.btn--ghost.pageback", { href: "#/", style: { justifySelf: "start" } }, [icon(ICONS.back, 16), t("common.backToMenu")]),
-      ]),
+      el("div.settings__sections", {}, sections.map(([, , , panel]) => panel)),
     ]),
   ]);
 
@@ -243,81 +222,94 @@ export function renderSettings() {
       const hit = entries.filter((en) => en.isIntersecting)
         .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
       if (!hit) return;
-      const idx = sections.findIndex(([, , panel]) => panel === hit.target);
+      const idx = sections.findIndex(([, , , panel]) => panel === hit.target);
       navLinks.forEach((a, i) => a.classList.toggle("is-active", i === idx));
     }, { rootMargin: "-90px 0px -60% 0px" });
-    sections.forEach(([, , panel]) => io.observe(panel));
+    sections.forEach(([, , , panel]) => io.observe(panel));
   }
 
   /* ---------------- AI ----------------
-   * The full model/price panel only shows once the proxy is reachable + keyed,
-   * the user is signed in (the proxy requires it), and this month's allowance
-   * isn't spent. Otherwise it collapses to a status line and whatever the one
-   * missing thing is. */
+   * The full model panel only shows once the proxy is reachable + keyed, the
+   * user is signed in (the proxy requires it), and this month's allowance
+   * isn't spent. Otherwise it's a status row and whatever the one missing
+   * thing is. */
+  function statusPill(ok, text) {
+    return el("span.set-pill", {}, [el("span.dot", { style: { background: ok ? "var(--ok)" : "var(--ink-faint)" } }), text]);
+  }
+
   function premiumTeaser() {
-    return store.isPremium() ? null : el("p.note", { style: { marginTop: "8px" } }, [
+    return store.isPremium() ? null : el("p.set-row__note", {}, [
       t("set.premiumTeaser") + " ",
       el("a", { href: "#/premium" }, t("set.premiumLink")),
     ]);
   }
 
   function aiSection() {
+    const serverStatus = !store.proxyUp ? t("set.serverDown")
+      : !store.proxyKeyConfigured ? t("set.serverNoKey")
+      : t("set.serverLive");
+
     if (!store.canUseAI()) {
       const serverReady = store.proxyUp && store.proxyKeyConfigured;
       let reason;
       if (serverReady && store.aiOverBudget) {
-        reason = el("p.note.note--warn", {}, t("set.aiQuotaReached", { date: fmtResetDate(store.aiUsage?.resetsAt) }));
+        reason = t("set.aiQuotaReached", { date: fmtResetDate(store.aiUsage?.resetsAt) });
       } else if (serverReady && !store.authed) {
-        reason = el("p.note", {}, [
-          t("set.aiNeedsAccount"), " ",
-          el("a", { href: "#/login" }, t("account.signIn")),
-        ]);
+        reason = el("span", {}, [t("set.aiNeedsAccount"), " ", el("a", { href: "#/login" }, t("account.signIn"))]);
       } else {
-        reason = el("p.note", {}, t("set.aiDormant"));
+        reason = t("set.aiDormant");
       }
-      return el("section.panel", {}, [
-        el("h3", {}, t("set.aiTitle")),
-        el("p.note", { style: { display: "flex", alignItems: "center", gap: "8px", margin: "6px 0 10px" } }, [
-          el("span.dot", { style: { background: serverReady ? "var(--ok)" : "var(--ink-faint)" } }),
-          serverStatus,
-        ]),
-        reason,
-        // Only when `reason` is actually the quota-reached line above — not just
-        // whenever the budget happens to be spent, which could also be true while
-        // the server is unreachable (reason would then read "AI isn't connected",
-        // and showing a premium upsell right under that reads as contradictory).
+      return card(ICONS.spark, t("set.aiTitle"), t("set.aiSub"), [
+        row(t("set.statusLabel"), reason, statusPill(serverReady, serverStatus)),
+        // Only when the reason is the quota-reached line — not merely whenever the
+        // budget is spent while the server is down (an upsell under "AI isn't
+        // connected" reads as contradictory).
         serverReady && store.aiOverBudget ? premiumTeaser() : null,
-        el("details.set-ai-how", { style: { marginTop: "12px" } }, [
+        el("details.set-details", {}, [
           el("summary", {}, t("set.aiHowConnect")),
-          el("p.note", { style: { margin: "8px 0 0" } }, t("set.serverBody")),
+          el("p.set-row__note", {}, t("set.serverBody")),
         ]),
-      ].filter(Boolean));
+      ]);
     }
 
     const usage = store.aiUsage;
-    return el("section.panel", {}, [
-      el("h3", {}, t("set.aiTitle")),
-      el("h4.settings__sub", {}, t("set.serverTitle")),
-      el("p.note", { style: { margin: "6px 0 12px" } }, t("set.serverBody")),
-      el("p.note", { style: { display: "flex", alignItems: "center", gap: "8px" } }, [
-        el("span.dot", { style: { background: "var(--ok)" } }),
-        serverStatus,
+    const pct = usage?.limit ? Math.min(100, Math.round((usage.used / usage.limit) * 100)) : 0;
+    const verbCtl = seg(t("set.replyLength"), [
+      ["concise", short(t("set.verbConcise"))],
+      ["normal", short(t("set.verbNormal"))],
+      ["detailed", short(t("set.verbDetailed"))],
+    ], s.tutorVerbosity || "normal", (v) => {
+      store.setSettings({ tutorVerbosity: v });
+      toast(t("set.tutorStyleUpdated"));
+    });
+    const modelTable = el("table.preset-table", {}, [
+      el("tbody", {}, [
+        modelRow(t("set.jobWriting"), MODELS.generate, t("set.whenPerSet")),
+        modelRow(t("set.jobTutoring"), MODELS.tutor, t("set.whenEveryMsg")),
+        modelRow(t("set.jobMarking"), MODELS.grade, t("set.whenEveryAnswer")),
       ]),
-      usage ? el("p.note", { style: { marginTop: "8px" } }, [
+    ]);
+
+    return card(ICONS.spark, t("set.aiTitle"), t("set.aiSub"), [
+      row(t("set.statusLabel"), t("set.serverBody"), statusPill(true, serverStatus)),
+      usage ? row(t("set.usageLabel"), [
         t("set.aiUsageLine", { used: usage.used.toLocaleString(), limit: usage.limit.toLocaleString() }),
         usage.resetsAt ? " · " + t("set.aiUsageResets", { date: fmtResetDate(usage.resetsAt) }) : "",
-      ]) : null,
+      ].join(""), el("div.set-usage", { role: "img", "aria-label": `${pct}%` }, [el("i", { style: { width: `${pct}%` } })])) : null,
       premiumTeaser(),
-      el("h4.settings__sub", {}, t("set.modelTitle")),
-      el("p.note", { style: { margin: "6px 0 12px" } }, t("set.modelIntro")),
-      modelTable,
-      el("label.field", { style: { marginTop: "16px", marginBottom: "0" } }, [el("span", {}, t("set.replyLength")), verbSel]),
-    ].filter(Boolean));
+      row(t("set.replyLength"), null, verbCtl),
+      row(t("set.modelTitle"), t("set.modelIntro"), modelTable, { stack: true }),
+    ]);
   }
 
+  function modelRow(job, model, when) {
+    return el("tr", {}, [el("th", {}, job), el("td", {}, prettyModel(model)), el("td.note", {}, when)]);
+  }
+
+  /* ---------------- demo sets ---------------- */
   function demoSection() {
-    const status = el("p.note", { style: { margin: "6px 0 12px" } });
-    const actions = el("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap" } });
+    const status = el("p.set-row__note");
+    const actions = el("div.set-row__ctl");
 
     function paint() {
       const { loaded, total } = store.demoStatus;
@@ -342,8 +334,8 @@ export function renderSettings() {
         }, [icon(ICONS.play, 16), t(loaded ? "set.demoAddMissing" : "set.demoLoad")]));
       }
       if (loaded > 0) {
-        actions.appendChild(el("button.btn.btn--ghost.btn--sm", {
-          type: "button", style: { color: "var(--retry-ink)" },
+        actions.appendChild(el("button.btn.btn--ghost.btn--sm.set-danger", {
+          type: "button",
           onclick: async () => {
             if (!(await confirmDialog({ message: t("set.demoRemoveConfirm"), confirmLabel: t("set.demoRemove"), danger: true }))) return;
             store.removeDemoContent();
@@ -355,117 +347,123 @@ export function renderSettings() {
     }
     paint();
 
-    return el("section.panel", {}, [
-      el("h3", {}, t("set.demoTitle")),
-      status,
-      actions,
+    return card(ICONS.play, t("set.demoTitle"), t("set.demoSub"), [
+      el("div.set-row", {}, [
+        el("div.set-row__text", {}, [el("span.set-row__label", {}, t("set.demoTitle")), status]),
+        actions,
+      ]),
     ]);
   }
 
+  /* ---------------- account ---------------- */
   function accountSection() {
-    const status = el("p.note", { style: { margin: "6px 0 12px" } });
-    const verifyRow = el("p.note", { style: { margin: "0 0 12px" }, hidden: true });
-    const twofaRow = el("p.note", { style: { margin: "0 0 12px" }, hidden: true });
-    const actions = el("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap" } });
+    const body = el("div.set-acct");
 
     function paint() {
-      status.textContent = store.authed
-        ? t("set.acctSignedIn", { email: store.authEmail })
-        : t("set.acctSignedOut");
-
-      // Meaningless while the server has no email set up — hidden entirely then, same as the
-      // Google button hides when googleClientId is null.
-      const showVerify = store.authed && store.emailConfigured;
-      verifyRow.hidden = !showVerify;
-      if (showVerify) {
-        verifyRow.className = "note" + (store.authEmailVerified ? "" : " note--warn");
-        verifyRow.textContent = t(store.authEmailVerified ? "set.acctEmailVerified" : "set.acctEmailNotVerified");
+      clear(body);
+      if (!store.authed) {
+        body.append(...[
+          !store.proxyUp ? el("p.note.note--warn", {}, t("set.acctNoServer")) : null,
+          row(t("set.acctSignedOutLabel"), t("set.acctSignedOut").split(" — ").slice(-1)[0], el("a.btn.btn--sm", { href: "#/login" }, t("set.acctSignIn"))),
+        ].filter(Boolean));
+        return;
       }
 
-      // Only a password account has a local sign-in step to gate — a Google-linked one
-      // re-authenticates via Google every time, so there's no second factor to add here.
-      const showTwofa = store.authed && !store.authPasswordless;
-      twofaRow.hidden = !showTwofa;
-      if (showTwofa) twofaRow.textContent = t(!store.totpEnabled ? "twofa.statusOff" : store.twofaMethod === "email" ? "twofa.statusOnEmail" : "twofa.statusOn");
+      // Meaningless while the server has no email set up — hidden entirely then.
+      const showVerify = store.emailConfigured;
+      // Only a password account has a local sign-in step to gate — a Google-linked
+      // one re-authenticates via Google every time.
+      const showTwofa = !store.authPasswordless;
+      const email = store.authEmail || "";
 
-      clear(actions);
-      if (store.authed) {
-        if (showVerify && !store.authEmailVerified) {
-          actions.appendChild(el("button.btn.btn--ghost.btn--sm", {
-            type: "button",
-            onclick: async (e) => {
-              const btn = e.currentTarget;   // e.currentTarget is null once this resumes after the await
-              btn.disabled = true;
-              try { await store.resendVerification(); toast(t("set.acctVerificationSent")); }
-              catch (err) { toast(err.message || t("set.acctVerificationResendFailed")); }
-              finally { btn.disabled = false; }
-            },
-          }, t("set.acctResendVerification")));
-        }
-        if (store.authPasswordless) {
-          actions.appendChild(el("button.btn.btn--ghost.btn--sm", {
-            type: "button",
-            onclick: async () => { if (await setPasswordDialog()) { toast(t("setpw.addedToast")); paint(); } },
-          }, t("setpw.add")));
-        }
-        if (showTwofa && !store.totpEnabled) {
-          actions.appendChild(el("button.btn.btn--ghost.btn--sm", {
-            type: "button",
-            onclick: async () => { if (await twofaSetupDialog()) paint(); },
-          }, t("twofa.enable")));
-        }
-        if (showTwofa && store.totpEnabled) {
-          actions.appendChild(el("button.btn.btn--ghost.btn--sm", {
-            type: "button",
-            onclick: async () => {
-              const ok = await passwordConfirmDialog({
-                title: t("twofa.disableTitle"), body: t("twofa.disableBody"), confirmLabel: t("twofa.disableConfirm"),
-                submit: (password) => store.disable2fa(password),
-              });
-              if (ok) { toast(t("twofa.disabledToast")); paint(); }
-            },
-          }, t("twofa.disable")));
-        }
-        actions.appendChild(el("button.btn.btn--ghost.btn--sm", {
+      const chips = el("div.set-chips", {}, [
+        showVerify ? el("span.set-chip" + (store.authEmailVerified ? ".is-ok" : ".is-warn"), {},
+          t(store.authEmailVerified ? "set.chipVerified" : "set.chipUnverified")) : null,
+        showTwofa ? el("span.set-chip" + (store.totpEnabled ? ".is-ok" : ""), {},
+          t(store.totpEnabled ? "set.chip2faOn" : "set.chip2faOff")) : null,
+      ].filter(Boolean));
+
+      const actions = [];
+      if (showVerify && !store.authEmailVerified) {
+        actions.push(el("button.btn.btn--ghost.btn--sm", {
           type: "button",
           onclick: async (e) => {
-            e.currentTarget.disabled = true;
-            const r = await store.logout();
-            toast(t(r?.wiped === false ? "set.acctSignedOutKept" : "set.acctSignedOutToast"));
-            paint();
+            const btn = e.currentTarget;   // null once this resumes after the await
+            btn.disabled = true;
+            try { await store.resendVerification(); toast(t("set.acctVerificationSent")); }
+            catch (err) { toast(err.message || t("set.acctVerificationResendFailed")); }
+            finally { btn.disabled = false; }
           },
-        }, t("set.acctSignOut")));
-        actions.appendChild(el("a.btn.btn--ghost.btn--sm", { href: "#/parent" }, t("set.acctParentLink")));
-        actions.appendChild(el("a.btn.btn--ghost.btn--sm", { href: "#/rate" }, t("set.acctReviewLink")));
-        actions.appendChild(el("button.btn.btn--ghost.btn--sm", {
-          type: "button", style: { color: "var(--retry-ink)" },
+        }, t("set.acctResendVerification")));
+      }
+      actions.push(el("button.btn.btn--ghost.btn--sm", {
+        type: "button",
+        onclick: async (e) => {
+          e.currentTarget.disabled = true;
+          const r = await store.logout();
+          toast(t(r?.wiped === false ? "set.acctSignedOutKept" : "set.acctSignedOutToast"));
+          paint();
+        },
+      }, t("set.acctSignOut")));
+
+      body.append(...[
+        el("div.set-profile", {}, [
+          el("span.set-avatar", { "aria-hidden": "true" }, (email[0] || "?").toUpperCase()),
+          el("div.set-profile__text", {}, [
+            el("strong", {}, email),
+            chips.childNodes.length ? chips : null,
+          ].filter(Boolean)),
+          el("div.set-row__ctl", {}, actions),
+        ]),
+        store.authPasswordless
+          ? row(t("setpw.add"), t("set.pwNote"), el("button.btn.btn--ghost.btn--sm", {
+              type: "button",
+              onclick: async () => { if (await setPasswordDialog()) { toast(t("setpw.addedToast")); paint(); } },
+            }, t("setpw.add")))
+          : null,
+        showTwofa
+          ? row(t("set.twofaLabel"), t("set.twofaNote"),
+              store.totpEnabled
+                ? el("button.btn.btn--ghost.btn--sm", {
+                    type: "button",
+                    onclick: async () => {
+                      const ok = await passwordConfirmDialog({
+                        title: t("twofa.disableTitle"), body: t("twofa.disableBody"), confirmLabel: t("twofa.disableConfirm"),
+                        submit: (password) => store.disable2fa(password),
+                      });
+                      if (ok) { toast(t("twofa.disabledToast")); paint(); }
+                    },
+                  }, t("twofa.disable"))
+                : el("button.btn.btn--sm", {
+                    type: "button",
+                    onclick: async () => { if (await twofaSetupDialog()) paint(); },
+                  }, t("twofa.enable")))
+          : null,
+        row(t("set.acctParentLabel"), t("set.acctParentNote"),
+          el("a.btn.btn--ghost.btn--sm", { href: "#/parent" }, t("set.acctParentLink"))),
+        row(t("set.acctReviewLabel"), t("set.acctReviewNote"),
+          el("a.btn.btn--ghost.btn--sm", { href: "#/rate" }, t("set.acctReviewLink"))),
+        row(t("set.acctDelete"), t("set.acctDeleteNote"), el("button.btn.btn--ghost.btn--sm.set-danger", {
+          type: "button",
           onclick: async () => {
             if (await deleteAccountDialog()) { toast(t("set.acctDeleted")); location.hash = "#/"; paint(); }
           },
-        }, t("set.acctDelete")));
-      } else {
-        actions.appendChild(el("a.btn.btn--sm", { href: "#/login" }, t("set.acctSignIn")));
-      }
+        }, t("set.acctDelete")), { danger: true }),
+      ].filter(Boolean));
     }
     paint();
 
-    return el("section.panel", {}, [
-      el("h3", {}, t("set.acctTitle")),
-      !store.proxyUp && el("p.note.note--warn", {}, t("set.acctNoServer")),
-      status,
-      verifyRow,
-      twofaRow,
-      actions,
-    ]);
+    return card(ICONS.user, t("set.acctTitle"), t("set.acctSub"), [body]);
   }
 
+  /* ---------------- your data ---------------- */
   function dataSection() {
-    const recovery = el("p.note.note--warn", { style: { margin: "6px 0 12px" } });
+    const recovery = el("p.note.note--warn.set-recovery");
     const importInput = el("input", {
       type: "file", accept: "application/json,.json", style: { display: "none" },
       onchange: onImportFile,
     });
-    const importStatus = el("p.note", { style: { margin: "8px 0 0" } });
+    const importStatus = el("p.set-row__note");
 
     function paintRecovery() {
       const blob = store.recoveryBlob;
@@ -498,19 +496,19 @@ export function renderSettings() {
       let text;
       try { text = await file.text(); }
       catch {
-        importStatus.className = "note note--warn";
+        importStatus.className = "set-row__note note--warn";
         importStatus.textContent = t("set.importReadFail");
         return;
       }
       if (!(await confirmDialog({ message: t("set.importConfirm"), confirmLabel: t("set.import"), danger: true }))) return;
       try {
         store.importJSON(text);
-        importStatus.className = "note";
+        importStatus.className = "set-row__note";
         importStatus.textContent = "";
         toast(t("set.imported"));
         location.hash = "#/";
       } catch {
-        importStatus.className = "note note--warn";
+        importStatus.className = "set-row__note note--warn";
         importStatus.textContent = t("set.importBadFile");
       }
     }
@@ -522,25 +520,27 @@ export function renderSettings() {
       location.hash = "#/";
     }
 
-    return el("section.panel", {}, [
-      el("h3", {}, t("set.dataTitle")),
-      el("p.note", { style: { margin: "6px 0 12px" } }, store.authed ? t("set.dataBodySynced") : t("set.dataBody")),
+    const importRow = row(t("set.import"), t("set.importNote"), [
+      el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => importInput.click() }, t("set.import")),
+      importInput,
+    ]);
+    importRow.querySelector(".set-row__text").append(importStatus);
+
+    return card(ICONS.download, t("set.dataTitle"), store.authed ? t("set.dataBodySynced") : t("set.dataBody"), [
       recovery,
-      el("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap" } }, [
-        el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: exportData }, t("set.export")),
-        el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => importInput.click() }, t("set.import")),
-        importInput,
-        el("button.btn.btn--ghost.btn--sm", { type: "button", style: { color: "var(--retry-ink)" }, onclick: wipe }, t("set.wipe")),
-      ]),
-      importStatus,
+      row(t("set.export"), t("set.exportNote"),
+        el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: exportData }, [icon(ICONS.download, 15), t("set.export")])),
+      importRow,
       offlineRow(),
-    ].filter(Boolean));
+      row(t("set.wipe"), t("set.wipeNote"),
+        el("button.btn.btn--ghost.btn--sm.set-danger", { type: "button", onclick: wipe }, t("set.wipe")), { danger: true }),
+    ]);
   }
 
   /* ---------------- offline library ---------------- */
   function offlineRow() {
     if (!offlineSupported()) return null;
-    const status = el("p.note", { style: { margin: "10px 0 8px" } }, t("set.offlineBody"));
+    const status = el("p.set-row__note", {}, t("set.offlineBody"));
     const bar = el("div.offline-bar", { hidden: true }, [el("i")]);
     const btn = el("button.btn.btn--ghost.btn--sm", { type: "button" });
 
@@ -571,16 +571,15 @@ export function renderSettings() {
       paint();
     });
 
-    return el("div", { style: { marginTop: "16px" } }, [
-      el("h4.settings__sub", {}, t("set.offlineTitle")),
-      status, bar, btn,
+    const r = el("div.set-row", {}, [
+      el("div.set-row__text", {}, [el("span.set-row__label", {}, t("set.offlineTitle")), status, bar]),
+      el("div.set-row__ctl", {}, [btn]),
     ]);
+    return r;
   }
 
   return { title: t("set.title"), node };
 }
-
-function opt(value, label) { return el("option", { value }, label); }
 
 function prettyModel(id) {
   return ({
