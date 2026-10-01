@@ -186,8 +186,13 @@ describe("the system prompts", () => {
     assert.match(r, /do NOT create it straight away/);
     assert.match(r, /First ask 2-4 short questions/);
     assert.match(r, /Never write the marker before the student has answered/);
-    assert.match(r, /Offer ONCE/);
+    assert.match(r, /Offer a set yourself\. Do this whenever ANY of these is true/);
+    assert.match(r, /pastes notes/);
+    assert.match(r, /test, exam or "prov"/);
+    assert.match(r, /instead of a generic closing question/);
     assert.match(r, /single homework problem/);
+    assert.match(r, /once you have already offered/);
+    assert.match(r, /offer never contains the marker/);
   });
 
   test("the marker shape in the prompt is one the parser accepts", () => {
