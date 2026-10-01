@@ -780,14 +780,14 @@ function homeHead() {
 /** "Vad vill du plugga idag?" — the big shortcuts to the app's main jobs, each
  *  an icon, a name and one line on what it's for. Same pages as the sidebar;
  *  this is just the obvious place to start from. */
-// Each tile is filled with its colour, under white type — so these are the deep
-// shades of the brand hues, dark enough to keep that type readable.
+// Each tile is filled with its colour, under white type — bright, saturated
+// hues; the CSS gradient deepens each one so the type stays readable.
 const HOME_TILES = [
-  { href: "#/create",    icon: ICONS.plus,       label: "nav.create",   sub: "menu.pickCreateSub",  color: "#6B4EE6" },
-  { href: "#/library",   icon: ICONS.book,       label: "nav.library",  sub: "menu.pickLibrarySub", color: "#13849A" },
-  { href: "#/exam-prep", icon: ICONS.graduation, label: "nav.examPrep", sub: "menu.pickExamSub",    color: "#3C8547" },
-  { href: "#/solve",     icon: ICONS.spark,      label: "nav.solve",    sub: "menu.pickAiSub",      color: "#CF4177" },
-  { href: "#/hp",        icon: ICONS.award,      label: "nav.hp",       sub: "menu.pickHpSub",      color: "#DB6C1C" },
+  { href: "#/create",    icon: ICONS.plus,       label: "nav.create",   sub: "menu.pickCreateSub",  color: "#7650FF" },
+  { href: "#/library",   icon: ICONS.book,       label: "nav.library",  sub: "menu.pickLibrarySub", color: "#0FA3C2" },
+  { href: "#/exam-prep", icon: ICONS.graduation, label: "nav.examPrep", sub: "menu.pickExamSub",    color: "#22A35A" },
+  { href: "#/solve",     icon: ICONS.spark,      label: "nav.solve",    sub: "menu.pickAiSub",      color: "#EE3D86" },
+  { href: "#/hp",        icon: ICONS.award,      label: "nav.hp",       sub: "menu.pickHpSub",      color: "#FF7426" },
 ];
 function homeTiles() {
   return el("nav.home-tiles", { "aria-label": t("menu.askToday") }, HOME_TILES.map((x) =>
