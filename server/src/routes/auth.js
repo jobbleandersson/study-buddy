@@ -15,7 +15,6 @@ import { isUniqueViolation } from "../errors.js";
 import { requireAuth } from "../middleware/requireAuth.js";
 import { emailEnabled, sendVerifyEmail, sendResetEmail, sendTwoFaEnabledEmail, sendTwoFaDisabledEmail, sendPasswordAddedEmail, sendTwoFaCodeEmail } from "../email.js";
 import { generateSecret, verifyTotp, otpauthUri } from "../totp.js";
-import { invited, notInvited } from "../invite.js";
 
 export const auth = Router();
 
@@ -181,7 +180,6 @@ auth.post("/auth/signup", signupHourly, signupDaily, asyncHandler(async (req, re
   const email = String(req.body?.email || "").trim().toLowerCase();
   const password = String(req.body?.password || "");
   if (!email || !email.includes("@")) return res.status(400).json({ error: { message: "Enter a valid email." } });
-  if (!invited(email)) return notInvited(res);
   if (password.length < 8) return res.status(400).json({ error: { message: "Password must be at least 8 characters." } });
   if (password.length > 200) return res.status(400).json({ error: { message: "Password is too long." } });   // bcrypt only reads 72 bytes; don't hash megabytes
   if (req.body?.consent !== true) return consentRequired(res);
@@ -211,7 +209,6 @@ auth.post("/auth/signup", signupHourly, signupDaily, asyncHandler(async (req, re
 auth.post("/auth/login", ...loginFailures, asyncHandler(async (req, res) => {
   const email = String(req.body?.email || "").trim().toLowerCase();
   const password = String(req.body?.password || "").slice(0, 200);
-  if (!invited(email)) return notInvited(res);
 
   const user = db.prepare(
     "SELECT id, password_hash, email_verified_at AS emailVerifiedAt, totp_enabled_at AS totpEnabledAt, twofa_method AS twofaMethod FROM users WHERE email = ?"
@@ -354,7 +351,6 @@ auth.post("/auth/google", googleSignInLimit, asyncHandler(async (req, res) => {
     }
 
     const { sub, email } = profile;
-    if (!invited(email)) return notInvited(res);
     let user = db.prepare("SELECT id, email FROM users WHERE google_sub = ?").get(sub);
     let created = false;
     let linked = false;
@@ -431,7 +427,7 @@ auth.get("/auth/me", (req, res) => {
   // passwordless: Google-linked with no password ever added, so there's no local sign-in step to
   // type — account deletion asks for the Google email instead, and 2FA has nothing to protect.
   // A hybrid account (linked to Google *and* has since added a password) is not passwordless.
-  res.json(row && invited(row.email)
+  res.json(row
     ? { authed: true, email: row.email, passwordless: !!row.googleSub && !row.passwordSetAt, emailVerified: !emailEnabled() || !!row.emailVerifiedAt, totpEnabled: !!row.totpEnabledAt, twofaMethod: twoFaMethod(row) }
     : { authed: false });
 });

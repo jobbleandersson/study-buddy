@@ -261,3 +261,22 @@ describe("email 2FA rate limiting", () => {
     assert.equal(last.status, 429);
   });
 });
+
+describe("site password rate limiting: only wrong guesses count", () => {
+  let server;
+  before(async () => { server = await startServer({ SITE_PASSWORD: "right-one", SITE_GATE_FAILS_PER_15MIN_PER_IP: "3" }); });
+  after(async () => { await server.stop(); });
+
+  const guess = (password) => fetch(`${server.baseUrl}/api/gate`, {
+    method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ password }),
+  });
+
+  test("three wrong guesses, then even the right password waits", async () => {
+    // A correct entry in between uses none of the allowance up.
+    assert.equal((await guess("right-one")).status, 200);
+    for (let i = 0; i < 3; i++) assert.equal((await guess("wrong-" + i)).status, 401);
+    const blocked = await guess("right-one");
+    assert.equal(blocked.status, 429);
+    assert.ok(blocked.headers.get("retry-after"));
+  });
+});

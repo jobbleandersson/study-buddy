@@ -1,6 +1,5 @@
 import { db } from "../db.js";
 import { COOKIE_NAME } from "../constants.js";
-import { invited } from "../invite.js";
 
 export function requireAuth(req, res, next) {
   const sid = req.cookies?.[COOKIE_NAME];
@@ -13,7 +12,6 @@ export function requireAuth(req, res, next) {
   ).get(sid, Date.now());
 
   if (!row) return res.status(401).json({ error: { message: "Session expired.", code: "not_authenticated" } });
-  if (!invited(row.email)) return res.status(401).json({ error: { message: "Not signed in.", code: "not_authenticated" } });
   req.user = row;
   next();
 }

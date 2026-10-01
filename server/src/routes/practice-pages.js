@@ -2,7 +2,7 @@ import { Router } from "express";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { inviteOnly } from "../invite.js";
+import { siteLocked } from "../gate.js";
 
 // Public, server-rendered pages for the ready-made library, at real paths a search engine can index:
 //   /ova                         every level and subject
@@ -17,7 +17,7 @@ import { inviteOnly } from "../invite.js";
 //
 // Indexing is off until PUBLIC_INDEXING=true: every response carries noindex (meta tag here, plus an
 // X-Robots-Tag header on everything in index.js), so a private deployment stays out of search results. (SITE_PASSWORD, when
-// set, also puts these pages behind the password like the rest of the site.)
+// set, also hides these pages entirely: see the first route below.)
 
 export const practicePages = Router();
 
@@ -228,9 +228,9 @@ function send(res, html) {
 
 /* ---------------- routes ---------------- */
 
-// Invite-only (see ../invite.js): the public practice pages are part of what's kept private.
+// Private site (see ../gate.js): the public practice pages are part of what's kept private.
 practicePages.use((req, res, next) => {
-  if (!inviteOnly()) return next();
+  if (!siteLocked()) return next();
   if (req.path === "/sitemap.xml") return res.status(404).end();
   if (req.path === "/ova" || req.path.startsWith("/ova/")) return res.redirect(302, "/");
   next();

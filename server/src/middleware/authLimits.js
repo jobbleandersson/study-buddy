@@ -135,3 +135,14 @@ export const codeGuessLimits = [
     name: "code-fail-ip", max: num("CODE_FAILS_PER_10MIN_PER_IP", 100), windowMs: 10 * MIN, failureStatuses: [400, 404],
   }),
 ];
+
+// The site password (see ../gate.js). Only wrong guesses count, so typing it right never uses any up.
+// Per IP stops one person guessing; the shared cap stops guessing from many addresses at once. It also
+// means a flood of bad guesses briefly blocks us from unlocking a NEW device — a device that is already
+// unlocked carries a cookie and is unaffected.
+export const siteGateIpLimit = attemptLimit({
+  name: "site-gate-ip", max: num("SITE_GATE_FAILS_PER_15MIN_PER_IP", 8), windowMs: 15 * MIN, failureStatuses: [401],
+});
+export const siteGateGlobalLimit = attemptLimit({
+  name: "site-gate-all", max: num("SITE_GATE_FAILS_PER_HOUR", 200), windowMs: HOUR, key: () => "all", failureStatuses: [401],
+});

@@ -32,12 +32,10 @@ analytics.post("/analytics/pageview", pageviewLimit, asyncHandler(async (req, re
 }));
 
 // No admin/role system exists yet, so this read side is gated by a shared
-// secret (ANALYTICS_KEY) the same way SITE_PASSWORD gates the whole site in
-// index.js, rather than building real admin auth for one report. A header,
+// secret (ANALYTICS_KEY), rather than building real admin auth for one report. A header,
 // not a "?key=" query string: a query string ends up in Fly's own request
 // logs, any proxy's access log, and browser history the moment someone opens
-// the URL by hand — exactly what SITE_PASSWORD's use of Basic Auth already
-// avoids. Unset key = disabled entirely (404, not 401 — doesn't even confirm
+// the URL by hand. Unset key = disabled entirely (404, not 401 — doesn't even confirm
 // the route exists).
 analytics.get("/analytics/summary", (req, res) => {
   const wanted = process.env.ANALYTICS_KEY;

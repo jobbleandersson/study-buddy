@@ -13,8 +13,7 @@ Custom domain + HTTPS are free, no separate charge.
 
 **What you get at the end:** one app on Fly running the whole thing — frontend
 + `/api/*` — reachable at a `.fly.dev` address immediately, and at your own
-domain once you have one. Private while you test: the same `SITE_PASSWORD`
-login-prompt gate as before, unchanged.
+domain once you have one. Private while you test: set `SITE_PASSWORD` (below).
 
 ## 0. Before you start
 
@@ -69,11 +68,16 @@ fly secrets set ANTHROPIC_API_KEY=sk-ant-...
 fly secrets set SITE_PASSWORD=pick-something
 ```
 
-**`SITE_PASSWORD` is the "private while we test" part.** Once set, every page
-(except `/api/*`, so the app itself still works) asks for a username (anything)
-and that password before showing anything — a plain browser login prompt, not
-a paywall. Share the password only with people you want testing it. Unset it
-later (`fly secrets unset SITE_PASSWORD`) when you're ready to actually publish.
+**`SITE_PASSWORD` is the "private while we test" part.** Once set, the front
+page asks for the password (any "get started" button opens the prompt); a right
+answer sets a year-long cookie, so each device types it once. Until then the
+server refuses everything under `/api/*` except `/api/health` and `/api/gate` —
+no sign-up, sign-in, sync, AI or analytics — and the public `/ova` pages and
+sitemap are hidden. The app's own JavaScript and the library's question data
+are plain static files (and are in the public repo), so they are not hidden;
+what's protected is the server. Change the password to lock every device out
+again, or unset it (`fly secrets unset SITE_PASSWORD`) when you're ready to
+actually publish.
 
 ### Optional: Sign in with Google
 

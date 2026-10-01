@@ -27,7 +27,7 @@ import { findQuestion as findQuestionPure, dueQuestions as dueQuestionsPure } fr
 import { loadLibraryIndex, loadLibraryTranslations, englishFile } from "./lib/library-content.js";
 import { cleanRuleText, rulesForQuestion, RULE_MAX_COUNT } from "./lib/rules.js";
 import {
-  PROXY_HEALTH_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_GOOGLE_URL, AUTH_SET_PASSWORD_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, ACCOUNT_URL,
+  PROXY_HEALTH_URL, SITE_GATE_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_GOOGLE_URL, AUTH_SET_PASSWORD_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, ACCOUNT_URL,
   RESEND_VERIFICATION_URL, VERIFY_EMAIL_URL, FORGOT_PASSWORD_URL, RESET_PASSWORD_URL, STATE_URL, USAGE_URL,
   AUTH_2FA_VERIFY_URL, AUTH_2FA_RESEND_URL, AUTH_2FA_SETUP_URL, AUTH_2FA_CONFIRM_URL, AUTH_2FA_DISABLE_URL,
 } from "./config.js";
@@ -493,9 +493,10 @@ class Store extends EventTarget {
     // Whether the server can send email (RESEND_API_KEY set) — false hides every verify/reset
     // control, the same way a null googleClientId hides the Google button.
     this.emailConfigured = false;
-    // The server only lets invited emails in (server/src/invite.js): until one is signed in, main.js
-    // shows nothing past the front page.
-    this.inviteOnly = false;
+    // The server has a SITE_PASSWORD (server/src/gate.js): until this device has typed it (`siteUnlocked`),
+    // main.js shows nothing past the front page, and the front page asks for the password.
+    this.siteLocked = false;
+    this.siteUnlocked = false;
 
     // Auth/sync status — also instance-only, not synced app data. Sign-in is
     // opt-in: local-only mode (authed === false) works exactly as before.
@@ -573,7 +574,8 @@ class Store extends EventTarget {
       this.proxyRequiresAuth = data?.messagesRequireAuth !== false;
       this.googleClientId = data?.googleClientId || null;
       this.emailConfigured = !!data?.emailConfigured;
-      this.inviteOnly = !!data?.inviteOnly;
+      this.siteLocked = !!data?.siteLocked;
+      this.siteUnlocked = !!data?.unlocked;
 
       this.premiumUrl = typeof data?.premiumUrl === "string" && /^https:\/\//.test(data.premiumUrl) ? data.premiumUrl : null;
       // The deploy this tab booted into; main.js compares later answers against it.
@@ -585,7 +587,8 @@ class Store extends EventTarget {
       this.emailConfigured = false;
     }
 
-    if (this.proxyUp) {
+    // Behind the site password (gate.js) every other API call is refused until this device has typed it.
+    if (this.proxyUp && !(this.siteLocked && !this.siteUnlocked)) {
       try {
         const res = await fetch(AUTH_ME_URL, { credentials: "include" });
         // 200 {authed:false} when signed out (older servers answer 401).
@@ -1761,6 +1764,20 @@ class Store extends EventTarget {
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) throw authError(data, t("login.somethingWrong"));
+  }
+
+  /** Types the site password (server/src/gate.js). On success the server sets a year-long cookie, so this
+   *  device is not asked again; the caller reloads so the whole app boots unlocked (sign-in state,
+   *  server features). Throws with err.code "wrong_site_password" (or "too_many" via a 429's message). */
+  async unlockSite(password) {
+    const res = await fetch(SITE_GATE_URL, {
+      method: "POST", credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ password }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw authError(data, t("login.somethingWrong"));
+    this.siteUnlocked = true;
   }
 
   /** The token from a reset-password email. Success signs the browser in with the new password,

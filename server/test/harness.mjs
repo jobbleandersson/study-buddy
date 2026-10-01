@@ -106,6 +106,8 @@ async function startOnce(env) {
       TWOFA_FAILS_PER_15MIN_PER_IP: "0",
       TWOFA_PASSWORD_FAILS_PER_15MIN_PER_ACCOUNT: "0",
       SET_PASSWORD_FAILS_PER_15MIN_PER_ACCOUNT: "0",
+      SITE_GATE_FAILS_PER_15MIN_PER_IP: "0",
+      SITE_GATE_FAILS_PER_HOUR: "0",
       TWOFA_EMAIL_COOLDOWN_SEC: "0",
       TWOFA_EMAIL_SENDS_PER_DAY_PER_ACCOUNT: "0",
       TWOFA_EMAIL_RESENDS: "0",
@@ -203,15 +205,16 @@ export function sessionCookieFrom(res, cookieName = "sb_session") {
   return null;
 }
 
-/** A tiny fetch wrapper that carries one cookie jar across calls, like a browser tab. */
-export function makeClient(baseUrl) {
+/** A tiny fetch wrapper that carries one cookie jar across calls, like a browser tab. `extraCookie` is sent
+ *  on every request next to the session cookie (e.g. the site-gate cookie). */
+export function makeClient(baseUrl, { extraCookie = null } = {}) {
   let cookie = null;
   async function request(method, urlPath, body) {
     const res = await fetch(`${baseUrl}${urlPath}`, {
       method,
       headers: {
         "content-type": "application/json",
-        ...(cookie ? { cookie } : {}),
+        ...(cookie || extraCookie ? { cookie: [extraCookie, cookie].filter(Boolean).join("; ") } : {}),
       },
       body: body === undefined ? undefined : JSON.stringify(body),
     });

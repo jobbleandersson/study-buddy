@@ -95,6 +95,8 @@ scheduleIdle(() => { loadDeferredUI(); trackEntryPageview(); });
  */
 function shouldShowLanding() {
   if (privateGate()) return true;
+  // Past the password on a private site: the front page was only the way in, so go straight to the app.
+  if (store.siteLocked) return false;
   if (store.state.onboarded) return false;
   if (store.assignments.length) return false;
   if (store.authed) return false;
@@ -182,10 +184,11 @@ let firstPaintDone = false;
 // be a rare edge case and is now the common one.
 let renderGen = 0;
 
-/** Invite-only (the server says so, see server/src/invite.js) and nobody invited is signed in:
- *  only the front page and the pages around signing in open; everything else goes to sign-in. */
-const OPEN_WHILE_PRIVATE = /^\/?$|^\/(welcome|login|verify|reset|terms|privacy|about|faq|teachers)$/;
-function privateGate() { return store.inviteOnly && !store.authed; }
+/** The site has a password (the server says so, see server/src/gate.js) and this device hasn't typed it:
+ *  only the front page — which asks for it — and the plain information pages open; everything else
+ *  goes back to the front page. */
+const OPEN_WHILE_PRIVATE = /^\/?$|^\/(welcome|terms|privacy|about|faq|teachers)$/;
+function privateGate() { return store.siteLocked && !store.siteUnlocked; }
 
 function parseHash() {
   const full = location.hash.replace(/^#/, "");
@@ -194,7 +197,8 @@ function parseHash() {
   const path = rawPath.length > 1 ? rawPath.replace(/\/+$/, "") : rawPath;
   if (privateGate() && !OPEN_WHILE_PRIVATE.test(path)) {
     return async () => {
-      location.replace(`#/login?next=${encodeURIComponent("#" + full)}`);
+      // The front page asks for the password, then carries on to the page that was asked for.
+      location.replace(`#/?next=${encodeURIComponent("#" + full)}`);
       return { node: el("div") };
     };
   }
