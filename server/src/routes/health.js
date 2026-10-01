@@ -1,7 +1,7 @@
 import { Router } from "express";
 import crypto from "node:crypto";
 import { emailEnabled } from "../email.js";
-import { inviteOnly } from "../invite.js";
+import { siteLocked, hasGate } from "../gate.js";
 
 export const health = Router();
 
@@ -14,6 +14,7 @@ const VERSION_SOURCE = process.env.APP_VERSION || process.env.FLY_IMAGE_REF || "
 const VERSION = VERSION_SOURCE ? crypto.createHash("sha256").update(VERSION_SOURCE).digest("hex").slice(0, 12) : null;
 
 health.get("/health", (req, res) => {
+  res.set("Cache-Control", "no-store");   // `unlocked` depends on the visitor's cookie
   res.json({
     ok: true,
     keyConfigured: !!process.env.ANTHROPIC_API_KEY,
@@ -27,8 +28,9 @@ health.get("/health", (req, res) => {
     // Public by design (it's sent to every browser anyway). Null = Google
     // sign-in isn't set up, and the sign-in screen shows no Google button.
     googleClientId: process.env.GOOGLE_CLIENT_ID || null,
-    // True = only invited emails get past the front page (see invite.js); the client hides the app.
-    inviteOnly: inviteOnly(),
+    // True = a SITE_PASSWORD is set (see gate.js): the client shows only the front page until `unlocked`.
+    siteLocked: siteLocked(),
+    unlocked: hasGate(req),
 
     // Where the "you've used this month's AI allowance" prompt sends people
     // who want more (e.g. a Stripe Payment Link). Unset = the prompt only

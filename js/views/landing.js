@@ -11,6 +11,7 @@ import { store } from "../store.js";
 import { CONTACT_EMAIL, TIKTOK_URL, REVIEWS_URL } from "../config.js";
 import { t, getLang, setLang, LANGS } from "../lib/i18n.js";
 import { openWelcomeQuiz } from "../components/onboarding.js";
+import { openSiteGate, siteIsLocked } from "../components/site-gate-dialog.js";
 import { REVIEWS, publishableReviews } from "../data/reviews.js";
 import { STUDY_MODES } from "../lib/study-modes.js";
 
@@ -19,8 +20,16 @@ import { STUDY_MODES } from "../lib/study-modes.js";
  *  Hash first, flag second: marking onboarded fires a store "change", and
  *  doing it while still on the root hash would re-render the menu behind us. */
 function enter(hash) {
+  // While the site is private (server/src/gate.js) every way in asks for the password first.
+  if (siteIsLocked()) return openSiteGate(hash);
   location.hash = hash;
   store.markOnboarded();
+}
+
+/** The "get started" buttons: the welcome quiz, or the password prompt while the site is private. */
+function start() {
+  if (siteIsLocked()) return openSiteGate();
+  openWelcomeQuiz();
 }
 
 /** Shows the language you're *in*, like the app's own topbar button does — a
@@ -69,8 +78,8 @@ export function header({ sections = false } = {}) {
       el("nav.lp-nav", { "aria-label": t("lp.navAria") }, links),
       el("div.lp-head__actions", {}, [
         langSwitch(),
-        store.authed ? null : el("a.lp-head__login", { href: "#/login" }, t("lp.navLogin")),
-        el("button.btn.btn--sm.lp-head__cta", { type: "button", onclick: () => openWelcomeQuiz() }, t("lp.navStart")),
+        store.authed || siteIsLocked() ? null : el("a.lp-head__login", { href: "#/login" }, t("lp.navLogin")),
+        el("button.btn.btn--sm.lp-head__cta", { type: "button", onclick: () => start() }, t("lp.navStart")),
       ].filter(Boolean)),
     ]),
   ]);
@@ -151,7 +160,7 @@ function hero() {
       el("h1.lp-h1", {}, [t("lp.heroA"), " ", el("span.lp-h1__accent", {}, t("lp.heroB"))]),
       el("p.lp-lead", {}, t("lp.lead")),
       el("div.lp-cta", {}, [
-        el("button.btn.btn--lg", { type: "button", onclick: () => openWelcomeQuiz() }, [t("lp.ctaStart"), icon(ICONS.arrow, 18)]),
+        el("button.btn.btn--lg", { type: "button", onclick: () => start() }, [t("lp.ctaStart"), icon(ICONS.arrow, 18)]),
         el("button.btn.btn--ghost.btn--lg", { type: "button", onclick: () => scrollToId("lp-features") }, t("lp.ctaTour")),
       ]),
       heroChecks(),
@@ -386,7 +395,7 @@ function audiences() {
   return el("section.lp-sec", {}, [
     el("div.lp-sechead", {}, [el("h2.lp-h2", {}, t("lp.forTitle"))]),
     el("div.lp-auds", {}, [
-      card(ICONS.graduation, "lp.forStudentT", "lp.forStudentB", "lp.forStudentL", "#/", () => openWelcomeQuiz()),
+      card(ICONS.graduation, "lp.forStudentT", "lp.forStudentB", "lp.forStudentL", "#/", () => start()),
       card(ICONS.users, "lp.forParentT", "lp.forParentB", "lp.forParentL", "#/faq", () => enter("#/faq")),
       card(ICONS.presentation, "lp.forTeacherT", "lp.forTeacherB", "lp.forTeacherL", "#/teachers", () => { location.hash = "#/teachers"; }),
     ]),
@@ -422,7 +431,7 @@ function pricing() {
         el("div.lp-plan__top", {}, [el("h3", {}, t("lp.freeName")), el("span.lp-plan__badge", {}, t("lp.freeBadge"))]),
         el("p.lp-plan__price", {}, [el("b", {}, t("lp.freePrice")), el("span", {}, t("lp.freePer"))]),
         el("ul.lp-plan__list", {}, ["lp.freeF1", "lp.freeF2", "lp.freeF3", "lp.freeF4", "lp.freeF5"].map(feat)),
-        el("button.btn.btn--lg", { type: "button", onclick: () => openWelcomeQuiz() }, t("lp.ctaStart")),
+        el("button.btn.btn--lg", { type: "button", onclick: () => start() }, t("lp.ctaStart")),
       ]),
       el("article.lp-plan", {}, [
         el("div.lp-plan__top", {}, [el("h3", {}, t("lp.premName")), el("span.lp-plan__badge.is-muted", {}, t("lp.premBadge"))]),
@@ -507,7 +516,7 @@ function closer() {
       el("p.lp-sub", {}, t("lp.closeBody")),
     ]),
     el("div.lp-closer__cta", {}, [
-      el("button.btn.btn--lg.lp-closer__btn", { type: "button", onclick: () => openWelcomeQuiz() }, [t("lp.ctaStart"), icon(ICONS.arrow, 18)]),
+      el("button.btn.btn--lg.lp-closer__btn", { type: "button", onclick: () => start() }, [t("lp.ctaStart"), icon(ICONS.arrow, 18)]),
       el("p.lp-teachnote", {}, [t("lp.teacherNote"), " ", el("a", { href: "#/teachers" }, t("lp.teacherLink"))]),
     ]),
   ]);
@@ -550,6 +559,12 @@ export function footer() {
 
 export function renderLanding() {
   const headerBar = header({ sections: true });
+  // Sent here from a deep link while private (main.js: "#/?next=#/…"): ask for the password straight
+  // away and carry on to that page afterwards.
+  if (siteIsLocked()) {
+    const next = new URLSearchParams(location.hash.split("?")[1] || "").get("next");
+    if (next && /^#\//.test(next)) setTimeout(() => openSiteGate(next), 0);
+  }
   return {
     title: t("lp.pageTitle"),
     chrome: false,

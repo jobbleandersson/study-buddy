@@ -10,6 +10,7 @@ import { compress } from "./compress.js";
 import { staticCacheControl } from "./static-cache.js";
 import "./db.js"; // creates tables on first run
 import { startSweeper } from "./sweep.js";
+import { requireGate, gate } from "./gate.js";
 import { health } from "./routes/health.js";
 import { messages } from "./routes/messages.js";
 import { auth } from "./routes/auth.js";
@@ -135,31 +136,13 @@ if (CANONICAL_HOST) {
   });
 }
 
-// Optional shared-password gate for private testing. Set SITE_PASSWORD in the
-// host's env to switch it on; unset (the default) leaves the site open. The
-// /api/* paths are exempt so Stripe webhooks and the app's own API — which have
-// their own auth — keep working; the browser handles the popup and caching.
-if (process.env.SITE_PASSWORD) {
-  app.use((req, res, next) => {
-    if (req.path.startsWith("/api/")) return next();
-    const header = req.headers.authorization || "";
-    const [, encoded] = header.split(" ");
-    // "user:pass" — the password may itself contain colons, so split on the first one only.
-    const decoded = Buffer.from(encoded || "", "base64").toString();
-    const pass = decoded.slice(decoded.indexOf(":") + 1);
-    const given = Buffer.from(pass), wanted = Buffer.from(process.env.SITE_PASSWORD);
-    if (decoded.includes(":") && given.length === wanted.length && crypto.timingSafeEqual(given, wanted)) return next();
-    // Header VALUES must be Latin-1/ASCII — an em dash here throws
-    // ERR_INVALID_CHAR at the http layer and 500s every unauthenticated
-    // request, which is worse than the gate being slightly plainer-worded.
-    res.set("WWW-Authenticate", 'Basic realm="PluggEra - private testing"');
-    return res.status(401).send("Authentication required.");
-  });
-}
 
 if (ALLOWED_ORIGIN) app.use(cors({ origin: ALLOWED_ORIGIN, credentials: true })); // only needed if the frontend is ever hosted separately from this server
 app.use(compress);   // gzip/brotli for text responses; see compress.js
 app.use(cookieParser());
+// Private site (see gate.js): before the body parsers, so a visitor without the password cannot make the
+// server read a 10MB JSON body either. Open (a no-op) when SITE_PASSWORD is unset.
+app.use("/api", requireGate);
 // Only these carry whole documents: a tutor message with photos (material.js caps an image at 5MB,
 // base64 inflates that ~33%), a full study-state sync, a set a parent assigns. Everything else is
 // a few fields, so it gets a small cap — an anonymous request to, say, the waitlist can't make the
@@ -169,6 +152,7 @@ const jsonLarge = express.json({ limit: "10mb" });
 const jsonSmall = express.json({ limit: "100kb" });
 app.use((req, res, next) => (LARGE_JSON_ROUTES.test(req.path) ? jsonLarge : jsonSmall)(req, res, next));
 
+app.use("/api", gate);
 app.use("/api", health);
 app.use("/api", messages);
 app.use("/api", auth);
