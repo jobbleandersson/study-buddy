@@ -23,31 +23,9 @@ import { setPasswordDialog } from "../components/set-password-dialog.js";
 import { openWelcomeQuiz } from "../components/onboarding.js";
 import { playFanfare } from "../lib/sound.js";
 import { offlineSupported, isLibraryCached, cacheLibraryOffline } from "../lib/offline.js";
+import { row, card, pageHead } from "../components/set-ui.js";
 
 /* ---------------- building blocks ---------------- */
-
-/** One setting: its name and what it does on the left, the control on the right.
- *  `stack` puts the control under the text (for wide controls). */
-function row(label, note, control, { stack = false, danger = false } = {}) {
-  return el("div.set-row" + (stack ? ".set-row--stack" : "") + (danger ? ".set-row--danger" : ""), {}, [
-    el("div.set-row__text", {}, [
-      el("span.set-row__label", {}, label),
-      note ? el("p.set-row__note", {}, note) : null,
-    ].filter(Boolean)),
-    control ? el("div.set-row__ctl", {}, Array.isArray(control) ? control : [control]) : null,
-  ].filter(Boolean));
-}
-
-/** A section card with an icon, a title and one line on what's in it. */
-function card(iconPath, title, sub, body) {
-  return el("section.set-card", {}, [
-    el("header.set-card__head", {}, [
-      el("span.set-card__ic", { "aria-hidden": "true" }, icon(iconPath, 18)),
-      el("div", {}, [el("h2", {}, title), sub ? el("p", {}, sub) : null].filter(Boolean)),
-    ]),
-    ...body.filter(Boolean),
-  ]);
-}
 
 /** An on/off switch. */
 function toggle(label, on, onChange, { disabled = false } = {}) {
@@ -273,10 +251,7 @@ export function renderSettings() {
 
   const node = el("div.settings", {}, [
     homeButton({ grid: true }),
-    el("header.settings__head", {}, [
-      el("h1", {}, t("set.title")),
-      el("p", {}, t("set.pageSub")),
-    ]),
+    pageHead(t("set.title"), t("set.pageSub")),
     el("div.settings__layout", {}, [
       el("nav.settings__nav", { "aria-label": t("set.title") }, navLinks),
       el("div.settings__sections", {}, sections.map(([, , , panel]) => panel)),

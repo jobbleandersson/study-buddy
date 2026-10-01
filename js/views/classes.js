@@ -1,11 +1,13 @@
-// Class mode. #/classes is the hub — the classes you teach, the classes you're
-// in (with what your teacher has assigned), and a box for a class code.
+// Class mode. #/classes is the hub — the classes you're in (with what your
+// teacher has assigned), a box for a class code, and the classes you teach.
 // #/classes/<id> is a teacher's page for one class: its code, assigning a
 // ready-made set to everyone, and a grid of how each student is doing.
+//
+// Built from the same cards and rows as Settings (components/set-ui.js).
 
 import { store } from "../store.js";
 import { el, clear, toast, icon, ICONS } from "../lib/dom.js";
-import { t, plural, getLang, relativeDay, sentenceCase } from "../lib/i18n.js";
+import { t, plural, getLang, relativeDay, daysUntil, sentenceCase } from "../lib/i18n.js";
 import { serverMessage } from "../lib/server-errors.js";
 import { homeButton } from "../components/nav.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
@@ -13,6 +15,7 @@ import { classDailyPanel } from "../components/class-daily-panel.js";
 import { classWizard } from "../components/class-wizard.js";
 import { openClassShareSlide } from "../components/class-share-slide.js";
 import { foldedDatePicker } from "../components/calendar.js";
+import { row, card, pageHead, emptyState, avatar, chip, codeField } from "../components/set-ui.js";
 import { localDayKey } from "../lib/activity.js";
 import { loadLibraryIndex, loadLibraryTranslations, isImported, importSet } from "../data/library.js";
 import { setProgress } from "../lib/mastery.js";
@@ -43,17 +46,22 @@ function signedOut(qs) {
   // with once they land back here — see renderClasses's own prefillCode below.
   const code = (qs?.get?.("code") || "").trim();
   const next = code ? `#/classes?code=${encodeURIComponent(code)}` : "#/classes";
-  return el("div.settings", {}, [
-    el("h1", {}, t("classes.title")),
-    el("section.panel", {}, [
-      el("p.note", { style: { marginBottom: "12px" } }, t("classes.signInPrompt")),
-      el("a.btn", { href: `#/login?next=${encodeURIComponent(next)}` }, t("login.signIn")),
+  return el("div.settings.settings--narrow", {}, [
+    homeButton({ grid: true }),
+    pageHead(t("classes.title"), t("classes.pageSub")),
+    card(ICONS.presentation, t("classes.title"), null, [
+      row(t("classes.signInLabel"), t("classes.signInPrompt"),
+        el("a.btn.btn--sm", { href: `#/login?next=${encodeURIComponent(next)}` }, t("login.signIn"))),
     ]),
-    el("a.btn.btn--ghost.pageback", { href: "#/" }, [icon(ICONS.back, 16), t("parent.backToMenu")]),
   ]);
 }
 
-const row = (children) => el("div.classrow", {}, children);
+/** "Senast imorgon" as a chip — warm when it's close. */
+function dueChip(dueAt) {
+  if (!dueAt) return null;
+  const d = daysUntil(dueAt);
+  return chip(t("classes.due", { when: relativeDay(dueAt) }), d <= 2 ? "warn" : undefined);
+}
 
 // ---------- the hub: #/classes ----------
 
@@ -67,22 +75,28 @@ export async function renderClasses(qs) {
   try { names = await libraryNames(); } catch { /* titles fall back to set ids */ }
   const title = (id) => (names ? names.setTitle(id) : id);
 
-  const teachingPanel = el("section.panel");
-  const memberPanel = el("section.panel");
-  const joinPanel = el("section.panel");
+  const loading = () => el("p.set-loading", {}, t("classes.loading"));
+  const memberBody = el("div", {}, [loading()]);
+  const teachingBody = el("div", {}, [loading()]);
 
   async function refresh() {
     let classes, given;
     try { [classes, given] = await Promise.all([api(CLASSES_URL), api(MY_CLASS_ASSIGNMENTS_URL)]); }
-    catch (e) { toast(e.message || t("classes.loadFail")); return; }
+    catch (e) {
+      toast(e.message || t("classes.loadFail"));
+      for (const body of [memberBody, teachingBody]) {
+        body.replaceChildren(emptyState(ICONS.close, t("classes.loadFail"),
+          el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => { memberBody.replaceChildren(loading()); teachingBody.replaceChildren(loading()); refresh(); } }, t("classes.retry"))));
+      }
+      return;
+    }
     paintTeaching(classes.teaching);
     paintMember(classes.member, given);
   }
 
   function paintTeaching(list) {
-    clear(teachingPanel);
-    const input = el("input", { id: "class-name", type: "text", maxlength: "60", placeholder: t("classes.createPlaceholder") });
-    const btn = el("button.btn.btn--sm", { type: "button" }, t("classes.create"));
+    const input = el("input", { id: "class-name", type: "text", maxlength: "60", placeholder: t("classes.createPlaceholder"), "aria-label": t("classes.createLabel") });
+    const btn = el("button.btn.btn--sm", { type: "button" }, [icon(ICONS.plus, 15), t("classes.create")]);
     btn.addEventListener("click", async () => {
       const name = input.value.trim();
       if (!name) { input.focus(); return; }
@@ -94,112 +108,98 @@ export async function renderClasses(qs) {
     });
     input.addEventListener("keydown", (e) => { if (e.key === "Enter") btn.click(); });
 
-    teachingPanel.append(
-      el("h3", { style: { marginBottom: "8px" } }, t("classes.teachingHeading")),
+    teachingBody.replaceChildren(...[
       list.length
-        ? el("div", { style: { display: "grid", gap: "8px", marginBottom: "16px" } }, list.map((c) => row([
-            el("div", {}, [
-              el("a", { href: `#/classes/${c.id}`, style: { fontWeight: 700 } }, c.name),
-              el("span.note", { style: { display: "block" } }, [
-                plural(c.memberCount, "classes.studentOne", "classes.studentMany"), " · ",
-                plural(c.assignmentCount, "classes.assignmentOne", "classes.assignmentMany"), " · ",
-                t("classes.codeShort", { code: c.code }),
-              ].join("")),
-            ]),
-            el("a.btn.btn--ghost.btn--sm", { href: `#/classes/${c.id}` }, t("classes.resultsHeading")),
-          ])))
-        : el("p.note", { style: { marginBottom: "12px" } }, [
-            t("classes.teachingNone"), " ",
-            el("a", { href: "#/teachers" }, t("lp.teacherLink")),
-          ]),
-      el("label.field", { style: { marginBottom: "8px" } }, [el("span", {}, t("classes.createLabel")), input]),
-      btn,
-    );
+        ? el("div.set-list", {}, list.map((c) => row(
+            el("a.set-row__link", { href: `#/classes/${c.id}` }, c.name),
+            [
+              plural(c.memberCount, "classes.studentOne", "classes.studentMany"),
+              plural(c.assignmentCount, "classes.assignmentOne", "classes.assignmentMany"),
+            ].join(" · "),
+            [
+              el("span.set-codechip", { title: t("classes.code") }, c.code),
+              el("a.btn.btn--ghost.btn--sm", { href: `#/classes/${c.id}` }, [t("classes.open"), icon(ICONS.arrow, 14)]),
+            ],
+            { lead: avatar(c.name, { square: true }) },
+          )))
+        : emptyState(ICONS.presentation, t("classes.teachingNone"), el("a.linkbtn", { href: "#/teachers" }, t("lp.teacherLink"))),
+      row(t("classes.createLabel"), t("classes.createNote"), el("div.set-inline", {}, [input, btn])),
+    ]);
   }
 
   function assignmentRow(a) {
     const entry = names?.index.sets.find((s) => s.id === a.setId);
     const mine = store.getAssignment(a.setId);
     const p = mine ? setProgress(mine, store.attempts) : null;
-    const status = p && p.seen ? t("lib.progressOf", { n: p.known, total: p.total }) : t("lib.notStarted");
-    const btn = el("button.btn.btn--sm", { type: "button", disabled: !entry }, [icon(ICONS.play, 16), t("lib.study")]);
+    const started = !!(p && p.seen);
+    const done = started && p.known >= p.total;
+    const status = started
+      ? chip(t("lib.progressOf", { n: p.known, total: p.total }), done ? "ok" : "brand")
+      : chip(t("lib.notStarted"));
+    const btn = el("button.btn.btn--sm", { type: "button", disabled: !entry }, [icon(ICONS.play, 15), t("lib.study")]);
     btn.addEventListener("click", async () => {
       btn.disabled = true;
       try { if (!isImported(a.setId)) await importSet(entry); }
       catch { toast(t("lib.addFail")); btn.disabled = false; return; }
       location.hash = `#/session/${a.setId}`;
     });
-    return row([
-      el("div", {}, [
-        el("span", { style: { fontWeight: 600 } }, title(a.setId)),
-        el("span.note", { style: { display: "block" } }, [status, a.dueAt ? ` · ${t("classes.due", { when: relativeDay(a.dueAt) })}` : ""].join("")),
-      ]),
-      btn,
-    ]);
+    return row(title(a.setId), el("span.set-chips", {}, [status, dueChip(a.dueAt)].filter(Boolean)), btn);
   }
 
   function paintMember(list, given) {
-    clear(memberPanel);
-    memberPanel.append(el("h3", { style: { marginBottom: "8px" } }, t("classes.memberHeading")));
-    if (!list.length) { memberPanel.append(el("p.note", {}, t("classes.memberNone"))); return; }
-    memberPanel.append(el("div", { style: { display: "grid", gap: "16px" } }, list.map((c) => {
+    if (!list.length) {
+      memberBody.replaceChildren(emptyState(ICONS.book, t("classes.memberNone")));
+      return;
+    }
+    memberBody.replaceChildren(...list.map((c) => {
       const items = given.filter((g) => g.classId === c.id);
-      return el("div", {}, [
-        el("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: "8px", flexWrap: "wrap", marginBottom: "8px" } }, [
-          el("div", {}, [
-            el("strong", {}, c.name),
-            el("span.note", { style: { display: "block" } }, t("classes.teacher", { email: c.teacherEmail })),
-          ]),
-          el("button.btn.btn--ghost.btn--sm", {
-            type: "button", style: { color: "var(--retry-ink)" },
-            onclick: async () => {
-              if (!(await confirmDialog({ message: t("classes.leaveConfirm", { name: c.name }), confirmLabel: t("classes.leave"), danger: true }))) return;
-              try { await api(`${classUrl(c.id)}/membership`, { method: "DELETE" }); toast(t("classes.left", { name: c.name })); refresh(); }
-              catch (e) { toast(e.message); }
-            },
-          }, t("classes.leave")),
-        ]),
+      const leave = el("button.btn.btn--ghost.btn--sm.set-danger", {
+        type: "button",
+        onclick: async () => {
+          if (!(await confirmDialog({ message: t("classes.leaveConfirm", { name: c.name }), confirmLabel: t("classes.leave"), danger: true }))) return;
+          try { await api(`${classUrl(c.id)}/membership`, { method: "DELETE" }); toast(t("classes.left", { name: c.name })); refresh(); }
+          catch (e) { toast(e.message); }
+        },
+      }, t("classes.leave"));
+      return el("div.set-group", {}, [
+        row(c.name, t("classes.teacher", { email: c.teacherEmail }), leave, { lead: avatar(c.name, { square: true }) }),
         items.length
-          ? el("div", { style: { display: "grid", gap: "8px" } }, items.map(assignmentRow))
-          : el("p.note", {}, t("classes.noAssignments")),
+          ? el("div.set-sublist", {}, items.map(assignmentRow))
+          : el("p.set-sublist__empty", {}, t("classes.noAssignments")),
       ]);
-    })));
+    }));
   }
 
-  function paintJoin() {
-    const input = el("input", { id: "class-code", type: "text", maxlength: "12", autocomplete: "off", value: prefillCode, placeholder: t("classes.joinPlaceholder"), style: { textTransform: "uppercase" } });
-    const btn = el("button.btn.btn--sm", { type: "button" }, t("classes.join"));
-    btn.addEventListener("click", async () => {
-      const code = input.value.trim();
-      if (!code) { input.focus(); return; }
-      btn.disabled = true;
-      try {
-        const joined = await api(CLASS_JOIN_URL, { method: "POST", body: JSON.stringify({ code }) });
-        toast(t("classes.joined", { name: joined.name }));
-        input.value = "";
-        refresh();
-      } catch (e) { toast(e.message); }
-      btn.disabled = false;
-    });
-    input.addEventListener("keydown", (e) => { if (e.key === "Enter") btn.click(); });
-    joinPanel.append(
-      el("h3", { style: { marginBottom: "8px" } }, t("classes.joinHeading")),
-      el("p.note", { style: { marginBottom: "12px" } }, t("classes.joinNote")),
-      el("label.field", { style: { marginBottom: "8px" } }, [el("span", {}, t("classes.joinLabel")), input]),
-      btn,
-    );
-  }
+  // Join box.
+  const codeInput = el("input", {
+    id: "class-code", type: "text", maxlength: "12", autocomplete: "off", spellcheck: "false",
+    value: prefillCode, placeholder: t("classes.joinPlaceholder"), "aria-label": t("classes.joinLabel"),
+  });
+  const joinBtn = el("button.btn.btn--sm", { type: "button" }, t("classes.join"));
+  joinBtn.addEventListener("click", async () => {
+    const code = codeInput.value.trim();
+    if (!code) { codeInput.focus(); return; }
+    joinBtn.disabled = true;
+    try {
+      const joined = await api(CLASS_JOIN_URL, { method: "POST", body: JSON.stringify({ code }) });
+      toast(t("classes.joined", { name: joined.name }));
+      codeInput.value = "";
+      refresh();
+    } catch (e) { toast(e.message); }
+    joinBtn.disabled = false;
+  });
+  codeInput.addEventListener("keydown", (e) => { if (e.key === "Enter") joinBtn.click(); });
 
-  paintJoin();
   refresh();
 
-  const node = el("div.settings", {}, [
+  const node = el("div.settings.settings--narrow", {}, [
     homeButton({ grid: true }),
-    el("h1", {}, t("classes.title")),
-    memberPanel,
-    joinPanel,
-    teachingPanel,
-    el("a.btn.btn--ghost.pageback", { href: "#/" }, [icon(ICONS.back, 16), t("parent.backToMenu")]),
+    pageHead(t("classes.title"), t("classes.pageSub")),
+    card(ICONS.book, t("classes.memberHeading"), t("classes.memberSub"), [memberBody]),
+    card(ICONS.plus, t("classes.joinHeading"), t("classes.joinNote"), [
+      row(t("classes.joinLabel"), t("classes.joinHelp"), codeField(codeInput, joinBtn)),
+    ]),
+    card(ICONS.presentation, t("classes.teachingHeading"), t("classes.teachingSub"), [teachingBody]),
   ]);
   return { title: t("classes.title"), node };
 }
@@ -227,7 +227,7 @@ export async function renderClassDetail(id) {
     };
   }
   const reload = () => renderClassDetailInto();
-  const root = el("div.settings");
+  const root = el("div.settings.settings--narrow");
   // Built once, so what's typed into it survives the page repainting after an assignment.
   const wizard = classWizard(id, cls, {
     onOpenShare: () => openClassShareSlide({ name: cls.name, code: cls.code }),
@@ -259,7 +259,7 @@ export async function renderClassDetail(id) {
     fillSets();
 
     const due = foldedDatePicker({ label: t("classes.assignDue"), min: localDayKey() });
-    const btn = el("button.btn.btn--sm", { type: "button" }, t("classes.assign"));
+    const btn = el("button.btn.btn--sm", { type: "button" }, [icon(ICONS.plus, 15), t("classes.assign")]);
     btn.addEventListener("click", async () => {
       if (!setSel.value) return;
       btn.disabled = true;
@@ -270,107 +270,117 @@ export async function renderClassDetail(id) {
       } catch (e) { toast(e.message); btn.disabled = false; }
     });
 
-    return el("section.panel#class-assign-panel", {}, [
-      el("h3", { style: { marginBottom: "12px" } }, t("classes.assignHeading")),
-      el("div", { style: { display: "grid", gap: "8px", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", marginBottom: "12px" } }, [
-        el("label.field", { style: { margin: 0 } }, [el("span", {}, t("classes.assignSubject")), subjectSel]),
-        el("label.field", { style: { margin: 0 } }, [el("span", {}, t("classes.assignSet")), setSel]),
+    return card(ICONS.plus, t("classes.assignHeading"), t("classes.assignSub"), [
+      el("div.set-form", {}, [
+        el("div.set-form__grid", {}, [
+          el("label.field", {}, [el("span", {}, t("classes.assignSubject")), subjectSel]),
+          el("label.field", {}, [el("span", {}, t("classes.assignSet")), setSel]),
+        ]),
+        due.el,
+        el("div", {}, [btn]),
       ]),
-      due.el,
-      btn,
-    ]);
+    ], { id: "class-assign-panel" });
   }
 
   function resultsPanel() {
-    const panel = el("section.panel", {}, [el("h3", { style: { marginBottom: "12px" } }, t("classes.resultsHeading"))]);
-    if (!cls.members.length) { panel.append(el("p.note", {}, t("classes.noStudentsHelp"))); return panel; }
-    if (!cls.assignments.length) { panel.append(el("p.note", {}, t("classes.noneAssigned"))); return panel; }
+    const body = [];
+    if (!cls.members.length) {
+      body.push(emptyState(ICONS.users, t("classes.noStudentsHelp")));
+    } else if (!cls.assignments.length) {
+      body.push(emptyState(ICONS.chart, t("classes.noneAssigned")));
+    } else {
+      const byId = new Map(results.assignments.map((a) => [a.id, a]));
+      const head = el("tr", {}, [
+        el("th", {}, t("classes.studentCol")),
+        ...cls.assignments.map((a) => el("th", {}, [
+          el("div.classgrid__title", {}, names.setTitle(a.setId)),
+          a.dueAt ? el("span.note", { style: { display: "block", fontWeight: 400 } }, t("classes.due", { when: relativeDay(a.dueAt) })) : null,
+          el("button.iconbtn.iconbtn--sm", {
+            type: "button", "aria-label": t("classes.removeAssignment"), title: t("classes.removeAssignment"),
+            onclick: async () => {
+              if (!(await confirmDialog({ message: t("classes.removeAssignmentConfirm", { title: names.setTitle(a.setId) }), confirmLabel: t("classes.removeAssignment"), danger: true }))) return;
+              try { await api(`${classUrl(id)}/assignments/${a.id}`, { method: "DELETE" }); await reload(); } catch (e) { toast(e.message); }
+            },
+          }, [icon(ICONS.close, 14)]),
+        ].filter(Boolean))),
+      ]);
 
-    const byId = new Map(results.assignments.map((a) => [a.id, a]));
-    const head = el("tr", {}, [
-      el("th", {}, t("classes.studentCol")),
-      ...cls.assignments.map((a) => el("th", {}, [
-        el("div.classgrid__title", {}, names.setTitle(a.setId)),
-        a.dueAt ? el("span.note", { style: { display: "block", fontWeight: 400 } }, t("classes.due", { when: relativeDay(a.dueAt) })) : null,
-        el("button.iconbtn.iconbtn--sm", {
-          type: "button", "aria-label": t("classes.removeAssignment"), title: t("classes.removeAssignment"),
-          onclick: async () => {
-            if (!(await confirmDialog({ message: t("classes.removeAssignmentConfirm", { title: names.setTitle(a.setId) }), confirmLabel: t("classes.removeAssignment"), danger: true }))) return;
-            try { await api(`${classUrl(id)}/assignments/${a.id}`, { method: "DELETE" }); await reload(); } catch (e) { toast(e.message); }
-          },
-        }, [icon(ICONS.close, 14)]),
-      ].filter(Boolean))),
-    ]);
-
-    const body = cls.members.map((m) => el("tr", {}, [
-      el("td", {}, el("div.classgrid__student", {}, [
-        el("span", {}, m.email),
-        el("button.iconbtn.iconbtn--sm", {
-          type: "button", "aria-label": t("classes.removeStudent", { email: m.email }), title: t("classes.removeStudent", { email: m.email }),
-          onclick: async () => {
-            if (!(await confirmDialog({ message: t("classes.removeStudentConfirm", { email: m.email }), confirmLabel: t("classes.remove"), danger: true }))) return;
-            try { await api(`${classUrl(id)}/members/${m.userId}`, { method: "DELETE" }); await reload(); } catch (e) { toast(e.message); }
-          },
-        }, [icon(ICONS.close, 14)]),
-      ])),
-      ...cls.assignments.map((a) => {
-        const r = byId.get(a.id)?.students.find((s) => s.userId === m.userId);
-        if (!r || !r.seen) return el("td", {}, el("span.classcell.classcell--none", { title: t("classes.notDoneTip") }, "–"));
-        const total = byId.get(a.id).total;
-        return el("td", {}, el(`span.classcell.classcell--${cellTone(r.known, total)}`, { title: t("classes.cellTip", { seen: r.seen, total }) }, `${r.known}/${total}`));
-      }),
-    ]));
-
-    panel.append(el("div.classgrid-wrap", {}, el("table.classgrid", {}, [el("thead", {}, head), el("tbody", {}, body)])));
-
-    // What the class misses most, per assignment.
-    for (const a of cls.assignments) {
-      const topics = byId.get(a.id)?.topics || [];
-      if (!topics.length) continue;
-      panel.append(el("div", { style: { marginTop: "20px" } }, [
-        el("h4", { style: { marginBottom: "4px" } }, t("classes.topicsHeading", { title: names.setTitle(a.setId) })),
-        el("p.note", { style: { marginBottom: "8px" } }, t("classes.topicsNote")),
-        ...topics.map((tp) => {
-          const pct = Math.round((100 * tp.wrong) / tp.answered);
-          return el("div.classmiss", {}, [
-            el("span.classmiss__topic", {}, sentenceCase(tp.topic)),
-            el("span.classmiss__bar", { role: "img", "aria-label": t("classes.missRate", { pct }) }, el("i", { style: { width: `${pct}%` } })),
-            el("span.note", { style: { minWidth: "64px", textAlign: "right" } }, t("classes.missRate", { pct })),
-          ]);
+      const rows = cls.members.map((m) => el("tr", {}, [
+        el("td", {}, el("div.classgrid__student", {}, [
+          avatar(m.email),
+          el("span", {}, m.email),
+          el("button.iconbtn.iconbtn--sm", {
+            type: "button", "aria-label": t("classes.removeStudent", { email: m.email }), title: t("classes.removeStudent", { email: m.email }),
+            onclick: async () => {
+              if (!(await confirmDialog({ message: t("classes.removeStudentConfirm", { email: m.email }), confirmLabel: t("classes.remove"), danger: true }))) return;
+              try { await api(`${classUrl(id)}/members/${m.userId}`, { method: "DELETE" }); await reload(); } catch (e) { toast(e.message); }
+            },
+          }, [icon(ICONS.close, 14)]),
+        ])),
+        ...cls.assignments.map((a) => {
+          const r = byId.get(a.id)?.students.find((s) => s.userId === m.userId);
+          if (!r || !r.seen) return el("td", {}, el("span.classcell.classcell--none", { title: t("classes.notDoneTip") }, "–"));
+          const total = byId.get(a.id).total;
+          return el("td", {}, el(`span.classcell.classcell--${cellTone(r.known, total)}`, { title: t("classes.cellTip", { seen: r.seen, total }) }, `${r.known}/${total}`));
         }),
       ]));
+
+      body.push(el("div.classgrid-wrap", {}, el("table.classgrid", {}, [el("thead", {}, head), el("tbody", {}, rows)])));
+
+      // What the class misses most, per assignment.
+      for (const a of cls.assignments) {
+        const topics = byId.get(a.id)?.topics || [];
+        if (!topics.length) continue;
+        body.push(el("div.set-misses", {}, [
+          el("h3", {}, t("classes.topicsHeading", { title: names.setTitle(a.setId) })),
+          el("p.set-row__note", {}, t("classes.topicsNote")),
+          ...topics.map((tp) => {
+            const pct = Math.round((100 * tp.wrong) / tp.answered);
+            return el("div.classmiss", {}, [
+              el("span.classmiss__topic", {}, sentenceCase(tp.topic)),
+              el("span.classmiss__bar", { role: "img", "aria-label": t("classes.missRate", { pct }) }, el("i", { style: { width: `${pct}%` } })),
+              el("span.note", { style: { minWidth: "64px", textAlign: "right" } }, t("classes.missRate", { pct })),
+            ]);
+          }),
+        ]));
+      }
     }
-    return panel;
+    return card(ICONS.chart, t("classes.resultsHeading"), t("classes.resultsSub"), body);
   }
 
   function paint() {
     clear(root);
-    const copy = el("button.btn.btn--ghost.btn--sm", { type: "button" }, [icon(ICONS.copy, 16), t("classes.copyCode")]);
+    const copy = el("button.btn.btn--ghost.btn--sm", { type: "button" }, [icon(ICONS.copy, 15), t("classes.copyCode")]);
     copy.addEventListener("click", async () => {
       try { await navigator.clipboard.writeText(cls.code); toast(t("classes.codeCopied")); } catch { /* the code is on screen to read out */ }
     });
+    const show = el("button.btn.btn--sm", { type: "button", onclick: () => openClassShareSlide({ name: cls.name, code: cls.code }) },
+      [icon(ICONS.presentation, 15), t("classes.wizardShareCta")]);
     root.append(
-      el("a.btn.btn--ghost.btn--sm", { href: "#/classes", style: { marginBottom: "12px" } }, [icon(ICONS.back, 16), t("classes.back")]),
-      el("h1", {}, cls.name),
-      el("section.panel", {}, [
-        el("p.note", { style: { marginBottom: "4px" } }, t("classes.code")),
-        el("div", { style: { display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap" } }, [
-          el("span.classcode", {}, cls.code),
-          copy,
-          el("span.note", {}, plural(cls.members.length, "classes.studentOne", "classes.studentMany")),
+      el("a.btn.btn--ghost.btn--sm.set-back", { href: "#/classes" }, [icon(ICONS.back, 16), t("classes.back")]),
+      pageHead(cls.name, [
+        plural(cls.members.length, "classes.studentOne", "classes.studentMany"),
+        plural(cls.assignments.length, "classes.assignmentOne", "classes.assignmentMany"),
+      ].join(" · ")),
+      card(ICONS.users, t("classes.code"), t("classes.codeSub"), [
+        el("div.set-bigcode", {}, [
+          el("span.set-bigcode__code", { "aria-label": `${t("classes.code")}: ${cls.code.split("").join(" ")}` }, cls.code),
+          el("div.set-row__ctl", {}, [copy, show]),
         ]),
       ]),
       wizard.el,
       assignForm(),
       dailyPanel,
       resultsPanel(),
-      el("button.btn.btn--ghost.btn--sm", {
-        type: "button", style: { color: "var(--retry-ink)", marginTop: "8px" },
-        onclick: async () => {
-          if (!(await confirmDialog({ message: t("classes.deleteConfirm", { name: cls.name }), confirmLabel: t("classes.deleteClass"), danger: true }))) return;
-          try { await api(classUrl(id), { method: "DELETE" }); location.hash = "#/classes"; } catch (e) { toast(e.message); }
-        },
-      }, t("classes.deleteClass")),
+      card(ICONS.gear, t("classes.manageHeading"), null, [
+        row(t("classes.deleteClass"), t("classes.deleteNote"), el("button.btn.btn--ghost.btn--sm.set-danger", {
+          type: "button",
+          onclick: async () => {
+            if (!(await confirmDialog({ message: t("classes.deleteConfirm", { name: cls.name }), confirmLabel: t("classes.deleteClass"), danger: true }))) return;
+            try { await api(classUrl(id), { method: "DELETE" }); location.hash = "#/classes"; } catch (e) { toast(e.message); }
+          },
+        }, t("classes.deleteClass")), { danger: true }),
+      ]),
     );
   }
 
