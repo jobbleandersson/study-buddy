@@ -2085,8 +2085,6 @@ export const STRINGS = {
     "ach.nextUp": "Next up",
     "ach.pageLede": "Earn medals by studying steadily. Every track has four tiers — bronze, silver, gold and platinum.",
     "ach.ofTotal": "of {total}",
-    "ach.showTiersOne": "Show 1 more tier",
-    "ach.showTiersMany": "Show {n} more tiers",
 
     /* ---- högskoleprovet ---- */
     "nav.hp": "Högskoleprovet",
@@ -4593,8 +4591,6 @@ export const STRINGS = {
     "ach.nextUp": "Näst på tur",
     "ach.pageLede": "Samla medaljer genom att plugga regelbundet. Varje spår har fyra nivåer – brons, silver, guld och platina.",
     "ach.ofTotal": "av {total}",
-    "ach.showTiersOne": "Visa 1 nivå till",
-    "ach.showTiersMany": "Visa {n} nivåer till",
 
     /* ---- högskoleprovet ---- */
     "nav.hp": "Högskoleprovet",

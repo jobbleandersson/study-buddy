@@ -4,7 +4,7 @@
 import { store } from "../store.js";
 import { el, icon, ICONS } from "../lib/dom.js";
 import { ACHIEVEMENTS, MILESTONES, TIER_NAMES, achievementMetrics, achievementValue, nextAchievement } from "../lib/achievements.js";
-import { t, plural, getLang } from "../lib/i18n.js";
+import { t, getLang } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { shareCard, tierEmoji } from "../lib/share-card.js";
 
@@ -26,26 +26,17 @@ export function renderAchievements() {
     byTrack.get(a.track).push(a);
   }
 
-  // Show every earned tier plus the next one you're working toward; fold the
-  // rest of the ladder behind a per-track toggle. Day one that's one card per
-  // track instead of four, and the "1/30 … 1/100" cards you can't act on yet
-  // don't bury the one that's close.
+  // Every tier of a track, bronze to platinum, side by side — the one you're
+  // working toward next is edged in its metal.
   const trackGroups = [...byTrack.values()].map((defs) => {
     const firstLocked = defs.findIndex((d) => !(d.id in unlocked));
-    const cutoff = firstLocked === -1 ? defs.length : firstLocked + 1;
-    const shown = defs.slice(0, cutoff);
-    const rest = defs.slice(cutoff);
     return el("section.panel.achgroup", {}, [
       el("h3.achgroup__title", {}, [
         el("span.achgroup__ic", { "aria-hidden": "true" }, icon(ICONS[defs[0].icon] || ICONS.award, 18)),
         t(defs[0].nameKey),
       ]),
-      el("div.achrow", {}, shown.map((def, i) => badge(def, metrics, unlocked, i === firstLocked))),
-      rest.length ? el("details.achgroup__more", {}, [
-        el("summary", {}, plural(rest.length, "ach.showTiersOne", "ach.showTiersMany")),
-        el("div.achrow", { style: { marginTop: "var(--s-3)" } }, rest.map((def) => badge(def, metrics, unlocked))),
-      ]) : null,
-    ].filter(Boolean));
+      el("div.achrow", {}, defs.map((def, i) => badge(def, metrics, unlocked, i === firstLocked))),
+    ]);
   });
 
   const next = nextAchievement(store.state);
