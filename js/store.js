@@ -482,6 +482,9 @@ class Store extends EventTarget {
     // Whether the server can send email (RESEND_API_KEY set) — false hides every verify/reset
     // control, the same way a null googleClientId hides the Google button.
     this.emailConfigured = false;
+    // The server only lets invited emails in (server/src/invite.js): until one is signed in, main.js
+    // shows nothing past the front page.
+    this.inviteOnly = false;
 
     // Auth/sync status — also instance-only, not synced app data. Sign-in is
     // opt-in: local-only mode (authed === false) works exactly as before.
@@ -559,6 +562,7 @@ class Store extends EventTarget {
       this.proxyRequiresAuth = data?.messagesRequireAuth !== false;
       this.googleClientId = data?.googleClientId || null;
       this.emailConfigured = !!data?.emailConfigured;
+      this.inviteOnly = !!data?.inviteOnly;
 
       this.premiumUrl = typeof data?.premiumUrl === "string" && /^https:\/\//.test(data.premiumUrl) ? data.premiumUrl : null;
       // The deploy this tab booted into; main.js compares later answers against it.

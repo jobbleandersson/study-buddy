@@ -2,6 +2,7 @@ import { Router } from "express";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { inviteOnly } from "../invite.js";
 
 // Public, server-rendered pages for the ready-made library, at real paths a search engine can index:
 //   /ova                         every level and subject
@@ -226,6 +227,14 @@ function send(res, html) {
 }
 
 /* ---------------- routes ---------------- */
+
+// Invite-only (see ../invite.js): the public practice pages are part of what's kept private.
+practicePages.use((req, res, next) => {
+  if (!inviteOnly()) return next();
+  if (req.path === "/sitemap.xml") return res.status(404).end();
+  if (req.path === "/ova" || req.path.startsWith("/ova/")) return res.redirect(302, "/");
+  next();
+});
 
 practicePages.get(["/ova", "/ova/"], (req, res) => {
   const { levels, subjects, bySubject } = loadLibrary();
