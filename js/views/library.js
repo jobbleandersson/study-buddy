@@ -39,11 +39,18 @@ export async function renderLibrary(qs = null) {
   // real colour so it matches the home menu / progress page; otherwise assign
   // one by position in its level, so subjects are still visually distinct
   // while browsing, before anything's been added.
+  // Courses of one subject share a family: "Matematik 3" -> "Matematik". The key comes from the
+  // Swedish name so it is language-stable; the label follows the UI language.
+  const familyKey = (s) => (s?.name || "").replace(/\s+\d\w*$/, "");
+  const familyLabel = (s) => (subjName(s) || "").replace(/\s+\d\w*$/, "");
+
   function libSubjectColor(subject, siblings) {
     const name = (subjName(subject) || "").toLowerCase();
     const own = store.subjects.find((s) => s.name.toLowerCase() === name);
     if (own) return store.subjectColor(own.id);
-    const idx = Math.max(0, siblings.indexOf(subject));
+    // One colour per family ("Matematik 1/2/3" share it), so grouped courses read as one subject.
+    const families = [...new Set(siblings.map(familyKey))];
+    const idx = Math.max(0, families.indexOf(familyKey(subject)));
     const p = PALETTE[idx % PALETTE.length];
     return { solid: `var(--c-${p.name})`, ink: `var(--c-${p.name}-ink)`, tint: `var(--c-${p.name}-tint)` };
   }
@@ -181,9 +188,23 @@ export async function renderLibrary(qs = null) {
   function subjectPicker() {
     const level = index.levels.find((l) => l.id === state.level);
     const subjects = index.subjects.filter((s) => s.level === state.level);
-    return el("div.panel", {}, [
-      el("p", { style: { marginBottom: "16px" } }, t("lib.pickSubject", { level: lvlLabel(level) || "" })),
-      el("div.source-grid.source-grid--subjects", {}, subjects.map((subject) => {
+    // Group courses by subject family, in index order. Families with 2+ courses get a heading;
+    // single-course subjects (Historia 1a1, Religionskunskap 1, …) share one closing "more" group
+    // instead of three lonely headings. Levels with no multi-course family stay one flat grid.
+    const fams = new Map();
+    for (const s of subjects) {
+      const k = familyKey(s);
+      if (!fams.has(k)) fams.set(k, []);
+      fams.get(k).push(s);
+    }
+    const multi = [...fams.values()].filter((g) => g.length > 1);
+    const single = [...fams.values()].filter((g) => g.length === 1).flat();
+    const groups = multi.length
+      ? [...multi.map((g) => ({ label: familyLabel(g[0]), subjects: g })),
+         ...(single.length ? [{ label: t("lib.moreSubjects"), subjects: single }] : [])]
+      : [{ label: null, subjects }];
+
+    const card = (subject) => {
         const color = libSubjectColor(subject, subjects);
         const nSets = index.sets.filter((s) => s.subject === subject.id).length;
         return el("button.source-opt.source-opt--subject", {
@@ -199,7 +220,14 @@ export async function renderLibrary(qs = null) {
           // the same blurb shows on the set-list header you land on.
           el("div.note.subjdesc", {}, subjDesc(subject)),
         ]);
-      })),
+    };
+
+    return el("div.panel", {}, [
+      el("p", { style: { marginBottom: "16px" } }, t("lib.pickSubject", { level: lvlLabel(level) || "" })),
+      ...groups.map((g) => el("section.subjgroup", {}, [
+        g.label ? el("h3.subjgroup__title", {}, g.label) : null,
+        el("div.source-grid.source-grid--subjects", {}, g.subjects.map(card)),
+      ].filter(Boolean))),
     ]);
   }
 
