@@ -7,7 +7,7 @@ import { el, icon, ICONS } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { clozeToUnderscores } from "../components/questions.js";
 import { masteryByTopic, masteryForSubject, weakSpotQuestions } from "../lib/mastery.js";
-import { dueLabel, reviewReason } from "../lib/srs.js";
+import { reviewReason } from "../lib/srs.js";
 import { localDayKey, addDays, recentDays, questionsAnsweredToday, reviewAccuracyTrend } from "../lib/activity.js";
 import { t, plural, getLang } from "../lib/i18n.js";
 import { goalRing } from "../components/goal-ring.js";
@@ -132,21 +132,11 @@ export function renderProgress() {
     ],
   });
 
-  // ---- what's due, question by question ----
+  // ---- what's due, grouped by set ----
   const dueList = dueItems.length ? panel(ICONS.layers, t("prog.dueListTitle"), null, [
-    el("div.pg-due", {}, dueItems.slice(0, DUE_SHOWN).map(({ assignment, question, rec }) => {
-      const why = reviewReason(rec);
-      const p = question.kind === "cloze" ? clozeToUnderscores(question.prompt) : question.prompt;
-      return el("div.pg-due__row", {}, [
-        el("div.pg-due__main", {}, [
-          el("span", { html: renderRich(p.length > 90 ? p.slice(0, 90) + "…" : p) }),
-          why ? el("small", {}, why) : null,
-        ].filter(Boolean)),
-        el("div.pg-due__meta", {}, [el("span.badge", {}, assignment.title), el("small", {}, dueLabel(rec))]),
-      ]);
-    })),
+    el("div.pg-due", {}, dueGroups(dueItems.slice(0, DUE_SHOWN))),
     dueItems.length > DUE_SHOWN ? el("p.pg-foot", {}, t("prog.moreDue", { n: dueItems.length - DUE_SHOWN })) : null,
-  ]) : null;
+  ], { actions: [el("a.btn.btn--ghost.btn--sm", { href: "#/review" }, [icon(ICONS.spark, 16), t("prog.reviewAll")])] }) : null;
 
   const node = el("div.dash.pg", {}, [
     homeButton({ grid: true }),
@@ -288,6 +278,41 @@ function subjectRows(tm, attempts) {
         el("span.gradepill" + `.gradepill--${grade.tier}`, { title: t("prog.gradeTooltip", { letter: grade.letter }) }, grade.letter),
       ]);
     });
+}
+
+/** The due questions under a heading per set (its subject's colour, how
+ *  many), each on one line with why it's due as a small tag. */
+function dueGroups(items) {
+  const groups = new Map();
+  for (const it of items) {
+    if (!groups.has(it.assignment.id)) groups.set(it.assignment.id, { assignment: it.assignment, rows: [] });
+    groups.get(it.assignment.id).rows.push(it);
+  }
+  return [...groups.values()].map(({ assignment, rows }) => el("section.pg-dgroup", {}, [
+    el("header.pg-dgroup__head", {}, [
+      el("span.pg-subj__dot", { style: { background: store.subjectColor(assignment.subjectId).solid }, "aria-hidden": "true" }),
+      el("strong", {}, assignment.title),
+      el("span", {}, plural(rows.length, "prog.qCountOne", "prog.qCountMany")),
+    ]),
+    ...rows.map(({ question, rec }) => {
+      const p = question.kind === "cloze" ? clozeToUnderscores(question.prompt) : question.prompt;
+      const why = reviewReason(rec);
+      return el("div.pg-drow", {}, [
+        // Shortened by CSS (one line), not by slicing — a cut could split a formula.
+        el("span.pg-drow__q", { html: renderRich(p) }),
+        why ? el("span.pg-drow__why.is-" + reasonTone(rec), {}, why) : null,
+      ].filter(Boolean));
+    }),
+  ]));
+}
+
+/** The tag's tone, matching reviewReason(): missed → red, overdue → amber,
+ *  well learned → green, first review → neutral. */
+function reasonTone(rec, now = Date.now()) {
+  if (rec.lapses > 0 && rec.reps <= 2) return "missed";
+  if (Math.floor((now - rec.dueAt) / 864e5) >= 7) return "late";
+  if (rec.reps >= 4) return "solid";
+  return "plain";
 }
 
 /** "Högskoleprovet-prognos" — current verbal/kvant/total estimate plus a trend
