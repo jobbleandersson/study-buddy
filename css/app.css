@@ -631,7 +631,7 @@ body.has-topmenu .sitechat__fab { display: none; }
 /* Each tile is filled with its own colour (--tile, set per tile in menu.js),
    toned down with a slate grey so the row reads calm rather than loud. */
 .home-tile {
-  --tile-fill: color-mix(in oklab, var(--tile) 74%, #5b6474);
+  --tile-fill: color-mix(in oklab, var(--tile) 87%, #5b6474);
   display: grid; gap: 14px; align-content: start; min-height: 148px; padding: 18px 16px;
   border-radius: var(--r-lg); border: 1px solid transparent; color: #fff; text-decoration: none;
   background: linear-gradient(150deg, var(--tile-fill), color-mix(in oklab, var(--tile-fill) 84%, #000));
