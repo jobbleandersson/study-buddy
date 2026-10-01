@@ -79,8 +79,9 @@ export function practisedSince(attempts, sets, sinceMs) {
  * First, one day for each set you've never opened (cover it all before going
  * deep). Then it rotates through your weak topics, reviews that are due, the
  * sets you're shakiest on, and the once-new sets again as plain practice.
- * The last days are fixed: a mock exam two days out, the evening-before
- * plan, then the test.
+ * The last days are fixed: a mock exam two days out (only once every set has
+ * been opened — a mock on material you've never seen teaches nothing), the
+ * evening-before plan, then the test.
  *
  * @param days        whole days until the test (0 = today)
  * @param today       "YYYY-MM-DD"
@@ -107,7 +108,7 @@ export function buildExamPlan({ days, today, untouched = [], weakTopics = [], du
     let task;
     if (d === days) task = { kind: "testday" };
     else if (d === days - 1) task = { kind: "tonight" };
-    else if (d === days - 2 && canMock) task = { kind: "mock" };
+    else if (d === days - 2 && canMock && !untouched.length) task = { kind: "mock" };
     else if (rp < first.length) { task = first[rp]; rp++; }
     else { task = rotate[(rp - first.length) % rotate.length]; rp++; }
     rows.push({ dayOffset: d, dayKey: addDays(today, d), minutes: PLAN_MINUTES[task.kind], ...task });

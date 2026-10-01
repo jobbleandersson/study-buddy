@@ -81,16 +81,24 @@ describe("exam.practisedSince", () => {
 describe("exam.buildExamPlan", () => {
   const today = "2026-09-30";
   const a = set("a", "ma"), b = set("b", "ma");
-  test("unopened sets first, then weak topics; fixed mock / evening / test at the end", () => {
+  test("unopened sets first, then weak topics; evening and test at the end", () => {
     const rows = buildExamPlan({ days: 6, today, untouched: [a], weakTopics: ["x"], softest: [b] });
-    assert.deepEqual(rows.map((r) => r.kind), ["start", "drill", "practice", "practice", "mock", "tonight", "testday"]);
+    assert.deepEqual(rows.map((r) => r.kind), ["start", "drill", "practice", "practice", "drill", "tonight", "testday"]);
     assert.deepEqual([rows[2].set.id, rows[3].set.id], ["b", "a"]);
     assert.equal(rows[0].dayKey, today);
     assert.equal(rows[6].dayKey, "2026-10-06");
   });
+  test("a mock two days out once every set has been opened", () => {
+    const kinds = buildExamPlan({ days: 6, today, weakTopics: ["x"], softest: [b] }).map((r) => r.kind);
+    assert.deepEqual(kinds, ["drill", "practice", "drill", "practice", "mock", "tonight", "testday"]);
+  });
+  test("no mock while a set is still unopened — open it first", () => {
+    const kinds = buildExamPlan({ days: 2, today, untouched: [a] }).map((r) => r.kind);
+    assert.deepEqual(kinds, ["start", "tonight", "testday"]);
+  });
   test("a new set is started once, then practised", () => {
     const kinds = buildExamPlan({ days: 6, today, untouched: [a] }).map((r) => r.kind);
-    assert.deepEqual(kinds, ["start", "practice", "practice", "practice", "mock", "tonight", "testday"]);
+    assert.deepEqual(kinds, ["start", "practice", "practice", "practice", "practice", "tonight", "testday"]);
   });
   test("the day before is the evening plan, even with only one day left", () => {
     assert.deepEqual(buildExamPlan({ days: 1, today, softest: [a] }).map((r) => r.kind), ["tonight", "testday"]);

@@ -413,30 +413,68 @@ function renderLanding() {
   const tm = masteryByTopic(store.attempts);
   const today = localDayKey();
   // Högskoleprovet has its own hub (#/hp) with its own scoring — keep its
-  // sets out of the school-test lists.
+  // sets out of the school tests here; it gets a pointer at the foot instead.
   const hasHp = store.assignments.some((a) => isHpSetId(a.id));
   const plain = store.assignments.filter((a) => !isHpSetId(a.id));
-  const withSets = store.subjects.filter((s) => plain.some((a) => a.subjectId === s.id));
+  const canAdd = store.subjects.some((s) => plain.some((a) => a.subjectId === s.id));
+  const exams = upcomingExams(plain, today).filter((x) => store.subjects.some((s) => s.id === x.subjectId));
 
-  if (!withSets.length && !hasHp) {
+  // One way in: the dialog asks which subject, when, and what's on it.
+  const addTest = (cls = "btn") => el(`button.${cls}`, {
+    type: "button",
+    onclick: () => openExamDialog(null, { onSaved: (id) => { if (id) location.hash = `#/exam-prep/${id}`; } }),
+  }, [icon(ICONS.plus, 16), t("exam.addTest")]);
+
+  const head = el("header.exam-head", {}, [
+    el("div", {}, [
+      el("h1", {}, t("exam.pageTitle")),
+      el("p.exam-lede", {}, t("exam.landingSub")),
+    ]),
+    canAdd && exams.length ? addTest() : null,
+  ].filter(Boolean));
+
+  const hpFoot = hasHp ? el("a.exam-hp", { href: "#/hp" }, [
+    el("span.exam-hp__ic", { "aria-hidden": "true" }, icon(ICONS.award, 18)),
+    el("span", {}, [el("b", {}, t("exam.hpTitle")), el("small", {}, t("hp.pickHint"))]),
+    icon(ICONS.arrow, 16),
+  ]) : null;
+
+  // Nothing to put on a test yet: the library first.
+  if (!canAdd) {
     return {
       title: t("exam.pageTitle"),
       node: el("div.exam-prep", {}, [
         homeButton(),
-        el("h1", {}, t("exam.pageTitle")),
-        el("p.exam-lede", {}, t("exam.landingSub")),
-        howItWorks(),
-        el("section.panel", {}, [
+        head,
+        el("section.exam-emptyhero", {}, [
+          el("span.exam-emptyhero__ic", { "aria-hidden": "true" }, icon(ICONS.graduation, 26)),
+          el("h2", {}, t("exam.emptyTitle")),
           el("p", {}, t("exam.landingEmpty")),
-          el("a.btn", { href: "#/library", style: { marginTop: "12px" } },
-            [icon(ICONS.book, 16), t("exam.addFromLibrary")]),
+          el("a.btn", { href: "#/library" }, [icon(ICONS.book, 16), t("exam.addFromLibrary")]),
         ]),
-      ]),
+        howItWorks(),
+        hpFoot,
+      ].filter(Boolean)),
     };
   }
 
-  const exams = upcomingExams(plain, today).filter((x) => withSets.some((s) => s.id === x.subjectId));
-  const withExam = new Set(exams.map((x) => x.subjectId));
+  if (!exams.length) {
+    return {
+      title: t("exam.pageTitle"),
+      node: el("div.exam-prep", {}, [
+        homeButton(),
+        head,
+        el("section.exam-emptyhero", {}, [
+          el("span.exam-emptyhero__ic", { "aria-hidden": "true" }, icon(ICONS.graduation, 26)),
+          el("h2", {}, t("exam.emptyTitle")),
+          el("p", {}, t("exam.emptyBody")),
+          addTest(),
+        ]),
+        howItWorks(),
+        hpFoot,
+      ].filter(Boolean)),
+    };
+  }
 
   const cards = exams.map((x) => {
     const s = store.subjects.find((y) => y.id === x.subjectId);
@@ -446,11 +484,11 @@ function renderLanding() {
     const pct = m.ready.seen ? m.ready.pct : null;
     return el("article.exam-card", { style: { "--subject": color } }, [
       el("div.exam-card__top", {}, [
-        el("a.exam-card__name", { href: `#/exam-prep/${s.id}` }, [el("span.exam-dot"), s.name]),
+        el("a.exam-card__name", { href: `#/exam-prep/${s.id}` }, [el("span.exam-dot"), t("exam.cardTitle", { subject: s.name })]),
         el("span.exam-pill" + (x.days <= 2 ? ".is-soon" : ""), {}, shortCountdown(x.days)),
       ]),
       el("p.exam-card__meta", {}, [
-        sentenceCase(fmtDate(x.date)), " · ", plural(m.scope.length, "exam.coversOne", "exam.coversMany"),
+        sentenceCase(longDate(x.date)), " · ", plural(m.scope.length, "exam.coversOne", "exam.coversMany"),
       ]),
       el("div.exam-card__ready", {}, [
         bar(pct, color),
@@ -467,41 +505,16 @@ function renderLanding() {
     ]);
   });
 
-  const rest = withSets.filter((s) => !withExam.has(s.id)).map((s) => {
-    const color = store.subjectColor(s.id).solid;
-    const ready = readiness(plain.filter((a) => a.subjectId === s.id), tm);
-    return el("div.exam-row", { style: { "--subject": color } }, [
-      el("a.exam-row__name", { href: `#/exam-prep/${s.id}` }, [el("span.exam-dot"), s.name]),
-      el("span.exam-row__ready.tabular", {},
-        ready.pct == null || !ready.seen ? t("exam.notStarted") : t("exam.readyShort", { pct: ready.pct })),
-      el("button.btn.btn--ghost.btn--sm", {
-        type: "button",
-        onclick: () => openExamDialog(s.id, { onSaved: () => { location.hash = `#/exam-prep/${s.id}`; } }),
-        "aria-label": t("exam.addTestFor", { subject: s.name }),
-      }, [icon(ICONS.plus, 14), t("exam.addTest")]),
-    ]);
-  });
-
-  const hpRow = hasHp ? el("div.exam-row", { style: { "--subject": "var(--brand)" } }, [
-    el("a.exam-row__name", { href: "#/hp" }, [el("span.exam-dot"), t("hp.pageTitle")]),
-    el("span.exam-row__ready", {}, t("hp.pickHint")),
-    icon(ICONS.arrow, 16),
-  ]) : null;
-
   return {
     title: t("exam.pageTitle"),
     node: el("div.exam-prep", {}, [
       homeButton(),
-      el("h1", {}, t("exam.pageTitle")),
-      el("p.exam-lede", {}, t("exam.landingSub")),
-      cards.length ? el("section.exam-section", {}, [
-        el("h2.exam-section__head", {}, t("exam.upcoming")),
+      head,
+      el("section.exam-section", {}, [
+        el("h2.exam-section__head", {}, [t("exam.upcoming"), el("span.exam-count", {}, String(exams.length))]),
         el("div.exam-cards", {}, cards),
-      ]) : howItWorks(),
-      rest.length || hpRow ? el("section.exam-section", {}, [
-        el("h2.exam-section__head", {}, t(cards.length ? "exam.otherSubjects" : "exam.yourSubjects")),
-        el("div.exam-rows", {}, [...rest, hpRow].filter(Boolean)),
-      ]) : null,
+      ]),
+      hpFoot,
     ].filter(Boolean)),
   };
 }

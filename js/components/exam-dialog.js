@@ -24,13 +24,31 @@ export function closeExamDialog() {
   returnFocus = null;
 }
 
+/** Subjects a test can be in: the ones with at least one ordinary (non-HP) set. */
+function testSubjects() {
+  return store.subjects.filter((s) => store.assignments.some((a) => a.subjectId === s.id && !isHpSetId(a.id)));
+}
+
 /**
- * @param subjectId  the subject the test is in
- * @param onSaved    called after a save or delete, e.g. to open the prep page
+ * @param subjectId    the subject the test is in, or null to let the student
+ *                     pick it in the dialog (the exam-prep landing's "Lägg till prov")
+ * @param onSaved      called with the subject id after a save or delete,
+ *                     e.g. to open that subject's prep page
+ * @param pickSubject  show the subject picker even when a subject is given
  */
-export function openExamDialog(subjectId, { onSaved } = {}) {
+export function openExamDialog(subjectId, { onSaved, pickSubject = false, _focusBack = null } = {}) {
   closeExamDialog();
-  returnFocus = document.activeElement;
+  returnFocus = _focusBack || document.activeElement;
+  const choosable = testSubjects();
+  if (!subjectId) {
+    // Adding a test: start on a subject that doesn't have one coming up yet, so
+    // the dialog opens on a new test rather than on editing an existing one.
+    const today = localDayKey();
+    const free = choosable.find((s) => !nextExam(store.assignments, s.id, today));
+    subjectId = (free || choosable[0])?.id || null;
+    pickSubject = true;
+  }
+  if (!subjectId) return;
   const subject = store.subjects.find((s) => s.id === subjectId);
   const name = subject?.name || "";
   const today = localDayKey();
@@ -65,7 +83,7 @@ export function openExamDialog(subjectId, { onSaved } = {}) {
     store.setExam(subjectId, date, [...picked], current?.date || null);
     toast(t(current ? "examdlg.updated" : "examdlg.added", { subject: name }));
     closeExamDialog();
-    onSaved?.();
+    onSaved?.(subjectId);
   }
 
   function remove() {
@@ -76,8 +94,17 @@ export function openExamDialog(subjectId, { onSaved } = {}) {
       onAction: () => store.setExam(subjectId, date, was.map((a) => a.id)),
     });
     closeExamDialog();
-    onSaved?.();
+    onSaved?.(subjectId);
   }
+
+  // Switching subject rebuilds the dialog for that subject (its own sets, and
+  // its existing test if it has one), keeping where focus goes back to.
+  const subjectPick = pickSubject && choosable.length > 1 ? el("label.exam-dlg__subject", {}, [
+    el("span.exam-dlg__label", {}, [icon(ICONS.book, 15), t("examdlg.subject")]),
+    el("select", {
+      onchange: (e) => openExamDialog(e.target.value, { onSaved, pickSubject: true, _focusBack: returnFocus }),
+    }, choosable.map((s) => el("option", { value: s.id, selected: s.id === subjectId }, s.name))),
+  ]) : null;
 
   const titleId = "exam-dlg-title";
   dialogEl = el("div.modal", {
@@ -85,8 +112,9 @@ export function openExamDialog(subjectId, { onSaved } = {}) {
     onclick: (e) => { if (e.target === dialogEl) closeExamDialog(); },
   }, [
     el("div.modal__card.exam-dlg", {}, [
-      el("h3", { id: titleId }, t(current ? "examdlg.editTitle" : "examdlg.addTitle", { subject: name })),
+      el("h3", { id: titleId }, pickSubject && !current ? t("examdlg.addTitleAny") : t(current ? "examdlg.editTitle" : "examdlg.addTitle", { subject: name })),
       el("p.note.exam-dlg__lede", {}, t("examdlg.lede")),
+      subjectPick,
       el("p.exam-dlg__label", {}, [icon(ICONS.calendar, 15), t("examdlg.when")]),
       picker.el,
       el("div.exam-dlg__label.exam-dlg__label--row", {}, [
@@ -108,5 +136,7 @@ export function openExamDialog(subjectId, { onSaved } = {}) {
   ]);
   document.body.appendChild(dialogEl);
   document.addEventListener("keydown", onEsc);
-  (picker.el.querySelector('.cal__cell[tabindex="0"]') || dialogEl.querySelector("button"))?.focus();
+  // After a subject switch, stay on the subject picker; otherwise start at the date.
+  ((_focusBack && subjectPick?.querySelector("select"))
+    || picker.el.querySelector('.cal__cell[tabindex="0"]') || dialogEl.querySelector("button"))?.focus();
 }

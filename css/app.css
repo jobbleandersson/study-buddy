@@ -2401,20 +2401,46 @@ body.route-chat .sitechat__panel { display: none; }
 .exam-card__task b { color: var(--ink); }
 .exam-card__done { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-sm); font-weight: 600; color: var(--ok-ink); }
 .exam-card__today .btn--sm { flex: none; padding: 4px 12px; white-space: nowrap; }
-.exam-rows { display: flex; flex-direction: column; gap: var(--s-2); }
-.exam-row {
-  display: flex; align-items: center; gap: var(--s-3);
-  min-height: 52px; padding: 6px 8px 6px var(--s-4);
+
+/* #/exam-prep — your tests: a head with the one action, then the tests. */
+.exam-head { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: var(--s-3) var(--s-5); }
+.exam-head .exam-lede { margin: 8px 0 0; }
+.exam-head > .btn { flex: none; }
+.exam-count {
+  display: inline-grid; place-items: center; min-width: 22px; height: 22px; margin-left: 8px; padding: 0 6px;
+  border-radius: var(--r-full); background: var(--surface-sunk); color: var(--ink-soft);
+  font-size: 12px; font-weight: 700; vertical-align: 2px;
+}
+.exam-emptyhero {
+  display: grid; justify-items: center; gap: var(--s-3); padding: var(--s-7, 40px) var(--s-5); text-align: center;
+  border: 1px dashed var(--line-strong); border-radius: var(--r-lg);
+  background: radial-gradient(120% 120% at 50% 0%, color-mix(in srgb, var(--brand) 8%, transparent), transparent 60%), var(--surface);
+}
+.exam-emptyhero__ic {
+  display: grid; place-items: center; width: 56px; height: 56px; border-radius: 16px;
+  background: var(--brand-tint); color: var(--brand-ink);
+}
+.exam-emptyhero h2 { margin: 4px 0 0; font-size: var(--fs-lg); font-weight: 750; letter-spacing: -.015em; }
+.exam-emptyhero p { margin: 0 0 var(--s-2); max-width: 52ch; color: var(--ink-soft); }
+.exam-hp {
+  display: flex; align-items: center; gap: var(--s-3); padding: var(--s-3) var(--s-4);
   border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface);
+  color: inherit; text-decoration: none; transition: border-color var(--dur-fast);
 }
-.exam-row__name {
-  display: inline-flex; align-items: center; gap: 10px; flex: 1; min-width: 0;
-  font-weight: 700; color: var(--ink); text-decoration: none;
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+.exam-hp:hover { border-color: var(--line-strong); }
+.exam-hp__ic { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: var(--surface-sunk); color: var(--ink-soft); flex: none; }
+.exam-hp > span:nth-child(2) { display: grid; gap: 1px; flex: 1; min-width: 0; }
+.exam-hp b { font-size: var(--fs-sm); }
+.exam-hp small { font-size: 12.5px; color: var(--ink-faint); }
+.exam-hp > svg:last-child { color: var(--ink-faint); flex: none; }
+.exam-dlg__subject { display: grid; gap: 0; margin-top: var(--s-2); }
+.exam-dlg__subject select {
+  height: 40px; padding: 0 var(--s-3); border-radius: var(--r-md); border: 1px solid var(--line-strong);
+  background: var(--surface); color: var(--ink); font: inherit;
 }
-.exam-row__name:hover { text-decoration: underline; text-underline-offset: 3px; }
-.exam-row__ready { flex: none; font-size: var(--fs-sm); color: var(--ink-faint); }
-.exam-row > svg { flex: none; color: var(--ink-faint); margin-right: 8px; }
+@media (max-width: 620px) {
+  .exam-head > .btn { width: 100%; justify-content: center; }
+}
 
 /* How it works — a real sequence, so it's numbered. */
 .exam-how {
@@ -2473,7 +2499,6 @@ body.route-chat .sitechat__panel { display: none; }
   .exam-today .btn { width: 100%; justify-content: center; }
   .exam-set { grid-template-columns: minmax(0, 1fr) auto auto; }
   .exam-set__pct { display: none; }
-  .exam-row { flex-wrap: wrap; row-gap: 0; }
 }
 
 /* The Högskoleprov hub (views/hp.js) still lays its dated plan out with the
