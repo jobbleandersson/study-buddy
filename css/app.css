@@ -3058,6 +3058,40 @@ body.route-chat .sitechat__panel { display: none; }
   .set-bigcode__code { font-size: 22px; }
 }
 
+/* ---------- Profile picture ---------- */
+/* The account avatar in Settings opens the picker; a camera shows on hover/focus. */
+.set-avatar--photo { position: relative; padding: 0; border: 0; cursor: pointer; overflow: hidden; font: inherit; }
+.set-avatar--photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.set-avatar__cam {
+  position: absolute; inset: 0; display: grid; place-items: center; color: #fff;
+  background: rgba(0, 0, 0, .45); opacity: 0; transition: opacity var(--dur-fast);
+}
+.set-avatar--photo:hover .set-avatar__cam, .set-avatar--photo:focus-visible .set-avatar__cam { opacity: 1; }
+.set-avatar--photo:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+/* The topbar account button wears the picture edge to edge. */
+.topbar__profile.has-avatar { padding: 0; overflow: hidden; border-radius: var(--r-full); }
+.topbar__avatar { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: inherit; }
+.acctmenu__head { display: flex; align-items: center; gap: 10px; padding: var(--s-2) var(--s-3); }
+.acctmenu__head .note { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.acctmenu__avatar { width: 32px; height: 32px; flex: none; border-radius: var(--r-full); object-fit: cover; }
+
+/* The framing dialog. */
+.avatared { max-width: 340px; display: grid; gap: var(--s-3); }
+.avatared h3 { margin: 0; }
+.avatared .note { margin: -6px 0 0; }
+.avatared__stage { display: grid; place-items: center; padding: var(--s-2) 0; }
+.avatared__canvas {
+  width: 260px; height: 260px; border-radius: var(--r-md); background: var(--surface-sunk);
+  cursor: grab; touch-action: none;
+}
+.avatared__canvas:active { cursor: grabbing; }
+.avatared__canvas:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+.avatared__zoomrow { display: flex; align-items: center; gap: 10px; }
+.avatared__zbtn { flex: none; color: var(--ink-soft); }
+.avatared__zoom { flex: 1; accent-color: var(--brand); }
+.avatared__actions { display: flex; justify-content: flex-end; gap: var(--s-2); }
+
 /* ---------- FAQ accordion ---------- */
 .faq-list { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; }
 .faq-item { border-top: 1px solid var(--line); }

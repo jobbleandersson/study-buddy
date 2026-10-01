@@ -24,6 +24,7 @@ import { openWelcomeQuiz } from "../components/onboarding.js";
 import { playFanfare } from "../lib/sound.js";
 import { offlineSupported, isLibraryCached, cacheLibraryOffline } from "../lib/offline.js";
 import { row, card, pageHead } from "../components/set-ui.js";
+import { openAvatarEditor } from "../components/avatar-editor.js";
 
 /* ---------------- building blocks ---------------- */
 
@@ -393,12 +394,56 @@ export function renderSettings() {
   function accountSection() {
     const body = el("div.set-acct");
 
+    // Profile picture: one hidden file input, opened by the avatar itself or the
+    // row's button; the editor frames it, the store keeps it (and syncs it).
+    const fileInput = el("input", { type: "file", accept: "image/*", hidden: true });
+    fileInput.addEventListener("change", async () => {
+      const file = fileInput.files?.[0];
+      fileInput.value = "";                       // picking the same file again still fires
+      if (!file) return;
+      const res = await openAvatarEditor(file);
+      if (!res) return;                           // cancelled
+      if (res.error) { toast(res.error); return; }
+      if (store.setAvatar(res.dataUrl)) { toast(t("avatar.saved")); paint(); }
+      else toast(t("avatar.readFail"));
+    });
+    const pick = () => fileInput.click();
+
+    /** The round picture (or initial, or a person when there's neither) that
+     *  opens the picker, with a camera on hover. */
+    function face(initial) {
+      const a = store.avatar;
+      return el("button.set-avatar.set-avatar--photo", {
+        type: "button", onclick: pick,
+        "aria-label": t(a ? "avatar.change" : "avatar.add"), title: t(a ? "avatar.change" : "avatar.add"),
+      }, [
+        a ? el("img", { src: a, alt: "" }) : initial ? el("span", {}, initial) : icon(ICONS.user, 20),
+        el("span.set-avatar__cam", { "aria-hidden": "true" }, icon(ICONS.camera, 16)),
+      ]);
+    }
+
+    function photoRow() {
+      const a = store.avatar;
+      return row(t("avatar.rowLabel"), t(store.authed ? "avatar.rowNote" : "avatar.rowNoteLocal"), [
+        el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: pick }, [icon(ICONS.camera, 15), t(a ? "avatar.change" : "avatar.add")]),
+        a ? el("button.btn.btn--ghost.btn--sm", {
+          type: "button",
+          onclick: () => {
+            store.setAvatar(null);
+            paint();
+            toast(t("avatar.removed"), { actionLabel: t("common.undo"), onAction: () => { store.setAvatar(a); paint(); } });
+          },
+        }, t("avatar.remove")) : null,
+      ]);
+    }
+
     function paint() {
       clear(body);
       if (!store.authed) {
         body.append(...[
           !store.proxyUp ? el("p.note.note--warn", {}, t("set.acctNoServer")) : null,
-          row(t("set.acctSignedOutLabel"), t("set.acctSignedOut").split(" — ").slice(-1)[0], el("a.btn.btn--sm", { href: "#/login" }, t("set.acctSignIn"))),
+          row(t("set.acctSignedOutLabel"), t("set.acctSignedOut").split(" — ").slice(-1)[0], el("a.btn.btn--sm", { href: "#/login" }, t("set.acctSignIn")), { lead: face(null) }),
+          photoRow(),
         ].filter(Boolean));
         return;
       }
@@ -442,13 +487,14 @@ export function renderSettings() {
 
       body.append(...[
         el("div.set-profile", {}, [
-          el("span.set-avatar", { "aria-hidden": "true" }, (email[0] || "?").toUpperCase()),
+          face((email[0] || "?").toUpperCase()),
           el("div.set-profile__text", {}, [
             el("strong", {}, email),
             chips.childNodes.length ? chips : null,
           ].filter(Boolean)),
           el("div.set-row__ctl", {}, actions),
         ]),
+        photoRow(),
         store.authPasswordless
           ? row(t("setpw.add"), t("set.pwNote"), el("button.btn.btn--ghost.btn--sm", {
               type: "button",
@@ -487,7 +533,8 @@ export function renderSettings() {
     }
     paint();
 
-    return card(ICONS.user, t("set.acctTitle"), t("set.acctSub"), [body]);
+    // The file input lives outside the repainted body, so a repaint mid-pick can't drop it.
+    return card(ICONS.user, t("set.acctTitle"), t("set.acctSub"), [body, fileInput]);
   }
 
   /* ---------------- your data ---------------- */

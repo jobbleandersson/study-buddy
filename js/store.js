@@ -111,6 +111,10 @@ function libraryQuestion(d) {
 }
 
 const DAY_RE = /^\d{4}-\d{2}-\d{2}$/;
+// A profile picture is a small inline image the avatar editor produced — a
+// 256 px square comes out around 10–40 KB; the cap leaves room, nothing more.
+const AVATAR_RE = /^data:image\/(webp|jpeg|png);base64,[A-Za-z0-9+/=]+$/;
+const AVATAR_MAX = 200_000;
 
 /** Take a set off a test: no date, and back to a plain set if the exam-prep
  *  dialog is what made it a test (see Store.setExam). */
@@ -174,6 +178,8 @@ function seedState() {
     sessions: {},                    // in-progress sessions, keyed by session key
     onboarded: false,               // has the first-run walkthrough been seen?
     profile: null,                   // answers to the welcome quiz — see components/onboarding.js; null until answered
+    avatar: null,                    // profile picture: a small square data: URL (components/avatar-editor.js), or null
+    avatarAt: 0,                     // when it was last set or removed — the later change wins a sync merge
     achievements: {},                // { id: unlockedAt } — 0 = "already true when shipped"
     readNotifications: {},           // { [notificationId]: signature } — see buildNotifications() in main.js
     activity: {
@@ -355,6 +361,9 @@ function mergeStates(server, local) {
 
   s.onboarded = !!(s.onboarded || l.onboarded);
   s.profile = s.profile || l.profile || null;
+  // profile picture — the later change wins, a removal included, so a picture
+  // picked before signing in or on a device that was behind isn't dropped
+  if ((l.avatarAt || 0) > (s.avatarAt || 0)) { s.avatar = l.avatar ?? null; s.avatarAt = l.avatarAt; }
   // settings + readNotifications: the server's win (last-synced config, transient state)
   return s;
 }
@@ -704,6 +713,21 @@ class Store extends EventTarget {
 
   saveProfile(patch) {
     this.update((s) => { s.profile = { ...(s.profile || {}), ...patch }; });
+  }
+
+  /** The profile picture: a small square image as a data: URL, kept in the
+   *  state blob so it syncs to the student's other devices. null = none. */
+  get avatar() {
+    const a = this.state.avatar;
+    return typeof a === "string" && AVATAR_RE.test(a) ? a : null;
+  }
+
+  /** Set (a data:image/… URL the avatar editor made) or clear (null) the
+   *  profile picture. Refuses anything that isn't a small inline image. */
+  setAvatar(dataUrl) {
+    if (dataUrl != null && !(typeof dataUrl === "string" && AVATAR_RE.test(dataUrl) && dataUrl.length <= AVATAR_MAX)) return false;
+    this.update((s) => { s.avatar = dataUrl || null; s.avatarAt = Date.now(); });
+    return true;
   }
 
   /** Demo sets are examples, not the student's own content, so they follow the

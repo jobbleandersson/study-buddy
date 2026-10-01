@@ -341,6 +341,24 @@ function flyoutButton(g) {
   return btn;
 }
 
+/** What the topbar's account button shows: your profile picture once you've
+ *  set one (Settings → Konto), the person icon until then. */
+function profileFace() {
+  const a = store.avatar;
+  return a ? el("img.topbar__avatar", { src: a, alt: t("avatar.alt") }) : icon(ICONS.user, 18);
+}
+
+/** Repaint every account button in place after the picture changes — the
+ *  shell isn't rebuilt on every store change. */
+function syncProfileFaces() {
+  const a = store.avatar;
+  document.querySelectorAll(".topbar__profile").forEach((b) => {
+    if ((b.querySelector(".topbar__avatar")?.getAttribute("src") || null) === a) return;
+    b.replaceChildren(profileFace());
+    b.classList.toggle("has-avatar", !!a);
+  });
+}
+
 /** The desktop sidebar's nav. The first group (the everyday pages) sits directly
  *  in the list; everything after it lives in `.sidebar__more`, which is
  *  `display: contents` — invisible to layout — until the window is very short.
@@ -762,12 +780,15 @@ function shellActions() {
     onclick: (e) => { e.stopPropagation(); openNotificationPanel(e.currentTarget); },
   }, [icon(ICONS.bell, 18), hasUnread ? el("span.topbar__dot") : null].filter(Boolean));
 
-  const profileBtn = el("button.iconbtn.topbar__profile", {
+  const profileBtn = el("button.iconbtn.topbar__profile" + (store.avatar ? ".has-avatar" : ""), {
     type: "button", "aria-label": t("topbar.account"), "aria-haspopup": "menu", title: t("topbar.account"),
     onclick: (e) => {
       e.stopPropagation();
       const items = store.authed ? [
-        el("p.note", { style: { padding: "var(--s-2) var(--s-3)" } }, t("account.signedInAs", { email: store.authEmail || "" })),
+        el("div.acctmenu__head", {}, [
+          store.avatar ? el("img.acctmenu__avatar", { src: store.avatar, alt: "" }) : null,
+          el("p.note", {}, t("account.signedInAs", { email: store.authEmail || "" })),
+        ].filter(Boolean)),
         popoverLink("#/settings", ICONS.gear, t("account.settings")),
         el("button.cardmenu__item.cardmenu__item--danger", {
           type: "button",
@@ -784,7 +805,7 @@ function shellActions() {
       ];
       openPopover(e.currentTarget, items, { align: "right" });
     },
-  }, [icon(ICONS.user, 18)]);
+  }, [profileFace()]);
 
   // Leaderboard — a round icon beside the bell, on every screen (it's not in
   // the nav). Signed out it opens a sign-in prompt.
@@ -1237,6 +1258,7 @@ store.init().then(() => {
   });
   // After first paint, keep menu/progress fresh when the store changes.
   store.addEventListener("change", () => {
+    syncProfileFaces();
     const h = location.hash.replace(/^#/, "").split("?")[0];
     if (h === "" || h === "/" || h === "/study" || h === "/calendar" || h === "/progress"
         || h === "/achievements" || h === "/hp" || h === "/exam-prep" || h.startsWith("/exam-prep/")) render({ softRefresh: true });
