@@ -37,7 +37,7 @@ describe("site password (SITE_PASSWORD set)", () => {
       ["post", "/api/analytics/pageview", {}],
       ["get", "/api/nope"],
       ["get", "/API/auth/me"],
-      ["get", "/api//health"],
+      ["get", "/api//state"],   // Express collapses the extra slash for the gate and the router alike
     ]) {
       const r = await c[method](path, body);
       assert.equal(r.status, 403, `${method} ${path}`);
