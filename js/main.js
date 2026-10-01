@@ -94,6 +94,7 @@ scheduleIdle(() => { loadDeferredUI(); trackEntryPageview(); });
  * — this only ever governs the root route.
  */
 function shouldShowLanding() {
+  if (privateGate()) return true;
   if (store.state.onboarded) return false;
   if (store.assignments.length) return false;
   if (store.authed) return false;
@@ -181,11 +182,22 @@ let firstPaintDone = false;
 // be a rare edge case and is now the common one.
 let renderGen = 0;
 
+/** Invite-only (the server says so, see server/src/invite.js) and nobody invited is signed in:
+ *  only the front page and the pages around signing in open; everything else goes to sign-in. */
+const OPEN_WHILE_PRIVATE = /^\/?$|^\/(welcome|login|verify|reset|terms|privacy|about|faq|teachers)$/;
+function privateGate() { return store.inviteOnly && !store.authed; }
+
 function parseHash() {
   const full = location.hash.replace(/^#/, "");
   const [rawPath, qs] = full.split("?");
   // "#/library/" is still the library — a stray trailing slash mustn't read as "page not found".
   const path = rawPath.length > 1 ? rawPath.replace(/\/+$/, "") : rawPath;
+  if (privateGate() && !OPEN_WHILE_PRIVATE.test(path)) {
+    return async () => {
+      location.replace(`#/login?next=${encodeURIComponent("#" + full)}`);
+      return { node: el("div") };
+    };
+  }
   const params = new URLSearchParams(qs || "");
   for (const r of routes) {
     const m = path.match(r.rx);
@@ -1206,7 +1218,7 @@ store.init().then(() => {
   // decides against; only the fetch of onboarding.js itself is deferred.
   const bootPath = currentPath();
   const landingShown = shouldShowLanding() && (bootPath === "/" || bootPath === "/welcome");
-  if (!landingShown && /^\/(library|study|create|solve|hp|exam-prep)?$/.test(bootPath)) {
+  if (!landingShown && !privateGate() && /^\/(library|study|create|solve|hp|exam-prep)?$/.test(bootPath)) {
     import("./components/onboarding.js").then((m) => m.maybeShowOnboarding());
   }
   // Bring any demo or library sets loaded in a different language up to date —

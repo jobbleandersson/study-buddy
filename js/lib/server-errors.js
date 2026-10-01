@@ -14,6 +14,7 @@ const KNOWN = {
   "Password must be at least 8 characters.": "srv.err.password",
   "An account with that email already exists.": "srv.err.emailTaken",
   "Wrong email or password.": "srv.err.badLogin",
+  "PluggEra is invite-only right now.": "srv.err.notInvited",
   "That request is too large.": "srv.err.tooLarge",
   "Password is too long.": "srv.err.passwordLong",
   "That password is wrong.": "srv.err.deletePassword",

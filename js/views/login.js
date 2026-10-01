@@ -91,7 +91,8 @@ export function renderLogin(qs) {
     forgotLink.hidden = mode !== "login" || !store.emailConfigured;
     backToSignInLink.hidden = mode !== "forgot" && !forgotDone && !twofa;
     forgotSentNote.hidden = !forgotDone;
-    introNote.hidden = forgotting || twofa;
+    // Invite-only: there is no "use it without an account" to mention.
+    introNote.hidden = forgotting || twofa || store.inviteOnly;
     emailRow.hidden = forgotDone || twofa;
     passRow.hidden = mode === "forgot" || forgotDone || twofa;
     codeRow.hidden = !twofa;
@@ -314,8 +315,8 @@ export function renderLogin(qs) {
       ].filter(Boolean)),
       el("p.auth__legal", {}, [
         el("a", { href: "#/terms" }, t("footer.terms")), " · ",
-        el("a", { href: "#/privacy" }, t("footer.privacy")), " · ",
-        el("a", { href: "#/" }, t("login.skip")),
+        el("a", { href: "#/privacy" }, t("footer.privacy")),
+        ...(store.inviteOnly ? [] : [" · ", el("a", { href: "#/" }, t("login.skip"))]),
       ]),
     ]),
     showcase(),

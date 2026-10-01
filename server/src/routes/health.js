@@ -1,6 +1,7 @@
 import { Router } from "express";
 import crypto from "node:crypto";
 import { emailEnabled } from "../email.js";
+import { inviteOnly } from "../invite.js";
 
 export const health = Router();
 
@@ -26,6 +27,8 @@ health.get("/health", (req, res) => {
     // Public by design (it's sent to every browser anyway). Null = Google
     // sign-in isn't set up, and the sign-in screen shows no Google button.
     googleClientId: process.env.GOOGLE_CLIENT_ID || null,
+    // True = only invited emails get past the front page (see invite.js); the client hides the app.
+    inviteOnly: inviteOnly(),
 
     // Where the "you've used this month's AI allowance" prompt sends people
     // who want more (e.g. a Stripe Payment Link). Unset = the prompt only
