@@ -14,8 +14,8 @@ import { fileURLToPath } from "node:url";
 // are plain HTML built from the same JSON the app serves, so they need no JS to read and stay in
 // step with the library automatically.
 //
-// Indexing is off until PUBLIC_INDEXING=true: every page carries noindex and robots.txt disallows
-// everything, so a private test deployment never leaks into search results. (SITE_PASSWORD, when
+// Indexing is off until PUBLIC_INDEXING=true: every response carries noindex (meta tag here, plus an
+// X-Robots-Tag header on everything in index.js), so a private deployment stays out of search results. (SITE_PASSWORD, when
 // set, also puts these pages behind the password like the rest of the site.)
 
 export const practicePages = Router();
@@ -311,7 +311,10 @@ practicePages.get("/ova/:subject/:slug", (req, res) => {
 
 practicePages.get("/robots.txt", (req, res) => {
   res.type("text/plain");
-  if (!indexing()) return res.send("User-agent: *\nDisallow: /\n");
+  // Private: crawlers may fetch pages but every response says noindex (see the X-Robots-Tag header
+  // in index.js). A "Disallow: /" here would backfire — a crawler that may not fetch a page never
+  // sees its noindex, so the bare address can still be listed when something links to it.
+  if (!indexing()) return res.send("User-agent: *\nAllow: /\n");
   res.send(`User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: ${origin(req)}/sitemap.xml\n`);
 });
 

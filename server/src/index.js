@@ -88,6 +88,9 @@ app.set("trust proxy", 1);
 app.use((req, res, next) => {
   res.setHeader("X-Content-Type-Options", "nosniff");
   res.setHeader("X-Frame-Options", "SAMEORIGIN");
+  // Kept out of search results until PUBLIC_INDEXING=true — on every response, not just the HTML
+  // pages, so the app shell, JSON and images can't be listed either.
+  if (process.env.PUBLIC_INDEXING !== "true") res.setHeader("X-Robots-Tag", "noindex, nofollow");
   res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
   // Only meaningful once the connection really is HTTPS — same signal the session cookie's
   // `secure` flag already uses, just above.
