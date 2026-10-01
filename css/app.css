@@ -2141,20 +2141,6 @@ body.route-chat .sitechat__panel { display: none; }
 
 /* ---------- progress dashboard ---------- */
 .dash { display: grid; gap: var(--s-5); }
-.streak { display: flex; gap: 6px; flex-wrap: wrap; }
-.streak__day { width: 30px; height: 30px; flex: none; border-radius: var(--r-sm); background: var(--surface-sunk); display: grid; place-items: center; font-size: 11px; color: var(--ink-faint); }
-.streak__day.on { background: var(--ok); color: #fff; font-weight: 700; }
-.streak__day.frozen { background: var(--info); color: #fff; font-weight: 700; }
-/* "is-today", not ".today" — a bare .today rule elsewhere is a 210px grid. */
-.streak__day.is-today { outline: 2px solid var(--brand); outline-offset: 1px; }
-
-/* A banked streak freeze, shown next to the streak badge. */
-.freezechip {
-  display: inline-flex; align-items: center; gap: 4px;
-  padding: 4px var(--s-2); border-radius: var(--r-full);
-  background: var(--info-tint); color: var(--info);
-  font-size: var(--fs-sm); font-weight: 700;
-}
 
 /* Achievements shelf */
 .badges { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: var(--s-3); }
@@ -2170,28 +2156,9 @@ body.route-chat .sitechat__panel { display: none; }
 .badge-card.is-locked .badge-card__emoji { filter: grayscale(1); opacity: .45; }
 .badge-card.is-locked .badge-card__text strong { color: var(--ink-soft); }
 
-/* 12-week study heatmap — 7 rows (Mon-Sun), columns are weeks, oldest left. */
-/* Cells grow with the window (13px on a phone, up to 22px on desktop) so the grid fills its card
-   instead of sitting small in one corner. */
-.heatmap {
-  --cell: clamp(13px, 1.6vw, 22px);
-  display: grid; grid-template-rows: repeat(7, var(--cell)); grid-auto-flow: column;
-  grid-auto-columns: var(--cell); gap: clamp(3px, .3vw, 5px); width: max-content; max-width: 100%;
-}
-.heatmap__cell { width: var(--cell); height: var(--cell); border-radius: 4px; background: var(--surface-sunk); }
-.heatmap__cell.on { background: var(--ok); }
-.heatmap__cell.frozen { background: var(--info); }
-.heatmap__cell.is-today { outline: 2px solid var(--brand); outline-offset: 1px; }
 .meter { display: grid; grid-template-columns: 120px 1fr 44px 26px; align-items: center; gap: var(--s-3); padding: var(--s-2) 0; }
 .meter__track { height: 10px; border-radius: var(--r-full); background: var(--surface-sunk); overflow: hidden; }
 .meter__fill { height: 100%; border-radius: inherit; background: var(--subject, var(--brand)); transition: width var(--dur-slow) var(--ease-out); }
-/* "A long-term measure — your last result was X%" under a subject's meter, so
-   the mastery % doesn't read as contradicting a recent test score. */
-.meter__context { margin: 2px 0 6px; font-size: 12px; color: var(--ink-faint); }
-.due-list { display: flex; flex-direction: column; gap: var(--s-2); }
-.due-item { display: flex; justify-content: space-between; gap: var(--s-3); padding: var(--s-3) var(--s-4); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); }
-.due-item__main { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.due-item__why { font-size: var(--fs-sm); color: var(--ink-faint); }
 
 /* Results "what you'll still remember" — two forgetting curves. */
 .retention { width: 100%; max-width: 380px; height: auto; display: block; }
@@ -3532,12 +3499,6 @@ kbd {
 .achbadge--unlocked.achbadge--milestone .achbadge__tiername { color: color-mix(in oklab, var(--c) 75%, var(--ink)); }
 .achtoast--milestone .achtoast__icon { background: var(--brand); color: #fff; }
 
-/* Progress-page teaser card linking to the full page. */
-.achteaser { display: block; text-decoration: none; color: inherit; transition: transform var(--dur-fast) var(--ease-spring), box-shadow var(--dur-fast); }
-.achteaser:hover { transform: translateY(-2px); box-shadow: var(--shadow-2); }
-.achteaser__top { display: flex; align-items: center; justify-content: space-between; gap: var(--s-2); margin-bottom: var(--s-2); }
-.achteaser__top h3 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-faint); margin: 0; }
-.achteaser__top .badge { background: var(--brand-tint); color: var(--brand-ink); }
 
 /* Unlock celebration — dropped in from the top, appended to <body> so it
    survives the navigation to the results page. */
@@ -3782,7 +3743,6 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 }
 
 /* progress: caption under the day strip */
-.streak__cap { margin-top: 8px; }
 
 
 /* ===== subject picker: book covers ===== */
@@ -4646,3 +4606,119 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 /* subject picker: courses grouped under their subject ("Matematik" → 1 · 2 · 3) */
 .subjgroup + .subjgroup { margin-top: var(--s-5); }
 .subjgroup__title { font-size: var(--fs-sm); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 var(--s-2); }
+
+/* ---------- Progress (#/progress) ---------- */
+/* Key figures across the top, then two columns of cards (activity and level
+   per subject; review, achievements, trends), then what's due. Cards reuse
+   the Settings card head (.set-card). */
+.pg { max-width: 1240px; }
+.pg-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-3); }
+.pg-kpi {
+  display: flex; align-items: center; gap: var(--s-3); min-width: 0;
+  padding: var(--s-4) var(--s-4) var(--s-4) var(--s-5); border-radius: var(--r-lg);
+  background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-1);
+}
+.pg-kpi__main { min-width: 0; flex: 1; }
+.pg-kpi__label {
+  display: flex; align-items: center; gap: 8px; margin: 0;
+  font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-faint);
+}
+.pg-kpi__ic {
+  flex: none; width: 24px; height: 24px; border-radius: 7px; display: grid; place-items: center;
+  background: color-mix(in oklab, var(--k) 14%, var(--surface)); color: var(--k);
+}
+.pg-kpi__value {
+  display: block; margin: 8px 0 2px; font-family: var(--font-display); font-size: 26px; line-height: 1.1;
+  letter-spacing: -.02em; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.pg-kpi__sub { margin: 0; font-size: var(--fs-sm); color: var(--ink-soft); }
+.pg-kpi.is-warn { border-color: color-mix(in oklab, var(--warn, var(--c-tangerine)) 55%, var(--line)); }
+.pg-kpi .ring { flex: none; width: 46px; height: 46px; }
+.pg-chip {
+  display: inline-flex; align-items: center; gap: 3px; padding: 1px 7px; border-radius: var(--r-full);
+  background: var(--info-tint); color: var(--info); font-size: 12px; font-weight: 700; vertical-align: 1px;
+}
+.pg-help { cursor: help; text-decoration: underline dotted; text-underline-offset: 2px; }
+
+.pg-grid { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); gap: var(--s-5); align-items: start; }
+.pg-col { display: grid; gap: var(--s-5); min-width: 0; }
+.pg-card { padding-bottom: var(--s-5); }
+.pg-card .set-card__head { flex-wrap: wrap; }
+.pg-card__titles { flex: 1; min-width: 180px; }
+.pg-card__actions { display: flex; gap: var(--s-2); flex-wrap: wrap; }
+.pg-card__body { display: grid; gap: var(--s-3); padding-top: var(--s-4); min-width: 0; }
+.pg-card__body > .note { margin: 0; }
+.pg-foot { margin: 0; font-size: var(--fs-sm); color: var(--ink-faint); }
+.pg-empty { margin: 0; color: var(--ink-soft); }
+.pg-more { display: inline-flex; align-items: center; gap: 4px; font-size: var(--fs-sm); font-weight: 600; }
+.pg-big { display: flex; align-items: baseline; gap: 8px; }
+.pg-big strong { font-family: var(--font-display); font-size: 34px; line-height: 1; letter-spacing: -.02em; color: var(--ink); font-variant-numeric: tabular-nums; }
+.pg-big span { color: var(--ink-soft); font-size: var(--fs-sm); }
+.pg-fullbtn { justify-content: center; }
+.pg-bar { height: 6px; border-radius: var(--r-full); background: var(--surface-sunk); overflow: hidden; }
+.pg-bar i { display: block; height: 100%; border-radius: inherit; background: var(--brand); transition: width var(--dur-slow) var(--ease-out); }
+
+/* Activity map: month names over the weeks, day names down the side. */
+.pg-heat { display: grid; gap: var(--s-3); }
+.pg-heat__scroll { overflow-x: auto; padding-bottom: 2px; }
+.pg-heat__grid {
+  --cell: clamp(12px, 1.45vw, 21px); --gap: 4px;
+  display: grid; grid-template-columns: auto auto; gap: 6px 8px; width: max-content;
+}
+.pg-heat__months { display: grid; grid-template-columns: repeat(var(--weeks), var(--cell)); gap: var(--gap); }
+.pg-heat__months span { font-size: 11px; color: var(--ink-faint); white-space: nowrap; overflow: visible; width: var(--cell); text-transform: capitalize; }
+.pg-heat__days { display: grid; grid-template-rows: repeat(7, var(--cell)); gap: var(--gap); }
+/* The day names stay put while the weeks scroll on a narrow screen. */
+.pg-heat__days, .pg-heat__corner { position: sticky; left: 0; z-index: 1; background: var(--surface); padding-right: 4px; }
+.pg-heat__days span { font-size: 11px; line-height: var(--cell); color: var(--ink-faint); text-transform: capitalize; }
+.pg-heat__cells { display: grid; grid-template-rows: repeat(7, var(--cell)); grid-auto-flow: column; grid-auto-columns: var(--cell); gap: var(--gap); }
+.pg-heat__cell { display: block; width: var(--cell, 12px); height: var(--cell, 12px); border-radius: 4px; background: var(--surface-sunk); }
+.pg-heat__cell.lv1 { background: color-mix(in oklab, var(--ok) 30%, var(--surface-sunk)); }
+.pg-heat__cell.lv2 { background: color-mix(in oklab, var(--ok) 55%, var(--surface-sunk)); }
+.pg-heat__cell.lv3 { background: color-mix(in oklab, var(--ok) 78%, var(--surface-sunk)); }
+.pg-heat__cell.lv4 { background: var(--ok); }
+.pg-heat__cell.is-frozen { background: var(--info); }
+.pg-heat__cell.is-today { outline: 2px solid var(--brand); outline-offset: 1px; }
+.pg-heat__legend { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; font-size: 12px; color: var(--ink-faint); }
+.pg-heat__legend .pg-heat__cell { --cell: 12px; border-radius: 3px; }
+.pg-heat__legend span { margin: 0 4px; }
+.pg-heat__legend .pg-heat__gap { margin-left: var(--s-3); }
+
+/* Level per subject */
+.pg-subjects { display: grid; }
+.pg-subj {
+  display: grid; grid-template-columns: 10px minmax(0, 1fr) minmax(90px, 1.3fr) 48px 28px;
+  align-items: center; gap: var(--s-3); padding: 12px 0;
+}
+.pg-subj + .pg-subj { border-top: 1px solid var(--line); }
+.pg-subj__dot { width: 10px; height: 10px; border-radius: var(--r-full); }
+.pg-subj__name { min-width: 0; }
+.pg-subj__name strong { display: block; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pg-subj__name small { display: flex; flex-wrap: wrap; gap: 4px 10px; font-size: 12px; color: var(--ink-faint); }
+.pg-subj__name small:empty { display: none; }
+.pg-subj__name .linkbtn { display: inline-flex; align-items: center; gap: 3px; font-size: 12px; }
+.pg-subj__track { height: 8px; border-radius: var(--r-full); background: var(--surface-sunk); overflow: hidden; }
+.pg-subj__track i { display: block; height: 100%; border-radius: inherit; transition: width var(--dur-slow) var(--ease-out); }
+.pg-subj__pct { text-align: right; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+/* What's due, question by question */
+.pg-due { display: grid; }
+.pg-due__row { display: flex; align-items: center; justify-content: space-between; gap: var(--s-4); padding: 12px 0; }
+.pg-due__row + .pg-due__row { border-top: 1px solid var(--line); }
+.pg-due__main { display: grid; gap: 2px; min-width: 0; }
+.pg-due__main small { font-size: 12px; color: var(--ink-faint); }
+.pg-due__meta { display: flex; align-items: center; gap: var(--s-2); flex: none; }
+.pg-due__meta small { font-size: 12px; color: var(--ink-faint); white-space: nowrap; }
+
+@media (max-width: 1100px) {
+  .pg-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pg-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .pg-kpi { padding: var(--s-3) var(--s-4); }
+  .pg-kpi__value { font-size: 22px; }
+  .pg-kpi .ring { display: none; }
+  .pg-subj { grid-template-columns: 10px minmax(0, 1fr) 44px 26px; row-gap: 6px; }
+  .pg-subj__track { grid-column: 2 / -1; grid-row: 2; }
+  .pg-due__row { flex-direction: column; align-items: flex-start; gap: 6px; }
+}
