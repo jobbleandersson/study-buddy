@@ -8,15 +8,10 @@ import { t, plural, getLang } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { shareCard, tierEmoji } from "../lib/share-card.js";
 
-// Each track (and each milestone) has its own colour — the home tiles'
-// palette — used for its icon, its locked badges' progress and the "Next up"
-// card. Earned badges keep their tier's metal.
-const TRACK_COLORS = {
-  streak: "#FF7426", questions: "#7650FF", sessions: "#0FA3C2",
-  mastery: "#22A35A", perfect: "#EE3D86", hp: "#3AA4E6",
-};
-const MILESTONE_COLORS = ["#0FA3C2", "#7650FF", "#22A35A", "#FF7426"];
-const colorOf = (def) => def.track ? TRACK_COLORS[def.track] : MILESTONE_COLORS[Math.max(0, MILESTONES.indexOf(def)) % MILESTONE_COLORS.length];
+// A badge wears the colour of what it is: its tier's metal (bronze, silver,
+// gold, platinum) — locked ones softly, earned ones in full. Milestones have
+// no tier, so they take the brand blue.
+const colorOf = (def) => (def.track ? `var(--ach-${def.tier})` : "var(--brand)");
 
 export function renderAchievements() {
   const metrics = achievementMetrics(store.state);
@@ -40,7 +35,7 @@ export function renderAchievements() {
     const cutoff = firstLocked === -1 ? defs.length : firstLocked + 1;
     const shown = defs.slice(0, cutoff);
     const rest = defs.slice(cutoff);
-    return el("section.panel.achgroup", { style: { "--c": colorOf(defs[0]) } }, [
+    return el("section.panel.achgroup", {}, [
       el("h3.achgroup__title", {}, [
         el("span.achgroup__ic", { "aria-hidden": "true" }, icon(ICONS[defs[0].icon] || ICONS.award, 18)),
         t(defs[0].nameKey),
