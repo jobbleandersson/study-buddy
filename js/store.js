@@ -115,6 +115,9 @@ const DAY_RE = /^\d{4}-\d{2}-\d{2}$/;
 // 256 px square comes out around 10–40 KB; the cap leaves room, nothing more.
 const AVATAR_RE = /^data:image\/(webp|jpeg|png);base64,[A-Za-z0-9+/=]+$/;
 const AVATAR_MAX = 200_000;
+/** Is this string a picture the avatar editor could have made? The leaderboard uses it on friends'
+ *  pictures, which arrive from the server, before they go anywhere near an <img src>. */
+export const isAvatarDataUrl = (a) => typeof a === "string" && a.length <= AVATAR_MAX && AVATAR_RE.test(a);
 
 /** Take a set off a test: no date, and back to a plain set if the exam-prep
  *  dialog is what made it a test (see Store.setExam). */

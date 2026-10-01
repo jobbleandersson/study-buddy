@@ -224,6 +224,7 @@ export function makeClient(baseUrl) {
   return {
     get: (p) => request("GET", p),
     post: (p, body) => request("POST", p, body),
+    put: (p, body) => request("PUT", p, body),
     delete: (p, body) => request("DELETE", p, body),
     clearCookie: () => { cookie = null; },
     get cookie() { return cookie; },
