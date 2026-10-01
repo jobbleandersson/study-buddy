@@ -23,12 +23,17 @@ describe("public practice pages (indexing off, the default)", () => {
     assert.match(body, /href="\/ova\/ak9-matematik"/);
   });
 
-  test("every page says noindex while PUBLIC_INDEXING isn't on, and robots.txt disallows all", async () => {
+  test("while PUBLIC_INDEXING isn't on, every response says noindex and robots.txt lets crawlers see that", async () => {
     const { body } = await get(server.baseUrl, "/ova");
     assert.match(body, /<meta name="robots" content="noindex, nofollow"/);
+    for (const p of ["/", "/ova", "/api/health", "/assets/og-image.png"]) {
+      const res = await fetch(`${server.baseUrl}${p}`);
+      assert.equal(res.headers.get("x-robots-tag"), "noindex, nofollow", p);
+    }
     const robots = await get(server.baseUrl, "/robots.txt");
     assert.equal(robots.status, 200);
-    assert.match(robots.body, /Disallow: \/\n/);
+    // A Disallow would stop crawlers from ever reading the noindex above.
+    assert.doesNotMatch(robots.body, /Disallow: \/\n/);
   });
 
   test("a subject page lists its sets, and a set page shows three sample questions with answers", async () => {
@@ -76,6 +81,7 @@ describe("public practice pages with PUBLIC_INDEXING=true", () => {
     const robots = await get(server.baseUrl, "/robots.txt");
     assert.match(robots.body, /Allow: \//);
     assert.match(robots.body, /Sitemap: http:\/\/127\.0\.0\.1:\d+\/sitemap\.xml/);
+    assert.equal((await fetch(`${server.baseUrl}/ova`)).headers.get("x-robots-tag"), null);
   });
 });
 
