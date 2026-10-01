@@ -34,7 +34,11 @@ describe("two-factor authentication", () => {
     const email = await signup();
     const setup = await client.post("/api/auth/2fa/setup");
     const secret = setup.json.secret;
-    const confirm = await client.post("/api/auth/2fa/confirm", { password: PASSWORD, secret, code: codeFor(secret, { step: -1 }) });
+    // step -1 sits at the very edge of the server's ±1 window, so if a 30s boundary ticks over
+    // between generating the code and the server checking it, it falls out — retry once with a
+    // freshly generated code rather than flake (about a one-in-thousands timing coincidence).
+    let confirm = await client.post("/api/auth/2fa/confirm", { password: PASSWORD, secret, code: codeFor(secret, { step: -1 }) });
+    if (confirm.status === 400) confirm = await client.post("/api/auth/2fa/confirm", { password: PASSWORD, secret, code: codeFor(secret, { step: -1 }) });
     assert.equal(confirm.status, 200, JSON.stringify(confirm.json));
     client.clearCookie();
     return { email, secret };

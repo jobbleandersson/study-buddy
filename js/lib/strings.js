@@ -1446,14 +1446,6 @@ export const STRINGS = {
     "session.pomoTitle": "Focus timer",
     "session.pomoDone": "Time for a break — nice focus.",
 
-    "recap.title": "Last 7 days",
-    "recap.daysOne": "{n} day studied",
-    "recap.daysMany": "{n} days studied",
-    "recap.qOne": "{n} question",
-    "recap.qMany": "{n} questions",
-    "recap.topicsOne": "{n} topic improved",
-    "recap.topicsMany": "{n} topics improved",
-    "recap.strongest": "{subject} is your strongest",
 
     "set.pomodoro": "Focus timer",
     "set.pomodoroOff": "Off",
@@ -3961,14 +3953,6 @@ export const STRINGS = {
     "session.pomoTitle": "Fokustimer",
     "session.pomoDone": "Dags för en paus — bra fokus.",
 
-    "recap.title": "Senaste 7 dagarna",
-    "recap.daysOne": "{n} dag pluggad",
-    "recap.daysMany": "{n} dagar pluggade",
-    "recap.qOne": "{n} fråga",
-    "recap.qMany": "{n} frågor",
-    "recap.topicsOne": "{n} område förbättrat",
-    "recap.topicsMany": "{n} områden förbättrade",
-    "recap.strongest": "{subject} är ditt starkaste",
 
     "set.pomodoro": "Fokustimer",
     "set.pomodoroOff": "Av",
