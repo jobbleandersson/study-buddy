@@ -2083,6 +2083,8 @@ export const STRINGS = {
     "menu.calendarEmptyWeekNext": "Nothing this week — next is {when}.",
     "due.markTest": "This is a test — show a countdown and build an exam plan",
     "ach.nextUp": "Next up",
+    "ach.pageLede": "Earn medals by studying steadily. Every track has four tiers — bronze, silver, gold and platinum.",
+    "ach.ofTotal": "of {total}",
     "ach.showTiersOne": "Show 1 more tier",
     "ach.showTiersMany": "Show {n} more tiers",
 
@@ -4589,6 +4591,8 @@ export const STRINGS = {
     "menu.calendarEmptyWeekNext": "Inget denna vecka — nästa {when}.",
     "due.markTest": "Det här är ett prov — visa nedräkning och bygg en provplan",
     "ach.nextUp": "Näst på tur",
+    "ach.pageLede": "Samla medaljer genom att plugga regelbundet. Varje spår har fyra nivåer – brons, silver, guld och platina.",
+    "ach.ofTotal": "av {total}",
     "ach.showTiersOne": "Visa 1 nivå till",
     "ach.showTiersMany": "Visa {n} nivåer till",
 

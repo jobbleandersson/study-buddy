@@ -3408,8 +3408,46 @@ kbd {
 /* ---------- achievements page ---------- */
 .achievements-page { display: flex; flex-direction: column; gap: var(--s-5); }
 .achievements-head h1 { margin-bottom: 4px; }
-.ach-summary__bar { margin-top: var(--s-3); height: 8px; border-radius: var(--r-full); background: var(--surface-sunk); overflow: hidden; max-width: 360px; }
-.ach-summary__bar i { display: block; height: 100%; border-radius: inherit; background: var(--brand); transition: width var(--dur-slow) var(--ease-out); }
+.achievements-head .note { margin: 0; max-width: 62ch; }
+
+/* The board's head: ring · a count per metal · Next up. */
+.ach-overview {
+  display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(0, 1.15fr); gap: var(--s-5); align-items: center;
+  padding: var(--s-5); border-radius: var(--r-lg); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-1);
+}
+.ach-ring {
+  --p: 0; width: 120px; height: 120px; border-radius: var(--r-full); display: grid; place-items: center;
+  background: conic-gradient(var(--brand) calc(var(--p) * 1%), var(--surface-sunk) 0);
+}
+.ach-ring__inner {
+  width: 100px; height: 100px; border-radius: var(--r-full); background: var(--surface);
+  display: grid; place-content: center; text-align: center;
+}
+.ach-ring__inner strong { font-family: var(--font-display); font-size: 32px; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+.ach-ring__inner span { font-size: var(--fs-sm); color: var(--ink-faint); margin-top: 2px; }
+.ach-tiers { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--s-2); }
+.ach-tiercount {
+  display: grid; justify-items: center; gap: 2px; padding: 10px 4px; border-radius: var(--r-md);
+  background: var(--surface-sunk); border: 1px solid var(--line);
+}
+.ach-tiercount__medal {
+  width: 28px; height: 28px; border-radius: var(--r-full); display: grid; place-items: center; color: #fff; margin-bottom: 2px;
+  background: linear-gradient(145deg, color-mix(in oklab, var(--m) 60%, #fff), var(--m) 55%, color-mix(in oklab, var(--m) 72%, #000));
+}
+.ach-tiercount b { font-size: 19px; line-height: 1.1; color: var(--ink); font-variant-numeric: tabular-nums; }
+.ach-tiercount small { font-size: 12px; color: var(--ink-soft); font-weight: 600; }
+.ach-overview .ach-hero { min-width: 0; }
+@media (max-width: 1000px) {
+  .ach-overview { grid-template-columns: auto minmax(0, 1fr); }
+  .ach-overview .ach-hero { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .ach-overview { grid-template-columns: 1fr; justify-items: center; padding: var(--s-4); gap: var(--s-4); }
+  .ach-tiers { width: 100%; gap: 6px; }
+  .ach-tiercount { padding: 8px 2px; }
+  .ach-tiercount small { font-size: 10.5px; }
+  .ach-overview .ach-hero { width: 100%; }
+}
 .achgroup__title { display: flex; align-items: center; gap: var(--s-3); margin-bottom: var(--s-4); color: var(--ink); font-size: var(--fs-md); }
 .achgroup__ic {
   flex: none; width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center;

@@ -3,7 +3,7 @@
 
 import { store } from "../store.js";
 import { el, icon, ICONS } from "../lib/dom.js";
-import { ACHIEVEMENTS, MILESTONES, achievementMetrics, achievementValue, nextAchievement } from "../lib/achievements.js";
+import { ACHIEVEMENTS, MILESTONES, TIER_NAMES, achievementMetrics, achievementValue, nextAchievement } from "../lib/achievements.js";
 import { t, plural, getLang } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { shareCard, tierEmoji } from "../lib/share-card.js";
@@ -68,15 +68,42 @@ export function renderAchievements() {
   ]) : null;
 
   const pct = Math.round((unlockedCount / ACHIEVEMENTS.length) * 100);
+  const tierCount = (tier) => ACHIEVEMENTS.filter((a) => a.tier === tier && a.id in unlocked).length;
+
+  // The board's head: a ring for how many are unlocked, a count per metal,
+  // and the "Next up" card beside them.
+  const overview = el("section.ach-overview", {}, [
+    el("div.ach-ring", {
+      style: { "--p": String(pct) }, role: "img",
+      "aria-label": t("ach.subtitle", { unlocked: unlockedCount, total: ACHIEVEMENTS.length }),
+    }, [
+      el("div.ach-ring__inner", { "aria-hidden": "true" }, [
+        el("strong", {}, String(unlockedCount)),
+        el("span", {}, t("ach.ofTotal", { total: ACHIEVEMENTS.length })),
+      ]),
+    ]),
+    el("div.ach-tiers", {}, [
+      ...TIER_NAMES.map((tier) => el(`div.ach-tiercount.ach-tiercount--${tier}`, { style: { "--m": `var(--ach-${tier})` } }, [
+        el("span.ach-tiercount__medal", { "aria-hidden": "true" }, icon(ICONS.award, 15)),
+        el("b", {}, String(tierCount(tier))),
+        el("small", {}, t(`ach.tier.${tier}`)),
+      ])),
+      el("div.ach-tiercount.ach-tiercount--milestone", { style: { "--m": "var(--brand)" } }, [
+        el("span.ach-tiercount__medal", { "aria-hidden": "true" }, icon(ICONS.trophy, 15)),
+        el("b", {}, String(tierCount("milestone"))),
+        el("small", {}, t("ach.milestonesTitle")),
+      ]),
+    ]),
+    hero,
+  ].filter(Boolean));
 
   const node = el("div.achievements-page", {}, [
     homeButton({ grid: true }),
     el("div.achievements-head", {}, [
       el("h1", {}, t("ach.pageTitle")),
-      el("p.note", {}, t("ach.subtitle", { unlocked: unlockedCount, total: ACHIEVEMENTS.length })),
-      el("div.ach-summary__bar", {}, [el("i", { style: { width: "0%" }, dataset: { w: pct } })]),
+      el("p.note", {}, t("ach.pageLede")),
     ]),
-    hero,
+    overview,
     ...trackGroups,
     milestoneGroup,
     el("a.btn.btn--ghost.pageback", { href: "#/", style: { justifySelf: "start" } }, [icon(ICONS.back, 16), t("common.backToMenu")]),
