@@ -66,7 +66,6 @@ const APP_SHELL = [
   "./js/lib/expr.js",
   "./js/lib/study-modes.js",
   "./js/lib/passages.js",
-  "./js/lib/near.js",
   "./js/lib/chat-history.js",
   "./js/lib/chat-material.js",
   "./js/lib/podcast.js",

@@ -20,7 +20,6 @@ import { dailySlot } from "../components/daily-card.js";
 import { houseAd } from "../components/house-ad.js";
 import { tonightPlan } from "./tonight.js";
 import { shareSet } from "../lib/share-set.js";
-import { nearlyThere } from "../lib/near.js";
 import { openTalk } from "../components/talk-player.js";
 import { loadScript, scriptKey } from "../lib/podcast.js";
 import { MY_REVIEW_URL } from "../config.js";
@@ -407,7 +406,7 @@ export function renderMenu(mode) {
   const layout = el(rail ? "div.home-layout" : "div.home-layout.home-layout--solo", {}, [
     // The rail starts level with the greeting, up in the corner, rather than
     // under a full-width head.
-    el("div.home-main", {}, [greetingBlock, tonightCard(), dailySlot(), homeTiles(), homeStarter(), nearPanel(), ad, setsPanel].filter(Boolean)),
+    el("div.home-main", {}, [greetingBlock, tonightCard(), dailySlot(), homeTiles(), homeStarter(), ad, setsPanel].filter(Boolean)),
     rail,
   ].filter(Boolean));
 
@@ -582,31 +581,6 @@ function openDayChooser(anchor, mark) {
     document.addEventListener("click", dayChooserDocClick, true);
     document.addEventListener("keydown", dayChooserEsc);
   }, 0);
-}
-
-/** "Nästan där": the sets you got close on but never finished at 100 %, closest first. Each row shows
- *  the best score as a strip of ten dots and links straight into the set. Null when there are none. */
-function nearPanel() {
-  const { items, total } = nearlyThere(store.assignments, store.attempts);
-  if (!items.length) return null;
-  const rows = items.map(({ assignment: a, best, attempts }) => {
-    const pct = Math.round(best);
-    return el("a.near__row", { href: `#/session/${a.id}`, "aria-label": t("menu.nearAria", { title: a.title, best: pct }) }, [
-      el("span.near__txt", {}, [
-        el("b", {}, a.title),
-        el("small", {}, [t("menu.nearBest", { best: pct }), plural(attempts, "menu.nearTriesOne", "menu.nearTriesMany", { n: attempts })].join(" · ")),
-        el("span.near__bar", { "aria-hidden": "true" }, [el("i", { style: { width: `${pct}%` } })]),
-      ]),
-      el("span.near__go", {}, [t("menu.nearGo"), icon(ICONS.arrow, 14)]),
-    ]);
-  });
-  return el("section.home-panel.home-panel--near", {}, [
-    el("div.home-panel__label", {}, [
-      el("span", {}, t("menu.nearTitle")),
-      el("small.near__sub", {}, plural(total, "menu.nearSubOne", "menu.nearSubMany", { n: total })),
-    ]),
-    el("div.near__list", {}, rows),
-  ]);
 }
 
 
