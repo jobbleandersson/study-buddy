@@ -1980,22 +1980,6 @@ body.has-welcome { overflow: hidden; }
 .cmd__row.is-sel { background: var(--brand-tint); }
 .cmd__sub { font-size: 12px; color: var(--ink-faint); flex: none; }
 
-/* Weekly recap — a slim line at the top of the Today panel */
-.recap {
-  display: flex; align-items: center; justify-content: space-between; gap: var(--s-3);
-  padding: 6px var(--s-3); margin-bottom: var(--s-3);
-  border-radius: var(--r-sm); border: 1px solid var(--line);
-  background: var(--surface-sunk); font-size: var(--fs-sm);
-}
-.recap > div { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; min-width: 0; }
-.recap strong { font-family: var(--font-display); }
-.recap__body { color: var(--ink-soft); }
-.recap__x {
-  flex: none; border: none; background: none; cursor: pointer;
-  font-size: 18px; line-height: 1; color: var(--ink-faint); padding: 2px 4px;
-}
-.recap__x:hover { color: var(--ink); }
-
 .nav-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s-3); margin-top: var(--s-5); }
 .nav-row > div { flex-wrap: wrap; justify-content: flex-end; }
 

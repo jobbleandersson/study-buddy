@@ -189,7 +189,6 @@ function seedState() {
       freezeMark: 0,                 // highest 7-multiple streak already rewarded
       bestStreak: 0,                 // longest streak ever, for a "personal best" line
       goalDays: [],                  // day keys where the daily goal was reached
-      recapWeek: null,               // ISO "YYYY-Www" of the last recap card dismissed
       lastBackupAt: null,            // ms of the last Export JSON — drives the backup nudge
       backupNudgeAt: null,           // ms the backup nudge was last dismissed
     },
@@ -1331,11 +1330,6 @@ class Store extends EventTarget {
     });
     if (unlocked.length) this.dispatchEvent(new CustomEvent("achievements", { detail: unlocked }));
     return true;
-  }
-
-  /** The user closed this week's recap card — don't show it again until next week. */
-  dismissRecap(weekKey) {
-    this.update((s) => { s.activity.recapWeek = weekKey; });
   }
 
   // ---------- memory rules ("Minnesregler") ----------

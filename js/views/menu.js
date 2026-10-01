@@ -7,7 +7,6 @@ import { t, plural, fmtDate, relativeDay, daysUntil, getLang } from "../lib/i18n
 import { importSet } from "../data/library.js";
 import { loadLibraryIndex, loadLibraryTranslations, baseSubjectName } from "../lib/library-content.js";
 import { localDayKey } from "../lib/activity.js";
-import { weeklyRecap, isoWeek } from "../lib/recap.js";
 import { masteryByTopic, masteryForAssignment } from "../lib/mastery.js";
 import { monthCalendar, weekStrip } from "../components/calendar.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
@@ -434,12 +433,11 @@ function tonightCard() {
   ]);
 }
 
-/** The right-hand rail on the home page: the weekly recap (until dismissed),
- *  backup and review nudges when due, an always-present mini calendar +
+/** The right-hand rail on the home page: the backup and review nudges when due, an always-present mini calendar +
  *  Upcoming list, and an achievements teaser (the badge closest to
  *  unlocking, or a "you got them all" note). */
 function homeRail() {
-  const panels = [recapCard(), backupPanel(), reviewPanel(), calendarPanel(), achievementsPanel()].filter(Boolean);
+  const panels = [backupPanel(), reviewPanel(), calendarPanel(), achievementsPanel()].filter(Boolean);
   return panels.length ? el("aside.home-rail", {}, panels) : null;
 }
 
@@ -584,33 +582,6 @@ function openDayChooser(anchor, mark) {
     document.addEventListener("click", dayChooserDocClick, true);
     document.addEventListener("keydown", dayChooserEsc);
   }, 0);
-}
-
-/** A once-a-week summary card, shown on the menu until dismissed. */
-function recapCard() {
-  const week = isoWeek();
-  if (store.state.activity.recapWeek === week) return null;
-  const r = weeklyRecap(store.state);
-  if (!r) return null;
-
-  const bits = [
-    plural(r.days, "recap.daysOne", "recap.daysMany"),
-    plural(r.questions, "recap.qOne", "recap.qMany"),
-  ];
-  if (r.topicsUp) bits.push(plural(r.topicsUp, "recap.topicsOne", "recap.topicsMany"));
-
-  const card = el("div.recap", { role: "status" }, [
-    el("div", {}, [
-      el("strong", {}, t("recap.title")),
-      el("span.recap__body", {}, bits.join(" · ")
-        + (r.topSubject ? " · " + t("recap.strongest", { subject: r.topSubject }) : "")),
-    ]),
-    el("button.recap__x", {
-      type: "button", "aria-label": t("common.close"),
-      onclick: () => { store.dismissRecap(week); card.remove(); },
-    }, "×"),
-  ]);
-  return card;
 }
 
 /** "Nästan där": the sets you got close on but never finished at 100 %, closest first. Each row shows
