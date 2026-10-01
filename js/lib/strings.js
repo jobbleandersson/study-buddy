@@ -2083,8 +2083,12 @@ export const STRINGS = {
     "menu.calendarEmptyWeekNext": "Nothing this week — next is {when}.",
     "due.markTest": "This is a test — show a countdown and build an exam plan",
     "ach.nextUp": "Next up",
-    "ach.showTiersOne": "Show 1 more tier",
-    "ach.showTiersMany": "Show {n} more tiers",
+    "ach.pageLede": "Earn medals by studying steadily. Every track has four tiers — bronze, silver, gold and platinum.",
+    "ach.ofTotal": "of {total}",
+    "ach.tiersEarned": "{n} of {total}",
+    "ach.trackDone": "Every tier earned — nice work!",
+    "ach.toTier": "{have} of {need} to {tier}",
+    "ach.locked": "locked",
 
     /* ---- högskoleprovet ---- */
     "nav.hp": "Högskoleprovet",
@@ -4589,8 +4593,12 @@ export const STRINGS = {
     "menu.calendarEmptyWeekNext": "Inget denna vecka — nästa {when}.",
     "due.markTest": "Det här är ett prov — visa nedräkning och bygg en provplan",
     "ach.nextUp": "Näst på tur",
-    "ach.showTiersOne": "Visa 1 nivå till",
-    "ach.showTiersMany": "Visa {n} nivåer till",
+    "ach.pageLede": "Samla medaljer genom att plugga regelbundet. Varje spår har fyra nivåer – brons, silver, guld och platina.",
+    "ach.ofTotal": "av {total}",
+    "ach.tiersEarned": "{n} av {total}",
+    "ach.trackDone": "Alla nivåer klara – snyggt!",
+    "ach.toTier": "{have} av {need} till {tier}",
+    "ach.locked": "låst",
 
     /* ---- högskoleprovet ---- */
     "nav.hp": "Högskoleprovet",
