@@ -4508,6 +4508,22 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
    than replacing it — the answer stays readable, the note just explains why it stops there. */
 .msg__errnote { margin: var(--s-2) 0 0; font-size: var(--fs-sm); font-style: italic; color: var(--ink-faint); }
 
+/* "Create the set" card under an AI reply that proposes a practice set (components/set-proposal-card.js) */
+.setcard { margin: var(--s-3) 0 0; padding: var(--s-3) var(--s-4); border: 1px solid var(--line-strong); border-radius: var(--r-md); background: var(--surface); color: var(--ink); display: flex; flex-direction: column; gap: 4px; }
+.setcard p { margin: 0; }
+.setcard__title { display: flex; align-items: center; gap: 6px; font-family: var(--font-display); font-weight: 700; line-height: 1.3; }
+.setcard__title svg { flex: none; color: var(--brand); }
+.setcard--done { border-color: var(--ok); }
+.setcard--done .setcard__title svg { color: var(--ok); }
+.setcard__topic { font-size: var(--fs-sm); color: var(--ink-soft); }
+.setcard__facts { font-size: .78rem; color: var(--ink-faint); }
+.setcard__actions { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-top: var(--s-2); }
+.setcard__actions .btn { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; }
+.setcard__hint { margin-top: 2px; font-size: .75rem; color: var(--ink-faint); }
+.setcard__status { display: flex; align-items: center; gap: var(--s-2); margin-top: var(--s-2); font-size: var(--fs-sm); color: var(--ink-soft); }
+.setcard__error { margin-top: var(--s-2); font-size: var(--fs-sm); color: var(--retry-ink, var(--ink)); }
+.setcard--superseded { opacity: .6; }
+
 .history { display: flex; flex-direction: column; gap: var(--s-3); flex: 1; min-height: 0; overflow-y: auto; }
 .history__top { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); }
 .history__count { margin: 0; color: var(--ink-faint); font-size: var(--fs-sm); }

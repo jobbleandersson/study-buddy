@@ -22,11 +22,13 @@
 //                      the separate "Kolla min uträkning" tab (check.js), not a mode here.
 
 import { store } from "../store.js";
-import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
+import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
 import { markdown } from "../lib/markdown.js";
 import { announce } from "../lib/a11y.js";
 import { shrinkImage } from "../lib/photo.js";
-import { tutorStream, ClaudeError } from "../claude.js";
+import { tutorStream, generateAssignment, ClaudeError } from "../claude.js";
+import { extractSetBrief, withSetId, pickMaterial, generationParams } from "../lib/set-brief.js";
+import { setProposalCard } from "../components/set-proposal-card.js";
 import { solveChatSystem, studyChatSystem } from "../prompts.js";
 import { STUDY_MODES, isStudyMode, trimHistory, MAX_INPUT_CHARS } from "../lib/study-modes.js";
 import { t, plural } from "../lib/i18n.js";
@@ -60,7 +62,9 @@ export function renderSolve(qs) {
     abort: null,        // lets switching mode mid-stream cut the old reply off cleanly
     chatId: newChatId(), // the key this conversation is saved under (lib/chat-history.js)
     material: null,     // a set / file the answers are based on (lib/chat-material.js)
+    cards: [],          // the "create this set" cards in this conversation, oldest first
   };
+  let mounted = true;   // false once the page is left: a set that finishes after that is announced by a toast
 
   // Built once; mutated directly from here on (streaming and attach
   // previews need to update in place without losing focus or typed text).
@@ -83,9 +87,13 @@ export function renderSolve(qs) {
    *  finished reply gets a bookmark. Runs on every streamed chunk, with `final` only at the end. */
   function renderReply(bubble, raw, final) {
     const set = state.material?.kind === "set";
-    const { text, refs: sources } = extractSourceRefs(raw, set ? state.material.used : 0);
+    // The assistant's proposal to make a set ends in a machine-readable marker: never shown as text,
+    // and the card for it appears only once the reply is complete (a half-streamed marker is hidden too).
+    const { text: readable, brief } = extractSetBrief(raw);
+    const { text, refs: sources } = extractSourceRefs(readable, set ? state.material.used : 0);
     bubble.innerHTML = markdown(text);
     if (!final) return;
+    if (brief) bubble.appendChild(proposalCard(brief, raw));
     const foot = el("div.msg__foot", {}, [
       sources.length
         ? el("span.msg__sources", {}, [
@@ -96,6 +104,48 @@ export function renderSolve(qs) {
       saveButton(text),
     ]);
     bubble.appendChild(foot);
+  }
+
+  /** The card under a reply that proposes a set. A newer proposal retires the older cards. */
+  function proposalCard(brief, raw) {
+    const card = setProposalCard({
+      brief,
+      isDone: (id) => store.getAssignment(id) || null,
+      // Same reasons as the composer, but "no server" says generating, not solving.
+      blocked: () => (store.canUseAI() ? "" : store.aiBlockReason() === "unavailable" ? t("create.noServerHere") : blockedToast()),
+      create: (b) => createSet(b, () => state.cards.includes(card)),
+      // Write the new set's id into the saved reply, so reopening this chat later shows "created"
+      // instead of offering to make the same set again.
+      onCreated: (a) => {
+        const i = state.messages.findIndex((m) => m.role === "assistant" && m.content === raw);
+        if (i >= 0) { state.messages[i] = { ...state.messages[i], content: withSetId(raw, a.id) }; persist(); }
+      },
+    });
+    for (const old of state.cards) old.supersede();
+    state.cards.push(card);
+    return card.node;
+  }
+
+  /** Generates the set from a proposal and saves it. The same call "Create" makes, spent only when the
+   *  student taps the card's button. Finishes and saves even if they have left the page meanwhile. */
+  async function createSet(brief, cardStillShown = () => true) {
+    let doc;
+    try {
+      doc = await generateAssignment(generationParams(brief, pickMaterial({ brief, material: state.material, messages: state.messages })));
+    } catch (e) {
+      throw new Error(e instanceof ClaudeError ? e.message : t("setgen.failed"));
+    }
+    if (!doc?.questions?.length) throw new Error(t("setgen.empty"));
+    doc.title = brief.title || doc.title;
+    doc.subject = brief.subject || doc.subject || t("common.general");
+    doc.questions = doc.questions.map((q) => ({ ...q, id: uid() }));
+    const a = store.addAssignmentDoc(doc);
+    store.refreshUsage?.();
+    // Nobody is looking at the card any more (page left, or a new chat started): say where the set went.
+    if (!mounted || !cardStillShown()) {
+      toast(t("setgen.doneToast", { title: a.title }), { actionLabel: t("setgen.practise"), onAction: () => { location.hash = `#/session/${a.id}`; } });
+    }
+    return a;
   }
 
   function saveButton(text) {
@@ -177,6 +227,7 @@ export function renderSolve(qs) {
   function resetChat({ keepMaterial = false } = {}) {
     state.abort?.abort();
     state.messages = [];
+    state.cards = [];
     state.pendingImage = null;
     state.busy = false;
     state.chatId = newChatId();
@@ -211,6 +262,7 @@ export function renderSolve(qs) {
     state.chatId = chat.id;
     state.mode = isStudyMode(chat.mode) ? chat.mode : null;
     state.material = chat.material || null;
+    state.cards = [];
     state.pendingImage = null;
     state.busy = false;
     state.messages = chat.messages.map((m) => ({
@@ -380,7 +432,7 @@ export function renderSolve(qs) {
         state.messages.push({ role: "assistant", content: acc });
         renderReply(bubble, acc, true);
         if (stopReason === "max_tokens") bubble.appendChild(el("p.msg__errnote", {}, t("tutor.truncated")));
-        announce(t("tutor.prefix", { text: acc }));
+        announce(t("tutor.prefix", { text: extractSetBrief(acc).text }));
       }
       persist();
     } catch (e) {
@@ -563,6 +615,7 @@ export function renderSolve(qs) {
     title: t("solve.pageTitle"),
     node: root,
     cleanup: () => {
+      mounted = false;
       state.abort?.abort();
       window.removeEventListener("sb:langsession", onLangSession);
       store.removeEventListener("change", paintAvailability);
