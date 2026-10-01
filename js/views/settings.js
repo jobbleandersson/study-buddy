@@ -11,7 +11,8 @@ import { el, clear, toast, icon, ICONS, downloadText } from "../lib/dom.js";
 import { localDayKey } from "../lib/activity.js";
 import { MODELS } from "../claude.js";
 import { getFont, setFont, getTextSize, setTextSize } from "../lib/typeface.js";
-import { t, plural, getLang } from "../lib/i18n.js";
+import { t, plural, getLang, setLang, LANGS } from "../lib/i18n.js";
+import { getTheme, setTheme } from "../lib/theme.js";
 import { homeButton } from "../components/nav.js";
 import { voiceControls } from "../components/voice-controls.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
@@ -61,10 +62,11 @@ function toggle(label, on, onChange, { disabled = false } = {}) {
   return b;
 }
 
-/** A short choice as segmented buttons (a radio group; arrow keys move it). */
-function seg(label, options, value, onChange) {
-  const group = el("div.set-seg", { role: "radiogroup", "aria-label": label });
-  const btns = options.map(([v, text]) => el("button.set-seg__opt", {
+/** A short choice as segmented buttons (a radio group; arrow keys move it).
+ *  `text` may be a node (the theme picker's swatches). */
+function seg(label, options, value, onChange, { cls = "set-seg", opt = "set-seg__opt" } = {}) {
+  const group = el(`div.${cls}`, { role: "radiogroup", "aria-label": label });
+  const btns = options.map(([v, text]) => el(`button.${opt}`, {
     type: "button", role: "radio", "aria-checked": String(v === value), tabindex: v === value ? "0" : "-1",
   }, text));
   const pick = (b, focus) => {
@@ -86,6 +88,40 @@ function seg(label, options, value, onChange) {
   return group;
 }
 
+/** A quiet "Saved ✓" beside the row's name, instead of a toast on every change.
+ *  role=status so a screen reader still hears it. */
+function saved(node) {
+  const r = node?.closest?.(".set-row");
+  if (!r) return;
+  let tag = r.querySelector(".set-saved");
+  if (!tag) {
+    tag = el("span.set-saved", { role: "status" }, [icon(ICONS.check, 13), t("set.savedShort")]);
+    r.querySelector(".set-row__label")?.append(tag);
+  }
+  tag.classList.remove("is-on");
+  void tag.offsetWidth;            // restart the fade if it's already showing
+  tag.classList.add("is-on");
+  clearTimeout(tag._hide);
+  tag._hide = setTimeout(() => tag.classList.remove("is-on"), 1800);
+}
+
+/** Tiny painted previews of each theme: page, card, accent. */
+const THEME_SWATCHES = {
+  light: ["#F5F7FC", "#FFFFFF", "#2C5CD6"],
+  paper: ["#F1E7D0", "#FBF4E2", "#2C5CD6"],
+  dark: ["#0A0C11", "#121620", "#3A6AE0"],
+};
+function swatch(theme) {
+  const [bg, card, accent] = THEME_SWATCHES[theme] || [];
+  const paint = theme === "system"
+    ? { background: "linear-gradient(90deg, #F5F7FC 50%, #0A0C11 50%)" }
+    : { background: bg };
+  return el("span.set-theme__art", { "aria-hidden": "true", style: paint }, [
+    el("i", { style: { background: theme === "system" ? "linear-gradient(90deg, #FFFFFF 50%, #121620 50%)" : card } }),
+    el("b", { style: { background: theme === "system" ? "#2C5CD6" : accent } }),
+  ]);
+}
+
 /** The short form of an option label: "Kortfattat — korta tips" → "Kortfattat". */
 const short = (label) => String(label).split(/ — | \(/)[0];
 
@@ -102,16 +138,66 @@ export function renderSettings() {
     ? new Date(ts).toLocaleDateString(getLang() === "sv" ? "sv-SE" : "en-GB", { day: "numeric", month: "long" })
     : "";
 
-  /* ---------------- appearance & sound ----------------
-   * Theme + language live in the sidebar footer / topbar (and the ⋮ menu on
-   * mobile) — not duplicated here. */
+  /* ---------------- appearance & sound ---------------- */
+  const themeCtl = seg(t("set.theme"), ["light", "paper", "dark", "system"].map((v) => [v, [
+    swatch(v),
+    el("span.set-theme__name", {}, t(`set.theme${v[0].toUpperCase()}${v.slice(1)}`)),
+  ]]), getTheme(), (v) => { setTheme(v); saved(themeCtl); }, { cls: "set-themes", opt: "set-theme" });
+  // Follow a theme change made elsewhere (the sidebar's theme button) while this page is open.
+  const themeOrder = ["light", "paper", "dark", "system"];
+  const onThemeChange = () => {
+    if (!themeCtl.isConnected) { window.removeEventListener("sb:themechange", onThemeChange); return; }
+    const cur = getTheme();
+    themeCtl.querySelectorAll(".set-theme").forEach((b, i) => {
+      b.setAttribute("aria-checked", String(themeOrder[i] === cur));
+      b.tabIndex = themeOrder[i] === cur ? 0 : -1;
+    });
+  };
+  window.addEventListener("sb:themechange", onThemeChange);
+
+  const langCtl = seg(t("common.language"), LANGS.map(([code, name]) => [code, name]), getLang(), (v) => {
+    // The whole app re-renders in the new language (main.js, sb:langchange).
+    setLang(v);
+  });
+
+  const fontCtl = seg(t("set.font"), [
+    ["system", t("set.fontSystem")],
+    ["hyperlegible", t("set.fontHyperlegible")],
+  ], getFont(), (v) => { setFont(v); saved(fontCtl); });
+
+  const sizeCtl = seg(t("set.textSize"), [
+    ["s", t("set.textSizeS")], ["m", t("set.textSizeM")], ["l", t("set.textSizeL")],
+  ], getTextSize(), (v) => { setTextSize(v); saved(sizeCtl); });
+
+  // What a question looks like with the chosen typeface and size — the app's
+  // own type settings apply to it live, like everywhere else.
+  const preview = el("div.set-preview", { "aria-hidden": "true" }, [
+    el("span.set-preview__tag", {}, t("set.previewSubject")),
+    el("p.set-preview__q", {}, t("set.previewQ")),
+    el("div.set-preview__opts", {}, [
+      el("span.is-right", {}, [icon(ICONS.check, 14), t("set.previewA")]),
+      el("span", {}, t("set.previewB")),
+      el("span", {}, t("set.previewC")),
+    ]),
+  ]);
+
   const soundCtl = toggle(t("set.sound"), s.sound !== false, (on) => {
     store.setSettings({ sound: on });
-    toast(t("set.soundUpdated"));
+    saved(soundCtl);
     // Turning it on should demonstrate what "on" sounds like.
     if (on) playFanfare();
   });
 
+  const lookPanel = card(ICONS.sun, t("set.lookFeel"), t("set.lookSub"), [
+    row(t("set.theme"), t("set.themeNote"), themeCtl, { stack: true }),
+    row(t("common.language"), t("set.languageNote"), langCtl),
+    row(t("set.font"), t("set.fontNote"), fontCtl),
+    row(t("set.textSize"), null, sizeCtl),
+    row(t("set.previewLabel"), t("set.previewNote"), preview, { stack: true }),
+    row(t("set.sound"), t("set.soundNote"), soundCtl),
+  ]);
+
+  /* ---------------- studying ---------------- */
   const goalInput = el("input", {
     type: "number", min: "0", max: "100", inputmode: "numeric", id: "set-goal",
     value: String(s.dailyGoal ?? 10), "aria-label": t("set.dailyGoal"),
@@ -120,7 +206,7 @@ export function renderSettings() {
     const n = Math.max(0, Math.min(100, Math.round(Number(raw) || 0)));
     goalInput.value = String(n);
     store.setSettings({ dailyGoal: n });
-    toast(t("set.dailyGoalUpdated"));
+    saved(goalInput);
   };
   goalInput.addEventListener("change", () => setGoal(goalInput.value));
   const goalCtl = el("div.set-stepper", {}, [
@@ -129,49 +215,32 @@ export function renderSettings() {
     el("button", { type: "button", "aria-label": "+5", onclick: () => setGoal(Number(goalInput.value) + 5) }, "+"),
   ]);
 
-  const fontCtl = seg(t("set.font"), [
-    ["system", t("set.fontSystem")],
-    ["hyperlegible", t("set.fontHyperlegible")],
-  ], getFont(), (v) => { setFont(v); toast(t("set.saved")); });
-
-  const sizeCtl = seg(t("set.textSize"), [
-    ["s", t("set.textSizeS")], ["m", t("set.textSizeM")], ["l", t("set.textSizeL")],
-  ], getTextSize(), (v) => { setTextSize(v); toast(t("set.saved")); });
-
-  const lookPanel = card(ICONS.sun, t("set.lookFeel"), t("set.lookSub"), [
-    row(t("set.sound"), t("set.soundNote"), soundCtl),
-    row(t("set.dailyGoal"), t("set.dailyGoalNote"), goalCtl),
-    row(t("set.font"), t("set.fontNote"), fontCtl),
-    row(t("set.textSize"), null, sizeCtl),
-    el("p.set-card__foot", {}, t("set.appearanceElsewhere")),
-  ]);
-
-  /* ---------------- studying ---------------- */
   const hintsCtl = seg(t("set.testHints"), [
     ["0", short(t("set.testHints0"))], ["1", "1"], ["2", "2"], ["3", "3"],
-  ], String(s.testHints ?? 2), (v) => { store.setSettings({ testHints: Number(v) }); toast(t("set.saved")); });
+  ], String(s.testHints ?? 2), (v) => { store.setSettings({ testHints: Number(v) }); saved(hintsCtl); });
 
   const adaptiveCtl = toggle(t("set.adaptive"), s.adaptive !== false, (on) => {
     store.setSettings({ adaptive: on });
-    toast(t("set.saved"));
+    saved(adaptiveCtl);
   });
 
   const pomoCtl = seg(t("set.pomodoro"), [
     ["off", t("set.pomodoroOff")], ["25", t("set.pomodoro25")], ["50", t("set.pomodoro50")],
-  ], String(s.pomodoro || "off"), (v) => { store.setSettings({ pomodoro: v }); toast(t("set.saved")); });
+  ], String(s.pomodoro || "off"), (v) => { store.setSettings({ pomodoro: v }); saved(pomoCtl); });
 
   const voiceSupported = "speechSynthesis" in window;
   const voiceCtl = toggle(t("set.voice"), s.voice === true, (on) => {
     store.setSettings({ voice: on });
-    toast(t("set.saved"));
+    saved(voiceCtl);
   }, { disabled: !voiceSupported });
 
   const rulesCtl = toggle(t("set.rulePrompts"), s.rulePrompts !== false, (on) => {
     store.setSettings({ rulePrompts: on });
-    toast(t("set.saved"));
+    saved(rulesCtl);
   });
 
   const studyPanel = card(ICONS.book, t("set.studying"), t("set.studySub"), [
+    row(t("set.dailyGoal"), t("set.dailyGoalNote"), goalCtl),
     row(t("set.adaptive"), t("set.adaptiveNote"), adaptiveCtl),
     row(t("set.testHints"), t("set.testHintsNote"), hintsCtl),
     row(t("set.pomodoro"), t("set.pomodoroNote"), pomoCtl),
@@ -234,53 +303,37 @@ export function renderSettings() {
    * isn't spent. Otherwise it's a status row and whatever the one missing
    * thing is. */
   function statusPill(ok, text) {
-    return el("span.set-pill", {}, [el("span.dot", { style: { background: ok ? "var(--ok)" : "var(--ink-faint)" } }), text]);
+    return el("span.set-pill" + (ok ? ".is-on" : ""), {}, [el("span.dot", { style: { background: ok ? "var(--ok)" : "var(--ink-faint)" } }), text]);
   }
 
-  function premiumTeaser() {
-    return store.isPremium() ? null : el("p.set-row__note", {}, [
-      t("set.premiumTeaser") + " ",
-      el("a", { href: "#/premium" }, t("set.premiumLink")),
-    ]);
+  function premiumLink() {
+    return store.isPremium() ? null : el("a.btn.btn--ghost.btn--sm", { href: "#/premium" }, t("set.premiumLink"));
   }
 
   function aiSection() {
-    const serverStatus = !store.proxyUp ? t("set.serverDown")
-      : !store.proxyKeyConfigured ? t("set.serverNoKey")
-      : t("set.serverLive");
-
     if (!store.canUseAI()) {
       const serverReady = store.proxyUp && store.proxyKeyConfigured;
-      let reason;
+      const resets = fmtResetDate(store.aiUsage?.resetsAt);
+      let body;
       if (serverReady && store.aiOverBudget) {
-        reason = t("set.aiQuotaReached", { date: fmtResetDate(store.aiUsage?.resetsAt) });
+        body = row(t("set.aiOutLabel"), resets ? t("set.aiOutNote", { date: resets }) : t("set.aiOutNoteNoDate"), [statusPill(false, t("set.aiPillOut")), premiumLink()].filter(Boolean));
       } else if (serverReady && !store.authed) {
-        reason = el("span", {}, [t("set.aiNeedsAccount"), " ", el("a", { href: "#/login" }, t("account.signIn"))]);
+        body = row(t("set.aiSignInLabel"), t("set.aiSignInNote"), el("a.btn.btn--sm", { href: "#/login" }, t("account.signIn")));
       } else {
-        reason = t("set.aiDormant");
+        body = row(t("set.aiDownLabel"), t("set.aiDownNote"), statusPill(false, t("set.aiPillOff")));
       }
-      return card(ICONS.spark, t("set.aiTitle"), t("set.aiSub"), [
-        row(t("set.statusLabel"), reason, statusPill(serverReady, serverStatus)),
-        // Only when the reason is the quota-reached line — not merely whenever the
-        // budget is spent while the server is down (an upsell under "AI isn't
-        // connected" reads as contradictory).
-        serverReady && store.aiOverBudget ? premiumTeaser() : null,
-        el("details.set-details", {}, [
-          el("summary", {}, t("set.aiHowConnect")),
-          el("p.set-row__note", {}, t("set.serverBody")),
-        ]),
-      ]);
+      return card(ICONS.spark, t("set.aiTitle"), t("set.aiSub"), [body]);
     }
 
     const usage = store.aiUsage;
-    const pct = usage?.limit ? Math.min(100, Math.round((usage.used / usage.limit) * 100)) : 0;
+    const pct = usage?.limit ? Math.min(100, Math.round((usage.used / usage.limit) * 100)) : null;
     const verbCtl = seg(t("set.replyLength"), [
       ["concise", short(t("set.verbConcise"))],
       ["normal", short(t("set.verbNormal"))],
       ["detailed", short(t("set.verbDetailed"))],
     ], s.tutorVerbosity || "normal", (v) => {
       store.setSettings({ tutorVerbosity: v });
-      toast(t("set.tutorStyleUpdated"));
+      saved(verbCtl);
     });
     const modelTable = el("table.preset-table", {}, [
       el("tbody", {}, [
@@ -291,14 +344,20 @@ export function renderSettings() {
     ]);
 
     return card(ICONS.spark, t("set.aiTitle"), t("set.aiSub"), [
-      row(t("set.statusLabel"), t("set.serverBody"), statusPill(true, serverStatus)),
-      usage ? row(t("set.usageLabel"), [
-        t("set.aiUsageLine", { used: usage.used.toLocaleString(), limit: usage.limit.toLocaleString() }),
-        usage.resetsAt ? " · " + t("set.aiUsageResets", { date: fmtResetDate(usage.resetsAt) }) : "",
-      ].join(""), el("div.set-usage", { role: "img", "aria-label": `${pct}%` }, [el("i", { style: { width: `${pct}%` } })])) : null,
-      premiumTeaser(),
-      row(t("set.replyLength"), null, verbCtl),
-      row(t("set.modelTitle"), t("set.modelIntro"), modelTable, { stack: true }),
+      row(t("set.aiOnLabel"), t("set.aiOnNote"), statusPill(true, t("set.aiPillOn"))),
+      pct != null ? row(t("set.aiMonthLabel"), [
+        t("set.aiUsedPct", { pct }),
+        usage.resetsAt ? " " + t("set.aiRefills", { date: fmtResetDate(usage.resetsAt) }) : "",
+      ].join(""), [
+        el("div.set-usage", { role: "img", "aria-label": t("set.aiUsedPct", { pct }) }, [el("i", { style: { width: `${pct}%` } })]),
+        el("span.set-usage__pct", {}, `${pct} %`),
+      ]) : null,
+      row(t("set.replyLength"), t("set.replyLengthNote"), verbCtl),
+      el("details.set-details", {}, [
+        el("summary", {}, t("set.modelsLabel")),
+        el("p.set-row__note", {}, t("set.modelIntro")),
+        modelTable,
+      ]),
     ]);
   }
 

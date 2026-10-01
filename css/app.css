@@ -2784,6 +2784,7 @@ body.route-chat .sitechat__panel { display: none; }
 .set-row__note.note--warn { padding: 6px 10px; }
 .set-row__ctl { flex: none; display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: var(--s-2); }
 .set-row--stack .set-row__ctl { justify-content: flex-start; }
+.set-row--stack .set-row__ctl > .set-themes, .set-row--stack .set-row__ctl > .set-preview { width: 100%; }
 .set-row--stack .voicectl { max-width: 560px; }
 .set-row--danger .set-row__label { color: var(--retry-ink); }
 .btn.set-danger { color: var(--retry-ink); }
@@ -2855,6 +2856,56 @@ body.route-chat .sitechat__panel { display: none; }
 }
 .set-chip.is-ok { background: var(--ok-tint); color: var(--ok-ink); }
 .set-chip.is-warn { background: var(--retry-tint); color: var(--retry-ink); }
+
+/* "Sparat ✓" beside a row's name — fades in, then out. */
+.set-saved {
+  display: inline-flex; align-items: center; gap: 4px; margin-left: 10px; vertical-align: 1px;
+  font-size: 12px; font-weight: 600; color: var(--ok-ink); opacity: 0; transition: opacity var(--dur-fast);
+}
+.set-saved.is-on { opacity: 1; }
+
+/* Theme picker: a painted thumbnail of each palette. */
+.set-themes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-3); max-width: 600px; }
+.set-theme {
+  display: grid; gap: 8px; padding: 8px 8px 10px; border: 1px solid var(--line); border-radius: var(--r-md);
+  background: var(--surface); font: inherit; color: inherit; cursor: pointer; text-align: left;
+  transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
+}
+.set-theme:hover { border-color: var(--line-strong); }
+.set-theme[aria-checked="true"] { border-color: var(--brand); box-shadow: 0 0 0 1px var(--brand); }
+.set-theme:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+.set-theme__art {
+  position: relative; display: block; height: 56px; border-radius: 7px; overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(127, 127, 127, .25);
+}
+.set-theme__art i { position: absolute; left: 10px; right: 10px; top: 12px; bottom: 0; border-radius: 5px 5px 0 0; }
+.set-theme__art b { position: absolute; left: 18px; top: 22px; width: 34%; height: 6px; border-radius: 3px; }
+.set-theme__name { font-size: var(--fs-sm); font-weight: 600; padding-left: 2px; }
+.set-theme[aria-checked="true"] .set-theme__name { color: var(--brand-ink); }
+
+/* Live type preview: a question as the app shows one. */
+.set-preview {
+  max-width: 600px; padding: var(--s-4); border: 1px solid var(--line); border-radius: var(--r-md);
+  background: var(--surface-sunk);
+}
+.set-preview__tag {
+  display: inline-block; padding: 2px 8px; border-radius: var(--r-full); font-size: 11px; font-weight: 700;
+  letter-spacing: .04em; text-transform: uppercase; background: var(--brand-tint); color: var(--brand-ink);
+}
+.set-preview__q { margin: 10px 0 12px; font-size: 1.05rem; font-weight: 600; color: var(--ink); }
+.set-preview__opts { display: grid; gap: 6px; }
+.set-preview__opts span {
+  display: flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid var(--line);
+  border-radius: var(--r-sm); background: var(--surface); color: var(--ink);
+}
+.set-preview__opts .is-right { border-color: color-mix(in srgb, var(--ok) 55%, var(--line)); background: var(--ok-tint); color: var(--ok-ink); font-weight: 600; }
+
+.set-pill.is-on { background: var(--ok-tint); color: var(--ok-ink); }
+.set-usage__pct { min-width: 44px; text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--ink); }
+
+@media (max-width: 620px) {
+  .set-themes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 
 @media (max-width: 620px) {
   .set-card { padding: 0 var(--s-4) var(--s-2); }
