@@ -241,6 +241,10 @@ describe("two-factor authentication: email method", () => {
   async function signup() {
     const email = uniqueEmail();
     await client.post("/api/auth/signup", { email, password: PASSWORD, consent: true });
+    // Signup mails its verification link without waiting for it (best-effort, routes/auth.js), so it
+    // can land after the response. Wait for it here: otherwise a test that counts this address's mail
+    // can see it arrive mid-test, and lastCode() can pick it up instead of the 2FA code.
+    for (let i = 0; i < 100 && fake.mailsTo(email).length === 0; i++) await new Promise((r) => setTimeout(r, 20));
     return email;
   }
   const row = (email) => server.db.prepare(

@@ -73,6 +73,17 @@ function activeFriendIds(userId) {
   `).all(userId, userId, userId);
 }
 
+// A profile picture (js/components/avatar-editor.js) travels inside each person's synced state. That
+// blob is whatever the client PUT, so before a picture goes out to a friend it is checked against the
+// same shape and size cap as js/store.js (AVATAR_RE / AVATAR_MAX) — anything else is dropped, never
+// forwarded to other people's browsers.
+const AVATAR_RE = /^data:image\/(webp|jpeg|png);base64,[A-Za-z0-9+/=]+$/;
+const AVATAR_MAX = 200_000;
+function avatarFrom(blob) {
+  const a = blob?.avatar;
+  return typeof a === "string" && a.length <= AVATAR_MAX && AVATAR_RE.test(a) ? a : null;
+}
+
 // This week's questions answered, and current streak, for the signed-in user
 // and every active friend — resets weekly (a lifetime-total leaderboard would
 // just be permanently led by whoever joined first). Streak/week boundaries
@@ -98,6 +109,7 @@ friends.get("/friends/leaderboard", requireAuth, (req, res) => {
       email: friendEmail(userId),
       isMe: userId === req.user.userId,
       synced: !!row,
+      avatar: avatarFrom(blob),
       questionsThisWeek,
       streak: currentStreakFromUTC(blob?.activity?.daysStudied || [], blob?.activity?.frozenDays || []),
     };
