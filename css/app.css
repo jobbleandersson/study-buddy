@@ -4593,3 +4593,7 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .talkvoices__who { flex: none; width: 3.2em; font-weight: 600; font-size: var(--fs-sm); }
 .talkvoices__row .reading__voice { flex: 1; min-width: 0; }
 .talk__hint { font-size: var(--fs-sm); }
+
+/* subject picker: courses grouped under their subject ("Matematik" → 1 · 2 · 3) */
+.subjgroup + .subjgroup { margin-top: var(--s-5); }
+.subjgroup__title { font-size: var(--fs-sm); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 var(--s-2); }
