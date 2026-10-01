@@ -3,7 +3,7 @@
 // permanently led by whoever signed up first. Needs an account + the
 // backend; signed-out (or no server), it's a sign-in prompt.
 
-import { store } from "../store.js";
+import { store, isAvatarDataUrl } from "../store.js";
 import { el, clear, toast, icon, ICONS } from "../lib/dom.js";
 import { FRIEND_INVITE_CODE_URL, FRIEND_REDEEM_URL, FRIEND_LEADERBOARD_URL, unfriendUrl } from "../config.js";
 import { shareCard, tierEmoji } from "../lib/share-card.js";
@@ -127,8 +127,19 @@ export function renderLeaderboard() {
       }),
     }, [icon(ICONS.share, 14)]) : null;
 
+    // A profile picture stands in for the rank number, the gold/silver/bronze moving to a ring round
+    // it; with no picture the numbered circle stays. Your own comes straight from this device (it may
+    // not have synced yet), a friend's from the server — checked again before it reaches an <img>.
+    const pic = entry.isMe ? store.avatar : (isAvatarDataUrl(entry.avatar) ? entry.avatar : null);
+    const lead = pic
+      ? el("span.lbavatar" + (tier ? `.lbavatar--${tier}` : ""), {}, [
+        el("img", { src: pic, alt: "", width: 36, height: 36 }),
+        el("span.sr-only", {}, t("leaderboard.rank", { n: rank })),
+      ])
+      : el("span.lbrank" + (tier ? `.lbrank--${tier}` : ""), {}, String(rank));
+
     return el("div.lbrow" + (entry.isMe ? ".lbrow--me" : ""), {}, [
-      el("span.lbrank" + (tier ? `.lbrank--${tier}` : ""), {}, String(rank)),
+      lead,
       el("div.lbrow__who", {}, [
         el("span.lbrow__handle", {}, entry.isMe ? t("leaderboard.you") : (entry.email ? entry.email.split("@")[0] : "?")),
         !entry.synced ? el("span.note", {}, t("leaderboard.notSyncedYet")) : null,

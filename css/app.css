@@ -3600,6 +3600,17 @@ kbd {
 .lbrank--gold { background: var(--ach-gold); color: #fff; }
 .lbrank--silver { background: var(--ach-silver); color: #fff; }
 .lbrank--bronze { background: var(--ach-bronze); color: #fff; }
+/* A profile picture in place of the rank number; the tier colour becomes the ring. The number circle
+   gets margin to the picture's 36px footprint, so names line up whichever a row shows. */
+.lbrank { margin: 4px; }
+.lbavatar {
+  flex: none; position: relative; width: 36px; height: 36px; border-radius: var(--r-full);
+  overflow: hidden; background: var(--surface-sunk); box-shadow: 0 0 0 1px var(--line);
+}
+.lbavatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.lbavatar--gold { box-shadow: 0 0 0 2px var(--ach-gold); }
+.lbavatar--silver { box-shadow: 0 0 0 2px var(--ach-silver); }
+.lbavatar--bronze { box-shadow: 0 0 0 2px var(--ach-bronze); }
 .lbrow__who { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
 .lbrow__handle { font-weight: 700; font-family: var(--font-display); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .lbrow__stats { display: flex; align-items: center; gap: var(--s-4); flex: none; }
