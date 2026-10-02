@@ -37,22 +37,35 @@ export function mountSiteChat() {
   const inputEl = el("input.sitechat__input", {
     type: "text", placeholder: t("sitechat.ask"), "aria-label": t("sitechat.askAria"),
   });
-  const sendBtn = el("button.iconbtn", { type: "submit", "aria-label": t("sitechat.send"), style: { color: "var(--brand)" } }, [icon(ICONS.arrow, 18)]);
-  const formEl = el("form.sitechat__form", { onsubmit: (e) => { e.preventDefault(); submit(); } }, [inputEl, sendBtn]);
+  const sendBtn = el("button.sitechat__send", { type: "submit", "aria-label": t("sitechat.send"), disabled: true }, [icon(ICONS.arrow, 18)]);
+  // The send button wakes up once there's something to send.
+  inputEl.addEventListener("input", () => { sendBtn.disabled = !inputEl.value.trim() || busy; });
+  const formEl = el("form.sitechat__form", { onsubmit: (e) => { e.preventDefault(); submit(); } }, [
+    el("div.sitechat__composer", {}, [inputEl, sendBtn]),
+  ]);
+  const fineEl = el("p.sitechat__fine", {}, t("sitechat.fine"));
 
-  const mascotEl = mascot("idle", 32);
+  const mascotEl = mascot("idle", 36);
   const titleEl = el("div.sitechat__title", {}, t("sitechat.title"));
-  const subEl = el("div.sitechat__sub", {}, t("sitechat.sub"));
+  const subEl = el("div.sitechat__sub");
   const closeBtn = el("button.iconbtn.iconbtn--sm", { type: "button", "aria-label": t("common.close"), onclick: close }, [icon(ICONS.close, 16)]);
   const panel = el("div.sitechat__panel", { role: "dialog", "aria-modal": "false", "aria-label": t("sitechat.title"), hidden: true }, [
     el("div.sitechat__head", {}, [
       mascotEl,
-      el("div", { style: { flex: "1", minWidth: "0" } }, [titleEl, subEl]),
+      el("div.sitechat__id", {}, [titleEl, subEl]),
       closeBtn,
     ]),
     logEl,
     formEl,
+    fineEl,
   ]);
+
+  /** "Svarar direkt" with a live dot, or "not available" with a grey one. */
+  function paintStatus() {
+    const on = store.hasKey();
+    clear(subEl);
+    subEl.append(el(`i.solvehead__livedot${on ? "" : ".is-off"}`, { "aria-hidden": "true" }), t(on ? "sitechat.statusOn" : "sitechat.statusOff"));
+  }
 
   fab.addEventListener("click", () => (opened ? close() : open()));
 
@@ -65,7 +78,8 @@ export function mountSiteChat() {
     fab.setAttribute("aria-label", t("sitechat.fabLabel"));
     panel.setAttribute("aria-label", t("sitechat.title"));
     titleEl.textContent = t("sitechat.title");
-    subEl.textContent = t("sitechat.sub");
+    paintStatus();
+    fineEl.textContent = t("sitechat.fine");
     closeBtn.setAttribute("aria-label", t("common.close"));
     inputEl.placeholder = t("sitechat.ask");
     inputEl.setAttribute("aria-label", t("sitechat.askAria"));
@@ -82,7 +96,7 @@ export function mountSiteChat() {
         el("p.note", {}, t("sitechat.signInBody")),
         el("a.btn.btn--sm", { href: "#/login", style: { marginTop: "12px" } }, t("login.signIn")),
       ]));
-      formEl.hidden = true;
+      formEl.hidden = fineEl.hidden = true;
       return;
     }
     if (store.aiBlockReason() === "quota") {
@@ -90,7 +104,7 @@ export function mountSiteChat() {
         el("p", {}, t("sitechat.quotaTitle")),
         el("p.note", {}, t("sitechat.quotaBody", { date: resetDateText(store.aiUsage?.resetsAt) })),
       ]));
-      formEl.hidden = true;
+      formEl.hidden = fineEl.hidden = true;
       return;
     }
     const status = !store.proxyUp ? t("set.serverDown")
@@ -100,19 +114,32 @@ export function mountSiteChat() {
       el("p", {}, t("sitechat.dormantTitle")),
       el("p.note", {}, t("sitechat.dormantBody", { status })),
     ]));
-    formEl.hidden = true;
+    formEl.hidden = fineEl.hidden = true;
   }
 
+  // A few common questions to start from — they go away once you've asked one.
+  let suggestEl = null;
   function paintIntro() {
     clear(logEl);
-    formEl.hidden = false;
+    formEl.hidden = fineEl.hidden = false;
     append("ai", t("sitechat.intro"));
+    suggestEl = el("div.sitechat__suggest", {}, [
+      el("p", {}, t("sitechat.suggestTitle")),
+      ...["sitechat.q1", "sitechat.q2", "sitechat.q3", "sitechat.q4"].map((k) => el("button.sitechat__chip", {
+        type: "button", onclick: () => { inputEl.value = t(k); submit(); },
+      }, t(k))),
+    ]);
+    logEl.appendChild(suggestEl);
   }
 
+  /** A message: the student's on the right; the helper's on the left, beside
+   *  a small sparkles avatar. Returns the bubble so a stream can fill it. */
   function append(who, text) {
     const node = el(`div.msg.${who}`, {}, []);
     node.innerHTML = who === "me" ? escapeHtml(text) : markdown(text);
-    logEl.appendChild(node);
+    logEl.appendChild(who === "ai"
+      ? el("div.sitechat__row", {}, [el("span.sitechat__av", { "aria-hidden": "true" }, icon(ICONS.spark, 13)), node])
+      : node);
     logEl.scrollTop = logEl.scrollHeight;
     return node;
   }
@@ -122,6 +149,7 @@ export function mountSiteChat() {
     panel.hidden = false;
     fab.setAttribute("aria-expanded", "true");
     clear(fab); fab.appendChild(icon(ICONS.close, 22));
+    paintStatus();
     if (!messages.length) store.hasKey() ? paintIntro() : paintDormant();
     inputEl.focus();
   }
@@ -137,6 +165,9 @@ export function mountSiteChat() {
     const text = inputEl.value.trim();
     if (!text || busy || !store.hasKey()) return;
     inputEl.value = "";
+    sendBtn.disabled = true;
+    suggestEl?.remove();
+    suggestEl = null;
     append("me", text);
     messages.push({ role: "user", content: text });
     busy = true;
