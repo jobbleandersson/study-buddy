@@ -244,8 +244,9 @@ export async function renderNationalMix(subjectId, qs) {
   const only = (qs?.get?.("sets") || "").split(",").filter(Boolean);
   const inSubject = store.assignments.filter((a) => a.subjectId === subjectId);
   const scoped = only.length ? inSubject.filter((a) => only.includes(a.id)) : [];
-  // Sets since removed from the test fall back to the whole subject.
-  const sets = scoped.length ? scoped : inSubject;
+  // A test's mock asks only its own sets: if every one of them has since been deleted there is
+  // nothing to ask, rather than quietly falling back to the whole subject.
+  const sets = only.length ? scoped : inSubject;
   const setsQuery = scoped.length ? `&sets=${scoped.map((a) => a.id).join(",")}` : "";
   const pool = sets.flatMap((a) => a.questions.map((q) => q.id));
 

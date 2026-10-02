@@ -6,6 +6,7 @@ import { el, clear, mount, append, icon, ICONS, toast, showBanner, hideBanner, d
 import { announce, focusHeading } from "./lib/a11y.js";
 import { t, plural, getLang, setLang, applyLang, LANGS, daysUntil } from "./lib/i18n.js";
 import { localDayKey } from "./lib/activity.js";
+import { prepHashForSet } from "./lib/exam.js";
 import { THEMES, getTheme, setTheme } from "./lib/theme.js";
 import { openPopover, closePopover } from "./lib/popover.js";
 import { showAchievementUnlocks } from "./lib/achievement-toast.js";
@@ -674,7 +675,7 @@ function buildNotifications() {
         meta: store.subjects.find((s) => s.id === test.subjectId)?.name || test.title,
         // The day before, the evening plan is the useful place to land.
         href: d === 1 ? `#/tonight/${test.id}`
-          : test.subjectId ? `#/exam-prep/${test.subjectId}` : `#/session/${test.id}`,
+          : test.subjectId ? prepHashForSet(store.exams, test) : `#/session/${test.id}`,
         linkLabel: d === 1 ? t("tonight.notifLink") : t("notif.viewExam"),
         signature,
         read: store.isNotificationRead("exam-reminder", signature),

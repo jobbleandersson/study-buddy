@@ -1,11 +1,18 @@
-// Exam prep (#/exam-prep), the pure part: which sets a subject's next test
-// covers, how ready you are for it, and the day-by-day plan up to it.
+// Exam prep (#/exam-prep), the pure part: what a test covers, how ready you
+// are for it, and the day-by-day plan up to it.
 // No DOM and no store, so it can be tested on its own.
 //
-// A test is not its own record. It's the sets in one subject that are marked
-// "test" and share a due date — the same thing the home countdown, calendar,
-// reminders and the evening-before plan already read. Ticking several sets
-// in the exam dialog gives them all that date.
+// A test is its own record — { id, subjectId, date, title, note, setIds,
+// createdAt } — made in the "Lägg till prov" dialog. What it covers is exactly
+// the sets (`setIds`) the student picked there, including any set built from
+// material added for that test: nothing is inferred from the subject, so a
+// subject's other sets never end up in a test. Everything exam prep shows
+// (readiness, weak spots, the plan, the mock) is worked out from those sets
+// and from the answers given to their questions, and nothing else.
+//
+// The store mirrors a test's date onto the sets it covers (type "test", dueAt)
+// so the home countdown, calendar, reminders and the evening-before plan keep
+// working unchanged; the record is the source of truth.
 
 import { addDays } from "./activity.js";
 
@@ -18,28 +25,86 @@ export const PLAN_MAX_DAYS = 60;
 /** Fewer questions than this in the test's sets and a mock isn't worth it. */
 export const MOCK_MIN_QUESTIONS = 5;
 
+export const EXAM_TITLE_MAX = 80;
+export const EXAM_NOTE_MAX = 400;
+const DAY_RE = /^\d{4}-\d{2}-\d{2}$/;
+
 /** Whole days from one "YYYY-MM-DD" key to another; negative when `to` is earlier. */
 export function dayDiff(from, to) {
   const utc = (k) => Date.UTC(Number(k.slice(0, 4)), Number(k.slice(5, 7)) - 1, Number(k.slice(8, 10)));
   return Math.round((utc(to) - utc(from)) / 864e5);
 }
 
-const isTest = (a) => a && a.type === "test" && typeof a.dueAt === "string";
-
-/** A subject's next test: the soonest date from today on that has a test set,
- *  with every test set of the subject sharing that date. null when none. */
-export function nextExam(assignments, subjectId, today) {
-  const list = (assignments || []).filter((a) => isTest(a) && a.subjectId === subjectId && a.dueAt >= today);
-  if (!list.length) return null;
-  const date = list.reduce((min, a) => (a.dueAt < min ? a.dueAt : min), list[0].dueAt);
-  return { date, days: dayDiff(today, date), sets: list.filter((a) => a.dueAt === date) };
+/** A well-formed test record, or null. Used on whatever arrives from storage or a sync. */
+export function normalizeExam(x) {
+  if (!x || typeof x !== "object" || typeof x.id !== "string" || !x.id) return null;
+  if (typeof x.subjectId !== "string" || !DAY_RE.test(x.date || "")) return null;
+  return {
+    id: x.id,
+    subjectId: x.subjectId,
+    date: x.date,
+    title: typeof x.title === "string" ? x.title.trim().slice(0, EXAM_TITLE_MAX) : "",
+    note: typeof x.note === "string" ? x.note.trim().slice(0, EXAM_NOTE_MAX) : "",
+    setIds: [...new Set((Array.isArray(x.setIds) ? x.setIds : []).filter((id) => typeof id === "string" && id))],
+    createdAt: Number(x.createdAt) || 0,
+  };
 }
 
-/** Every subject's next test, soonest first. */
-export function upcomingExams(assignments, today) {
-  const ids = [...new Set((assignments || []).filter((a) => isTest(a) && a.dueAt >= today).map((a) => a.subjectId))];
-  return ids.map((id) => ({ subjectId: id, ...nextExam(assignments, id, today) }))
-    .sort((x, y) => x.date.localeCompare(y.date));
+/** Tests not yet past, soonest first, each with `days` until it and `sets`: the sets it
+ *  covers that still exist, in the order they were picked. */
+export function upcomingExams(exams, assignments, today) {
+  const byId = new Map((assignments || []).map((a) => [a.id, a]));
+  return (exams || [])
+    .filter((e) => e && e.date >= today)
+    .map((e) => ({ ...e, days: dayDiff(today, e.date), sets: (e.setIds || []).map((id) => byId.get(id)).filter(Boolean) }))
+    .sort((x, y) => x.date.localeCompare(y.date) || (x.createdAt || 0) - (y.createdAt || 0));
+}
+
+/** A subject's next test, or null. */
+export function nextExam(exams, assignments, subjectId, today) {
+  return upcomingExams(exams, assignments, today).find((e) => e.subjectId === subjectId) || null;
+}
+
+/** For each set that a coming test covers, the date of the soonest such test. The store puts
+ *  these dates on the sets themselves. */
+export function examSetDates(exams, today) {
+  const out = new Map();
+  for (const e of exams || []) {
+    if (!e || e.date < today) continue;
+    for (const id of e.setIds || []) {
+      const d = out.get(id);
+      if (!d || e.date < d) out.set(id, e.date);
+    }
+  }
+  return out;
+}
+
+/** One-off migration from the old model, where a test was just "the subject's sets marked test
+ *  with a shared date": one record per subject + date, covering exactly the sets already marked
+ *  — which is what the old exam-prep page showed too. */
+export function examsFromMarkedSets(assignments, newId) {
+  const groups = new Map();
+  for (const a of assignments || []) {
+    if (!a || a.type !== "test" || !DAY_RE.test(a.dueAt || "") || !a.subjectId) continue;
+    const key = `${a.subjectId}|${a.dueAt}`;
+    if (!groups.has(key)) groups.set(key, { subjectId: a.subjectId, date: a.dueAt, setIds: [] });
+    groups.get(key).setIds.push(a.id);
+  }
+  return [...groups.values()].map((g) => ({ id: newId(), title: "", note: "", createdAt: 0, ...g }));
+}
+
+/** The attempts, cut down to the answers given to these sets' questions (an attempt with none of
+ *  them is dropped). Readiness and weak spots for a test are worked out from this, so practice on
+ *  another set of the subject — even on the same topic name — never counts toward it. */
+export function scopeAttempts(attempts, sets) {
+  const ids = new Set();
+  for (const a of sets || []) for (const q of a.questions || []) ids.add(q.id);
+  const out = [];
+  for (const att of attempts || []) {
+    const items = (att.items || []).filter((it) => ids.has(it.questionId));
+    if (items.length) out.push({ ...att, items });
+  }
+  return out;
 }
 
 /** Every topic a group of sets covers, in the order they first appear. */
@@ -114,4 +179,14 @@ export function buildExamPlan({ days, today, untouched = [], weakTopics = [], du
     rows.push({ dayOffset: d, dayKey: addDays(today, d), minutes: PLAN_MINUTES[task.kind], ...task });
   }
   return rows;
+}
+
+/** Where "prepare for this" leads from a set that has a date: the test that covers it, or — when
+ *  none does (the set was just dated or marked a test on its own) — its subject's page with the set
+ *  and date in the link, so the dialog opens ready to make a test of it. */
+export function prepHashForSet(exams, a) {
+  const list = exams || [];
+  const e = list.find((x) => x.setIds.includes(a.id) && x.date === a.dueAt) || list.find((x) => x.setIds.includes(a.id));
+  if (e) return `#/exam-prep/${e.id}`;
+  return `#/exam-prep/${a.subjectId}?date=${a.dueAt}&set=${a.id}`;
 }

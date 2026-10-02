@@ -1,7 +1,8 @@
 import { test, describe } from "node:test";
 import assert from "node:assert/strict";
 import {
-  dayDiff, nextExam, upcomingExams, topicsOf, readiness, practisedSince, buildExamPlan, PLAN_MAX_DAYS,
+  dayDiff, nextExam, upcomingExams, normalizeExam, examSetDates, examsFromMarkedSets, scopeAttempts,
+  topicsOf, readiness, practisedSince, buildExamPlan, prepHashForSet, PLAN_MAX_DAYS,
 } from "../../js/lib/exam.js";
 
 const set = (id, subjectId, extra = {}) => ({
@@ -21,35 +22,100 @@ describe("exam.dayDiff", () => {
   });
 });
 
+const exam = (id, subjectId, date, setIds, extra = {}) => ({ id, subjectId, date, title: "", note: "", setIds, createdAt: 0, ...extra });
+
 describe("exam.nextExam", () => {
   const today = "2026-09-30";
-  test("groups every test set on the soonest date", () => {
-    const list = [
-      set("a", "ma", { type: "test", dueAt: "2026-10-05" }),
-      set("b", "ma", { type: "test", dueAt: "2026-10-05" }),
-      set("c", "ma", { type: "test", dueAt: "2026-11-01" }),
-      set("d", "ma", { dueAt: "2026-10-01" }),            // a deadline, not a test
-      set("e", "sv", { type: "test", dueAt: "2026-10-02" }), // another subject
-    ];
-    const x = nextExam(list, "ma", today);
+  const sets = [set("a", "ma"), set("b", "ma"), set("c", "ma"), set("e", "sv")];
+  test("covers exactly the sets picked for it — never the rest of the subject", () => {
+    const x = nextExam([exam("t1", "ma", "2026-10-05", ["a", "b"])], sets, "ma", today);
     assert.equal(x.date, "2026-10-05");
     assert.equal(x.days, 5);
-    assert.deepEqual(x.sets.map((a) => a.id), ["a", "b"]);
+    assert.deepEqual(x.sets.map((a) => a.id), ["a", "b"]);   // "c" is in the subject but not in the test
+  });
+  test("the soonest of a subject's tests; another subject's test is not its own", () => {
+    const exams = [exam("late", "ma", "2026-11-01", ["c"]), exam("soon", "ma", "2026-10-05", ["a"]), exam("sv", "sv", "2026-10-02", ["e"])];
+    assert.equal(nextExam(exams, sets, "ma", today).id, "soon");
+    assert.equal(nextExam(exams, sets, "sv", today).id, "sv");
+    assert.equal(nextExam(exams, sets, "en", today), null);
+  });
+  test("a set can be in two tests", () => {
+    const exams = [exam("one", "ma", "2026-10-05", ["a"]), exam("two", "ma", "2026-10-20", ["a", "b"])];
+    assert.deepEqual(upcomingExams(exams, sets, today).map((x) => [x.id, x.sets.length]), [["one", 1], ["two", 2]]);
   });
   test("a test today still counts; a past one doesn't", () => {
-    assert.equal(nextExam([set("a", "ma", { type: "test", dueAt: today })], "ma", today).days, 0);
-    assert.equal(nextExam([set("a", "ma", { type: "test", dueAt: "2026-09-29" })], "ma", today), null);
+    assert.equal(nextExam([exam("t", "ma", today, ["a"])], sets, "ma", today).days, 0);
+    assert.equal(nextExam([exam("t", "ma", "2026-09-29", ["a"])], sets, "ma", today), null);
+  });
+  test("a deleted set drops out of the test instead of failing", () => {
+    assert.deepEqual(nextExam([exam("t", "ma", "2026-10-05", ["gone", "a"])], sets, "ma", today).sets.map((a) => a.id), ["a"]);
   });
 });
 
 describe("exam.upcomingExams", () => {
-  test("one entry per subject, soonest first", () => {
-    const list = [
+  test("soonest first, ties by when they were made", () => {
+    const sets = [set("a", "ma"), set("c", "sv")];
+    const exams = [
+      exam("x", "ma", "2026-10-05", ["a"], { createdAt: 9 }),
+      exam("y", "sv", "2026-10-02", ["c"]),
+      exam("z", "ma", "2026-10-05", ["a"], { createdAt: 3 }),
+    ];
+    assert.deepEqual(upcomingExams(exams, sets, "2026-09-30").map((x) => x.id), ["y", "z", "x"]);
+  });
+});
+
+describe("exam.normalizeExam", () => {
+  test("keeps a good record, trims text, de-duplicates set ids", () => {
+    const x = normalizeExam({ id: "t", subjectId: "ma", date: "2026-10-05", title: "  Prov 3 ", note: " kap 3–4 ", setIds: ["a", "a", "b", 7, ""] });
+    assert.deepEqual(x, { id: "t", subjectId: "ma", date: "2026-10-05", title: "Prov 3", note: "kap 3–4", setIds: ["a", "b"], createdAt: 0 });
+  });
+  test("rejects what can't be a test", () => {
+    for (const bad of [null, "x", {}, { id: "t", subjectId: "ma", date: "soon" }, { id: "", subjectId: "ma", date: "2026-10-05" }, { id: "t", date: "2026-10-05" }]) {
+      assert.equal(normalizeExam(bad), null);
+    }
+  });
+});
+
+describe("exam.examSetDates", () => {
+  test("a set in two coming tests gets the sooner date; past tests don't count", () => {
+    const m = examSetDates([
+      exam("one", "ma", "2026-10-20", ["a"]), exam("two", "ma", "2026-10-05", ["a", "b"]), exam("old", "ma", "2026-09-01", ["c"]),
+    ], "2026-09-30");
+    assert.deepEqual([...m], [["a", "2026-10-05"], ["b", "2026-10-05"]]);
+  });
+});
+
+describe("exam.examsFromMarkedSets", () => {
+  test("one test per subject and date, covering just the sets already marked", () => {
+    let n = 0;
+    const out = examsFromMarkedSets([
       set("a", "ma", { type: "test", dueAt: "2026-10-05" }),
       set("b", "ma", { type: "test", dueAt: "2026-10-05" }),
-      set("c", "sv", { type: "test", dueAt: "2026-10-02" }),
-    ];
-    assert.deepEqual(upcomingExams(list, "2026-09-30").map((x) => [x.subjectId, x.sets.length]), [["sv", 1], ["ma", 2]]);
+      set("c", "ma", { type: "test", dueAt: "2026-11-01" }),
+      set("d", "ma", { dueAt: "2026-10-05" }),               // a deadline, not a test
+      set("e", "ma"),                                        // untouched subject set — not swept in
+      set("f", "sv", { type: "test", dueAt: "2026-10-05" }),
+    ], () => `id${++n}`);
+    assert.deepEqual(out.map((x) => [x.subjectId, x.date, x.setIds]), [
+      ["ma", "2026-10-05", ["a", "b"]], ["ma", "2026-11-01", ["c"]], ["sv", "2026-10-05", ["f"]],
+    ]);
+    assert.deepEqual(out.map((x) => x.id), ["id1", "id2", "id3"]);
+  });
+});
+
+describe("exam.scopeAttempts", () => {
+  const sets = [set("a", "ma")];
+  const attempts = [
+    { id: "1", finishedAt: 1, items: [{ questionId: "a-q1", topic: "a-a" }, { questionId: "other-q", topic: "a-a" }] },
+    { id: "2", finishedAt: 2, items: [{ questionId: "other-q", topic: "a-a" }] },
+  ];
+  test("keeps only the answers to the test's own questions, and drops attempts with none", () => {
+    const out = scopeAttempts(attempts, sets);
+    assert.equal(out.length, 1);
+    assert.deepEqual(out[0].items.map((i) => i.questionId), ["a-q1"]);
+  });
+  test("practice on the same topic in another set does not count", () => {
+    assert.deepEqual(scopeAttempts([attempts[1]], sets), []);
   });
 });
 
@@ -111,5 +177,16 @@ describe("exam.buildExamPlan", () => {
     assert.equal(buildExamPlan({ days: 0, today, softest: [a] }), null);
     assert.equal(buildExamPlan({ days: PLAN_MAX_DAYS + 1, today, softest: [a] }), null);
     assert.equal(buildExamPlan({ days: 5, today }), null);
+  });
+});
+
+describe("exam.prepHashForSet", () => {
+  const a = set("a", "ma", { type: "test", dueAt: "2026-10-05" });
+  test("goes to the test that covers the set, preferring the one on its date", () => {
+    const exams = [exam("later", "ma", "2026-11-01", ["a"]), exam("on-date", "ma", "2026-10-05", ["a"])];
+    assert.equal(prepHashForSet(exams, a), "#/exam-prep/on-date");
+  });
+  test("with no test, opens the subject with the set and date ready to fill in", () => {
+    assert.equal(prepHashForSet([], a), "#/exam-prep/ma?date=2026-10-05&set=a");
   });
 });
