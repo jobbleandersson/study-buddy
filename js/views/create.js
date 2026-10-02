@@ -139,16 +139,20 @@ export function renderCreate(prefill) {
   function steps() {
     const map = [["source", t("create.stepSource")], ["input", t("create.stepMaterial")], ["review", t("create.stepReview")]];
     const activeIdx = state.step === "generating" ? 1 : map.findIndex(([k]) => k === state.step);
-    return el("div.steps", {}, map.map(([k, label], i) =>
-      el("div", { class: "step" + (i <= activeIdx ? " on" : "") }, [
-        el("span.step__n", {}, String(i + 1)), label,
+    // Done steps get a check, the current one is filled, the rest wait — joined by a line.
+    return el("ol.steps", { "aria-label": t("create.title") }, map.map(([k, label], i) =>
+      el("li", {
+        class: "step" + (i < activeIdx ? " is-done" : i === activeIdx ? " on" : ""),
+        "aria-current": i === activeIdx ? "step" : null,
+      }, [
+        el("span.step__n", {}, i < activeIdx ? icon(ICONS.check, 13) : String(i + 1)), label,
       ])));
   }
 
   function paint() {
     clear(root);
     root.appendChild(homeButton());
-    root.appendChild(el("h1", { style: { marginBottom: "8px" } }, t("create.title")));
+    root.appendChild(el("h1.create-title", {}, t("create.title")));
     root.appendChild(steps());
     root.appendChild(({ source: sourceStep, input: inputStep, generating: generatingStep, review: reviewStep }[state.step])());
   }
@@ -186,15 +190,21 @@ export function renderCreate(prefill) {
     if (made) location.hash = "#/";
   }
 
+  // Each source has its own colour — the home tiles' palette — on its icon and edge.
+  const SOURCE_COLORS = {
+    paste: "#7650FF", photo: "#EE3D86", pdf: "#FF7426", nationalprov: "#22A35A",
+    blank: "#0FA3C2", import: "#3AA4E6",
+  };
+
   /* ---- step 1: source ----
-   * The two paths that work with no server (build it / import cards) lead;
-   * the AI-generated ones follow, marked when there's no server to run them. */
+   * Two groups: the AI-generated sources (marked when there's no server to run
+   * them), then the two paths that work with no AI at all. */
   function sourceStep() {
     const noServer = !store.hasKey();
     const needsSignIn = store.aiNeedsSignIn();
     const quotaOut = store.aiBlockReason() === "quota";
-    const opt = (key, iconPath, label, desc, needsAi) => el("button.source-opt" + (needsAi && noServer ? ".source-opt--locked" : ""), {
-      type: "button",
+    const opt = (key, iconPath, label, desc, needsAi) => el("button.srcpick" + (needsAi && noServer ? ".is-locked" : ""), {
+      type: "button", style: { "--c": SOURCE_COLORS[key] },
       onclick: () => {
         // Leaving the Nationellt prov source: drop any stale subject lock.
         if (key !== "nationalprov" && state.subjectLocked) {
@@ -205,20 +215,35 @@ export function renderCreate(prefill) {
         state.source = key; state.step = "input"; paint();
       },
     }, [
-      icon(iconPath, 26), label,
-      el("div.note", { style: { fontWeight: "400", marginTop: "4px" } }, desc),
-      needsAi && noServer ? el("span.source-opt__tag", {}, t(needsSignIn ? "create.optNeedsSignIn" : quotaOut ? "create.optQuotaOut" : "create.optNeedsServer")) : null,
-    ].filter(Boolean));
+      el("span.srcpick__ic", { "aria-hidden": "true" }, icon(iconPath, 20)),
+      el("span.srcpick__text", {}, [
+        el("strong", {}, label),
+        el("small", {}, desc),
+        needsAi && noServer ? el("span.srcpick__tag", {}, t(needsSignIn ? "create.optNeedsSignIn" : quotaOut ? "create.optQuotaOut" : "create.optNeedsServer")) : null,
+      ].filter(Boolean)),
+      el("span.srcpick__go", { "aria-hidden": "true" }, icon(ICONS.arrow, 16)),
+    ]);
+    const group = (iconPath, title, sub, opts) => el("section.srcgroup", {}, [
+      el("header.srcgroup__head", {}, [
+        el("span.srcgroup__ic", { "aria-hidden": "true" }, icon(iconPath, 15)),
+        el("div", {}, [el("h2", {}, title), el("p", {}, sub)]),
+      ]),
+      el("div.srcgroup__grid", {}, opts),
+    ]);
 
-    return el("div.panel", {}, [
-      el("p", { style: { marginBottom: "16px" } }, t("create.whereFrom")),
-      el("div.source-grid", {}, [
-        opt("blank", ICONS.plus, t("create.optBlank"), t("create.optBlankSub"), false),
-        opt("import", ICONS.clipboard, t("create.optImport"), t("create.optImportSub"), false),
+    // AI sources first — that's what most people come here for — then the two
+    // that need no AI at all.
+    return el("div.panel.srcpanel", {}, [
+      el("p.srcpanel__q", {}, t("create.whereFrom")),
+      group(ICONS.spark, t("create.groupAi"), t("create.groupAiSub"), [
         opt("paste", ICONS.pencil, t("create.optPaste"), t("create.optPasteSub"), true),
         opt("photo", ICONS.camera, t("create.optPhoto"), t("create.optPhotoSub"), true),
         opt("pdf", ICONS.fileText, t("create.optPdf"), t("create.optPdfSub"), true),
         opt("nationalprov", ICONS.graduation, t("create.optNational"), t("create.optNationalSub"), true),
+      ]),
+      group(ICONS.layers, t("create.groupSelf"), t("create.groupSelfSub"), [
+        opt("blank", ICONS.plus, t("create.optBlank"), t("create.optBlankSub"), false),
+        opt("import", ICONS.clipboard, t("create.optImport"), t("create.optImportSub"), false),
       ]),
       noServer && needsSignIn && el("p.note", { style: { marginTop: "16px" } }, [
         t("create.needSignIn"), el("a", { href: "#/login" }, t("create.needSignInLink")),
