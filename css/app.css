@@ -3689,7 +3689,7 @@ kbd {
 /* ---------- calendar quick-add dialog ---------- */
 /* Quick-add from a calendar day: a head with the day as a small calendar page, three fields,
    and a footer with the actions on the right. */
-.quickadd { max-width: 460px; padding: 0; overflow: hidden; animation: quickadd-in var(--dur-mid) var(--ease-out); }
+.quickadd { max-width: 560px; padding: 0; overflow: hidden; animation: quickadd-in var(--dur-mid) var(--ease-out); }
 @keyframes quickadd-in { from { opacity: 0; transform: translateY(10px) scale(.98); } }
 .quickadd__head {
   display: flex; align-items: center; gap: 14px; padding: var(--s-5) var(--s-5) var(--s-4);
