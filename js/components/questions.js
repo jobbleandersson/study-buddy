@@ -7,7 +7,7 @@
 import { el, clear, icon, ICONS } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { figureURL } from "../lib/figures.js";
-import { gradeAnswer } from "../claude.js";
+import { gradeAnswer, gradeWorking } from "../claude.js";
 import { fromCorrect } from "../lib/srs.js";
 import { t } from "../lib/i18n.js";
 import { store } from "../store.js";
@@ -852,36 +852,78 @@ function worked({ question, tutor, live, testMode, onDone }) {
     if (shown >= steps.length) revealBtn.disabled = true;
   }
 
+  // The AI reads the working and decides how it went — the student is not asked whether they got it
+  // right. With nothing written, or nobody to grade it (no server), it falls back to self-rating.
+  const WORKED_GRADE = { nailed: "easy", roughly: "good", missed: "again" };
+  function settle(level) {
+    result.confidence = level;
+    result.correct = level !== "missed";
+    result.srsGrade = WORKED_GRADE[level];
+    onDone(finalize(result));
+  }
+
   async function finish() {
     ta.disabled = true;
     keypad.toggle.remove(); keypad.pad.remove();
+    const written = ta.value.trim();
+
+    let verdict = null;
+    if (written && live) {
+      doneBtn.disabled = true;
+      doneBtn.textContent = t(testMode ? "q.submitting" : "q.checking");
+      try { verdict = await gradeWorking({ question, working: written }); }
+      catch (e) { console.error("Grading failed:", e); verdict = null; }
+    }
+
     if (testMode) {
       // Nothing is revealed during a test, so the answer has to be graded
       // for real rather than assumed correct because something was typed.
-      const written = ta.value.trim();
-      doneBtn.disabled = true;
-      let verdict = null;
-      try {
-        if (written && live) {
-          doneBtn.textContent = t("q.submitting");
-          try { verdict = await gradeAnswer({ question, studentAnswer: written }); }
-          catch { verdict = null; }
-        }
-        if (!verdict) verdict = written ? heuristic(written, question.answer) : { correct: false };
-      } catch (e) {
-        console.error("Grading failed:", e);
-        verdict = { correct: false };
-      }
-      result.correct = verdict.correct;
+      if (!verdict && written) verdict = heuristic(written, question.answer);
+      result.correct = !!verdict?.correct;
       feedback.className = "feedback";
       feedback.textContent = t(written ? "q.recorded" : "q.leftBlank");
       doneBtn.remove();
       onDone(finalize(result));
       return;
     }
+
+    doneBtn.remove();
+    const solution = `<p style="margin-top:10px"><strong>${escapeHtml(t("q.fullSolution"))}</strong> ${renderRich(question.answer)}</p>`;
+
+    if (verdict) {
+      const missed = verdict.level === "missed";
+      feedback.className = `feedback ${missed ? "retry" : "ok"}`;
+      feedback.innerHTML =
+        `<p>${escapeHtml(verdict.feedback)}</p>` +
+        (verdict.missedPoints?.length ? `<ul>${verdict.missedPoints.map((m) => `<li>${escapeHtml(m)}</li>`).join("")}</ul>` : "") +
+        solution;
+      const brief = written.replace(/\s+/g, " ").slice(0, 120);
+      if (missed) tutor?.note(t("q.tutorWhatMissing", { answer: brief }));
+      else tutor?.celebrate(t("q.tutorGotIt", { answer: brief }));
+      settle(verdict.level);
+      if (missed) {
+        explainWhyRow(tutor, question, written, selfRate);
+        // The grade stands on its own, but it can be appealed — recorded, not silently taken.
+        const appeal = el("button.linkbtn", {
+          type: "button",
+          onclick: () => {
+            result.confidence = "roughly";
+            result.correct = true;
+            result.appealed = true;
+            result.revised = true;
+            result.srsGrade = WORKED_GRADE.roughly;
+            onDone(finalize(result));
+            clear(selfRate);
+            selfRate.appendChild(el("p.note", {}, t("q.appealDone")));
+          },
+        }, t("q.appeal"));
+        selfRate.appendChild(el("p.note", { style: { marginTop: "12px" } }, [t("q.disagree"), appeal, "."]));
+      }
+      return;
+    }
+
     feedback.className = "feedback ok";
     feedback.innerHTML = `<strong>${escapeHtml(t("q.fullSolution"))}</strong> ${renderRich(question.answer)}`;
-    doneBtn.remove();
     selfRate.appendChild(el("p.note", { style: { marginTop: "12px" } }, t("q.reasoningGetThere")));
     selfRate.appendChild(el("div.selfrate", {}, [
       el("button.btn.btn--ok.btn--sm", { type: "button", onclick: () => end("nailed") }, t("q.workedNailed")),
@@ -889,14 +931,10 @@ function worked({ question, tutor, live, testMode, onDone }) {
       el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => end("missed") }, t("q.workedMissed")),
     ]));
   }
-  // The worked-problem self-rate doubles as its confidence signal.
-  const WORKED_GRADE = { nailed: "easy", roughly: "good", missed: "again" };
+  // The self-rate fallback doubles as its confidence signal.
   function end(conf) {
-    result.confidence = conf;
-    result.correct = conf !== "missed";
-    result.srsGrade = WORKED_GRADE[conf];
     selfRate.querySelectorAll("button").forEach((b) => (b.disabled = true));
-    onDone(finalize(result));
+    settle(conf);
   }
 
   return {

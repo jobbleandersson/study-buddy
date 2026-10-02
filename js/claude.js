@@ -2,12 +2,13 @@
 // the actual Claude API key. The browser never sees it.
 
 import { store } from "./store.js";
-import { generationSystem, gradingSystem, checkWorkSystem, podcastSystem } from "./prompts.js";
+import { generationSystem, gradingSystem, workedGradingSystem, checkWorkSystem, podcastSystem } from "./prompts.js";
 import { t } from "./lib/i18n.js";
 import { PROXY_URL } from "./config.js";
 import { parseLooseJSON } from "./lib/loose-json.js";
 import { normalizeCheck } from "./lib/check.js";
 import { parseScript } from "./lib/podcast.js";
+import { shuffleMc } from "./lib/choices.js";
 
 const API_URL = PROXY_URL;
 
@@ -155,6 +156,9 @@ function normalizeDoc(doc) {
       out.choices = Array.isArray(q.choices) ? q.choices : [];
       out.answer = Number.isInteger(q.answerIndex) ? q.answerIndex
         : Number.isInteger(q.answer) ? q.answer : 0;
+      // The model tends to write the correct option first, whatever the prompt says, so the order is
+      // randomised here, in code, rather than left to a request it can ignore.
+      Object.assign(out, shuffleMc({ choices: out.choices, answer: out.answer }));
     } else {
       out.answer = typeof q.answer === "string" ? q.answer : String(q.answer ?? "");
     }
@@ -183,13 +187,13 @@ function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
 export async function gradeAnswer({ question, studentAnswer }) {
   const raw = await callJSON({
     model: modelFor("grade"),
-    max_tokens: 700,
+    max_tokens: 900,
     system: gradingSystem(),
     messages: [{
       role: "user",
       content: [{
         type: "text",
-        text: `Question: ${question.prompt}\n\nModel answer: ${question.answer}\n${question.rubric ? `Rubric: ${question.rubric}\n` : ""}\nStudent answer: "${studentAnswer}"\n\nReturn the JSON only.`,
+        text: `${question.topic ? `Topic: ${question.topic}\n` : ""}Question: ${question.prompt}\n\nModel answer: ${question.answer}\n${question.rubric ? `Rubric: ${question.rubric}\n` : ""}\nStudent answer: "${studentAnswer}"\n\nReturn the JSON only.`,
       }],
     }],
   });
@@ -197,6 +201,34 @@ export async function gradeAnswer({ question, studentAnswer }) {
   return {
     correct: !!j.correct,
     feedback: j.feedback || t(j.correct ? "q.heuristicOk" : "q.heuristicMiss"),
+    missedPoints: Array.isArray(j.missedPoints) ? j.missedPoints : [],
+  };
+}
+
+/** The AI judges a student's written working for a worked problem (nobody asks the student whether
+ *  it was right). Resolves { level: "nailed" | "roughly" | "missed", correct, feedback, missedPoints };
+ *  `correct` is true unless the level is "missed". Throws if the model can't be reached. */
+export async function gradeWorking({ question, working }) {
+  const steps = Array.isArray(question.steps) && question.steps.length
+    ? `\nKey steps of the model solution:\n${question.steps.map((s, i) => `${i + 1}. ${s}`).join("\n")}` : "";
+  const raw = await callJSON({
+    model: modelFor("grade"),
+    max_tokens: 1000,
+    system: workedGradingSystem(),
+    messages: [{
+      role: "user",
+      content: [{
+        type: "text",
+        text: `${question.topic ? `Topic: ${question.topic}\n` : ""}Problem: ${question.prompt}\n\nModel solution (final answer): ${question.answer}${steps}\n${question.rubric ? `Rubric: ${question.rubric}\n` : ""}\nStudent's working:\n"""\n${working}\n"""\n\nReturn the JSON only.`,
+      }],
+    }],
+  });
+  const j = parseLooseJSON(raw);
+  const level = ["nailed", "roughly", "missed"].includes(j.level) ? j.level : (j.correct ? "roughly" : "missed");
+  return {
+    level,
+    correct: level !== "missed",
+    feedback: j.feedback || t(level === "missed" ? "q.heuristicMiss" : "q.heuristicOk"),
     missedPoints: Array.isArray(j.missedPoints) ? j.missedPoints : [],
   };
 }
