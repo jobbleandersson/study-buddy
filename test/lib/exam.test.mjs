@@ -2,7 +2,7 @@ import { test, describe } from "node:test";
 import assert from "node:assert/strict";
 import {
   dayDiff, nextExam, upcomingExams, normalizeExam, examSetDates, examsFromMarkedSets, scopeAttempts,
-  topicsOf, readiness, practisedSince, buildExamPlan, prepHashForSet, PLAN_MAX_DAYS,
+  topicsOf, readiness, practisedSince, buildExamPlan, prepHashForSet, pickSeedQuestions, newQuestionsOnly, PLAN_MAX_DAYS,
 } from "../../js/lib/exam.js";
 
 const set = (id, subjectId, extra = {}) => ({
@@ -188,5 +188,31 @@ describe("exam.prepHashForSet", () => {
   });
   test("with no test, opens the subject with the set and date ready to fill in", () => {
     assert.equal(prepHashForSet([], a), "#/exam-prep/ma?date=2026-10-05&set=a");
+  });
+});
+
+describe("exam.pickSeedQuestions", () => {
+  const mk = (id, n) => ({ id, questions: Array.from({ length: n }, (_, i) => ({ id: `${id}${i}`, kind: "text", topic: id, prompt: `${id} ${i}`, answer: "a", extra: "dropped" })) });
+  test("takes from every set round-robin, up to the cap, and keeps only what the generator needs", () => {
+    const out = pickSeedQuestions([mk("a", 10), mk("b", 2)], 6, () => 0.5);
+    assert.equal(out.length, 6);
+    assert.equal(out.filter((q) => q.topic === "b").length, 2);   // the small set is represented, not drowned out
+    assert.equal(out.filter((q) => q.topic === "a").length, 4);
+    assert.ok(out.every((q) => !("extra" in q) && !("id" in q)));
+  });
+  test("fewer questions than the cap gives them all; no sets gives none", () => {
+    assert.equal(pickSeedQuestions([mk("a", 3)], 14).length, 3);
+    assert.deepEqual(pickSeedQuestions([], 14), []);
+    assert.deepEqual(pickSeedQuestions(undefined), []);
+  });
+});
+
+describe("exam.newQuestionsOnly", () => {
+  const sets = [{ id: "a", questions: [{ prompt: "Vad är Sveriges huvudstad?" }] }];
+  test("drops a question already in the sets (ignoring case and punctuation) and repeats within the batch", () => {
+    const out = newQuestionsOnly([
+      { prompt: "vad är sveriges huvudstad" }, { prompt: "Nytt?" }, { prompt: "nytt" }, { prompt: "" }, { prompt: "Annat" },
+    ], sets);
+    assert.deepEqual(out.map((q) => q.prompt), ["Nytt?", "Annat"]);
   });
 });

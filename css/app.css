@@ -5068,4 +5068,5 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .exam-dlg__howmany { max-width: 160px; }
 .exam-hero__note { margin: 6px 0 0; max-width: 60ch; color: var(--ink-soft); font-size: var(--fs-sm); }
 
-.exam-addmaterial { margin-top: var(--s-3); }
+.exam-addrow { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-top: var(--s-3); }
+.exam-addrow__hint { margin: var(--s-2) 0 0; }
