@@ -6,7 +6,9 @@
 
 import { el, icon, ICONS, toast } from "../lib/dom.js";
 import { store } from "../store.js";
-import { t, fmtDate } from "../lib/i18n.js";
+import { t, getLang } from "../lib/i18n.js";
+import { localDayKey } from "../lib/activity.js";
+import { dayDiff } from "../lib/exam.js";
 import { subjectField } from "./subject-field.js";
 import { blankQuestions } from "../views/create.js";
 
@@ -25,23 +27,44 @@ export function openQuickAdd(dayKey, { onDone } = {}) {
   closeQuickAdd();
 
   let type = "assignment";
-  const titleInput = el("input", {
-    type: "text", "aria-label": t("quickadd.titleLabel"),
+  const titleInput = el("input.quickadd__input", {
+    type: "text", id: "quickadd-title",
     placeholder: t("quickadd.titlePlaceholder"),
     onkeydown: (e) => { if (e.key === "Enter") create(); },
   });
 
-  const typeRow = el("div.quickadd__types", { role: "group", "aria-label": t("create.type") },
-    [["assignment", t("create.typeAssignment")], ["test", t("create.typeTest")]].map(([val, label]) =>
-      el("button.quickadd__type", {
-        type: "button", "aria-pressed": String(val === type),
-        onclick: (e) => {
-          type = val;
-          typeRow.querySelectorAll(".quickadd__type").forEach((b, i) =>
-            b.setAttribute("aria-pressed", String((i === 0 ? "assignment" : "test") === val)));
-          e.currentTarget.blur();
-        },
-      }, label)));
+  // Assignment or test, as two cards that say what the choice means.
+  const TYPES = [
+    ["assignment", ICONS.clipboard, t("create.typeAssignment"), t("quickadd.typeAssignmentSub")],
+    ["test", ICONS.graduation, t("create.typeTest"), t("quickadd.typeTestSub")],
+  ];
+  const typeRow = el("div.quickadd__types", { role: "radiogroup", "aria-label": t("create.type") },
+    TYPES.map(([val, iconPath, label, sub]) => el("button.quickadd__type", {
+      type: "button", role: "radio", "aria-checked": String(val === type), dataset: { type: val },
+      onclick: () => {
+        type = val;
+        typeRow.querySelectorAll(".quickadd__type").forEach((b) => b.setAttribute("aria-checked", String(b.dataset.type === val)));
+        dateTile.classList.toggle("is-test", val === "test");
+      },
+    }, [
+      el("span.quickadd__typeic", { "aria-hidden": "true" }, icon(iconPath, 18)),
+      el("span.quickadd__typetxt", {}, [el("strong", {}, label), el("small", {}, sub)]),
+      el("span.quickadd__check", { "aria-hidden": "true" }, icon(ICONS.check, 12)),
+    ])));
+
+  // The day, as a small calendar page: month on top, the date large, the weekday under it.
+  const locale = getLang() === "sv" ? "sv-SE" : "en-GB";
+  const [y, m, d] = dayKey.split("-").map(Number);
+  const date = new Date(y, m - 1, d);
+  const fmt = (opts) => new Intl.DateTimeFormat(locale, opts).format(date).replace(".", "");
+  const dateTile = el("div.quickadd__date", { "aria-hidden": "true" }, [
+    el("span.quickadd__month", {}, fmt({ month: "short" })),
+    el("strong", {}, String(d)),
+    el("span.quickadd__wday", {}, fmt({ weekday: "short" })),
+  ]);
+  const days = dayDiff(localDayKey(), dayKey);
+  const when = days === 0 ? t("date.today") : days === 1 ? t("date.tomorrow") : days > 1 ? t("date.inDays", { n: days }) : null;
+  const longDate = fmt({ weekday: "long", day: "numeric", month: "long" });
 
   // Default to the subject of the most recent set, if any — most people add a
   // run of deadlines for the same course.
@@ -65,18 +88,30 @@ export function openQuickAdd(dayKey, { onDone } = {}) {
   }
 
   dialogEl = el("div.modal", {
-    role: "dialog", "aria-modal": "true", "aria-label": t("quickadd.title"),
+    role: "dialog", "aria-modal": "true", "aria-labelledby": "quickadd-heading",
     onclick: (e) => { if (e.target === dialogEl) close(); },
   }, [
     el("div.modal__card.quickadd", {}, [
-      el("h3", { style: { marginBottom: "4px" } }, t("quickadd.title")),
-      el("p.note", { style: { marginBottom: "16px" } }, t("quickadd.on", { date: fmtDate(dayKey) })),
-      el("label.field", {}, [el("span", {}, t("quickadd.titleLabel")), titleInput]),
-      el("div.field", {}, [el("span", {}, t("create.type")), typeRow]),
-      el("div.field", {}, [el("span", {}, t("create.subject")), subjectFld.el]),
-      el("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap", marginTop: "8px" } }, [
-        el("button.btn.btn--sm", { type: "button", onclick: create }, [icon(ICONS.plus, 16), t("quickadd.create")]),
+      el("header.quickadd__head", {}, [
+        dateTile,
+        el("div.quickadd__headtxt", {}, [
+          el("h3", { id: "quickadd-heading" }, t("quickadd.title")),
+          el("p", {}, [
+            t("quickadd.on", { date: longDate }),
+            when ? el("span.quickadd__when", {}, when) : null,
+          ].filter(Boolean)),
+        ]),
+        el("button.iconbtn.iconbtn--sm.quickadd__close", { type: "button", "aria-label": t("common.close"), title: t("common.close"), onclick: close },
+          [icon(ICONS.close, 16)]),
+      ]),
+      el("div.quickadd__body", {}, [
+        el("div.quickadd__field", {}, [el("label", { for: "quickadd-title" }, t("quickadd.titleLabel")), titleInput]),
+        el("div.quickadd__field", {}, [el("span.quickadd__label", {}, t("create.type")), typeRow]),
+        el("div.quickadd__field", {}, [el("span.quickadd__label", {}, t("create.subject")), subjectFld.el]),
+      ]),
+      el("footer.quickadd__foot", {}, [
         el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: close }, t("common.cancel")),
+        el("button.btn.btn--sm", { type: "button", onclick: create }, [icon(ICONS.plus, 16), t("quickadd.create")]),
       ]),
     ]),
   ]);
