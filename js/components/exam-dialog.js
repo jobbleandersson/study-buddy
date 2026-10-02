@@ -10,6 +10,7 @@ import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
 import { t } from "../lib/i18n.js";
 import { datePicker } from "./calendar.js";
 import { fileDrop } from "./file-drop.js";
+import { subjectField } from "./subject-field.js";
 import { localDayKey } from "../lib/activity.js";
 import { isHpSetId } from "../lib/hp.js";
 import { EXAM_TITLE_MAX, EXAM_NOTE_MAX } from "../lib/exam.js";
@@ -34,7 +35,7 @@ export function closeExamDialog() {
 /** The sets a test in this subject can cover: the ordinary (non-HP) ones. */
 const setsOf = (subjectId) => store.assignments.filter((a) => a.subjectId === subjectId && !isHpSetId(a.id));
 
-/** Subjects a test can be in: the ones with at least one such set. */
+/** Subjects with at least one such set: where a new test starts. */
 const testSubjects = () => store.subjects.filter((s) => setsOf(s.id).length);
 
 /** The material sources, with the same names, hints and colours as Skapa. `ai` = needs the AI server. */
@@ -51,26 +52,27 @@ const MATERIAL_QUESTIONS = 10;    // what the AI is asked for
 
 /**
  * @param examId     edit this test; omit to make a new one
- * @param subjectId  the subject for a new test (otherwise the first one that can have a test)
+ * @param subjectId  the subject for a new test (otherwise the first one with sets). It is a typed field:\n *                   any name works, and a subject with no sets yet gets its first from the material below
  * @param date,title,note,setIds   starting values for a new test (e.g. from a set the student marked as a test)
  * @param onSaved    called with the saved test, or with null after a delete
  */
 export function openExamDialog({
-  examId = null, subjectId = null, date = "", title = "", note = "", setIds = [], onSaved, _focusBack = null, _blank = [],
+  examId = null, subjectId = null, date = "", title = "", note = "", setIds = [], onSaved, _focusBack = null,
 } = {}) {
   closeExamDialog();
   returnFocus = _focusBack || document.activeElement;
   const editing = examId ? store.getExam(examId) : null;
   if (examId && !editing) return;
 
-  const choosable = testSubjects();
-  const subject = store.subjects.find((s) => s.id === (editing?.subjectId || subjectId))
-    || choosable[0] || null;
-  if (!subject) return;
+  // The subject is whatever is typed in the field. It only exists as a subject once something is
+  // built or saved under it; until then its list of sets is empty.
+  let subjectName = (store.subjects.find((s) => s.id === (editing?.subjectId || subjectId)) || testSubjects()[0] || store.subjects[0])?.name || "";
+  const curSubject = () => store.subjects.find((s) => s.name.toLowerCase() === subjectName.trim().toLowerCase()) || null;
+  const curSets = () => { const s = curSubject(); return s ? setsOf(s.id) : []; };
   const today = localDayKey();
 
   const picked = new Set(editing ? editing.setIds : setIds);
-  const blankMade = [..._blank];      // blank sets made here, so saving can offer to open the editor
+  const blankMade = [];               // blank sets made here, so saving can offer to open the editor
   const picker = datePicker({ value: editing?.date || date, min: today });
   const err = el("p.exam-dlg__err", { role: "alert" });
   const titleInput = el("input", {
@@ -84,7 +86,7 @@ export function openExamDialog({
   const setsBox = el("div.exam-dlg__sets");
   const allBtn = el("button.linkbtn.exam-dlg__all", { type: "button" });
   function paintSets() {
-    const sets = setsOf(subject.id);
+    const sets = curSets();
     setsBox.replaceChildren(...(sets.length
       ? sets.map((a) => {
         const id = `exam-set-${a.id}`;
@@ -102,16 +104,25 @@ export function openExamDialog({
     syncAll();
   }
   function syncAll() {
-    const sets = setsOf(subject.id);
+    const sets = curSets();
     allBtn.textContent = t(sets.every((a) => picked.has(a.id)) ? "examdlg.none" : "examdlg.all");
   }
   allBtn.onclick = () => {
-    const sets = setsOf(subject.id);
+    const sets = curSets();
     const on = !sets.every((a) => picked.has(a.id));
     for (const a of sets) { if (on) picked.add(a.id); else picked.delete(a.id); }
     err.textContent = "";
     paintSets();
   };
+
+  /** The subject field changed: keep only the ticks that belong to the subject now typed. */
+  function subjectChanged(name) {
+    subjectName = name;
+    const here = new Set(curSets().map((a) => a.id));
+    for (const id of [...picked]) if (!here.has(id)) picked.delete(id);
+    err.textContent = "";
+    paintSets();
+  }
 
   /* ---- material of your own: the same sources as Skapa ---- */
   const noServer = !store.hasKey();
@@ -141,6 +152,8 @@ export function openExamDialog({
     async function run() {
       if (building) return;
       msg.textContent = "";
+      // Before anything is spent on the AI: the set needs a subject to land in.
+      if (!subjectName.trim()) { msg.textContent = t("examdlg.needSubject"); return; }
       building = true; btn.disabled = true; btn.lastChild.textContent = t("examdlg.materialBusy");
       try {
         const made = await go();
@@ -160,10 +173,11 @@ export function openExamDialog({
 
   /** Saves a built doc as a set in this subject, titled after the test. */
   function saveDoc(doc, kind) {
-    const name = titleInput.value.trim() || subject.name;
+    if (!subjectName.trim()) throw new Error(t("examdlg.needSubject"));
+    const name = titleInput.value.trim() || subjectName.trim();
     return store.addAssignmentDoc({
       ...doc,
-      subject: subject.name,
+      subject: subjectName.trim(),
       type: "assignment",
       title: t(kind === "blank" ? "examdlg.blankTitle" : "examdlg.materialTitle", { name }),
       questions: doc.questions.map((q) => ({ ...q, id: uid() })),
@@ -264,7 +278,7 @@ export function openExamDialog({
         buildRow(t("create.importBuild"), ICONS.check, async () => {
           const cards = parseCards(mat.text);
           if (!cards.length) throw new Error(t("create.importNone"));
-          return saveDoc(cardsToDoc(cards, { title: "", subject: subject.name }));
+          return saveDoc(cardsToDoc(cards, { title: "", subject: subjectName.trim() }));
         }),
       );
     }
@@ -289,9 +303,11 @@ export function openExamDialog({
 
   /* ---- save / delete ---- */
   function save() {
+    const subject = curSubject();
+    if (!subjectName.trim()) { err.textContent = t("examdlg.needSubject"); return; }
     const when = picker.getValue();
     if (!when) { err.textContent = t("examdlg.needDate"); return; }
-    if (!picked.size) { err.textContent = t("examdlg.needSets"); return; }
+    if (!subject || !picked.size) { err.textContent = t("examdlg.needSets"); return; }
     const fields = { subjectId: subject.id, date: when, title: titleInput.value, note: noteInput.value, setIds: [...picked] };
     const rec = editing ? store.updateExam(editing.id, fields) : store.addExam(fields);
     if (!rec) { err.textContent = t("login.somethingWrong"); return; }
@@ -305,7 +321,7 @@ export function openExamDialog({
 
   function remove() {
     const rec = store.removeExam(editing.id);
-    toast(t("examdlg.removed", { subject: subject.name }), {
+    toast(t("examdlg.removed", { subject: subjectName }), {
       actionLabel: t("common.undo"),
       onAction: () => store.restoreExam(rec),
     });
@@ -313,16 +329,7 @@ export function openExamDialog({
     onSaved?.(null);
   }
 
-  // Switching subject rebuilds the dialog for that subject (its own sets), keeping what was typed.
-  const subjectPick = !editing && choosable.length > 1 ? el("label.field", {}, [
-    el("span.exam-dlg__label", {}, [icon(ICONS.book, 15), t("examdlg.subject")]),
-    el("select", {
-      onchange: (e) => openExamDialog({
-        subjectId: e.target.value, date: picker.getValue() || "", title: titleInput.value, note: noteInput.value,
-        onSaved, _focusBack: returnFocus,
-      }),
-    }, choosable.map((s) => el("option", { value: s.id, selected: s.id === subject.id }, s.name))),
-  ]) : null;
+  const subjFld = subjectField({ value: subjectName, onChange: subjectChanged });
 
   const labelled = (ico, text, control) =>
     el("label.field", {}, [el("span.exam-dlg__label", {}, [icon(ico, 15), text]), control]);
@@ -333,11 +340,11 @@ export function openExamDialog({
     onclick: (e) => { if (e.target === dialogEl) closeExamDialog(); },
   }, [
     el("div.modal__card.exam-dlg", {}, [
-      el("h3", { id: titleId }, editing ? t("examdlg.editTitle", { subject: subject.name }) : t("examdlg.addTitleAny")),
+      el("h3", { id: titleId }, editing ? t("examdlg.editTitle", { subject: subjectName }) : t("examdlg.addTitleAny")),
       el("p.note.exam-dlg__lede", {}, t("examdlg.lede")),
       el("div.exam-dlg__cols", {}, [
         el("div.exam-dlg__col", {}, [
-          subjectPick,
+          el("div.field", {}, [el("div.exam-dlg__label", {}, [icon(ICONS.book, 15), t("examdlg.subject")]), subjFld.el]),
           labelled(ICONS.pencil, t("examdlg.name"), titleInput),
           el("div.field", {}, [
             el("div.exam-dlg__label.exam-dlg__label--row", {}, [el("span", {}, [icon(ICONS.layers, 15), t("examdlg.what")]), allBtn]),
@@ -370,6 +377,5 @@ export function openExamDialog({
   paintTiles();
   document.body.appendChild(dialogEl);
   document.addEventListener("keydown", onEsc);
-  // After a subject switch, stay on the subject picker; otherwise start at the name.
-  ((_focusBack && subjectPick?.querySelector("select")) || titleInput).focus();
+  titleInput.focus();
 }

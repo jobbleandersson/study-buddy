@@ -8,7 +8,7 @@
 // Anything cross-origin (api.anthropic.com, Google Fonts) is left entirely
 // alone — API calls must never be served from a cache.
 
-const CACHE = "studify-v211";
+const CACHE = "studify-v212";
 
 const APP_SHELL = [
   "./",
