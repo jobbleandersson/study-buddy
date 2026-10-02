@@ -5067,3 +5067,5 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .exam-dlg__build .exam-dlg__err { margin: 0; }
 .exam-dlg__howmany { max-width: 160px; }
 .exam-hero__note { margin: 6px 0 0; max-width: 60ch; color: var(--ink-soft); font-size: var(--fs-sm); }
+
+.exam-addmaterial { margin-top: var(--s-3); }

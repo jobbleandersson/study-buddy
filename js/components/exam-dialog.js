@@ -54,10 +54,11 @@ const MATERIAL_QUESTIONS = 10;    // what the AI is asked for
  * @param examId     edit this test; omit to make a new one
  * @param subjectId  the subject for a new test (otherwise the first one with sets). It is a typed field:\n *                   any name works, and a subject with no sets yet gets its first from the material below
  * @param date,title,note,setIds   starting values for a new test (e.g. from a set the student marked as a test)
+ * @param focus      "material" opens scrolled to the material section (the prep page's add-material button)
  * @param onSaved    called with the saved test, or with null after a delete
  */
 export function openExamDialog({
-  examId = null, subjectId = null, date = "", title = "", note = "", setIds = [], onSaved, _focusBack = null,
+  examId = null, subjectId = null, date = "", title = "", note = "", setIds = [], onSaved, focus = null, _focusBack = null,
 } = {}) {
   closeExamDialog();
   returnFocus = _focusBack || document.activeElement;
@@ -377,5 +378,11 @@ export function openExamDialog({
   paintTiles();
   document.body.appendChild(dialogEl);
   document.addEventListener("keydown", onEsc);
-  titleInput.focus();
+  if (focus === "material") {
+    const section = dialogEl.querySelector(".exam-dlg__material");
+    section?.scrollIntoView({ block: "start" });
+    section?.querySelector(".exam-src__tile")?.focus({ preventScroll: true });
+  } else {
+    titleInput.focus();
+  }
 }

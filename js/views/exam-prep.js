@@ -226,7 +226,12 @@ export function renderExamPrep(param, qs) {
   const title = examTitle(exam, subject);
   const m = prepFor(exam);
   const color = store.subjectColor(subject.id).solid;
-  const edit = () => openExamDialog({ examId: exam.id, onSaved: (rec) => { if (!rec) location.hash = "#/exam-prep"; } });
+  // The one way into the test's dialog from this page (date, name, sets, note and delete live there
+  // too): it opens at the material section, because adding material is what you come here to do.
+  const addMaterial = () => openExamDialog({
+    examId: exam.id, focus: "material",
+    onSaved: (rec) => { if (!rec) location.hash = "#/exam-prep"; },
+  });
   const eyebrow = el("p.exam-hero__eyebrow", {}, [el("span.exam-dot"), title]);
 
   // Every set it covered has since been deleted: nothing to plan from, so say so and offer the fix.
@@ -238,7 +243,7 @@ export function renderExamPrep(param, qs) {
         el("h1", {}, title),
         el("section.panel", {}, [
           el("p", {}, t("exam.noSetsLeft")),
-          el("button.btn", { type: "button", style: { marginTop: "12px" }, onclick: edit }, [icon(ICONS.pencil, 16), t("exam.edit")]),
+          el("button.btn", { type: "button", style: { marginTop: "12px" }, onclick: addMaterial }, [icon(ICONS.plus, 16), t("exam.addMaterial")]),
         ]),
       ]),
     };
@@ -253,7 +258,6 @@ export function renderExamPrep(param, qs) {
         el("span", {}, sentenceCase(longDate(exam.date))),
         el("span", { "aria-hidden": "true" }, "·"),
         el("span", {}, plural(m.scope.length, "exam.coversOne", "exam.coversMany")),
-        el("button.linkbtn", { type: "button", onclick: edit }, [icon(ICONS.pencil, 13), t("exam.edit")]),
       ]),
       exam.note ? el("p.exam-hero__note", {}, exam.note) : null,
       todayBlock(m, subject.name),
@@ -364,6 +368,7 @@ export function renderExamPrep(param, qs) {
   const standPanel = el("section.panel.exam-panel", {}, [
     el("h2.exam-panel__head", {}, t("exam.standTitle")),
     el("div.exam-sets", {}, setRows),
+    el("button.btn.btn--ghost.btn--sm.exam-addmaterial", { type: "button", onclick: addMaterial }, [icon(ICONS.plus, 15), t("exam.addMaterial")]),
     el("h3.exam-sub", {}, t("exam.weakHeading")),
     m.weak.length
       ? el("div.exam-weak", {}, [
