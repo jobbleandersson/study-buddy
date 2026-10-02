@@ -29,6 +29,7 @@ import { renderBusQuestion, isBusQuestion, resetBusPrime } from "../components/b
 import { speechSupported } from "../lib/speech.js";
 import { setSessionActive } from "../lib/session-active.js";
 import { examCells, examSummary, toggleFlag } from "../lib/exam-nav.js";
+import { choicesDependOnOrder } from "../lib/choices.js";
 
 const TIP_SEEN_KEY = "studybuddy.shortcutTipSeen";
 
@@ -1277,21 +1278,21 @@ function runSession(config) {
 /** Högskoleprov options are never reshuffled: KVA/NOG answers carry a fixed
  *  meaning, and every delprov's explanation refers to the options by letter or
  *  number ("alternativ C"). Any question with an HP `variant` — or a figure —
- *  keeps its authored option order. Everything else shuffles on a retry / exam
- *  run as before. */
+ *  keeps its authored option order, and so does one whose options point at each
+ *  other ("Alla ovanstående"). Everything else is shuffled in every session. */
 function keepsChoiceOrder(q) {
-  return !!q?.variant || !!q?.figure;
+  return !!q?.variant || !!q?.figure || choicesDependOnOrder(q?.choices);
 }
 
 function freshState(config) {
   const order = config.shuffle ? shuffled(config.questionIds) : [...config.questionIds];
+  // Options are reshuffled in EVERY session, not only on a retry: the correct option is so often stored
+  // first (see lib/choices.js) that a fixed order would let a student answer "A" without reading.
   const choiceOrder = {};
-  if (config.shuffle) {
-    for (const id of order) {
-      const q = store.findQuestion(id)?.question;
-      if (q?.kind === "mc" && Array.isArray(q.choices) && !keepsChoiceOrder(q)) {
-        choiceOrder[id] = shuffled(q.choices.map((_, i) => i));
-      }
+  for (const id of order) {
+    const q = store.findQuestion(id)?.question;
+    if (q?.kind === "mc" && Array.isArray(q.choices) && !keepsChoiceOrder(q)) {
+      choiceOrder[id] = shuffled(q.choices.map((_, i) => i));
     }
   }
   const startedAt = Date.now();
