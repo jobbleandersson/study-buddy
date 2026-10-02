@@ -2470,7 +2470,7 @@ body.route-chat .sitechat__panel { display: none; }
 .exam-how__text span { font-size: var(--fs-sm); color: var(--ink-soft); }
 
 /* "Lägg till prov" dialog. */
-.exam-dlg { max-width: 460px; max-height: calc(100dvh - 32px); overflow-y: auto; }
+.modal__card.exam-dlg { max-width: 880px; max-height: calc(100dvh - 32px); overflow-y: auto; }
 .exam-dlg h3 { margin: 0; }
 .exam-dlg__lede { margin: 4px 0 0; }
 .exam-dlg__label {
@@ -4959,9 +4959,34 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   .solve-start:hover:not(:disabled), .solve-dock__send:hover:not(:disabled) { transform: none; }
 }
 
-/* exam dialog: material of your own, and the free-text fields */
-.exam-dlg > input[type="text"], .exam-dlg textarea { width: 100%; box-sizing: border-box; }
-.exam-dlg textarea { resize: vertical; min-height: 56px; }
-.exam-dlg__material { margin-top: var(--s-3); padding: var(--s-3); border: 1px dashed var(--line); border-radius: var(--r-md); }
-.exam-dlg__material .exam-dlg__label { margin-top: 0; }
+/* "Lägg till prov" dialog, wide: fields and the sets on the left, the calendar on the right, the
+   material sources (the same ones as Skapa) full width below. Fields use the app's .field styling. */
+.exam-dlg__cols { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: var(--s-5); margin-top: var(--s-4); align-items: start; }
+@media (max-width: 760px) { .exam-dlg__cols { grid-template-columns: minmax(0, 1fr); } }
+.exam-dlg .field { margin-bottom: var(--s-4); }
+.exam-dlg .field > .exam-dlg__label, .exam-dlg .field > div > .exam-dlg__label { display: flex; margin: 0 0 var(--s-2); }
+.exam-dlg .field textarea { min-height: 84px; }
+.exam-dlg__material { margin-top: var(--s-2); padding-top: var(--s-4); border-top: 1px solid var(--line); }
+.exam-dlg__material > .exam-dlg__label { margin-top: 0; }
+.exam-src { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: var(--s-2); }
+.exam-src__tile {
+  --c: var(--brand);
+  display: flex; align-items: center; gap: 10px; padding: 10px 12px; text-align: left; font: inherit; color: inherit; cursor: pointer;
+  background: color-mix(in oklab, var(--c) 6%, var(--surface)); border: 1px solid color-mix(in oklab, var(--c) 28%, var(--line));
+  border-radius: var(--r-md); transition: border-color var(--dur-fast), background var(--dur-fast);
+}
+.exam-src__tile:hover { border-color: color-mix(in oklab, var(--c) 65%, var(--line)); background: color-mix(in oklab, var(--c) 10%, var(--surface)); }
+.exam-src__tile:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+.exam-src__tile.is-on { border-color: var(--c); background: color-mix(in oklab, var(--c) 14%, var(--surface)); box-shadow: 0 0 0 1px var(--c); }
+.exam-src__tile.is-locked { border-style: dashed; background: var(--surface); }
+.exam-src__ic { flex: none; width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--c); color: #fff; }
+.exam-src__tile.is-locked .exam-src__ic { background: color-mix(in oklab, var(--c) 14%, var(--surface)); color: var(--c); }
+.exam-src__text { display: grid; gap: 1px; min-width: 0; }
+.exam-src__text strong { font-size: var(--fs-sm); font-weight: 700; color: var(--ink); }
+.exam-src__text small { font-size: 12px; line-height: 1.3; color: var(--ink-soft); }
+.exam-dlg__srcpanel { margin-top: var(--s-4); }
+.exam-dlg__srcpanel:empty { display: none; }
+.exam-dlg__build { display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap; }
+.exam-dlg__build .exam-dlg__err { margin: 0; }
+.exam-dlg__howmany { max-width: 160px; }
 .exam-hero__note { margin: 6px 0 0; max-width: 60ch; color: var(--ink-soft); font-size: var(--fs-sm); }
