@@ -7,7 +7,7 @@
 import { el, clear, icon, ICONS } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { figureURL } from "../lib/figures.js";
-import { gradeAnswer, gradeWorking } from "../claude.js";
+import { gradeAnswer, gradeWorking, gradeCloze } from "../claude.js";
 import { fromCorrect } from "../lib/srs.js";
 import { t } from "../lib/i18n.js";
 import { store } from "../store.js";
@@ -617,7 +617,7 @@ function text({ question, tutor, live, testMode, onDone, askConfidence }) {
 }
 
 /* ---------------- cloze (fill in the blank) ---------------- */
-function cloze({ question, tutor, testMode, onDone, askConfidence }) {
+function cloze({ question, tutor, live, testMode, onDone, askConfidence }) {
   const result = { correct: false, hintsUsed: 0 };
   const blanks = [];
   const line = el("div.cloze");
@@ -642,16 +642,35 @@ function cloze({ question, tutor, testMode, onDone, askConfidence }) {
   const feedback = el("div", {});
   let done = false;
 
-  function check() {
+  async function check() {
     if (done) return;
     done = true;
-    let allRight = true;
-    for (const b of blanks) {
-      const ok = b.alts.some((a) => normalizeAnswer(a) === normalizeAnswer(b.inp.value));
-      if (!ok) allRight = false;
-      b.inp.disabled = true;
-      b.inp.classList.add(ok ? "is-correct" : "is-wrong");
+    checkBtn.disabled = true;
+    for (const b of blanks) b.inp.disabled = true;
+
+    // Exact matches first. What doesn't match is not simply wrong: "exportsubventioner" for
+    // "exportsubvention", or a synonym, still deserves credit — so the AI looks at those, the way a
+    // teacher would, and says why (nobody has to tell the app whether it was right).
+    const verdicts = blanks.map((b) => ({
+      ok: b.alts.some((a) => normalizeAnswer(a) === normalizeAnswer(b.inp.value)), note: "", verdict: "",
+    }));
+    const doubtful = blanks.map((_, i) => i).filter((i) => !verdicts[i].ok && blanks[i].inp.value.trim());
+    if (doubtful.length && live) {
+      checkBtn.textContent = t(testMode ? "q.submitting" : "q.checking");
+      const ask = () => gradeCloze({
+        question, blanks: doubtful.map((i) => ({ n: i + 1, accepted: blanks[i].alts, given: blanks[i].inp.value.trim() })),
+      });
+      try {
+        let res; try { res = await ask(); } catch { res = await ask(); }   // once more, then the exact result stands
+        for (const r of res) {
+          const v = verdicts[r.n - 1];
+          if (!v) continue;
+          v.ok = r.verdict === "ok"; v.note = r.note; v.verdict = r.verdict;
+        }
+      } catch (e) { console.error("Grading failed:", e); }
     }
+    blanks.forEach((b, i) => b.inp.classList.add(verdicts[i].ok ? "is-correct" : "is-wrong"));
+    const allRight = verdicts.every((v) => v.ok);
     result.correct = allRight;
     checkBtn.remove();
 
@@ -663,11 +682,17 @@ function cloze({ question, tutor, testMode, onDone, askConfidence }) {
     }
 
     feedback.className = `feedback ${allRight ? "ok" : "retry"}`;
-    const missed = blanks.filter((b) => !b.inp.classList.contains("is-correct"));
+    const line = (b, v) => {
+      const typed = b.inp.value.trim();
+      return `<li>${typed ? `<em>${escapeHtml(typed)}</em> → ` : ""}<strong>${escapeHtml(b.alts[0])}</strong>${v.note ? ` — ${escapeHtml(v.note)}` : ""}</li>`;
+    };
+    const missed = blanks.map((b, i) => [b, verdicts[i]]).filter(([, v]) => !v.ok);
+    // A word that counted although it wasn't the one in the key: say so, and which form the sentence uses.
+    const credited = blanks.map((b, i) => [b, verdicts[i]]).filter(([, v]) => v.ok && v.note);
+    const creditedHtml = credited.length ? `<p>${escapeHtml(t("q.clozeCredited"))}</p><ul>${credited.map(([b, v]) => line(b, v)).join("")}</ul>` : "";
     feedback.innerHTML = allRight
-      ? renderRich(question.explanation || t("q.correct"))
-      : `<p>${escapeHtml(t("q.clozeMissed"))}</p><ul>${missed
-          .map((b) => `<li>${escapeHtml(b.alts[0])}</li>`).join("")}</ul>` +
+      ? renderRich(question.explanation || t("q.correct")) + creditedHtml
+      : `<p>${escapeHtml(t("q.clozeMissed"))}</p><ul>${missed.map(([b, v]) => line(b, v)).join("")}</ul>` + creditedHtml +
         (question.explanation ? renderRich(question.explanation) : "");
 
     if (allRight) tutor?.celebrate(t("q.tutorRight"));
@@ -862,7 +887,28 @@ function worked({ question, tutor, live, testMode, onDone }) {
     onDone(finalize(result));
   }
 
+  // Nothing written, and someone to grade it: ask for the working rather than letting the student
+  // rate themselves. They can still see the solution without answering, and that counts as a miss.
+  const needWriting = el("p.note.note--warn", { hidden: true, role: "alert", style: { marginTop: "10px" } });
+  function giveUp() {
+    needWriting.hidden = true;
+    ta.disabled = true;
+    keypad.toggle.remove(); keypad.pad.remove(); doneBtn.remove();
+    feedback.className = "feedback retry";
+    feedback.innerHTML = `<p>${escapeHtml(t("q.workedGaveUp"))}</p>` +
+      `<p style="margin-top:10px"><strong>${escapeHtml(t("q.fullSolution"))}</strong> ${renderRich(question.answer)}</p>`;
+    tutor?.note(t("q.tutorWorkedGaveUp"));
+    settle("missed");
+    explainWhyRow(tutor, question, "", selfRate);
+  }
+
   async function finish() {
+    if (!ta.value.trim() && live && !testMode) {
+      needWriting.hidden = false;
+      needWriting.replaceChildren(t("q.workedNeedWriting"), " ", el("button.linkbtn", { type: "button", onclick: giveUp }, t("q.workedShowAnyway")));
+      ta.focus();
+      return;
+    }
     ta.disabled = true;
     keypad.toggle.remove(); keypad.pad.remove();
     const written = ta.value.trim();
@@ -872,7 +918,7 @@ function worked({ question, tutor, live, testMode, onDone }) {
       doneBtn.disabled = true;
       doneBtn.textContent = t(testMode ? "q.submitting" : "q.checking");
       try { verdict = await gradeWorking({ question, working: written }); }
-      catch (e) { console.error("Grading failed:", e); verdict = null; }
+      catch { try { verdict = await gradeWorking({ question, working: written }); } catch (e) { console.error("Grading failed:", e); verdict = null; } }
     }
 
     if (testMode) {
@@ -943,7 +989,7 @@ function worked({ question, tutor, live, testMode, onDone }) {
       ta, keypad.pad,
       el("div", { style: { marginTop: "12px", display: "flex", gap: "8px", flexWrap: "wrap" } },
         [revealBtn, doneBtn, keypad.toggle].filter(Boolean)),
-      revealed, feedback, selfRate,
+      needWriting, revealed, feedback, selfRate,
     ])),
   };
 }

@@ -2,7 +2,7 @@
 // the actual Claude API key. The browser never sees it.
 
 import { store } from "./store.js";
-import { generationSystem, gradingSystem, workedGradingSystem, checkWorkSystem, podcastSystem } from "./prompts.js";
+import { generationSystem, gradingSystem, workedGradingSystem, clozeGradingSystem, checkWorkSystem, podcastSystem } from "./prompts.js";
 import { t } from "./lib/i18n.js";
 import { PROXY_URL } from "./config.js";
 import { parseLooseJSON } from "./lib/loose-json.js";
@@ -203,6 +203,33 @@ export async function gradeAnswer({ question, studentAnswer }) {
     feedback: j.feedback || t(j.correct ? "q.heuristicOk" : "q.heuristicMiss"),
     missedPoints: Array.isArray(j.missedPoints) ? j.missedPoints : [],
   };
+}
+
+/** The AI judges fill-in-the-blank answers that did not match exactly. `blanks` is
+ *  [{ n, accepted: string[], given }] (1-based n). Resolves [{ n, verdict: "ok"|"close"|"wrong", note }]. */
+export async function gradeCloze({ question, blanks }) {
+  const raw = await callJSON({
+    model: modelFor("grade"),
+    max_tokens: 800,
+    system: clozeGradingSystem(),
+    messages: [{
+      role: "user",
+      content: [{
+        type: "text",
+        text: `${question.topic ? `Topic: ${question.topic}\n` : ""}Sentence: ${question.prompt}\n\nBlanks to judge:\n${blanks.map((b) => `${b.n}) accepted: ${b.accepted.join(" / ")}; the student wrote: "${b.given}"`).join("\n")}\n\nReturn the JSON only.`,
+      }],
+    }],
+  });
+  const j = parseLooseJSON(raw);
+  const list = Array.isArray(j.blanks) ? j.blanks : [];
+  return blanks.map((b) => {
+    const r = list.find((x) => Number(x?.n) === b.n) || {};
+    return {
+      n: b.n,
+      verdict: ["ok", "close", "wrong"].includes(r.verdict) ? r.verdict : "wrong",
+      note: typeof r.note === "string" ? r.note.trim() : "",
+    };
+  });
 }
 
 /** The AI judges a student's written working for a worked problem (nobody asks the student whether
