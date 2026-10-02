@@ -167,10 +167,16 @@ export function renderSolve(qs) {
     return btn;
   }
 
+  /** A message in the log. The assistant's replies sit on the page beside a small sparkles avatar
+   *  (not in a bubble), so long answers read like a document; returns the message node itself. */
   function appendBubble(who, html) {
     const node = el(`div.msg.${who}`, {});
     if (html != null) node.innerHTML = html;
-    refs.logEl.appendChild(node);
+    refs.hero?.remove();
+    refs.hero = null;
+    refs.logEl.appendChild(who === "ai"
+      ? el("div.msgrow", {}, [el("span.msgrow__av", { "aria-hidden": "true" }, icon(ICONS.spark, 15)), node])
+      : node);
     refs.logEl.scrollTop = refs.logEl.scrollHeight;
     return node;
   }
@@ -185,14 +191,39 @@ export function renderSolve(qs) {
     log.scrollTop = Math.min(maxScroll, bubbleTop);
   }
 
+  /** The empty conversation: a centred greeting — the mark, a heading, the mode's own intro —
+   *  and, for the default persona, four ways to start. Gone as soon as the first message lands. */
   function appendWelcome() {
-    // el() wants dot-separated classes in the tag string, not space-separated (a space in a single
-    // token throws on classList.add) — appendBubble's `who` is always one plain word, so add the
-    // second class after the fact instead of trying to smuggle it through that param.
-    appendBubble("ai", markdown(introText())).classList.add("solve-chat__welcome");
+    refs.hero?.remove();
+    const mode = state.mode ? STUDY_MODES.find((m) => m.id === state.mode) : null;
+    // A mode's intro opens with its name in bold; the heading already says it.
+    const sub = mode ? introText().replace(/^\*\*[^*]+\*\*\s*/, "") : t("solve.heroSub");
+    const start = (iconPath, key, onclick) => el("button.solve-start", { type: "button", onclick, disabled: !canChat }, [
+      el("span.solve-start__ic", { "aria-hidden": "true" }, icon(iconPath, 18)),
+      el("span.solve-start__txt", {}, [el("strong", {}, t(`solve.start.${key}`)), el("small", {}, t(`solve.start.${key}Sub`))]),
+    ]);
+    refs.hero = el("div.solve-hero", {}, [
+      el("div.solve-hero__mark", { "aria-hidden": "true" }, icon(mode ? ICONS[mode.icon] || ICONS.spark : ICONS.spark, 30)),
+      el("h2.solve-hero__title", {}, mode ? t(`chat.mode.${mode.id}`) : t("solve.heroTitle")),
+      el("div.solve-hero__sub", { html: markdown(sub) }),
+      mode ? null : el("div.solve-starts", {}, [
+        start(ICONS.camera, "photo", () => refs.fileInput.click()),
+        start(ICONS.target, "quiz", () => pickMode("quiz")),
+        start(ICONS.spark, "explain", () => pickMode("explain")),
+        start(ICONS.layers, "set", () => {
+          refs.inputEl.value = t("solve.start.setPrefill");
+          autosize();
+          refs.inputEl.focus();
+          refs.inputEl.setSelectionRange(refs.inputEl.value.length, refs.inputEl.value.length);
+        }),
+      ]),
+    ].filter(Boolean));
+    refs.logEl.appendChild(refs.hero);
   }
 
   function appendUserBubble(text, imgSrc) {
+    refs.hero?.remove();
+    refs.hero = null;
     const node = el("div.msg.me", {});
     if (imgSrc) node.appendChild(el("img.msg__img", { src: imgSrc, alt: "" }));
     if (text) node.appendChild(el("span", { html: escapeHtml(text.length > ECHO_CHARS ? `${text.slice(0, ECHO_CHARS)}…` : text) }));
@@ -235,6 +266,7 @@ export function renderSolve(qs) {
     paintChatting();
     showChat();
     clear(refs.logEl);
+    refs.hero = null;
     appendWelcome();
     renderPending();
     refs.inputEl.value = "";
@@ -272,7 +304,8 @@ export function renderSolve(qs) {
     showChat();
     paintChatting();
     clear(refs.logEl);
-    appendWelcome();
+    refs.hero = null;
+    if (!state.messages.length) appendWelcome();
     for (const m of state.messages) {
       if (m.role === "user") appendUserBubble(m.content);
       else renderReply(appendBubble("ai", ""), m.content, true);
@@ -301,6 +334,7 @@ export function renderSolve(qs) {
     refs.materialBtn.disabled = !canChat;
     refs.sendBtn.disabled = !canChat;
     for (const btn of refs.modeBtns) btn.disabled = !canChat;
+    refs.hero?.querySelectorAll(".solve-start").forEach((b) => { b.disabled = !canChat; });
     paintGate();
   }
 
@@ -511,7 +545,9 @@ export function renderSolve(qs) {
 
     const sendBtn = el("button.iconbtn.solve-dock__send", { type: "submit", "aria-label": t("tutor.send") }, [icon(ICONS.arrow, 18)]);
 
-    const resetBtn = el("button.linkbtn.solve-chat__reset", { type: "button", hidden: true, onclick: () => resetChat() }, t("solve.newChat"));
+    // "Ny konversation" — a plus and the words; on a phone just the plus (the words stay for screen readers).
+    const resetBtn = el("button.linkbtn.solve-chat__reset", { type: "button", hidden: true, title: t("solve.newChat"), onclick: () => resetChat() },
+      [icon(ICONS.plus, 16), el("span.solve-chat__resetlabel", {}, t("solve.newChat"))]);
     const historyBtn = el("button.iconbtn.solvehead__hist", {
       type: "button", "aria-label": t("solve.historyOpen"), title: t("solve.historyOpen"), "aria-pressed": "false",
       onclick: () => (refs.history ? showChat() : showHistory()),
@@ -525,22 +561,22 @@ export function renderSolve(qs) {
 
     const hintEl = el("span.solve-dock__hint", {}, t("solve.enterHint"));
 
-    // One docked card: the seven ways to study on top, then the box, then attach + send.
+    // One docked card: the box, attach + send under it, and the seven ways to study as a row of chips.
     const formEl = el("form.solve-dock", { onsubmit: (e) => { e.preventDefault(); send(); } }, [
       fileInput,
-      el("div.chatmodes", { role: "group", "aria-label": t("chat.modesLabel") }, modeBtns),
       materialEl,
       pendingEl,
       inputEl,
       el("div.solve-dock__row", {}, [attachBtn, materialBtn, hintEl, sendBtn]),
+      el("div.chatmodes", { role: "group", "aria-label": t("chat.modesLabel") }, modeBtns),
     ]);
 
     const gateEl = el("div.solve-gate", { hidden: true });
     const tabsEl = solveTabs("help");
 
     refs = {
-      logEl, pendingEl, inputEl, attachBtn, materialBtn, materialEl, sendBtn, hintEl,
-      resetBtn, historyBtn, modeBtns, gateEl, tabsEl, formEl, panel: null, history: null,
+      logEl, pendingEl, inputEl, attachBtn, materialBtn, materialEl, sendBtn, hintEl, fileInput,
+      resetBtn, historyBtn, modeBtns, gateEl, tabsEl, formEl, panel: null, history: null, hero: null,
     };
 
     head = aiHead([resetBtn, historyBtn]);
@@ -559,7 +595,7 @@ export function renderSolve(qs) {
     paintAvailability();
     paintModes();
     paintMaterial();
-    if (canChat) appendWelcome();
+    appendWelcome();
     // Drag a picture onto the page, or paste one anywhere — focused or not.
     // Signed out, a drop is still caught (otherwise the browser opens the image
     // and the visitor loses the page) and answered with the reason instead.
@@ -585,7 +621,8 @@ export function renderSolve(qs) {
       btn.querySelector(".chatmode__label").textContent = label;
     }
     refs.hintEl.textContent = t("solve.enterHint");
-    refs.resetBtn.textContent = t("solve.newChat");
+    refs.resetBtn.querySelector(".solve-chat__resetlabel").textContent = t("solve.newChat");
+    refs.resetBtn.title = t("solve.newChat");
     refs.historyBtn.title = t("solve.historyOpen");
     refs.historyBtn.setAttribute("aria-label", t("solve.historyOpen"));
     refs.attachBtn.title = t("solve.uploadHint");
@@ -600,7 +637,7 @@ export function renderSolve(qs) {
     paintModes();
     paintMaterial();
     paintGate();
-    if (canChat && state.messages.length === 0 && !refs.history) {
+    if (state.messages.length === 0 && !refs.history) {
       clear(refs.logEl);
       appendWelcome();
     }
