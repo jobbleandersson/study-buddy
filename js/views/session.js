@@ -105,9 +105,16 @@ const REVIEW_CAP = 40;
 // A commute is short, and a spoken question takes longer than a read one.
 const BUS_REVIEW_CAP = 15;
 
+/** Review what is due. Across every set by default; `?sets=a,b` keeps it to the sets one test covers
+ *  (the exam-prep plan), so a pass for a test never drifts into questions from other sets. */
 export async function renderReview(qs) {
   const bus = qs?.get?.("bus") === "1";
-  const due = store.dueQuestions().filter((d) => !bus || isBusQuestion(d.question)); // most-overdue-first
+  const setIds = (qs?.get?.("sets") || "").split(",").filter(Boolean);
+  const scope = setIds.length ? new Set(setIds) : null;
+  const scopeQuery = scope ? `sets=${setIds.join(",")}` : "";
+  const due = store.dueQuestions()
+    .filter((d) => !bus || isBusQuestion(d.question))
+    .filter((d) => !scope || scope.has(d.assignment.id)); // most-overdue-first
   if (!due.length) {
     return bus
       ? emptyScreen(t("bus.noneTitle"), t("bus.noneReviewBody"), t("bus.badge"))
@@ -117,12 +124,14 @@ export async function renderReview(qs) {
   const batch = due.slice(0, bus ? BUS_REVIEW_CAP : REVIEW_CAP);
 
   return runSession({
-    key: bus ? `${REVIEW_ID}::bus` : REVIEW_ID,
+    // A test-scoped review gets its own resumable slot, so it can't resume into (or over) the all-sets one.
+    key: `${bus ? `${REVIEW_ID}::bus` : REVIEW_ID}${scope ? `::${scopeQuery}` : ""}`,
     assignmentId: REVIEW_ID,
     title: t("session.reviewTitle"),
     type: "assignment",
     bus,
-    retryHash: bus ? "#/review?bus=1" : "#/review",
+    reviewScope: scopeQuery,
+    retryHash: `#/review${bus || scope ? `?${[bus ? "bus=1" : "", scopeQuery].filter(Boolean).join("&")}` : ""}`,
     questionIds: batch.map((d) => d.question.id),
     reviewRemaining: due.length - batch.length,
   });
@@ -1213,7 +1222,7 @@ function runSession(config) {
   const busHref = (() => {
     if (config.bus || isTest || isExam || config.hp || !speechSupported()) return null;
     if (!state.order.some((id) => isBusQuestion(store.findQuestion(id)?.question))) return null;
-    if (config.assignmentId === REVIEW_ID) return "#/review?bus=1";
+    if (config.assignmentId === REVIEW_ID) return `#/review?bus=1${config.reviewScope ? `&${config.reviewScope}` : ""}`;
     return store.getAssignment(config.assignmentId) ? `#/session/${config.assignmentId}?bus=1` : null;
   })();
   const busBtn = busHref ? el("a.iconbtn.busbtn", {
