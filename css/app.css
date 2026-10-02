@@ -3401,6 +3401,7 @@ kbd {
   width: 28px; height: 28px; border-radius: var(--r-full); display: grid; place-items: center; color: #fff; margin-bottom: 2px;
   background: linear-gradient(145deg, color-mix(in oklab, var(--m) 60%, #fff), var(--m) 55%, color-mix(in oklab, var(--m) 72%, #000));
 }
+.ach-tiercount--platinum .ach-tiercount__medal { background: var(--ach-platinum-sheen); color: #34506A; }
 .ach-tiercount b { font-size: 19px; line-height: 1.1; color: var(--ink); font-variant-numeric: tabular-nums; }
 .ach-tiercount small { font-size: 12px; color: var(--ink-soft); font-weight: 600; }
 .ach-overview .ach-hero { min-width: 0; }
@@ -3485,12 +3486,22 @@ kbd {
 .achbadge--unlocked.achbadge--silver .achbadge__tiername { color: var(--ach-silver-ink); }
 .achbadge--unlocked.achbadge--gold { background: var(--ach-gold-tint); }
 .achbadge--unlocked.achbadge--gold .achbadge__tiername { color: var(--ach-gold-ink); }
-.achbadge--unlocked.achbadge--platinum { --m: var(--ach-platinum); background: var(--ach-platinum-tint); }
-.achbadge--unlocked.achbadge--platinum .achbadge__icon {
-  background: linear-gradient(145deg, color-mix(in oklab, var(--m) 55%, #fff), var(--m) 50%, color-mix(in oklab, var(--m) 72%, #000));
-  color: #fff; border-color: transparent;
+/* Platinum isn't just a lighter silver: it gets a white-metal sheen with a
+   cold shimmer — softly while locked, in full once earned. */
+.achbadge--platinum .achbadge__icon {
+  background: linear-gradient(135deg, color-mix(in oklab, var(--ach-platinum) 26%, var(--surface)), color-mix(in oklab, var(--ach-platinum) 8%, var(--surface)) 50%, color-mix(in oklab, #B9A8E6 20%, var(--surface)));
+  border-color: color-mix(in oklab, var(--ach-platinum) 60%, var(--line));
 }
-.achbadge--unlocked.achbadge--platinum .achbadge__tiername { color: var(--ach-platinum-ink); }
+.achbadge--platinum .achbadge__bar i { background: linear-gradient(90deg, #9DB6CB, var(--ach-platinum), #C6BCE8); }
+.achbadge--platinum .achbadge__tiername { color: var(--ach-platinum-ink); }
+.achbadge--unlocked.achbadge--platinum {
+  --m: var(--ach-platinum);
+  background: linear-gradient(135deg, var(--ach-platinum-tint), color-mix(in oklab, #B9A8E6 10%, var(--ach-platinum-tint)));
+}
+.achbadge--unlocked.achbadge--platinum .achbadge__icon {
+  background: var(--ach-platinum-sheen); color: #34506A; border-color: transparent;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8), 0 4px 12px -4px color-mix(in srgb, var(--ach-platinum) 85%, transparent);
+}
 
 /* Milestones — the one-off badges carried over from the old set. Brand blue
    (--c) when earned, no tier ladder. */
@@ -3519,7 +3530,7 @@ kbd {
 .achtoast--bronze .achtoast__icon { background: var(--ach-bronze); color: #fff; }
 .achtoast--silver .achtoast__icon { background: var(--ach-silver); color: #fff; }
 .achtoast--gold .achtoast__icon { background: var(--ach-gold); color: #fff; }
-.achtoast--platinum .achtoast__icon { background: var(--ach-platinum); color: #fff; }
+.achtoast--platinum .achtoast__icon { background: var(--ach-platinum-sheen); color: #34506A; }
 .achtoast--gold { border-color: var(--ach-gold); }
 .achtoast--platinum { border-color: var(--ach-platinum); }
 
