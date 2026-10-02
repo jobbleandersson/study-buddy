@@ -81,7 +81,7 @@ function taskHash(r, m) {
   switch (r.kind) {
     case "start": case "practice": return practiceHash(r.set);
     case "drill": return weakHash(m, r.topic);
-    case "review": return "#/review";
+    case "review": return `#/review?sets=${m.ids.join(",")}`;
     case "mock": return mockHash(m, 40);
     case "tonight": return `#/tonight/${m.scope[0].id}`;
     default: return null;
@@ -377,7 +377,7 @@ export function renderExamPrep(param, qs) {
     m.dueCount ? el("p.exam-due", {}, [
       icon(ICONS.spark, 14),
       el("span", {}, plural(m.dueCount, "exam.dueSrsOne", "exam.dueSrsMany")),
-      el("a.linkbtn", { href: "#/review" }, t("prog.reviewToday")),
+      el("a.linkbtn", { href: `#/review?sets=${m.ids.join(",")}` }, t("prog.reviewToday")),
     ]) : null,
 
     topicList.length ? el("details.exam-topics", {}, [
