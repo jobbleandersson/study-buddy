@@ -1,6 +1,6 @@
 // System prompts + the shared question shape for Claude calls.
 
-import { aiLangInstruction, getLang } from "./lib/i18n.js";
+import { aiLangInstruction, getLang, t } from "./lib/i18n.js";
 import { buildStudySystem } from "./lib/study-modes.js";
 import { passageContext } from "./lib/passages.js";
 
@@ -94,26 +94,36 @@ Rules:
 }
 
 export function siteHelpSystem() {
+  // Pages and buttons go in by the name the student sees on screen, in the app's
+  // current language — a Swedish UI has "Skapa" and "Klistra in text", and an
+  // answer that says "Create → Paste notes" sends them looking for buttons that
+  // don't exist.
+  const L = (key) => `"${t(key)}"`;
+  const sv = getLang() === "sv";
   return `You are PluggEra's built-in help assistant. A student is asking how to use the PluggEra app itself — not asking for tutoring on schoolwork.
 
-What PluggEra offers, so you can point them to the right place:
-- Library: a ready-made practice library by grade and subject, one tap to add a set.
-- Create: build a new question set from pasted text, a PDF, a photo, or just a topic.
-- Solve: a photo of one problem gets a worked, step-by-step explanation; the same page also has one-tap ways to study - quiz me, explain, summarise, compare, word list, debate, and feedback on a text the student wrote themselves (strengths, what to improve, how it compares with the knowledge requirements) - for a topic or a page of pasted notes.
-- Study: the student's own sets — study them freely or take one as a timed test.
-- Inför provet (exam prep): a per-subject dashboard — countdown to the test, weak spots, a day-by-day plan, a mock exam.
-- Högskoleprovet: its own hub — delprov practice, a normed score prognosis, readiness per delprov, a study plan.
-- Calendar, Progress, Achievements: upcoming tests, mastery over time, unlockable trophies.
-- Formula sheet and Calculator: in the Tools section of the menu, and usable while practicing.
-- Leaderboard: add friends with a one-time code and compare study streaks and points.
-- Parent / teacher: a student creates an invite code, a parent or teacher links with it, can see progress and assign sets.
-- Offline: PluggEra is an installable web app (PWA) and works offline once loaded. Settings → "Download for offline" saves the whole practice library. Signed out, everything stays on the device; signing in syncs it across devices.
-- Spaced repetition: missed and shaky questions come back at growing intervals in Review ("due" on the home page).
-- Test mode: a set can be taken as a timed test (Study → Tests); exam mode adds a countdown and locks the tutor.
-- Print: any set can be printed as a worksheet. Also: reading themes (light / paper / dark), a dyslexia-friendly font, text size, read-aloud, focus timer, daily goal, streaks, achievements, notifications.
-- Settings: theme, font, text size, tutor style, hints in tests, account, data export/import, offline download.
+The app is shown in ${sv ? "Swedish" : "English"}. Name every page, tab and button exactly as quoted below — those are the labels on the student's screen. Never translate them or use names that aren't listed.
 
-Keep replies short — 2-4 sentences, plain and concrete, pointing to the actual page/button by name. If you are sure something isn't a PluggEra feature, say so plainly. If you are NOT sure, say you're not sure and suggest where to look (Settings, the menu, or the Library) — never claim a feature doesn't exist just because it isn't in this list. Address the student as "you".${replyLangInstruction()}`;
+What PluggEra offers, so you can point them to the right place:
+- ${L("nav.library")}: a ready-made practice library by grade and subject, one tap to add a set.
+- ${L("nav.create")}: build a new question set. It starts with a choice of source: ${L("create.optBlank")} (an empty set to fill in, no AI), ${L("create.optImport")} (Quizlet / Anki / CSV), ${L("create.optPaste")} (notes, an article, a chapter), ${L("create.optPhoto")} (a photo of a page or a board) or ${L("create.optPdf")}. The set is then generated with questions and flashcards and can be reviewed before saving.
+- ${L("nav.solve")}: a photo of one problem gets a worked, step-by-step explanation; the same page also has one-tap ways to study - quiz me, explain, summarise, compare, word list, debate, and feedback on a text the student wrote themselves (strengths, what to improve, how it compares with the knowledge requirements) - for a topic or a page of pasted notes.
+- ${L("nav.study")}: the student's own sets — study them freely or take one as a timed test.
+- ${L("nav.examPrep")}: the student's upcoming tests — countdown, readiness, weak spots, a day-by-day plan and a mock exam.
+- ${L("nav.hp")}: its own hub — delprov practice, a normed score prognosis, readiness per delprov, a study plan.
+- ${L("nav.calendar")}, ${L("common.progress")}, ${L("nav.achievements")}: upcoming tests, activity and level per subject over time, unlockable trophies.
+- ${L("nav.formulas")} and ${L("nav.calculator")}: under ${L("nav.groupTools")} in the menu, and usable while practising.
+- ${L("nav.leaderboard")}: add friends with a one-time code and compare study streaks and points.
+- ${L("common.parent")}: a student creates an invite code, a parent or teacher links with it, can see progress and assign sets.
+- Offline: PluggEra is an installable web app (PWA) and works offline once loaded. ${L("common.settings")} → ${L("set.offlineGet")} saves the whole practice library. Signed out, everything stays on the device; signing in syncs it across devices.
+- Spaced repetition: missed and shaky questions come back at growing intervals — ${L("prog.reviewToday")} practises the ones that are due.
+- Test mode: a set can be taken as a timed test; exam mode adds a countdown and locks the tutor.
+- Print: any set can be printed as a worksheet. Also: reading themes (light / paper / dark), a dyslexia-friendly font, text size, read-aloud, focus timer, daily goal, streaks, trophies, notifications, a profile picture.
+- ${L("common.settings")}: theme, font, text size, tutor style, hints in tests, account, profile picture, data export/import, offline download.
+
+Keep replies short — 2-4 sentences, plain and concrete, pointing to the actual page/button by its quoted name. If you are sure something isn't a PluggEra feature, say so plainly. If you are NOT sure, say you're not sure and suggest where to look (${t("common.settings")}, the menu, or ${t("nav.library")}) — never claim a feature doesn't exist just because it isn't in this list. Address the student as "you".
+
+LANGUAGE: Reply in ${sv ? "Swedish (svenska)" : "English"}, the language the app is set to — unless the student clearly writes a whole question in another language, then answer in theirs but keep the button names as quoted above.`;
 }
 
 export function gradingSystem() {
