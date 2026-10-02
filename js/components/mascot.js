@@ -2,6 +2,11 @@
 // cartoon face. Mood still comes through, just as a subtle status dot
 // (like an online/typing indicator) rather than an expression change.
 // mascot(mood, size) -> HTMLElement ;  setMood(el, mood)
+//
+// The glyph is the app's AI sparkles (ICONS.spark), so the tutor wears the
+// same mark as "PluggEra AI" in the menu and on the home page.
+
+import { ICONS } from "../lib/dom.js";
 
 const DOT = {
   thinking:  { color: "var(--ink-faint)", pulse: true },
@@ -16,7 +21,9 @@ export function mascot(mood = "idle", size = 40) {
   wrap.innerHTML = `
     <svg width="${size}" height="${size}" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PluggEra">
       <rect x="1" y="1" width="38" height="38" rx="10" fill="var(--brand-tint)" stroke="var(--line)"/>
-      <path d="M20 11l2.1 5.9L28 19l-5.9 2.1L20 27l-2.1-5.9L12 19l5.9-2.1L20 11Z" fill="var(--brand)"/>
+      <g transform="translate(9 9) scale(0.9167)" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="${ICONS.spark}"/>
+      </g>
     </svg>
     <i class="mascot__dot"></i>`;
   setMood(wrap, mood);
