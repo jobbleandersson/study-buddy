@@ -5,6 +5,7 @@ import { uid } from "./lib/dom.js";
 import { localDayKey, currentStreak, addDays, studiedToday, questionsAnsweredToday } from "./lib/activity.js";
 import { getLang, t } from "./lib/i18n.js";
 import { serverMessage } from "./lib/server-errors.js";
+import { normalizeExam, examsFromMarkedSets, examSetDates } from "./lib/exam.js";
 
 /** An Error carrying the server's message (translated where known) and its machine-readable code. */
 /** What login()/resetPassword() hand the caller when a second factor is still owed. `method` is
@@ -119,11 +120,32 @@ const AVATAR_MAX = 200_000;
  *  pictures, which arrive from the server, before they go anywhere near an <img src>. */
 export const isAvatarDataUrl = (a) => typeof a === "string" && a.length <= AVATAR_MAX && AVATAR_RE.test(a);
 
-/** Take a set off a test: no date, and back to a plain set if the exam-prep
- *  dialog is what made it a test (see Store.setExam). */
+/** Take a set off a test: no date, and back to a plain set if an exam
+ *  is what made it a test (see changeExams). */
 function unmarkExamSet(a) {
   a.dueAt = null;
   if (a.examMark) { a.type = "assignment"; delete a.examMark; }
+}
+
+/** Run a change to `s.exams`, then bring the sets' own marks (type "test", dueAt) in line with it,
+ *  so the home countdown, calendar, reminders and the evening-before plan — which read those marks —
+ *  keep working. A set a coming test covers becomes a test due on the soonest such date; a set a test
+ *  no longer covers lets go of that date (and goes back to a plain set if the test is what made it
+ *  one, see unmarkExamSet). Called inside Store.update(). */
+function changeExams(s, mutate) {
+  const today = localDayKey();
+  const before = examSetDates(s.exams, today);
+  mutate();
+  const after = examSetDates(s.exams, today);
+  for (const a of s.assignments) {
+    const was = before.get(a.id), now = after.get(a.id);
+    if (now) {
+      if (a.type !== "test") { a.type = "test"; a.examMark = true; }
+      a.dueAt = now;
+    } else if (was && a.dueAt === was) {
+      unmarkExamSet(a);
+    }
+  }
 }
 
 // `ink` is the text-safe variant: >= 4.5:1 against both white and its own tint.
@@ -172,6 +194,7 @@ function seedState() {
       id: uid(), name, color: PALETTE[i % PALETTE.length].name,
     })),
     assignments: [],
+    exams: [],                       // the student's tests (lib/exam.js): a date plus exactly the sets each one covers
     attempts: [],
     srs: {},
     rules: [],                       // memory rules the student wrote after a miss — see lib/rules.js
@@ -282,6 +305,14 @@ function mergeStates(server, local) {
   const aSeen = new Set(arr(s.attempts).map((a) => a && a.id));
   s.attempts = [...arr(s.attempts), ...arr(l.attempts).filter((a) => a && a.id && !aSeen.has(a.id))]
     .sort((a, b) => (a.finishedAt || 0) - (b.finishedAt || 0));
+
+  // exams — union by id; on a shared id the server's copy stays
+  {
+    const eSeen = new Set(arr(s.exams).map((e) => e && e.id));
+    if (Array.isArray(s.exams) || Array.isArray(l.exams)) {
+      s.exams = [...arr(s.exams), ...arr(l.exams).filter((e) => e && e.id && !eSeen.has(e.id))];
+    }
+  }
 
   // assignments / subjects — add the ones only the local side has (edits to a
   // shared id stay the server's; migrate() dedupes + prunes subjects after)
@@ -418,6 +449,12 @@ function finishMigrate(s) {
   s.sessions = s.sessions || {};
   s.attempts = s.attempts || [];
   s.assignments = s.assignments || [];
+  // Tests are their own records now. A blob from before that has none at all (not even []), and
+  // gets one per subject + date from the sets it had marked as tests — exactly what the old
+  // exam-prep page showed. Once the field exists it is only validated, never re-derived.
+  s.exams = Array.isArray(s.exams)
+    ? s.exams.map(normalizeExam).filter(Boolean)
+    : examsFromMarkedSets(s.assignments, uid).map(normalizeExam).filter(Boolean);
   // Rules are the student's own writing — keep only well-formed ones, and cap
   // the list so a corrupt or hand-edited blob can't grow without bound.
   s.rules = (Array.isArray(s.rules) ? s.rules : [])
@@ -454,6 +491,9 @@ function finishMigrate(s) {
       for (const a of s.assignments) {
         if (remap.has(a.subjectId)) a.subjectId = remap.get(a.subjectId);
       }
+      for (const e of s.exams) {
+        if (remap.has(e.subjectId)) e.subjectId = remap.get(e.subjectId);
+      }
     }
 
     // Drop subjects nothing uses — the English starter list and any orphan left
@@ -464,6 +504,9 @@ function finishMigrate(s) {
       s.subjects = s.subjects.filter((x) => used.has(x.id) || x.pinned);
     }
   }
+
+  // A test whose subject is gone has nothing left to show.
+  s.exams = s.exams.filter((e) => (s.subjects || []).some((x) => x.id === e.subjectId));
 
   return s;
 }
@@ -650,12 +693,23 @@ class Store extends EventTarget {
   /** A deadline that passed more than DUE_GRACE_DAYS ago clears itself, so the
    *  Upcoming list shows what still matters rather than every date ever set. */
   _sweepStaleDueDates() {
-    const cutoff = addDays(localDayKey(), -DUE_GRACE_DAYS);
+    const today = localDayKey();
+    const cutoff = addDays(today, -DUE_GRACE_DAYS);
     for (const a of this.state.assignments) {
       if (a.dueAt && a.dueAt < cutoff) {
         if (a.examMark) unmarkExamSet(a);
         else a.dueAt = null;
       }
+    }
+    // A test that has passed is done with. And re-assert what the coming ones imply for their sets,
+    // which a sync from another device may have left out of step.
+    this.state.exams = this.state.exams.filter((e) => e.date >= cutoff);
+    const dates = examSetDates(this.state.exams, today);
+    for (const a of this.state.assignments) {
+      const d = dates.get(a.id);
+      if (!d) continue;
+      if (a.type !== "test") { a.type = "test"; a.examMark = true; }
+      a.dueAt = d;
     }
   }
 
@@ -1189,7 +1243,7 @@ class Store extends EventTarget {
   }
 
   /** Removes the set and its review scheduling; attempt history is kept.
-   *  Returns { assignment, srs } so the caller can offer an undo. */
+   *  Returns { assignment, srs, examIds } so the caller can offer an undo. */
   deleteAssignment(id) {
     let snapshot = null;
     this.update((s) => {
@@ -1199,8 +1253,11 @@ class Store extends EventTarget {
       for (const q of a.questions || []) {
         if (s.srs[q.id]) { srs[q.id] = s.srs[q.id]; delete s.srs[q.id]; }
       }
-      snapshot = { assignment: a, srs };
+      // A deleted set leaves every test that covered it (kept in the snapshot, so Undo puts it back).
+      const examIds = s.exams.filter((e) => e.setIds.includes(id)).map((e) => e.id);
+      snapshot = { assignment: a, srs, examIds };
       s.assignments = s.assignments.filter((x) => x.id !== id);
+      for (const e of s.exams) e.setIds = e.setIds.filter((x) => x !== id);
       delete s.sessions[id];
     });
     return snapshot;
@@ -1211,7 +1268,13 @@ class Store extends EventTarget {
     if (!snapshot?.assignment) return;
     this.update((s) => {
       if (s.assignments.some((x) => x.id === snapshot.assignment.id)) return;
-      s.assignments.unshift(snapshot.assignment);
+      const examIds = snapshot.examIds || [];
+      changeExams(s, () => {
+        s.assignments.unshift(snapshot.assignment);
+        for (const e of s.exams) {
+          if (examIds.includes(e.id) && !e.setIds.includes(snapshot.assignment.id)) e.setIds.push(snapshot.assignment.id);
+        }
+      });
       Object.assign(s.srs, snapshot.srs || {});
     });
   }
@@ -1240,36 +1303,50 @@ class Store extends EventTarget {
     });
   }
 
-  /** Save a subject's test from the exam-prep dialog: the ticked sets become
-   *  "test" sets due that day, and sets that were on this test before but got
-   *  unticked lose the date. `prevDate` is the date the test had before an
-   *  edit (null for a new one). A set the dialog turned into a test remembers
-   *  it (`examMark`), so taking it off again — or the test passing — makes it
-   *  a plain set again instead of one that opens in test mode forever. */
-  setExam(subjectId, dayKey, setIds, prevDate = null) {
-    if (!DAY_RE.test(dayKey || "")) return false;
-    const keep = new Set(setIds);
-    this.update((s) => {
-      for (const a of s.assignments) {
-        if (a.subjectId !== subjectId) continue;
-        if (keep.has(a.id)) {
-          if (a.type !== "test") { a.type = "test"; a.examMark = true; }
-          a.dueAt = dayKey;
-        } else if (prevDate && a.type === "test" && a.dueAt === prevDate) {
-          unmarkExamSet(a);
-        }
-      }
-    });
-    return true;
+  // ---------- tests (lib/exam.js) ----------
+  get exams() { return this.state.exams; }
+
+  getExam(id) { return this.state.exams.find((e) => e.id === id); }
+
+  /** Make a test: a date plus exactly the sets it covers (only sets that exist in `subjectId` count).
+   *  Nothing about the subject's other sets is assumed. Returns the record, or null when the date
+   *  isn't valid or no set was given. */
+  addExam({ subjectId, date, title = "", note = "", setIds = [] }) {
+    const rec = this._examRecord({ id: uid(), subjectId, date, title, note, setIds, createdAt: Date.now() });
+    if (!rec) return null;
+    this.update((s) => changeExams(s, () => { s.exams.push(rec); }));
+    return rec;
   }
 
-  /** Remove a subject's test on `dayKey` (the exam-prep dialog's delete). */
-  clearExam(subjectId, dayKey) {
-    this.update((s) => {
-      for (const a of s.assignments) {
-        if (a.subjectId === subjectId && a.type === "test" && a.dueAt === dayKey) unmarkExamSet(a);
-      }
-    });
+  /** Change a test's date, title, note or sets; the rest stays. Null if it doesn't exist or the result isn't valid. */
+  updateExam(id, patch) {
+    const cur = this.getExam(id);
+    if (!cur) return null;
+    const rec = this._examRecord({ ...cur, ...patch, id: cur.id, createdAt: cur.createdAt });
+    if (!rec) return null;
+    this.update((s) => changeExams(s, () => { s.exams = s.exams.map((e) => (e.id === id ? rec : e)); }));
+    return rec;
+  }
+
+  /** Delete a test (its sets stay). Hands back the record so the caller can offer Undo. */
+  removeExam(id) {
+    const rec = this.getExam(id);
+    if (!rec) return null;
+    this.update((s) => changeExams(s, () => { s.exams = s.exams.filter((e) => e.id !== id); }));
+    return rec;
+  }
+
+  /** Puts back a test removed by removeExam(). */
+  restoreExam(rec) {
+    if (!rec || this.getExam(rec.id)) return;
+    this.update((s) => changeExams(s, () => { s.exams.push(rec); }));
+  }
+
+  /** A validated record limited to sets that exist in its subject, or null. */
+  _examRecord(x) {
+    const inSubject = new Set(this.state.assignments.filter((a) => a.subjectId === x.subjectId).map((a) => a.id));
+    const rec = normalizeExam({ ...x, setIds: (x.setIds || []).filter((id) => inSubject.has(id)) });
+    return rec && rec.setIds.length ? rec : null;
   }
 
   /** Sets with a deadline, soonest first. Stale ones were swept at init. */

@@ -1,11 +1,14 @@
-// Exam prep. `#/exam-prep` lists your coming tests, then your other subjects;
-// `#/exam-prep/:id` is one subject's test — the countdown and today's session
-// up top, then the plan to test day, how ready you are, and a mock exam.
+// Exam prep. `#/exam-prep` lists your coming tests; `#/exam-prep/:id` is one test — the
+// countdown and today's session up top, then the plan to test day, how ready you are, and a
+// mock exam.
 //
-// A test is the subject's sets marked "test" with a shared date (lib/exam.js),
-// set from the "Lägg till prov" dialog (components/exam-dialog.js). Nothing
-// else is stored: every visit recomputes from dueAt / attempts / the srs map,
-// so doing today's session moves tomorrow's plan on its own.
+// A test is its own record (lib/exam.js), made in the "Lägg till prov" dialog
+// (components/exam-dialog.js): a date and exactly the sets you picked for it, with any material you
+// added for it. Everything on this page — readiness, weak spots, the plan, the mock — is worked
+// out from those sets and from the answers given to their questions; the rest of the subject is
+// never assumed to be on the test. Nothing else is stored: every visit recomputes from the
+// attempts and the srs map, so doing today's session moves tomorrow's plan on its own.
+// (`#/exam-prep/<subjectId>` still works: it opens that subject's next test.)
 
 import { store, nationalMixId } from "../store.js";
 import { el, icon, ICONS } from "../lib/dom.js";
@@ -16,7 +19,7 @@ import { openExamDialog } from "../components/exam-dialog.js";
 import { isHpSetId } from "../lib/hp.js";
 import { masteryByTopic, weakSpotQuestions, setProgress } from "../lib/mastery.js";
 import {
-  nextExam, upcomingExams, readiness, topicsOf, buildExamPlan, practisedSince, MOCK_MIN_QUESTIONS,
+  upcomingExams, readiness, topicsOf, buildExamPlan, practisedSince, scopeAttempts, MOCK_MIN_QUESTIONS,
 } from "../lib/exam.js";
 
 const MOCK_LENGTHS = [20, 40, 60];
@@ -31,35 +34,34 @@ const PLAN_TAIL = 3;
 let mockLen = 40;
 
 /* ------------------------------------------------------------------ */
-/* the model: everything both screens need about one subject's test    */
+/* the model: everything the screens need about one test                */
 /* ------------------------------------------------------------------ */
 
-function prepFor(subjectId, tm) {
+/** `exam` is an entry from upcomingExams(): the record plus `days` and the `sets` it covers.
+ *  Only those sets, and only the answers given to their questions, go into any of this. */
+function prepFor(exam) {
   const today = localDayKey();
-  const all = store.assignments.filter((a) => a.subjectId === subjectId && !isHpSetId(a.id));
-  const exam = nextExam(all, subjectId, today);
-  // With a test, everything is about the sets it covers; without, the subject.
-  const scope = exam ? exam.sets : all;
+  const scope = exam.sets;
   const ids = scope.map((a) => a.id);
-  const progress = new Map(scope.map((a) => [a.id, setProgress(a, store.attempts, tm)]));
+  const attempts = scopeAttempts(store.attempts, scope);
+  const tm = masteryByTopic(attempts);
+  const progress = new Map(scope.map((a) => [a.id, setProgress(a, attempts, tm)]));
   const setReady = new Map(scope.map((a) => [a.id, readiness([a], tm).pct]));
   const untouched = scope.filter((a) => progress.get(a.id).seen === 0);
   const softest = scope.filter((a) => progress.get(a.id).seen > 0)
     .sort((x, y) => (setReady.get(x.id) ?? 0) - (setReady.get(y.id) ?? 0))
     .slice(0, 3);
-  const weak = weakSpotQuestions(scope, store.attempts, { limit: Infinity });
+  const weak = weakSpotQuestions(scope, attempts, { limit: Infinity });
   const weakTopics = [...new Set(weak.map((w) => w.question.topic))];
   const idSet = new Set(ids);
   const dueCount = store.dueQuestions().filter((d) => idSet.has(d.assignment.id)).length;
   const totalQ = scope.reduce((n, a) => n + (a.questions?.length || 0), 0);
   const canMock = totalQ >= MOCK_MIN_QUESTIONS;
-  const plan = exam
-    ? buildExamPlan({ days: exam.days, today, untouched, weakTopics: weakTopics.slice(0, 4), dueCount, softest, canMock })
-    : null;
+  const plan = buildExamPlan({ days: exam.days, today, untouched, weakTopics: weakTopics.slice(0, 4), dueCount, softest, canMock });
   const startOfDay = new Date();
   startOfDay.setHours(0, 0, 0, 0);
   return {
-    subjectId, all, exam, scope, ids, progress, setReady, weak, weakTopics, dueCount, canMock, plan,
+    exam, subjectId: exam.subjectId, scope, ids, tm, attempts, progress, setReady, weak, weakTopics, dueCount, canMock, plan,
     ready: readiness(scope, tm),
     doneToday: practisedSince(store.attempts, scope, startOfDay.getTime()),
   };
@@ -70,11 +72,10 @@ function prepFor(subjectId, tm) {
 /* ------------------------------------------------------------------ */
 
 const practiceHash = (a) => `#/session/${a.id}?practice=1`;
-const weakHash = (m, topic = null) => (m.exam
-  ? `#/practice-weak?sets=${m.ids.join(",")}${topic ? `&topic=${encodeURIComponent(topic)}` : ""}`
-  : `#/practice-weak?subject=${m.subjectId}`);
+const weakHash = (m, topic = null) =>
+  `#/practice-weak?sets=${m.ids.join(",")}${topic ? `&topic=${encodeURIComponent(topic)}` : ""}`;
 const mockHash = (m, min) =>
-  `#/national/mix/${m.subjectId}?exam=1&min=${min}&count=${MOCK_COUNT}${m.exam ? `&sets=${m.ids.join(",")}` : ""}`;
+  `#/national/mix/${m.subjectId}?exam=1&min=${min}&count=${MOCK_COUNT}&sets=${m.ids.join(",")}`;
 
 function taskHash(r, m) {
   switch (r.kind) {
@@ -205,54 +206,58 @@ function todayBlock(m, subjectName) {
 /* #/exam-prep/:id                                                      */
 /* ------------------------------------------------------------------ */
 
-export function renderExamPrep(subjectId) {
-  if (!subjectId) return renderLanding();
+/** A coming test by its id, or — for the older `#/exam-prep/<subjectId>` links — that subject's next one. */
+function resolveExam(param) {
+  const list = upcomingExams(store.exams, store.assignments, localDayKey());
+  return list.find((e) => e.id === param) || list.find((e) => e.subjectId === param) || null;
+}
 
-  const subject = store.subjects.find((s) => s.id === subjectId);
-  if (!subject) return emptyScreen(t("exam.noSubject"));
-  const title = t("exam.prepFor", { subject: subject.name });
+/** What a test is called on screen: the name it was given, else "Prov i <subject>". */
+const examTitle = (exam, subject) => exam.title || t("exam.prepFor", { subject: subject.name });
 
-  const tm = masteryByTopic(store.attempts);
-  const m = prepFor(subjectId, tm);
-  if (!m.all.length) {
+export function renderExamPrep(param, qs) {
+  if (!param) return renderLanding();
+
+  const exam = resolveExam(param);
+  const subject = store.subjects.find((s) => s.id === (exam ? exam.subjectId : param));
+  if (!subject) return emptyScreen(t("exam.noTest"));
+  if (!exam) return renderNoTest(subject, qs);
+
+  const title = examTitle(exam, subject);
+  const m = prepFor(exam);
+  const color = store.subjectColor(subject.id).solid;
+  const edit = () => openExamDialog({ examId: exam.id, onSaved: (rec) => { if (!rec) location.hash = "#/exam-prep"; } });
+  const eyebrow = el("p.exam-hero__eyebrow", {}, [el("span.exam-dot"), title]);
+
+  // Every set it covered has since been deleted: nothing to plan from, so say so and offer the fix.
+  if (!m.scope.length) {
     return {
       title,
       node: el("div.exam-prep", {}, [
         homeButton(),
         el("h1", {}, title),
         el("section.panel", {}, [
-          el("p", {}, t("exam.noSets", { subject: subject.name })),
-          el("a.btn", { href: "#/library", style: { marginTop: "12px" } },
-            [icon(ICONS.book, 16), t("exam.addFromLibrary")]),
+          el("p", {}, t("exam.noSetsLeft")),
+          el("button.btn", { type: "button", style: { marginTop: "12px" }, onclick: edit }, [icon(ICONS.pencil, 16), t("exam.edit")]),
         ]),
       ]),
     };
   }
 
-  const color = store.subjectColor(subjectId).solid;
-  const edit = () => openExamDialog(subjectId);
-  const eyebrow = el("p.exam-hero__eyebrow", {}, [el("span.exam-dot"), title]);
-
   /* ---- hero: countdown + today's session, readiness beside it ---- */
   const hero = el("section.exam-hero", { style: { "--subject": color } }, [
-    el("div.exam-hero__main", {}, m.exam ? [
+    el("div.exam-hero__main", {}, [
       eyebrow,
-      el("h1.exam-hero__title", {}, countdownTitle(m.exam.days)),
+      el("h1.exam-hero__title", {}, countdownTitle(exam.days)),
       el("p.exam-hero__meta", {}, [
-        el("span", {}, sentenceCase(longDate(m.exam.date))),
+        el("span", {}, sentenceCase(longDate(exam.date))),
         el("span", { "aria-hidden": "true" }, "·"),
         el("span", {}, plural(m.scope.length, "exam.coversOne", "exam.coversMany")),
         el("button.linkbtn", { type: "button", onclick: edit }, [icon(ICONS.pencil, 13), t("exam.edit")]),
       ]),
+      exam.note ? el("p.exam-hero__note", {}, exam.note) : null,
       todayBlock(m, subject.name),
-    ] : [
-      eyebrow,
-      el("h1.exam-hero__title", {}, t("exam.whenTitle")),
-      el("p.exam-hero__lede", {}, t("exam.whenBody")),
-      el("div.exam-hero__cta", {}, [
-        el("button.btn", { type: "button", onclick: edit }, [icon(ICONS.plus, 16), t("exam.addTest")]),
-      ]),
-    ]),
+    ].filter(Boolean)),
     el("div.exam-hero__side", {}, [
       ring(m.ready.seen ? m.ready.pct : null, color),
       m.ready.topics
@@ -303,9 +308,11 @@ export function renderExamPrep(subjectId) {
   }
 
   /* ---- mock exam ---- */
-  const mixId = nationalMixId(subjectId);
+  // The last mock of THIS test: one that asked at least one of its questions.
+  const mixId = nationalMixId(subject.id);
+  const mine = new Set(m.attempts.map((a) => a.id));
   const lastMock = store.attempts
-    .filter((a) => a.examMode && a.assignmentId === mixId)
+    .filter((a) => a.examMode && a.assignmentId === mixId && mine.has(a.id))
     .sort((a, b) => (b.finishedAt || 0) - (a.finishedAt || 0))[0];
   const startMock = el("a.btn", { href: mockHash(m, mockLen) }, [icon(ICONS.clock, 16), t("exam.mockBtn")]);
   const lenGroup = el("div.exam-seg", { role: "radiogroup", "aria-label": t("exam.mockLenLabel") },
@@ -319,7 +326,7 @@ export function renderExamPrep(subjectId) {
     }, t("exam.planMin", { n }))));
   const mockPanel = el("section.panel.exam-panel", {}, [
     el("h2.exam-panel__head", {}, t("exam.mockTitle")),
-    m.canMock ? el("p.note", {}, t(m.exam ? "exam.mockBodyTest" : "exam.mockBody", { n: MOCK_COUNT })) : null,
+    m.canMock ? el("p.note", {}, t("exam.mockBodyTest", { n: MOCK_COUNT })) : null,
     m.canMock && lastMock ? el("p.exam-mock__last", {}, t("exam.mockLast", {
       pct: lastMock.scorePct ?? 0, when: fmtDate(localDayKey(new Date(lastMock.finishedAt || Date.now()))),
     })) : null,
@@ -350,19 +357,13 @@ export function renderExamPrep(subjectId) {
       ]);
     });
 
-  const others = m.exam ? m.all.length - m.scope.length : 0;
   const topicList = topicsOf(m.scope)
-    .map((topic) => ({ topic, mv: tm[topic] }))
+    .map((topic) => ({ topic, mv: m.tm[topic] }))
     .sort((a, b) => (a.mv ?? -1) - (b.mv ?? -1));
 
   const standPanel = el("section.panel.exam-panel", {}, [
     el("h2.exam-panel__head", {}, t("exam.standTitle")),
     el("div.exam-sets", {}, setRows),
-    others ? el("p.exam-others", {}, [
-      plural(others, "exam.othersOne", "exam.othersMany"), " ",
-      el("button.linkbtn", { type: "button", onclick: edit }, t("exam.edit")),
-    ]) : null,
-
     el("h3.exam-sub", {}, t("exam.weakHeading")),
     m.weak.length
       ? el("div.exam-weak", {}, [
@@ -410,19 +411,18 @@ export function renderExamPrep(subjectId) {
 /* ------------------------------------------------------------------ */
 
 function renderLanding() {
-  const tm = masteryByTopic(store.attempts);
   const today = localDayKey();
   // Högskoleprovet has its own hub (#/hp) with its own scoring — keep its
   // sets out of the school tests here; it gets a pointer at the foot instead.
   const hasHp = store.assignments.some((a) => isHpSetId(a.id));
   const plain = store.assignments.filter((a) => !isHpSetId(a.id));
   const canAdd = store.subjects.some((s) => plain.some((a) => a.subjectId === s.id));
-  const exams = upcomingExams(plain, today).filter((x) => store.subjects.some((s) => s.id === x.subjectId));
+  const exams = upcomingExams(store.exams, plain, today).filter((x) => store.subjects.some((s) => s.id === x.subjectId));
 
   // One way in: the dialog asks which subject, when, and what's on it.
   const addTest = (cls = "btn") => el(`button.${cls}`, {
     type: "button",
-    onclick: () => openExamDialog(null, { onSaved: (id) => { if (id) location.hash = `#/exam-prep/${id}`; } }),
+    onclick: () => openExamDialog({ onSaved: (rec) => { if (rec) location.hash = `#/exam-prep/${rec.id}`; } }),
   }, [icon(ICONS.plus, 16), t("exam.addTest")]);
 
   const head = el("header.exam-head", {}, [
@@ -478,13 +478,13 @@ function renderLanding() {
 
   const cards = exams.map((x) => {
     const s = store.subjects.find((y) => y.id === x.subjectId);
-    const m = prepFor(s.id, tm);
+    const m = prepFor(x);
     const color = store.subjectColor(s.id).solid;
     const r = m.plan?.[0];
     const pct = m.ready.seen ? m.ready.pct : null;
     return el("article.exam-card", { style: { "--subject": color } }, [
       el("div.exam-card__top", {}, [
-        el("a.exam-card__name", { href: `#/exam-prep/${s.id}` }, [el("span.exam-dot"), t("exam.cardTitle", { subject: s.name })]),
+        el("a.exam-card__name", { href: `#/exam-prep/${x.id}` }, [el("span.exam-dot"), x.title || t("exam.cardTitle", { subject: s.name })]),
         el("span.exam-pill" + (x.days <= 2 ? ".is-soon" : ""), {}, shortCountdown(x.days)),
       ]),
       el("p.exam-card__meta", {}, [
@@ -516,6 +516,34 @@ function renderLanding() {
       ]),
       hpFoot,
     ].filter(Boolean)),
+  };
+}
+
+// Which link already opened the dialog by itself, so a re-render (a store change while it is open)
+// doesn't open it a second time and throw away what was typed.
+let autoOpenedFor = "";
+
+/** `#/exam-prep/<subjectId>` for a subject with no coming test: say so, and offer to make one.
+ *  A link from a set that is marked as a test (`?date=…&set=…`) opens the dialog filled in with them. */
+function renderNoTest(subject, qs) {
+  const date = qs?.get?.("date") || "";
+  const setId = qs?.get?.("set") || "";
+  const open = () => openExamDialog({
+    subjectId: subject.id, date, setIds: setId ? [setId] : [],
+    onSaved: (rec) => { if (rec) location.hash = `#/exam-prep/${rec.id}`; },
+  });
+  if ((date || setId) && autoOpenedFor !== location.hash) { autoOpenedFor = location.hash; setTimeout(open, 0); }
+  return {
+    title: t("exam.prepFor", { subject: subject.name }),
+    node: el("div.exam-prep", {}, [
+      homeButton(),
+      el("section.exam-emptyhero", {}, [
+        el("span.exam-emptyhero__ic", { "aria-hidden": "true" }, icon(ICONS.graduation, 26)),
+        el("h2", {}, t("exam.whenTitle")),
+        el("p", {}, t("exam.whenBody")),
+        el("button.btn", { type: "button", onclick: open }, [icon(ICONS.plus, 16), t("exam.addTest")]),
+      ]),
+    ]),
   };
 }
 

@@ -4958,3 +4958,10 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   .solve-hero, .solve-hero::before, .solve-start, .solve .msgrow, .solve .msg.me { animation: none; }
   .solve-start:hover:not(:disabled), .solve-dock__send:hover:not(:disabled) { transform: none; }
 }
+
+/* exam dialog: material of your own, and the free-text fields */
+.exam-dlg > input[type="text"], .exam-dlg textarea { width: 100%; box-sizing: border-box; }
+.exam-dlg textarea { resize: vertical; min-height: 56px; }
+.exam-dlg__material { margin-top: var(--s-3); padding: var(--s-3); border: 1px dashed var(--line); border-radius: var(--r-md); }
+.exam-dlg__material .exam-dlg__label { margin-top: 0; }
+.exam-hero__note { margin: 6px 0 0; max-width: 60ch; color: var(--ink-soft); font-size: var(--fs-sm); }

@@ -15,6 +15,7 @@ import { openDueDialog, closeDueDialog } from "../components/due-dialog.js";
 import { openQuickAdd, closeQuickAdd } from "../components/quick-add.js";
 import { ACHIEVEMENTS, nextAchievement } from "../lib/achievements.js";
 import { countdownLabel } from "../lib/date-phrases.js";
+import { prepHashForSet } from "../lib/exam.js";
 import { testsTomorrow } from "../lib/tonight.js";
 import { dailySlot } from "../components/daily-card.js";
 import { houseAd } from "../components/house-ad.js";
@@ -740,7 +741,7 @@ function nextDeadlineLine(a) {
   return el("div.next-test-wrap", {}, [
     card,
     a.subjectId ? el("a.next-test__prep", {
-      href: `#/exam-prep/${a.subjectId}`,
+      href: prepHashForSet(store.exams, a),
     }, [icon(ICONS.target, 13), t("exam.prepLink")]) : null,
   ].filter(Boolean));
 }
