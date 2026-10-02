@@ -73,7 +73,7 @@ export function header({ sections = false } = {}) {
     el("div.lp-head__inner", {}, [
       el("a.lp-brand", { href: "#/welcome" }, [
         el("img", { src: "assets/favicon.svg", alt: "", width: 28, height: 28 }),
-        el("span", {}, "PluggEra"),
+        el("span.wordmark__text", {}, "PluggEra"),
       ]),
       el("nav.lp-nav", { "aria-label": t("lp.navAria") }, links),
       el("div.lp-head__actions", {}, [
@@ -535,7 +535,7 @@ export function footer() {
   return el("footer.lp-foot", {}, [
     el("div.lp-foot__inner", {}, [
       el("div.lp-foot__about", {}, [
-        el("span.lp-foot__brand", {}, [el("img", { src: "assets/favicon.svg", alt: "", width: 24, height: 24 }), "PluggEra"]),
+        el("span.lp-foot__brand", {}, [el("img", { src: "assets/favicon.svg", alt: "", width: 24, height: 24 }), el("span.wordmark__text", {}, "PluggEra")]),
         el("p", {}, t("lp.footBlurb")),
         el("div.lp-foot__social", {}, [
           el("a.lp-foot__social-link", {

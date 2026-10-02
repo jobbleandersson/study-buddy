@@ -282,6 +282,12 @@ a.streakbadge:hover {
 .topbar__spacer { flex: 1; }
 
 .wordmark { display: inline-block; letter-spacing: -.02em; }
+/* The name itself: Lexend Bold leaning forward a little, for momentum. Used wherever "PluggEra"
+   stands next to the logo — the sidebar, the topbar, the front page and the sign-in page. */
+.wordmark__text {
+  display: inline-block; font-family: "Lexend", var(--font-display); font-weight: 700;
+  letter-spacing: -.035em; transform: skewX(-9deg); padding-right: .08em;
+}
 
 /* Bottom tab bar — mobile's primary nav (see js/main.js tabBar()). Fixed and
    thumb-reachable; hidden on desktop by the min-width:900px block above. */

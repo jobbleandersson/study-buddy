@@ -304,7 +304,7 @@ export function renderLogin(qs) {
         langToggle(),
       ]),
       el("div.auth__card", {}, [
-        el("a.auth__brand", { href: "#/" }, [el("img", { src: "assets/favicon.svg", alt: "", width: 40, height: 40 }), el("span", {}, "PluggEra")]),
+        el("a.auth__brand", { href: "#/" }, [el("img", { src: "assets/favicon.svg", alt: "", width: 40, height: 40 }), el("span.wordmark__text", {}, "PluggEra")]),
         heading,
         subline,
         serverDown ? el("p.auth__error", {}, t("login.serverDown")) : null,
@@ -347,7 +347,7 @@ function showcase() {
     el("b", {}, letter), el("span", {}, t(key)), right ? icon(ICONS.check, 16) : null,
   ].filter(Boolean));
   return el("aside.auth__panel", {}, [
-    el("div.auth__panelbrand", {}, [el("img", { src: "assets/favicon.svg", alt: "", width: 32, height: 32 }), el("span", {}, "PluggEra")]),
+    el("div.auth__panelbrand", {}, [el("img", { src: "assets/favicon.svg", alt: "", width: 32, height: 32 }), el("span.wordmark__text", {}, "PluggEra")]),
     el("div.auth__pitch", {}, [
       el("h2", {}, t("lp.title")),
       el("p", {}, t("login.panelLead")),
