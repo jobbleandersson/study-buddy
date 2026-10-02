@@ -96,12 +96,16 @@ export async function generateAssignment({ material, topic, image, count = 6, gr
       source: { type: "base64", media_type: image.mediaType, data: image.data },
     });
   }
+  // More questions for an existing set stay in ITS kinds: a history set that never had a worked
+  // (step-by-step) problem must not get one, and a maths set keeps its mix.
+  const moreKinds = moreLike ? [...new Set((moreLike.questions || []).map((q) => q?.kind).filter(Boolean))] : [];
   const ask = moreLike
     ? [
         `Here is an existing question set titled "${moreLike.title}" (subject: ${moreLike.subject}).`,
         `Existing questions (JSON):\n"""\n${JSON.stringify(moreLike.questions, null, 1)}\n"""`,
+        moreKinds.length ? `Use ONLY these question kinds, in roughly the same mix as the existing questions: ${moreKinds.join(", ")}. Do not use any other kind.` : null,
         `Write about ${count} MORE questions in the same style, difficulty and topics. Do NOT repeat or lightly reword any existing question. Return the JSON object only — its "questions" array holds only the new questions.`,
-      ].join("\n\n")
+      ].filter(Boolean).join("\n\n")
     : [
         material ? `Study material:\n"""\n${material}\n"""` : null,
         topic ? `Topic to build questions on: ${topic}` : null,

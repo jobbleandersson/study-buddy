@@ -13,7 +13,8 @@ export const QUESTION_SHAPE = `Each question object has:
 - "answerIndex": REQUIRED for "mc" only — the 0-based index of the correct choice. Spread the correct answer across the positions (sometimes first, sometimes last, sometimes in the middle) — never put it first out of habit, and give the wrong options the same length and style as the right one.
 - "answer": REQUIRED for "text", "flashcard", "worked" — the correct/model answer as a string. Not used for "cloze".
 - "rubric": for "text" only — one line on what earns full vs partial credit.
-- "explanation": for "mc" — one or two sentences on why the answer is right.
+- "explanation": for "mc" — one or two sentences on why the answer is right. It must agree with the correct option word for word and never contradict it.
+- Multiple-choice quality: exactly one option is clearly right, and the wrong ones are plausible but clearly wrong. No two options may overlap or be nearly equal, and "all/none of the above" style options are to be avoided. For a calculation or an estimate, the correct (properly rounded) value must itself be one of the options — never leave the student to pick the "closest" of options that are all off.
 - "steps": for "worked" — an array of 3-6 strings, the reasoning steps in order.
 - "opener": ALWAYS include. One short sentence the tutor says before the student answers — a nudge toward how to think about THIS question. Never state or give away the answer. Address the student as "you". Max 25 words.`;
 
