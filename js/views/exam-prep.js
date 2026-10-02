@@ -11,11 +11,12 @@
 // (`#/exam-prep/<subjectId>` still works: it opens that subject's next test.)
 
 import { store, nationalMixId } from "../store.js";
-import { el, icon, ICONS } from "../lib/dom.js";
+import { el, icon, ICONS, toast } from "../lib/dom.js";
 import { t, plural, getLang, sentenceCase, fmtDate } from "../lib/i18n.js";
 import { localDayKey } from "../lib/activity.js";
 import { homeButton } from "../components/nav.js";
 import { openExamDialog } from "../components/exam-dialog.js";
+import { addMoreQuestions, MORE_QUESTIONS } from "../components/exam-more.js";
 import { isHpSetId } from "../lib/hp.js";
 import { masteryByTopic, weakSpotQuestions, setProgress } from "../lib/mastery.js";
 import {
@@ -234,6 +235,24 @@ export function renderExamPrep(param, qs) {
   });
   const eyebrow = el("p.exam-hero__eyebrow", {}, [el("span.exam-dot"), title]);
 
+  // More questions to study from: the AI writes new ones like the test's own sets, into a set that
+  // belongs to the test. A store change re-renders this page, so the button is rebuilt afterwards.
+  const moreBtn = el("button.btn.btn--sm.exam-more", { type: "button", disabled: !store.hasKey(), onclick: makeMore },
+    [icon(ICONS.spark, 15), t("exam.moreQuestions")]);
+  async function makeMore() {
+    moreBtn.disabled = true;
+    moreBtn.lastChild.textContent = t("exam.moreWorking");
+    try {
+      const n = await addMoreQuestions(exam, subject.name, title);
+      toast(t("exam.moreDone", { n }));
+    } catch (e) {
+      toast(e?.message || t("exam.moreFailed"));
+    } finally {
+      moreBtn.disabled = !store.hasKey();
+      moreBtn.lastChild.textContent = t("exam.moreQuestions");
+    }
+  }
+
   // Every set it covered has since been deleted: nothing to plan from, so say so and offer the fix.
   if (!m.scope.length) {
     return {
@@ -368,7 +387,11 @@ export function renderExamPrep(param, qs) {
   const standPanel = el("section.panel.exam-panel", {}, [
     el("h2.exam-panel__head", {}, t("exam.standTitle")),
     el("div.exam-sets", {}, setRows),
-    el("button.btn.btn--ghost.btn--sm.exam-addmaterial", { type: "button", onclick: addMaterial }, [icon(ICONS.plus, 15), t("exam.addMaterial")]),
+    el("div.exam-addrow", {}, [
+      el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: addMaterial }, [icon(ICONS.plus, 15), t("exam.addMaterial")]),
+      moreBtn,
+    ]),
+    el("p.note.exam-addrow__hint", {}, store.hasKey() ? t("exam.moreHint", { n: MORE_QUESTIONS }) : t("exam.moreNeedsServer")),
     el("h3.exam-sub", {}, t("exam.weakHeading")),
     m.weak.length
       ? el("div.exam-weak", {}, [

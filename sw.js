@@ -155,6 +155,7 @@ const APP_SHELL = [
   "./js/components/site-gate-dialog.js",
   "./js/components/due-dialog.js",
   "./js/components/exam-dialog.js",
+  "./js/components/exam-more.js",
   "./js/components/set-ui.js",
   "./js/components/avatar-editor.js",
   "./js/components/subject-field.js",

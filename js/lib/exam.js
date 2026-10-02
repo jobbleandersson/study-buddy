@@ -190,3 +190,36 @@ export function prepHashForSet(exams, a) {
   if (e) return `#/exam-prep/${e.id}`;
   return `#/exam-prep/${a.subjectId}?date=${a.dueAt}&set=${a.id}`;
 }
+
+/** A few of a test's own questions to show the AI as the style to write more in: taken round-robin
+ *  from each set so every set is represented, shuffled within a set, cut down to the fields the
+ *  generator needs. Only the test's sets are ever passed in, so the new questions stay about the test. */
+export function pickSeedQuestions(sets, max = 14, rng = Math.random) {
+  const lists = (sets || []).map((a) => {
+    const qs = [...(a.questions || [])];
+    for (let i = qs.length - 1; i > 0; i--) { const j = Math.floor(rng() * (i + 1)); [qs[i], qs[j]] = [qs[j], qs[i]]; }
+    return qs;
+  });
+  const out = [];
+  for (let round = 0; out.length < max && lists.some((l) => l.length > round); round++) {
+    for (const l of lists) { if (l[round] && out.length < max) out.push(l[round]); }
+  }
+  return out.map((q) => ({ kind: q.kind, topic: q.topic, prompt: q.prompt, choices: q.choices, answer: q.answer, explanation: q.explanation }));
+}
+
+const promptKey = (p) => String(p || "").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+
+/** Generated questions that are not already in these sets (same prompt, ignoring case and punctuation)
+ *  and not repeated within the batch itself. */
+export function newQuestionsOnly(generated, sets) {
+  const seen = new Set();
+  for (const a of sets || []) for (const q of a.questions || []) seen.add(promptKey(q.prompt));
+  const out = [];
+  for (const q of generated || []) {
+    const k = promptKey(q.prompt);
+    if (!k || seen.has(k)) continue;
+    seen.add(k);
+    out.push(q);
+  }
+  return out;
+}
