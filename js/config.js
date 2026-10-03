@@ -45,7 +45,7 @@ export const adminReviewUrl = (id) => `${API}/api/admin/reviews/${encodeURICompo
 
 // Where people write with privacy, data and general questions. One place, so it changes in one place.
 // The contact form (#/contact) mails the same inbox from the server — see CONTACT_TO in server/src/email.js.
-export const CONTACT_EMAIL = "pluggera.organistion@gmail.com";
+export const CONTACT_EMAIL = "pluggera.organisation@gmail.com";
 export const CONTACT_URL = `${API}/api/contact`;
 
 // The only social link on the front page footer for now — see js/views/landing.js.

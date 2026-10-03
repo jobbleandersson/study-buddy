@@ -147,7 +147,7 @@ export function sendPasswordAddedEmail(to) {
 
 // Where the contact form (#/contact, routes/contact.js) delivers. The client shows the same address
 // for anyone who'd rather write from their own mail app — keep it in step with js/config.js.
-export const CONTACT_TO = process.env.CONTACT_TO || "pluggera.organistion@gmail.com";
+export const CONTACT_TO = process.env.CONTACT_TO || "pluggera.organisation@gmail.com";
 
 const escapeHtml = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 
