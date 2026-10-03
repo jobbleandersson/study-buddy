@@ -1167,8 +1167,14 @@ function runSession(config) {
   // from then on. Shown once ever, per browser.
   let tipTimer = null;
   try {
+<<<<<<< Updated upstream
     // Not over a screen you use by ear, and not on a phone or tablet: no keyboard there to use them with.
     if (!config.bus && matchMedia("(hover: hover) and (pointer: fine)").matches && !localStorage.getItem(TIP_SEEN_KEY)) {
+=======
+    // Not over a screen you use by ear, and not on a touch screen with no keyboard to press ? on.
+    const hasKeyboard = window.matchMedia?.("(hover: hover) and (pointer: fine)").matches;
+    if (!config.bus && hasKeyboard && !localStorage.getItem(TIP_SEEN_KEY)) {
+>>>>>>> Stashed changes
       localStorage.setItem(TIP_SEEN_KEY, "1");
       tipTimer = setTimeout(() => toast(t("session.shortcutTip")), 1200);
     }

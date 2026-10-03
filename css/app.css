@@ -3524,7 +3524,6 @@ kbd {
   .ach-overview { grid-template-columns: 1fr; justify-items: center; padding: var(--s-4); gap: var(--s-4); }
   .ach-tiers { width: 100%; gap: 6px; }
   .ach-tiercount { padding: 8px 2px; }
-  .ach-tiercount small { font-size: 10.5px; }
   .ach-overview .ach-hero { width: 100%; }
 }
 .achgroup__title { display: flex; align-items: center; gap: var(--s-3); margin-bottom: var(--s-4); color: var(--ink); font-size: var(--fs-md); }
@@ -5133,6 +5132,7 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .chatquick { margin-top: 10px; }
 .home-exam { margin: 0 0 var(--s-4); }
 
+<<<<<<< Updated upstream
 /* Mobile audit: small controls get a finger-sized hit area on touch screens. The ::after is invisible
    and doesn't move anything; :where() keeps position at zero specificity so an element that is
    already absolutely placed stays where it is. */
@@ -5144,4 +5144,53 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   /* Chips sit 8px apart in wrapping rows: grow up and down, barely sideways. */
   :is(.chip, .datepick__chip)::after { content: ""; position: absolute; inset: -6px -3px; }
   .linkbtn::after { inset: -10px -4px; }
+=======
+/* ===== Phones and touch screens ===== */
+/* A dialog taller than the screen (a short phone, or the keyboard up) scrolls inside the backdrop
+   instead of running off both edges with its buttons out of reach. margin-block: auto still centres
+   it when it fits. */
+.modal { place-items: start center; overflow-y: auto; overscroll-behavior: contain; }
+.modal > .modal__card { margin-block: auto; }
+
+@media (pointer: coarse) {
+  /* iOS zooms the whole page into any field set under 16px when it's tapped — and leaves it zoomed. */
+  /* (The :not()s only lift the specificity over component rules like `.qedit select`.) */
+  input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]):not([type=color]),
+  select:not([multiple]):not([hidden]), textarea:not([readonly]):not([hidden]) { font-size: max(16px, 1em); }
+  input[type=range] { min-height: 32px; }
+
+  /* Finger-sized targets (~36px and up) for the small icon buttons, steppers and chips. */
+  .iconbtn--sm { width: 36px; height: 36px; }
+  .cal__navbtn, .plan-nav__btn { width: 36px; height: 36px; }
+  .acard__menu { width: 36px; height: 36px; top: 6px; right: 6px; }
+  .house-ad__x { padding: 9px; margin: -9px -9px 0 0; }
+  .datepick__chip, .subjchips .chip { min-height: 36px; }
+  .langbar__modes button { min-height: 36px; padding-inline: 14px; }
+  /* Text links get a bigger invisible hit area, not a bigger look. */
+  .linkbtn::after, .auth__link::after { inset: -10px -4px; }
+  .lp-more, .pg-more, .set-row__link { padding-block: 8px; margin-block: -8px; }
+  .lp-more { margin-top: 12px; }
+  .topbar__inner .brand { padding: 6px; margin: -6px; }
+}
+
+@media (max-width: 899.98px) {
+  /* Settings' section tabs bleed to the page edge, which is 12px away on a phone, not 16. */
+  .settings__nav { margin-inline: calc(-1 * var(--s-3)); padding-inline: var(--s-3); }
+
+  /* PluggEra AI: the composer stays in reach above the tab bar instead of sitting below the fold
+     under the greeting. */
+  .solve-dock { position: sticky; bottom: calc(60px + var(--s-2) + env(safe-area-inset-bottom, 0px)); z-index: 6; }
+  body.route-immersive .solve-dock { bottom: calc(var(--s-2) + env(safe-area-inset-bottom, 0px)); }
+}
+@media (max-width: 560px) {
+  /* The four ways to start, as a 2×2 grid of compact tiles. */
+  .solve-starts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-2); margin-top: var(--s-3); }
+  .solve-start { flex-direction: column; align-items: flex-start; gap: 8px; padding: 12px; }
+  .solve-start__ic { width: 34px; height: 34px; }
+  .solve-hero { gap: 6px; padding-top: var(--s-2); }
+  .solve-hero__mark { width: 52px; height: 52px; border-radius: 16px; }
+  .solve-hero__sub { font-size: var(--fs-sm); }
+
+  .ach-tiercount small { font-size: 11.5px; }
+>>>>>>> Stashed changes
 }
