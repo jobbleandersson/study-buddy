@@ -219,8 +219,9 @@ export function buildExamPlan({
     const withMinutes = tasks.map((task) => ({ ...task, minutes: PLAN_MINUTES[task.kind] }));
     rows.push({
       dayOffset: d, dayKey: addDays(today, d),
-      minutes: withMinutes.reduce((n, task) => n + task.minutes, 0),
-      ...withMinutes[0], tasks: withMinutes,
+      ...withMinutes[0],
+      minutes: withMinutes.reduce((n, task) => n + task.minutes, 0),   // after the spread: the day's total, not its first task's
+      tasks: withMinutes,
     });
   }
   return rows;

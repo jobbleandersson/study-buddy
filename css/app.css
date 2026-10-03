@@ -5092,4 +5092,4 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .session__examctx a { color: inherit; text-decoration: none; }
 .session__examctx a:hover { text-decoration: underline; }
 .badge.badge--exam { background: var(--brand-tint); color: var(--brand-ink); }
-.results__examnext { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+.results__examnext { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 16px 0 8px; }

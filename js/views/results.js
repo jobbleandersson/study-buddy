@@ -111,6 +111,9 @@ export function renderResults(attemptId) {
       return n ? el("p.note", { style: { marginTop: "-4px" } }, plural(n, "results.retriedOne", "results.retriedMany")) : null;
     })(),
 
+    // From a test: the next step right under the score, before the details.
+    examNextRow(attempt),
+
     challengeCard(attempt),
     gradeReveal(attempt),
     hpReveal(attempt),
@@ -158,7 +161,6 @@ export function renderResults(attemptId) {
       reviewCta(),
     ].filter(Boolean)) : null,
 
-    examNextRow(attempt),
     el("div", { style: { display: "flex", gap: "12px", justifyContent: "center", marginTop: "24px", flexWrap: "wrap" } }, [
       canChallenge && el("button.btn", {
         type: "button",
