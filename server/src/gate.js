@@ -46,9 +46,14 @@ export function hasGate(req) {
 // site is locked) and the unlock itself. Anything that doesn't match exactly — odd slashes, other
 // paths — falls through to the refusal, so a weird URL can only ever be locked, never open.
 const OPEN_PATHS = /^\/(health|gate)\/?$/i;
+// The front page's reviews: GET /api/reviews returns only approved reviews, with the name each student
+// chose (never an email or id — routes/reviews.js), and the landing page is public even while the site is
+// private. Reading that one list stays open; writing a review, /reviews/mine and the admin queue do not.
+const OPEN_READS = /^\/reviews\/?$/i;
 
 export function requireGate(req, res, next) {
   if (!siteLocked() || OPEN_PATHS.test(req.path) || hasGate(req)) return next();
+  if (req.method === "GET" && OPEN_READS.test(req.path)) return next();
   res.status(403).json({ error: { message: "Enter the site password first.", code: "site_locked" } });
 }
 
