@@ -173,6 +173,12 @@ export class TutorChat {
           el("div.tutor__title", {}, t("tutor.name")),
           this.subEl,
         ]),
+        // On a phone the tutor is a sheet over the question: closing it lives here, in its own head,
+        // not in a floating button that ends up on top of the input.
+        el("button.iconbtn.tutor__close", {
+          type: "button", "aria-label": t("session.hideTutor"), title: t("session.hideTutor"),
+          onclick: () => this.el.classList.remove("is-open"),
+        }, [icon(ICONS.chevronDown, 18)]),
       ]),
       this.logEl,
       this.formEl,
@@ -236,9 +242,9 @@ export class TutorChat {
   }
 
   // Programmatic nudge, phrased in the student's voice (e.g. after a wrong answer).
-  note(studentVoicedText, mood = "encourage") {
+  note(studentVoicedText, mood = "encourage", { onReply } = {}) {
     setMood(this.mascotEl, mood);
-    this._respond(studentVoicedText, { fromNote: true });
+    this._respond(studentVoicedText, { fromNote: true, onReply });
   }
 
   celebrate(studentVoicedText = t("q.tutorRight")) {
@@ -361,6 +367,7 @@ export class TutorChat {
       setMood(this.mascotEl, this.ladderIndex >= ladder.length - 1 ? "thinking" : "encourage");
     }
     await this._typeOut(reply);
+    opts.onReply?.(reply);
   }
 
   async _respondLive(userText, opts) {
@@ -390,6 +397,7 @@ export class TutorChat {
       }
       msgs.push({ role: "assistant", content: acc || "…" });
       if (gen !== (this._gen || 0)) return;
+      opts.onReply?.(acc);
       setMood(this.mascotEl, opts.correct ? "cheer" : "idle");
       announce(t("tutor.prefix", { text: acc }));
       this._speak(acc);

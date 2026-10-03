@@ -1216,11 +1216,11 @@ function runSession(config) {
   /* ----- mobile: tutor as a slide-up sheet ----- */
   const hintFab = el("button.hintfab", {
     type: "button",
+    // Opens the sheet; it closes from its own head (tutor-chat.js). The button hides while the sheet is
+    // open (CSS), so it never sits on top of the sheet's input.
     onclick: () => {
-      tutor.el.classList.toggle("is-open");
-      const open = tutor.el.classList.contains("is-open");
-      hintFab.textContent = open ? t("session.hideTutor") : t("session.needHint");
-      if (open) tutor.el.querySelector(".tutor__log")?.scrollTo(0, 0);
+      tutor.el.classList.add("is-open");
+      tutor.el.querySelector(".tutor__log")?.scrollTo(0, 0);
     },
   }, t("session.needHint"));
   if (tutorSilent) hintFab.hidden = true;
@@ -1256,8 +1256,7 @@ function runSession(config) {
     paintExamLabels();
     if (reviewMoreEl) reviewMoreEl.textContent = t("session.reviewMore", { n: config.reviewRemaining });
     if (!hintFab.hidden) {
-      hintFab.textContent = tutor.el.classList.contains("is-open")
-        ? t("session.hideTutor") : t("session.needHint");
+      hintFab.textContent = t("session.needHint");
     }
     paintProgress();
     paintTestBar();

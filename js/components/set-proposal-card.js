@@ -7,7 +7,7 @@
 //   idle -> superseded                (a newer proposal in the same chat replaced it)
 
 import { el, icon, ICONS } from "../lib/dom.js";
-import { t, plural } from "../lib/i18n.js";
+import { t, plural, fmtDate } from "../lib/i18n.js";
 
 /**
  * @param brief      a normalized brief (set-brief.js normalizeBrief)
@@ -15,8 +15,10 @@ import { t, plural } from "../lib/i18n.js";
  * @param create     async (brief) => the saved assignment { id, title, questions } - throws a user-readable Error on failure
  * @param blocked    () => a message when AI is unavailable right now (signed out / quota / no server), else ""
  * @param onCreated  (assignment) => void - called once, so the chat can remember which set this card made
+ * @param testFor    (assignment) => the test this set is on, or null
+ * @param addTest    (assignment, brief) => puts brief.testDate into Inför provet with the set on it (the exam, or null)
  */
-export function setProposalCard({ brief, isDone, create, blocked, onCreated }) {
+export function setProposalCard({ brief, isDone, create, blocked, onCreated, testFor, addTest }) {
   const root = el("div.setcard");
   let phase = "idle";
   let error = "";
@@ -59,8 +61,9 @@ export function setProposalCard({ brief, isDone, create, blocked, onCreated }) {
         el("p.setcard__facts", {}, plural(made.questions?.length ?? brief.count, "common.questionOne", "common.questionMany")),
         el("div.setcard__actions", {}, [
           el("a.btn.btn--sm", { href: `#/session/${made.id}` }, [icon(ICONS.play, 14), t("setgen.practise")]),
+          testButton(),
           el("a.btn.btn--ghost.btn--sm", { href: `#/edit/${made.id}` }, [icon(ICONS.pencil, 14), t("setgen.edit")]),
-        ]),
+        ].filter(Boolean)),
       );
     } else {
       kids.push(
@@ -79,6 +82,17 @@ export function setProposalCard({ brief, isDone, create, blocked, onCreated }) {
       }
     }
     root.replaceChildren(...kids);
+  }
+
+  /** "Lägg in provet …" when the student said when the test is; once it is in, a way to open it. */
+  function testButton() {
+    const onTest = testFor?.(made);
+    if (onTest) return el("a.btn.btn--ghost.btn--sm", { href: `#/exam-prep/${onTest.id}` }, [icon(ICONS.graduation, 14), t("setgen.openTest")]);
+    if (!brief.testDate || !addTest) return null;
+    return el("button.btn.btn--ghost.btn--sm", {
+      type: "button",
+      onclick: () => { if (addTest(made, brief)) paint("done"); },
+    }, [icon(ICONS.calendar, 14), t("setgen.addTest", { date: fmtDate(brief.testDate) })]);
   }
 
   paint();

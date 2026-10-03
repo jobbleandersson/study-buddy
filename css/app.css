@@ -5093,3 +5093,24 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .session__examctx a:hover { text-decoration: underline; }
 .badge.badge--exam { background: var(--brand-tint); color: var(--brand-ink); }
 .results__examnext { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 16px 0 8px; }
+
+/* Live-test fixes: the tutor sheet on phones, the hint under a wrong pick, worked solutions, retry row,
+   the chat's suggestion chips, and the next test on home. */
+.tutor__close { display: none; margin-left: auto; }
+@media (max-width: 860px) {
+  .tutor__close { display: inline-grid; }
+  /* The sheet closes from its own head; the floating button would sit on its input. */
+  body:has(.tutor.is-open) .hintfab { display: none; }
+  /* Room to scroll the question's buttons above the open sheet. */
+  body:has(.tutor.is-open) .content { padding-bottom: calc(min(70vh, 520px) + var(--s-5)); }
+  /* Toasts float above the hint button instead of behind it. */
+  body:has(.hintfab:not([hidden])) .toast { bottom: calc(var(--s-4) + 60px); }
+}
+.feedback__hint { margin: 8px 0 0; font-weight: 400; color: var(--ink); }
+.feedback__actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.solution__steps { margin: 4px 0 6px; padding-left: 1.4em; }
+.solution__steps li { margin: 2px 0; }
+.solution__answer { margin: 4px 0 0; font-weight: 600; }
+.chatdef { display: inline-block; margin-left: 4px; padding: 0 8px; border-radius: var(--r-full); background: var(--brand-tint); color: var(--brand-ink); font-size: .9em; font-weight: 600; }
+.chatquick { margin-top: 10px; }
+.home-exam { margin: 0 0 var(--s-4); }
