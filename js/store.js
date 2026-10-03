@@ -176,6 +176,9 @@ export const HP_MOCK_ID = "__hpmock__";
 // own in-progress "mix all years" session at once.
 export const NATIONAL_MIX_PREFIX = "__npmix__";
 export const nationalMixId = (subjectId) => `${NATIONAL_MIX_PREFIX}${subjectId}`;
+// A study pass for one test, sized to the time the student has (#/exam-pass/:examId) — one resumable slot per test.
+export const EXAM_PASS_PREFIX = "__expass__";
+export const examPassId = (examId) => `${EXAM_PASS_PREFIX}${examId}`;
 
 function seedState() {
   return {

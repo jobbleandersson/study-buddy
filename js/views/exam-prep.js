@@ -1,13 +1,14 @@
 // Exam prep. `#/exam-prep` lists your coming tests; `#/exam-prep/:id` is one test — the
-// countdown and today's session up top, then the plan to test day, how ready you are, and a
-// mock exam.
+// countdown and today's work up top, then a pass sized to the time you have, the plan to test
+// day, a mock exam, and how ready you are.
 //
 // A test is its own record (lib/exam.js), made in the "Lägg till prov" dialog
 // (components/exam-dialog.js): a date and exactly the sets you picked for it, with any material you
 // added for it. Everything on this page — readiness, weak spots, the plan, the mock — is worked
 // out from those sets and from the answers given to their questions; the rest of the subject is
 // never assumed to be on the test. Nothing else is stored: every visit recomputes from the
-// attempts and the srs map, so doing today's session moves tomorrow's plan on its own.
+// attempts and the srs map, so today's work moves tomorrow's plan on its own. The model and the
+// links live in components/exam-flow.js, shared with the sessions and the results screen.
 // (`#/exam-prep/<subjectId>` still works: it opens that subject's next test.)
 
 import { store, nationalMixId } from "../store.js";
@@ -17,14 +18,16 @@ import { localDayKey } from "../lib/activity.js";
 import { homeButton } from "../components/nav.js";
 import { openExamDialog } from "../components/exam-dialog.js";
 import { addMoreQuestions, MORE_QUESTIONS } from "../components/exam-more.js";
-import { isHpSetId } from "../lib/hp.js";
-import { masteryByTopic, weakSpotQuestions, setProgress } from "../lib/mastery.js";
 import {
-  upcomingExams, readiness, topicsOf, buildExamPlan, practisedSince, scopeAttempts, MOCK_MIN_QUESTIONS,
+  prepFor, taskHash, taskLabel, resolveExam, shortCountdown, weakHash, reviewHash, practiceHash, mockHash,
+  passHash, isStudyTask, nextStep,
+} from "../components/exam-flow.js";
+import { isHpSetId } from "../lib/hp.js";
+import {
+  upcomingExams, topicsOf, mockCountFor, questionsForMinutes, STUDY_PASS_MINUTES, MAX_SETS_PER_DAY, buildStudyPass,
 } from "../lib/exam.js";
 
 const MOCK_LENGTHS = [20, 40, 60];
-const MOCK_COUNT = 20;
 // The weak-spots drill runs at most this many (weakSpotQuestions' default).
 const DRILL_MAX = 20;
 // A long plan shows its first days and its fixed last three; the middle folds.
@@ -33,84 +36,16 @@ const PLAN_TAIL = 3;
 
 // Kept across the soft re-renders a store change triggers.
 let mockLen = 40;
+let passMin = 30;
 
 /* ------------------------------------------------------------------ */
-/* the model: everything the screens need about one test                */
+/* labels                                                               */
 /* ------------------------------------------------------------------ */
-
-/** `exam` is an entry from upcomingExams(): the record plus `days` and the `sets` it covers.
- *  Only those sets, and only the answers given to their questions, go into any of this. */
-function prepFor(exam) {
-  const today = localDayKey();
-  const scope = exam.sets;
-  const ids = scope.map((a) => a.id);
-  const attempts = scopeAttempts(store.attempts, scope);
-  const tm = masteryByTopic(attempts);
-  const progress = new Map(scope.map((a) => [a.id, setProgress(a, attempts, tm)]));
-  const setReady = new Map(scope.map((a) => [a.id, readiness([a], tm).pct]));
-  const untouched = scope.filter((a) => progress.get(a.id).seen === 0);
-  const softest = scope.filter((a) => progress.get(a.id).seen > 0)
-    .sort((x, y) => (setReady.get(x.id) ?? 0) - (setReady.get(y.id) ?? 0))
-    .slice(0, 3);
-  const weak = weakSpotQuestions(scope, attempts, { limit: Infinity });
-  const weakTopics = [...new Set(weak.map((w) => w.question.topic))];
-  const idSet = new Set(ids);
-  const dueCount = store.dueQuestions().filter((d) => idSet.has(d.assignment.id)).length;
-  const totalQ = scope.reduce((n, a) => n + (a.questions?.length || 0), 0);
-  const canMock = totalQ >= MOCK_MIN_QUESTIONS;
-  const plan = buildExamPlan({ days: exam.days, today, untouched, weakTopics: weakTopics.slice(0, 4), dueCount, softest, canMock });
-  const startOfDay = new Date();
-  startOfDay.setHours(0, 0, 0, 0);
-  return {
-    exam, subjectId: exam.subjectId, scope, ids, tm, attempts, progress, setReady, weak, weakTopics, dueCount, canMock, plan,
-    ready: readiness(scope, tm),
-    doneToday: practisedSince(store.attempts, scope, startOfDay.getTime()),
-  };
-}
-
-/* ------------------------------------------------------------------ */
-/* links and labels                                                     */
-/* ------------------------------------------------------------------ */
-
-const practiceHash = (a) => `#/session/${a.id}?practice=1`;
-const weakHash = (m, topic = null) =>
-  `#/practice-weak?sets=${m.ids.join(",")}${topic ? `&topic=${encodeURIComponent(topic)}` : ""}`;
-const mockHash = (m, min) =>
-  `#/national/mix/${m.subjectId}?exam=1&min=${min}&count=${MOCK_COUNT}&sets=${m.ids.join(",")}`;
-
-function taskHash(r, m) {
-  switch (r.kind) {
-    case "start": case "practice": return practiceHash(r.set);
-    case "drill": return weakHash(m, r.topic);
-    case "review": return `#/review?sets=${m.ids.join(",")}`;
-    case "mock": return mockHash(m, 40);
-    case "tonight": return `#/tonight/${m.scope[0].id}`;
-    default: return null;
-  }
-}
-
-function taskLabel(r, subjectName) {
-  switch (r.kind) {
-    case "start": return t("exam.planFirst", { title: r.set.title });
-    case "drill": return t("exam.planDrill", { topic: sentenceCase(r.topic) });
-    case "review": return plural(r.n, "exam.planReviewOne", "exam.planReviewMany");
-    case "practice": return t("exam.planPractice", { title: r.set.title });
-    case "mock": return t("exam.planMock");
-    case "tonight": return t("exam.planTonight");
-    default: return t("exam.planTestDay", { subject: subjectName });
-  }
-}
 
 function countdownTitle(days) {
   if (days === 0) return t("exam.isToday");
   if (days === 1) return t("exam.isTomorrow");
   return t("exam.inDays", { n: days });
-}
-
-function shortCountdown(days) {
-  if (days === 0) return t("date.today");
-  if (days === 1) return t("date.tomorrow");
-  return t("date.inDays", { n: days });
 }
 
 function longDate(dayKey) {
@@ -158,7 +93,8 @@ function bar(pct, color) {
   ]);
 }
 
-/** Today's session: the one thing to do now, or a tick when it's done. */
+/** Today's work: every task for today with a tick on the finished ones, and a button to the next one.
+ *  "Done for today" only once all of today's study tasks are — not after the first. */
 function todayBlock(m, subjectName) {
   const { exam, plan } = m;
   if (exam.days === 0) {
@@ -178,40 +114,44 @@ function todayBlock(m, subjectName) {
         el("span.exam-today__label", {}, t("exam.todayLabel")),
         el("span.exam-today__task", {}, t("exam.farOut")),
       ]),
-      el("a.btn.btn--ghost", { href: practiceHash(first) }, [t("exam.practiseNow"), icon(ICONS.arrow, 16)]),
+      el("a.btn.btn--ghost", { href: practiceHash(first, m) }, [t("exam.practiseNow"), icon(ICONS.arrow, 16)]),
     ]);
   }
-  const r = plan[0];
-  if (m.doneToday) {
-    // An ordinary practice day — never the mock, the evening plan or the test itself.
-    const next = plan.slice(1).find((x) => ["start", "drill", "review", "practice"].includes(x.kind)) || null;
+  if (m.allDoneToday) {
+    const more = nextStep(exam);
     return el("div.exam-today.is-done", {}, [
       el("span.exam-today__check", { "aria-hidden": "true" }, [icon(ICONS.check, 18)]),
       el("div.exam-today__text", {}, [
         el("span.exam-today__label", {}, t("exam.doneLabel")),
         el("span.exam-today__task", {}, t("exam.doneBody")),
       ]),
-      next ? el("a.btn.btn--ghost", { href: taskHash(next, m) }, [t("exam.oneMore"), icon(ICONS.arrow, 16)]) : null,
+      more ? el("a.btn.btn--ghost", { href: more.hash }, [t("exam.oneMore"), icon(ICONS.arrow, 16)]) : null,
     ].filter(Boolean));
   }
+  const study = m.todayStudy;
+  const open = study.find((x) => !x.done) || m.today[0];
+  const minutes = m.today.reduce((n, x) => n + (x.task.minutes || 0), 0);
+  const doneN = study.filter((x) => x.done).length;
+  const label = study.length > 1
+    ? t("exam.todayProgress", { done: doneN, total: study.length, min: minutes })
+    : [t("exam.todayLabel"), minutes ? ` · ${t("exam.planMin", { n: minutes })}` : ""];
   return el("div.exam-today", {}, [
     el("div.exam-today__text", {}, [
-      el("span.exam-today__label", {}, [t("exam.todayLabel"), r.minutes ? ` · ${t("exam.planMin", { n: r.minutes })}` : ""]),
-      el("span.exam-today__task", {}, taskLabel(r, subjectName)),
+      el("span.exam-today__label", {}, label),
+      m.today.length > 1
+        ? el("ul.exam-today__list", {}, m.today.map(({ task, done }) => el("li" + (done ? ".is-done" : ""), {}, [
+            done ? el("span.exam-today__tick", { "aria-hidden": "true" }, [icon(ICONS.check, 13)]) : el("span.exam-today__dot", { "aria-hidden": "true" }),
+            el("span", {}, taskLabel(task, subjectName)),
+          ])))
+        : el("span.exam-today__task", {}, taskLabel(open.task, subjectName)),
     ]),
-    el("a.btn", { href: taskHash(r, m) }, [t("exam.startToday"), icon(ICONS.arrow, 16)]),
+    el("a.btn", { href: taskHash(open.task, m) }, [t(doneN ? "exam.continueToday" : "exam.startToday"), icon(ICONS.arrow, 16)]),
   ]);
 }
 
 /* ------------------------------------------------------------------ */
 /* #/exam-prep/:id                                                      */
 /* ------------------------------------------------------------------ */
-
-/** A coming test by its id, or — for the older `#/exam-prep/<subjectId>` links — that subject's next one. */
-function resolveExam(param) {
-  const list = upcomingExams(store.exams, store.assignments, localDayKey());
-  return list.find((e) => e.id === param) || list.find((e) => e.subjectId === param) || null;
-}
 
 /** What a test is called on screen: the name it was given, else "Prov i <subject>". */
 const examTitle = (exam, subject) => exam.title || t("exam.prepFor", { subject: subject.name });
@@ -268,7 +208,7 @@ export function renderExamPrep(param, qs) {
     };
   }
 
-  /* ---- hero: countdown + today's session, readiness beside it ---- */
+  /* ---- hero: countdown + today's work, readiness beside it ---- */
   const hero = el("section.exam-hero", { style: { "--subject": color } }, [
     el("div.exam-hero__main", {}, [
       eyebrow,
@@ -289,6 +229,36 @@ export function renderExamPrep(param, qs) {
     ].filter(Boolean)),
   ]);
 
+  /* ---- a pass sized to the time you have ---- */
+  const totalQ = m.scope.reduce((n, a) => n + (a.questions?.length || 0), 0);
+  const passNote = el("p.note");
+  const passStart = el("a.btn", {}, [icon(ICONS.clock, 16), el("span")]);
+  function paintPass() {
+    const n = Math.min(questionsForMinutes(passMin), totalQ);
+    // Count the sets the pass will really draw from (new questions first can mean fewer sets).
+    const picked = new Set(buildStudyPass({ sets: m.scope, attempts: m.attempts, srs: store.state.srs, n }));
+    const sets = m.scope.filter((a) => (a.questions || []).some((q) => picked.has(q.id))).length;
+    passNote.textContent = t("exam.passHint", { n, sets });
+    passStart.href = passHash(m, passMin);
+    passStart.lastChild.textContent = t("exam.passStart", { min: passMin });
+  }
+  const passSeg = el("div.exam-seg", { role: "radiogroup", "aria-label": t("exam.passHead") },
+    STUDY_PASS_MINUTES.map((n) => el("button.exam-seg__opt", {
+      type: "button", role: "radio", "aria-checked": String(n === passMin),
+      onclick: (e) => {
+        passMin = n;
+        passSeg.querySelectorAll(".exam-seg__opt").forEach((b) => b.setAttribute("aria-checked", String(b === e.currentTarget)));
+        paintPass();
+      },
+    }, t("exam.planMin", { n }))));
+  paintPass();
+  const passPanel = el("section.panel.exam-panel.exam-pass", {}, [
+    el("h2.exam-panel__head", {}, t("exam.passHead")),
+    passSeg,
+    passNote,
+    passStart,
+  ]);
+
   /* ---- the plan ---- */
   let planPanel = null;
   if (m.plan) {
@@ -298,7 +268,9 @@ export function renderExamPrep(param, qs) {
     const list = el("ol.exam-plan");
     rows.forEach((r, i) => {
       const today = r.dayOffset === 0;
-      const done = today && m.doneToday;
+      const items = today ? m.today : r.tasks.map((task) => ({ task, done: false }));
+      const dayDone = today && m.allDoneToday;
+      const open = today ? m.todayStudy.find((x) => !x.done) : null;
       const folded = fold && i >= PLAN_HEAD && i < rows.length - PLAN_TAIL;
       if (fold && i === PLAN_HEAD) {
         const more = el("li.exam-plan__more", {}, [
@@ -312,32 +284,47 @@ export function renderExamPrep(param, qs) {
         ]);
         list.appendChild(more);
       }
-      const hash = today && !done ? taskHash(r, m) : null;
       list.appendChild(el("li.exam-plan__day"
-        + (today ? ".is-today" : "") + (done ? ".is-done" : "")
+        + (today ? ".is-today" : "") + (dayDone ? ".is-done" : "")
         + (r.kind === "testday" ? ".is-test" : "") + (folded ? ".is-folded" : ""), {}, [
         el("span.exam-plan__when", {}, planDayWhen(r.dayOffset, r.dayKey)),
-        el("span.exam-plan__task", {}, done ? t("exam.doneLabel") : taskLabel(r, subject.name)),
-        done ? el("span.exam-plan__tick", {}, [icon(ICONS.check, 15)])
-          : hash ? el("a.btn.btn--sm", { href: hash }, [t("exam.planStart"), icon(ICONS.arrow, 14)])
+        el("span.exam-plan__tasks", {}, items.map(({ task, done }) => el("span.exam-plan__task" + (done ? ".is-done" : ""), {},
+          [done ? icon(ICONS.check, 13) : null, taskLabel(task, subject.name)].filter(Boolean)))),
+        dayDone ? el("span.exam-plan__tick", {}, [icon(ICONS.check, 15)])
+          : open ? el("a.btn.btn--sm", { href: taskHash(open.task, m) }, [t("exam.planStart"), icon(ICONS.arrow, 14)])
             : r.minutes ? el("span.exam-plan__min", {}, t("exam.planMin", { n: r.minutes })) : null,
       ].filter(Boolean)));
     });
+
+    // How much of the test the plan reaches before test day.
+    const cov = m.coverage;
+    const perDay = Math.max(1, ...rows.map((r) => r.tasks.filter((x) => x.kind === "start").length));
+    const covered = cov.planned >= cov.total;
+    const coverEl = el("div.exam-cover" + (covered ? "" : ".is-short"), {}, [
+      el("div.exam-cover__bar", { "aria-hidden": "true" }, Array.from({ length: cov.total }, (_, k) => el("i" + (k < cov.planned ? ".on" : "")))),
+      el("p.exam-cover__text", {}, covered
+        ? (perDay > 1 ? t("exam.coverAllPerDay", { n: cov.total, per: Math.min(perDay, MAX_SETS_PER_DAY) }) : t("exam.coverAll", { n: cov.total }))
+        : t("exam.coverSome", { planned: cov.planned, total: cov.total })),
+    ]);
+
     planPanel = el("section.panel.exam-panel", {}, [
       el("h2.exam-panel__head", {}, t("exam.planTitle")),
+      coverEl,
       el("p.note", {}, t("exam.planSub")),
       list,
     ]);
   }
 
-  /* ---- mock exam ---- */
+  /* ---- mock exam: the longer it runs, the more of the test it asks ---- */
   // The last mock of THIS test: one that asked at least one of its questions.
   const mixId = nationalMixId(subject.id);
   const mine = new Set(m.attempts.map((a) => a.id));
   const lastMock = store.attempts
     .filter((a) => a.examMode && a.assignmentId === mixId && mine.has(a.id))
     .sort((a, b) => (b.finishedAt || 0) - (a.finishedAt || 0))[0];
+  const mockN = (min) => Math.min(mockCountFor(min), totalQ);
   const startMock = el("a.btn", { href: mockHash(m, mockLen) }, [icon(ICONS.clock, 16), t("exam.mockBtn")]);
+  const mockNote = el("p.note", {}, t("exam.mockBodyTest", { n: mockN(mockLen) }));
   const lenGroup = el("div.exam-seg", { role: "radiogroup", "aria-label": t("exam.mockLenLabel") },
     MOCK_LENGTHS.map((n) => el("button.exam-seg__opt", {
       type: "button", role: "radio", "aria-checked": String(n === mockLen),
@@ -345,11 +332,12 @@ export function renderExamPrep(param, qs) {
         mockLen = n;
         lenGroup.querySelectorAll(".exam-seg__opt").forEach((b) => b.setAttribute("aria-checked", String(b === e.currentTarget)));
         startMock.href = mockHash(m, mockLen);
+        mockNote.textContent = t("exam.mockBodyTest", { n: mockN(mockLen) });
       },
-    }, t("exam.planMin", { n }))));
+    }, t("exam.mockLenOpt", { min: n, n: mockN(n) }))));
   const mockPanel = el("section.panel.exam-panel", {}, [
     el("h2.exam-panel__head", {}, t("exam.mockTitle")),
-    m.canMock ? el("p.note", {}, t("exam.mockBodyTest", { n: MOCK_COUNT })) : null,
+    m.canMock ? mockNote : null,
     m.canMock && lastMock ? el("p.exam-mock__last", {}, t("exam.mockLast", {
       pct: lastMock.scorePct ?? 0, when: fmtDate(localDayKey(new Date(lastMock.finishedAt || Date.now()))),
     })) : null,
@@ -372,7 +360,7 @@ export function renderExamPrep(param, qs) {
         ]),
         el("span.exam-set__pct.tabular", {}, pct == null ? "—" : `${pct}%`),
         el("a.btn.btn--ghost.btn--sm", {
-          href: practiceHash(a), "aria-label": t("exam.practiseAria", { title: a.title }),
+          href: practiceHash(a, m), "aria-label": t("exam.practiseAria", { title: a.title }),
         }, t("exam.practise")),
         el("a.iconbtn.iconbtn--sm", {
           href: `#/print/${a.id}`, "aria-label": t("print.worksheet"), title: t("print.worksheet"),
@@ -405,7 +393,7 @@ export function renderExamPrep(param, qs) {
     m.dueCount ? el("p.exam-due", {}, [
       icon(ICONS.spark, 14),
       el("span", {}, plural(m.dueCount, "exam.dueSrsOne", "exam.dueSrsMany")),
-      el("a.linkbtn", { href: `#/review?sets=${m.ids.join(",")}` }, t("prog.reviewToday")),
+      el("a.linkbtn", { href: reviewHash(m) }, t("prog.reviewToday")),
     ]) : null,
 
     topicList.length ? el("details.exam-topics", {}, [
@@ -427,7 +415,7 @@ export function renderExamPrep(param, qs) {
       homeButton(),
       hero,
       el("div.exam-prep__cols", {}, [
-        el("div.exam-prep__col", {}, [planPanel, mockPanel].filter(Boolean)),
+        el("div.exam-prep__col", {}, [passPanel, planPanel, mockPanel].filter(Boolean)),
         el("div.exam-prep__col", {}, [standPanel]),
       ]),
     ]),
@@ -508,7 +496,7 @@ function renderLanding() {
     const s = store.subjects.find((y) => y.id === x.subjectId);
     const m = prepFor(x);
     const color = store.subjectColor(s.id).solid;
-    const r = m.plan?.[0];
+    const open = m.todayStudy.find((y) => !y.done)?.task || (m.today[0] && !isStudyTask(m.today[0].task) ? m.today[0].task : null);
     const pct = m.ready.seen ? m.ready.pct : null;
     return el("article.exam-card", { style: { "--subject": color } }, [
       el("div.exam-card__top", {}, [
@@ -522,12 +510,12 @@ function renderLanding() {
         bar(pct, color),
         el("span.tabular", {}, pct == null ? t("exam.notStarted") : t("exam.readyShort", { pct })),
       ]),
-      el("div.exam-card__today", {}, m.doneToday
+      el("div.exam-card__today", {}, m.allDoneToday
         ? [el("span.exam-card__done", {}, [icon(ICONS.check, 15), t("exam.doneLabel")])]
-        : r && r.kind !== "testday"
+        : open
           ? [
-              el("span.exam-card__task", {}, [el("b", {}, `${t("exam.planToday")}: `), taskLabel(r, s.name)]),
-              el("a.btn.btn--sm", { href: taskHash(r, m) }, [t("exam.planStart"), icon(ICONS.arrow, 14)]),
+              el("span.exam-card__task", {}, [el("b", {}, `${t("exam.planToday")}: `), taskLabel(open, s.name)]),
+              el("a.btn.btn--sm", { href: taskHash(open, m) }, [t("exam.planStart"), icon(ICONS.arrow, 14)]),
             ]
           : [el("span.exam-card__task", {}, x.days === 0 ? t("exam.testDayBody") : t("exam.farOut"))]),
     ]);

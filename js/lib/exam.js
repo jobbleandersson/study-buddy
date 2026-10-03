@@ -137,48 +137,186 @@ export function practisedSince(attempts, sets, sinceMs) {
     && (att.items || []).some((it) => ids.has(it.questionId)));
 }
 
+/** The most sets one day of the plan asks for. Beyond this a day stops being a study session. */
+export const MAX_SETS_PER_DAY = 3;
+
+/** How many sets go on each of `days` days: spread evenly, the earliest days taking the extra, never
+ *  more than `cap` a day. Returns { counts, uncovered }: what could not fit anywhere. */
+export function distributeSets(n, days, cap = MAX_SETS_PER_DAY) {
+  const counts = Array.from({ length: Math.max(0, days) }, () => 0);
+  if (!counts.length) return { counts, uncovered: n };
+  const base = Math.floor(n / counts.length);
+  const extra = n % counts.length;
+  let placed = 0;
+  counts.forEach((_, i) => { counts[i] = Math.min(cap, base + (i < extra ? 1 : 0)); placed += counts[i]; });
+  return { counts, uncovered: Math.max(0, n - placed) };
+}
+
 /**
- * The plan, today → test day, one task a day. Stateless: rebuilt on every
- * visit, so today's session moves tomorrow's plan on its own.
+ * The plan, today → test day. Stateless: rebuilt on every visit, so today's work moves tomorrow's
+ * plan on its own.
  *
- * First, one day for each set you've never opened (cover it all before going
- * deep). Then it rotates through your weak topics, reviews that are due, the
- * sets you're shakiest on, and the once-new sets again as plain practice.
- * The last days are fixed: a mock exam two days out (only once every set has
- * been opened — a mock on material you've never seen teaches nothing), the
- * evening-before plan, then the test.
+ * Every set you have never opened is given a day, spread so that all of them are covered before the
+ * test, up to MAX_SETS_PER_DAY a day (fewer days left means more sets a day, not skipped ones). With
+ * room to spare, a mock exam sits two days out — only once every set is behind you, since a mock on
+ * material you've never seen teaches nothing. Days without a new set rotate through your weak topics,
+ * reviews that are due, the sets you're shakiest on, and the once-new sets again as plain practice.
+ * The evening before is the last-look plan, then the test.
  *
  * @param days        whole days until the test (0 = today)
  * @param today       "YYYY-MM-DD"
- * @param untouched   sets in the test never practised
+ * @param untouched   sets in the test never opened (not even today)
+ * @param doneToday   sets first opened today: they stay on today's row (as done), and the rest of the
+ *                    sets are spread around them
  * @param weakTopics  weak topic names, weakest first
  * @param dueCount    spaced-repetition questions due in these sets
  * @param softest     practised sets, shakiest first
  * @param canMock     enough questions for a mock exam
- * @returns rows [{ dayOffset, dayKey, kind, minutes, set?, topic?, n? }] or null
+ * @returns one row per day, or null. A row is { dayOffset, dayKey, minutes (the day's total), tasks: [...] }
+ *          and also carries its first task's own fields (kind, set?, topic?, n?), so a caller that only
+ *          knows one task a day still works. A task is { kind, minutes, set?, topic?, n? }.
  */
-export function buildExamPlan({ days, today, untouched = [], weakTopics = [], dueCount = 0, softest = [], canMock = true }) {
+export function buildExamPlan({
+  days, today, untouched = [], doneToday = [], weakTopics = [], dueCount = 0, softest = [], canMock = true,
+  maxSetsPerDay = MAX_SETS_PER_DAY,
+}) {
   if (!(days >= 1) || days > PLAN_MAX_DAYS) return null;
-  const first = untouched.map((set) => ({ kind: "start", set }));
   const rotate = [
     ...weakTopics.map((topic) => ({ kind: "drill", topic })),
     ...(dueCount ? [{ kind: "review", n: dueCount }] : []),
     ...softest.map((set) => ({ kind: "practice", set })),
     ...untouched.map((set) => ({ kind: "practice", set })),
+    ...doneToday.filter((set) => !softest.includes(set)).map((set) => ({ kind: "practice", set })),
   ];
   if (!rotate.length) return null; // no sets in the test — nothing to plan
+
+  // Room for a mock two days out? Then every new set has to fit on the days before it.
+  const mockDay = days - 2;
+  const fitsBeforeMock = canMock && mockDay >= 0 && untouched.length + doneToday.length <= mockDay * maxSetsPerDay;
+  const setDays = fitsBeforeMock ? mockDay : days;      // new sets go on days 0 .. setDays-1
+  // Today's share is worked out with today's finished sets counted in, so finishing sets early lightens
+  // the coming days instead of piling more onto today.
+  let counts = [];
+  if (setDays > 0) {
+    const target = distributeSets(untouched.length + doneToday.length, setDays, maxSetsPerDay).counts;
+    const today0 = Math.min(untouched.length, Math.max(0, target[0] - doneToday.length));
+    counts = [today0, ...distributeSets(untouched.length - today0, setDays - 1, maxSetsPerDay).counts];
+  }
+
   const rows = [];
-  let rp = 0;
+  let next = 0;        // next unopened set to place
+  let rp = 0;          // position in the rotation
   for (let d = 0; d <= days; d++) {
-    let task;
-    if (d === days) task = { kind: "testday" };
-    else if (d === days - 1) task = { kind: "tonight" };
-    else if (d === days - 2 && canMock && !untouched.length) task = { kind: "mock" };
-    else if (rp < first.length) { task = first[rp]; rp++; }
-    else { task = rotate[(rp - first.length) % rotate.length]; rp++; }
-    rows.push({ dayOffset: d, dayKey: addDays(today, d), minutes: PLAN_MINUTES[task.kind], ...task });
+    const tasks = [];
+    const sets = d < setDays ? untouched.slice(next, next + counts[d]) : [];
+    next += sets.length;
+    if (d === 0) for (const set of doneToday) tasks.push({ kind: "start", set });
+    for (const set of sets) tasks.push({ kind: "start", set });
+    if (d === days) tasks.push({ kind: "testday" });
+    else if (d === days - 1) tasks.push({ kind: "tonight" });
+    else if (fitsBeforeMock && d === mockDay) tasks.push({ kind: "mock" });
+    else if (!tasks.length) { tasks.push(rotate[rp % rotate.length]); rp++; }
+    const withMinutes = tasks.map((task) => ({ ...task, minutes: PLAN_MINUTES[task.kind] }));
+    rows.push({
+      dayOffset: d, dayKey: addDays(today, d),
+      ...withMinutes[0],
+      minutes: withMinutes.reduce((n, task) => n + task.minutes, 0),   // after the spread: the day's total, not its first task's
+      tasks: withMinutes,
+    });
   }
   return rows;
+}
+
+/** The new sets a plan opens, in order, with the day each lands on. Used to say how much of the test
+ *  the plan reaches. */
+export function planStartSets(rows) {
+  const out = [];
+  for (const row of rows || []) for (const task of row.tasks || []) if (task.kind === "start") out.push({ set: task.set, dayOffset: row.dayOffset });
+  return out;
+}
+
+/* ------------------------------------------------------------------ */
+/* a pass sized to your time, and a mock sized to its clock             */
+/* ------------------------------------------------------------------ */
+
+/** About how long a question takes: what a pass of N minutes holds. */
+export const MINUTES_PER_QUESTION = 1.5;
+
+/** The pass lengths on offer. */
+export const STUDY_PASS_MINUTES = [15, 30, 60];
+
+export const questionsForMinutes = (min) => Math.max(5, Math.round(min / MINUTES_PER_QUESTION));
+
+/** Mock exam: how many questions each length asks. Roughly two minutes a question, as in a real test. */
+export const MOCK_COUNTS = { 20: 10, 40: 20, 60: 30 };
+export const mockCountFor = (min) => MOCK_COUNTS[min] ?? Math.max(5, Math.round(min / 2));
+
+/** Where each question stands: when it was last answered (null = never), whether that answer was
+ *  right first time, and whether its review is due. */
+function questionStates(sets, attempts, srs, now) {
+  const last = new Map();
+  for (const att of attempts || []) {
+    const at = att.finishedAt || 0;
+    for (const it of att.items || []) {
+      const prev = last.get(it.questionId);
+      if (!prev || at >= prev.at) last.set(it.questionId, { at, ok: it.firstTry ?? !!it.correct });
+    }
+  }
+  const out = [];
+  (sets || []).forEach((set, si) => {
+    for (const q of set.questions || []) {
+      const l = last.get(q.id);
+      out.push({ id: q.id, setIndex: si, lastAt: l ? l.at : null, wrong: !!l && !l.ok, due: !!srs?.[q.id] && (srs[q.id].dueAt || 0) <= now });
+    }
+  });
+  return out;
+}
+
+/** Take one from each set in turn so every set is represented. The order inside a set is shuffled,
+ *  unless `ordered` (the caller has already put the list in the order it wants). */
+function mixAcrossSets(list, rng, ordered = false) {
+  const bySet = new Map();
+  for (const x of list) { if (!bySet.has(x.setIndex)) bySet.set(x.setIndex, []); bySet.get(x.setIndex).push(x); }
+  const lanes = [...bySet.values()].map((l) => {
+    const a = [...l];
+    if (ordered) return a;
+    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rng() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+    return a;
+  });
+  const out = [];
+  for (let round = 0; lanes.some((l) => l.length > round); round++) for (const l of lanes) if (l[round]) out.push(l[round]);
+  return out;
+}
+
+/**
+ * The questions for one sitting of `n` questions across a test's sets, in the order that helps most:
+ * what you have never answered, then what you got wrong, then reviews that are due, then whatever you
+ * answered longest ago. Each group is mixed across the sets so one set doesn't hog the pass.
+ */
+export function buildStudyPass({ sets, attempts, srs, n, now = Date.now(), rng = Math.random }) {
+  const states = questionStates(sets, attempts, srs, now);
+  const taken = new Set();
+  const out = [];
+  const take = (list, ordered = false) => { for (const x of mixAcrossSets(list, rng, ordered)) { if (out.length < n && !taken.has(x.id)) { taken.add(x.id); out.push(x.id); } } };
+  take(states.filter((x) => x.lastAt === null));
+  take(states.filter((x) => x.wrong));
+  take(states.filter((x) => x.due));
+  take([...states].sort((x, y) => (x.lastAt || 0) - (y.lastAt || 0)), true);
+  return out;
+}
+
+/** The questions for a mock exam of `count`: what you have practised least comes first (never-answered,
+ *  then longest ago), mixed across the sets, so a longer mock reaches further into the test. */
+export function pickMockQuestions({ sets, attempts, count, now = Date.now(), rng = Math.random }) {
+  const states = questionStates(sets, attempts, null, now);
+  const never = states.filter((x) => x.lastAt === null);
+  const seen = [...states.filter((x) => x.lastAt !== null)].sort((x, y) => x.lastAt - y.lastAt);
+  const out = [];
+  const taken = new Set();
+  for (const [group, ordered] of [[never, false], [seen, true]]) {
+    for (const x of mixAcrossSets(group, rng, ordered)) { if (out.length < count && !taken.has(x.id)) { taken.add(x.id); out.push(x.id); } }
+  }
+  return out;
 }
 
 /** Where "prepare for this" leads from a set that has a date: the test that covers it, or — when

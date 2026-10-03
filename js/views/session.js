@@ -5,7 +5,7 @@
 // a targeted practice run and a weak-spots drill identically — and it's what
 // gets saved so you can resume.
 
-import { store, REVIEW_ID, PRACTICE_ID, WEAK_ID, RULES_ID, TONIGHT_ID, HP_MOCK_ID, NATIONAL_MIX_PREFIX, nationalMixId } from "../store.js";
+import { store, REVIEW_ID, PRACTICE_ID, WEAK_ID, RULES_ID, TONIGHT_ID, HP_MOCK_ID, NATIONAL_MIX_PREFIX, nationalMixId, EXAM_PASS_PREFIX, examPassId } from "../store.js";
 import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
 import { parseHpSetId, isHpSetId, rawByPart, DELPROV_ORDER } from "../lib/hp.js";
 import { passageFor } from "../lib/passages.js";
@@ -30,8 +30,15 @@ import { speechSupported } from "../lib/speech.js";
 import { setSessionActive } from "../lib/session-active.js";
 import { examCells, examSummary, toggleFlag } from "../lib/exam-nav.js";
 import { choicesDependOnOrder } from "../lib/choices.js";
+import { buildStudyPass, questionsForMinutes, pickMockQuestions } from "../lib/exam.js";
+import { resolveExam, contextLine } from "../components/exam-flow.js";
 
 const TIP_SEEN_KEY = "studybuddy.shortcutTipSeen";
+
+/** `?prov=<test id>`: the session was started from that test's prep page. Its header then says so,
+ *  and the attempt remembers it, so the results screen can offer the next step of the test. */
+const provOf = (qs) => { const id = qs?.get?.("prov"); return id && store.getExam(id) ? id : null; };
+const withProv = (hash, examId) => (examId ? `${hash}${hash.includes("?") ? "&" : "?"}prov=${examId}` : hash);
 
 export async function renderSession(assignmentId, qs) {
   const assignment = store.getAssignment(assignmentId);
@@ -78,6 +85,7 @@ export async function renderSession(assignmentId, qs) {
   // A friend's challenge (#/utmaning): remembered on the attempt so the results
   // screen can compare. A retry is an ordinary run, hence not in retryQuery.
   const challenge = examMode ? null : parseChallenge(qs, assignment.id);
+  const examId = provOf(qs);
 
   return runSession({
     // A shorter run keeps its own resumable slot, so it can't resume into a
@@ -93,7 +101,8 @@ export async function renderSession(assignmentId, qs) {
     timeLimitMin,
     hp,
     hpTestId: hp ? parseHpSetId(assignment.id).test : null,
-    retryHash: `#/session/${assignment.id}${retryQuery}${busQuery}${practiceQuery}`,
+    retryHash: withProv(`#/session/${assignment.id}${retryQuery}${busQuery}${practiceQuery}`, examId),
+    examId,
     questionIds,
     shuffle: isRetry || examMode || !!count,
   });
@@ -109,6 +118,7 @@ const BUS_REVIEW_CAP = 15;
  *  (the exam-prep plan), so a pass for a test never drifts into questions from other sets. */
 export async function renderReview(qs) {
   const bus = qs?.get?.("bus") === "1";
+  const examId = provOf(qs);
   const setIds = (qs?.get?.("sets") || "").split(",").filter(Boolean);
   const scope = setIds.length ? new Set(setIds) : null;
   const scopeQuery = scope ? `sets=${setIds.join(",")}` : "";
@@ -131,9 +141,33 @@ export async function renderReview(qs) {
     type: "assignment",
     bus,
     reviewScope: scopeQuery,
-    retryHash: `#/review${bus || scope ? `?${[bus ? "bus=1" : "", scopeQuery].filter(Boolean).join("&")}` : ""}`,
+    retryHash: withProv(`#/review${bus || scope ? `?${[bus ? "bus=1" : "", scopeQuery].filter(Boolean).join("&")}` : ""}`, examId),
+    examId,
     questionIds: batch.map((d) => d.question.id),
     reviewRemaining: due.length - batch.length,
+  });
+}
+
+/** A study pass for one test, sized to the time the student has (`?min=15|30|60`): about a question
+ *  every minute and a half, picked across the test's sets — never-answered first, then wrong ones, then
+ *  reviews that are due, then whatever was answered longest ago (lib/exam.js buildStudyPass). Ordinary
+ *  practice: feedback and the tutor as you go, one session instead of starting set after set. */
+export async function renderExamPass(examId, qs) {
+  const exam = resolveExam(examId);
+  if (!exam) return notFound(t("exam.noTest"));
+  const min = Math.max(5, Math.min(120, Math.round(Number(qs?.get?.("min")) || 30)));
+  const ids = buildStudyPass({ sets: exam.sets, attempts: store.attempts, srs: store.state.srs, n: questionsForMinutes(min) });
+  if (!ids.length) return notFound(t("exam.noSetsLeft"));
+  return runSession({
+    key: `${examPassId(exam.id)}::${min}`,
+    assignmentId: examPassId(exam.id),
+    title: t("exam.passTitle", { min }),
+    type: "assignment",
+    forceTutor: true,
+    examId: exam.id,
+    retryHash: `#/exam-pass/${exam.id}?min=${min}`,
+    questionIds: ids,
+    shuffle: false,
   });
 }
 
@@ -175,6 +209,7 @@ export async function renderWeakPractice(qs) {
   const setId = qs?.get?.("set") || null;
   const setIds = (qs?.get?.("sets") || "").split(",").filter(Boolean);
   const topic = qs?.get?.("topic") || null;
+  const examId = provOf(qs);
   const pool = setId
     ? store.assignments.filter((a) => a.id === setId)
     : setIds.length
@@ -199,9 +234,10 @@ export async function renderWeakPractice(qs) {
     assignmentId: WEAK_ID,
     title: t("session.weakTitle"),
     type: "assignment",
-    retryHash: setId ? `#/practice-weak?set=${setId}`
+    retryHash: withProv(setId ? `#/practice-weak?set=${setId}`
       : testScope ? `#/practice-weak?${testScope}`
-        : subjectId ? `#/practice-weak?subject=${subjectId}` : "#/practice-weak",
+        : subjectId ? `#/practice-weak?subject=${subjectId}` : "#/practice-weak", examId),
+    examId,
     questionIds: weak.map((w) => w.question.id),
     forceTutor: true,
   });
@@ -270,7 +306,12 @@ export async function renderNationalMix(subjectId, qs) {
   const timeLimitMin = rawMin > 0 ? Math.max(1, Math.min(240, Math.round(rawMin))) : null;
 
   const count = Math.max(1, Math.min(Number(qs?.get("count")) || 15, pool.length));
-  const ids = shuffled(pool).slice(0, count);
+  // A test's mock reaches into the parts practised least (never answered first, then longest ago),
+  // so a longer mock covers more of the test; any other mix is a plain random draw.
+  const examId = provOf(qs);
+  const ids = scoped.length
+    ? pickMockQuestions({ sets: scoped, attempts: store.attempts, count })
+    : shuffled(pool).slice(0, count);
 
   return runSession({
     // A mock keeps its own resumable slot so it can't collide with a plain
@@ -281,7 +322,8 @@ export async function renderNationalMix(subjectId, qs) {
     type: "assignment",
     examMode,
     timeLimitMin,
-    retryHash: `#/national/mix/${subjectId}?count=${count}${examMode ? `&exam=1${timeLimitMin ? `&min=${timeLimitMin}` : ""}` : ""}${setsQuery}`,
+    retryHash: withProv(`#/national/mix/${subjectId}?count=${count}${examMode ? `&exam=1${timeLimitMin ? `&min=${timeLimitMin}` : ""}` : ""}${setsQuery}`, examId),
+    examId,
     questionIds: ids,
     shuffle: true,
   });
@@ -1004,6 +1046,7 @@ function runSession(config) {
       scorePct: denom ? Math.round((correct / denom) * 100) : 0,
       tutorHints: Number.isFinite(hintBudget) ? hintBudget - tutor.hintsLeft : 0,
       items: answered,
+      ...(config.examId ? { examId: config.examId } : {}),
       ...(config.challenge ? { challenge: config.challenge } : {}),
       // Högskoleprovet: mark the attempt and record raw verbal/kvant scores so
       // results.js can show a normed estimate instead of the F–A reveal.
@@ -1187,7 +1230,12 @@ function runSession(config) {
   // Kept as refs so a mid-session language switch can refresh their text
   // without rebuilding the session (see onLangSession below).
   const headH2 = el("h2", {}, headTitle());
-  const badgeEl = el("span.badge", {}, badgeLabel(config));
+  const badgeEl = el("span.badge" + (config.examId && !config.examMode ? ".badge--exam" : ""), {}, badgeLabel(config));
+  // Started from a test: say which, how close it is and how far today's work has got, with a way back.
+  const ctxExam = config.examId ? resolveExam(config.examId) : null;
+  const examCtxEl = ctxExam ? el("p.session__examctx", {}, [
+    el("a", { href: `#/exam-prep/${ctxExam.id}` }, contextLine(ctxExam)),
+  ]) : null;
   const reviewMoreEl = config.reviewRemaining > 0
     ? el("p.note", {}, t("session.reviewMore", { n: config.reviewRemaining })) : null;
 
@@ -1201,6 +1249,7 @@ function runSession(config) {
     headH2.textContent = title;
     document.title = `${title} · PluggEra`;   // render() skips this on the chrome-only path
     badgeEl.textContent = badgeLabel(config);
+    if (examCtxEl) examCtxEl.firstChild.textContent = contextLine(ctxExam);
     nextBtn.textContent = nextBtnLabel();
     skipBtn.textContent = t("session.skip");
     exitBtn.textContent = t("session.exit");
@@ -1243,6 +1292,7 @@ function runSession(config) {
         shortcutsBtn,
       ]),
     ]),
+    examCtxEl,
     testBar,
     reviewMoreEl,
     bar,
@@ -1322,6 +1372,7 @@ function badgeLabel(config) {
   if (config.bus) return t("bus.badge");
   if (config.assignmentId === HP_MOCK_ID) return t("hp.mockBadge");
   if (config.examMode) return t("session.examBadge");
+  if (config.examId) return t("exam.badge");
   if (config.assignmentId === REVIEW_ID) return t("session.badgeReview");
   if (config.assignmentId === PRACTICE_ID) return t("session.badgePractice");
   if (config.assignmentId === WEAK_ID) return t("session.badgeWeak");
