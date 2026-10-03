@@ -8,6 +8,7 @@ import { t } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { ADMIN_REVIEWS_URL, adminReviewUrl } from "../config.js";
+import { openSiteGate, siteIsLocked } from "../components/site-gate-dialog.js";
 
 const KEY_STORE = "studify.reviewAdminKey";
 const readKey = () => { try { return sessionStorage.getItem(KEY_STORE) || ""; } catch { return ""; } };
@@ -28,6 +29,13 @@ export function renderAdminReviews() {
       body: payload === undefined ? undefined : JSON.stringify(payload),
     });
     const data = await res.json().catch(() => ({}));
+    // The private-site gate (server/src/gate.js) also answers 403 — that's "this device hasn't typed the
+    // site password", not a wrong admin key, so keep the key and ask for the site password instead.
+    if (data?.error?.code === "site_locked") {
+      const err = new Error(t("adminRev.siteLocked"));
+      err.siteLocked = true;
+      throw err;
+    }
     if (res.status === 403 || res.status === 404) {
       const err = new Error(res.status === 403 ? t("adminRev.wrongKey") : t("adminRev.notSetUp"));
       err.auth = true;
@@ -35,6 +43,13 @@ export function renderAdminReviews() {
     }
     if (!res.ok) throw new Error(data?.error?.message || t("login.somethingWrong"));
     return data;
+  }
+
+  function gatePanel() {
+    return el("section.panel", {}, [
+      el("p.note", { style: { marginBottom: "12px" } }, t("adminRev.siteLocked")),
+      el("button.btn", { type: "button", onclick: () => openSiteGate("#/admin/reviews") }, t("gate.submit")),
+    ]);
   }
 
   function keyForm(message) {
@@ -92,6 +107,7 @@ export function renderAdminReviews() {
   }
 
   async function load() {
+    if (siteIsLocked()) { body.replaceChildren(gatePanel()); return; }
     if (!key) { body.replaceChildren(keyForm()); return; }
     body.replaceChildren(el("p.note", {}, t("adminRev.loading")));
     try {
@@ -108,6 +124,7 @@ export function renderAdminReviews() {
         onclick: () => { key = ""; saveKey(""); load(); },
       }, t("adminRev.forgetKey")));
     } catch (err) {
+      if (err.siteLocked) { body.replaceChildren(gatePanel()); return; }
       if (err.auth) { key = ""; saveKey(""); body.replaceChildren(keyForm(err.message)); return; }
       clear(body).append(el("p.note.note--warn", {}, err.message));
     }
