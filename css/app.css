@@ -331,7 +331,7 @@ a.streakbadge:hover {
   color: var(--ink); text-decoration: none; font-size: 10.5px; line-height: 1.15; font-weight: 600;
   overflow-wrap: break-word; hyphens: auto;
 }
-.topmenu__item:hover { background: var(--surface-sunk); }
+@media (hover: hover) { .topmenu__item:hover { background: var(--surface-sunk); } }
 .topmenu__item svg { flex: none; width: 20px; height: 20px; color: var(--ink-soft); }
 .topmenu__item.is-active { background: var(--brand-tint); color: var(--brand-ink); }
 .topmenu__item.is-active svg { color: var(--brand-ink); }
@@ -657,9 +657,15 @@ body.has-topmenu .sitechat__fab { display: none; }
 .home-tile b { display: block; font-size: 15px; font-weight: 700; color: var(--ink); }
 .home-tile small { display: block; margin-top: 4px; font-size: 13px; line-height: 1.4; color: var(--ink-soft); }
 @media (max-width: 620px) {
-  .home-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .home-tile { min-height: 0; }
+  .home-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-2); }
+  /* Icon beside the name, no description: five tiles in about 190px instead of 470px. */
+  .home-tile { min-height: 0; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 10px; padding: 10px 12px; }
+  .home-tile__ic { width: 34px; height: 34px; border-radius: 10px; }
+  .home-tile b { font-size: 14px; line-height: 1.25; }
+  .home-tile small { display: none; }
   .home-tile:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  /* Every banner variant points at one of the tiles right above it. */
+  .home-main .house-ad { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .home-tile:hover { transform: none; } }
 
@@ -704,7 +710,7 @@ body.has-topmenu .sitechat__fab { display: none; }
 .planner-page__head h1 { margin: 0; }
 .planner-page__sub { margin: 0 0 var(--s-2); max-width: 60ch; }
 
-.planner { display: grid; gap: var(--s-4); align-items: start; }
+.planner { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s-4); align-items: start; }
 @media (min-width: 1180px) { .planner { grid-template-columns: minmax(0, 1fr) 300px; } }
 
 /* --- month grid --- */
@@ -2120,7 +2126,8 @@ body.route-chat .sitechat__fab,
 body.route-chat .sitechat__panel { display: none; }
 /* Clear of the fixed bottom tab bar on mobile. */
 @media (max-width: 899.98px) {
-  .sitechat__fab { bottom: calc(70px + var(--s-3) + env(safe-area-inset-bottom, 0)); }
+  .sitechat__fab { bottom: calc(70px + var(--s-3) + env(safe-area-inset-bottom, 0)); width: 48px; height: 48px; }
+  .sitechat__fab svg { width: 21px; height: 21px; }
   .sitechat__panel { bottom: calc(70px + 56px + var(--s-4) + env(safe-area-inset-bottom, 0)); }
 }
 @media (max-width: 480px) {
@@ -2836,6 +2843,9 @@ body.route-chat .sitechat__panel { display: none; }
 .settings__navlink:hover { color: var(--ink); background: var(--surface-sunk); }
 .settings__navlink.is-active { color: var(--brand-ink); background: var(--brand-tint); }
 .settings__navlink.is-active svg { color: var(--brand); }
+@media (max-width: 540px) {
+  .settings__nav { margin: 0 calc(-1 * var(--s-3)); padding: 0 var(--s-3); }
+}
 @media (min-width: 1100px) {
   .settings__layout { grid-template-columns: 210px minmax(0, 1fr); gap: var(--s-6, 28px); }
   .settings__nav { flex-direction: column; gap: 2px; overflow: visible; margin: 0; padding: 0; position: sticky; top: 90px; }
@@ -3367,19 +3377,18 @@ kbd {
   }
   .tutor.is-open { transform: translateY(0); }
 
+  /* In the page, right under the question: a floating button sat on top of Skip / Next. */
   .hintfab {
-    display: block; position: fixed; z-index: 71;
-    left: 50%; bottom: var(--s-4); transform: translateX(-50%);
+    display: inline-flex; align-items: center; gap: 8px; margin-top: var(--s-4);
     font-family: var(--font-display); font-weight: 600; font-size: var(--fs-sm);
-    padding: var(--s-3) var(--s-5); border-radius: var(--r-full);
-    border: none; background: var(--brand); color: #fff;
-    box-shadow: var(--shadow-2); cursor: pointer;
+    min-height: 40px; padding: 8px 16px; border-radius: var(--r-full);
+    border: 1px solid color-mix(in oklab, var(--brand) 45%, var(--line)); background: var(--brand-tint); color: var(--brand-ink);
+    cursor: pointer;
   }
-  .tutor.is-open ~ .hintfab { bottom: calc(min(70vh, 520px) + var(--s-3)); }
-
-  /* Keep the last controls clear of the floating button. */
-  .nav-row { margin-bottom: var(--s-8); }
+  .hintfab[hidden] { display: none; }
 }
+/* Nothing to hint at or move on to while the "continue where you left off" card is up. */
+.session:has(.resume) :is(.hintfab, .nav-row > div:last-child > .btn) { display: none; }
 @media (max-width: 540px) {
   .content { padding: var(--s-5) var(--s-3) var(--s-7); }
   h1 { font-size: 1.6rem; }
@@ -3387,6 +3396,9 @@ kbd {
      one word per line. The "new set" card shrinks to a slim row so it doesn't cost a full card. */
   .grid { grid-template-columns: 1fr; gap: var(--s-3); }
   .acard--new { min-height: 0; flex-direction: row; padding: var(--s-3) var(--s-4); }
+  /* Set cards: as tall as their content, not a fixed 148px. */
+  .acard { min-height: 0; gap: var(--s-2); padding: var(--s-3) var(--s-4); }
+  .acard__title { font-size: var(--fs-md); padding-right: 28px; }
   /* Study session: Skip / Next as the full-width primary row, the lesser actions (Leave,
      overview, flag) underneath instead of wrapping into three ragged rows. Scoped to .session
      specifically — .nav-row is shared with create/edit, whose two children aren't both <div>s
@@ -3898,7 +3910,7 @@ kbd {
 /* chat button: away while scrolling down on phones */
 @media (max-width: 899px) {
   .sitechat__fab { transition: transform var(--dur-mid) var(--ease-out), opacity var(--dur-mid) var(--ease-out), visibility 0s; }
-  body.fab-away .sitechat__fab { transform: translateY(140px); opacity: 0; visibility: hidden; pointer-events: none; transition-delay: 0s, 0s, var(--dur-mid); }
+  body.fab-away .sitechat__fab { transform: translateY(12px) scale(.6); opacity: 0; visibility: hidden; pointer-events: none; transition-delay: 0s, 0s, var(--dur-mid); }
 }
 
 /* home, first run: nothing to search or filter yet */
@@ -4134,7 +4146,7 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 
 /* ===== bussläge: read aloud, answer by voice or tap ===== */
 .session--bus > .session__head, .session--bus > .testbar, .session--bus > .progressbar, .session--bus > .progress-dots,
-.session--bus > .progress-label, .session--bus > .adaptive, .session--bus > .hintfab, .session--bus .tutor { display: none !important; }
+.session--bus > .progress-label, .session--bus > .adaptive, .session--bus .hintfab, .session--bus .tutor { display: none !important; }
 .session--bus .session { display: block; }
 .session--bus .nav-row { justify-content: flex-start; margin-top: var(--s-4); }
 .session--bus .nav-row > div:last-child, .session--bus .nav-row .btn--sm { display: none; }
@@ -5028,8 +5040,16 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   .solve-start { flex-direction: row; align-items: center; }
 }
 @media (max-width: 560px) {
-  .solve-starts { grid-template-columns: 1fr; }
-  .solve-hero { padding-top: var(--s-3); }
+  /* Four starts in a 2×2 grid of icon + name, no mark, no back link (the tab bar has Hem):
+     the input box starts on screen instead of about 20px below it. */
+  .solve > .homebtn, .solve-hero__mark { display: none; }
+  .solve-starts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-2); margin-top: var(--s-2); }
+  .solve-start { gap: 10px; padding: 10px 12px; }
+  .solve-start__ic { width: 30px; height: 30px; border-radius: 9px; }
+  .solve-start__txt strong { font-size: 13.5px; line-height: 1.25; }
+  .solve-hero { padding-top: var(--s-2); gap: 6px; }
+  .solve-hero__title { font-size: 1.35rem; }
+  .solve-hero__sub { font-size: var(--fs-sm); }
 }
 @media (prefers-reduced-motion: reduce) {
   .solve-hero, .solve-hero::before, .solve-start, .solve .msgrow, .solve .msg.me { animation: none; }
@@ -5103,8 +5123,6 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   body:has(.tutor.is-open) .hintfab { display: none; }
   /* Room to scroll the question's buttons above the open sheet. */
   body:has(.tutor.is-open) .content { padding-bottom: calc(min(70vh, 520px) + var(--s-5)); }
-  /* Toasts float above the hint button instead of behind it. */
-  body:has(.hintfab:not([hidden])) .toast { bottom: calc(var(--s-4) + 60px); }
 }
 .feedback__hint { margin: 8px 0 0; font-weight: 400; color: var(--ink); }
 .feedback__actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
@@ -5114,3 +5132,16 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .chatdef { display: inline-block; margin-left: 4px; padding: 0 8px; border-radius: var(--r-full); background: var(--brand-tint); color: var(--brand-ink); font-size: .9em; font-weight: 600; }
 .chatquick { margin-top: 10px; }
 .home-exam { margin: 0 0 var(--s-4); }
+
+/* Mobile audit: small controls get a finger-sized hit area on touch screens. The ::after is invisible
+   and doesn't move anything; :where() keeps position at zero specificity so an element that is
+   already absolutely placed stays where it is. */
+@media (pointer: coarse) {
+  :where(.brand, .house-ad__x, .next-test__prep, .exam-card__name, .chip, .datepick__chip, .cal__navbtn, .plan-nav__btn, .iconbtn--sm) { position: relative; }
+  :is(.brand, .house-ad__x, .next-test__prep, .exam-card__name, .cal__navbtn, .plan-nav__btn, .iconbtn--sm, .acard__menu, .set-switch)::after {
+    content: ""; position: absolute; inset: -7px;
+  }
+  /* Chips sit 8px apart in wrapping rows: grow up and down, barely sideways. */
+  :is(.chip, .datepick__chip)::after { content: ""; position: absolute; inset: -6px -3px; }
+  .linkbtn::after { inset: -10px -4px; }
+}

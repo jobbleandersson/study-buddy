@@ -539,11 +539,21 @@ function mc({ question, tutor, testMode, onDone, askConfidence, revealAfter = 2,
   return { result, handleKey, el: node };
 }
 
+// The "√x" symbol pad, only where there is maths to write: never in a language set, and otherwise
+// when the question, its answer or its steps use a maths symbol or a calculation.
+const MATHY = /\$|[=+×÷√^²³≤≥±π∞Δ]|\d\s*[*\/]\s*\d|\d\s*(?:cm|mm|km|kg|mol|m|g|s|N|J|W|V)\b/;
+const NO_KEYPAD = { toggle: null, pad: null };
+function keypadFor(ta, question, targetLang) {
+  if (targetLang) return NO_KEYPAD;
+  const text = [question.prompt, question.answer, ...(question.steps || [])].join(" ");
+  return MATHY.test(text) ? mathKeypad(ta) : NO_KEYPAD;
+}
+
 /* ---------------- short text ---------------- */
-function text({ question, tutor, live, testMode, onDone, askConfidence }) {
+function text({ question, tutor, live, testMode, onDone, askConfidence, targetLang }) {
   const result = { correct: false, hintsUsed: 0 };
   const ta = el("textarea.answerbox", { placeholder: t("q.typeAnswer"), "aria-label": t("q.yourAnswer") });
-  const keypad = mathKeypad(ta);
+  const keypad = keypadFor(ta, question, targetLang);
   const checkBtn = el("button.btn.btn--sm", { type: "button", onclick: check },
     t(testMode ? "q.submit" : "q.check"));
   const feedback = el("div", {});
@@ -569,7 +579,7 @@ function text({ question, tutor, live, testMode, onDone, askConfidence }) {
 
   function closeInput() {
     ta.disabled = true;
-    keypad.toggle.remove(); keypad.pad.remove();
+    keypad.toggle?.remove(); keypad.pad?.remove();
     checkBtn.remove();
   }
 
@@ -909,14 +919,14 @@ function flashcard({ question, tutor, live, testMode, onDone }) {
 }
 
 /* ---------------- worked problem ---------------- */
-function worked({ question, tutor, live, testMode, onDone }) {
+function worked({ question, tutor, live, testMode, onDone, targetLang }) {
   const result = { correct: false, hintsUsed: 0 };
   const steps = question.steps || [];
   const ta = el("textarea.answerbox", {
     placeholder: t(testMode ? "q.workedPlaceholderTest" : "q.workedPlaceholder"),
     "aria-label": t("q.yourWorking"),
   });
-  const keypad = mathKeypad(ta);
+  const keypad = keypadFor(ta, question, targetLang);
   const revealed = el("ol", { style: { marginTop: "12px" } });
   const revealBtn = steps.length && !testMode
     ? el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: revealStep }, t("q.showStep"))
@@ -951,7 +961,7 @@ function worked({ question, tutor, live, testMode, onDone }) {
   function giveUp() {
     needWriting.hidden = true;
     ta.disabled = true;
-    keypad.toggle.remove(); keypad.pad.remove(); doneBtn.remove();
+    keypad.toggle?.remove(); keypad.pad?.remove(); doneBtn.remove();
     feedback.className = "feedback retry";
     feedback.innerHTML = `<p>${escapeHtml(t("q.workedGaveUp"))}</p>` +
       solutionHtml(question);
@@ -968,7 +978,7 @@ function worked({ question, tutor, live, testMode, onDone }) {
       return;
     }
     ta.disabled = true;
-    keypad.toggle.remove(); keypad.pad.remove();
+    keypad.toggle?.remove(); keypad.pad?.remove();
     const written = ta.value.trim();
 
     let verdict = null;

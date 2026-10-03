@@ -1167,7 +1167,8 @@ function runSession(config) {
   // from then on. Shown once ever, per browser.
   let tipTimer = null;
   try {
-    if (!config.bus && !localStorage.getItem(TIP_SEEN_KEY)) {   // not over a screen you use by ear
+    // Not over a screen you use by ear, and not on a phone or tablet: no keyboard there to use them with.
+    if (!config.bus && matchMedia("(hover: hover) and (pointer: fine)").matches && !localStorage.getItem(TIP_SEEN_KEY)) {
       localStorage.setItem(TIP_SEEN_KEY, "1");
       tipTimer = setTimeout(() => toast(t("session.shortcutTip")), 1200);
     }
@@ -1216,13 +1217,13 @@ function runSession(config) {
   /* ----- mobile: tutor as a slide-up sheet ----- */
   const hintFab = el("button.hintfab", {
     type: "button",
-    // Opens the sheet; it closes from its own head (tutor-chat.js). The button hides while the sheet is
-    // open (CSS), so it never sits on top of the sheet's input.
+    // Opens the sheet; it closes from its own head (tutor-chat.js). Phones only (CSS), in the page right
+    // under the question — floating, it covered Skip / Next. It hides while the sheet is open.
     onclick: () => {
       tutor.el.classList.add("is-open");
       tutor.el.querySelector(".tutor__log")?.scrollTo(0, 0);
     },
-  }, t("session.needHint"));
+  }, [icon(ICONS.spark, 16), el("span", {}, t("session.needHint"))]);
   if (tutorSilent) hintFab.hidden = true;
 
   paintTestBar();
@@ -1255,9 +1256,7 @@ function runSession(config) {
     exitBtn.textContent = t("session.exit");
     paintExamLabels();
     if (reviewMoreEl) reviewMoreEl.textContent = t("session.reviewMore", { n: config.reviewRemaining });
-    if (!hintFab.hidden) {
-      hintFab.textContent = t("session.needHint");
-    }
+    hintFab.lastChild.textContent = t("session.needHint");
     paintProgress();
     paintTestBar();
     const q = store.findQuestion(currentId())?.question;
@@ -1301,6 +1300,7 @@ function runSession(config) {
     el("div.session", {}, [
       el("div", {}, [
         stage,
+        hintFab,
         el("div.nav-row", {}, [
           el("div", { style: { display: "flex", gap: "8px", flexWrap: "wrap" } }, [exitBtn, reviewBtn, overviewBtn, flagBtn]),
           el("div", { style: { display: "flex", gap: "10px" } }, [prevBtn, skipBtn, nextBtn]),
@@ -1308,7 +1308,6 @@ function runSession(config) {
       ]),
       tutor.el,
     ]),
-    hintFab,
   ].filter(Boolean));
 
   return {
