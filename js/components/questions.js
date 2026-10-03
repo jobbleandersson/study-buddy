@@ -481,7 +481,18 @@ function mc({ question, tutor, testMode, onDone, askConfidence, revealAfter = 2,
       feedback.textContent = attempts >= 2
         ? t("q.stillNotRight")
         : t("q.notQuite");
-      tutor?.note(t("q.tutorWrongMc", { choice: question.choices[picked] }));
+      // The tutor's answer to this wrong pick (it names the likely mistake), shortened and shown right
+      // under the marking, so the reason is on screen without opening the tutor.
+      const hintEl = el("p.feedback__hint", { hidden: true });
+      feedback.appendChild(hintEl);
+      const forTry = attempts;
+      tutor?.note(t("q.tutorWrongMc", { choice: question.choices[picked] }), "encourage", {
+        onReply: (txt) => {
+          if (done || forTry !== attempts) return;
+          const s = shortHint(txt);
+          if (s) { hintEl.textContent = s; hintEl.hidden = false; }
+        },
+      });
       triedWrong.add(picked);
       btns.forEach((b, i) => {
         b.setAttribute("aria-pressed", "false");
@@ -537,14 +548,10 @@ function text({ question, tutor, live, testMode, onDone, askConfidence }) {
     t(testMode ? "q.submit" : "q.check"));
   const feedback = el("div", {});
   const selfRate = el("div", {});
+  let tries = 0;   // practice: a miss can be tried once more before the model answer is shown
+  const modelHtml = () => `<p style="margin-top:10px"><strong>${escapeHtml(t("q.modelAnswer"))}</strong> ${renderRich(question.answer)}</p>`;
 
-  async function check() {
-    const ans = ta.value.trim();
-    if (!ans) return;
-    checkBtn.disabled = true; ta.disabled = true;
-    keypad.toggle.remove(); keypad.pad.remove();
-    result.hintsUsed++;
-
+  async function grade(ans) {
     let verdict = null;
     try {
       if (live) {
@@ -557,53 +564,104 @@ function text({ question, tutor, live, testMode, onDone, askConfidence }) {
       console.error("Grading failed:", e);
       verdict = { correct: false, feedback: t("q.gradingFailed"), missedPoints: [] };
     }
+    return verdict;
+  }
+
+  function closeInput() {
+    ta.disabled = true;
+    keypad.toggle.remove(); keypad.pad.remove();
+    checkBtn.remove();
+  }
+
+  async function check() {
+    const ans = ta.value.trim();
+    if (!ans) return;
+    checkBtn.disabled = true; ta.disabled = true;
+    result.hintsUsed++;
+    tries++;
+    const verdict = await grade(ans);
 
     // Test mode: grade silently, show nothing, move on.
     if (testMode) {
       result.correct = verdict.correct;
       feedback.className = "feedback";
       feedback.textContent = t("q.recorded");
-      checkBtn.remove();
+      closeInput();
       onDone(finalize(result));
       return;
     }
 
-    feedback.className = `feedback ${verdict.correct ? "ok" : "retry"}`;
-    feedback.innerHTML =
-      `<p>${escapeHtml(verdict.feedback)}</p>` +
-      (verdict.missedPoints?.length ? `<ul>${verdict.missedPoints.map((m) => `<li>${escapeHtml(m)}</li>`).join("")}</ul>` : "") +
-      `<p style="margin-top:10px"><strong>${escapeHtml(t("q.modelAnswer"))}</strong> ${renderRich(question.answer)}</p>`;
-
-    if (verdict.correct) tutor?.celebrate(t("q.tutorGotIt", { answer: ans }));
-    else tutor?.note(t("q.tutorWhatMissing", { answer: ans }));
-
-    // The grade stands on its own — the student no longer marks their own
-    // work. They can appeal it, which is recorded rather than silently taken.
-    result.correct = verdict.correct;
-    checkBtn.remove();
-    maybeConfidence(finalize(result), feedback, onDone, askConfidence);
-
     clear(selfRate);
-    if (!verdict.correct) {
-      explainWhyRow(tutor, question, ans, selfRate);
-      const appeal = el("button.linkbtn", {
+    const pointsHtml = verdict.missedPoints?.length
+      ? `<ul>${verdict.missedPoints.map((m) => `<li>${escapeHtml(m)}</li>`).join("")}</ul>` : "";
+
+    if (verdict.correct) {
+      closeInput();
+      feedback.className = "feedback ok";
+      feedback.innerHTML = `<p>${escapeHtml(verdict.feedback)}</p>` + pointsHtml + modelHtml();
+      tutor?.celebrate(t("q.tutorGotIt", { answer: ans }));
+      result.correct = true;
+      if (tries > 1) {
+        // Right on the second try: it counts, but not as known first time (as with multiple choice).
+        result.firstTry = false;
+        result.revised = true;
+        result.srsGrade = null;
+        onDone(finalize(result));
+        return;
+      }
+      maybeConfidence(finalize(result), feedback, onDone, askConfidence);
+      return;
+    }
+
+    // Not right yet. The grade stands — the student no longer marks their own work — but in practice they
+    // get one more try before the model answer, and the tutor asks a question instead of repeating it.
+    result.correct = false;
+    feedback.className = "feedback retry";
+    feedback.innerHTML = `<p>${escapeHtml(verdict.feedback)}</p>` + pointsHtml;
+    tutor?.note(t("q.tutorTextGraded", {
+      answer: ans, feedback: [verdict.feedback, ...(verdict.missedPoints || [])].join(" ").slice(0, 400),
+    }));
+    if (tries === 1) {
+      onDone(finalize(result));   // recorded as a miss now; a right second try updates it
+      checkBtn.hidden = true;
+      const again = el("button.btn.btn--sm", {
         type: "button",
         onclick: () => {
-          result.correct = true;
-          result.appealed = true;
-          result.revised = true;
-          // The grade changed, so its review schedule has to be recomputed —
-          // otherwise an appealed answer is still scheduled as a lapse.
-          result.srsGrade = null;
-          onDone(finalize(result));
-          clear(selfRate);
-          selfRate.appendChild(el("p.note", {}, t("q.appealDone")));
+          row.remove();
+          ta.disabled = false; ta.focus();
+          checkBtn.textContent = t("q.check");
+          checkBtn.disabled = false; checkBtn.hidden = false;
         },
-      }, t("q.appeal"));
-      selfRate.appendChild(el("p.note", { style: { marginTop: "12px" } }, [
-        t("q.disagree"), appeal, ".",
-      ]));
+      }, t("q.textRetry"));
+      const show = el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => { row.remove(); finishMiss(ans); } }, t("q.textShowModel"));
+      const row = el("div.feedback__actions", {}, [again, show]);
+      feedback.appendChild(row);
+      return;
     }
+    finishMiss(ans);
+  }
+
+  /** No more tries: show the model answer, and the ways to learn from it or contest the marking. */
+  function finishMiss(ans) {
+    closeInput();
+    feedback.insertAdjacentHTML("beforeend", modelHtml());
+    clear(selfRate);
+    explainWhyRow(tutor, question, ans, selfRate);
+    const appeal = el("button.linkbtn", {
+      type: "button",
+      onclick: () => {
+        result.correct = true;
+        result.appealed = true;
+        result.revised = true;
+        // The grade changed, so its review schedule has to be recomputed —
+        // otherwise an appealed answer is still scheduled as a lapse.
+        result.srsGrade = null;
+        onDone(finalize(result));
+        clear(selfRate);
+        selfRate.appendChild(el("p.note", {}, t("q.appealDone")));
+      },
+    }, t("q.appeal"));
+    selfRate.appendChild(el("p.note", { style: { marginTop: "12px" } }, [t("q.disagree"), appeal, "."]));
   }
 
   return {
@@ -896,7 +954,7 @@ function worked({ question, tutor, live, testMode, onDone }) {
     keypad.toggle.remove(); keypad.pad.remove(); doneBtn.remove();
     feedback.className = "feedback retry";
     feedback.innerHTML = `<p>${escapeHtml(t("q.workedGaveUp"))}</p>` +
-      `<p style="margin-top:10px"><strong>${escapeHtml(t("q.fullSolution"))}</strong> ${renderRich(question.answer)}</p>`;
+      solutionHtml(question);
     tutor?.note(t("q.tutorWorkedGaveUp"));
     settle("missed");
     explainWhyRow(tutor, question, "", selfRate);
@@ -934,7 +992,7 @@ function worked({ question, tutor, live, testMode, onDone }) {
     }
 
     doneBtn.remove();
-    const solution = `<p style="margin-top:10px"><strong>${escapeHtml(t("q.fullSolution"))}</strong> ${renderRich(question.answer)}</p>`;
+    const solution = solutionHtml(question);
 
     if (verdict) {
       const missed = verdict.level === "missed";
@@ -969,7 +1027,7 @@ function worked({ question, tutor, live, testMode, onDone }) {
     }
 
     feedback.className = "feedback ok";
-    feedback.innerHTML = `<strong>${escapeHtml(t("q.fullSolution"))}</strong> ${renderRich(question.answer)}`;
+    feedback.innerHTML = solutionHtml(question);
     selfRate.appendChild(el("p.note", { style: { marginTop: "12px" } }, t("q.reasoningGetThere")));
     selfRate.appendChild(el("div.selfrate", {}, [
       el("button.btn.btn--ok.btn--sm", { type: "button", onclick: () => end("nailed") }, t("q.workedNailed")),
@@ -1050,6 +1108,22 @@ function explainWhyRow(tutor, question, theirAnswer, host) {
     onclick: () => { btn.disabled = true; tutor.explainWrong(question, theirAnswer); },
   }, t("q.explainWhy"));
   host.appendChild(el("p.note", { style: { marginTop: "10px" } }, [btn]));
+}
+
+/** A worked problem's full solution: its steps, when it has them, then the answer. */
+function solutionHtml(question) {
+  const steps = Array.isArray(question.steps) ? question.steps.filter(Boolean) : [];
+  return `<div class="solution"><p style="margin-top:10px"><strong>${escapeHtml(t("q.fullSolution"))}</strong></p>`
+    + (steps.length ? `<ol class="solution__steps">${steps.map((s) => `<li>${renderRich(s)}</li>`).join("")}</ol>` : "")
+    + `<p class="solution__answer">${renderRich(question.answer)}</p></div>`;
+}
+
+/** One or two plain sentences from a tutor reply, for the line under a marking. */
+function shortHint(text) {
+  const plain = String(text || "").replace(/\$\$?([^$]*)\$\$?/g, "$1").replace(/[*_`#>]+/g, "").replace(/\s+/g, " ").trim();
+  const m = plain.match(/^(.+?[.!?])(\s+.+?[.!?])?(\s|$)/);
+  const out = (m ? m[1] + (m[2] || "") : plain).trim();
+  return out.length > 260 ? out.slice(0, 257).trimEnd() + "…" : out;
 }
 
 function escapeHtml(s) {

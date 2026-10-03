@@ -43,6 +43,8 @@ import { chatHistoryPanel } from "../components/chat-history-panel.js";
 import { materialSystemBlock, extractSourceRefs } from "../lib/chat-material.js";
 import { newChatId, saveChat, chatTitle, addSaved, removeSaved, findSaved } from "../lib/chat-history.js";
 import { setSessionActive } from "../lib/session-active.js";
+import { localDayKey } from "../lib/activity.js";
+import { fmtDate } from "../lib/i18n.js";
 
 /** How much of a long pasted text is echoed back in the student's own bubble — the message
  *  sent to the model is never truncated, only what's shown (a page of notes shouldn't make
@@ -91,9 +93,24 @@ export function renderSolve(qs) {
     // and the card for it appears only once the reply is complete (a half-streamed marker is hidden too).
     const { text: readable, brief } = extractSetBrief(raw);
     const { text, refs: sources } = extractSourceRefs(readable, set ? state.material.used : 0);
-    bubble.innerHTML = markdown(text);
+    // Its own suggested answers ("… [Kemi 1]") read as chips instead of raw brackets.
+    let suggested = 0;
+    bubble.innerHTML = markdown(text).replace(/\[([^\[\]<>\n]{1,40})\](?=\s*(?:<\/li>|<\/p>|<br\s*\/?>|$))/g, (_, s) => {
+      suggested++;
+      return `<span class="chatdef">${s}</span>`;
+    });
     if (!final) return;
     if (brief) bubble.appendChild(proposalCard(brief, raw));
+    else if (suggested && state.messages[state.messages.length - 1]?.content === raw) {
+      // The newest reply asks questions with suggestions: one tap answers "go with them".
+      const row = el("div.chatquick", {}, [
+        el("button.btn.btn--sm", {
+          type: "button",
+          onclick: () => { row.remove(); refs.inputEl.value = t("solve.useDefaultsMsg"); send(); },
+        }, [icon(ICONS.check, 14), t("solve.useDefaults")]),
+      ]);
+      bubble.appendChild(row);
+    }
     const foot = el("div.msg__foot", {}, [
       sources.length
         ? el("span.msg__sources", {}, [
@@ -114,6 +131,17 @@ export function renderSolve(qs) {
       // Same reasons as the composer, but "no server" says generating, not solving.
       blocked: () => (store.canUseAI() ? "" : store.aiBlockReason() === "unavailable" ? t("create.noServerHere") : blockedToast()),
       create: (b) => createSet(b, () => state.cards.includes(card)),
+      // The student said when the test is: offer to put it in Inför provet with this set on it.
+      testFor: (made) => store.exams.find((e) => e.setIds.includes(made.id)) || null,
+      addTest: (made, b) => {
+        if (!b.testDate || b.testDate < localDayKey()) return null;
+        const same = store.exams.find((e) => e.subjectId === made.subjectId && e.date === b.testDate);
+        const exam = same
+          ? store.updateExam(same.id, { setIds: [...same.setIds, made.id] })
+          : store.addExam({ subjectId: made.subjectId, date: b.testDate, title: "", setIds: [made.id] });
+        if (exam) toast(t("setgen.testAdded", { date: fmtDate(b.testDate) }), { actionLabel: t("setgen.openTest"), onAction: () => { location.hash = `#/exam-prep/${exam.id}`; } });
+        return exam;
+      },
       // Write the new set's id into the saved reply, so reopening this chat later shows "created"
       // instead of offering to make the same set again.
       onCreated: (a) => {
@@ -409,6 +437,7 @@ export function renderSolve(qs) {
 
   async function send() {
     if (state.busy) return;
+    document.querySelectorAll(".chatquick").forEach((n) => n.remove());   // answered now, one way or another
     const text = refs.inputEl.value.trim();
     if (!text && !state.pendingImage) return;
     if (text.length > MAX_INPUT_CHARS) { toast(t("chat.tooLong", { n: MAX_INPUT_CHARS })); return; }

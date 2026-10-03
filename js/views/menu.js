@@ -15,7 +15,8 @@ import { openDueDialog, closeDueDialog } from "../components/due-dialog.js";
 import { openQuickAdd, closeQuickAdd } from "../components/quick-add.js";
 import { ACHIEVEMENTS, nextAchievement } from "../lib/achievements.js";
 import { countdownLabel } from "../lib/date-phrases.js";
-import { prepHashForSet } from "../lib/exam.js";
+import { prepHashForSet, upcomingExams } from "../lib/exam.js";
+import { prepFor, taskHash, taskLabel, shortCountdown } from "../components/exam-flow.js";
 import { testsTomorrow } from "../lib/tonight.js";
 import { dailySlot } from "../components/daily-card.js";
 import { houseAd } from "../components/house-ad.js";
@@ -194,8 +195,9 @@ export function renderMenu(mode) {
     const subject = store.subjects.find((s) => s.id === a.subjectId);
     const m = masteryForAssignment(a, tm);
     const attempts = store.attempts.filter((x) => x.assignmentId === a.id).length;
-    const open = store.getSession(a.id);
-    const openCount = open ? Object.keys(open.items || {}).length : 0;
+    const resume = resumeFor(a);
+    const open = resume?.session || null;
+    const openCount = resume?.answered || 0;
     const subjectName = subject?.name || t("common.general");
 
     const menuBtn = el("button.acard__menu", {
@@ -210,9 +212,9 @@ export function renderMenu(mode) {
       style: { "--subject": color.solid, "--subject-ink": color.ink, "--subject-tint": color.tint },
       "aria-label": t(open ? "menu.cardAriaOpen" : "menu.cardAria",
         { title: a.title, subject: subjectName, count: a.questions.length }),
-      onclick: () => { location.hash = `#/session/${a.id}`; },
+      onclick: () => { location.hash = resume?.hash || `#/session/${a.id}`; },
       onkeydown: (e) => {
-        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); location.hash = `#/session/${a.id}`; }
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); location.hash = resume?.hash || `#/session/${a.id}`; }
       },
     }, [
       menuBtn,
@@ -407,7 +409,7 @@ export function renderMenu(mode) {
   const layout = el(rail ? "div.home-layout" : "div.home-layout.home-layout--solo", {}, [
     // The rail starts level with the greeting, up in the corner, rather than
     // under a full-width head.
-    el("div.home-main", {}, [greetingBlock, tonightCard(), dailySlot(), homeTiles(), homeStarter(), ad, setsPanel].filter(Boolean)),
+    el("div.home-main", {}, [greetingBlock, nextTestCard(), tonightCard(), dailySlot(), homeTiles(), homeStarter(), ad, setsPanel].filter(Boolean)),
     rail,
   ].filter(Boolean));
 
@@ -868,4 +870,50 @@ async function fillStarterSuggestion(slot) {
   ]);
   slot.appendChild(card);
   slot.hidden = false;
+}
+
+/** The unfinished run of a set worth resuming: the plain one or the practice run a test started
+ *  (`<id>::practice`), whichever has more answered — and only if something was answered, so a set that
+ *  was merely opened isn't "in progress, 0 of 15". */
+function resumeFor(a) {
+  const runs = [
+    { key: a.id, hash: `#/session/${a.id}` },
+    { key: `${a.id}::practice`, hash: `#/session/${a.id}?practice=1` },
+  ];
+  let best = null;
+  for (const r of runs) {
+    const session = store.getSession(r.key);
+    const answered = session ? Object.keys(session.items || {}).length : 0;
+    if (answered > 0 && (!best || answered > best.answered)) best = { ...r, session, answered };
+  }
+  return best;
+}
+
+/** The next test, first thing on the home screen: how far off it is and today's task for it. */
+function nextTestCard() {
+  const exam = upcomingExams(store.exams, store.assignments, localDayKey())[0];
+  if (!exam || exam.days > 21 || !exam.sets.length) return null;
+  const m = prepFor(exam);
+  const subject = store.subjects.find((s) => s.id === exam.subjectId);
+  const title = exam.title || t("exam.cardTitle", { subject: subject?.name || "" });
+  const open = m.todayStudy.find((x) => !x.done)?.task || null;
+  const run = open?.set ? resumeFor(open.set) : null;
+  return el("article.exam-card.home-exam", { style: { "--subject": store.subjectColor(exam.subjectId).solid } }, [
+    el("div.exam-card__top", {}, [
+      el("a.exam-card__name", { href: `#/exam-prep/${exam.id}` }, [el("span.exam-dot"), title]),
+      el("span.exam-pill" + (exam.days <= 2 ? ".is-soon" : ""), {}, shortCountdown(exam.days)),
+    ]),
+    el("div.exam-card__today", {}, m.allDoneToday
+      ? [el("span.exam-card__done", {}, [icon(ICONS.check, 15), t("exam.doneLabel")]),
+          el("a.btn.btn--ghost.btn--sm", { href: `#/exam-prep/${exam.id}` }, t("nav.examPrep"))]
+      : open
+        ? [
+            el("span.exam-card__task", {}, [el("b", {}, `${t("exam.planToday")}: `), taskLabel(open, subject?.name || "")]),
+            el("a.btn.btn--sm", { href: taskHash(open, m) }, [
+              run ? t("exam.continueCount", { n: run.answered, total: open.set.questions.length }) : t("exam.planStart"),
+              icon(ICONS.arrow, 14),
+            ]),
+          ]
+        : [el("a.btn.btn--ghost.btn--sm", { href: `#/exam-prep/${exam.id}` }, t("nav.examPrep"))]),
+  ]);
 }

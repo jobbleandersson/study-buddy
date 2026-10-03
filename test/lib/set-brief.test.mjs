@@ -202,3 +202,14 @@ describe("the system prompts", () => {
     assert.ok(brief && brief.count === 8 && brief.title === "short title");
   });
 });
+
+describe("normalizeBrief: the test date", () => {
+  test("a real YYYY-MM-DD date is kept, so the card can offer to add the test", () => {
+    assert.equal(normalizeBrief({ topic: "x", testDate: "2026-10-09" }).testDate, "2026-10-09");
+  });
+  test("anything else is dropped rather than guessed", () => {
+    for (const bad of ["", "fredag", "9 oktober", "2026-10-9", 20261009, null]) {
+      assert.equal("testDate" in normalizeBrief({ topic: "x", testDate: bad }), false, String(bad));
+    }
+  });
+});

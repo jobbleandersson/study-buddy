@@ -43,6 +43,9 @@ export function normalizeBrief(raw) {
   };
   const setId = str(raw.setId, 60);
   if (setId) brief.setId = setId;
+  // The day of the test the set is for, when the student said it: offered as "add the test" on the card.
+  const testDate = str(raw.testDate, 10);
+  if (/^\d{4}-\d{2}-\d{2}$/.test(testDate)) brief.testDate = testDate;
   return brief;
 }
 
