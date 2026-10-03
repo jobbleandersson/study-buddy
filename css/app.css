@@ -5070,3 +5070,26 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 
 .exam-addrow { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-top: var(--s-3); }
 .exam-addrow__hint { margin: var(--s-2) 0 0; }
+
+/* Inför provet: today's tasks, plan coverage, the time-sized pass, the session's test line, results' next step */
+.exam-today__list { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 4px; }
+.exam-today__list li { display: flex; align-items: center; gap: 8px; font-size: var(--fs-sm); color: var(--ink); }
+.exam-today__list li.is-done { color: var(--ink-faint); text-decoration: line-through; }
+.exam-today__dot { flex: none; width: 8px; height: 8px; border-radius: 50%; border: 2px solid var(--line-strong); }
+.exam-today__tick { flex: none; display: inline-grid; color: var(--ok, var(--brand)); }
+.exam-plan__tasks { display: grid; gap: 2px; min-width: 0; }
+.exam-plan__task.is-done { color: var(--ink-faint); }
+.exam-plan__task svg { vertical-align: -2px; margin-right: 4px; color: var(--ok, var(--brand)); }
+.exam-cover { margin: 4px 0 6px; }
+.exam-cover__bar { display: flex; gap: 3px; }
+.exam-cover__bar i { flex: 1; height: 6px; border-radius: 3px; background: var(--line); }
+.exam-cover__bar i.on { background: var(--ok, var(--brand)); }
+.exam-cover.is-short .exam-cover__bar i.on { background: var(--retry, var(--brand)); }
+.exam-cover__text { margin: 6px 0 0; font-size: var(--fs-sm); color: var(--ink-soft); }
+.exam-pass .exam-seg { margin: 4px 0 8px; }
+.exam-pass .note { margin: 0 0 10px; }
+.session__examctx { margin: -4px 0 10px; font-size: var(--fs-sm); color: var(--ink-soft); }
+.session__examctx a { color: inherit; text-decoration: none; }
+.session__examctx a:hover { text-decoration: underline; }
+.badge.badge--exam { background: var(--brand-tint); color: var(--brand-ink); }
+.results__examnext { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }

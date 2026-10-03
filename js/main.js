@@ -134,6 +134,7 @@ const routes = [
   { rx: /^\/tonight(?:\/(.+))?$/, view: (m) => import("./views/tonight.js").then((mod) => mod.renderTonight(m[1] || null)) },
   { rx: /^\/tonight-practice\/(.+)$/, view: (m) => import("./views/session.js").then((mod) => mod.renderTonightPractice(m[1])) },
   { rx: /^\/practice\/(.+)$/, view: (m) => import("./views/session.js").then((mod) => mod.renderPractice(m[1])) },
+  { rx: /^\/exam-pass\/(.+)$/, view: (m, qs) => import("./views/session.js").then((mod) => mod.renderExamPass(m[1], qs)) },
   { rx: /^\/exam-prep(?:\/(.*))?$/, view: (m, qs) => import("./views/exam-prep.js").then((mod) => mod.renderExamPrep(m[1] || null, qs)) },
   { rx: /^\/hp$/, view: () => import("./views/hp.js").then((mod) => mod.renderHp()) },
   { rx: /^\/hp\/mock$/, view: (m, qs) => import("./views/session.js").then((mod) => mod.renderHpMock(qs)) },

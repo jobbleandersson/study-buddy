@@ -15,6 +15,7 @@ import { parseCloze, clozeToUnderscores } from "../components/questions.js";
 import { shareCard } from "../lib/share-card.js";
 import { openChallengeDialog } from "../components/challenge-dialog.js";
 import { isChallengeableSet, percentOf } from "../lib/challenge.js";
+import { resolveExam, nextStep } from "../components/exam-flow.js";
 
 export function renderResults(attemptId) {
   const attempt = store.attempts.find((a) => a.id === attemptId);
@@ -157,6 +158,7 @@ export function renderResults(attemptId) {
       reviewCta(),
     ].filter(Boolean)) : null,
 
+    examNextRow(attempt),
     el("div", { style: { display: "flex", gap: "12px", justifyContent: "center", marginTop: "24px", flexWrap: "wrap" } }, [
       canChallenge && el("button.btn", {
         type: "button",
@@ -185,6 +187,19 @@ export function renderResults(attemptId) {
   });
 
   return { title: t("results.title"), node, cleanup: clearConfetti };
+}
+
+/** A pass started from a test (the attempt has `examId`): one tap to the next thing for that test, or
+ *  back to its page — instead of a dead end at the menu. */
+function examNextRow(attempt) {
+  if (!attempt.examId) return null;
+  const exam = resolveExam(attempt.examId);
+  if (!exam) return null;
+  const step = nextStep(exam);
+  return el("div.results__examnext", {}, [
+    step ? el("a.btn", { href: step.hash }, [t(step.extra ? "exam.oneMoreLabel" : "exam.nextLabel", { task: step.label }), icon(ICONS.arrow, 16)]) : null,
+    el("a.btn.btn--ghost", { href: `#/exam-prep/${exam.id}` }, t("exam.backToTest")),
+  ].filter(Boolean));
 }
 
 /** A run that answered a friend's challenge: both scores side by side and who
