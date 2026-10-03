@@ -1,7 +1,7 @@
 // Router + persistent app shell.
 
 import { store } from "./store.js";
-import { CONTACT_EMAIL, PAGEVIEW_URL, PROXY_HEALTH_URL } from "./config.js";
+import { PAGEVIEW_URL, PROXY_HEALTH_URL } from "./config.js";
 import { el, clear, mount, append, icon, ICONS, toast, showBanner, hideBanner, downloadText } from "./lib/dom.js";
 import { announce, focusHeading } from "./lib/a11y.js";
 import { t, plural, getLang, setLang, applyLang, LANGS, daysUntil } from "./lib/i18n.js";
@@ -168,6 +168,7 @@ const routes = [
   { rx: /^\/faq$/, view: () => import("./views/legal.js").then((mod) => mod.renderFaq()) },
   { rx: /^\/terms$/, view: () => import("./views/legal.js").then((mod) => mod.renderTerms()) },
   { rx: /^\/privacy$/, view: () => import("./views/legal.js").then((mod) => mod.renderPrivacy()) },
+  { rx: /^\/contact$/, view: () => import("./views/contact.js").then((mod) => mod.renderContact()) },
   { rx: /^\/premium$/, view: () => import("./views/premium-waitlist.js").then((mod) => mod.renderPremiumWaitlist()) },
   { rx: /^\/start\/(lib-[a-z0-9-]+)$/, view: (m) => import("./views/library.js").then((mod) => mod.renderStartSet(m[1])) },
   { rx: /^\/rate$/, view: () => import("./views/rate.js").then((mod) => mod.renderRate()) },
@@ -189,7 +190,7 @@ let renderGen = 0;
 /** The site has a password (the server says so, see server/src/gate.js) and this device hasn't typed it:
  *  only the front page — which asks for it — and the plain information pages open; everything else
  *  goes back to the front page. */
-const OPEN_WHILE_PRIVATE = /^\/?$|^\/(welcome|terms|privacy|about|faq|teachers)$/;
+const OPEN_WHILE_PRIVATE = /^\/?$|^\/(welcome|terms|privacy|about|faq|contact|teachers)$/;
 function privateGate() { return store.siteLocked && !store.siteUnlocked; }
 
 function parseHash() {
@@ -1032,7 +1033,7 @@ function siteFooter() {
       el("a", { href: "#/faq" }, t("footer.faq")),
       el("a", { href: "#/terms" }, t("footer.terms")),
       el("a", { href: "#/privacy" }, t("footer.privacy")),
-      el("a", { href: `mailto:${CONTACT_EMAIL}` }, t("footer.contact")),
+      el("a", { href: "#/contact" }, t("footer.contact")),
     ]),
     el("span.sitefooter__copy", {}, `© ${new Date().getFullYear()} PluggEra`),
   ]);

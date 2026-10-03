@@ -43,6 +43,13 @@ export const loginFailures = [
 export const waitlistHourly = attemptLimit({ name: "waitlist-hour", max: num("WAITLIST_PER_HOUR_PER_IP", 60), windowMs: HOUR });
 export const waitlistDaily = attemptLimit({ name: "waitlist-day", max: num("WAITLIST_PER_DAY_PER_IP", 200), windowMs: DAY });
 
+// The contact form (routes/contact.js): no account needed, and every message that gets through is a
+// real email on the shared daily quota (email.js), so these are tighter than the waitlist's. The
+// all-visitors daily cap lives in the route, counted for each valid message it tries to send.
+export const contactHourly = attemptLimit({ name: "contact-hour", max: num("CONTACT_PER_HOUR_PER_IP", 5), windowMs: HOUR });
+export const contactDaily = attemptLimit({ name: "contact-day", max: num("CONTACT_PER_DAY_PER_IP", 15), windowMs: DAY });
+export const contactAllDaily = num("CONTACT_PER_DAY", 30);
+
 // Every call verifies a Google-signed token (a JWKS fetch/cache plus a signature check) - cheap,
 // but not free. Only rejected credentials count (401 not verifiable, 403 email unverified): a whole
 // class signing in with Google from one school network makes dozens of perfectly good calls a

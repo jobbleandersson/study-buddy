@@ -5167,3 +5167,70 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   .solve-dock { position: sticky; bottom: calc(60px + var(--s-2) + env(safe-area-inset-bottom, 0px)); z-index: 6; }
 }
 @media (max-width: 560px) { .ach-tiercount small { font-size: 11.5px; } }
+
+/* ===== Contact (#/contact) ===== */
+/* Who to write to on the left, the form on a raised card on the right; stacked on a phone. */
+.contact { display: grid; gap: var(--s-5); max-width: 1040px; }
+.contact__grid { display: grid; gap: var(--s-6); align-items: center; }
+@media (min-width: 900px) {
+  .contact__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--s-7); padding-block: var(--s-5); }
+}
+.contact__intro { display: grid; justify-items: center; text-align: center; gap: var(--s-3); }
+.contact__mark { line-height: 0; margin-bottom: var(--s-2); filter: drop-shadow(0 8px 18px color-mix(in srgb, var(--brand) 26%, transparent)); }
+.contact__intro h1 { margin: 0; font-size: clamp(1.9rem, 4vw, 2.5rem); letter-spacing: -.02em; }
+.contact__lead { margin: 0; max-width: 34ch; color: var(--ink-soft); font-size: var(--fs-md); line-height: 1.6; text-wrap: balance; }
+.contact__direct { display: grid; justify-items: center; gap: 6px; margin-top: var(--s-5); max-width: 100%; }
+.contact__directlabel { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-faint); }
+.contact__addr { display: flex; align-items: center; gap: 2px; max-width: 100%; }
+.contact__mail {
+  display: inline-flex; align-items: center; gap: 10px; min-width: 0; padding: 6px 8px; border-radius: var(--r-sm);
+  font-weight: 700; color: var(--ink); text-decoration: none;
+}
+.contact__mail svg { flex: none; color: var(--brand); }
+.contact__mail span { overflow-wrap: anywhere; }
+.contact__mail:hover span { text-decoration: underline; text-underline-offset: 3px; }
+.contact__copy { flex: none; color: var(--ink-faint); }
+
+.contact__card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--shadow-2); padding: var(--s-6); }
+.contact__form { display: grid; gap: var(--s-4); }
+.contact__field { display: grid; gap: 6px; min-width: 0; }
+.contact__field > label { font-size: var(--fs-sm); font-weight: 700; color: var(--ink); }
+.contact__input {
+  width: 100%; box-sizing: border-box; font: inherit; color: var(--ink);
+  padding: 13px 16px; border-radius: var(--r-md); border: 1px solid var(--line);
+  background: color-mix(in oklab, var(--surface-sunk) 45%, var(--surface));
+  transition: border-color var(--dur-fast), box-shadow var(--dur-fast), background var(--dur-fast);
+}
+.contact__input::placeholder { color: var(--ink-faint); }
+.contact__input:hover { border-color: var(--line-strong); }
+.contact__input:focus { outline: none; border-color: var(--brand); background: var(--surface); box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 16%, transparent); }
+.contact__textarea { resize: vertical; min-height: 150px; line-height: 1.5; }
+/* The honeypot: off-screen rather than display:none, which some bots know to skip. */
+.contact__hp { position: absolute; left: -10000px; width: 1px; height: 1px; opacity: 0; }
+.contact__send { width: 100%; justify-content: center; min-height: 52px; margin-top: var(--s-1); font-size: 1rem; }
+.contact__send svg { transition: transform var(--dur-fast) var(--ease-out); }
+.contact__send:hover:not(:disabled) svg { transform: translateX(3px); }
+.contact__send.is-busy { cursor: progress; opacity: .75; }
+.contact__fine { margin: 0; text-align: center; font-size: 12.5px; color: var(--ink-faint); }
+.contact__note {
+  display: grid; gap: var(--s-3); justify-items: start; padding: var(--s-3) var(--s-4); border-radius: var(--r-md);
+  background: var(--retry-tint); color: var(--retry-ink); font-size: var(--fs-sm); line-height: 1.5;
+}
+.contact__note[hidden] { display: none; }
+.contact__note p { margin: 0; }
+.contact__done { display: grid; justify-items: center; text-align: center; gap: var(--s-3); padding-block: var(--s-6); }
+.contact__doneic {
+  width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--ok-tint); color: var(--ok); animation: contact-pop var(--dur-mid) var(--ease-out);
+}
+@keyframes contact-pop { from { transform: scale(.6); opacity: 0; } }
+.contact__done h2 { margin: var(--s-2) 0 0; font-size: var(--fs-xl); }
+.contact__done p { margin: 0 0 var(--s-3); max-width: 36ch; color: var(--ink-soft); overflow-wrap: anywhere; }
+@media (max-width: 560px) {
+  .contact__grid { gap: var(--s-5); }
+  .contact__intro { gap: var(--s-2); }
+  .contact__mark svg { width: 60px; height: 47px; }
+  .contact__direct { margin-top: var(--s-3); }
+  .contact__card { padding: var(--s-5) var(--s-4); }
+}
+@media (prefers-reduced-motion: reduce) { .contact__doneic { animation: none; } }

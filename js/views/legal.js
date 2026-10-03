@@ -3,11 +3,11 @@
 // not something a student needs a shortcut to mid-study.
 
 import { el, icon, ICONS } from "../lib/dom.js";
-import { CONTACT_EMAIL } from "../config.js";
 import { t } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 
-const FEEDBACK_MAIL = `mailto:${CONTACT_EMAIL}`;
+// Feedback goes through the contact page (its form, or the address shown beside it).
+const FEEDBACK_MAIL = "#/contact";
 
 function page(titleKey, body) {
   return {

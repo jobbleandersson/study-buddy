@@ -6,6 +6,8 @@ import { t } from "./i18n.js";
 
 const KNOWN = {
   "Enter a valid email.": "srv.err.email",
+  "Enter your name.": "srv.err.contactName",
+  "Write a message of up to 5000 characters.": "srv.err.contactMessage",
   "Pick 1 to 5 stars.": "srv.err.reviewRating",
   "Write between 10 and 600 characters.": "srv.err.reviewText",
   "Enter a first name or initials.": "srv.err.reviewName",

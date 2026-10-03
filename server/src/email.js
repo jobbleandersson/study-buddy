@@ -38,14 +38,14 @@ function takeBudget(critical) {
 /** Best-effort: returns false (and logs) on any failure rather than throwing, so a flaky provider
  *  never turns into a 500 on signup or password reset — the token is already stored either way,
  *  and resend-verification exists for exactly this case. */
-export async function sendEmail({ to, subject, html, critical = false }) {
+export async function sendEmail({ to, subject, html, critical = false, replyTo = null }) {
   if (!RESEND_API_KEY) return false;
   if (!takeBudget(critical)) return false;
   try {
     const res = await fetch(RESEND_API_URL, {
       method: "POST",
       headers: { authorization: `Bearer ${RESEND_API_KEY}`, "content-type": "application/json" },
-      body: JSON.stringify({ from: EMAIL_FROM, to, subject, html }),
+      body: JSON.stringify({ from: EMAIL_FROM, to, subject, html, ...(replyTo ? { reply_to: replyTo } : {}) }),
       signal: AbortSignal.timeout(8000),
     });
     if (!res.ok) {
@@ -142,5 +142,25 @@ export function sendPasswordAddedEmail(to) {
       <p>A password was just added to this PluggEra account, confirmed through your Google sign-in. From now on you can sign in either with Google or with your email and this password.</p>
       <p style="font-size:13px;color:#6B7386">If this wasn't you, sign in with Google to check your account — whoever did this would need your Google sign-in to do it again.</p>
     `),
+  });
+}
+
+// Where the contact form (#/contact, routes/contact.js) delivers. The client shows the same address
+// for anyone who'd rather write from their own mail app — keep it in step with js/config.js.
+export const CONTACT_TO = process.env.CONTACT_TO || "pluggera.organistion@gmail.com";
+
+const escapeHtml = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+
+/** A message from the contact form. Reply-To is the sender, so answering it in the inbox just works.
+ *  Everything the visitor typed is escaped: this html lands in our own inbox. */
+export function sendContactEmail({ name, email, message }) {
+  return sendEmail({
+    to: CONTACT_TO, replyTo: email,
+    subject: `Kontaktformulär: ${name.replace(/\s+/g, " ")}`,
+    html: `<div style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:560px;color:#191D28">
+      <p style="margin:0 0 4px"><strong>${escapeHtml(name)}</strong> &lt;${escapeHtml(email)}&gt;</p>
+      <p style="font-size:12px;color:#6B7386;margin:0 0 16px">Skickat från kontaktformuläret på PluggEra. Svara på det här mejlet för att svara avsändaren.</p>
+      <div style="white-space:pre-wrap;font-size:15px;line-height:1.5;border-left:3px solid #2C5CD6;padding-left:12px">${escapeHtml(message)}</div>
+    </div>`,
   });
 }

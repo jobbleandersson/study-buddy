@@ -8,7 +8,7 @@
 
 import { el, icon, ICONS, TIKTOK_SVG } from "../lib/dom.js";
 import { store } from "../store.js";
-import { CONTACT_EMAIL, TIKTOK_URL, REVIEWS_URL } from "../config.js";
+import { TIKTOK_URL, REVIEWS_URL } from "../config.js";
 import { t, getLang, setLang, LANGS } from "../lib/i18n.js";
 import { openWelcomeQuiz } from "../components/onboarding.js";
 import { openSiteGate, siteIsLocked } from "../components/site-gate-dialog.js";
@@ -546,7 +546,7 @@ export function footer() {
       el("nav.lp-foot__cols", { "aria-label": t("footer.nav") }, [
         col("lp.footProduct", [["/ova", "footer.practice"], ["#/solve", "nav.solve"], ["#/hp", "nav.hp"], ["#/exam-prep", "nav.examPrep"]]),
         col("lp.footFor", [["#/welcome", "lp.forStudentT"], ["#/faq", "lp.forParentT"], ["#/teachers", "lp.forTeacherT"]]),
-        col("lp.footCompany", [["#/about", "footer.about"], ["#/faq", "footer.faq"], [`mailto:${CONTACT_EMAIL}`, "footer.contact"]]),
+        col("lp.footCompany", [["#/about", "footer.about"], ["#/faq", "footer.faq"], ["#/contact", "footer.contact"]]),
         col("lp.footLegal", [["#/terms", "footer.terms"], ["#/privacy", "footer.privacy"]]),
       ]),
     ]),

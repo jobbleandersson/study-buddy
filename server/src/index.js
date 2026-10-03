@@ -23,6 +23,7 @@ import { classes } from "./routes/classes.js";
 import { classDaily } from "./routes/class-daily.js";
 import { account } from "./routes/account.js";
 import { waitlist } from "./routes/waitlist.js";
+import { contact } from "./routes/contact.js";
 import { analytics } from "./routes/analytics.js";
 import { reviews } from "./routes/reviews.js";
 import { practicePages } from "./routes/practice-pages.js";
@@ -165,6 +166,7 @@ app.use("/api", classes);
 app.use("/api", classDaily);
 app.use("/api", account);
 app.use("/api", waitlist);
+app.use("/api", contact);
 app.use("/api", analytics);
 app.use("/api", reviews);
 // An /api path no router claimed: answer in the API's own shape, not Express's HTML "Cannot GET".
