@@ -46,6 +46,26 @@ describe("site password (SITE_PASSWORD set)", () => {
     assert.equal(c.cookie, null, "a refused sign-up must not have made an account or session");
   });
 
+  test("the front page's approved reviews stay readable; every other review route stays locked", async () => {
+    const c = makeClient(server.baseUrl);
+    const list = await c.get("/api/reviews");
+    assert.equal(list.status, 200);
+    assert.ok(Array.isArray(list.json.reviews));
+    for (const [method, path, body] of [
+      ["post", "/api/reviews", { rating: 5, text: "Hjälpte mig mycket.", name: "E", lang: "sv", consent: true }],
+      ["get", "/api/reviews/mine"],
+      ["delete", "/api/reviews/mine"],
+      ["get", "/api/admin/reviews"],
+      ["post", "/api/admin/reviews/x", { status: "approved" }],
+      ["get", "/api/reviewsx"],
+      ["get", "/api/reviews/../state"],
+    ]) {
+      const r = await c[method](path, body);
+      assert.equal(r.status, 403, `${method} ${path}`);
+      assert.equal(r.json?.error?.code, "site_locked", `${method} ${path}`);
+    }
+  });
+
   test("a wrong password is refused and sets no cookie", async () => {
     for (const bad of ["", "nope", PASSWORD + " ", PASSWORD.toUpperCase(), "x".repeat(500)]) {
       const r = await unlock(server.baseUrl, bad);
