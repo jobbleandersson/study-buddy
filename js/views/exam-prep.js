@@ -24,7 +24,7 @@ import {
 } from "../components/exam-flow.js";
 import { isHpSetId } from "../lib/hp.js";
 import {
-  upcomingExams, topicsOf, mockCountFor, questionsForMinutes, STUDY_PASS_MINUTES, MAX_SETS_PER_DAY,
+  upcomingExams, topicsOf, mockCountFor, questionsForMinutes, STUDY_PASS_MINUTES, MAX_SETS_PER_DAY, buildStudyPass,
 } from "../lib/exam.js";
 
 const MOCK_LENGTHS = [20, 40, 60];
@@ -235,7 +235,10 @@ export function renderExamPrep(param, qs) {
   const passStart = el("a.btn", {}, [icon(ICONS.clock, 16), el("span")]);
   function paintPass() {
     const n = Math.min(questionsForMinutes(passMin), totalQ);
-    passNote.textContent = t("exam.passHint", { n, sets: Math.min(m.scope.length, n) });
+    // Count the sets the pass will really draw from (new questions first can mean fewer sets).
+    const picked = new Set(buildStudyPass({ sets: m.scope, attempts: m.attempts, srs: store.state.srs, n }));
+    const sets = m.scope.filter((a) => (a.questions || []).some((q) => picked.has(q.id))).length;
+    passNote.textContent = t("exam.passHint", { n, sets });
     passStart.href = passHash(m, passMin);
     passStart.lastChild.textContent = t("exam.passStart", { min: passMin });
   }
