@@ -21,7 +21,7 @@ import { weakSpotQuestions, firstTryCorrect } from "../lib/mastery.js";
 import { loadHpIndex, loadHpTranslations, isHpImported, importHpSet } from "../data/hp-content.js";
 import {
   normedScore, parseHpSetId, isHpSetId, attemptNormedTotal,
-  DELPROV_ORDER, DELPROV_PACE, VERBAL_DELPROV, KVANT_DELPROV, buildHpPlan,
+  DELPROV_ORDER, DELPROV_PACE, VERBAL_DELPROV, KVANT_DELPROV, partOf, buildHpPlan,
 } from "../lib/hp.js";
 
 const fmtN = (n) => (n == null ? "–" : Number(n).toFixed(2).replace(".", ","));
@@ -47,16 +47,6 @@ function hpSetOrder(index) {
 }
 
 const locale = () => (getLang() === "sv" ? "sv-SE" : "en-GB");
-
-/** A delprov's name and one-line description in the app language, from the
- *  index's subject entry ("ORD – Ordförståelse" -> "Ordförståelse"). */
-function delprovInfo(index, tr, dp) {
-  const id = `hp-${dp}`;
-  const subj = index.subjects.find((s) => s.id === id);
-  const full = tr.subjects?.[id]?.name || subj?.name || "";
-  const name = full.split(/\s+[–-]\s+/).slice(1).join(" – ") || full;
-  return { name, description: tr.subjects?.[id]?.description || subj?.description || "" };
-}
 
 /** Recency-weighted accuracy per delprov, read straight off HP attempt items
  *  (the delprov comes from each question's `variant`, not its topic).
@@ -228,99 +218,133 @@ function dateZone(hpDate, { editing, setEditing }) {
 }
 
 /* ------------------------------------------------------------------ *
- * The delprov board: the test's two halves, four delprov each
+ * The delprov: eight tiles in the test's two halves. A tile only names the
+ * delprov and how it's going; tapping it opens a small dialog that says what
+ * the delprov is and offers the two ways to practise it. A delprov's set is
+ * added to the student's library the first time they open it, so there's no
+ * separate "add" step to understand first.
  * ------------------------------------------------------------------ */
 
-async function addSets(entries, btn, refresh) {
-  btn.disabled = true;
-  let failed = 0;
-  for (const s of entries) {
-    try { await importHpSet(s); } catch { failed++; }   // skip the ones that fail, keep going
-  }
-  if (failed) toast(t("lib.addFail"));
-  refresh();
+/** A link that opens one of HP's sets at `hash`, adding the set to the library
+ *  on the way when it isn't there yet. Once added it's an ordinary link. */
+function setLink(tag, entry, hash, props, children) {
+  return el(tag, {
+    ...props, href: hash,
+    onclick: async (e) => {
+      const link = e.currentTarget;   // null again once the handler has awaited
+      // Already adding it: a second tap must not start a second import of the same set.
+      if (link.getAttribute("aria-busy") === "true") { e.preventDefault(); return; }
+      if (isHpImported(entry.id)) return;
+      e.preventDefault();
+      link.setAttribute("aria-busy", "true");
+      try {
+        await importHpSet(entry);
+      } catch {
+        link.removeAttribute("aria-busy");
+        toast(t("lib.addFail"));
+        return;
+      }
+      location.hash = hash;
+    },
+  }, children);
 }
 
-function extraRow(entry, tr, refresh) {
-  const added = isHpImported(entry.id);
-  const title = tr.sets[entry.id]?.title || entry.title;
-  const addBtn = el("button.linkbtn", { type: "button" }, [icon(ICONS.plus, 14), t("lib.add")]);
-  addBtn.onclick = () => addSets([entry], addBtn, refresh);
-  return el("li.hp-dp__extra", {}, [
-    el("span.hp-dp__extratitle", {}, title),
-    el("span.hp-dp__extracount", {}, plural(entry.count, "common.questionOne", "common.questionMany")),
-    added ? el("a.linkbtn", { href: `#/session/${entry.id}` }, t("lib.study")) : addBtn,
-  ]);
-}
-
-function delprovTile(dp, { index, tr, acc, weakest, refresh }) {
+/** The delprov's own set (the övningsprov, "lib-hp-<test>-<dp>") and anything
+ *  else filed under it (the ORD word bank). */
+function delprovSets(index, dp) {
   const entries = hpSetOrder(index).filter((s) => delprovCodeOf(s.subject) === dp);
-  // The övningsprov (a "lib-hp-<test>-<dp>" set) is the delprov's own set; anything else for it
-  // (the ORD word bank) is listed underneath as an extra.
-  const main = entries.find((s) => parseHpSetId(s.id).test) || entries[0];
-  if (!main) return null;
-  const extras = entries.filter((s) => s !== main);
-  const info = delprovInfo(index, tr, dp);
-  const added = isHpImported(main.id);
-  const rate = acc[dp]?.rate;
-  const pct = rate != null ? Math.round(rate * 100) : null;
+  const main = entries.find((s) => parseHpSetId(s.id).test) || entries[0] || null;
+  return { main, extras: entries.filter((s) => s !== main) };
+}
+
+let dpDialog = null;
+function onDialogKey(e) { if (e.key === "Escape") closeDelprovDialog(); }
+
+function closeDelprovDialog() {
+  if (!dpDialog) return;
+  const { node, opener } = dpDialog;
+  dpDialog = null;
+  node.remove();
+  document.removeEventListener("keydown", onDialogKey);
+  window.removeEventListener("hashchange", closeDelprovDialog);
+  if (opener?.isConnected) opener.focus();
+}
+
+function openDelprovDialog(dp, { index, tr, acc }, opener) {
+  closeDelprovDialog();
+  const { main, extras } = delprovSets(index, dp);
+  const part = partOf(dp);
   const pace = DELPROV_PACE[dp] || 12;
+  const rate = isHpImported(main.id) ? acc[dp]?.rate : null;
   const count = plural(main.count, "common.questionOne", "common.questionMany");
 
-  const head = el("div.hp-dp__head", {}, [
-    el("span.hp-dp__code", {}, t(`hp.delprov.${dp}`)),
-    el("div.hp-dp__titles", {}, [
-      el("strong.hp-dp__name", {}, info.name),
-      dp === weakest ? el("span.hp-dp__weak", {}, [icon(ICONS.target, 12), t("hp.weakest")]) : null,
-    ].filter(Boolean)),
-    added && pct != null ? el("span.hp-dp__pct", {}, t("hp.pctRight", { n: pct })) : null,
-  ].filter(Boolean));
-
-  let body, foot;
-  if (added) {
-    body = pct != null
-      ? el("span.hp-dp__meter", { role: "img", "aria-label": t("hp.readinessAria", { delprov: t(`hp.delprov.${dp}`), pct }) },
-          [el("span", { style: { width: `${pct}%` } })])
-      : el("p.hp-dp__none", {}, t("hp.notPracticed"));
-    foot = el("div.hp-dp__foot", {}, [
-      el("span.hp-dp__meta", {}, t("hp.tileMeta", { q: count, n: pace })),
-      el("div.hp-dp__acts", {}, [
-        el("a.btn.btn--sm", { href: `#/session/${main.id}?exam=1&min=${pace}` }, [icon(ICONS.clock, 15), t("hp.drillBtn")]),
-        el("a.btn.btn--ghost.btn--sm", { href: `#/session/${main.id}` }, t("lib.study")),
-        el("a.iconbtn.iconbtn--sm", {
-          href: `#/print/${main.id}`, "aria-label": t("print.worksheet"), title: t("print.worksheet"),
-        }, [icon(ICONS.fileText, 16)]),
+  const node = el("div.modal", {
+    role: "dialog", "aria-modal": "true", "aria-labelledby": "hp-dpd-title",
+    onclick: (e) => { if (e.target === node) closeDelprovDialog(); },
+  }, [
+    el("div.modal__card.hp-dpd", { style: { "--c": PART_COLOR[part], "--c-ink": PART_INK[part] } }, [
+      el("div.hp-dpd__head", {}, [
+        el("span.hp-dpd__code", {}, t(`hp.delprov.${dp}`)),
+        el("h3#hp-dpd-title", {}, t(`hp.name.${dp}`)),
+        el("button.iconbtn.iconbtn--sm.hp-dpd__close", {
+          type: "button", "aria-label": t("common.close"), onclick: closeDelprovDialog,
+        }, [icon(ICONS.close, 18)]),
       ]),
-    ]);
-  } else {
-    const addBtn = el("button.btn.btn--ghost.btn--sm", { type: "button" }, [icon(ICONS.plus, 15), t("lib.add")]);
-    addBtn.onclick = () => addSets([main], addBtn, refresh);
-    body = el("p.hp-dp__desc", {}, info.description);
-    foot = el("div.hp-dp__foot", {}, [el("span.hp-dp__meta", {}, count), el("div.hp-dp__acts", {}, [addBtn])]);
-  }
-
-  return el("article.hp-dp" + (added ? "" : ".is-off"), {}, [
-    head, body, foot,
-    extras.length ? el("ul.hp-dp__extras", {}, extras.map((s) => extraRow(s, tr, refresh))) : null,
-  ].filter(Boolean));
+      el("p.hp-dpd__desc", {}, t(`hp.about.${dp}`)),
+      rate != null ? el("p.hp-dpd__last", {}, t("hp.soFar", { n: Math.round(rate * 100) })) : null,
+      el("div.hp-dpd__choices", {}, [
+        setLink("a.hp-dpd__choice.is-primary", main, `#/session/${main.id}?exam=1&min=${pace}`, {}, [
+          icon(ICONS.clock, 20),
+          el("span", {}, [el("strong", {}, t("hp.choiceTimed")), el("small", {}, t("hp.choiceTimedSub", { q: count, n: pace }))]),
+        ]),
+        setLink("a.hp-dpd__choice", main, `#/session/${main.id}`, {}, [
+          icon(ICONS.play, 20),
+          el("span", {}, [el("strong", {}, t("hp.choiceFree")), el("small", {}, t("hp.choiceFreeSub"))]),
+        ]),
+      ]),
+      el("div.hp-dpd__more", {}, [
+        ...extras.map((s) => setLink("a.linkbtn", s, `#/session/${s.id}`, {},
+          [icon(ICONS.layers, 15), tr.sets[s.id]?.title || s.title])),
+        setLink("a.linkbtn", main, `#/print/${main.id}`, {}, [icon(ICONS.fileText, 15), t("print.worksheet")]),
+      ]),
+    ].filter(Boolean)),
+  ]);
+  document.body.appendChild(node);
+  dpDialog = { node, opener };
+  document.addEventListener("keydown", onDialogKey);
+  // A choice navigates away; the dialog goes with the page it was opened over.
+  window.addEventListener("hashchange", closeDelprovDialog);
+  node.querySelector(".hp-dpd__choice")?.focus();
 }
 
-function delprovBoard(index, tr, acc, weakest, refresh) {
-  const missing = hpSetOrder(index).filter((s) => !isHpImported(s.id));
-  const addAllBtn = el("button.btn.btn--sm", { type: "button" }, [icon(ICONS.plus, 16), t("lib.addAll", { n: missing.length })]);
-  addAllBtn.onclick = () => addSets(missing, addAllBtn, refresh);
+function delprovTile(dp, ctx) {
+  const { main } = delprovSets(ctx.index, dp);
+  if (!main) return null;
+  const rate = isHpImported(main.id) ? ctx.acc[dp]?.rate : null;
+  const tile = el("button.hp-tile", { type: "button", "aria-haspopup": "dialog" }, [
+    el("span.hp-tile__code", {}, t(`hp.delprov.${dp}`)),
+    el("span.hp-tile__name", {}, t(`hp.name.${dp}`)),
+    rate != null
+      ? el("span.hp-tile__status", {}, t("hp.pctRight", { n: Math.round(rate * 100) }))
+      : el("span.hp-tile__status.is-none", {}, t("hp.notPracticed")),
+  ]);
+  tile.onclick = () => openDelprovDialog(dp, ctx, tile);
+  return tile;
+}
 
-  const half = (key, list) => el("section.hp-half", { style: { "--c": PART_COLOR[key], "--c-ink": PART_INK[key] }, "aria-labelledby": `hp-half-${key}` }, [
-    el("h3.hp-half__title", { id: `hp-half-${key}` }, [el("i", { "aria-hidden": "true" }), t(`hp.${key}`)]),
-    el("div.hp-half__list", {}, list.map((dp) => delprovTile(dp, { index, tr, acc, weakest, refresh })).filter(Boolean)),
+function delprovBoard(index, tr, acc) {
+  const ctx = { index, tr, acc };
+  const group = (key, list) => el("section.hp-group", {
+    style: { "--c": PART_COLOR[key], "--c-ink": PART_INK[key] }, "aria-labelledby": `hp-group-${key}`,
+  }, [
+    el("h3.hp-group__title", { id: `hp-group-${key}` }, [el("i", { "aria-hidden": "true" }), t(`hp.${key}`)]),
+    el("div.hp-group__tiles", {}, list.map((dp) => delprovTile(dp, ctx)).filter(Boolean)),
   ]);
 
   return el("section.hp-board", { "aria-labelledby": "hp-board-title" }, [
-    el("header.hp-board__head", {}, [
-      el("div", {}, [el("h2#hp-board-title", {}, t("hp.boardTitle")), el("p", {}, t("hp.boardSub"))]),
-      missing.length ? addAllBtn : el("span.hp-board__done", {}, [icon(ICONS.check, 15), t("hp.allAdded")]),
-    ]),
-    el("div.hp-board__halves", {}, [half("verbal", VERBAL_DELPROV), half("kvant", KVANT_DELPROV)]),
+    el("header.hp-board__head", {}, [el("h2#hp-board-title", {}, t("hp.boardTitle")), el("p", {}, t("hp.boardSub"))]),
+    group("verbal", VERBAL_DELPROV),
+    group("kvant", KVANT_DELPROV),
   ]);
 }
 
@@ -360,45 +384,49 @@ export async function renderHp() {
     const acc = delprovAccuracy();
     const prog = hpPrognosis();
 
-    // Practised delprov, weakest first. "Weakest" only means something once two can be compared.
+    // Practised delprov, weakest first.
     const rows = DELPROV_ORDER
       .filter((dp) => acc[dp] && acc[dp].rate != null && sets.some((s) => parseHpSetId(s.id).delprov === dp))
       .map((dp) => ({ dp, v: acc[dp].rate }))
       .sort((a, b) => a.v - b.v);
-    const weakest = rows.length >= 2 ? rows[0].dp : null;
     const drillHash = (dp) => {
       const set = sets.find((s) => parseHpSetId(s.id).delprov === dp);
       return set ? `#/session/${set.id}?exam=1&min=${DELPROV_PACE[dp] || 12}` : "#/hp";
     };
     const dueN = store.dueQuestions().filter((d) => isHpSetId(d.assignment.id)).length;
-    const totalQ = sets.reduce((n, a) => n + a.questions.length, 0);
 
     /* ---- overview: score, test day, next steps ---- */
     const nextSteps = [];
-    if (sets.length) {
-      if (rows.length) {
-        nextSteps.push(el("a.btn", { href: drillHash(rows[0].dp) },
-          [icon(ICONS.target, 16), t("hp.drillWeak", { delprov: t(`hp.delprov.${rows[0].dp}`) })]));
+    if (rows.length) {
+      nextSteps.push(el("a.btn", { href: drillHash(rows[0].dp) },
+        [icon(ICONS.target, 16), t("hp.drillWeak", { delprov: t(`hp.delprov.${rows[0].dp}`) })]));
+    }
+    // The mini mock draws on every övningsprov; any not in the library yet are added on the way in,
+    // so it's a first step that works before anything has been practised.
+    const mockBtn = el("a.btn" + (rows.length ? ".btn--ghost" : ""), { href: "#/hp/mock", title: t("hp.mockTip") },
+      [icon(ICONS.clock, 16), t("hp.mockStart")]);
+    mockBtn.onclick = async (e) => {
+      if (mockBtn.getAttribute("aria-busy") === "true") { e.preventDefault(); return; }
+      const missing = index ? hpSetOrder(index).filter((s) => parseHpSetId(s.id).test && !isHpImported(s.id)) : [];
+      if (!missing.length) return;
+      e.preventDefault();
+      mockBtn.setAttribute("aria-busy", "true");
+      for (const s of missing) {
+        try { await importHpSet(s); } catch { /* the mock uses whichever sets did load */ }
       }
-      if (totalQ >= 10) {
-        nextSteps.push(el("a.btn" + (rows.length ? ".btn--ghost" : ""), { href: "#/hp/mock", title: t("hp.mockTip") },
-          [icon(ICONS.clock, 16), t("hp.mockStart")]));
-      }
-      if (sets.some((s) => parseHpSetId(s.id).delprov === "ord")) {
-        nextSteps.push(el("a.btn.btn--ghost", { href: drillHash("ord") }, [icon(ICONS.layers, 16), t("hp.trainOrd")]));
-      }
-      if (dueN) {
-        nextSteps.push(el("a.btn.btn--ghost", { href: "#/review" }, [icon(ICONS.spark, 16), plural(dueN, "hp.dueOne", "hp.dueMany")]));
-      }
+      location.hash = "#/hp/mock";
+    };
+    nextSteps.push(mockBtn);
+    const wordBank = index?.sets.find((s) => delprovCodeOf(s.subject) === "ord" && !parseHpSetId(s.id).test);
+    if (wordBank) {
+      nextSteps.push(setLink("a.btn.btn--ghost", wordBank, `#/session/${wordBank.id}`, {}, [icon(ICONS.layers, 16), t("hp.trainOrd")]));
+    }
+    if (dueN) {
+      nextSteps.push(el("a.btn.btn--ghost", { href: "#/review" }, [icon(ICONS.spark, 16), plural(dueN, "hp.dueOne", "hp.dueMany")]));
     }
     bodyEl.appendChild(el("section.hp-hero", { "aria-label": t("hp.pageTitle") }, [
       el("div.hp-hero__main", {}, [scoreZone(prog), dateZone(hpDate, { editing: editingDate, setEditing })]),
-      sets.length
-        ? el("div.hp-hero__next", {}, [
-            ...nextSteps,
-            totalQ < 10 ? el("p.hp-hero__note", {}, t("hp.mockTooFew")) : null,
-          ].filter(Boolean))
-        : el("div.hp-hero__next.is-start", {}, [el("p.hp-hero__note", {}, t("hp.addIntro"))]),
+      el("div.hp-hero__next", {}, nextSteps),
     ]));
 
     /* ---- the plan to test day, and what's weak ---- */
@@ -456,7 +484,7 @@ export async function renderHp() {
     if (side.length) bodyEl.appendChild(el("div.hp-side" + (side.length > 1 ? ".is-two" : ""), {}, side));
 
     /* ---- the delprov ---- */
-    if (index) bodyEl.appendChild(delprovBoard(index, tr, acc, weakest, paint));
+    if (index) bodyEl.appendChild(delprovBoard(index, tr, acc));
     else bodyEl.appendChild(el("section.panel", {}, [el("p", {}, t("lib.loadFailBody"))]));
   }
 

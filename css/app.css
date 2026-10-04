@@ -1710,7 +1710,6 @@ body.no-chrome .sitechat__panel { display: none; }
   padding: var(--s-4) var(--s-5); border-top: 1px solid var(--line);
   background: color-mix(in oklab, var(--surface-sunk) 45%, var(--surface));
 }
-.hp-hero__note { margin: 0; font-size: var(--fs-sm); color: var(--ink-faint); }
 
 /* The dated plan and the weak topics, side by side when there are both. */
 .hp-side { display: grid; gap: var(--s-4); align-items: start; }
@@ -1721,52 +1720,59 @@ body.no-chrome .sitechat__panel { display: none; }
 .hp-weak { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .hp-weak li { padding: 6px 12px; border-radius: var(--r-full); background: var(--surface-sunk); font-size: var(--fs-sm); color: var(--ink); }
 
-/* The delprov board. */
-.hp-board { display: grid; gap: var(--s-4); }
-.hp-board__head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--s-3); flex-wrap: wrap; }
+/* The delprov: eight tiles in the test's two halves. A tile names the delprov and how it's going;
+   tapping it opens the delprov dialog (.hp-dpd) with the two ways to practise it. */
+.hp-board { display: grid; gap: var(--s-5); }
 .hp-board__head h2 { margin: 0; font-size: var(--fs-xl); letter-spacing: -.015em; }
-.hp-board__head p { margin: 4px 0 0; font-size: var(--fs-sm); color: var(--ink-soft); }
-.hp-board__done { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-sm); font-weight: 600; color: var(--ok-ink); }
-.hp-board__halves { display: grid; gap: var(--s-5); align-items: start; }
-@media (min-width: 1000px) { .hp-board__halves { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.hp-half__title { display: flex; align-items: center; gap: 10px; margin: 0 0 var(--s-3); font-size: var(--fs-md); }
-.hp-half__title i { width: 10px; height: 10px; border-radius: 50%; background: var(--c); }
-.hp-half__list { display: grid; gap: var(--s-3); }
+.hp-board__head p { margin: 4px 0 0; max-width: 70ch; font-size: var(--fs-sm); color: var(--ink-soft); }
+.hp-group { display: grid; gap: var(--s-3); }
+.hp-group__title { display: flex; align-items: center; gap: 10px; margin: 0; font-size: var(--fs-md); }
+.hp-group__title i { width: 10px; height: 10px; border-radius: 50%; background: var(--c); }
+.hp-group__tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-3); }
+@media (max-width: 899.98px) { .hp-group__tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
-.hp-dp {
-  display: grid; gap: 12px; padding: var(--s-4); min-width: 0;
-  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md);
-  transition: border-color var(--dur-fast);
+.hp-tile {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 4px; min-height: 118px; min-width: 0;
+  padding: var(--s-4); text-align: left; font: inherit; color: inherit; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--shadow-1);
+  transition: border-color var(--dur-fast), background var(--dur-fast);
 }
-.hp-dp:hover { border-color: var(--line-strong); }
-.hp-dp.is-off { background: transparent; border-style: dashed; border-color: var(--line-strong); }
-.hp-dp__head { display: flex; align-items: center; gap: var(--s-3); min-width: 0; }
-.hp-dp__code {
-  flex: none; min-width: 50px; padding: 4px 8px; border-radius: 8px; text-align: center;
-  font-size: 12.5px; font-weight: 800; letter-spacing: .04em; color: var(--c-ink);
-  background: color-mix(in oklab, var(--c) 15%, var(--surface));
-  border: 1px solid color-mix(in oklab, var(--c) 35%, transparent);
+.hp-tile:hover { border-color: color-mix(in oklab, var(--c) 60%, var(--line)); background: color-mix(in oklab, var(--c) 4%, var(--surface)); }
+.hp-tile:focus-visible { outline: 2px solid var(--c); outline-offset: 2px; }
+.hp-tile__code { font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; line-height: 1.1; letter-spacing: .02em; color: var(--c-ink); }
+.hp-tile__name { font-size: var(--fs-sm); font-weight: 600; line-height: 1.3; color: var(--ink); overflow-wrap: break-word; -webkit-hyphens: manual; hyphens: manual; }
+.hp-tile__status { margin-top: auto; padding-top: var(--s-2); font-size: 12.5px; font-weight: 700; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.hp-tile__status.is-none { font-weight: 500; color: var(--ink-faint); }
+
+/* The delprov dialog: what the delprov is, then the two ways to practise it as two big choices. */
+.hp-dpd { display: grid; gap: var(--s-4); }
+.hp-dpd__head { display: flex; align-items: center; gap: var(--s-3); }
+.hp-dpd__code {
+  flex: none; padding: 5px 10px; border-radius: 10px; font-size: 14px; font-weight: 800; letter-spacing: .04em;
+  color: var(--c-ink); background: color-mix(in oklab, var(--c) 14%, var(--surface));
 }
-.hp-dp.is-off .hp-dp__code { background: transparent; border-style: dashed; }
-.hp-dp__titles { flex: 1; min-width: 0; display: flex; align-items: center; flex-wrap: wrap; gap: 4px 8px; }
-.hp-dp__name { font-size: var(--fs-md); font-weight: 700; color: var(--ink); }
-.hp-dp__weak {
-  display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: var(--r-full);
-  font-size: 11.5px; font-weight: 700; color: var(--ink-soft); background: color-mix(in oklab, var(--ink) 8%, var(--surface));
+.hp-dpd__head h3 { flex: 1; min-width: 0; margin: 0; font-size: var(--fs-lg); letter-spacing: -.01em; }
+.hp-dpd__close { flex: none; align-self: flex-start; margin: -4px -6px 0 0; }
+.hp-dpd__desc { margin: 0; color: var(--ink-soft); line-height: 1.55; }
+.hp-dpd__last { margin: -6px 0 0; font-size: var(--fs-sm); font-weight: 600; color: var(--ink); }
+.hp-dpd__choices { display: grid; gap: var(--s-2); }
+.hp-dpd__choice {
+  display: flex; align-items: center; gap: var(--s-3); padding: 14px var(--s-4); border-radius: var(--r-md);
+  border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); text-decoration: none;
+  transition: border-color var(--dur-fast), background var(--dur-fast);
 }
-.hp-dp__pct { flex: none; font-size: var(--fs-sm); font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
-.hp-dp__meter { display: block; height: 6px; border-radius: var(--r-full); background: var(--surface-sunk); overflow: hidden; }
-.hp-dp__meter span { display: block; height: 100%; border-radius: inherit; background: var(--c); }
-.hp-dp__none, .hp-dp__desc { margin: 0; font-size: var(--fs-sm); color: var(--ink-faint); }
-.hp-dp__desc { color: var(--ink-soft); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.hp-dp__foot { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--s-2) var(--s-3); }
-.hp-dp__meta { font-size: 12.5px; color: var(--ink-faint); }
-.hp-dp__acts { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
-.hp-dp__extras { list-style: none; margin: 0; padding: var(--s-3) 0 0; border-top: 1px solid var(--line); display: grid; gap: 6px; }
-.hp-dp__extra { display: flex; align-items: center; gap: var(--s-2); font-size: var(--fs-sm); }
-.hp-dp__extratitle { flex: 1; min-width: 0; color: var(--ink-soft); }
-.hp-dp__extracount { flex: none; font-size: 12.5px; color: var(--ink-faint); }
-.hp-dp__extra .linkbtn { flex: none; display: inline-flex; align-items: center; gap: 4px; }
+.hp-dpd__choice:hover { border-color: var(--brand); background: color-mix(in oklab, var(--brand) 5%, var(--surface)); }
+.hp-dpd__choice:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+.hp-dpd__choice.is-primary { background: var(--brand); border-color: var(--brand); color: #fff; }
+.hp-dpd__choice.is-primary:hover { background: color-mix(in srgb, var(--brand) 86%, #000); }
+.hp-dpd__choice[aria-busy="true"] { cursor: progress; opacity: .7; }
+.hp-dpd__choice svg { flex: none; }
+.hp-dpd__choice span { display: grid; gap: 2px; min-width: 0; }
+.hp-dpd__choice strong { font-size: var(--fs-md); }
+.hp-dpd__choice small { font-size: 12.5px; line-height: 1.4; color: var(--ink-faint); }
+.hp-dpd__choice.is-primary small { color: rgba(255, 255, 255, .86); }
+.hp-dpd__more { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5); padding-top: var(--s-3); border-top: 1px solid var(--line); }
+.hp-dpd__more .linkbtn { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-sm); }
 
 @media (max-width: 760px) {
   .hp-hero__main { grid-template-columns: minmax(0, 1fr); }
@@ -1776,8 +1782,7 @@ body.no-chrome .sitechat__panel { display: none; }
   .hp-hero__next .btn { flex: 1 1 auto; justify-content: center; }
 }
 @media (max-width: 420px) {
-  .hp-dp__acts { width: 100%; }
-  .hp-dp__acts .btn { flex: 1; justify-content: center; }
+  .hp-tile { min-height: 108px; padding: var(--s-3) var(--s-4); }
 }
 
 /* print */
