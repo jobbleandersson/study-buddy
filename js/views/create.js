@@ -43,6 +43,8 @@ export function blankQuestions(n) {
 // student where to find it. At most one generation is tracked at a time —
 // starting a new one simply replaces this.
 let bg = null; // { promise, doc, error }
+// A set generated from the previous student's material must not wait in Skapa for the next one.
+store.addEventListener("deviceCleared", () => { bg = null; });
 
 function startGeneration(params) {
   bg = { promise: null, doc: null, error: null };

@@ -481,6 +481,7 @@ function backupPanel() {
 const REVIEW_PROMPT_KEY = "studify.reviewPromptDismissedAt";
 const REVIEW_PROMPT_MIN_ATTEMPTS = 5;
 let ownReview = null;   // null = not asked yet, then a promise of true/false
+store.addEventListener("deviceCleared", () => { ownReview = null; query = ""; });
 
 function reviewPanel() {
   if (!store.authed || (store.state.attempts || []).length < REVIEW_PROMPT_MIN_ATTEMPTS) return null;
