@@ -45,6 +45,7 @@ const APP_SHELL = [
   "./js/lib/sound.js",
   "./js/lib/srs.js",
   "./js/lib/merge-state.js",
+  "./js/lib/image-size.js",
   "./js/lib/session-active.js",
   "./js/lib/choices.js",
   "./js/lib/grade.js",
