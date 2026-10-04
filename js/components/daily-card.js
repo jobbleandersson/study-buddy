@@ -70,7 +70,7 @@ function dailyCard(item) {
       ].filter(Boolean)),
       r.spread
         ? el("div.dailyspread", {}, item.choices.map((_, i) => spreadRow(i, r.spread.pct[i], i === r.answer)))
-        : el("p.note", {}, t("daily.spreadHidden")),
+        : el("p.note", {}, t(r.closed === false ? "daily.spreadTomorrow" : "daily.spreadHidden")),
       r.explanation ? el("p.dailycard__why", { html: renderRich(r.explanation) }) : null,
       el("p.dailycard__privacy", {}, t("daily.privacy")),
     ].filter(Boolean));

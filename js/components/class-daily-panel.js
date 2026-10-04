@@ -167,7 +167,7 @@ export function classDailyPanel(classId, { onChange } = {}) {
         i === item.answer ? el("span.sr-only", {}, ` (${t("daily.correctSr")})`) : null,
         item.spread ? el("span.dailyitem__pct", {}, `${item.spread.pct[i]} %`) : null,
       ].filter(Boolean)))),
-      !item.spread && item.answered > 0 ? el("p.note", {}, t("daily.spreadHeld")) : null,
+      !item.spread && item.answered > 0 ? el("p.note", {}, t(item.closed === false ? "daily.spreadTomorrow" : "daily.spreadHeld")) : null,
       el("div.dailyitem__actions", {}, [
         canEdit ? el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => {
           editing = { id: item.id, day: item.day };

@@ -4,6 +4,7 @@
 
 import { el, icon, ICONS } from "../lib/dom.js";
 import { t } from "../lib/i18n.js";
+import { assertDecodable } from "../lib/image-size.js";
 
 const VIEW = 260;          // the on-screen framing square, in CSS px
 const OUT = 256;           // the saved picture, in px
@@ -47,6 +48,7 @@ function exportSquare(img, view) {
 export async function openAvatarEditor(file) {
   if (!file || !/^image\//.test(file.type || "")) return { error: t("avatar.readFail") };
   if (file.size > MAX_FILE) return { error: t("avatar.tooBig") };
+  try { await assertDecodable(file, t("err.imagePixels")); } catch (e) { return { error: e.message }; }
   let img;
   try { img = await loadImage(file); } catch { return { error: t("avatar.readFail") }; }
   const iw = img.width || img.naturalWidth, ih = img.height || img.naturalHeight;
