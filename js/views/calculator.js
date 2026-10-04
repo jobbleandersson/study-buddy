@@ -212,13 +212,16 @@ function graphPanel() {
     g.strokeStyle = cLine; g.lineWidth = 1; g.font = "10px Inter, system-ui";
     g.fillStyle = cText;
     const step = niceStep((xmax - xmin) / 10);
-    for (let x = Math.ceil(xmin / step) * step; x <= xmax; x += step) {
+    // Counted, not accumulated: with a huge x and a tiny step, x += step never changes and the loop never ends.
+    const x0 = Math.ceil(xmin / step) * step;
+    for (let i = 0, x = x0; x <= xmax && i <= 200; i++, x = x0 + i * step) {
       const X = px(x);
       g.globalAlpha = 0.5; g.beginPath(); g.moveTo(X, 0); g.lineTo(X, H); g.stroke(); g.globalAlpha = 1;
       if (Math.abs(x) > 1e-9) g.fillText(trimNum(x), X + 2, py(0) - 3);
     }
     const ystep = niceStep((ymax - ymin) / 8);
-    for (let y = Math.ceil(ymin / ystep) * ystep; y <= ymax; y += ystep) {
+    const y0 = Math.ceil(ymin / ystep) * ystep;
+    for (let i = 0, y = y0; y <= ymax && i <= 200; i++, y = y0 + i * ystep) {
       const Y = py(y);
       g.globalAlpha = 0.5; g.beginPath(); g.moveTo(0, Y); g.lineTo(W, Y); g.stroke(); g.globalAlpha = 1;
       if (Math.abs(y) > 1e-9) g.fillText(trimNum(y), px(0) + 3, Y - 2);

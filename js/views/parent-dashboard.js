@@ -6,6 +6,7 @@
 // Built from the same cards and rows as Settings (components/set-ui.js).
 
 import { store } from "../store.js";
+import { cleanSetDoc } from "../lib/share-set.js";
 import { el, toast, icon, ICONS } from "../lib/dom.js";
 import { t, plural } from "../lib/i18n.js";
 import { serverMessage } from "../lib/server-errors.js";
@@ -178,8 +179,11 @@ export function renderParentHub() {
         // on the next load and a second click would add a duplicate.
         try { await api(clearAssignedUrl(item.id), { method: "DELETE" }); }
         catch { btn.disabled = false; toast(t("parent.addToLibraryFail")); return; }
-        store.addAssignmentDoc(item.doc);
-        toast(t("parent.addedToLibrary", { title: item.doc.title }));
+        // Whatever the other account sent, checked like a shared file before it joins this library.
+        const doc = cleanSetDoc(item.doc);
+        if (!doc) { toast(t("share.setBad")); paintAssigned(); return; }
+        store.addAssignmentDoc(doc);
+        toast(t("parent.addedToLibrary", { title: doc.title }));
         paintAssigned();
       });
       return row(item.doc.title, t("parent.fromWho", { email: item.assignedByEmail }), btn, { lead: avatar(item.assignedByEmail) });

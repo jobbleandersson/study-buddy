@@ -497,6 +497,9 @@ function finishMigrate(s) {
       for (const e of s.exams) {
         if (remap.has(e.subjectId)) e.subjectId = remap.get(e.subjectId);
       }
+      for (const r of s.rules || []) {   // memory rules are matched by subject too
+        if (remap.has(r.subjectId)) r.subjectId = remap.get(r.subjectId);
+      }
     }
 
     // Drop subjects nothing uses — the English starter list and any orphan left
@@ -1584,8 +1587,10 @@ class Store extends EventTarget {
       // while a banked freeze could still bridge yesterday's gap.
       const recoverable = !counts(y) && counts(y2) && a.freezes > 0;
       if (streak === 0 && !recoverable) a.freezeMark = 0;
-      while (streak >= a.freezeMark + FREEZE_STEP && a.freezes < FREEZE_CAP) {
-        a.freezes++;
+      // Every milestone passed moves the mark, banked or not: a milestone passed with a full bank is
+      // used up, so spending a freeze on a long streak doesn't hand it straight back.
+      while (streak >= a.freezeMark + FREEZE_STEP) {
+        if (a.freezes < FREEZE_CAP) a.freezes++;
         a.freezeMark += FREEZE_STEP;
       }
     };

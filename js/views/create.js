@@ -161,10 +161,14 @@ export function renderCreate(prefill) {
   async function runSplit(secs) {
     clear(root);
     const log = el("div", { style: { display: "grid", gap: "6px" } });
+    // Each section is a full AI call: stoppable, and the page only moves on if the student is still on it.
+    let stopped = false;
+    const stopBtn = el("button.btn.btn--ghost.btn--sm", { type: "button", style: { marginTop: "12px" }, onclick: () => { stopped = true; stopBtn.disabled = true; } }, t("common.cancel"));
     root.appendChild(el("div.panel", {}, [
       el("h2", { style: { marginBottom: "4px" } }, t("create.splitTitle")),
       el("p.note", { style: { marginBottom: "12px" } }, t("create.splitSub")),
       log,
+      stopBtn,
     ]));
     const rows = secs.map((s) => {
       const r = el("p.note", {}, `⏳ ${s.title}`);
@@ -173,6 +177,7 @@ export function renderCreate(prefill) {
     });
     let made = 0;
     for (let i = 0; i < secs.length; i++) {
+      if (stopped || !stopBtn.isConnected) { rows[i].textContent = `— ${secs[i].title}`; continue; }
       try {
         const doc = await generateAssignment({ material: fitText(secs[i].body), count: state.count });
         doc.subject = state.subject.trim() || doc.subject || t("common.general");
@@ -186,8 +191,9 @@ export function renderCreate(prefill) {
         rows[i].textContent = `⚠️ ${secs[i].title} — ${e instanceof ClaudeError ? e.message : t("create.genFailed")}`;
       }
     }
+    stopBtn.remove();
     toast(made ? t("create.splitDone", { n: made }) : t("create.genFailed"));
-    if (made) location.hash = "#/";
+    if (made && !stopped && root.isConnected && location.hash.startsWith("#/create")) location.hash = "#/";
   }
 
   // Each source has its own colour — the home tiles' palette — on its icon and edge.
@@ -291,7 +297,10 @@ export function renderCreate(prefill) {
         } catch (err) {
           if (mine !== run) return;
           status.className = "note note--warn";
-          status.textContent = err.message || t("create.readFail");
+          // pdf.js's own errors are English and technical ("No password given"): say it plainly.
+          status.textContent = err?.name === "PasswordException" ? t("create.pdfLocked")
+            : /Exception$/.test(err?.name || "") ? t("create.readFail")
+            : err?.message || t("create.readFail");
           zone.reset(); state.pdfName = "";
         }
       },
@@ -359,7 +368,8 @@ export function renderCreate(prefill) {
 
       function refreshSplit() {
         clear(splitBox);
-        const secs = detectSections(state.material);
+        // At most this many sets in one go — each is a full AI call on the student's monthly allowance.
+        const secs = detectSections(state.material).slice(0, 8);
         if (secs.length < 2) return;
         splitBox.appendChild(el("p.note", {}, t("create.splitFound", { n: secs.length })));
         splitBox.appendChild(el("div", { style: { display: "flex", flexWrap: "wrap", gap: "6px", margin: "6px 0" } },
@@ -514,7 +524,7 @@ export function renderCreate(prefill) {
     function buildFromImport() {
       const cards = parseCards(state.material);
       if (!cards.length) { err.hidden = false; err.textContent = t("create.importNone"); return; }
-      const doc = cardsToDoc(cards, { title: state.subject !== t("common.general") ? state.subject : "", subject: state.subject });
+      const doc = cardsToDoc(cards, { title: state.subject !== t("common.general") ? state.subject : t("create.importedCards"), subject: state.subject || t("common.general") });
       doc.subject = state.subject.trim() || t("common.general");
       doc.type = state.type;
       doc.questions = doc.questions.map((q) => ({ ...q, id: uid() }));

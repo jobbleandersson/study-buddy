@@ -143,3 +143,10 @@ describe("answer-match.heuristic accents", () => {
     assert.equal(heuristic("El sabado por la tarde vamos a la playa con mis abuelos", model).correct, true);
   });
 });
+
+describe("answer-match: minus signs", () => {
+  test("the typographic minus from a keypad matches a plain hyphen-minus", () => {
+    assert.equal(normalizeAnswer("−3"), normalizeAnswer("-3"));
+    assert.equal(normalizeAnswer("x = −0,5"), normalizeAnswer("x = -0.5"));
+  });
+});

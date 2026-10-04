@@ -11,6 +11,7 @@
 import { el, icon, ICONS, toast } from "../lib/dom.js";
 import { store } from "../store.js";
 import { t, getLang, fmtDate } from "../lib/i18n.js";
+import { localDayKey } from "../lib/activity.js";
 import { serverMessage } from "../lib/server-errors.js";
 import { loadLibraryIndex, loadLibraryTranslations } from "../data/library.js";
 import { baseSubjectName } from "../lib/library-content.js";
@@ -262,7 +263,7 @@ export function openWelcomeQuiz({ force = false } = {}) {
     const dateWrap = el("label.welcome__date", { hidden: !(a.goal === "test" || a.goal === "hp") }, [
       el("span", {}, t("welcome.dateLabel")),
       el("input", {
-        type: "date", value: a.testDate, min: new Date().toISOString().slice(0, 10),
+        type: "date", value: a.testDate, min: localDayKey(),   // today here, not in UTC (00–02 in Sweden would allow yesterday)
         onchange: (e) => { a.testDate = e.target.value; },
       }),
     ]);

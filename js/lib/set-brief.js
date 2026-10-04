@@ -8,6 +8,8 @@
 // is model output, and a pasted text can try to steer it), and turning it into the arguments of
 // generateAssignment(). No DOM, store or i18n, so it can be unit-tested.
 
+import { isRealDay } from "./activity.js";
+
 export const COUNT_MIN = 3;
 export const COUNT_MAX = 15;
 export const COUNT_DEFAULT = 8;
@@ -45,8 +47,22 @@ export function normalizeBrief(raw) {
   if (setId) brief.setId = setId;
   // The day of the test the set is for, when the student said it: offered as "add the test" on the card.
   const testDate = str(raw.testDate, 10);
-  if (/^\d{4}-\d{2}-\d{2}$/.test(testDate)) brief.testDate = testDate;
+  if (isRealDay(testDate)) brief.testDate = testDate;
   return brief;
+}
+
+/** The reply as the model should see it again: without the id of a set the app made from it. The id
+ *  is the app's own note (see withSetId); a model that saw it would copy it into its next proposal,
+ *  and that card would show as already made — pointing at the old set — with no way to create it. */
+export function withoutSetId(raw) {
+  const src = String(raw ?? "");
+  const m = src.match(MARKER);
+  if (!m) return src;
+  let obj;
+  try { obj = JSON.parse(m[1]); } catch { return src; }
+  if (!obj || typeof obj !== "object" || !("setId" in obj)) return src;
+  const { setId, ...rest } = obj;
+  return src.replace(MARKER, () => `[[MAKE_SET ${JSON.stringify(rest)}]]`);
 }
 
 /** A reply split into what the student reads and the set the assistant proposes (or null). A marker
