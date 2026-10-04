@@ -1,14 +1,15 @@
 // Högskoleprovet prep hub at #/hp — a countdown to the user's prov, a live
-// normed-score prognosis, per-delprov readiness, and one tap into a timed
-// drill or the mini-mock. Stateless: recomputed from attempts / srs / settings
-// on every visit, like exam-prep.js.
+// normed-score prognosis on the test's own 0,0–2,0 scale, the eight delprov laid
+// out the way the test is (a verbal and a quantitative half), and one tap into a
+// timed drill or the mini-mock. Stateless: recomputed from attempts / srs /
+// settings on every visit, like exam-prep.js.
 //
 // HP's delprov sets are picked and added from right here, not from
 // #/library — Högskoleprovet isn't a curriculum subject a student browses
-// among Swedish/Biology/etc., it's a separate track with its own hub, so its
-// own "add a delprov" panel lives on this page (see js/data/hp-content.js).
+// among Swedish/Biology/etc., it's a separate track with its own hub, so each
+// delprov's own add button lives on its tile (see js/data/hp-content.js).
 
-import { store, PALETTE } from "../store.js";
+import { store } from "../store.js";
 import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
 import { t, plural, daysUntil, getLang, sentenceCase } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
@@ -20,10 +21,18 @@ import { weakSpotQuestions, firstTryCorrect } from "../lib/mastery.js";
 import { loadHpIndex, loadHpTranslations, isHpImported, importHpSet } from "../data/hp-content.js";
 import {
   normedScore, parseHpSetId, isHpSetId, attemptNormedTotal,
-  DELPROV_ORDER, DELPROV_PACE, VERBAL_DELPROV, KVANT_DELPROV, partOf, buildHpPlan,
+  DELPROV_ORDER, DELPROV_PACE, VERBAL_DELPROV, KVANT_DELPROV, buildHpPlan,
 } from "../lib/hp.js";
 
 const fmtN = (n) => (n == null ? "–" : Number(n).toFixed(2).replace(".", ","));
+const fmt1 = (n) => Number(n).toFixed(1).replace(".", ",");
+/** Where a normed score sits along the 0–2 scale, as a CSS length. */
+const scalePos = (n) => `${(Math.max(0, Math.min(2, n)) / 2) * 100}%`;
+
+/** The test's two halves, each with one colour used everywhere on the page:
+ *  the score scale's markers, the half's heading and its delprov codes. */
+const PART_COLOR = { verbal: "var(--brand)", kvant: "var(--c-tangerine)" };
+const PART_INK = { verbal: "var(--brand-ink)", kvant: "var(--c-tangerine-ink)" };
 
 function hpSets() {
   return store.assignments.filter((a) => isHpSetId(a.id));
@@ -37,111 +46,16 @@ function hpSetOrder(index) {
   );
 }
 
-/** One colour per delprov, cycling the app's shared palette by position —
- *  same trick library.js uses for subjects with no colour of their own yet,
- *  so the picker reads as scannable groups instead of one flat grey list. */
-function hpDelprovColor(delprov) {
-  const idx = Math.max(0, DELPROV_ORDER.indexOf(delprov));
-  const p = PALETTE[idx % PALETTE.length];
-  return { solid: `var(--c-${p.name})`, ink: `var(--c-${p.name}-ink)`, tint: `var(--c-${p.name}-tint)` };
-}
+const locale = () => (getLang() === "sv" ? "sv-SE" : "en-GB");
 
-function hpSetCard(entry, tr, refresh) {
-  const added = isHpImported(entry.id);
-  const dp = delprovCodeOf(entry.subject);
-  const color = hpDelprovColor(dp);
-  const title = tr.sets[entry.id]?.title || entry.title;
-  const summary = tr.sets[entry.id]?.summary || entry.summary;
-  const count = plural(entry.count, "common.questionOne", "common.questionMany");
-
-  const addBtn = added ? null : el("button.btn.btn--sm", {
-    type: "button",
-    onclick: async (e) => {
-      e.currentTarget.disabled = true;
-      try {
-        await importHpSet(entry);
-        refresh();
-      } catch {
-        toast(t("lib.addFail"));
-        e.currentTarget.disabled = false;
-      }
-    },
-  }, [icon(ICONS.plus, 16), t("lib.add")]);
-
-  const studyBtn = added
-    ? el("a.btn.btn--sm", { href: `#/session/${entry.id}` }, [icon(ICONS.play, 16), t("lib.study")])
-    : null;
-
-  const examBtn = added
-    ? el("button.btn.btn--ghost.btn--sm", {
-        type: "button", title: t("lib.examTipUntimed"),
-        onclick: () => { location.hash = `#/session/${entry.id}?exam=1`; },
-      }, [icon(ICONS.clock, 16), t("lib.exam")])
-    : null;
-
-  const printBtn = added
-    ? el("a.iconbtn.iconbtn--sm", {
-        href: `#/print/${entry.id}`, "aria-label": t("print.worksheet"), title: t("print.worksheet"),
-      }, [icon(ICONS.fileText, 16)])
-    : null;
-
-  return el("div.libcard" + (added ? ".libcard--added" : ""), {
-    style: { "--subject": color.solid, "--subject-tint": color.tint, "--subject-ink": color.ink, borderLeftColor: color.solid },
-  }, [
-    el("div", {}, [
-      el("span.acard__tag", { style: { marginBottom: "6px" } }, t(`hp.delprov.${dp}`)),
-      el("div.libcard__title", {}, title),
-      el("p.note", { style: { margin: "4px 0 0" } }, summary),
-    ]),
-    el("div.libcard__foot", {}, [
-      added
-        ? el("span.libcard__added", {}, [icon(ICONS.check, 14), t("hp.addedTag"), el("span.libcard__count", {}, ` · ${count}`)])
-        : el("span.note", {}, count),
-      added
-        ? el("div", { style: { display: "flex", gap: "6px", flexWrap: "wrap", alignItems: "center" } }, [studyBtn, examBtn, printBtn].filter(Boolean))
-        : addBtn,
-    ].filter(Boolean)),
-  ]);
-}
-
-/** The delprov picker/manager. Always shows every delprov set — added ones
- *  with their study/exam/print actions, missing ones with an add button —
- *  the same "everything in one grid" pattern as the library's own setList().
- *  `hasAny` just switches the intro copy: the full "get started" framing
- *  before anything's added, or a compact heading once the hub has content. */
-function hpAddPanel(index, tr, refresh, { hasAny = false } = {}) {
-  const all = hpSetOrder(index);
-  const missing = all.filter((s) => !isHpImported(s.id));
-  const verbal = all.filter((s) => partOf(delprovCodeOf(s.subject)) === "verbal");
-  const kvant = all.filter((s) => partOf(delprovCodeOf(s.subject)) === "kvant");
-
-  const addAllBtn = missing.length
-    ? el("button.btn.btn--sm", {
-        type: "button",
-        onclick: async (e) => {
-          e.currentTarget.disabled = true;
-          for (const s of missing) {
-            try { await importHpSet(s); } catch { /* skip the ones that fail, keep going */ }
-          }
-          refresh();
-        },
-      }, [icon(ICONS.plus, 16), t("lib.addAll", { n: missing.length })])
-    : el("span.note", {}, t("hp.allAdded"));
-
-  const group = (labelKey, sets) => sets.length ? [
-    el("h4.settings__sub", {}, t(labelKey)),
-    el("div.libgrid", {}, sets.map((s) => hpSetCard(s, tr, refresh))),
-  ] : [];
-
-  return el("section.panel", {}, [
-    el("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "start", gap: "12px", flexWrap: "wrap", marginBottom: hasAny ? "10px" : "6px" } }, [
-      el("h3", {}, t(hasAny ? "hp.moreTitle" : "hp.addTitle")),
-      addAllBtn,
-    ]),
-    hasAny ? null : el("p.note", { style: { marginBottom: "14px" } }, t("hp.addIntro")),
-    ...group("hp.verbal", verbal),
-    ...group("hp.kvant", kvant),
-  ].filter(Boolean));
+/** A delprov's name and one-line description in the app language, from the
+ *  index's subject entry ("ORD – Ordförståelse" -> "Ordförståelse"). */
+function delprovInfo(index, tr, dp) {
+  const id = `hp-${dp}`;
+  const subj = index.subjects.find((s) => s.id === id);
+  const full = tr.subjects?.[id]?.name || subj?.name || "";
+  const name = full.split(/\s+[–-]\s+/).slice(1).join(" – ") || full;
+  return { name, description: tr.subjects?.[id]?.description || subj?.description || "" };
 }
 
 /** Recency-weighted accuracy per delprov, read straight off HP attempt items
@@ -213,9 +127,212 @@ function planDayWhen(offset, dayKey) {
   if (offset === 0) return t("exam.planToday");
   if (offset === 1) return t("exam.planTomorrow");
   try {
-    return new Date(dayKey + "T00:00:00").toLocaleDateString(
-      getLang() === "sv" ? "sv-SE" : "en-GB", { weekday: "short", day: "numeric" });
+    return new Date(dayKey + "T00:00:00").toLocaleDateString(locale(), { weekday: "short", day: "numeric" });
   } catch { return dayKey.slice(5); }
+}
+
+/* ------------------------------------------------------------------ *
+ * The overview: score on the 0,0–2,0 scale, the test day, what to do next
+ * ------------------------------------------------------------------ */
+
+/** The normed scale the real result is given on, with the estimate marked on
+ *  it: a needle for the total, a dot each for the verbal and quantitative
+ *  halves. Drawn empty (just the scale) before there's an estimate. */
+function scoreScale(prog) {
+  const marks = prog ? [
+    el("span.hp-scale__fill", { style: { "--x": scalePos(prog.total) } }),
+    prog.verbal != null ? el("span.hp-scale__dot", { style: { "--x": scalePos(prog.verbal), "--c": PART_COLOR.verbal } }) : null,
+    prog.kvant != null ? el("span.hp-scale__dot", { style: { "--x": scalePos(prog.kvant), "--c": PART_COLOR.kvant } }) : null,
+    el("span.hp-scale__needle", { style: { "--x": scalePos(prog.total) } }),
+  ] : [];
+  return el("div.hp-scale", {
+    role: "img",
+    "aria-label": prog
+      ? t("hp.scaleAria", { total: fmtN(prog.total), v: fmtN(prog.verbal), k: fmtN(prog.kvant) })
+      : t("hp.scaleEmptyAria"),
+  }, [
+    el("div.hp-scale__track", {}, marks.filter(Boolean)),
+    el("div.hp-scale__labels", { "aria-hidden": "true" },
+      [0, 0.5, 1, 1.5, 2].map((v) => el("span", { style: { "--x": scalePos(v) } }, fmt1(v)))),
+  ]);
+}
+
+function scoreZone(prog) {
+  const part = (key, v) => el("span.hp-part", { style: { "--c": PART_COLOR[key] } }, [
+    el("i", { "aria-hidden": "true" }), t(`hp.${key}`), el("b", {}, fmtN(v)),
+  ]);
+  return el("div.hp-hero__score", {}, [
+    el("p.hp-hero__label", {}, t("hp.reveal.eyebrow")),
+    el("div.hp-hero__figure", {}, [
+      prog ? el("strong.hp-hero__big", {}, fmtN(prog.total)) : el("strong.hp-hero__empty", {}, t("hp.noEstimate")),
+      prog && prog.history.length >= 2
+        ? el("div.hp-hero__trend", {}, [
+            sparkline(prog.history, { max: 2, ariaLabel: t("hp.trendAria", { list: prog.history.map(fmtN).join(", ") }) }),
+          ])
+        : null,
+    ].filter(Boolean)),
+    scoreScale(prog),
+    prog
+      ? el("div.hp-hero__parts", {}, [part("verbal", prog.verbal), part("kvant", prog.kvant)])
+      : el("p.hp-hero__hint", {}, t("hp.prognosisNone")),
+    prog ? el("p.hp-hero__caption", {}, t("hp.prognosisCaption")) : null,
+  ].filter(Boolean));
+}
+
+/** The test day as a small calendar page, or the picker to set it. */
+function dateZone(hpDate, { editing, setEditing }) {
+  if (hpDate && !editing) {
+    const d = new Date(hpDate + "T00:00:00");
+    const fmt = (opts) => { try { return d.toLocaleDateString(locale(), opts); } catch { return ""; } };
+    return el("div.hp-hero__date", {}, [
+      el("p.hp-hero__label", {}, t("hp.dayLabel")),
+      el("div.hp-day", {}, [
+        el("div.hp-day__page", { "aria-hidden": "true" }, [
+          el("span.hp-day__month", {}, fmt({ month: "short" }).replace(".", "")),
+          el("strong.hp-day__num", {}, String(d.getDate())),
+          el("span.hp-day__wday", {}, fmt({ weekday: "short" }).replace(".", "")),
+        ]),
+        el("div.hp-day__txt", {}, [
+          el("strong", {}, sentenceCase(countdownLabel(hpDate))),
+          el("span", {}, fmt({ weekday: "long", day: "numeric", month: "long", year: "numeric" })),
+          el("button.linkbtn.hp-day__edit", { type: "button", onclick: () => setEditing(true) }, t("hp.changeDate")),
+        ]),
+      ]),
+    ]);
+  }
+
+  const datePick = foldedDatePicker({ label: t("hp.dateLabel"), min: localDayKey(), value: hpDate || "" });
+  return el("div.hp-hero__date", {}, [
+    el("p.hp-hero__label", {}, t("hp.dayLabel")),
+    el("p.hp-hero__prompt", {}, t("hp.noDatePrompt")),
+    el("div.hp-hero__pick", {}, [
+      datePick.el,
+      el("button.btn.btn--sm", {
+        type: "button",
+        onclick: () => {
+          const day = datePick.getValue();
+          // Nothing picked yet: open the calendar rather than "saving" an empty date.
+          if (!day) { datePick.el.querySelector("details")?.setAttribute("open", ""); return; }
+          if (store.setHpDate(day)) { toast(t("hp.dateSaved")); setEditing(false); }
+        },
+      }, [icon(ICONS.calendar, 16), t("hp.setDate")]),
+      editing ? el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => setEditing(false) }, t("common.cancel")) : null,
+    ].filter(Boolean)),
+    editing && hpDate
+      ? el("button.linkbtn.hp-day__edit", {
+          type: "button",
+          onclick: () => { store.setHpDate(null); toast(t("hp.dateCleared")); setEditing(false); },
+        }, t("hp.clearDate"))
+      : null,
+  ].filter(Boolean));
+}
+
+/* ------------------------------------------------------------------ *
+ * The delprov board: the test's two halves, four delprov each
+ * ------------------------------------------------------------------ */
+
+async function addSets(entries, btn, refresh) {
+  btn.disabled = true;
+  let failed = 0;
+  for (const s of entries) {
+    try { await importHpSet(s); } catch { failed++; }   // skip the ones that fail, keep going
+  }
+  if (failed) toast(t("lib.addFail"));
+  refresh();
+}
+
+function extraRow(entry, tr, refresh) {
+  const added = isHpImported(entry.id);
+  const title = tr.sets[entry.id]?.title || entry.title;
+  const addBtn = el("button.linkbtn", { type: "button" }, [icon(ICONS.plus, 14), t("lib.add")]);
+  addBtn.onclick = () => addSets([entry], addBtn, refresh);
+  return el("li.hp-dp__extra", {}, [
+    el("span.hp-dp__extratitle", {}, title),
+    el("span.hp-dp__extracount", {}, plural(entry.count, "common.questionOne", "common.questionMany")),
+    added ? el("a.linkbtn", { href: `#/session/${entry.id}` }, t("lib.study")) : addBtn,
+  ]);
+}
+
+function delprovTile(dp, { index, tr, acc, weakest, refresh }) {
+  const entries = hpSetOrder(index).filter((s) => delprovCodeOf(s.subject) === dp);
+  // The övningsprov (a "lib-hp-<test>-<dp>" set) is the delprov's own set; anything else for it
+  // (the ORD word bank) is listed underneath as an extra.
+  const main = entries.find((s) => parseHpSetId(s.id).test) || entries[0];
+  if (!main) return null;
+  const extras = entries.filter((s) => s !== main);
+  const info = delprovInfo(index, tr, dp);
+  const added = isHpImported(main.id);
+  const rate = acc[dp]?.rate;
+  const pct = rate != null ? Math.round(rate * 100) : null;
+  const pace = DELPROV_PACE[dp] || 12;
+  const count = plural(main.count, "common.questionOne", "common.questionMany");
+
+  const head = el("div.hp-dp__head", {}, [
+    el("span.hp-dp__code", {}, t(`hp.delprov.${dp}`)),
+    el("div.hp-dp__titles", {}, [
+      el("strong.hp-dp__name", {}, info.name),
+      dp === weakest ? el("span.hp-dp__weak", {}, [icon(ICONS.target, 12), t("hp.weakest")]) : null,
+    ].filter(Boolean)),
+    added && pct != null ? el("span.hp-dp__pct", {}, t("hp.pctRight", { n: pct })) : null,
+  ].filter(Boolean));
+
+  let body, foot;
+  if (added) {
+    body = pct != null
+      ? el("span.hp-dp__meter", { role: "img", "aria-label": t("hp.readinessAria", { delprov: t(`hp.delprov.${dp}`), pct }) },
+          [el("span", { style: { width: `${pct}%` } })])
+      : el("p.hp-dp__none", {}, t("hp.notPracticed"));
+    foot = el("div.hp-dp__foot", {}, [
+      el("span.hp-dp__meta", {}, t("hp.tileMeta", { q: count, n: pace })),
+      el("div.hp-dp__acts", {}, [
+        el("a.btn.btn--sm", { href: `#/session/${main.id}?exam=1&min=${pace}` }, [icon(ICONS.clock, 15), t("hp.drillBtn")]),
+        el("a.btn.btn--ghost.btn--sm", { href: `#/session/${main.id}` }, t("lib.study")),
+        el("a.iconbtn.iconbtn--sm", {
+          href: `#/print/${main.id}`, "aria-label": t("print.worksheet"), title: t("print.worksheet"),
+        }, [icon(ICONS.fileText, 16)]),
+      ]),
+    ]);
+  } else {
+    const addBtn = el("button.btn.btn--ghost.btn--sm", { type: "button" }, [icon(ICONS.plus, 15), t("lib.add")]);
+    addBtn.onclick = () => addSets([main], addBtn, refresh);
+    body = el("p.hp-dp__desc", {}, info.description);
+    foot = el("div.hp-dp__foot", {}, [el("span.hp-dp__meta", {}, count), el("div.hp-dp__acts", {}, [addBtn])]);
+  }
+
+  return el("article.hp-dp" + (added ? "" : ".is-off"), {}, [
+    head, body, foot,
+    extras.length ? el("ul.hp-dp__extras", {}, extras.map((s) => extraRow(s, tr, refresh))) : null,
+  ].filter(Boolean));
+}
+
+function delprovBoard(index, tr, acc, weakest, refresh) {
+  const missing = hpSetOrder(index).filter((s) => !isHpImported(s.id));
+  const addAllBtn = el("button.btn.btn--sm", { type: "button" }, [icon(ICONS.plus, 16), t("lib.addAll", { n: missing.length })]);
+  addAllBtn.onclick = () => addSets(missing, addAllBtn, refresh);
+
+  const half = (key, list) => el("section.hp-half", { style: { "--c": PART_COLOR[key], "--c-ink": PART_INK[key] }, "aria-labelledby": `hp-half-${key}` }, [
+    el("h3.hp-half__title", { id: `hp-half-${key}` }, [el("i", { "aria-hidden": "true" }), t(`hp.${key}`)]),
+    el("div.hp-half__list", {}, list.map((dp) => delprovTile(dp, { index, tr, acc, weakest, refresh })).filter(Boolean)),
+  ]);
+
+  return el("section.hp-board", { "aria-labelledby": "hp-board-title" }, [
+    el("header.hp-board__head", {}, [
+      el("div", {}, [el("h2#hp-board-title", {}, t("hp.boardTitle")), el("p", {}, t("hp.boardSub"))]),
+      missing.length ? addAllBtn : el("span.hp-board__done", {}, [icon(ICONS.check, 15), t("hp.allAdded")]),
+    ]),
+    el("div.hp-board__halves", {}, [half("verbal", VERBAL_DELPROV), half("kvant", KVANT_DELPROV)]),
+  ]);
+}
+
+/** A side panel with the Progress page's card head (icon, title, line under it). */
+function sidePanel(iconPath, title, sub, body) {
+  return el("section.set-card.pg-card", {}, [
+    el("header.set-card__head", {}, [
+      el("span.set-card__ic", { "aria-hidden": "true" }, icon(iconPath, 18)),
+      el("div.pg-card__titles", {}, [el("h2", {}, title), sub ? el("p", {}, sub) : null].filter(Boolean)),
+    ]),
+    el("div.pg-card__body", {}, body.filter(Boolean)),
+  ]);
 }
 
 export async function renderHp() {
@@ -223,179 +340,124 @@ export async function renderHp() {
   try {
     index = await loadHpIndex();
     tr = getLang() === "en" ? await loadHpTranslations() : { subjects: {}, sets: {} };
-  } catch { /* the add-panel just won't render below; the dashboard itself doesn't need it */ }
+  } catch { /* the delprov board just won't render below; the overview doesn't need it */ }
 
   const root = el("div.hp-dash");
-  const bodyEl = el("div");
-  root.appendChild(homeButton());
-  root.appendChild(el("h1", {}, t("hp.pageTitle")));
-  root.appendChild(bodyEl);
+  const bodyEl = el("div.hp-dash__body");
+  root.append(
+    homeButton(),
+    el("header.hp-dash__intro", {}, [el("h1", {}, t("hp.pageTitle")), el("p", {}, t("hp.lede"))]),
+    bodyEl,
+  );
+
+  let editingDate = false;
+  const setEditing = (on) => { editingDate = on; paint(); };
 
   function paint() {
     clear(bodyEl);
     const sets = hpSets();
-
-    if (!sets.length) {
-      // A date saved before any set was added (the welcome quiz can do that)
-      // still deserves to be seen — otherwise it looks like it was lost.
-      const savedDate = store.settings.hpDate;
-      if (savedDate) {
-        bodyEl.appendChild(el("p.hp-dash__when", { style: { marginBottom: "14px" } }, [
-          icon(ICONS.clock, 16), " ", t("hp.provIn", { when: countdownLabel(savedDate) }),
-        ]));
-      }
-      if (index) bodyEl.appendChild(hpAddPanel(index, tr, paint));
-      else bodyEl.appendChild(el("section.panel", {}, [el("p", {}, t("lib.loadFailBody"))]));
-      return;
-    }
-
     const hpDate = store.settings.hpDate || null;
     const acc = delprovAccuracy();
     const prog = hpPrognosis();
 
-    /* ---- countdown / date ---- */
-    const datePick = foldedDatePicker({ label: t("hp.dateLabel"), min: localDayKey() });
-    bodyEl.appendChild(el("section.panel.hp-dash__head", {}, [
-      hpDate
-        ? el("p.hp-dash__when", {}, [
-            icon(ICONS.clock, 16), " ",
-            t("hp.provIn", { when: countdownLabel(hpDate) }),
-            el("button.linkbtn", {
-              type: "button", style: { marginInlineStart: "10px" },
-              onclick: () => { store.setHpDate(null); toast(t("hp.dateCleared")); paint(); },
-            }, t("hp.clearDate")),
-          ])
-        : el("div", {}, [
-            el("p.note", { style: { marginBottom: "9px" } }, t("hp.noDatePrompt")),
-            el("div", { style: { display: "flex", gap: "8px", flexWrap: "wrap", alignItems: "flex-start" } }, [
-              datePick.el,
-              el("button.btn.btn--sm", {
-                type: "button",
-                onclick: () => {
-                  const day = datePick.getValue();
-                  // Nothing picked yet: open the calendar rather than "saving" an empty date.
-                  if (!day) { datePick.el.querySelector("details")?.setAttribute("open", ""); return; }
-                  if (store.setHpDate(day)) { toast(t("hp.dateSaved")); paint(); }
-                },
-              }, [icon(ICONS.calendar, 16), t("hp.setDate")]),
-            ]),
-          ]),
-    ]));
-
-    /* ---- prognosis ---- */
-    const prognosisBody = prog
-      ? el("div", {}, [
-          el("div.hp-dash__prognosis", {}, [
-            el("div.hp-dash__big", {}, fmtN(prog.total)),
-            el("div.hp-dash__split", {}, [
-              el("div", {}, [t("hp.verbal"), " ", el("b", {}, fmtN(prog.verbal))]),
-              el("div", {}, [t("hp.kvant"), " ", el("b", {}, fmtN(prog.kvant))]),
-            ]),
-          ]),
-          prog.history.length >= 2
-            ? sparkline(prog.history, { max: 2, ariaLabel: t("hp.trendAria", { list: prog.history.map(fmtN).join(", ") }) })
-            : null,
-          el("p.note", { style: { marginTop: "8px", fontStyle: "italic" } }, t("hp.prognosisCaption")),
-        ].filter(Boolean))
-      : el("p.note", {}, t("hp.prognosisNone"));
-    bodyEl.appendChild(el("section.panel", {}, [
-      el("h3", {}, t("hp.prognosisTitle")),
-      prognosisBody,
-    ]));
-
-    /* ---- readiness bars, weakest first ---- */
+    // Practised delprov, weakest first. "Weakest" only means something once two can be compared.
     const rows = DELPROV_ORDER
-      .filter((dp) => acc[dp] && acc[dp].rate != null)
+      .filter((dp) => acc[dp] && acc[dp].rate != null && sets.some((s) => parseHpSetId(s.id).delprov === dp))
       .map((dp) => ({ dp, v: acc[dp].rate }))
       .sort((a, b) => a.v - b.v);
+    const weakest = rows.length >= 2 ? rows[0].dp : null;
     const drillHash = (dp) => {
       const set = sets.find((s) => parseHpSetId(s.id).delprov === dp);
       return set ? `#/session/${set.id}?exam=1&min=${DELPROV_PACE[dp] || 12}` : "#/hp";
     };
-    bodyEl.appendChild(el("section.panel", {}, [
-      el("h3", {}, t("hp.readinessTitle")),
-      rows.length
-        ? el("div.hp-readiness", {}, rows.map(({ dp, v }) => {
-            const pct = Math.round(v * 100);
-            return el("a.hp-readiness__row", { href: drillHash(dp) }, [
-              el("span.hp-readiness__k", {}, t(`hp.delprov.${dp}`)),
-              el("span.meter__track", { role: "img", "aria-label": t("hp.readinessAria", { delprov: t(`hp.delprov.${dp}`), pct }) },
-                [el("span.meter__fill", { style: { width: `${pct}%`, "--subject": partOf(dp) === "verbal" ? "var(--brand)" : "var(--c-tangerine)" } })]),
-              el("span.hp-readiness__n", {}, `${pct}%`),
-            ]);
-          }))
-        : el("p.note", {}, t("hp.readinessNone")),
+    const dueN = store.dueQuestions().filter((d) => isHpSetId(d.assignment.id)).length;
+    const totalQ = sets.reduce((n, a) => n + a.questions.length, 0);
+
+    /* ---- overview: score, test day, next steps ---- */
+    const nextSteps = [];
+    if (sets.length) {
+      if (rows.length) {
+        nextSteps.push(el("a.btn", { href: drillHash(rows[0].dp) },
+          [icon(ICONS.target, 16), t("hp.drillWeak", { delprov: t(`hp.delprov.${rows[0].dp}`) })]));
+      }
+      if (totalQ >= 10) {
+        nextSteps.push(el("a.btn" + (rows.length ? ".btn--ghost" : ""), { href: "#/hp/mock", title: t("hp.mockTip") },
+          [icon(ICONS.clock, 16), t("hp.mockStart")]));
+      }
+      if (sets.some((s) => parseHpSetId(s.id).delprov === "ord")) {
+        nextSteps.push(el("a.btn.btn--ghost", { href: drillHash("ord") }, [icon(ICONS.layers, 16), t("hp.trainOrd")]));
+      }
+      if (dueN) {
+        nextSteps.push(el("a.btn.btn--ghost", { href: "#/review" }, [icon(ICONS.spark, 16), plural(dueN, "hp.dueOne", "hp.dueMany")]));
+      }
+    }
+    bodyEl.appendChild(el("section.hp-hero", { "aria-label": t("hp.pageTitle") }, [
+      el("div.hp-hero__main", {}, [scoreZone(prog), dateZone(hpDate, { editing: editingDate, setEditing })]),
+      sets.length
+        ? el("div.hp-hero__next", {}, [
+            ...nextSteps,
+            totalQ < 10 ? el("p.hp-hero__note", {}, t("hp.mockTooFew")) : null,
+          ].filter(Boolean))
+        : el("div.hp-hero__next.is-start", {}, [el("p.hp-hero__note", {}, t("hp.addIntro"))]),
     ]));
 
-    /* ---- weak skills + due ---- */
+    /* ---- the plan to test day, and what's weak ---- */
     const weak = weakSpotQuestions(sets, store.attempts);
-    const weakTopics = [...new Set(weak.map((w) => w.question.topic))].slice(0, 5);
-    const dueN = store.dueQuestions().filter((d) => isHpSetId(d.assignment.id)).length;
-    if (weakTopics.length || dueN) {
-      bodyEl.appendChild(el("section.panel", {}, [
-        el("h3", {}, t("hp.weakTitle")),
-        weakTopics.length
-          ? el("p.note", {}, weakTopics.map(sentenceCase).join(" · "))
-          : el("p.note", {}, t("hp.weakNone")),
-        dueN
-          ? el("a.linkbtn", { href: "#/review", style: { marginTop: "8px", display: "inline-flex" } },
-              [icon(ICONS.spark, 13), " ", plural(dueN, "hp.dueOne", "hp.dueMany")])
-          : null,
-      ].filter(Boolean)));
-    }
-
-    /* ---- dated plan ---- */
+    const weakTopics = [...new Set(weak.map((w) => w.question.topic))].slice(0, 6);
     const plan = buildHpPlan({
       hpDate,
       weakDelprov: rows.slice(0, 4).map((r) => r.dp),
       dueCount: dueN,
       softDelprov: rows.slice(4).map((r) => r.dp),
     });
+    const side = [];
     if (plan) {
-      bodyEl.appendChild(el("section.panel.exam-prep__plan", {}, [
-        el("div.exam-prep__mastery-head", {}, [
-          el("span", {}, t("hp.planTitle")),
-          el("span.exam-prep__pct", {}, plural(daysUntil(hpDate), "exam.planDaysOne", "exam.planDaysMany")),
-        ]),
-        el("ol.exam-prep__days", {}, plan.map((r) => {
-          const label = r.kind === "drill" ? t("hp.planDrill", { delprov: t(`hp.delprov.${r.delprov}`) })
-            : r.kind === "review" ? plural(r.n, "exam.planReviewOne", "exam.planReviewMany")
-            : r.kind === "ord" ? t("hp.planOrd")
-            : r.kind === "mock" ? t("hp.planMock")
-            : r.kind === "reviewmiss" ? t("exam.planReviewMiss")
-            : t("hp.planTestDay");
-          const hash = r.kind === "drill" ? drillHash(r.delprov)
-            : r.kind === "review" || r.kind === "reviewmiss" ? "#/review"
-            : r.kind === "ord" ? drillHash("ord")
-            : r.kind === "mock" ? "#/hp/mock" : null;
-          return el("li.exam-prep__day" + (r.dayOffset === 0 ? ".is-today" : "") + (r.kind === "testday" ? ".is-test" : ""), {}, [
-            el("span.exam-prep__day-when", {}, planDayWhen(r.dayOffset, r.dayKey)),
-            el("span.exam-prep__day-task", {}, label),
-            r.dayOffset === 0 && hash
-              ? el("a.btn.btn--sm", { href: hash }, [t("exam.planStart"), icon(ICONS.arrow, 14)])
-              : r.minutes ? el("span.exam-prep__day-min", {}, t("exam.planMin", { n: r.minutes })) : null,
-          ].filter(Boolean));
-        })),
+      const dayRows = plan.map((r) => {
+        const label = r.kind === "drill" ? t("hp.planDrill", { delprov: t(`hp.delprov.${r.delprov}`) })
+          : r.kind === "review" ? plural(r.n, "exam.planReviewOne", "exam.planReviewMany")
+          : r.kind === "ord" ? t("hp.planOrd")
+          : r.kind === "mock" ? t("hp.planMock")
+          : r.kind === "reviewmiss" ? t("exam.planReviewMiss")
+          : t("hp.planTestDay");
+        const hash = r.kind === "drill" ? drillHash(r.delprov)
+          : r.kind === "review" || r.kind === "reviewmiss" ? "#/review"
+          : r.kind === "ord" ? drillHash("ord")
+          : r.kind === "mock" ? "#/hp/mock" : null;
+        return el("li.exam-prep__day" + (r.dayOffset === 0 ? ".is-today" : "") + (r.kind === "testday" ? ".is-test" : ""), {}, [
+          el("span.exam-prep__day-when", {}, planDayWhen(r.dayOffset, r.dayKey)),
+          el("span.exam-prep__day-task", {}, label),
+          r.dayOffset === 0 && hash
+            ? el("a.btn.btn--sm", { href: hash }, [t("exam.planStart"), icon(ICONS.arrow, 14)])
+            : r.minutes ? el("span.exam-prep__day-min", {}, t("exam.planMin", { n: r.minutes })) : null,
+        ].filter(Boolean));
+      });
+      // A long plan shows the next few days and the test day itself; the days between fold away.
+      const SHOW = 5;
+      if (dayRows.length > SHOW + 2) {
+        const folded = dayRows.slice(SHOW, -1);
+        folded.forEach((li) => { li.hidden = true; });
+        const more = el("li.hp-plan__more", {}, [
+          el("button.linkbtn", {
+            type: "button",
+            onclick: () => { folded.forEach((li) => { li.hidden = false; }); more.remove(); },
+          }, t("hp.planShowAll", { n: dayRows.length })),
+        ]);
+        dayRows.splice(SHOW, 0, more);
+      }
+      side.push(sidePanel(ICONS.calendarCheck, t("hp.planTitle"), plural(daysUntil(hpDate), "exam.planDaysOne", "exam.planDaysMany"), [
+        el("ol.exam-prep__days", {}, dayRows),
       ]));
     }
+    if (weakTopics.length) {
+      side.push(sidePanel(ICONS.target, t("hp.weakTitle"), t("hp.weakSub"), [
+        el("ul.hp-weak", {}, weakTopics.map((topic) => el("li", {}, sentenceCase(topic)))),
+      ]));
+    }
+    if (side.length) bodyEl.appendChild(el("div.hp-side" + (side.length > 1 ? ".is-two" : ""), {}, side));
 
-    /* ---- actions ---- */
-    const totalQ = sets.reduce((n, a) => n + a.questions.length, 0);
-    bodyEl.appendChild(el("section.panel.exam-prep__actions", {}, [
-      rows.length
-        ? el("a.btn", { href: drillHash(rows[0].dp) },
-            [icon(ICONS.target, 16), t("hp.drillWeak", { delprov: t(`hp.delprov.${rows[0].dp}`) })])
-        : null,
-      totalQ >= 10
-        ? el("a.btn.btn--ghost", { href: "#/hp/mock" }, [icon(ICONS.clock, 16), t("hp.miniMock")])
-        : el("p.note", {}, t("hp.mockTooFew")),
-      sets.some((s) => parseHpSetId(s.id).delprov === "ord")
-        ? el("a.btn.btn--ghost", { href: drillHash("ord") }, [icon(ICONS.layers, 16), t("hp.trainOrd")])
-        : null,
-    ].filter(Boolean)));
-
-    /* ---- manage delprov ---- */
-    if (index) bodyEl.appendChild(hpAddPanel(index, tr, paint, { hasAny: true }));
+    /* ---- the delprov ---- */
+    if (index) bodyEl.appendChild(delprovBoard(index, tr, acc, weakest, paint));
+    else bodyEl.appendChild(el("section.panel", {}, [el("p", {}, t("lib.loadFailBody"))]));
   }
 
   paint();
