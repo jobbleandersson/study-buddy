@@ -19,6 +19,7 @@ const KNOWN = {
   "That site password is wrong.": "srv.err.sitePassword",
   "Enter the site password first.": "srv.err.siteLocked",
   "That request is too large.": "srv.err.tooLarge",
+  "That question has closed.": "srv.err.dailyClosed",
   "This account uses two-step sign-in. Sign in with your email and password.": "srv.err.googleTwofa",
   "That kind of content can't be sent to the AI.": "srv.err.badContent",
   "Too many requests at once. Wait for the last answer to finish.": "srv.err.aiBusy",

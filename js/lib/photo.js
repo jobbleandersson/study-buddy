@@ -4,6 +4,7 @@
 
 import { readImageFile } from "../material.js";
 import { t } from "./i18n.js";
+import { assertDecodable } from "./image-size.js";
 
 const OK_TYPES = ["image/png", "image/jpeg", "image/webp", "image/gif"];
 const MAX_SOURCE_BYTES = 30 * 1024 * 1024;   // sanity cap on what we'll even try to decode
@@ -16,6 +17,8 @@ const MAX_SOURCE_BYTES = 30 * 1024 * 1024;   // sanity cap on what we'll even tr
 export async function shrinkImage(file, { maxEdge = 1600, quality = 0.85 } = {}) {
   if (!OK_TYPES.includes(file.type)) throw new Error(t("err.imageType"));
   if (file.size > MAX_SOURCE_BYTES) throw new Error(t("err.imageSize"));
+  // Measured before it is decoded: a small file can still hold gigabytes of pixels.
+  await assertDecodable(file, t("err.imagePixels"));
   try {
     const bmp = await createImageBitmap(file);          // honours the photo's EXIF rotation
     const scale = Math.min(1, maxEdge / Math.max(bmp.width, bmp.height));

@@ -7,6 +7,13 @@
 // What the teacher sees is deliberately thin: how many answered and how the
 // answers were spread, never who chose what. Below MIN_SHOWN answers even the
 // spread is held back — in a class of two, a spread names names.
+//
+// The spread is also only shown once the question's day is over. Shown live, it changes with every
+// answer, and anyone watching it (the teacher, or the teacher through a second, student account in
+// the class) could read off what each new answer was. And the MIN_SHOWN answers must come from
+// students who were in the class at least ESTABLISHED_DAYS before the day: a teacher who quickly adds
+// a few accounts of their own to reach the threshold, and subtracts their known answers from the
+// tally, has to plan that days ahead — the cost of the attack rises; no tally can rule it out.
 
 export const MIN_CHOICES = 2;
 export const MAX_CHOICES = 5;
@@ -14,7 +21,8 @@ export const MAX_PROMPT = 300;
 export const MAX_CHOICE = 120;
 export const MAX_EXPLANATION = 300;
 export const MAX_QUESTIONS_PER_CLASS = 200;
-export const MIN_SHOWN = 3;
+export const MIN_SHOWN = 5;
+export const ESTABLISHED_DAYS = 3;
 
 /** "YYYY-MM-DD" and a real calendar day. */
 export function validDay(s) {
@@ -70,10 +78,12 @@ export function countsFrom(rows, nChoices) {
   return counts;
 }
 
-/** The spread as whole percentages of those who answered — or null while too few have. */
-export function shownSpread(counts, minShown = MIN_SHOWN) {
+/** The spread as whole percentages of those who answered — or null while the day is still open, or
+ *  while too few of the answers come from established members (see the header). */
+export function shownSpread(counts, { closed = true, established = null, minShown = MIN_SHOWN } = {}) {
   const answered = counts.reduce((a, b) => a + b, 0);
-  if (answered < minShown) return null;
+  if (!closed) return null;
+  if ((established ?? answered) < minShown) return null;
   const pct = counts.map((n) => Math.round((100 * n) / answered));
   return { counts, pct, answered };
 }

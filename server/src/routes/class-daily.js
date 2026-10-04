@@ -4,7 +4,7 @@ import { db } from "../db.js";
 import { requireAuth } from "../middleware/requireAuth.js";
 import { isUniqueViolation } from "../errors.js";
 import {
-  validateDaily, validDay, addDays, countsFrom, shownSpread, classStreak, MAX_QUESTIONS_PER_CLASS,
+  validateDaily, validDay, addDays, countsFrom, shownSpread, classStreak, MAX_QUESTIONS_PER_CLASS, ESTABLISHED_DAYS,
 } from "../class-daily.js";
 
 // Dagens fråga. A teacher writes one multiple-choice question for a day; each
@@ -33,8 +33,19 @@ function answerStats(q, members = memberCount(q.class_id)) {
   const rows = db.prepare("SELECT choice, COUNT(*) AS n FROM class_daily_answers WHERE daily_id = ? GROUP BY choice").all(q.id);
   const counts = countsFrom(rows, choices.length);
   const answered = counts.reduce((a, b) => a + b, 0);
-  return { choices, counts, answered, shown: Math.min(answered, members), members, spread: shownSpread(counts) };
+  const closed = isClosed(q);
+  // Only counted once it could matter: answers from members who joined well before the day.
+  const established = closed ? db.prepare(`
+    SELECT COUNT(*) AS n FROM class_daily_answers a
+    JOIN class_members m ON m.class_id = ? AND m.student_user_id = a.student_user_id
+    WHERE a.daily_id = ? AND m.joined_at <= ?
+  `).get(q.class_id, q.id, Date.parse(`${addDays(q.day, -ESTABLISHED_DAYS)}T00:00:00Z`)).n : 0;
+  return { choices, counts, answered, shown: Math.min(answered, members), members, closed, spread: shownSpread(counts, { closed, established }) };
 }
+
+/** A question closes when its day is over (UTC — for a Swedish student that's 01:00 or 02:00 the
+ *  morning after). No more answers after that; the class's spread can be shown. */
+const isClosed = (q) => q.day < utcToday();
 
 /** Consecutive question days the class has kept up (see classStreak). */
 function streakFor(classId, today) {
@@ -64,7 +75,7 @@ classDaily.get("/classes/:id/daily", requireAuth, (req, res) => {
       const s = answerStats(q, members);
       return {
         id: q.id, day: q.day, prompt: q.prompt, choices: s.choices, answer: q.answer, explanation: q.explanation,
-        answered: s.shown, members, spread: s.spread,
+        answered: s.shown, members, spread: s.spread, closed: s.closed,
       };
     }),
   });
@@ -125,7 +136,7 @@ function studentView(q, cls, userId, today) {
 function reveal(q, stats, choice) {
   return {
     choice, correct: choice === q.answer, answer: q.answer, explanation: q.explanation,
-    spread: stats.spread, answered: stats.shown, members: stats.members,
+    spread: stats.spread, closed: stats.closed, answered: stats.shown, members: stats.members,
   };
 }
 
@@ -156,6 +167,7 @@ classDaily.post("/my-daily/:dailyId/answer", requireAuth, (req, res) => {
   `).get(req.user.userId, req.params.dailyId);
   if (!q) return fail(res, 404, "Not found.");
   if (q.day > addDays(utcToday(), 1)) return fail(res, 403, "That question isn't open yet.");
+  if (isClosed(q)) return fail(res, 403, "That question has closed.");
 
   const nChoices = JSON.parse(q.choices).length;
   const choice = req.body?.choice;

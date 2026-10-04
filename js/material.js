@@ -52,7 +52,12 @@ async function extractPdfTextFromBuffer(buf) {
   return text;
 }
 
+// The whole file is read into memory (and a ZIP's PDFs unpacked into it), so there is a ceiling.
+const MAX_PDF_BYTES = 60 * 1024 * 1024;
+const MAX_ZIP_BYTES = 150 * 1024 * 1024;
+
 export async function extractPdfText(file) {
+  if (file.size > MAX_PDF_BYTES) throw new Error(t("err.fileTooBig", { mb: MAX_PDF_BYTES / 1048576 }));
   return extractPdfTextFromBuffer(await file.arrayBuffer());
 }
 
@@ -62,8 +67,11 @@ export async function extractPdfText(file) {
 export async function extractZipText(file) {
   let JSZip;
   try { JSZip = await loadVendor("vendor/jszip.min.js", "JSZip"); } catch { throw new Error(t("err.zipNoLib")); }
+  if (file.size > MAX_ZIP_BYTES) throw new Error(t("err.fileTooBig", { mb: MAX_ZIP_BYTES / 1048576 }));
   const zip = await JSZip.loadAsync(file);
-  const entries = Object.values(zip.files).filter((f) => !f.dir);
+  // A PDF that unpacks to more than a PDF may be is skipped, not inflated: a few KB of zip can
+  // expand to gigabytes.
+  const entries = Object.values(zip.files).filter((f) => !f.dir && !((f._data?.uncompressedSize || 0) > MAX_PDF_BYTES));
   const pdfEntries = entries.filter((f) => /\.pdf$/i.test(f.name)).slice(0, 20); // cap runaway zips
   if (!pdfEntries.length) throw new Error(t("err.zipNoPdf"));
 
