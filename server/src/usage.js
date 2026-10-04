@@ -107,7 +107,7 @@ export function addUsage(userId, { inputTokens = 0, outputTokens = 0 } = {}) {
   });
 }
 
-const emailOfStmt = db.prepare("SELECT email FROM users WHERE id = ?");
+const emailOfStmt = db.prepare("SELECT email, email_verified_at AS verifiedAt, email_verify_required AS verifyRequired FROM users WHERE id = ?");
 
 /** Accounts that skip the per-account monthly token ceiling: the owner and the people testing the product,
  *  listed by email in AI_BUDGET_EXEMPT_EMAILS (comma-separated; empty by default, so nobody is exempt).
@@ -117,7 +117,10 @@ export function isBudgetExempt(userId) {
   const list = String(process.env.AI_BUDGET_EXEMPT_EMAILS || "").split(",").map((s) => s.trim().toLowerCase()).filter(Boolean);
   if (!userId || !list.length) return false;
   const row = emailOfStmt.get(userId);
-  return !!row && list.includes(String(row.email).toLowerCase());
+  // The address has to be proven where it could be: otherwise anyone who knew a listed address that
+  // had no account yet could sign up with it and skip the ceiling.
+  if (!row || (row.verifyRequired && !row.verifiedAt)) return false;
+  return list.includes(String(row.email).toLowerCase());
 }
 
 /** { ok, used, limit, resetsAt } — call before forwarding a request. */
@@ -204,6 +207,42 @@ export function checkDailyCap(extraMicro = 0) {
   };
 }
 
+// ---------- one person's share of the daily cap ----------
+// Most of the day's cap one account may use (spent + in flight), so a single account — a fresh one,
+// say — can't switch AI off for everyone. AI_USER_DAILY_SHARE=0 turns it off.
+const USER_SHARE = (() => {
+  const raw = process.env.AI_USER_DAILY_SHARE;
+  const n = Number(raw);
+  return raw != null && raw.trim() !== "" && Number.isFinite(n) && n >= 0 ? n : 0.25;
+})();
+const userDay = { day: "", spent: new Map(), inflight: new Map() };
+function rollUserDay() {
+  const day = currentDay();
+  if (userDay.day !== day) { userDay.day = day; userDay.spent.clear(); }
+}
+/** Would `extraMicro` more keep this account within its share of today's cap? */
+export function checkUserDailyShare(userId, extraMicro = 0) {
+  if (!CAP_MICRO || !(USER_SHARE > 0) || !userId) return true;
+  rollUserDay();
+  const used = (userDay.spent.get(userId) || 0) + (userDay.inflight.get(userId) || 0);
+  return used + extraMicro <= CAP_MICRO * USER_SHARE;
+}
+/** Hold a request's worst case against the account's share while it runs; returns the release. */
+export function reserveUserSpend(userId, micro) {
+  userDay.inflight.set(userId, (userDay.inflight.get(userId) || 0) + micro);
+  let released = false;
+  return () => {
+    if (released) return;
+    released = true;
+    const n = (userDay.inflight.get(userId) || 0) - micro;
+    if (n > 0) userDay.inflight.set(userId, n); else userDay.inflight.delete(userId);
+  };
+}
+function bookUserSpend(userId, micro) {
+  rollUserDay();
+  userDay.spent.set(userId, (userDay.spent.get(userId) || 0) + micro);
+}
+
 // One warning line per threshold per day (per process) — `fly logs` is where
 // these are read; grep for "spend-alert".
 const usd = (micro) => `$${(micro / 1_000_000).toFixed(2)}`;
@@ -241,6 +280,7 @@ export function recordUsage({ userId, model, usage }) {
     now: Date.now(),
   });
   alertIfNeeded(day, readDaySpend(day).costMicro);
+  if (userId) bookUserSpend(userId, costMicro);
 
   // The user's own meter goes last, and its failure is contained. The money has already been spent
   // at this point, so the server-wide tally and the cap alert above must not depend on it - and a

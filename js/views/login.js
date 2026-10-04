@@ -153,11 +153,25 @@ export function renderLogin(qs) {
     googleBox,
     el("div.auth__or", {}, [el("span", {}, t("login.orEmail"))]),
   ]);
+  /** The code step after a first factor (password or Google) on an account with two-step sign-in. */
+  function enterTwofa(result) {
+    pendingChallenge = result.challenge;
+    pendingMethod = result.method;
+    mode = "twofa";
+    paintMode();
+    startResendCountdown(result.cooldownSec);
+    codeInput.focus();
+    if (result.method === "email" && !result.emailSent) {
+      errorNote.textContent = t("login.twofaNotSent");
+      errorNote.hidden = false;
+    }
+  }
   async function onGoogle(credential) {
     errorNote.hidden = true;
     try {
       const r = await store.loginWithGoogle(credential, { consent: consentInput.checked });
       googleCredential = null;
+      if (r?.twoFactorRequired) { enterTwofa(r); return; }
       toast(r.linked ? t("login.googleLinkedToast") : r.created ? t("login.googleCreatedToast") : t("login.signedInToast"));
       location.hash = dest;
     } catch (err) {
@@ -255,19 +269,7 @@ export function renderLogin(qs) {
     try {
       if (mode === "login") {
         const result = await store.login(email, password);
-        if (result?.twoFactorRequired) {
-          pendingChallenge = result.challenge;
-          pendingMethod = result.method;
-          mode = "twofa";
-          paintMode();
-          startResendCountdown(result.cooldownSec);
-          codeInput.focus();
-          if (result.method === "email" && !result.emailSent) {
-            errorNote.textContent = t("login.twofaNotSent");
-            errorNote.hidden = false;
-          }
-          return;
-        }
+        if (result?.twoFactorRequired) { enterTwofa(result); return; }
         toast(t("login.signedInToast"));
       } else {
         await store.signup(email, password, { consent: consentInput.checked });
