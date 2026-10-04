@@ -480,7 +480,7 @@ export function renderSettings() {
         onclick: async (e) => {
           e.currentTarget.disabled = true;
           const r = await store.logout();
-          toast(t(r?.wiped === false ? "set.acctSignedOutKept" : "set.acctSignedOutToast"));
+          toast(t(r?.kept ? "set.acctSignedOutKept" : "set.acctSignedOutToast"));
           paint();
         },
       }, t("set.acctSignOut")));
@@ -588,9 +588,9 @@ export function renderSettings() {
         importStatus.textContent = "";
         toast(t("set.imported"));
         location.hash = "#/";
-      } catch {
+      } catch (err) {
         importStatus.className = "set-row__note note--warn";
-        importStatus.textContent = t("set.importBadFile");
+        importStatus.textContent = t(err?.code === "is_set" ? "set.importIsSet" : "set.importBadFile");
       }
     }
 

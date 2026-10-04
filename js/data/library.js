@@ -28,8 +28,18 @@ export function isImported(setId) {
  *  `studyCount`, when given and smaller than the set, is remembered as this
  *  set's default number of questions per study session (chosen once, at
  *  add time — exam mode always ignores it and runs the full set). */
-export async function importSet(entry, studyCount) {
-  if (isImported(entry.id)) return null;
+const inFlight = new Map();   // set id -> the import already running for it
+
+export function importSet(entry, studyCount) {
+  if (isImported(entry.id)) return Promise.resolve(null);
+  // "Add all" and a card's own "Add" can both ask for the same set while its file is still loading.
+  if (inFlight.has(entry.id)) return inFlight.get(entry.id).then(() => null);
+  const p = importSetNow(entry, studyCount).finally(() => inFlight.delete(entry.id));
+  inFlight.set(entry.id, p);
+  return p;
+}
+
+async function importSetNow(entry, studyCount) {
   const lang = getLang();
   const wantFile = lang === "en" ? englishFile(entry.file) : entry.file;
 
@@ -39,6 +49,7 @@ export async function importSet(entry, studyCount) {
   if (!res.ok) throw new Error(String(res.status));
 
   const doc = await res.json();
+  if (isImported(entry.id)) return null;   // added some other way while the file loaded
   const a = store.addAssignmentDoc(doc, { silent: true });
   if (a) {
     a._libLang = docLang;

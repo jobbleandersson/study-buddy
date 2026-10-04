@@ -69,6 +69,14 @@ export function mountSiteChat() {
 
   fab.addEventListener("click", () => (opened ? close() : open()));
 
+  // Signed out (or the device was cleared): the conversation belonged to whoever was here before.
+  store.addEventListener("deviceCleared", () => {
+    abort?.abort();
+    messages.length = 0;
+    clear(logEl);
+    close();
+  });
+
   document.body.append(fab, panel);
 
   // This widget lives outside the router (see the file header), so main.js's

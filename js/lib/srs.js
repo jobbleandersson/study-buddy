@@ -21,6 +21,7 @@ export function fromCorrect(correct, hintsUsed = 0) {
 export function review(rec, grade, now = Date.now()) {
   const r = { ...(rec || fresh()) };
   const q = { again: 0, hard: 1, good: 2, easy: 3 }[grade] ?? 2;
+  r.reviewedAt = now;   // a sync merge keeps the record reviewed last (lib/merge-state.js)
 
   if (q === 0) {
     r.reps = 0;
