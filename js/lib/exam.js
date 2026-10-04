@@ -47,6 +47,7 @@ export function normalizeExam(x) {
     note: typeof x.note === "string" ? x.note.trim().slice(0, EXAM_NOTE_MAX) : "",
     setIds: [...new Set((Array.isArray(x.setIds) ? x.setIds : []).filter((id) => typeof id === "string" && id))],
     createdAt: Number(x.createdAt) || 0,
+    updatedAt: Number(x.updatedAt) || 0,
   };
 }
 

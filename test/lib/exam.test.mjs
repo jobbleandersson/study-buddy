@@ -68,7 +68,7 @@ describe("exam.upcomingExams", () => {
 describe("exam.normalizeExam", () => {
   test("keeps a good record, trims text, de-duplicates set ids", () => {
     const x = normalizeExam({ id: "t", subjectId: "ma", date: "2026-10-05", title: "  Prov 3 ", note: " kap 3–4 ", setIds: ["a", "a", "b", 7, ""] });
-    assert.deepEqual(x, { id: "t", subjectId: "ma", date: "2026-10-05", title: "Prov 3", note: "kap 3–4", setIds: ["a", "b"], createdAt: 0 });
+    assert.deepEqual(x, { id: "t", subjectId: "ma", date: "2026-10-05", title: "Prov 3", note: "kap 3–4", setIds: ["a", "b"], createdAt: 0, updatedAt: 0 });
   });
   test("rejects what can't be a test", () => {
     for (const bad of [null, "x", {}, { id: "t", subjectId: "ma", date: "soon" }, { id: "", subjectId: "ma", date: "2026-10-05" }, { id: "t", date: "2026-10-05" }]) {

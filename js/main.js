@@ -803,7 +803,7 @@ function shellActions() {
             closePopover();
             let r = null;
             try { r = await store.logout(); } catch {}
-            toast(t(r?.wiped === false ? "set.acctSignedOutKept" : "account.signOutDone"));
+            toast(t(r?.kept ? "set.acctSignedOutKept" : "account.signOutDone"));
           },
         }, [icon(ICONS.logout, 15), t("account.signOut")]),
       ] : [
