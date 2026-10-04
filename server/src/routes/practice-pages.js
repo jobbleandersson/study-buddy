@@ -231,8 +231,10 @@ function send(res, html) {
 // Private site (see ../gate.js): the public practice pages are part of what's kept private.
 practicePages.use((req, res, next) => {
   if (!siteLocked()) return next();
-  if (req.path === "/sitemap.xml") return res.status(404).end();
-  if (req.path === "/ova" || req.path.startsWith("/ova/")) return res.redirect(302, "/");
+  // Lower-cased: Express matches routes case-insensitively, so /OVA and /Sitemap.xml reach them too.
+  const p = req.path.toLowerCase();
+  if (p === "/sitemap.xml") return res.status(404).end();
+  if (p === "/ova" || p.startsWith("/ova/")) return res.redirect(302, "/");
   next();
 });
 

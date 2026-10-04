@@ -197,6 +197,9 @@ describe("two-factor authentication", () => {
   test("resetting the password on a 2FA account gates on a code too, but the new password is already live", async () => {
     const { email, secret } = await enrolled();
     const userId = server.db.prepare("SELECT id FROM users WHERE email = ?").get(email).id;
+    // The owner proved the address (a 2FA set up on an address nobody verified is a squatter's, and a
+    // reset clears it — see hardening.test.mjs).
+    server.db.prepare("UPDATE users SET email_verified_at = ? WHERE id = ?").run(Date.now(), userId);
     const token = crypto.randomBytes(32).toString("hex");
     const now = Date.now();
     server.db.prepare("INSERT INTO password_reset_tokens (id, user_id, token, expires_at, created_at) VALUES (?, ?, ?, ?, ?)")

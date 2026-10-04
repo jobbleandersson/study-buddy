@@ -1910,6 +1910,8 @@ class Store extends EventTarget {
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) throw authError(data, t("login.googleFailed"));   // err.code === "consent_required" when a new account needs the checkbox
+    // An account with two-step sign-in: Google was the first step, the code step follows (verify2fa).
+    if (data.twoFactorRequired) return twofaPending(data);
     this._adoptSignIn(data.email, { passwordless: true });
     this.authEmailVerified = true;   // Google already verified it — see routes/auth.js
     this.totpEnabled = false;   // linking clears any 2FA the account had (see routes/auth.js) — passwordless has none to have

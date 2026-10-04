@@ -351,13 +351,19 @@ auth.post("/auth/google", googleSignInLimit, asyncHandler(async (req, res) => {
     }
 
     const { sub, email } = profile;
-    let user = db.prepare("SELECT id, email FROM users WHERE google_sub = ?").get(sub);
+    let user = db.prepare("SELECT id, email, totp_enabled_at AS totpEnabledAt, twofa_method AS twofaMethod FROM users WHERE google_sub = ?").get(sub);
     let created = false;
     let linked = false;
 
     if (!user) {
-      const existing = db.prepare("SELECT id, email, google_sub, email_verified_at AS emailVerifiedAt, email_verify_required AS verifyRequired FROM users WHERE email = ?").get(email);
+      const existing = db.prepare("SELECT id, email, google_sub, email_verified_at AS emailVerifiedAt, email_verify_required AS verifyRequired, totp_enabled_at AS totpEnabledAt, twofa_method AS twofaMethod FROM users WHERE email = ?").get(email);
       if (existing && existing.google_sub) return emailTaken(res);   // that address belongs to a different Google account
+      // Linking turns the password off and with it the second factor — so an account with two-step
+      // sign-in is never linked by a Google sign-in alone. Whoever controls only the inbox (enough to
+      // make a Google account for a non-Gmail address) must not get past the authenticator that way.
+      if (existing && twoFaMethod(existing)) {
+        return res.status(409).json({ error: { message: "This account uses two-step sign-in. Sign in with your email and password.", code: "google_link_twofa" } });
+      }
       // Linking to an account that already agreed at signup needs no new yes; making a new one does.
       if (!existing && req.body?.consent !== true) return consentRequired(res);
 
@@ -398,6 +404,14 @@ auth.post("/auth/google", googleSignInLimit, asyncHandler(async (req, res) => {
         throw e;
       }
     }
+
+    // An account that was already linked and has since added a password and turned on two-step
+    // sign-in: Google is its first factor, like a password — the code still has to follow.
+    const method = !created && !linked ? twoFaMethod(user) : null;
+    if (method === "email") {
+      return res.json({ twoFactorRequired: true, method, ...(await issueEmailChallenge({ id: user.id, email: user.email })) });
+    }
+    if (method) return res.json({ twoFactorRequired: true, method, challenge: issueTwoFaChallenge(user.id) });
 
     createSession(res, user.id);
     res.json({ email: user.email, created, linked, emailVerified: true });
@@ -514,7 +528,11 @@ auth.post("/auth/reset-password", resetPasswordIpLimit, asyncHandler(async (req,
     if (claimed.changes === 0) return null;
     retireResetTokens(row.userId, now);   // any other link mailed for this account dies with this one
     const before = db.prepare("SELECT email, email_verified_at AS emailVerifiedAt, email_verify_required AS verifyRequired, totp_enabled_at AS totpEnabledAt, twofa_method AS twofaMethod FROM users WHERE id = ?").get(row.userId);
-    if (looksPreRegistered(before)) revokeTies(row.userId);   // see revokeTies: this hands the account to whoever owns the inbox
+    // See revokeTies: this hands the account to whoever owns the inbox. A second factor set up on an
+    // account whose address was never proven belongs to whoever made it, not to the inbox's owner —
+    // left on, someone who registered your address first could lock you out of it for good.
+    const squatted = looksPreRegistered(before);
+    if (squatted) { revokeTies(row.userId); clearTwoFa(row.userId); }
     // Clicking a link mailed to this address proves the address as surely as the verify-email flow
     // does, so an unverified account is now verified too — COALESCE leaves an already-set date alone.
     db.prepare("UPDATE users SET password_hash = ?, password_set_at = ?, email_verified_at = COALESCE(email_verified_at, ?) WHERE id = ?")
@@ -524,7 +542,7 @@ auth.post("/auth/reset-password", resetPasswordIpLimit, asyncHandler(async (req,
     // This runs unconditionally, even when a 2FA step still follows below: proving control of the
     // inbox is reason enough to kill every other session regardless of what happens next.
     db.prepare("DELETE FROM sessions WHERE user_id = ?").run(row.userId);
-    return { email: before.email, method: twoFaMethod(before) };
+    return { email: before.email, method: squatted ? null : twoFaMethod(before) };
   })();
   if (!user) return badToken(res);
 

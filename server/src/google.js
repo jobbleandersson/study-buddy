@@ -6,7 +6,8 @@
 
 const subtle = globalThis.crypto?.subtle ?? (await import("node:crypto")).webcrypto.subtle;
 
-const JWKS_URL = "https://www.googleapis.com/oauth2/v3/certs";
+// Tests serve their own keys (server/test/google-2fa.test.mjs); never overridable outside NODE_ENV=test.
+const JWKS_URL = (process.env.NODE_ENV === "test" && process.env.GOOGLE_JWKS_URL) || "https://www.googleapis.com/oauth2/v3/certs";
 const ISSUERS = ["https://accounts.google.com", "accounts.google.com"];
 const CLOCK_SKEW_S = 60;
 const KEY_REFETCH_MIN_MS = 60_000;   // never hammer Google because of junk tokens
