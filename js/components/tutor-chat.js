@@ -287,9 +287,12 @@ export class TutorChat {
    * scripted walk-through for this question.
    */
   async explainWrong(question, theirAnswer) {
+    const startGen = this._gen || 0;
     // Wait out any in-flight scripted typing from the wrong-answer nudge.
     for (let i = 0; i < 60 && this.busy; i++) await new Promise((r) => setTimeout(r, 50));
-    if (this.busy) return;
+    // Still busy, or the student went on to the next question meanwhile: this one's explanation
+    // must not land in the next question's thread.
+    if (this.busy || (this._gen || 0) !== startGen) return;
     this.el.classList.add("is-open");
     this._append("me", t("tutor.explainWhyLabel"));
     const gen = this._gen || 0;

@@ -42,7 +42,10 @@ export function renderResults(attemptId) {
   // Look questions up across the whole library — a review session mixes sets.
   // Paired (not two parallel arrays) so a since-deleted question can't
   // silently misalign the item and its question.
-  const wrong = (attempt.items || []).filter((i) => !firstTryCorrect(i));
+  const wrong = [
+    ...(attempt.items || []).filter((i) => !firstTryCorrect(i)),
+    ...(attempt.unanswered || []).map((questionId) => ({ questionId, correct: false })),   // handed in blank
+  ];
   const wrongEntries = wrong
     .map((item) => ({ item, question: store.findQuestion(item.questionId)?.question }))
     .filter((e) => e.question);
@@ -229,7 +232,7 @@ function challengeCard(attempt) {
 }
 
 function countLabel(attempt) {
-  const n = (attempt.items || []).length;
+  const n = (attempt.items || []).length + (attempt.unanswered || []).length;
   const c = (attempt.items || []).filter(firstTryCorrect).length;
   return t("results.correctOf", { c, n });
 }
@@ -295,7 +298,8 @@ function hpReveal(attempt) {
       : t("hp.reveal.caption");
   } else {
     const dp = parseHpSetId(attempt.assignmentId).delprov || firstItemVariant(attempt);
-    const correct = (attempt.items || []).filter((i) => i.correct).length;
+    // First-try raw points, the same count the trend and the prognosis use.
+    const correct = (parts.verbalRaw || 0) + (parts.kvantRaw || 0);
     const de = delprovEstimate({ delprov: dp, correct, total: totalAnswered });
     res = { total: de.normed, verbal: null, kvant: null, band: scoreBand(de.normed) };
     caption = t("hp.reveal.delprovCaption");
