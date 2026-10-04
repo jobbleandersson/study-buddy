@@ -587,8 +587,7 @@ function text({ question, tutor, live, testMode, onDone, askConfidence, targetLa
     const ans = ta.value.trim();
     if (!ans) return;
     checkBtn.disabled = true; ta.disabled = true;
-    result.hintsUsed++;
-    tries++;
+    tries++;   // a check is not a hint: a right first answer is "easy", like any other question type
     const verdict = await grade(ans);
 
     // Moved on while this was being checked (skipped, went back, the run ended): record the verdict

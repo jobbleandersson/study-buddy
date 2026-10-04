@@ -64,11 +64,39 @@ export function parseSharedSet(text) {
   let obj;
   try { obj = JSON.parse(text); } catch { return null; }
   if (!obj || typeof obj !== "object" || !(MARKER in obj)) return null;
-  const doc = obj.set;
-  if (!doc || !Array.isArray(doc.questions) || !doc.questions.length) {
-    throw new Error(t("share.setBad"));
-  }
+  const doc = cleanSetDoc(obj.set);
+  if (!doc) throw new Error(t("share.setBad"));
   return doc;
+}
+
+/** A set doc from outside the app (a shared file, a parent's assignment) reduced to well-formed
+ *  fields: text where text belongs, options as text, a right answer that exists. Ids are dropped
+ *  (addAssignmentDoc gives new ones). Null when no usable question is left. */
+export function cleanSetDoc(doc) {
+  if (!doc || typeof doc !== "object" || !Array.isArray(doc.questions)) return null;
+  const s = (v, max = 5000) => (typeof v === "string" ? v.slice(0, max) : typeof v === "number" ? String(v) : "");
+  const questions = doc.questions.filter((q) => q && typeof q === "object" && s(q.prompt).trim()).map((q) => {
+    const kind = ["mc", "text", "cloze", "flashcard", "worked"].includes(q.kind) ? q.kind : "text";
+    const out = { kind, topic: s(q.topic, 80) || "general", prompt: s(q.prompt) };
+    if (kind === "mc") {
+      out.choices = (Array.isArray(q.choices) ? q.choices : []).map((c) => s(c, 500));
+      out.answer = Number.isInteger(q.answer) && q.answer >= 0 && q.answer < out.choices.length ? q.answer : -1;
+    } else {
+      out.answer = s(q.answer);
+    }
+    if (s(q.explanation)) out.explanation = s(q.explanation);
+    if (s(q.rubric)) out.rubric = s(q.rubric);
+    if (Array.isArray(q.steps)) out.steps = q.steps.map((x) => s(x, 1000)).filter(Boolean);
+    return out;
+  }).filter((q) => q.kind !== "mc" || (q.choices.length >= 2 && q.answer >= 0));
+  if (!questions.length) return null;
+  return {
+    title: s(doc.title, 120).trim() || t("create.untitledSet"),
+    subject: s(doc.subject, 60).trim(),
+    type: doc.type === "test" ? "test" : "assignment",
+    ...(s(doc.sourceSummary) ? { sourceSummary: s(doc.sourceSummary, 2000) } : {}),
+    questions,
+  };
 }
 
 /** Import a shared-set doc into the student's own library. Returns the saved

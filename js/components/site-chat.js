@@ -194,9 +194,16 @@ export function mountSiteChat() {
         bubble.innerHTML = markdown(acc);
         logEl.scrollTop = logEl.scrollHeight;
       }
-      messages.push({ role: "assistant", content: acc || "…" });
+      if (!acc.trim()) {
+        // Nothing came back: say so instead of leaving the typing dots up forever.
+        bubble.textContent = t("sitechat.snag");
+        bubble.classList.add("msg--error");
+        messages.pop();
+      } else {
+        messages.push({ role: "assistant", content: acc });
+        announce(t("sitechat.prefix", { text: acc }));
+      }
       setMood(mascotEl, "idle");
-      announce(t("sitechat.prefix", { text: acc }));
     } catch (e) {
       const msg = ClaudeError && e instanceof ClaudeError ? e.message : t("sitechat.snag");
       bubble.textContent = msg;

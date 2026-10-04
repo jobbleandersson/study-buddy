@@ -14,7 +14,7 @@
 // so the home countdown, calendar, reminders and the evening-before plan keep
 // working unchanged; the record is the source of truth.
 
-import { addDays } from "./activity.js";
+import { addDays, isRealDay } from "./activity.js";
 
 /** Minutes each kind of plan day takes — shown next to the task. */
 export const PLAN_MINUTES = { start: 20, drill: 25, review: 15, practice: 20, mock: 40, tonight: 15, testday: 0 };
@@ -38,7 +38,7 @@ export function dayDiff(from, to) {
 /** A well-formed test record, or null. Used on whatever arrives from storage or a sync. */
 export function normalizeExam(x) {
   if (!x || typeof x !== "object" || typeof x.id !== "string" || !x.id) return null;
-  if (typeof x.subjectId !== "string" || !DAY_RE.test(x.date || "")) return null;
+  if (typeof x.subjectId !== "string" || !isRealDay(x.date)) return null;
   return {
     id: x.id,
     subjectId: x.subjectId,
@@ -125,7 +125,7 @@ export function readiness(sets, topicMastery) {
   const topics = topicsOf(sets);
   let sum = 0, seen = 0;
   for (const tp of topics) {
-    if (tp in topicMastery) { sum += topicMastery[tp]; seen++; }
+    if (Object.prototype.hasOwnProperty.call(topicMastery, tp)) { sum += topicMastery[tp]; seen++; }   // not `in`: a topic called "constructor" would match Object's own
   }
   return { pct: topics.length ? Math.round((sum / topics.length) * 100) : null, topics: topics.length, seen };
 }

@@ -249,7 +249,7 @@ export function monthCalendar({ marks = new Map(), onPick, onView, onAdd } = {})
       const node = el(interactive ? "button.cal__cell" : "span.cal__cell", {
         type: interactive ? "button" : undefined,
         title: mark ? mark.titles.join(", ") : canAdd ? t("cal.addOn", { date: dayLabel(cell.key) }) : undefined,
-        "aria-label": canAdd ? t("cal.addOn", { date: dayLabel(cell.key) }) : undefined,
+        "aria-label": mark ? `${dayLabel(cell.key)}: ${mark.titles.join(", ")}` : canAdd ? t("cal.addOn", { date: dayLabel(cell.key) }) : undefined,
         class: [
           !cell.inMonth && "is-outside",
           cell.key === today && "is-today",

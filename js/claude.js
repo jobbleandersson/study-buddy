@@ -138,12 +138,17 @@ export async function generateAssignment({ material, topic, image, count = 6, gr
   }
 }
 
+// Model output is checked field by field: a number where text belongs, a missing list or a null
+// question must not throw half-way (or slip through and break the set later).
+const txt = (v) => (typeof v === "string" ? v : typeof v === "number" ? String(v) : "");
 function normalizeDoc(doc) {
-  const questions = (doc.questions || []).map((q) => {
+  doc = doc && typeof doc === "object" ? doc : {};
+  const docTopics = Array.isArray(doc.topics) ? doc.topics.map(txt).filter(Boolean) : null;
+  const questions = (Array.isArray(doc.questions) ? doc.questions : []).filter((q) => q && typeof q === "object").map((q) => {
     const out = {
       kind: ["mc", "text", "cloze", "flashcard", "worked"].includes(q.kind) ? q.kind : "text",
-      topic: (q.topic || (doc.topics && doc.topics[0]) || "general").toLowerCase(),
-      prompt: q.prompt || "",
+      topic: (txt(q.topic) || (docTopics && docTopics[0]) || "general").toLowerCase(),
+      prompt: txt(q.prompt),
       explanation: q.explanation,
       rubric: q.rubric,
       steps: q.steps,
@@ -157,9 +162,16 @@ function normalizeDoc(doc) {
       opener: typeof q.opener === "string" ? q.opener.trim() : undefined,
     };
     if (out.kind === "mc") {
-      out.choices = Array.isArray(q.choices) ? q.choices : [];
-      out.answer = Number.isInteger(q.answerIndex) ? q.answerIndex
+      out.choices = Array.isArray(q.choices) ? q.choices.map(txt) : [];
+      let answer = Number.isInteger(q.answerIndex) ? q.answerIndex
         : Number.isInteger(q.answer) ? q.answer : 0;
+      // An index past the options (a model counting from 1, say): find the right one by its text if
+      // the answer was written out, otherwise the question can't be trusted and is dropped below.
+      if (!(answer >= 0 && answer < out.choices.length)) {
+        answer = typeof q.answer === "string" ? out.choices.findIndex((c) => c.trim() === q.answer.trim()) : -1;
+      }
+      out.answer = answer;
+      if (answer < 0) return out;
       // The model tends to write the correct option first, whatever the prompt says, so the order is
       // randomised here, in code, rather than left to a request it can ignore.
       Object.assign(out, shuffleMc({ choices: out.choices, answer: out.answer }));
@@ -167,12 +179,12 @@ function normalizeDoc(doc) {
       out.answer = typeof q.answer === "string" ? q.answer : String(q.answer ?? "");
     }
     return out;
-  }).filter((q) => q.prompt && (q.kind !== "mc" || q.choices.length >= 2));
+  }).filter((q) => q.prompt && (q.kind !== "mc" || (q.choices.length >= 2 && q.answer >= 0)));
 
-  const topics = doc.topics || [...new Set(questions.map((q) => q.topic))];
+  const topics = docTopics || [...new Set(questions.map((q) => q.topic))];
   return {
-    title: doc.title || topicTitle(doc),
-    subject: doc.subject || "General",
+    title: txt(doc.title) || topicTitle(docTopics),
+    subject: txt(doc.subject) || t("common.general"),
     // The prompt asks for a real summary and calls it out as easy to skip
     // (see generationSystem in prompts.js), but a model instruction is never
     // a guarantee — this still needs a real fallback, not just a better ask.
@@ -183,7 +195,7 @@ function normalizeDoc(doc) {
     questions,
   };
 }
-function topicTitle(doc) { return (doc.topics && doc.topics[0]) ? cap(doc.topics[0]) : "New assignment"; }
+function topicTitle(topics) { return topics && topics[0] ? cap(topics[0]) : t("create.untitledSet"); }
 function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
 
 // ---------- free-text grading ----------
