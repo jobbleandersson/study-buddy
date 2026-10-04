@@ -201,7 +201,9 @@ export function questionEditor(doc, { onChange } = {}) {
     for (const q of doc.questions) {
       if (q.kind === "mc") {
         // Dropping blank choices shifts the rest up, so the answer index has to follow its choice.
-        const all = q.choices || [];
+        // Strings whatever came in (a model can write [12, 15, 18]; .trim() on a number threw and
+        // the save silently did nothing).
+        const all = (Array.isArray(q.choices) ? q.choices : []).map((c) => String(c ?? ""));
         const answerText = typeof q.answer === "number" ? (all[q.answer] || "").trim() : "";
         q.choices = all.map((c) => c.trim()).filter(Boolean);
         if (typeof q.answer === "number") {
@@ -209,8 +211,10 @@ export function questionEditor(doc, { onChange } = {}) {
           q.answer = at >= 0 ? at : Math.min(Math.max(q.answer, 0), Math.max(q.choices.length - 1, 0));
         }
       }
-      q.topic = (q.topic || "general").trim().toLowerCase() || "general";
+      q.topic = (String(q.topic || "general")).trim().toLowerCase() || "general";
     }
+    // A multiple-choice question left with fewer than two options has nothing to pick between.
+    doc.questions = doc.questions.filter((q) => q.kind !== "mc" || q.choices.length >= 2);
     return doc.questions;
   }
 

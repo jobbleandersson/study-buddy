@@ -2,7 +2,7 @@ import "./helpers.mjs";
 import { test, describe } from "node:test";
 import assert from "node:assert/strict";
 import {
-  extractSetBrief, normalizeBrief, withSetId, pickMaterial, generationParams,
+  extractSetBrief, normalizeBrief, withSetId, withoutSetId, pickMaterial, generationParams,
   COUNT_MIN, COUNT_MAX, COUNT_DEFAULT,
 } from "../../js/lib/set-brief.js";
 import { setCreationRules, solveChatSystem, studyChatSystem } from "../../js/prompts.js";
@@ -208,8 +208,23 @@ describe("normalizeBrief: the test date", () => {
     assert.equal(normalizeBrief({ topic: "x", testDate: "2026-10-09" }).testDate, "2026-10-09");
   });
   test("anything else is dropped rather than guessed", () => {
-    for (const bad of ["", "fredag", "9 oktober", "2026-10-9", 20261009, null]) {
+    for (const bad of ["", "fredag", "9 oktober", "2026-10-9", 20261009, null, "2026-13-45", "2026-02-30"]) {
       assert.equal("testDate" in normalizeBrief({ topic: "x", testDate: bad }), false, String(bad));
     }
+  });
+});
+
+describe("withoutSetId: what the model sees again", () => {
+  test("the app's note of the set it made is taken out, the rest of the proposal stays", () => {
+    const raw = withSetId('Här är förslaget. [[MAKE_SET {"title":"Fotosyntes","topic":"fotosyntes","count":8}]]', "abc123");
+    const back = withoutSetId(raw);
+    assert.equal(back.includes("abc123"), false);
+    assert.equal(extractSetBrief(back).brief.title, "Fotosyntes");
+    assert.equal("setId" in extractSetBrief(back).brief, false);
+  });
+  test("a reply without a marker, or without an id, is left alone", () => {
+    assert.equal(withoutSetId("Hej!"), "Hej!");
+    const plain = '[[MAKE_SET {"title":"X","topic":"x"}]]';
+    assert.equal(withoutSetId(plain), plain);
   });
 });

@@ -16,20 +16,22 @@ export function emailEnabled() {
 
 // Resend's free tier is 100 emails/day, and sign-in codes now ride on it: if unauthenticated
 // routes (forgot-password, signup verification) could burn the whole day's quota, every account
-// with email 2FA would be locked out of signing in. So ordinary mail stops at 60% of the daily
-// budget and only `critical` mail (2FA codes) may use the rest. In-memory, per process, resets at
-// UTC midnight and on restart — like every limiter here. EMAIL_DAILY_BUDGET=0 switches it off.
+// with email 2FA would be locked out of signing in. So the quota is tiered: `low` mail (signup
+// verification, the contact form — anyone can trigger them in bulk) stops at 40% of the daily
+// budget, ordinary mail (password resets) at 60%, and only `critical` mail (sign-in codes) may use
+// the rest. In-memory, per process, resets at UTC midnight and on restart — like every limiter
+// here. EMAIL_DAILY_BUDGET=0 switches it off.
 const DAILY_BUDGET = (() => {
   const n = Number(process.env.EMAIL_DAILY_BUDGET);
   return Number.isFinite(n) && n >= 0 && process.env.EMAIL_DAILY_BUDGET?.trim() ? n : 100;
 })();
 let budgetDay = "";
 let budgetUsed = 0;
-function takeBudget(critical) {
+function takeBudget(critical, low) {
   if (!(DAILY_BUDGET > 0)) return true;
   const day = new Date().toISOString().slice(0, 10);
   if (day !== budgetDay) { budgetDay = day; budgetUsed = 0; }
-  const ceiling = critical ? DAILY_BUDGET : Math.floor(DAILY_BUDGET * 0.6);
+  const ceiling = critical ? DAILY_BUDGET : Math.floor(DAILY_BUDGET * (low ? 0.4 : 0.6));
   if (budgetUsed >= ceiling) { console.warn("[email] daily budget reached", { critical, budgetUsed }); return false; }
   budgetUsed++;
   return true;
@@ -38,9 +40,9 @@ function takeBudget(critical) {
 /** Best-effort: returns false (and logs) on any failure rather than throwing, so a flaky provider
  *  never turns into a 500 on signup or password reset — the token is already stored either way,
  *  and resend-verification exists for exactly this case. */
-export async function sendEmail({ to, subject, html, critical = false, replyTo = null }) {
+export async function sendEmail({ to, subject, html, critical = false, low = false, replyTo = null }) {
   if (!RESEND_API_KEY) return false;
-  if (!takeBudget(critical)) return false;
+  if (!takeBudget(critical, low)) return false;
   try {
     const res = await fetch(RESEND_API_URL, {
       method: "POST",
@@ -76,7 +78,7 @@ function layout(bodyHtml) {
 export function sendVerifyEmail(to, token) {
   const url = `${PUBLIC_URL}/#/verify?token=${token}`;
   return sendEmail({
-    to, subject: "Confirm your email for PluggEra",
+    to, low: true, subject: "Confirm your email for PluggEra",
     html: layout(`
       <p>Tap the button below to confirm this is your email address.</p>
       <p><a href="${url}" style="display:inline-block;background:#2C5CD6;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-weight:600">Confirm email</a></p>
@@ -126,7 +128,9 @@ export function sendTwoFaDisabledEmail(to) {
 export function sendTwoFaCodeEmail(to, code, purpose) {
   const what = purpose === "enroll" ? "turn on two-factor authentication" : "sign in";
   return sendEmail({
-    to, critical: true, subject: "Your PluggEra verification code",
+    // Only sign-in codes may use the reserve: turning 2FA on can wait, and an account that turns
+    // it on over and over must not be able to spend the codes everyone else needs to sign in.
+    to, critical: purpose !== "enroll", subject: "Your PluggEra verification code",
     html: layout(`
       <p>Your code to ${what}:</p>
       <p style="font-size:30px;letter-spacing:6px;font-weight:700;margin:12px 0">${code}</p>
@@ -155,7 +159,7 @@ const escapeHtml = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", 
  *  Everything the visitor typed is escaped: this html lands in our own inbox. */
 export function sendContactEmail({ name, email, message }) {
   return sendEmail({
-    to: CONTACT_TO, replyTo: email,
+    to: CONTACT_TO, replyTo: email, low: true,
     subject: `Kontaktformulär: ${name.replace(/\s+/g, " ")}`,
     html: `<div style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:560px;color:#191D28">
       <p style="margin:0 0 4px"><strong>${escapeHtml(name)}</strong> &lt;${escapeHtml(email)}&gt;</p>

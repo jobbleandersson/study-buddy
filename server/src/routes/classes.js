@@ -125,21 +125,24 @@ classes.get("/classes/:id/results", requireAuth, (req, res) => {
     WHERE m.class_id = ? ORDER BY u.email
   `).all(cls.id);
 
-  // Each student's state is read once, however many sets are assigned.
-  const blobs = new Map();
+  const rows = db.prepare(
+    "SELECT id, set_id AS setId FROM class_assignments WHERE class_id = ? ORDER BY created_at"
+  ).all(cls.id).map((a) => ({ a, set: librarySet(a.setId) }));
+
+  // Each student's state is read once, however many sets are assigned — and only one at a time: the
+  // progress on every assigned set is taken from it and the parsed state let go before the next
+  // student's is read. Holding every member's state at once could run the server out of memory.
+  const progress = new Map();
   for (const m of members) {
     const row = db.prepare("SELECT blob FROM state_blobs WHERE user_id = ?").get(m.userId);
     let blob = null;
     try { blob = row ? JSON.parse(row.blob) : null; } catch { /* unreadable: counts as nothing done */ }
-    blobs.set(m.userId, blob);
+    progress.set(m.userId, rows.map(({ set }) => (set ? studentSetProgress(blob, set) : null)));
   }
 
-  const assignments = db.prepare(
-    "SELECT id, set_id AS setId FROM class_assignments WHERE class_id = ? ORDER BY created_at"
-  ).all(cls.id).map((a) => {
-    const set = librarySet(a.setId);
+  const assignments = rows.map(({ a, set }, i) => {
     if (!set) return { id: a.id, setId: a.setId, total: 0, students: [], topics: [] };
-    const perStudent = members.map((m) => ({ m, p: studentSetProgress(blobs.get(m.userId), set) }));
+    const perStudent = members.map((m) => ({ m, p: progress.get(m.userId)[i] }));
     return {
       id: a.id,
       setId: a.setId,

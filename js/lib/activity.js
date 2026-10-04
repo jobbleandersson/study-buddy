@@ -14,6 +14,14 @@ export function localDayKey(d = new Date()) {
   return `${y}-${m}-${day}`;
 }
 
+/** Is this a "YYYY-MM-DD" that names a real calendar day? ("2026-13-45" matches the shape but isn't one.) */
+export function isRealDay(s) {
+  if (typeof s !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(s)) return false;
+  const [y, m, d] = s.split("-").map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  return dt.getUTCFullYear() === y && dt.getUTCMonth() === m - 1 && dt.getUTCDate() === d;
+}
+
 export function addDays(dayKey, delta) {
   const [y, m, d] = dayKey.split("-").map(Number);
   const dt = new Date(y, m - 1, d);

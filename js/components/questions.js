@@ -587,9 +587,16 @@ function text({ question, tutor, live, testMode, onDone, askConfidence, targetLa
     const ans = ta.value.trim();
     if (!ans) return;
     checkBtn.disabled = true; ta.disabled = true;
-    result.hintsUsed++;
-    tries++;
+    tries++;   // a check is not a hint: a right first answer is "easy", like any other question type
     const verdict = await grade(ans);
+
+    // Moved on while this was being checked (skipped, went back, the run ended): record the verdict
+    // for this question and touch nothing on screen — the tutor and buttons belong to another one now.
+    if (!ta.isConnected) {
+      result.correct = !!verdict.correct;
+      onDone(finalize(result));
+      return;
+    }
 
     // Test mode: grade silently, show nothing, move on.
     if (testMode) {
@@ -712,6 +719,9 @@ function cloze({ question, tutor, live, testMode, onDone, askConfidence }) {
 
   async function check() {
     if (done) return;
+    // In a test, nothing typed is nothing handed in — Enter in an empty blank on a revisited
+    // question must not replace the answer already recorded with a blank one.
+    if (testMode && blanks.every((b) => !b.inp.value.trim())) { blanks[0]?.inp.focus(); return; }
     done = true;
     checkBtn.disabled = true;
     for (const b of blanks) b.inp.disabled = true;
@@ -737,9 +747,10 @@ function cloze({ question, tutor, live, testMode, onDone, askConfidence }) {
         }
       } catch (e) { console.error("Grading failed:", e); }
     }
-    blanks.forEach((b, i) => b.inp.classList.add(verdicts[i].ok ? "is-correct" : "is-wrong"));
     const allRight = verdicts.every((v) => v.ok);
     result.correct = allRight;
+    if (!feedback.isConnected) { onDone(finalize(result)); return; }   // moved on while it was checked
+    blanks.forEach((b, i) => b.inp.classList.add(verdicts[i].ok ? "is-correct" : "is-wrong"));
     checkBtn.remove();
 
     if (testMode) {
@@ -971,6 +982,7 @@ function worked({ question, tutor, live, testMode, onDone, targetLang }) {
   }
 
   async function finish() {
+    if (testMode && !ta.value.trim()) { ta.focus(); return; }   // nothing written is nothing handed in
     if (!ta.value.trim() && live && !testMode) {
       needWriting.hidden = false;
       needWriting.replaceChildren(t("q.workedNeedWriting"), " ", el("button.linkbtn", { type: "button", onclick: giveUp }, t("q.workedShowAnyway")));
@@ -979,6 +991,7 @@ function worked({ question, tutor, live, testMode, onDone, targetLang }) {
     }
     ta.disabled = true;
     keypad.toggle?.remove(); keypad.pad?.remove();
+    needWriting.hidden = true;   // its "Show anyway" link would mark this answer as given up afterwards
     const written = ta.value.trim();
 
     let verdict = null;
@@ -989,6 +1002,12 @@ function worked({ question, tutor, live, testMode, onDone, targetLang }) {
       catch { try { verdict = await gradeWorking({ question, working: written }); } catch (e) { console.error("Grading failed:", e); verdict = null; } }
     }
 
+    if (!ta.isConnected) {   // moved on while it was checked: record it, leave the screen alone
+      if (!verdict && written) verdict = heuristic(written, question.answer);
+      result.correct = !!verdict?.correct;
+      onDone(finalize(result));
+      return;
+    }
     if (testMode) {
       // Nothing is revealed during a test, so the answer has to be graded
       // for real rather than assumed correct because something was typed.

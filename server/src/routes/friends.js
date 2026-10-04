@@ -96,13 +96,18 @@ friends.get("/friends/leaderboard", requireAuth, (req, res) => {
   const userIds = [req.user.userId, ...friendRows.map((r) => r.friendUserId)];
   const weekStart = startOfWeekUTC(Date.now());
 
+  // A friend's saved state is whatever their client wrote — read it defensively, so one odd blob
+  // can't turn everybody's leaderboard into an error.
+  const arr = (x) => (Array.isArray(x) ? x : []);
   const entries = userIds.map((userId) => {
     const row = db.prepare("SELECT blob FROM state_blobs WHERE user_id = ?").get(userId);
-    const blob = row ? JSON.parse(row.blob) : null;
-    const attempts = blob?.attempts || [];
+    let blob = null;
+    try { blob = row ? JSON.parse(row.blob) : null; } catch { /* unreadable: shows as nothing done */ }
+    if (!blob || typeof blob !== "object") blob = null;
+    const attempts = arr(blob?.attempts);
     const questionsThisWeek = attempts
-      .filter((a) => (a.finishedAt || 0) >= weekStart)
-      .reduce((n, a) => n + (a.items?.length || 0), 0);
+      .filter((a) => a && (Number(a.finishedAt) || 0) >= weekStart)
+      .reduce((n, a) => n + arr(a.items).length, 0);
     return {
       userId,
       linkId: linkIdFor.get(userId) || null,
@@ -111,7 +116,8 @@ friends.get("/friends/leaderboard", requireAuth, (req, res) => {
       synced: !!row,
       avatar: avatarFrom(blob),
       questionsThisWeek,
-      streak: currentStreakFromUTC(blob?.activity?.daysStudied || [], blob?.activity?.frozenDays || []),
+      streak: currentStreakFromUTC(arr(blob?.activity?.daysStudied).filter((d) => typeof d === "string"),
+        arr(blob?.activity?.frozenDays).filter((d) => typeof d === "string")),
     };
   });
 

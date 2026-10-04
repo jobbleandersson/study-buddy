@@ -44,16 +44,19 @@ export function masteryForSubject(subjectId, assignments, topicMastery) {
   }
   if (!topics.size) return null;
   let sum = 0, n = 0;
-  for (const t of topics) { if (t in topicMastery) { sum += topicMastery[t]; n++; } }
+  for (const t of topics) { if (has(topicMastery, t)) { sum += topicMastery[t]; n++; } }
   return n ? sum / n : null;
 }
+
+// Own keys only: a topic named "constructor" or "toString" must not pick up Object's built-ins.
+const has = (o, k) => Object.prototype.hasOwnProperty.call(o, k);
 
 // Mastery for a single assignment given the current topic mastery map.
 export function masteryForAssignment(assignment, topicMastery) {
   const topics = new Set((assignment.questions || []).map((q) => q.topic).filter(Boolean));
   if (!topics.size) return null;
   let sum = 0, n = 0;
-  for (const t of topics) { if (t in topicMastery) { sum += topicMastery[t]; n++; } }
+  for (const t of topics) { if (has(topicMastery, t)) { sum += topicMastery[t]; n++; } }
   return n ? sum / n : null;
 }
 

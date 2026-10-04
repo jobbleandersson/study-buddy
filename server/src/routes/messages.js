@@ -4,6 +4,7 @@ import { asyncHandler } from "../middleware/asyncHandler.js";
 import { takeToken, RATE_PER_MIN } from "../middleware/rateLimit.js";
 import {
   recordUsage, checkBudget, isBudgetExempt, checkDailyCap, reserveSpend, worstCaseMicro, readUsage, currentPeriod, periodResetsAt,
+  checkUserDailyShare, reserveUserSpend,
   MONTHLY_TOKEN_BUDGET, MAX_OUTPUT_TOKENS, ALLOWED_MODELS,
 } from "../usage.js";
 
@@ -38,6 +39,32 @@ function sanitizeBody(raw) {
   if (typeof b.temperature === "number") out.temperature = Math.max(0, Math.min(1, b.temperature));
   return out;
 }
+
+// Only what the app itself sends: text, and pictures as base64. Anything else — a PDF or a picture
+// Anthropic would fetch from a URL, a document block, tool calls — is refused: the spend estimate
+// below can't see what a URL costs, and a 100-page PDF passed by link would be booked as ~50 tokens.
+function contentOk(content) {
+  if (typeof content === "string") return true;
+  if (!Array.isArray(content)) return false;
+  return content.every((b) => b && typeof b === "object" && (
+    (b.type === "text" && typeof b.text === "string")
+    || (b.type === "image" && b.source?.type === "base64" && typeof b.source.data === "string")));
+}
+function bodyContentOk(body) {
+  if (!body.messages.every((m) => m && (m.role === "user" || m.role === "assistant") && contentOk(m.content))) return false;
+  const sys = body.system;
+  return sys == null || typeof sys === "string"
+    || (Array.isArray(sys) && sys.every((b) => b && b.type === "text" && typeof b.text === "string"));
+}
+
+// One person's requests in flight at once, and their share of the server's daily dollar cap: without
+// these one new account could fire a burst of maximum-size requests whose reservations fill the whole
+// day's cap, and AI would be off for everyone until midnight. In memory, like the other limiters.
+const MAX_INFLIGHT_PER_USER = (() => {
+  const n = Number(process.env.AI_MAX_INFLIGHT_PER_USER);
+  return Number.isFinite(n) && n > 0 && process.env.AI_MAX_INFLIGHT_PER_USER?.trim() ? n : 3;
+})();
+const inflightByUser = new Map();
 
 // Characters of real text in a request (images and documents are billed by tokens, not characters).
 // A clear 413 for an absurd request, before the spend estimate would refuse it as "AI paused".
@@ -114,6 +141,9 @@ messages.post("/messages", ...guards, asyncHandler(async (req, res) => {
   if (!body.messages.length) {
     return res.status(400).json({ error: { message: "No messages.", code: "bad_request" } });
   }
+  if (!bodyContentOk(body)) {
+    return res.status(400).json({ error: { message: "That kind of content can't be sent to the AI.", code: "bad_content" } });
+  }
   if (textChars(body.messages) + textChars(body.system) > MAX_TEXT_CHARS) {
     return res.status(413).json({ error: { message: "That request is too large.", code: "bad_request" } });
   }
@@ -133,6 +163,13 @@ messages.post("/messages", ...guards, asyncHandler(async (req, res) => {
   if (userId) {
     if (!takeToken(userId)) {
       return res.status(429).json({ error: { message: `Too many requests — max ${RATE_PER_MIN}/min.`, code: "rate_limited" } });
+    }
+    if ((inflightByUser.get(userId) || 0) >= MAX_INFLIGHT_PER_USER) {
+      return res.status(429).json({ error: { message: "Too many requests at once. Wait for the last answer to finish.", code: "ai_busy" } });
+    }
+    if (!checkUserDailyShare(userId, worstMicro)) {
+      log({ userId, model: body.model, status: 429, err: "user_daily_cap" });
+      return res.status(429).json({ error: { message: "You've used today's share of AI. Try again tomorrow.", code: "user_daily_cap" }, resetsAt: cap.resetsAt });
     }
     const budget = isBudgetExempt(userId) ? { ok: true } : checkBudget(userId);
     if (!budget.ok) {
@@ -154,10 +191,17 @@ messages.post("/messages", ...guards, asyncHandler(async (req, res) => {
   const timer = setTimeout(() => ac.abort(), 180_000);
   res.on("close", () => clearTimeout(timer));
   const release = reserveSpend(worstMicro);
+  const releaseUser = userId ? reserveUserSpend(userId, worstMicro) : () => {};
+  if (userId) inflightByUser.set(userId, (inflightByUser.get(userId) || 0) + 1);
   try {
     await forward({ res, userId, body, apiKey, started, signal: ac.signal });
   } finally {
     release();
+    releaseUser();
+    if (userId) {
+      const n = (inflightByUser.get(userId) || 1) - 1;
+      if (n > 0) inflightByUser.set(userId, n); else inflightByUser.delete(userId);
+    }
   }
 }));
 
@@ -176,6 +220,13 @@ async function forward({ res, userId, body, apiKey, started, signal }) {
       body: JSON.stringify(body),
     });
   } catch (e) {
+    // Hung up (or timed out) while Anthropic was still working: the request may well be billed, so
+    // book at least what it read rather than nothing.
+    if (signal.aborted) {
+      const costMicro = recordUsage({ userId, model: body.model, usage: { ...emptyUsage(), input: estimateInputTokens(body) } });
+      log({ userId, model: body.model, status: 499, ms: Date.now() - started, err: "aborted_waiting", costMicro });
+      return res.end();
+    }
     log({ userId, model: body.model, status: 502, ms: Date.now() - started, err: "unreachable" });
     return res.status(502).json({ error: { message: "Could not reach the Claude API.", code: "upstream_unreachable" } });
   }
@@ -192,6 +243,11 @@ async function forward({ res, userId, body, apiKey, started, signal }) {
     const decoder = new TextDecoder();
     let buf = "";
     const usage = emptyUsage();
+    // Output is only reported in full by the closing message_delta. If the client hangs up before it,
+    // count what was streamed instead (about one token per three characters) — otherwise reading the
+    // whole answer and cutting the connection just before the end would cost the meter nothing.
+    let outChars = 0;
+    let sawFinalUsage = false;
     try {
       while (true) {
         const { done, value } = await reader.read();
@@ -207,11 +263,13 @@ async function forward({ res, userId, body, apiKey, started, signal }) {
           try {
             const j = JSON.parse(dataLine.slice(5).trim());
             if (j.type === "message_start") mergeUsage(usage, j.message?.usage);
-            else if (j.type === "message_delta") mergeUsage(usage, j.usage);
+            else if (j.type === "message_delta") { mergeUsage(usage, j.usage); sawFinalUsage = true; }
+            else if (j.type === "content_block_delta") outChars += String(j.delta?.text || j.delta?.partial_json || "").length;
           } catch { /* partial / non-JSON keepalive */ }
         }
       }
     } catch { /* client hung up mid-stream — still bill what we saw */ }
+    if (!sawFinalUsage) usage.output = Math.max(usage.output, Math.ceil(outChars / 3));
     res.end();
     const costMicro = upstream.ok ? recordUsage({ userId, model: body.model, usage }) : 0;
     log({ userId, model: body.model, stream: true, status: upstream.status, ...usageFields(usage, costMicro), ms: Date.now() - started });
@@ -221,7 +279,12 @@ async function forward({ res, userId, body, apiKey, started, signal }) {
   // --- non-streaming: buffer so we can read response.usage before forwarding. ---
   let text;
   try { text = await upstream.text(); }
-  catch { log({ userId, model: body.model, status: 499, ms: Date.now() - started, err: "aborted" }); return res.end(); }   // client left or the timeout fired
+  catch {
+    // The client left or the timeout fired with the answer on its way: book what was read, at least.
+    const costMicro = upstream.ok ? recordUsage({ userId, model: body.model, usage: { ...emptyUsage(), input: estimateInputTokens(body) } }) : 0;
+    log({ userId, model: body.model, status: 499, ms: Date.now() - started, err: "aborted", costMicro });
+    return res.end();
+  }
   res.setHeader("content-length", Buffer.byteLength(text));
   res.end(text);
   const usage = emptyUsage();

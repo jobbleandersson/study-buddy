@@ -21,6 +21,7 @@ export function fromCorrect(correct, hintsUsed = 0) {
 export function review(rec, grade, now = Date.now()) {
   const r = { ...(rec || fresh()) };
   const q = { again: 0, hard: 1, good: 2, easy: 3 }[grade] ?? 2;
+  r.reviewedAt = now;   // a sync merge keeps the record reviewed last (lib/merge-state.js)
 
   if (q === 0) {
     r.reps = 0;
@@ -53,10 +54,11 @@ export function dueLabel(rec, now = Date.now()) {
   // A same-session retry (intervalDays 0) is due in ~10 minutes — that read as
   // "Tomorrow" once it rounded up to a whole day. Anything under a day away is
   // "later today" instead.
-  if (rec.dueAt - now < DAY) return t("date.laterToday");
-  const days = Math.ceil((rec.dueAt - now) / DAY);
-  const target = new Date(now + days * DAY);
-  return relativeDay(localDayKey(target), new Date(now));
+  // By calendar day, not by 24-hour blocks: due tomorrow at 08:00, seen tonight at 22:00, is
+  // "Tomorrow", not "later today"; due tomorrow at 23:00 is "Tomorrow", not "in 2 days".
+  const dueDay = localDayKey(new Date(rec.dueAt));
+  if (dueDay === localDayKey(new Date(now))) return t("date.laterToday");
+  return relativeDay(dueDay, new Date(now));
 }
 
 /** What a finished session did to the review schedule, for the results screen.

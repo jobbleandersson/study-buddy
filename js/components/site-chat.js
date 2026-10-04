@@ -69,6 +69,14 @@ export function mountSiteChat() {
 
   fab.addEventListener("click", () => (opened ? close() : open()));
 
+  // Signed out (or the device was cleared): the conversation belonged to whoever was here before.
+  store.addEventListener("deviceCleared", () => {
+    abort?.abort();
+    messages.length = 0;
+    clear(logEl);
+    close();
+  });
+
   document.body.append(fab, panel);
 
   // This widget lives outside the router (see the file header), so main.js's
@@ -186,9 +194,16 @@ export function mountSiteChat() {
         bubble.innerHTML = markdown(acc);
         logEl.scrollTop = logEl.scrollHeight;
       }
-      messages.push({ role: "assistant", content: acc || "…" });
+      if (!acc.trim()) {
+        // Nothing came back: say so instead of leaving the typing dots up forever.
+        bubble.textContent = t("sitechat.snag");
+        bubble.classList.add("msg--error");
+        messages.pop();
+      } else {
+        messages.push({ role: "assistant", content: acc });
+        announce(t("sitechat.prefix", { text: acc }));
+      }
       setMood(mascotEl, "idle");
-      announce(t("sitechat.prefix", { text: acc }));
     } catch (e) {
       const msg = ClaudeError && e instanceof ClaudeError ? e.message : t("sitechat.snag");
       bubble.textContent = msg;

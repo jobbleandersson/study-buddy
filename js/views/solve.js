@@ -27,7 +27,7 @@ import { markdown } from "../lib/markdown.js";
 import { announce } from "../lib/a11y.js";
 import { shrinkImage } from "../lib/photo.js";
 import { tutorStream, generateAssignment, ClaudeError } from "../claude.js";
-import { extractSetBrief, withSetId, pickMaterial, generationParams } from "../lib/set-brief.js";
+import { extractSetBrief, withSetId, withoutSetId, pickMaterial, generationParams } from "../lib/set-brief.js";
 import { setProposalCard } from "../components/set-proposal-card.js";
 import { solveChatSystem, studyChatSystem } from "../prompts.js";
 import { STUDY_MODES, isStudyMode, trimHistory, MAX_INPUT_CHARS } from "../lib/study-modes.js";
@@ -478,7 +478,8 @@ export function renderSolve(qs) {
     try {
       for await (const chunk of tutorStream({
         system: (state.mode ? studyChatSystem(state.mode) : solveChatSystem()) + materialSystemBlock(state.material),
-        messages: trimHistory(state.messages),
+        messages: trimHistory(state.messages.map((m) => (m.role === "assistant" && typeof m.content === "string"
+          ? { ...m, content: withoutSetId(m.content) } : m))),
         signal: mine.signal,
         onStop: (r) => { stopReason = r; },
       })) {

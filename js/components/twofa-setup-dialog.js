@@ -77,7 +77,7 @@ export function twofaSetupDialog() {
       async function send(e) {
         e.preventDefault();
         if (challenge !== null && left > 0) return;
-        if (!passwordInput.value) { err.textContent = t("login.password"); err.hidden = false; passwordInput.focus(); return; }
+        if (!passwordInput.value) { err.textContent = t("twofa.needPassword"); err.hidden = false; passwordInput.focus(); return; }
         busy = true; sendBtn.disabled = true; cancelBtn.disabled = true; err.hidden = true;
         try {
           const r = await store.setup2fa({ method: "email", password: passwordInput.value });

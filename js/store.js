@@ -6,6 +6,7 @@ import { localDayKey, currentStreak, addDays, studiedToday, questionsAnsweredTod
 import { getLang, t } from "./lib/i18n.js";
 import { serverMessage } from "./lib/server-errors.js";
 import { normalizeExam, examsFromMarkedSets, examSetDates } from "./lib/exam.js";
+import { mergeStates, looksLikeBackup } from "./lib/merge-state.js";
 
 /** An Error carrying the server's message (translated where known) and its machine-readable code. */
 /** What login()/resetPassword() hand the caller when a second factor is still owed. `method` is
@@ -61,6 +62,22 @@ const RECOVERY_KEY = "studybuddy.v1.recovery";
 // so a merge that had to fall back to "adopt the server's blob" is still
 // recoverable (the banner offers it as a download).
 const SYNC_DISCARD_KEY = "studybuddy.v1.syncdiscard";
+
+// Set while this device has changes the server hasn't accepted yet, so a reload knows whether its
+// copy can simply take the server's newer one or has to be merged into it.
+const SYNC_DIRTY_KEY = "studybuddy.v1.syncdirty";
+
+// Changes that hadn't reached the server when their account signed out here: { [email]: { at, blob } }.
+// The device is cleared for the next person either way; these are merged back in the next time that
+// same account signs in on this device.
+const UNSYNCED_KEY = "studybuddy.v1.unsynced";
+
+// Everything else this app keeps per person in localStorage, cleared with the study data on sign-out
+// so the next student on a shared computer can't open it: AI chats and saved answers
+// (lib/chat-history.js), listen-mode scripts (lib/podcast.js), the challenge name, the admin key.
+const PERSONAL_KEYS = ["studify.chats.v1", "studify.saved.v1", "studify.talks.v1", "studybuddy.challengeName", "studify.reviewAdminKey"];
+
+const withTimeout = (ms) => (typeof AbortSignal !== "undefined" && AbortSignal.timeout ? AbortSignal.timeout(ms) : undefined);
 
 /** The bundled demo sets. They are no longer seeded automatically — they live
  *  in Settings under "Demo content" so a real library starts clean.
@@ -290,118 +307,14 @@ function migrate(state) {
   return finishMigrate(s);
 }
 
-/**
- * Merge the *additive* parts of a local blob into the server's canonical one,
- * for the 409 sync-conflict path — so a device that did work while another was
- * ahead keeps that work instead of having its whole blob replaced. Both args
- * are raw (pre-migrate); the caller migrates the result. Every field falls
- * back to the server's value if the local one is missing or malformed.
- */
-function mergeStates(server, local) {
-  const s = server && typeof server === "object" ? { ...server } : {};
-  const l = local && typeof local === "object" ? local : {};
-  const arr = (x) => (Array.isArray(x) ? x : []);
-  const o = (x) => (x && typeof x === "object" ? x : {});
-  const unionSorted = (a, b) => [...new Set([...arr(a), ...arr(b)])].sort();
-
-  // attempts — union by id, chronological
-  const aSeen = new Set(arr(s.attempts).map((a) => a && a.id));
-  s.attempts = [...arr(s.attempts), ...arr(l.attempts).filter((a) => a && a.id && !aSeen.has(a.id))]
-    .sort((a, b) => (a.finishedAt || 0) - (b.finishedAt || 0));
-
-  // exams — union by id; on a shared id the server's copy stays
-  {
-    const eSeen = new Set(arr(s.exams).map((e) => e && e.id));
-    if (Array.isArray(s.exams) || Array.isArray(l.exams)) {
-      s.exams = [...arr(s.exams), ...arr(l.exams).filter((e) => e && e.id && !eSeen.has(e.id))];
-    }
-  }
-
-  // assignments / subjects — add the ones only the local side has (edits to a
-  // shared id stay the server's; migrate() dedupes + prunes subjects after)
-  const asSeen = new Set(arr(s.assignments).map((a) => a && a.id));
-  s.assignments = [...arr(s.assignments), ...arr(l.assignments).filter((a) => a && a.id && !asSeen.has(a.id))];
-  const suSeen = new Set(arr(s.subjects).map((x) => x && x.id));
-  s.subjects = [...arr(s.subjects), ...arr(l.subjects).filter((x) => x && x.id && !suSeen.has(x.id))];
-
-  // rules — union by id; on a shared id the later edit wins. (Like sets, a rule
-  // deleted on one device can come back from a stale one — worth it to never
-  // lose something a student wrote.)
-  {
-    const byId = new Map(arr(s.rules).filter((r) => r && r.id).map((r) => [r.id, r]));
-    for (const r of arr(l.rules)) {
-      if (!r || !r.id) continue;
-      const cur = byId.get(r.id);
-      if (!cur || (r.updatedAt || r.createdAt || 0) > (cur.updatedAt || cur.createdAt || 0)) byId.set(r.id, r);
-    }
-    s.rules = [...byId.values()].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
-  }
-
-  // tonight — union the evening checklists (a step done on either device stays
-  // done); quiet hours end at the later of the two
-  {
-    const st = o(s.tonight), lt = o(l.tonight);
-    const days = { ...o(st.days) };
-    for (const [k, v] of Object.entries(o(lt.days))) {
-      const cur = days[k];
-      days[k] = !cur ? v : {
-        done: { ...o(v?.done), ...o(cur.done) },
-        finishedAt: Math.max(cur.finishedAt || 0, v?.finishedAt || 0) || null,
-      };
-    }
-    s.tonight = { days, quietUntil: Math.max(st.quietUntil || 0, lt.quietUntil || 0) };
-  }
-
-  // srs — per question, keep the record with more review history
-  const srs = { ...o(s.srs) };
-  for (const [qid, rec] of Object.entries(o(l.srs))) {
-    const cur = srs[qid];
-    const better = !cur
-      || (rec?.reps || 0) > (cur.reps || 0)
-      || ((rec?.reps || 0) === (cur.reps || 0) && (rec?.dueAt || 0) > (cur.dueAt || 0));
-    if (better) srs[qid] = rec;
-  }
-  s.srs = srs;
-
-  // in-progress sessions — keep a local one the server lacks; on a shared key
-  // keep whichever got further
-  const sess = { ...o(s.sessions) };
-  for (const [k, ss] of Object.entries(o(l.sessions))) {
-    const cur = sess[k];
-    const li = Object.keys(o(ss?.items)).length;
-    const ci = Object.keys(o(cur?.items)).length;
-    if (!cur || li > ci || (li === ci && (ss?.savedAt || 0) > (cur?.savedAt || 0))) sess[k] = ss;
-  }
-  s.sessions = sess;
-
-  // activity — union the day lists, take the higher counters
-  const sa = o(s.activity), la = o(l.activity);
-  s.activity = {
-    ...sa,
-    daysStudied: unionSorted(sa.daysStudied, la.daysStudied),
-    frozenDays: unionSorted(sa.frozenDays, la.frozenDays),
-    goalDays: unionSorted(sa.goalDays, la.goalDays),
-    freezes: Math.max(sa.freezes || 0, la.freezes || 0),
-    freezeMark: Math.max(sa.freezeMark || 0, la.freezeMark || 0),
-    bestStreak: Math.max(sa.bestStreak || 0, la.bestStreak || 0),
-    lastBackupAt: Math.max(sa.lastBackupAt || 0, la.lastBackupAt || 0) || null,
-  };
-
-  // achievements — union, keeping the earlier unlock stamp
-  const ach = { ...o(s.achievements) };
-  for (const [id, ts] of Object.entries(o(l.achievements))) {
-    if (!(id in ach)) ach[id] = ts;
-    else if (ts && ach[id] && ts < ach[id]) ach[id] = ts;
-  }
-  s.achievements = ach;
-
-  s.onboarded = !!(s.onboarded || l.onboarded);
-  s.profile = s.profile || l.profile || null;
-  // profile picture — the later change wins, a removal included, so a picture
-  // picked before signing in or on a device that was behind isn't dropped
-  if ((l.avatarAt || 0) > (s.avatarAt || 0)) { s.avatar = l.avatar ?? null; s.avatarAt = l.avatarAt; }
-  // settings + readNotifications: the server's win (last-synced config, transient state)
-  return s;
+/** Remember that the session under `key` was finished or thrown away, so a sync merge can't bring
+ *  back another device's older copy of it (that resumed and finished again records it twice). */
+function markCleared(s, key) {
+  const now = Date.now();
+  const marks = s.sessionsCleared && typeof s.sessionsCleared === "object" ? s.sessionsCleared : {};
+  for (const [k, ts] of Object.entries(marks)) if (now - ts > 30 * 86400000) delete marks[k];
+  marks[key] = now;
+  s.sessionsCleared = marks;
 }
 
 /** Forget evening checklists older than two weeks — they're only ever read on the day. */
@@ -497,6 +410,9 @@ function finishMigrate(s) {
       for (const e of s.exams) {
         if (remap.has(e.subjectId)) e.subjectId = remap.get(e.subjectId);
       }
+      for (const r of s.rules || []) {   // memory rules are matched by subject too
+        if (remap.has(r.subjectId)) r.subjectId = remap.get(r.subjectId);
+      }
     }
 
     // Drop subjects nothing uses — the English starter list and any orphan left
@@ -567,8 +483,25 @@ class Store extends EventTarget {
     // The state_blobs version this device last synced against. Read from
     // localStorage (not just defaulted to 0) so it survives a page reload —
     // see SYNC_VERSION_KEY above.
-    this._syncVersion = Number(localStorage.getItem(SYNC_VERSION_KEY)) || 0;
+    let syncVersion = 0;
+    try { syncVersion = Number(localStorage.getItem(SYNC_VERSION_KEY)) || 0; } catch { /* storage blocked */ }
+    this._syncVersion = syncVersion;
     this._pushTimer = null;
+    this._pushing = null;     // the push in flight, if any — a second one waits for it (see _pushNow)
+    this._pushAgain = false;
+
+    // Another tab of this app saved: take its copy. Every save writes the whole blob, so without
+    // this the older tab's next save would put its stale copy back over the newer one.
+    if (typeof window !== "undefined") {
+      window.addEventListener("storage", (e) => {
+        if (e.storageArea && e.storageArea !== localStorage) return;
+        if (e.key === KEY && e.newValue) {
+          try { this.state = migrate(JSON.parse(e.newValue)); this.emit(); } catch { /* half-written — the next event brings it */ }
+        } else if (e.key === SYNC_VERSION_KEY) {
+          this._syncVersion = Number(e.newValue) || 0;
+        }
+      });
+    }
 
     // Set when a save() write fails (full quota, blocked storage) — instance
     // only, so a UI listener can show/hide a persistent warning without this
@@ -582,7 +515,8 @@ class Store extends EventTarget {
   }
 
   async init() {
-    const raw = localStorage.getItem(KEY);
+    let raw = null;
+    try { raw = localStorage.getItem(KEY); } catch { /* storage blocked — run on a fresh, unsaved state */ }
     if (raw) {
       try { this.state = migrate(JSON.parse(raw)); }
       catch (e) {
@@ -591,6 +525,9 @@ class Store extends EventTarget {
         // corruption could itself be quota-related, hence its own try/catch.
         try { localStorage.setItem(RECOVERY_KEY, raw); } catch {}
         this.state = seedState();
+        // This empty copy must not be pushed over the account as if it were the latest: start the
+        // sync over, so a signed-in device pulls the account's data and merges into it instead.
+        this._setSyncVersion(0);
       }
     } else {
       this.state = seedState();
@@ -612,7 +549,7 @@ class Store extends EventTarget {
     // route before it falls back to serving static files, so a real
     // server/ deployment always answers first.
     try {
-      const res = await fetch(PROXY_HEALTH_URL);
+      const res = await fetch(PROXY_HEALTH_URL, { signal: withTimeout(8000) });
       const data = res.ok ? await res.json() : null;
       this.proxyUp = !!data?.ok;
       this.proxyKeyConfigured = !!data?.keyConfigured;
@@ -636,7 +573,7 @@ class Store extends EventTarget {
     // Behind the site password (gate.js) every other API call is refused until this device has typed it.
     if (this.proxyUp && !(this.siteLocked && !this.siteUnlocked)) {
       try {
-        const res = await fetch(AUTH_ME_URL, { credentials: "include" });
+        const res = await fetch(AUTH_ME_URL, { credentials: "include", signal: withTimeout(8000) });
         // 200 {authed:false} when signed out (older servers answer 401).
         const data = res.ok ? await res.json() : null;
         if (data?.email && data.authed !== false) {
@@ -658,11 +595,44 @@ class Store extends EventTarget {
       // stay hidden until some unrelated write happened to trigger a 409-conflict merge.
       // Pulling it now shows the right state immediately instead of an empty one.
       if (this._syncVersion === 0) await this._pullOnLogin();
+      // A device that has synced before still has to catch up with what other devices did since —
+      // in the background, so a slow network never holds up the first paint.
+      else this._catchUp();
       await this.refreshUsage();
     }
 
     this.emit();
   }
+
+  /** Bring this device up to date with the account. If the server has moved on, take its copy
+   *  (or merge into it, when this device has changes of its own it hasn't pushed yet). */
+  async _catchUp() {
+    let res;
+    try { res = await fetch(STATE_URL, { credentials: "include", signal: withTimeout(15000) }); } catch { return; }
+    if (!res.ok) return;
+    let payload;
+    try { payload = await res.json(); } catch { return; }
+    const { version, blob } = payload || {};
+    if (!blob || !(version > this._syncVersion)) {
+      if (this._isDirty()) this._schedulePush();
+      return;
+    }
+    if (this._isDirty()) {
+      try { this.state = migrate(mergeStates(blob, this.state)); } catch { this.state = migrate(blob); }
+      this._setSyncVersion(version);
+      this.save({ skipPush: true });
+      this.emit();
+      this._pushNow();
+    } else {
+      this.state = migrate(blob);
+      this._setSyncVersion(version);
+      this.save({ skipPush: true });
+      this.emit();
+    }
+  }
+
+  _isDirty() { try { return localStorage.getItem(SYNC_DIRTY_KEY) === "1"; } catch { return false; } }
+  _setDirty(on) { try { on ? localStorage.setItem(SYNC_DIRTY_KEY, "1") : localStorage.removeItem(SYNC_DIRTY_KEY); } catch {} }
 
   /** Pull this month's Claude spend. Best-effort — an older server without the
    *  route, or an unmetered one, just leaves aiUsage null and the gates open. */
@@ -1086,7 +1056,7 @@ class Store extends EventTarget {
     // Local write is always synchronous and unconditional — this is just the
     // additive, debounced background half. Every existing save()/update()
     // call site keeps working exactly as before, authed or not.
-    if (!skipPush && this.authed) this._schedulePush();
+    if (!skipPush && this.authed) { this._setDirty(true); this._schedulePush(); }
   }
 
   emit() {
@@ -1174,6 +1144,15 @@ class Store extends EventTarget {
   // Accepts a "doc" (sample file or model output): {type,subject,title,questions,...}
   addAssignmentDoc(doc, { silent = false } = {}) {
     const subject = this.ensureSubject(doc.subject);
+    // A question keeps the id it came with only if no set here uses it yet — a library set added
+    // twice, a parent's copy of a set the student already has, or a shared file would otherwise put
+    // two questions on one review schedule, and deleting either set would wipe the other's.
+    const taken = new Set(this.state.assignments.flatMap((x) => (x.questions || []).map((q) => q.id)));
+    const freshId = (id) => {
+      const out = typeof id === "string" && id && !taken.has(id) ? id : uid();
+      taken.add(out);
+      return out;
+    };
     const a = {
       id: doc.id && !this.getAssignment(doc.id) ? doc.id : uid(),
       type: doc.type === "test" ? "test" : "assignment",
@@ -1185,7 +1164,7 @@ class Store extends EventTarget {
       tutorStyle: doc.tutorStyle || "adaptive",
       topics: doc.topics || [...new Set((doc.questions || []).map((q) => q.topic).filter(Boolean))],
       questions: (doc.questions || []).map((q) => ({
-        id: q.id || uid(),
+        id: freshId(q.id),
         kind: ["mc", "text", "cloze", "flashcard", "worked"].includes(q.kind) ? q.kind : "text",
         topic: q.topic || (doc.topics && doc.topics[0]) || "general",
         prompt: q.prompt || "",
@@ -1214,6 +1193,7 @@ class Store extends EventTarget {
       const a = s.assignments.find((x) => x.id === id);
       if (!a) return;
       Object.assign(a, patch);
+      a.updatedAt = Date.now();
       if (patch.questions) {
         a.topics = [...new Set(patch.questions.map((q) => q.topic).filter(Boolean))];
       }
@@ -1262,6 +1242,7 @@ class Store extends EventTarget {
       s.assignments = s.assignments.filter((x) => x.id !== id);
       for (const e of s.exams) e.setIds = e.setIds.filter((x) => x !== id);
       delete s.sessions[id];
+      markCleared(s, id);
     });
     return snapshot;
   }
@@ -1289,7 +1270,7 @@ class Store extends EventTarget {
     if (dayKey && !value) return false;
     this.update((s) => {
       const a = s.assignments.find((x) => x.id === id);
-      if (a) a.dueAt = value;
+      if (a) { a.dueAt = value; a.updatedAt = Date.now(); }
     });
     return true;
   }
@@ -1302,7 +1283,7 @@ class Store extends EventTarget {
     this.update((s) => {
       const a = s.assignments.find((x) => x.id === id);
       // Chosen by hand now, so it stays whatever the student picked.
-      if (a) { a.type = next; delete a.examMark; }
+      if (a) { a.type = next; delete a.examMark; a.updatedAt = Date.now(); }
     });
   }
 
@@ -1315,7 +1296,7 @@ class Store extends EventTarget {
    *  Nothing about the subject's other sets is assumed. Returns the record, or null when the date
    *  isn't valid or no set was given. */
   addExam({ subjectId, date, title = "", note = "", setIds = [] }) {
-    const rec = this._examRecord({ id: uid(), subjectId, date, title, note, setIds, createdAt: Date.now() });
+    const rec = this._examRecord({ id: uid(), subjectId, date, title, note, setIds, createdAt: Date.now(), updatedAt: Date.now() });
     if (!rec) return null;
     this.update((s) => changeExams(s, () => { s.exams.push(rec); }));
     return rec;
@@ -1325,7 +1306,7 @@ class Store extends EventTarget {
   updateExam(id, patch) {
     const cur = this.getExam(id);
     if (!cur) return null;
-    const rec = this._examRecord({ ...cur, ...patch, id: cur.id, createdAt: cur.createdAt });
+    const rec = this._examRecord({ ...cur, ...patch, id: cur.id, createdAt: cur.createdAt, updatedAt: Date.now() });
     if (!rec) return null;
     this.update((s) => changeExams(s, () => { s.exams = s.exams.map((e) => (e.id === id ? rec : e)); }));
     return rec;
@@ -1367,7 +1348,7 @@ class Store extends EventTarget {
   }
 
   clearSession(key) {
-    this.update((s) => { delete s.sessions[key]; });
+    this.update((s) => { delete s.sessions[key]; markCleared(s, key); });
   }
 
   // ---------- attempts + progress ----------
@@ -1584,8 +1565,10 @@ class Store extends EventTarget {
       // while a banked freeze could still bridge yesterday's gap.
       const recoverable = !counts(y) && counts(y2) && a.freezes > 0;
       if (streak === 0 && !recoverable) a.freezeMark = 0;
-      while (streak >= a.freezeMark + FREEZE_STEP && a.freezes < FREEZE_CAP) {
-        a.freezes++;
+      // Every milestone passed moves the mark, banked or not: a milestone passed with a full bank is
+      // used up, so spending a freeze on a long streak doesn't hand it straight back.
+      while (streak >= a.freezeMark + FREEZE_STEP) {
+        if (a.freezes < FREEZE_CAP) a.freezes++;
         a.freezeMark += FREEZE_STEP;
       }
     };
@@ -1644,7 +1627,7 @@ class Store extends EventTarget {
 
   // ---------- settings ----------
   get settings() { return this.state.settings; }
-  setSettings(patch) { this.update((s) => Object.assign(s.settings, patch)); }
+  setSettings(patch) { this.update((s) => { Object.assign(s.settings, patch); s.settingsAt = Date.now(); }); }
 
   /** The user's Högskoleprov date ("YYYY-MM-DD", or null to clear). Drives the
    *  #/hp countdown, the dated plan and the ≤7-day reminder. Rejects anything
@@ -1932,6 +1915,8 @@ class Store extends EventTarget {
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) throw authError(data, t("login.googleFailed"));   // err.code === "consent_required" when a new account needs the checkbox
+    // An account with two-step sign-in: Google was the first step, the code step follows (verify2fa).
+    if (data.twoFactorRequired) return twofaPending(data);
     this._adoptSignIn(data.email, { passwordless: true });
     this.authEmailVerified = true;   // Google already verified it — see routes/auth.js
     this.totpEnabled = false;   // linking clears any 2FA the account had (see routes/auth.js) — passwordless has none to have
@@ -1969,10 +1954,14 @@ class Store extends EventTarget {
     // person on a shared computer doesn't inherit the account. If the flush didn't reach the
     // server the data stays put (nothing is lost) and { wiped: false } tells the caller.
     clearTimeout(this._pushTimer);
-    let wiped = false;
+    let kept = false;
     if (this.authed) {
       await this._pushNow();
-      if (this._lastPushOk) { this._clearDevice(); wiped = true; }
+      // Couldn't reach the server: the changes it didn't get are set aside for this account (merged
+      // back the next time it signs in here), and the device is cleared regardless — the next
+      // person on a shared computer must never see, or sign in on top of, this account's data.
+      if (!this._lastPushOk && this.authEmail) { this._putUnsynced(this.authEmail, this.state); kept = true; }
+      this._clearDevice();
     }
     try { await fetch(AUTH_LOGOUT_URL, { method: "POST", credentials: "include" }); } catch {}
     this.authed = false;
@@ -1985,7 +1974,7 @@ class Store extends EventTarget {
     this._aiQuotaOut = false;
     clearTimeout(this._pushTimer);
     this.emit();
-    return { wiped };
+    return { wiped: true, kept };
   }
 
   /** Remove this device's copy of the study data (the account, if any, is untouched). The
@@ -1994,8 +1983,31 @@ class Store extends EventTarget {
     this.state = seedState();
     this.state.onboarded = true;
     this._setSyncVersion(0);
-    try { localStorage.removeItem(SYNC_DISCARD_KEY); } catch {}
+    this._setDirty(false);
+    for (const k of [SYNC_DISCARD_KEY, RECOVERY_KEY, ...PERSONAL_KEYS]) { try { localStorage.removeItem(k); } catch {} }
     this.save({ skipPush: true });
+    // In-memory copies (the help chat's conversation, a generated set waiting in Skapa) go too.
+    this.dispatchEvent(new CustomEvent("deviceCleared"));
+  }
+
+  _readUnsynced() {
+    try { const x = JSON.parse(localStorage.getItem(UNSYNCED_KEY) || "{}"); return x && typeof x === "object" ? x : {}; }
+    catch { return {}; }
+  }
+  _putUnsynced(email, blob) {
+    const all = this._readUnsynced();
+    all[email.toLowerCase()] = { at: Date.now(), blob };
+    try { localStorage.setItem(UNSYNCED_KEY, JSON.stringify(all)); } catch { /* full — nothing more to do */ }
+  }
+  /** The changes set aside for this account at an earlier sign-out here, removed as they're taken. */
+  _takeUnsynced(email) {
+    if (!email) return null;
+    const all = this._readUnsynced();
+    const hit = all[email.toLowerCase()];
+    if (!hit) return null;
+    delete all[email.toLowerCase()];
+    try { Object.keys(all).length ? localStorage.setItem(UNSYNCED_KEY, JSON.stringify(all)) : localStorage.removeItem(UNSYNCED_KEY); } catch {}
+    return hit.blob || null;
   }
 
   /** Permanently delete the signed-in account on the server (login, synced data, links, classes),
@@ -2030,6 +2042,10 @@ class Store extends EventTarget {
     catch { return; } // offline — keep local state, next save() will retry the push once reachable
     if (!res.ok) return;
     const { version, blob } = await res.json();
+    const stashed = this._takeUnsynced(this.authEmail);
+    if (stashed) {
+      try { this.state = migrate(mergeStates(this.state, stashed)); } catch { /* keep what's here */ }
+    }
     if (blob) {
       // Work done on this device before signing in is merged in, never replaced; a copy of it is
       // kept in case the merge has to be undone.
@@ -2056,7 +2072,20 @@ class Store extends EventTarget {
     this._pushTimer = setTimeout(() => this._pushNow(), 800);
   }
 
-  async _pushNow(_retry = 0) {
+  /** Push this device's state. Never two at once: a second call while one is in flight waits for
+   *  it and then pushes again, so the second never goes up with a version the first just used
+   *  (which the server would refuse as a conflict with this device's own previous push). */
+  _pushNow() {
+    if (this._pushing) { this._pushAgain = true; return this._pushing; }
+    this._pushing = (async () => {
+      try {
+        do { this._pushAgain = false; await this._pushOnce(); } while (this._pushAgain && this.authed);
+      } finally { this._pushing = null; }
+    })();
+    return this._pushing;
+  }
+
+  async _pushOnce(_retry = 0) {
     if (_retry === 0) this._lastPushOk = false;
     let res;
     try {
@@ -2087,7 +2116,7 @@ class Store extends EventTarget {
           this.save({ skipPush: true });
           this.emit();
           this.dispatchEvent(new CustomEvent("syncMerged"));
-          return this._pushNow(_retry + 1);   // push the merged result up
+          return this._pushOnce(_retry + 1);   // push the merged result up
         } catch (e) {
           console.warn("sync merge failed — adopting the server's blob:", e);
         }
@@ -2106,8 +2135,9 @@ class Store extends EventTarget {
       const data = await res.json();
       this._setSyncVersion(data.version);
       this._lastPushOk = true;
-      // Our state is the server's now — no stale discard copy to keep.
-      try { localStorage.removeItem(SYNC_DISCARD_KEY); } catch {}
+      // The server has everything now. The discard copy from an earlier conflict is kept (until the
+      // next one, or sign-out) so a merge that went wrong can still be undone from the backup banner.
+      if (!this._pushAgain) this._setDirty(false);
     }
   }
 
@@ -2147,6 +2177,13 @@ class Store extends EventTarget {
    *  error; does not touch SCHEMA_VERSION. */
   importJSON(text) {
     const parsed = JSON.parse(text);
+    // Anything else (a shared set, a library file, an array) would replace all of the student's
+    // data — and the account's, once pushed — with an empty state.
+    if (!looksLikeBackup(parsed)) {
+      const e = new Error("not a backup");
+      e.code = "studybuddy.set" in Object(parsed) ? "is_set" : "not_backup";
+      throw e;
+    }
     this.state = migrate(parsed);
     this.save();
     this.emit();

@@ -19,14 +19,26 @@ export const TOO_MANY_MESSAGE = "Too many attempts. Try again in a few minutes."
 const MAX_KEYS = 100_000;
 const buckets = new Map(); // "name|key" -> { hits: [ms, …], windowMs }
 
-// Keep the map from growing without bound on a long-lived process.
-setInterval(() => {
+function sweep() {
   const now = Date.now();
   for (const [id, b] of buckets) {
     while (b.hits.length && b.hits[0] <= now - b.windowMs) b.hits.shift();
     if (!b.hits.length) buckets.delete(id);
   }
-}, 5 * 60_000).unref?.();
+}
+// Keep the map from growing without bound on a long-lived process.
+setInterval(sweep, 5 * 60_000).unref?.();
+
+/** Room for one more key. A flood of distinct keys (random challenge ids, many addresses) must not
+ *  switch limiting off for everyone else — so instead of refusing to track new keys, drop what has
+ *  expired and then the oldest tenth (Map keeps insertion order). */
+function makeRoom() {
+  if (buckets.size < MAX_KEYS) return;
+  sweep();
+  if (buckets.size < MAX_KEYS) return;
+  let drop = Math.ceil(MAX_KEYS / 10);
+  for (const id of buckets.keys()) { buckets.delete(id); if (--drop <= 0) break; }
+}
 
 /** IPv4 as is, IPv4-in-IPv6 as IPv4, other IPv6 as its /64 prefix. */
 export function ipKey(ip) {
@@ -62,7 +74,7 @@ export function consume({ name, key, max, windowMs }) {
   const now = Date.now();
   let b = buckets.get(id);
   if (!b) {
-    if (buckets.size >= MAX_KEYS) return true;
+    makeRoom();
     b = { hits: [], windowMs };
     buckets.set(id, b);
   }
@@ -96,7 +108,7 @@ export function attemptLimit({ name, max, windowMs, key = clientKey, failureStat
     const record = () => {
       let b = buckets.get(id);
       if (!b) {
-        if (buckets.size >= MAX_KEYS) return;   // a flood of distinct keys: stop tracking new ones rather than grow
+        makeRoom();
         b = { hits: [], windowMs };
         buckets.set(id, b);
       }

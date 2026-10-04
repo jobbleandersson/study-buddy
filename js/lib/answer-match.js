@@ -12,6 +12,8 @@ export function normalizeAnswer(s) {
   str = str.replace(/[’‘]/g, "'").replace(/[“”]/g, '"').replace(/ /g, " ");
   str = str.replace(/\s+/g, " ").trim();
   str = str.replace(/[.!?]+$/g, "").trim();
+  // The minus sign and dashes a keyboard or the math keypad produce: "−3" is "-3".
+  str = str.replace(/[−‒–]/g, "-");
   // Numeric-shaped tokens only: "2 880" -> "2880" (thousands space),
   // "0,5" -> "0.5" (Swedish decimal comma). Left alone otherwise, so a real
   // comma in prose is never touched.

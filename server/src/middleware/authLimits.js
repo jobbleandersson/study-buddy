@@ -76,12 +76,14 @@ export const resetPasswordIpLimit = attemptLimit({ name: "reset-pw-ip", max: num
 // Two-factor code guessing. A per-challenge key would reset every time an attacker who already
 // knows the password calls /auth/login again for a fresh challenge — so this resolves the challenge
 // to the account it belongs to and keys on that instead, collapsing every challenge minted for one
-// account into the same bucket. Falls back to the raw (bogus/expired) token when it doesn't resolve.
-const twoFaAccountKey = (req) => {
+// account (from one address) into the same bucket. Falls back to the raw (bogus/expired) token when
+// it doesn't resolve.
+const challengeUser = (req) => {
   const challenge = String(req.body?.challenge || "");
   const row = challenge && db.prepare("SELECT user_id AS userId FROM twofa_challenges WHERE id = ?").get(challenge);
-  return `${clientKey(req)}|${row ? row.userId : challenge}`;
+  return row ? row.userId : null;
 };
+const twoFaAccountKey = (req) => `${clientKey(req)}|${challengeUser(req) || String(req.body?.challenge || "")}`;
 export const twoFaVerifyLimits = [
   attemptLimit({
     name: "twofa-verify-account", max: num("TWOFA_FAILS_PER_15MIN_PER_ACCOUNT", 10), windowMs: 15 * MIN,
@@ -89,6 +91,13 @@ export const twoFaVerifyLimits = [
   }),
   attemptLimit({
     name: "twofa-verify-ip", max: num("TWOFA_FAILS_PER_15MIN_PER_IP", 300), windowMs: 15 * MIN, failureStatuses: [401],
+  }),
+  // The same account from every address at once: the two above are per address, and someone with
+  // the password and many addresses (an IPv6 /48 holds 65,536 /64s) could otherwise work through the
+  // million codes in hours. Thirty wrong codes a day for one account is far beyond any real typo.
+  attemptLimit({
+    name: "twofa-verify-account-all", max: num("TWOFA_FAILS_PER_DAY_PER_ACCOUNT", 30), windowMs: DAY,
+    key: challengeUser, failureStatuses: [401],
   }),
 ];
 
