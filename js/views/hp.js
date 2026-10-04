@@ -57,13 +57,14 @@ function hpSetCard(entry, tr, refresh) {
   const addBtn = added ? null : el("button.btn.btn--sm", {
     type: "button",
     onclick: async (e) => {
-      e.currentTarget.disabled = true;
+      const btn = e.currentTarget;   // null again once the handler has awaited
+      btn.disabled = true;
       try {
         await importHpSet(entry);
         refresh();
       } catch {
         toast(t("lib.addFail"));
-        e.currentTarget.disabled = false;
+        btn.disabled = false;
       }
     },
   }, [icon(ICONS.plus, 16), t("lib.add")]);

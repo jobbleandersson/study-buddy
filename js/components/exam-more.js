@@ -13,7 +13,17 @@ export const MORE_QUESTIONS = 10;
 
 /** `exam` is an entry from upcomingExams() (it has `.sets`). Resolves how many questions were added;
  *  throws (a ClaudeError or Error) when it couldn't make any. */
-export async function addMoreQuestions(exam, subjectName, label) {
+const running = new Map();   // exam id -> the batch being made for it
+
+export function addMoreQuestions(exam, subjectName, label) {
+  // A re-render can bring the button back while a batch is still being written; a second click joins it.
+  if (running.has(exam.id)) return running.get(exam.id);
+  const p = addMoreNow(exam, subjectName, label).finally(() => running.delete(exam.id));
+  running.set(exam.id, p);
+  return p;
+}
+
+async function addMoreNow(exam, subjectName, label) {
   const sets = exam.sets;
   const seed = pickSeedQuestions(sets);
   if (!seed.length) throw new Error(t("exam.moreNoSeed"));
@@ -26,14 +36,15 @@ export async function addMoreQuestions(exam, subjectName, label) {
   if (!fresh.length) throw new Error(t("exam.moreFailed"));
 
   // One companion set per test: the next batch is appended to it rather than starting another set.
+  // The test as it is now, not as it was when the batch started (its sets may have changed meanwhile).
+  const now = store.getExam(exam.id) || exam;
   const title = t("exam.moreTitle", { name: label });
-  const existing = sets.find((a) => a.title === title);
+  const existing = store.assignments.find((a) => now.setIds.includes(a.id) && a.title === title);
   if (existing) {
-    const current = store.getAssignment(existing.id);
-    store.updateAssignment(existing.id, { questions: [...(current?.questions || []), ...fresh] });
+    store.updateAssignment(existing.id, { questions: [...(existing.questions || []), ...fresh] });
   } else {
     const a = store.addAssignmentDoc({ subject: subjectName, type: "assignment", title, questions: fresh });
-    store.updateExam(exam.id, { setIds: [...exam.setIds, a.id] });
+    store.updateExam(exam.id, { setIds: [...now.setIds, a.id] });
   }
   return fresh.length;
 }

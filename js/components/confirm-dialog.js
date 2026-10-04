@@ -18,9 +18,13 @@ export function confirmDialog({ message = "", confirmLabel, cancelLabel, danger 
       if (settled) return;
       settled = true;
       document.removeEventListener("keydown", onKey, true);
+      window.removeEventListener("hashchange", onNav);
       overlay.remove();
       resolve(value);
     }
+    // The page underneath changed (the exam clock handed in, a link, Back): the question no longer
+    // applies, so the dialog closes as a "no".
+    function onNav() { finish(false); }
     function onKey(e) {
       if (e.key === "Escape") { e.stopPropagation(); finish(false); }
       else if (e.key === "Enter") {
@@ -54,6 +58,7 @@ export function confirmDialog({ message = "", confirmLabel, cancelLabel, danger 
 
     document.body.appendChild(overlay);
     document.addEventListener("keydown", onKey, true);
+    window.addEventListener("hashchange", onNav);
     confirmBtn.focus();
   });
 }
