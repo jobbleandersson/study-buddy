@@ -90,7 +90,9 @@ export async function renderSession(assignmentId, qs) {
   return runSession({
     // A shorter run keeps its own resumable slot, so it can't resume into a
     // full run of the same set (or the other way round); same for a challenge.
-    key: `${assignment.id}${examMode ? "::exam" : ""}${count ? `::n${count}` : ""}${challenge ? "::ch" : ""}${bus ? "::bus" : ""}${practice ? "::practice" : ""}`,
+    // The clock and the test it was started from are part of the slot too: a 20-minute mock for one
+    // test must not resume as another test's 40-minute one.
+    key: `${assignment.id}${examMode ? "::exam" : ""}${timeLimitMin ? `::m${timeLimitMin}` : ""}${examId ? `::p${examId}` : ""}${count ? `::n${count}` : ""}${challenge ? "::ch" : ""}${bus ? "::bus" : ""}${practice ? "::practice" : ""}`,
     challenge,
     assignmentId: assignment.id,
     title: assignment.title,
@@ -176,9 +178,7 @@ export async function renderPractice(attemptId) {
   const attempt = store.attempts.find((a) => a.id === attemptId);
   if (!attempt) return notFound(t("session.goneResult"));
 
-  const ids = (attempt.items || [])
-    .filter((i) => !firstTryCorrect(i))
-    .map((i) => i.questionId)
+  const ids = [...(attempt.items || []).filter((i) => !firstTryCorrect(i)).map((i) => i.questionId), ...(attempt.unanswered || [])]
     .filter((id) => store.findQuestion(id));
 
   if (!ids.length) {
@@ -316,7 +316,7 @@ export async function renderNationalMix(subjectId, qs) {
   return runSession({
     // A mock keeps its own resumable slot so it can't collide with a plain
     // mix left in progress.
-    key: `${examMode ? `${nationalMixId(subjectId)}::exam` : nationalMixId(subjectId)}${setsQuery ? "::sets" : ""}`,
+    key: `${examMode ? `${nationalMixId(subjectId)}::exam` : nationalMixId(subjectId)}${timeLimitMin ? `::m${timeLimitMin}` : ""}${examId ? `::p${examId}` : ""}${setsQuery ? "::sets" : ""}`,
     assignmentId: nationalMixId(subjectId),
     title: t("session.nationalMixTitle", { subject: subject?.name || t("session.nationalMixFallback") }),
     type: "assignment",
@@ -483,7 +483,13 @@ function runSession(config) {
       ? t("session.finish") : t("session.next");
   }
 
+  // Set once the run is handed in or the view is gone. After that nothing may save the session again:
+  // a late AI verdict or a dialog answered after the clock ran out would bring a finished run back,
+  // and resuming that records a second attempt.
+  let ended = false;
+
   function persist() {
+    if (ended) return;
     store.saveSession(config.key, {
       key: config.key,
       assignmentId: config.assignmentId,
@@ -590,6 +596,13 @@ function runSession(config) {
   function viewQuestion(q) {
     const perm = state.choiceOrder[q.id];
     if (q.kind !== "mc" || !perm || !Array.isArray(q.choices)) return q;
+    // The question was edited since this run was saved (options added or removed): the stored order
+    // no longer fits, so show its options as they are rather than lose the right one.
+    const n = q.choices.length;
+    if (perm.length !== n || new Set(perm).size !== n || perm.some((i) => !(i >= 0 && i < n))) {
+      delete state.choiceOrder[q.id];
+      return q;
+    }
     return { ...q, choices: perm.map((i) => q.choices[i]), answer: perm.indexOf(q.answer) };
   }
 
@@ -699,7 +712,9 @@ function runSession(config) {
     return true;
   }
 
+  let loadToken = 0;   // which loadQuestion() drew the question on screen — a late verdict checks it
   function loadQuestion() {
+    const myLoad = ++loadToken;
     currentRenderer?.cleanup?.();   // commute mode: stop the last question's voice before drawing the next
     clear(stage);
     const found = store.findQuestion(currentId());
@@ -739,6 +754,7 @@ function runSession(config) {
       // left with only "Lämna" as a way out.
       revealAfter: skipBtn.hidden ? 1 : 2,
       onDone: (result) => {
+        if (ended) return;
         const isNew = !state.items[question.id];
         state.items[question.id] = {
           questionId: question.id,
@@ -752,6 +768,10 @@ function runSession(config) {
           appealed: !!result.appealed,
           pick: result.picked ?? null,   // exam mode: which option (in the order shown), so a revisit can show it
         };
+        // A verdict that arrived after the student moved on (skipped, went back, opened another
+        // question while the AI was still checking): keep the answer, but leave the screen, the
+        // buttons and the tutor to the question that is showing now.
+        if (myLoad !== loadToken) { persist(); return; }
         skipBtn.hidden = true;
         nextBtn.disabled = false;
         nextBtn.textContent = isExam ? nextBtnLabel() : unansweredCount() === 0 ? t("session.finish") : t("session.next");
@@ -932,7 +952,7 @@ function runSession(config) {
       confirmLabel: t("session.handIn"),
       cancelLabel: t("session.handInBack"),
     });
-    if (ok) finish();
+    if (ok && !ended) finish();
   }
 
   let overviewModal = null;
@@ -1011,7 +1031,7 @@ function runSession(config) {
       message: t("session.exitConfirm"),
       confirmLabel: t("nav.leave"),
       cancelLabel: t("nav.stay"),
-    })) {
+    }) && !ended) {
       // Only once the leave is actually confirmed — not speculatively before
       // — so cancelling and then appealing the current question can still
       // reschedule it (its id wouldn't be marked committed yet).
@@ -1022,13 +1042,17 @@ function runSession(config) {
   }
 
   function finish(opts = {}) {
+    if (ended) return;   // the clock ran out while "Hand in" was open, or the button was hit twice
     stopExam();
     const answered = Object.values(state.items);
+    // A test or exam hands in every question; the ones never answered are kept on the attempt so the
+    // results list them (with their answers) and the score, the HP estimate and "practise these" agree.
+    const graded = (config.type === "test" && !leftTestMode) || isExam;
+    const unanswered = graded ? state.order.filter((id) => !state.items[id]) : [];
     // The score is first-try answers; a choice found after wrong picks isn't counted.
     const correct = answered.filter(firstTryCorrect).length;
     // A test or exam is out of every question: skipped or timed-out ones count as wrong, so a
     // student can not score 100% by answering one question. Practice scores what was answered.
-    const graded = (config.type === "test" && !leftTestMode) || isExam;
     const denom = graded ? Math.max(state.order.length, answered.length) : answered.length;
     const attempt = {
       id: uid(),
@@ -1046,6 +1070,7 @@ function runSession(config) {
       scorePct: denom ? Math.round((correct / denom) * 100) : 0,
       tutorHints: Number.isFinite(hintBudget) ? hintBudget - tutor.hintsLeft : 0,
       items: answered,
+      ...(unanswered.length ? { unanswered } : {}),
       ...(config.examId ? { examId: config.examId } : {}),
       ...(config.challenge ? { challenge: config.challenge } : {}),
       // Högskoleprovet: mark the attempt and record raw verbal/kvant scores so
@@ -1053,19 +1078,23 @@ function runSession(config) {
       ...(config.hp ? {
         hp: true,
         hpTestId: config.hpTestId || null,
-        hpParts: rawByPart(answered, (qid) => store.findQuestion(qid)?.question.variant),
+        // Unanswered questions in a timed mock or drill count as wrong, as on the real test.
+        hpParts: rawByPart([...answered, ...unanswered.map((questionId) => ({ questionId, correct: false, firstTry: false }))],
+          (qid) => store.findQuestion(qid)?.question.variant),
       } : {}),
     };
     store.recordAttempt(attempt);
     commitSrs(answered);
 
     store.clearSession(config.key);
+    ended = true;
     location.hash = `#/results/${attempt.id}`;
   }
 
   function startOver() {
     store.clearSession(config.key);
     Object.assign(state, freshState(config));
+    state.committedSrs = [];   // a new run: its answers update the review schedule again
     loadQuestion();
   }
 
@@ -1105,6 +1134,12 @@ function runSession(config) {
     }
     if (e.key === "Escape") { closeShortcuts(); return; }
     if (typing) return;
+    // A dialog over the question (answers so far, shortcuts) takes the keys; the question behind it doesn't.
+    if (reviewModal || shortcutsEl) return;
+    // Enter or Space on a focused button or link presses that button ("Try again", "Previous",
+    // "Leave", a flashcard): it must not be turned into "Next" for the question behind it.
+    if ((e.key === "Enter" || e.key === " ") && target && target !== document.body
+      && target.closest?.("button, a[href], select, summary, [role='button'], [role='radio'], [role='checkbox'], [role='tab']")) return;
 
     // Exam mode: the question map is open (its own Esc closes it), so the keys must not move the page behind it.
     if (isExam && overviewModal) return;
@@ -1314,6 +1349,7 @@ function runSession(config) {
     title: config.title,
     node,
     cleanup: () => {
+      ended = true;
       setSessionActive(false);
       document.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("sb:langsession", onLangSession);

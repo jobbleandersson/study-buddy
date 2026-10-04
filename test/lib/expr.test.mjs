@@ -31,6 +31,8 @@ describe("expr.evaluate: arithmetic and precedence", () => {
 
   test("functions", () => {
     assert.ok(Math.abs(evaluate("sqrt(16)") - 4) < 1e-12);
+    assert.ok(Math.abs(evaluate("√(9)") - 3) < 1e-12);   // the calculator keypad inserts the sign
+    assert.ok(Math.abs(evaluate("2√(16)") - 8) < 1e-12);
     assert.ok(Math.abs(evaluate("abs(-7)") - 7) < 1e-12);
     assert.ok(Math.abs(evaluate("log2(8)") - 3) < 1e-12);
   });
