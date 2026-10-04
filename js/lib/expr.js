@@ -56,6 +56,7 @@ function tokenize(src) {
     } else if (c === "·" || c === "×") { tokens.push({ t: "*" }); i++; }
     else if (c === "÷" || c === "∕") { tokens.push({ t: "/" }); i++; }
     else if (c === "−") { tokens.push({ t: "-" }); i++; }
+    else if (c === "√") { tokens.push({ t: "name", v: "sqrt" }); i++; }   // the keypad's √( key
     else throw new Error(t("calc.err.char", { c }));
   }
   return tokens;
