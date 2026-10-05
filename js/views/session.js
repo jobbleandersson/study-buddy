@@ -8,9 +8,10 @@
 import { store, REVIEW_ID, PRACTICE_ID, WEAK_ID, RULES_ID, TONIGHT_ID, HP_MOCK_ID, NATIONAL_MIX_PREFIX, nationalMixId, EXAM_PASS_PREFIX, examPassId } from "../store.js";
 import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
 import {
-  parseHpSetId, isHpSetId, rawByPart, DELPROV_ORDER, NORM_TABLES,
+  parseHpSetId, isHpSetId, rawByPart, DELPROV_ORDER, NORM_TABLES, VERBAL_DELPROV, KVANT_DELPROV,
   PASS_COUNT, SEC_PER_Q, minutesFor, pickPracticeIds, questionHistory,
 } from "../lib/hp.js";
+import { ensureHpSets } from "../data/hp-content.js";
 import { passageFor } from "../lib/passages.js";
 import { announce } from "../lib/a11y.js";
 import { t, plural } from "../lib/i18n.js";
@@ -396,12 +397,7 @@ export async function renderHpMock(qs) {
 export const HP_PRACTICE_PREFIX = "hp-ova-";
 export async function renderHpPractice(dp, qs) {
   if (!DELPROV_ORDER.includes(dp)) return notFound(t("hp.notFoundDelprov"));
-  const pool = [];
-  for (const a of store.assignments) {
-    if (!isHpSetId(a.id)) continue;
-    const setDp = parseHpSetId(a.id).delprov;
-    for (const q of a.questions) if ((q.variant || setDp) === dp) pool.push(q.id);
-  }
+  const pool = hpPool(dp);
   if (!pool.length) return emptyScreen(t("hp.practiceEmptyTitle"), t("hp.practiceEmptyBody"), t(`hp.delprov.${dp}`));
 
   const wanted = String(qs?.get?.("ids") || "").split(",").filter((id) => pool.includes(id));
@@ -429,6 +425,83 @@ export async function renderHpPractice(dp, qs) {
     hpOneTry: marked,
     hpIntro: !wanted.length || ids.length > 1,
     retryHash: `#/hp/ova/${dp}?${query}`,
+    questionIds: ids,
+    shuffle: false,
+  });
+}
+
+/** Every question id of one delprov in the student's HP sets. */
+function hpPool(dp) {
+  const out = [];
+  for (const a of store.assignments) {
+    if (!isHpSetId(a.id)) continue;
+    const setDp = parseHpSetId(a.id).delprov;
+    for (const q of a.questions) if ((q.variant || setDp) === dp) out.push(q.id);
+  }
+  return out;
+}
+
+/** A provpass under test conditions (#/hp/pass/<verbal|kvant>): that half's delprov in the test's
+ *  order, as many of each as a real provpass has, 55 minutes, marked at the end.
+ *    ?unseen=1  only questions never answered before ("create your own test")
+ *    ?full=<id> one half of a whole test; the other half follows from the results screen */
+export const HP_PASS_PREFIX = "hp-pass-";
+export async function renderHpPass(part, qs) {
+  if (part !== "verbal" && part !== "kvant") return notFound(t("hp.notFoundDelprov"));
+  await ensureHpSets();
+  const unseen = qs?.get?.("unseen") === "1";
+  const full = /^[\w-]{1,40}$/.test(qs?.get?.("full") || "") ? qs.get("full") : null;
+  const hist = questionHistory(store.attempts);
+  const ids = [];
+  for (const dp of part === "verbal" ? VERBAL_DELPROV : KVANT_DELPROV) {
+    const pool = hpPool(dp).filter((id) => !unseen || !hist[id]);
+    ids.push(...pickPracticeIds(pool, PASS_COUNT[dp], hist));
+  }
+  if (!ids.length) {
+    return emptyScreen(t("hp.passEmptyTitle"), t(unseen ? "hp.passEmptyUnseen" : "hp.practiceEmptyBody"), t("hp.provTitle"));
+  }
+  const query = new URLSearchParams();
+  if (unseen) query.set("unseen", "1");
+  if (full) query.set("full", full);
+  const hash = `#/hp/pass/${part}${query.toString() ? `?${query}` : ""}`;
+  return runSession({
+    key: `${HP_PASS_PREFIX}${part}${unseen ? "::new" : ""}${full ? `::${full}` : ""}`,
+    assignmentId: `${HP_PASS_PREFIX}${part}`,
+    title: t(`hp.passTitle.${part}`),
+    type: "assignment",
+    examMode: true,
+    timeLimitMin: 55,
+    hp: true,
+    hpTestId: null,
+    hpPass: part,
+    hpFull: full,
+    resumeHash: hash,
+    retryHash: `#/hp/pass/${part}${unseen ? "?unseen=1" : ""}`,
+    questionIds: ids,
+    shuffle: false,
+  });
+}
+
+/** The quick prognosis (#/hp/prognos): two questions from each delprov but DTK, 16 minutes, marked at
+ *  the end with a normed estimate and its likely range — a first number before any practice. */
+export const HP_PROGNOS_ID = "hp-prognos";
+export async function renderHpPrognos() {
+  await ensureHpSets();
+  const hist = questionHistory(store.attempts);
+  const ids = DELPROV_ORDER.filter((dp) => dp !== "dtk").flatMap((dp) => pickPracticeIds(hpPool(dp), 2, hist));
+  if (!ids.length) return emptyScreen(t("hp.passEmptyTitle"), t("hp.practiceEmptyBody"), t("hp.provTitle"));
+  return runSession({
+    key: HP_PROGNOS_ID,
+    assignmentId: HP_PROGNOS_ID,
+    title: t("hp.prognosTitle"),
+    type: "assignment",
+    examMode: true,
+    timeLimitMin: 16,
+    hp: true,
+    hpTestId: null,
+    hpPrognos: true,
+    resumeHash: "#/hp/prognos",
+    retryHash: "#/hp/prognos",
     questionIds: ids,
     shuffle: false,
   });
@@ -556,6 +629,7 @@ function runSession(config) {
       examMode: config.examMode,
       timeLimitMin: config.timeLimitMin,
       retryHash: config.retryHash,
+      resumeHash: config.resumeHash || null,   // where a "continue" link elsewhere (the HP test page) reopens it
       isReview: config.assignmentId === REVIEW_ID,
       order: state.order,
       cursor: state.cursor,
@@ -1156,6 +1230,9 @@ function runSession(config) {
       ...(config.hp ? {
         hp: true,
         hpTestId: config.hpTestId || null,
+        ...(config.hpPass ? { hpPass: config.hpPass } : {}),
+        ...(config.hpFull ? { hpFull: config.hpFull } : {}),
+        ...(config.hpPrognos ? { hpPrognos: true } : {}),
         // Unanswered questions in a timed mock or drill count as wrong, as on the real test.
         hpParts: rawByPart([...answered, ...unanswered.map((questionId) => ({ questionId, correct: false, firstTry: false }))],
           (qid) => store.findQuestion(qid)?.question.variant),

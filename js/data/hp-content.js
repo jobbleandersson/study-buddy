@@ -53,3 +53,14 @@ export async function importHpSet(entry) {
   store.emit();
   return a;
 }
+
+/** Add every HP set that isn't in the library yet (a mock, a provpass or the prognosis draws on all
+ *  of them). Best effort: a set that fails to load is skipped and the rest still come in. */
+export async function ensureHpSets() {
+  let index;
+  try { index = await loadHpIndex(); } catch { return; }
+  for (const s of index.sets) {
+    if (isHpImported(s.id)) continue;
+    try { await importHpSet(s); } catch { /* offline for that one: the run uses what did load */ }
+  }
+}

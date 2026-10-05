@@ -200,6 +200,8 @@ export function attemptNormedTotal(attempt) {
   const hasV = (p.verbalTotal || 0) > 0, hasK = (p.kvantTotal || 0) > 0;
   if (!hasV && !hasK) return null;
   if (hasV && hasK) return normedScore({ ...p, testId: attempt.hpTestId }).total;
+  // A whole provpass is a full half of the test: read off that half's own curve, not shrunk like a drill.
+  if (attempt.hpPass) return normedScore({ ...p, testId: attempt.hpTestId }).total;
   const delprov = hasV ? "ord" : "xyz";
   const correct = hasV ? p.verbalRaw : p.kvantRaw;
   const total = hasV ? p.verbalTotal : p.kvantTotal;

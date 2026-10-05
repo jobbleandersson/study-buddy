@@ -363,22 +363,10 @@ export async function renderHp() {
       nextSteps.push(el("a.btn", { href: drillHash(rows[0].dp) },
         [icon(ICONS.target, 16), t("hp.drillWeak", { delprov: t(`hp.delprov.${rows[0].dp}`) })]));
     }
-    // The mini mock draws on every övningsprov; any not in the library yet are added on the way in,
-    // so it's a first step that works before anything has been practised.
-    const mockBtn = el("a.btn" + (rows.length ? ".btn--ghost" : ""), { href: "#/hp/mock", title: t("hp.mockTip") },
-      [icon(ICONS.clock, 16), t("hp.mockStart")]);
-    mockBtn.onclick = async (e) => {
-      if (mockBtn.getAttribute("aria-busy") === "true") { e.preventDefault(); return; }
-      const missing = index ? hpSetOrder(index).filter((s) => parseHpSetId(s.id).test && !isHpImported(s.id)) : [];
-      if (!missing.length) return;
-      e.preventDefault();
-      mockBtn.setAttribute("aria-busy", "true");
-      for (const s of missing) {
-        try { await importHpSet(s); } catch { /* the mock uses whichever sets did load */ }
-      }
-      location.hash = "#/hp/mock";
-    };
-    nextSteps.push(mockBtn);
+    // The quick prognosis is the first step before anything has been practised; tests under real
+    // conditions live on their own page.
+    nextSteps.push(el("a.btn" + (rows.length ? ".btn--ghost" : ""), { href: "#/hp/prognos" }, [icon(ICONS.target, 16), t("hp.prognosStart")]));
+    nextSteps.push(el("a.btn.btn--ghost", { href: "#/hp/prov" }, [icon(ICONS.clock, 16), t("hp.provLink")]));
     const wordBank = index?.sets.find((s) => delprovCodeOf(s.subject) === "ord" && !parseHpSetId(s.id).test);
     if (wordBank) {
       nextSteps.push(setLink("a.btn.btn--ghost", wordBank, `#/session/${wordBank.id}`, {}, [icon(ICONS.layers, 16), t("hp.trainOrd")]));
@@ -412,7 +400,7 @@ export async function renderHp() {
         const hash = r.kind === "drill" ? drillHash(r.delprov)
           : r.kind === "review" || r.kind === "reviewmiss" ? "#/review"
           : r.kind === "ord" ? drillHash("ord")
-          : r.kind === "mock" ? "#/hp/mock" : null;
+          : r.kind === "mock" ? "#/hp/prov" : null;
         return el("li.exam-prep__day" + (r.dayOffset === 0 ? ".is-today" : "") + (r.kind === "testday" ? ".is-test" : ""), {}, [
           el("span.exam-prep__day-when", {}, planDayWhen(r.dayOffset, r.dayKey)),
           el("span.exam-prep__day-task", {}, label),
