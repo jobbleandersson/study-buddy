@@ -5,7 +5,7 @@ import { el, icon, ICONS } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { deltaFromAttempt, firstTryCorrect } from "../lib/mastery.js";
 import { estimatedGrade, gradeRank } from "../lib/grade.js";
-import { normedScore, delprovEstimate, scoreBand, parseHpSetId, attemptNormedTotal } from "../lib/hp.js";
+import { normedScore, delprovEstimate, scoreBand, parseHpSetId, attemptNormedTotal, prognosisMargin } from "../lib/hp.js";
 import { summarizeSchedule, dueLabel, retentionForecast } from "../lib/srs.js";
 import { celebrate, clearConfetti } from "../lib/confetti-helper.js";
 import { t, plural, daysUntil, sentenceCase } from "../lib/i18n.js";
@@ -120,6 +120,7 @@ export function renderResults(attemptId) {
     challengeCard(attempt),
     gradeReveal(attempt),
     hpReveal(attempt),
+    hpNextRow(attempt),
 
     deltaEntries.length ? el("div", { style: { marginTop: "24px", textAlign: "left" } }, [
       el("h3", { style: { marginBottom: "8px" } }, t("results.topicMastery")),
@@ -192,6 +193,26 @@ export function renderResults(attemptId) {
   });
 
   return { title: t("results.title"), node, cleanup: () => { clearTimeout(fanfareTimer); clearConfetti(); } };
+}
+
+/** The first provpass of a whole HP test, finished: the second one is the next step. */
+function fullTestPartner(attempt) {
+  if (!attempt.hpFull) return null;
+  return store.attempts.find((a) => a.id !== attempt.id && a.hpFull === attempt.hpFull && a.hpPass && a.hpPass !== attempt.hpPass
+    && (a.finishedAt || 0) <= (attempt.finishedAt || 0)) || null;
+}
+
+function hpNextRow(attempt) {
+  if (!attempt.hp || !(attempt.hpPass || attempt.hpPrognos)) return null;
+  const secondDone = attempt.hpFull && store.attempts.some((a) => a.hpFull === attempt.hpFull && a.hpPass && a.hpPass !== attempt.hpPass);
+  const next = attempt.hpFull && !secondDone
+    ? el("a.btn", { href: `#/hp/pass/${attempt.hpPass === "verbal" ? "kvant" : "verbal"}?full=${attempt.hpFull}` },
+        [t("hp.fullNext"), icon(ICONS.arrow, 16)])
+    : null;
+  return el("div.results__examnext", {}, [
+    next,
+    el("a.btn.btn--ghost", { href: "#/hp/prov" }, t("hp.backToProv")),
+  ].filter(Boolean));
 }
 
 /** A pass started from a test (the attempt has `examId`): one tap to the next thing for that test, or
@@ -283,18 +304,31 @@ const fmtNormed = (n) => (n == null ? "–" : Number(n).toFixed(2).replace(".", 
 function hpReveal(attempt) {
   if (!attempt.hp || attempt.isReview) return null;
 
-  const parts = attempt.hpParts || {};
+  // The second provpass of a whole test is scored together with the first.
+  const first = fullTestPartner(attempt);
+  const parts = first ? {
+    verbalRaw: (attempt.hpParts?.verbalRaw || 0) + (first.hpParts?.verbalRaw || 0),
+    verbalTotal: (attempt.hpParts?.verbalTotal || 0) + (first.hpParts?.verbalTotal || 0),
+    kvantRaw: (attempt.hpParts?.kvantRaw || 0) + (first.hpParts?.kvantRaw || 0),
+    kvantTotal: (attempt.hpParts?.kvantTotal || 0) + (first.hpParts?.kvantTotal || 0),
+  } : (attempt.hpParts || {});
   const totalAnswered = (parts.verbalTotal || 0) + (parts.kvantTotal || 0);
   if (!totalAnswered) return null;
   const hasBoth = parts.verbalTotal > 0 && parts.kvantTotal > 0;
 
-  // A run that spans both halves (the mini-mock) gets the real normed lookup;
-  // a single-delprov drill only ever gets the rough, shrunk estimate.
+  // A run that spans both halves (the mini-mock, the prognosis, a whole test) gets the real normed
+  // lookup, and so does a whole provpass for its half; a single-delprov drill only ever gets the
+  // rough, shrunk estimate.
   let res, caption;
-  if (hasBoth) {
+  if (hasBoth || attempt.hpPass) {
     res = normedScore({ ...parts, testId: attempt.hpTestId });
-    caption = res.testLabel
-      ? t("hp.reveal.captionTest", { test: res.testLabel })
+    caption = attempt.hpPrognos ? t("hp.reveal.prognosCaption", {
+      lo: fmtNormed(Math.max(0, res.total - prognosisMargin(totalAnswered))),
+      hi: fmtNormed(Math.min(2, res.total + prognosisMargin(totalAnswered))),
+    })
+      : first ? t("hp.reveal.fullCaption")
+      : attempt.hpPass ? t("hp.reveal.passCaption")
+      : res.testLabel ? t("hp.reveal.captionTest", { test: res.testLabel })
       : t("hp.reveal.caption");
   } else {
     const dp = parseHpSetId(attempt.assignmentId).delprov || firstItemVariant(attempt);

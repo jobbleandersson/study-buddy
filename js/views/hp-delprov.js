@@ -8,7 +8,7 @@
 import { store } from "../store.js";
 import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
 import { t, fmtDate, sentenceCase } from "../lib/i18n.js";
-import { localDayKey } from "../lib/activity.js";
+import { localDayKey, addDays } from "../lib/activity.js";
 import { renderRich } from "../lib/rich.js";
 import { loadHpIndex, isHpImported, importHpSet } from "../data/hp-content.js";
 import {
@@ -17,6 +17,7 @@ import {
 } from "../lib/hp.js";
 import { AI_DELPROV, MORE_HP, addHpQuestions, isAddingHp } from "../components/hp-more.js";
 import { ClaudeError } from "../claude.js";
+import { sparkline } from "../lib/spark.js";
 
 const fmtN = (n) => (n == null ? "–" : Number(n).toFixed(2).replace(".", ","));
 const LIST_STEP = 30;
@@ -57,7 +58,7 @@ export async function renderHpDelprov(dp, qs) {
   } catch { /* offline or the index failed: the page works with whatever is already there */ }
 
   const root = el("div.hp-dp", { style: { "--c": partOf(dp) === "kvant" ? "var(--c-tangerine)" : "var(--brand)" } });
-  let tab = qs?.get?.("tab") === "historik" ? "historik" : "ova";
+  let tab = ["historik", "analys"].includes(qs?.get?.("tab")) ? qs.get("tab") : "ova";
   let topic = "", status = "", shown = LIST_STEP;
   const body = el("div.hp-dp__body");
 
@@ -82,7 +83,9 @@ export async function renderHpDelprov(dp, qs) {
           t("hp.calibCount", { n: timedN, of: CALIBRATION_N }),
         ]),
       ]),
-      el("div.hp-dp__tabs", { role: "tablist" }, [tabBtn("ova", t("hp.tabPractice")), tabBtn("historik", t("hp.tabHistory"))]),
+      el("div.hp-dp__tabs", { role: "tablist" }, [
+        tabBtn("ova", t("hp.tabPractice")), tabBtn("historik", t("hp.tabHistory")), tabBtn("analys", t("hp.tabAnalysis")),
+      ]),
     ]);
   }
 
@@ -216,6 +219,88 @@ export async function renderHpDelprov(dp, qs) {
     ].filter(Boolean));
   }
 
+  /* ---- Analys: this week, over time, per topic ---- */
+  function analysisCards() {
+    // Every answer to this delprov, with when it was given.
+    const answers = [];
+    const runs = [];
+    for (const a of store.attempts) {
+      if (!Array.isArray(a.items)) continue;
+      const mine = a.items.filter((it) => store.findQuestion(it.questionId)?.question.variant === dp);
+      if (!mine.length) continue;
+      const right = mine.filter((it) => it.firstTry ?? it.correct).length;
+      runs.push({ at: a.finishedAt || 0, right, n: mine.length });
+      for (const it of mine) answers.push({ at: a.finishedAt || 0, ok: !!(it.firstTry ?? it.correct), topic: it.topic });
+    }
+    if (!answers.length) {
+      return [el("section.set-card", {}, [el("h2", {}, t("hp.analysisTitle")), el("p.note", {}, t("hp.analysisEmpty"))])];
+    }
+    runs.sort((x, y) => x.at - y.at);
+
+    // Weeks start on Monday, in the student's own time.
+    const weekStart = (ms) => {
+      const d = new Date(ms);
+      return addDays(localDayKey(d), -((d.getDay() + 6) % 7));
+    };
+    const thisWeek = weekStart(Date.now());
+    const rightThisWeek = answers.filter((x) => x.ok && weekStart(x.at) === thisWeek).length;
+    const rightTotal = answers.filter((x) => x.ok).length;
+    const level = delprovEstimate({ delprov: dp, correct: rightTotal, total: answers.length }).normed;
+
+    const weeks = Array.from({ length: 6 }, (_, i) => addDays(thisWeek, -7 * (5 - i)));
+    const perWeek = weeks.map((w) => {
+      const inWeek = answers.filter((x) => weekStart(x.at) === w);
+      return { w, n: inWeek.length, ok: inWeek.filter((x) => x.ok).length };
+    });
+    const maxN = Math.max(1, ...perWeek.map((x) => x.n));
+
+    const topics = {};
+    for (const x of answers) {
+      const k = x.topic || "–";
+      const e = topics[k] || (topics[k] = { ok: 0, n: 0 });
+      e.n++; if (x.ok) e.ok++;
+    }
+    const topicRows = Object.entries(topics).sort((a, b) => a[1].ok / a[1].n - b[1].ok / b[1].n);
+
+    const stat = (label, value) => el("div.hp-stat", {}, [el("span", {}, label), el("strong", {}, value)]);
+    const levels = runs.map((r) => delprovEstimate({ delprov: dp, correct: r.right, total: r.n }).normed).slice(-12);
+
+    return [
+      el("section.set-card", {}, [
+        el("h2", {}, t("hp.analysisTitle")),
+        el("div.hp-stats", {}, [
+          stat(t("hp.statWeek"), String(rightThisWeek)),
+          stat(t("hp.statTotal"), t("hp.statOf", { c: rightTotal, n: answers.length })),
+          stat(t("hp.levelLabel"), fmtN(level)),
+        ]),
+      ]),
+      el("section.set-card", {}, [
+        el("h2", {}, t("hp.weeksTitle")),
+        el("div.hp-weeks", { role: "img", "aria-label": t("hp.weeksAria", { list: perWeek.map((x) => `${x.ok}/${x.n}`).join(", ") }) },
+          perWeek.map((x) => el("div.hp-weeks__col", {}, [
+            el("div.hp-weeks__bar", { style: { height: `${(x.n / maxN) * 100}%` } }, [
+              el("i", { style: { height: `${x.n ? (x.ok / x.n) * 100 : 0}%` } }),
+            ]),
+            el("span.hp-weeks__n", {}, String(x.n)),
+            el("span.hp-weeks__w", {}, x.w === thisWeek ? t("hp.thisWeek") : fmtDate(x.w)),
+          ]))),
+        el("p.note", {}, t("hp.weeksLegend")),
+      ]),
+      levels.length >= 2 ? el("section.set-card", {}, [
+        el("h2", {}, t("hp.levelTrend")),
+        sparkline(levels, { max: 2, ariaLabel: t("hp.levelTrendAria", { list: levels.map(fmtN).join(", ") }) }),
+      ]) : null,
+      el("section.set-card", {}, [
+        el("h2", {}, t("hp.topicsTitle")),
+        el("ul.hp-topics", {}, topicRows.map(([k, e]) => el("li", {}, [
+          el("span.hp-topics__name", {}, sentenceCase(k)),
+          el("span.hp-calib__bar.hp-topics__bar", { "aria-hidden": "true" }, [el("i", { style: { width: `${(e.ok / e.n) * 100}%` } })]),
+          el("span.hp-topics__n", {}, t("hp.statOf", { c: e.ok, n: e.n })),
+        ]))),
+      ]),
+    ].filter(Boolean);
+  }
+
   /* ---- Historik ---- */
   function historyCard() {
     const runs = store.attempts
@@ -247,6 +332,7 @@ export async function renderHpDelprov(dp, qs) {
     const all = delprovQuestions(dp);
     clear(body);
     if (tab === "historik") body.append(historyCard());
+    else if (tab === "analys") body.append(...analysisCards());
     else if (!all.length) body.append(el("section.set-card", {}, [el("p", {}, t("hp.practiceEmptyBody"))]));
     else body.append(...[setupCard(all.length), listCard(all), aiCard()].filter(Boolean));
     root.append(header(), body);
