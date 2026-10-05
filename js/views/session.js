@@ -469,6 +469,7 @@ export async function renderHpPass(part, qs) {
     hpTestId: null,
     hpPass: part,
     hpFull: full,
+    hpIntro: true,
     resumeHash: hash,
     retryHash: `#/hp/pass/${part}${unseen ? "?unseen=1" : ""}`,
     questionIds: ids,
@@ -495,6 +496,7 @@ export async function renderHpPrognos() {
     hp: true,
     hpTestId: null,
     hpPrognos: true,
+    hpIntro: true,
     resumeHash: "#/hp/prognos",
     retryHash: "#/hp/prognos",
     questionIds: ids,
@@ -945,7 +947,11 @@ function runSession(config) {
         })
       : renderQuestion(questionOpts);
 
-    if (config.hp) stage.appendChild(hpQuestionBar(assignment, question));
+    if (config.hp) {
+      const start = hpDelprovStart(question);
+      if (start) stage.appendChild(start);
+      stage.appendChild(hpQuestionBar(assignment, question));
+    }
     stage.appendChild(r.el);
     // A question that isn't multiple choice can't show the earlier answer again, so say it is recorded.
     if (isExam && answered && question.kind !== "mc") {
@@ -1269,6 +1275,8 @@ function runSession(config) {
     paintProgress();
   } else if (config.hpIntro && config.hpDelprov) {
     showHpIntro(config.hpDelprov);
+  } else if (config.hpIntro) {
+    showMixedIntro();
   } else {
     loadQuestion();
   }
@@ -1293,17 +1301,63 @@ function runSession(config) {
         config.timeLimitMin ? el("dd", {}, t("hp.introMinutes", { n: config.timeLimitMin })) : null,
         el("dt", {}, t("hp.introMarking")), el("dd", {}, t(isExam ? "hp.introMarkEnd" : "hp.introMarkNow")),
       ].filter(Boolean)),
-      el("button.btn", {
-        type: "button",
-        onclick: () => {
-          // The clock starts now, not when the page opened.
-          state.startedAt = Date.now();
-          if (config.timeLimitMin) state.deadlineAt = state.startedAt + config.timeLimitMin * 60000;
-          loadQuestion();
-          startExam();
-        },
-      }, [icon(ICONS.play, 16), t("hp.introStart")]),
+      introStartBtn(),
     ]));
+  }
+
+  /** A run across several delprov (the quick prognosis, a provpass): what's in it, the time and the
+   *  marking, before the clock starts. Each delprov's own instruction shows where its questions begin. */
+  function showMixedIntro() {
+    if (config.timeLimitMin) examTimeText.textContent = fmtClock(config.timeLimitMin * 60000);
+    const counts = new Map();
+    for (const id of state.order) {
+      const dp = delprovOf(id);
+      if (dp) counts.set(dp, (counts.get(dp) || 0) + 1);
+    }
+    stage.appendChild(el("div.panel.hp-intro", {}, [
+      el("p.hp-intro__code", {}, t("hp.introHp")),
+      el("h3", {}, config.title),
+      el("p", {}, t(config.hpPrognos ? "hp.introPrognos" : "hp.introPass")),
+      el("ul.hp-intro__parts", {}, [...counts].map(([dp, n]) => el("li", {}, `${t(`hp.delprov.${dp}`)} · ${n}`))),
+      el("dl.hp-intro__facts", {}, [
+        el("dt", {}, t("hp.introCount")), el("dd", {}, String(state.order.length)),
+        config.timeLimitMin ? el("dt", {}, t("hp.introTime")) : null,
+        config.timeLimitMin ? el("dd", {}, t("hp.introMinutes", { n: config.timeLimitMin })) : null,
+        el("dt", {}, t("hp.introMarking")), el("dd", {}, t(isExam ? "hp.introMarkEnd" : "hp.introMarkNow")),
+      ].filter(Boolean)),
+      el("p.note.hp-intro__tip", {}, [icon(ICONS.spark, 15), " ", t("hp.introGuess")]),
+      introStartBtn(),
+    ]));
+  }
+
+  /** A question's delprov: its own `variant`, else the set it lives in (as hpQuestionIndex reads it). */
+  function delprovOf(id) {
+    const found = store.findQuestion(id);
+    return found ? found.question.variant || parseHpSetId(found.assignment.id).delprov || null : null;
+  }
+
+  function introStartBtn() {
+    return el("button.btn", {
+      type: "button",
+      onclick: () => {
+        // The clock starts now, not when the page opened.
+        state.startedAt = Date.now();
+        if (config.timeLimitMin) state.deadlineAt = state.startedAt + config.timeLimitMin * 60000;
+        loadQuestion();
+        startExam();
+      },
+    }, [icon(ICONS.play, 16), t("hp.introStart")]);
+  }
+
+  /** In a mixed run, the first question of each delprov carries that delprov's instruction. */
+  function hpDelprovStart(question) {
+    if (!(config.hpPass || config.hpPrognos)) return null;
+    const dp = delprovOf(question.id);
+    if (!dp || (state.cursor > 0 && delprovOf(state.order[state.cursor - 1]) === dp)) return null;
+    return el("div.hp-dpstart", {}, [
+      el("strong", {}, `${t(`hp.delprov.${dp}`)} · ${t(`hp.name.${dp}`)}`),
+      el("span", {}, t(`hp.instr.${dp}`)),
+    ]);
   }
 
   /** Where the question comes from, a bookmark, and a pen to work on top of it. */

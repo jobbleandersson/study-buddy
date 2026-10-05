@@ -203,7 +203,15 @@ function fullTestPartner(attempt) {
 }
 
 function hpNextRow(attempt) {
-  if (!attempt.hp || !(attempt.hpPass || attempt.hpPrognos)) return null;
+  if (!attempt.hp) return null;
+  // A practice run from a delprov page goes back there: its history, analysis and next run.
+  const practiced = /^hp-ova-(\w+)$/.exec(attempt.assignmentId || "")?.[1];
+  if (practiced) {
+    return el("div.results__examnext", {}, [
+      el("a.btn.btn--ghost", { href: `#/hp/${practiced}` }, t("hp.backToDelprov", { delprov: t(`hp.delprov.${practiced}`) })),
+    ]);
+  }
+  if (!(attempt.hpPass || attempt.hpPrognos)) return null;
   const secondDone = attempt.hpFull && store.attempts.some((a) => a.hpFull === attempt.hpFull && a.hpPass && a.hpPass !== attempt.hpPass);
   const next = attempt.hpFull && !secondDone
     ? el("a.btn", { href: `#/hp/pass/${attempt.hpPass === "verbal" ? "kvant" : "verbal"}?full=${attempt.hpFull}` },

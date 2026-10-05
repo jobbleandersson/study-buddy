@@ -14,7 +14,7 @@ import { previewPrompt } from "../lib/text.js";
 import { ensureHpSets, hpQuestionIndex } from "../data/hp-content.js";
 import {
   parseHpSetId, partOf, PASS_COUNT, SEC_PER_Q, CALIBRATION_N, minutesFor,
-  questionHistory, delprovStats, delprovEstimate, NORM_TABLES,
+  questionHistory, delprovStats, delprovEstimate, NORM_TABLES, scoredItems,
 } from "../lib/hp.js";
 import { AI_DELPROV, MORE_HP, addHpQuestions, isAddingHp } from "../components/hp-more.js";
 import { ClaudeError } from "../claude.js";
@@ -192,7 +192,8 @@ export async function renderHpDelprov(dp, qs) {
         btn.textContent = t("hp.aiBusy");
         try {
           const n = await addHpQuestions(dp, MORE_HP);
-          toast(t("hp.aiAdded", { n }));
+          // Say so when fewer came out than asked for, rather than leave the student counting.
+          toast(n < MORE_HP ? t("hp.aiAddedSome", { n, want: MORE_HP }) : t("hp.aiAdded", { n }));
         } catch (e) {
           toast(e instanceof ClaudeError || e?.message ? e.message : t("hp.moreFailed"));
         }
@@ -209,16 +210,19 @@ export async function renderHpDelprov(dp, qs) {
 
   /* ---- Analys: this week, over time, per topic ---- */
   function analysisCards() {
-    // Every answer to this delprov, with when it was given.
+    // Every answer to this delprov, with when it was given (a blank one in a timed run counts as wrong).
     const answers = [];
     const runs = [];
     for (const a of store.attempts) {
       if (!Array.isArray(a.items)) continue;
-      const mine = a.items.filter((it) => idx.variantOf(it.questionId) === dp);
+      const mine = scoredItems(a).filter((it) => idx.variantOf(it.questionId) === dp);
       if (!mine.length) continue;
       const right = mine.filter((it) => it.firstTry ?? it.correct).length;
       runs.push({ at: a.finishedAt || 0, right, n: mine.length });
-      for (const it of mine) answers.push({ at: a.finishedAt || 0, ok: !!(it.firstTry ?? it.correct), topic: it.topic });
+      for (const it of mine) {
+        const topic = it.topic ?? store.findQuestion(it.questionId)?.question.topic;
+        answers.push({ at: a.finishedAt || 0, ok: !!(it.firstTry ?? it.correct), topic });
+      }
     }
     if (!answers.length) {
       return [el("section.set-card", {}, [el("h2", {}, t("hp.analysisTitle")), el("p.note", {}, t("hp.analysisEmpty"))])];
@@ -292,7 +296,7 @@ export async function renderHpDelprov(dp, qs) {
   /* ---- Historik ---- */
   function historyCard() {
     const runs = store.attempts
-      .filter((a) => a.hp && (a.items || []).some((it) => idx.variantOf(it.questionId) === dp))
+      .filter((a) => a.hp && scoredItems(a).some((it) => idx.variantOf(it.questionId) === dp))
       .sort((a, b) => (b.finishedAt || 0) - (a.finishedAt || 0));
     if (!runs.length) {
       return el("section.set-card", {}, [el("h2", {}, t("hp.historyTitle")), el("p.note", {}, t("hp.historyEmpty"))]);
@@ -300,7 +304,7 @@ export async function renderHpDelprov(dp, qs) {
     return el("section.set-card", {}, [
       el("h2", {}, t("hp.historyTitle")),
       el("ol.hp-hist", {}, runs.slice(0, 40).map((a) => {
-        const mine = a.items.filter((it) => idx.variantOf(it.questionId) === dp);
+        const mine = scoredItems(a).filter((it) => idx.variantOf(it.questionId) === dp);
         const right = mine.filter((it) => it.firstTry ?? it.correct).length;
         const kind = a.examMode ? t("hp.histExam") : a.timeLimitMin ? t("hp.histTimed") : t("hp.histTrain");
         return el("li", {}, [
