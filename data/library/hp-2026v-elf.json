@@ -87,6 +87,30 @@
       "prompt": "In this text, \"fidelity\" is closest in meaning to",
       "choices": ["loyalty", "faithfulness to the real thing", "simplicity", "popularity"],
       "answer": 1,
-      "explanation": "Contrasted with \"clarity\", fidelity here means how faithfully the map matches real geography." }
+      "explanation": "Contrasted with \"clarity\", fidelity here means how faithfully the map matches real geography." },
+    { "id": "q-hp-2026v-elf-09", "kind": "mc", "variant": "elf", "topic": "main idea",
+      "stimulus": { "id": "elf-text-3", "title": "Text 3 – Testing as a way to learn",
+        "body": "Most students treat a test as a measurement: something that happens after the learning is done. Research in cognitive psychology suggests that this gets the order partly wrong. When people try to recall information — answering questions, writing down what they remember from a page — they tend to remember it better weeks later than if they had spent the same time rereading it.\n\nThe finding surprises many learners, because rereading feels more productive. The text becomes familiar, and familiarity is easily mistaken for knowledge. Trying to recall, by contrast, feels slow and uncomfortable, especially when the answer will not come. Yet it is precisely that effort, researchers argue, that makes the memory last.\n\nNone of this means that grades should matter more. The benefit appears even when the quizzes do not count, and it may be strongest when nothing is at stake. What matters is the act of retrieving, not the score." },
+      "prompt": "What is the main point of the text?",
+      "choices": [
+        "Students should take more graded exams",
+        "Rereading is the most effective way to prepare for a test",
+        "Trying to recall what you have learned strengthens memory more than rereading",
+        "Familiar texts are easier to understand"
+      ],
+      "answer": 2,
+      "explanation": "The text contrasts recalling with rereading and says recall leads to better memory weeks later. Option 1 is ruled out in the last paragraph; option 2 is the belief the text corrects." },
+    { "id": "q-hp-2026v-elf-10", "kind": "mc", "variant": "elf", "topic": "inference",
+      "stimulus": { "id": "elf-text-3", "title": "Text 3 – Testing as a way to learn",
+        "body": "Most students treat a test as a measurement: something that happens after the learning is done. Research in cognitive psychology suggests that this gets the order partly wrong. When people try to recall information — answering questions, writing down what they remember from a page — they tend to remember it better weeks later than if they had spent the same time rereading it.\n\nThe finding surprises many learners, because rereading feels more productive. The text becomes familiar, and familiarity is easily mistaken for knowledge. Trying to recall, by contrast, feels slow and uncomfortable, especially when the answer will not come. Yet it is precisely that effort, researchers argue, that makes the memory last.\n\nNone of this means that grades should matter more. The benefit appears even when the quizzes do not count, and it may be strongest when nothing is at stake. What matters is the act of retrieving, not the score." },
+      "prompt": "Why, according to the text, do many learners prefer rereading?",
+      "choices": [
+        "It takes less time than answering questions",
+        "Teachers usually recommend it",
+        "It produces better results on later tests",
+        "The growing sense of familiarity feels like learning"
+      ],
+      "answer": 3,
+      "explanation": "The second paragraph: rereading makes the text familiar, and \"familiarity is easily mistaken for knowledge\". Option 3 contradicts the research described." }
   ]
 }

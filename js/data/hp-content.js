@@ -83,4 +83,30 @@ export async function ensureHpSets() {
     if (isHpImported(s.id)) continue;
     try { await importHpSet(s); } catch { /* offline for that one: the run uses what did load */ }
   }
+  await upgradeHpSets(index);
+}
+
+/** New questions added to a shipped HP set (LÄS and ELF grew from 8 to 10) reach students who added
+ *  the set before: when a set in the library has fewer questions than the index says, the file's
+ *  questions it doesn't have yet (by id) are appended. Nothing is changed or removed. */
+export async function upgradeHpSets(index = null) {
+  try { index = index || await loadHpIndex(); } catch { return; }
+  for (const entry of index.sets) {
+    const a = store.getAssignment(entry.id);
+    if (!a || a.questions.length >= entry.count) continue;
+    try {
+      const res = await fetch(entry.file);
+      if (!res.ok) continue;
+      const doc = await res.json();
+      const have = new Set(a.questions.map((q) => q.id));
+      const missing = (doc.questions || []).filter((q) => q && q.id && !have.has(q.id));
+      if (!missing.length) continue;
+      // store.update, not updateAssignment: this is the shipped content arriving, not the student's
+      // own edit, so the set keeps its library tags.
+      store.update((s) => {
+        const set = s.assignments.find((x) => x.id === entry.id);
+        if (set) set.questions.push(...missing.map((q) => ({ ...q })));
+      });
+    } catch { /* offline: try again next visit */ }
+  }
 }
