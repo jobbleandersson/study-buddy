@@ -13,3 +13,20 @@ export function firstSentence(text) {
   const m = s.match(/^[\s\S]*?[.!?](?=\s|$)/);
   return m ? m[0] : s;
 }
+
+/** The start of a prompt for a list, at most `max` characters with "…". Never cut inside $…$ maths:
+ *  an unclosed $ leaves the rest as raw TeX, so the cut moves back to before the formula it would
+ *  split. An escaped dollar (\$) is text, not a delimiter. */
+export function previewPrompt(prompt, max = 110) {
+  const s = String(prompt ?? "").replace(/\s+/g, " ").trim();
+  if (s.length <= max) return s;
+  let cut = s.slice(0, max - 1);
+  const delimiters = cut.replace(/\\$/g, "").split("$").length - 1;
+  if (delimiters % 2 === 1) {
+    // Back to the last unescaped $: the one that opened the formula left unclosed.
+    let i = cut.length - 1;
+    while (i >= 0 && !(cut[i] === "$" && cut[i - 1] !== "\\")) i--;
+    cut = cut.slice(0, Math.max(0, i));
+  }
+  return `${cut.trimEnd()}…`;
+}

@@ -18,7 +18,7 @@ import { localDayKey } from "../lib/activity.js";
 import { countdownLabel } from "../lib/date-phrases.js";
 import { sparkline } from "../lib/spark.js";
 import { weakSpotQuestions, firstTryCorrect } from "../lib/mastery.js";
-import { loadHpIndex, loadHpTranslations, isHpImported, importHpSet } from "../data/hp-content.js";
+import { loadHpIndex, loadHpTranslations, isHpImported, importHpSet, hpQuestionIndex } from "../data/hp-content.js";
 import {
   normedScore, parseHpSetId, isHpSetId, attemptNormedTotal, delprovEstimate, delprovStats, prognosisMargin,
   DELPROV_ORDER, VERBAL_DELPROV, KVANT_DELPROV, buildHpPlan, PASS_COUNT, CALIBRATION_N, HP_SITTINGS,
@@ -51,7 +51,7 @@ const locale = () => (getLang() === "sv" ? "sv-SE" : "en-GB");
 /** Recency-weighted accuracy per delprov, read straight off HP attempt items
  *  (the delprov comes from each question's `variant`, not its topic).
  *  -> { [dp]: { rate, weight } } */
-function delprovAccuracy() {
+function delprovAccuracy(variantOf = hpQuestionIndex().variantOf) {
   const runs = store.attempts
     .filter((a) => a.hp && a.items && a.items.length)
     .sort((a, b) => (a.finishedAt || 0) - (b.finishedAt || 0));
@@ -59,7 +59,7 @@ function delprovAccuracy() {
   runs.forEach((run, idx) => {
     const w = Math.pow(0.5, (runs.length - 1 - idx) / 4);
     for (const it of run.items) {
-      const v = store.findQuestion(it.questionId)?.question.variant;
+      const v = variantOf(it.questionId);
       if (!v) continue;
       const e = acc[v] || (acc[v] = { num: 0, den: 0 });
       e.num += (firstTryCorrect(it) ? 1 : 0) * w;
@@ -90,11 +90,11 @@ function partRate(acc, list) {
  * -> { verbal, kvant, total, history:[normed…] } or null when there's no HP
  *    attempt history to read.
  */
-export function hpPrognosis() {
+export function hpPrognosis(acc = null) {
   const runs = store.attempts.filter((a) => a.hp);
   if (!runs.length) return null;
 
-  const acc = delprovAccuracy();
+  acc = acc || delprovAccuracy();
   const vAcc = partRate(acc, VERBAL_DELPROV);
   const kAcc = partRate(acc, KVANT_DELPROV);
   if (vAcc == null && kAcc == null) return null;
@@ -116,8 +116,7 @@ export function hpPrognosis() {
 }
 
 /** Delprov with enough answers under a clock for their estimate to count (see CALIBRATION_N). */
-function calibratedCount() {
-  const stats = delprovStats(store.attempts, (id) => store.findQuestion(id)?.question.variant || null);
+function calibratedCount(stats) {
   return DELPROV_ORDER.filter((dp) => (stats[dp]?.timed || 0) >= CALIBRATION_N).length;
 }
 
@@ -155,7 +154,7 @@ function scoreScale(prog) {
   ]);
 }
 
-function scoreZone(prog) {
+function scoreZone(prog, calibrated) {
   const part = (key, v) => el("span.hp-part", { style: { "--c": PART_COLOR[key] } }, [
     el("i", { "aria-hidden": "true" }), t(`hp.${key}`), el("b", {}, fmtN(v)),
   ]);
@@ -177,8 +176,8 @@ function scoreZone(prog) {
       lo: fmtN(Math.max(0, prog.total - prog.margin)), hi: fmtN(Math.min(2, prog.total + prog.margin)),
     })) : null,
     el("p.hp-hero__calib", {}, [
-      el("span.hp-calib__bar", { "aria-hidden": "true" }, [el("i", { style: { width: `${(calibratedCount() / 8) * 100}%` } })]),
-      t("hp.calibHub", { n: calibratedCount(), q: CALIBRATION_N }),
+      el("span.hp-calib__bar", { "aria-hidden": "true" }, [el("i", { style: { width: `${(calibrated / 8) * 100}%` } })]),
+      t("hp.calibHub", { n: calibrated, q: CALIBRATION_N }),
     ]),
     prog ? el("p.hp-hero__caption", {}, t("hp.prognosisCaption")) : null,
   ].filter(Boolean));
@@ -238,7 +237,7 @@ function dateZone(hpDate, { editing, setEditing }) {
 }
 
 /* ------------------------------------------------------------------ *
- * The delprov: eight tiles in the test's two halves. A tile only names the
+ * The delprov: eight tiles in the test's two halves, each opening its own page (#/hp/<dp>). A tile only names the
  * delprov and how it's going; tapping it opens a small dialog that says what
  * the delprov is and offers the two ways to practise it. A delprov's set is
  * added to the student's library the first time they open it, so there's no
@@ -296,8 +295,8 @@ function delprovTile(dp, ctx) {
   ]);
 }
 
-function delprovBoard(index, tr, acc) {
-  const ctx = { index, tr, acc, stats: delprovStats(store.attempts, (id) => store.findQuestion(id)?.question.variant || null) };
+function delprovBoard(index, tr, acc, stats) {
+  const ctx = { index, tr, acc, stats };
   const group = (key, list) => el("section.hp-group", {
     style: { "--c": PART_COLOR[key], "--c-ink": PART_INK[key] }, "aria-labelledby": `hp-group-${key}`,
   }, [
@@ -345,8 +344,11 @@ export async function renderHp() {
     clear(bodyEl);
     const sets = hpSets();
     const hpDate = store.settings.hpDate || null;
-    const acc = delprovAccuracy();
-    const prog = hpPrognosis();
+    // One index of the HP questions per paint; every count below reads it.
+    const { variantOf } = hpQuestionIndex();
+    const acc = delprovAccuracy(variantOf);
+    const prog = hpPrognosis(acc);
+    const stats = delprovStats(store.attempts, variantOf);
 
     // Practised delprov, weakest first.
     const rows = DELPROV_ORDER
@@ -375,7 +377,7 @@ export async function renderHp() {
       nextSteps.push(el("a.btn.btn--ghost", { href: "#/review" }, [icon(ICONS.spark, 16), plural(dueN, "hp.dueOne", "hp.dueMany")]));
     }
     bodyEl.appendChild(el("section.hp-hero", { "aria-label": t("hp.pageTitle") }, [
-      el("div.hp-hero__main", {}, [scoreZone(prog), dateZone(hpDate, { editing: editingDate, setEditing })]),
+      el("div.hp-hero__main", {}, [scoreZone(prog, calibratedCount(stats)), dateZone(hpDate, { editing: editingDate, setEditing })]),
       el("div.hp-hero__next", {}, nextSteps),
     ]));
 
@@ -434,7 +436,7 @@ export async function renderHp() {
     if (side.length) bodyEl.appendChild(el("div.hp-side" + (side.length > 1 ? ".is-two" : ""), {}, side));
 
     /* ---- the delprov ---- */
-    if (index) bodyEl.appendChild(delprovBoard(index, tr, acc));
+    if (index) bodyEl.appendChild(delprovBoard(index, tr, acc, stats));
     else bodyEl.appendChild(el("section.panel", {}, [el("p", {}, t("lib.loadFailBody"))]));
   }
 

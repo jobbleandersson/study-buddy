@@ -11,7 +11,7 @@ import {
   parseHpSetId, isHpSetId, rawByPart, DELPROV_ORDER, NORM_TABLES, VERBAL_DELPROV, KVANT_DELPROV,
   PASS_COUNT, SEC_PER_Q, minutesFor, pickPracticeIds, questionHistory,
 } from "../lib/hp.js";
-import { ensureHpSets } from "../data/hp-content.js";
+import { ensureHpSets, hpQuestionIndex } from "../data/hp-content.js";
 import { passageFor } from "../lib/passages.js";
 import { announce } from "../lib/a11y.js";
 import { t, plural } from "../lib/i18n.js";
@@ -397,7 +397,7 @@ export async function renderHpMock(qs) {
 export const HP_PRACTICE_PREFIX = "hp-ova-";
 export async function renderHpPractice(dp, qs) {
   if (!DELPROV_ORDER.includes(dp)) return notFound(t("hp.notFoundDelprov"));
-  const pool = hpPool(dp);
+  const pool = hpPool(hpQuestionIndex(), dp);
   if (!pool.length) return emptyScreen(t("hp.practiceEmptyTitle"), t("hp.practiceEmptyBody"), t(`hp.delprov.${dp}`));
 
   const wanted = String(qs?.get?.("ids") || "").split(",").filter((id) => pool.includes(id));
@@ -412,8 +412,9 @@ export async function renderHpPractice(dp, qs) {
   if (ext) query.set("ext", "1");
 
   return runSession({
-    // A list of chosen questions keeps its own slot, so it can't resume as a different list.
-    key: `${HP_PRACTICE_PREFIX}${dp}::${timed ? (marked ? "timed" : "exam") : "train"}${wanted.length ? `::${shortHash(wanted.join(","))}` : ""}`,
+    // Every choice that changes the run is part of its slot — mode, length, extended time, a chosen
+    // list — so a different run never resumes as this one (with this one's clock).
+    key: `${HP_PRACTICE_PREFIX}${dp}::${timed ? (marked ? "timed" : "exam") : "train"}::n${ids.length}${ext ? "::ext" : ""}${wanted.length ? `::${shortHash(wanted.join(","))}` : ""}`,
     assignmentId: `${HP_PRACTICE_PREFIX}${dp}`,
     title: t("hp.practiceTitle", { delprov: t(`hp.delprov.${dp}`) }),
     type: "assignment",
@@ -431,15 +432,7 @@ export async function renderHpPractice(dp, qs) {
 }
 
 /** Every question id of one delprov in the student's HP sets. */
-function hpPool(dp) {
-  const out = [];
-  for (const a of store.assignments) {
-    if (!isHpSetId(a.id)) continue;
-    const setDp = parseHpSetId(a.id).delprov;
-    for (const q of a.questions) if ((q.variant || setDp) === dp) out.push(q.id);
-  }
-  return out;
-}
+const hpPool = (index, dp) => (index.byDelprov[dp] || []).map(({ q }) => q.id);
 
 /** A provpass under test conditions (#/hp/pass/<verbal|kvant>): that half's delprov in the test's
  *  order, as many of each as a real provpass has, 55 minutes, marked at the end.
@@ -452,9 +445,10 @@ export async function renderHpPass(part, qs) {
   const unseen = qs?.get?.("unseen") === "1";
   const full = /^[\w-]{1,40}$/.test(qs?.get?.("full") || "") ? qs.get("full") : null;
   const hist = questionHistory(store.attempts);
+  const index = hpQuestionIndex();
   const ids = [];
   for (const dp of part === "verbal" ? VERBAL_DELPROV : KVANT_DELPROV) {
-    const pool = hpPool(dp).filter((id) => !unseen || !hist[id]);
+    const pool = hpPool(index, dp).filter((id) => !unseen || !hist[id]);
     ids.push(...pickPracticeIds(pool, PASS_COUNT[dp], hist));
   }
   if (!ids.length) {
@@ -488,7 +482,8 @@ export const HP_PROGNOS_ID = "hp-prognos";
 export async function renderHpPrognos() {
   await ensureHpSets();
   const hist = questionHistory(store.attempts);
-  const ids = DELPROV_ORDER.filter((dp) => dp !== "dtk").flatMap((dp) => pickPracticeIds(hpPool(dp), 2, hist));
+  const index = hpQuestionIndex();
+  const ids = DELPROV_ORDER.filter((dp) => dp !== "dtk").flatMap((dp) => pickPracticeIds(hpPool(index, dp), 2, hist));
   if (!ids.length) return emptyScreen(t("hp.passEmptyTitle"), t("hp.practiceEmptyBody"), t("hp.provTitle"));
   return runSession({
     key: HP_PROGNOS_ID,
@@ -1618,17 +1613,30 @@ function scratchPad(host) {
   const canvas = el("canvas.scratch", { "aria-hidden": "true" });
   const clearBtn = el("button.btn.btn--ghost.btn--sm.scratch__clear", { type: "button", onclick: () => wipe() }, t("hp.penClear"));
   let on = false, drawing = false, ctx = null;
+  // Follows the question as it grows (marking, steps, an explanation appear under it) or the screen
+  // turns: the canvas takes the new size and keeps what was already drawn.
   function size() {
     const r = host.getBoundingClientRect();
     const dpr = window.devicePixelRatio || 1;
-    canvas.width = Math.max(1, Math.round(r.width * dpr));
-    canvas.height = Math.max(1, Math.round(host.scrollHeight * dpr));
+    const w = Math.max(1, Math.round(r.width * dpr));
+    const h = Math.max(1, Math.round(host.scrollHeight * dpr));
+    if (ctx && canvas.width === w && canvas.height === h) return;
+    let keep = null;
+    if (ctx && canvas.width > 1) {
+      keep = document.createElement("canvas");
+      keep.width = canvas.width; keep.height = canvas.height;
+      keep.getContext("2d").drawImage(canvas, 0, 0);
+    }
+    canvas.width = w;
+    canvas.height = h;
     canvas.style.height = `${host.scrollHeight}px`;
     ctx = canvas.getContext("2d");
-    ctx.scale(dpr, dpr);
+    if (keep) ctx.drawImage(keep, 0, 0);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.lineWidth = 2; ctx.lineCap = "round"; ctx.lineJoin = "round";
     ctx.strokeStyle = getComputedStyle(host).getPropertyValue("--brand").trim() || "#3D5AFE";
   }
+  const watch = typeof ResizeObserver === "function" ? new ResizeObserver(() => { if (on) size(); }) : null;
   function wipe() { if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height); }
   const pos = (e) => { const r = canvas.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
   canvas.addEventListener("pointerdown", (e) => { if (!on) return; drawing = true; canvas.setPointerCapture(e.pointerId); ctx.beginPath(); ctx.moveTo(...pos(e)); });
@@ -1639,12 +1647,16 @@ function scratchPad(host) {
   return {
     toggle() {
       on = !on;
-      if (on) { host.append(canvas, clearBtn); size(); }
-      else { canvas.remove(); clearBtn.remove(); }
+      if (on) { host.append(canvas, clearBtn); size(); watch?.observe(host); }
+      else { canvas.remove(); clearBtn.remove(); watch?.disconnect(); }
       host.classList.toggle("is-drawing", on);
       return on;
     },
-    reset() { on = false; drawing = false; canvas.remove(); clearBtn.remove(); host.classList.remove("is-drawing"); },
+    reset() {
+      on = false; drawing = false; watch?.disconnect();
+      canvas.remove(); clearBtn.remove(); host.classList.remove("is-drawing");
+      if (ctx) { ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, canvas.width, canvas.height); }
+    },
   };
 }
 

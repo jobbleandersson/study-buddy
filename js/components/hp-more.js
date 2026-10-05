@@ -27,6 +27,12 @@ const FORMAT = {
 
 const running = new Map();   // delprov -> the batch being written
 
+function shuffle(list) {
+  const a = list.slice();
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+}
+
 /** Writes up to `count` new questions for a delprov and adds them to its AI set. Resolves how many
  *  were added; throws (a ClaudeError or Error) when none came out usable. */
 export function addHpQuestions(dp, count = MORE_HP) {
@@ -41,11 +47,16 @@ export const isAddingHp = (dp) => running.has(dp);
 async function addNow(dp, count) {
   if (!AI_DELPROV.includes(dp)) throw new Error(t("hp.moreNotHere"));
   const sets = store.assignments.filter((a) => isHpSetId(a.id) && parseHpSetId(a.id).delprov === dp);
-  const own = sets.flatMap((a) => a.questions).filter((q) => (q.variant || dp) === dp && q.kind === "mc");
-  const seed = own.slice(0, 8).map(({ prompt, choices, answer, explanation, steps, stimulus, topic }) =>
+  const ofDp = (list) => list.flatMap((a) => a.questions).filter((q) => (q.variant || dp) === dp && q.kind === "mc");
+  // The examples are always the hand-written practice-test questions (a random 8 each time, for
+  // variety) — never earlier AI ones, or each batch would copy the last and drift.
+  const own = ofDp(sets.filter((a) => a.id !== aiSetId(dp)));
+  const seed = shuffle(own).slice(0, 8).map(({ prompt, choices, answer, explanation, steps, stimulus, topic }) =>
     ({ kind: "mc", topic, prompt, choices, answer, explanation, steps, stimulus }));
   if (!seed.length) throw new Error(t("hp.moreNoSeed"));
   const fixed = dp === "kva" || dp === "nog" ? seed[0].choices : null;
+  // What already exists, AI-made included, so nothing is written twice with new numbers.
+  const taken = ofDp(sets).map((q) => String(q.prompt).replace(/\s+/g, " ").slice(0, 90));
 
   const gen = await generateAssignment({
     count,
@@ -56,6 +67,8 @@ async function addNow(dp, count) {
       `Every question is kind "mc" with exactly ${OPTION_COUNT[dp]} options in "choices" and the 0-based index of the right one in "answerIndex".`,
       fixed ? `The fixed options, word for word: ${JSON.stringify(fixed)}` : null,
       "Give each question an \"explanation\" (one or two sentences) and \"steps\" (2–4 short steps that reach the answer).",
+      "Match the real test's spread of difficulty, not just the examples: about a third straightforward, a third that need two or three steps, and a third hard ones where a tempting wrong option catches a common mistake. Vary the problem types and settings; do not reuse an example's structure with new numbers.",
+      `These questions already exist — do not repeat or rephrase any of them:\n${taken.map((p) => `- ${p}`).join("\n")}`,
       "Check every answer before you write it: exactly one option may be right.",
     ].filter(Boolean).join("\n"),
   });
@@ -64,7 +77,7 @@ async function addNow(dp, count) {
   for (const q of gen.questions || []) {
     if (q.kind !== "mc" || !Array.isArray(q.choices) || !(q.answer >= 0) || !q.prompt) continue;
     const right = String(q.choices[q.answer] ?? "").trim();
-    let out = { ...q, id: uid(), variant: dp, aiMade: true };
+    let out = { ...q, id: uid(), variant: dp };
     if (fixed) {
       // Back into the fixed order (generation shuffles options), matched by the right option's text.
       const at = fixed.findIndex((c) => c.trim() === right);

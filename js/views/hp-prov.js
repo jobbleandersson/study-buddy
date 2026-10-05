@@ -6,30 +6,27 @@ import { store, HP_MOCK_ID } from "../store.js";
 import { el, icon, ICONS, uid } from "../lib/dom.js";
 import { t, fmtDate } from "../lib/i18n.js";
 import { localDayKey } from "../lib/activity.js";
-import { ensureHpSets } from "../data/hp-content.js";
-import {
-  isHpSetId, parseHpSetId, VERBAL_DELPROV, KVANT_DELPROV, PASS_COUNT, questionHistory, attemptNormedTotal,
-} from "../lib/hp.js";
+import { ensureHpSets, hpQuestionIndex } from "../data/hp-content.js";
+import { VERBAL_DELPROV, KVANT_DELPROV, PASS_COUNT, questionHistory, attemptNormedTotal } from "../lib/hp.js";
 
 const fmtN = (n) => (n == null ? "–" : Number(n).toFixed(2).replace(".", ","));
 const PASS_SIZE = (list) => list.reduce((n, dp) => n + PASS_COUNT[dp], 0);
 
-/** How many questions of each half exist, and how many of them haven't been answered yet. */
+/** Per half: how many questions a provpass of it would get (each delprov only fills its own share),
+ *  and how many questions of it haven't been answered yet. */
 function availability() {
   const hist = questionHistory(store.attempts);
-  const out = { verbal: { all: 0, fresh: 0 }, kvant: { all: 0, fresh: 0 } };
-  for (const a of store.assignments) {
-    if (!isHpSetId(a.id)) continue;
-    const setDp = parseHpSetId(a.id).delprov;
-    for (const q of a.questions) {
-      const dp = q.variant || setDp;
-      const part = VERBAL_DELPROV.includes(dp) ? "verbal" : KVANT_DELPROV.includes(dp) ? "kvant" : null;
-      if (!part) continue;
-      out[part].all++;
-      if (!hist[q.id]) out[part].fresh++;
+  const { byDelprov } = hpQuestionIndex();
+  const half = (list) => {
+    let inPass = 0, fresh = 0;
+    for (const dp of list) {
+      const qs = byDelprov[dp] || [];
+      inPass += Math.min(qs.length, PASS_COUNT[dp]);
+      fresh += qs.filter(({ q }) => !hist[q.id]).length;
     }
-  }
-  return out;
+    return { inPass, fresh };
+  };
+  return { verbal: half(VERBAL_DELPROV), kvant: half(KVANT_DELPROV) };
 }
 
 function card(title, sub, children, extraClass = "") {
@@ -76,8 +73,8 @@ export async function renderHpProv() {
         el("a.btn.btn--ghost", { href: "#/hp/pass/verbal" }, [icon(ICONS.clock, 16), t("hp.passStart.verbal")]),
         el("a.btn.btn--ghost", { href: "#/hp/pass/kvant" }, [icon(ICONS.clock, 16), t("hp.passStart.kvant")]),
       ]),
-      avail.verbal.all < vSize || avail.kvant.all < kSize
-        ? el("p.note", {}, t("hp.passShort", { v: Math.min(avail.verbal.all, vSize), vs: vSize, k: Math.min(avail.kvant.all, kSize), ks: kSize }))
+      avail.verbal.inPass < vSize || avail.kvant.inPass < kSize
+        ? el("p.note", {}, t("hp.passShort", { v: avail.verbal.inPass, vs: vSize, k: avail.kvant.inPass, ks: kSize }))
         : null,
     ].filter(Boolean)),
 

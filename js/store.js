@@ -1631,6 +1631,9 @@ class Store extends EventTarget {
     this.update((s) => {
       const list = Array.isArray(s.savedQuestions) ? s.savedQuestions : [];
       s.savedQuestions = list.includes(questionId) ? list.filter((x) => x !== questionId) : [...list, questionId];
+      // When each bookmark last changed, either way — a sync merge keeps the later change, so a
+      // question un-saved on one device doesn't come back from another (lib/merge-state.js).
+      s.savedChangedAt = { ...(s.savedChangedAt || {}), [questionId]: Date.now() };
     });
     return this.isSaved(questionId);
   }
