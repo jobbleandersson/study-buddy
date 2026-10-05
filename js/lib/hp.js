@@ -26,14 +26,6 @@ export function partOf(delprov) {
   return KVANT_DELPROV.includes(delprov) ? "kvant" : "verbal";
 }
 
-/** Minutes to allow for a single-delprov timed drill, at roughly real test
- *  pace (a delprov is ~10–12 questions, a slice of a 55-minute / 40-question
- *  provpass). Used to build the `?exam=1&min=N` drill links on #/hp. */
-export const DELPROV_PACE = {
-  ord: 7, las: 15, mek: 11, elf: 15,
-  xyz: 18, kva: 13, nog: 9, dtk: 14,
-};
-
 export const DELPROV_ORDER = ["ord", "las", "mek", "elf", "xyz", "kva", "nog", "dtk"];
 
 /* ------------------------------------------------------------------ *

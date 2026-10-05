@@ -102,3 +102,19 @@ describe("looksLikeBackup", () => {
     assert.equal(looksLikeBackup({ assignments: [], attempts: [], settings: [] }), false);
   });
 });
+
+describe("mergeStates: saved questions", () => {
+  test("a question un-saved on this device after the server's save stays un-saved", () => {
+    const server = { savedQuestions: ["q1", "q2"], savedChangedAt: { q1: 100, q2: 100 } };
+    const local = { savedQuestions: ["q2"], savedChangedAt: { q1: 200, q2: 100 } };
+    assert.deepEqual(mergeStates(server, local, NOW).savedQuestions, ["q2"]);
+  });
+  test("a later save on either side wins, and stamps keep the latest change", () => {
+    const out = mergeStates({ savedQuestions: [], savedChangedAt: { q3: 100 } }, { savedQuestions: ["q3"], savedChangedAt: { q3: 300 } }, NOW);
+    assert.deepEqual(out.savedQuestions, ["q3"]);
+    assert.equal(out.savedChangedAt.q3, 300);
+  });
+  test("bookmarks from before the stamps are kept from both sides", () => {
+    assert.deepEqual(mergeStates({ savedQuestions: ["a"] }, { savedQuestions: ["b"] }, NOW).savedQuestions.sort(), ["a", "b"]);
+  });
+});

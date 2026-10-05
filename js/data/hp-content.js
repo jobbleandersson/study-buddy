@@ -5,6 +5,26 @@
 // rather than inside #/library.
 
 import { store } from "../store.js";
+import { isHpSetId, parseHpSetId } from "../lib/hp.js";
+
+/** Every question in the student's HP sets, by delprov ({ [dp]: [{ q, set }] }), and a lookup from a
+ *  question id to its delprov. One pass over the library, built once per page paint — searching every
+ *  set for every answer instead (store.findQuestion) grows with attempts × questions. */
+export function hpQuestionIndex() {
+  const byDelprov = {};
+  const variant = new Map();
+  for (const a of store.assignments) {
+    if (!isHpSetId(a.id)) continue;
+    const setDp = parseHpSetId(a.id).delprov;
+    for (const q of a.questions) {
+      const dp = q.variant || setDp;
+      if (!dp) continue;
+      (byDelprov[dp] || (byDelprov[dp] = [])).push({ q, set: a });
+      variant.set(q.id, dp);
+    }
+  }
+  return { byDelprov, variantOf: (id) => variant.get(id) || null };
+}
 
 const INDEX_URL = "data/library/hp-index.json";
 const TRANSLATIONS_URL = "data/library/hp-index.en.json";

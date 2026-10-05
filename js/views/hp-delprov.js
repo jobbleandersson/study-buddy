@@ -10,9 +10,10 @@ import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
 import { t, fmtDate, sentenceCase } from "../lib/i18n.js";
 import { localDayKey, addDays } from "../lib/activity.js";
 import { renderRich } from "../lib/rich.js";
-import { loadHpIndex, isHpImported, importHpSet } from "../data/hp-content.js";
+import { previewPrompt } from "../lib/text.js";
+import { ensureHpSets, hpQuestionIndex } from "../data/hp-content.js";
 import {
-  isHpSetId, parseHpSetId, partOf, PASS_COUNT, SEC_PER_Q, CALIBRATION_N, minutesFor,
+  parseHpSetId, partOf, PASS_COUNT, SEC_PER_Q, CALIBRATION_N, minutesFor,
   questionHistory, delprovStats, delprovEstimate, NORM_TABLES,
 } from "../lib/hp.js";
 import { AI_DELPROV, MORE_HP, addHpQuestions, isAddingHp } from "../components/hp-more.js";
@@ -22,19 +23,13 @@ import { sparkline } from "../lib/spark.js";
 const fmtN = (n) => (n == null ? "–" : Number(n).toFixed(2).replace(".", ","));
 const LIST_STEP = 30;
 
-// The setup the student last chose, per visit (not saved): mode, count, extended time, marking.
-const setup = { mode: "train", n: null, ext: false, marked: true };
+// The setup the student last chose for each delprov (not saved): mode, count, extended time, marking.
+// Per delprov, since a count that suits XYZ (12 a provpass) is more than a whole NOG provpass (6).
+const setups = {};
+const setupFor = (dp) => setups[dp] || (setups[dp] = { mode: "train", n: null, ext: false, marked: true });
 
-/** Every question of this delprov in the student's HP sets, with the set it lives in. */
-function delprovQuestions(dp) {
-  const out = [];
-  for (const a of store.assignments) {
-    if (!isHpSetId(a.id)) continue;
-    const setDp = parseHpSetId(a.id).delprov;
-    for (const q of a.questions) if ((q.variant || setDp) === dp) out.push({ q, set: a });
-  }
-  return out;
-}
+/** The counts on offer for a delprov: 5, 10, 15 below its provpass size, and the provpass itself. */
+const countChoices = (dp) => [...new Set([...[5, 10, 15].filter((v) => v < PASS_COUNT[dp] || v === 5), PASS_COUNT[dp]])];
 
 function sourceOf(set) {
   const ref = parseHpSetId(set.id);
@@ -43,19 +38,14 @@ function sourceOf(set) {
   return { label: set.title };
 }
 
-const plainPrompt = (q) => {
-  const s = String(q.prompt || "").replace(/\s+/g, " ").trim();
-  return s.length > 110 ? `${s.slice(0, 107)}…` : s;
-};
+
 
 export async function renderHpDelprov(dp, qs) {
-  // Add this delprov's own sets the first time the page is opened.
-  try {
-    const index = await loadHpIndex();
-    for (const s of index.sets.filter((x) => x.subject === `hp-${dp}`)) {
-      if (!isHpImported(s.id)) await importHpSet(s);
-    }
-  } catch { /* offline or the index failed: the page works with whatever is already there */ }
+  // The HP sets are added the first time a page needs them (offline: whatever is already there).
+  await ensureHpSets();
+  const setup = setupFor(dp);
+  // One index of the HP questions per paint (see hpQuestionIndex); set at the top of paint().
+  let idx = hpQuestionIndex();
 
   const root = el("div.hp-dp", { style: { "--c": partOf(dp) === "kvant" ? "var(--c-tangerine)" : "var(--brand)" } });
   let tab = ["historik", "analys"].includes(qs?.get?.("tab")) ? qs.get("tab") : "ova";
@@ -68,7 +58,7 @@ export async function renderHpDelprov(dp, qs) {
   }, label);
 
   function header() {
-    const stats = delprovStats(store.attempts, (id) => store.findQuestion(id)?.question.variant || null)[dp];
+    const stats = delprovStats(store.attempts, idx.variantOf)[dp];
     const level = stats && stats.answered ? delprovEstimate({ delprov: dp, correct: stats.correct, total: stats.answered }).normed : null;
     const timedN = Math.min(stats?.timed || 0, CALIBRATION_N);
     return el("header.hp-dp__head", {}, [
@@ -92,7 +82,7 @@ export async function renderHpDelprov(dp, qs) {
   /* ---- Öva: the setup ---- */
   function setupCard(poolSize) {
     const full = PASS_COUNT[dp];
-    const n = setup.n || full;
+    const n = countChoices(dp).includes(setup.n) ? setup.n : full;
     const seg = (key, label) => el("button.hp-seg__opt", {
       type: "button", "aria-pressed": String(setup.mode === key), onclick: () => { setup.mode = key; paint(); },
     }, label);
@@ -117,10 +107,8 @@ export async function renderHpDelprov(dp, qs) {
       el("p.note", {}, t("hp.setupSub")),
       el("div.hp-seg", { role: "group", "aria-label": t("hp.setupMode") }, [seg("train", t("hp.modeTrain")), seg("timed", t("hp.modeTimed"))]),
       el("p.hp-setup__modehint", {}, t(timed ? "hp.modeTimedSub" : "hp.modeTrainSub", { s: SEC_PER_Q[dp] })),
-      el("div.hp-counts", { role: "group", "aria-label": t("hp.setupCount") }, [
-        ...[5, 10, 15].filter((v) => v < full || v === 5).map((v) => countBtn(v, String(v))),
-        countBtn(full, t("hp.countFull", { n: full })),
-      ]),
+      el("div.hp-counts", { role: "group", "aria-label": t("hp.setupCount") },
+        countChoices(dp).map((v) => countBtn(v, v === full ? t("hp.countFull", { n: full }) : String(v)))),
       timed ? el("div.hp-toggles", {}, [
         toggle("ext", t("hp.extTitle"), t("hp.extSub")),
         toggle("marked", t("hp.markTitle"), t("hp.markSub")),
@@ -161,7 +149,7 @@ export async function renderHpDelprov(dp, qs) {
       }, [icon(ICONS.bookmark, 15)]);
       return el("li.hp-qrow", {}, [
         el("div.hp-qrow__main", {}, [
-          el("span.hp-qrow__prompt", { html: renderRich(plainPrompt(q)) }),
+          el("span.hp-qrow__prompt", { html: renderRich(previewPrompt(q.prompt)) }),
           el("span.hp-qrow__chips", {}, [
             q.topic ? el("span.hp-chip", {}, sentenceCase(q.topic)) : null,
             statusChip(statusOf(q)),
@@ -226,7 +214,7 @@ export async function renderHpDelprov(dp, qs) {
     const runs = [];
     for (const a of store.attempts) {
       if (!Array.isArray(a.items)) continue;
-      const mine = a.items.filter((it) => store.findQuestion(it.questionId)?.question.variant === dp);
+      const mine = a.items.filter((it) => idx.variantOf(it.questionId) === dp);
       if (!mine.length) continue;
       const right = mine.filter((it) => it.firstTry ?? it.correct).length;
       runs.push({ at: a.finishedAt || 0, right, n: mine.length });
@@ -304,7 +292,7 @@ export async function renderHpDelprov(dp, qs) {
   /* ---- Historik ---- */
   function historyCard() {
     const runs = store.attempts
-      .filter((a) => a.hp && (a.items || []).some((it) => store.findQuestion(it.questionId)?.question.variant === dp))
+      .filter((a) => a.hp && (a.items || []).some((it) => idx.variantOf(it.questionId) === dp))
       .sort((a, b) => (b.finishedAt || 0) - (a.finishedAt || 0));
     if (!runs.length) {
       return el("section.set-card", {}, [el("h2", {}, t("hp.historyTitle")), el("p.note", {}, t("hp.historyEmpty"))]);
@@ -312,7 +300,7 @@ export async function renderHpDelprov(dp, qs) {
     return el("section.set-card", {}, [
       el("h2", {}, t("hp.historyTitle")),
       el("ol.hp-hist", {}, runs.slice(0, 40).map((a) => {
-        const mine = a.items.filter((it) => store.findQuestion(it.questionId)?.question.variant === dp);
+        const mine = a.items.filter((it) => idx.variantOf(it.questionId) === dp);
         const right = mine.filter((it) => it.firstTry ?? it.correct).length;
         const kind = a.examMode ? t("hp.histExam") : a.timeLimitMin ? t("hp.histTimed") : t("hp.histTrain");
         return el("li", {}, [
@@ -329,7 +317,8 @@ export async function renderHpDelprov(dp, qs) {
 
   function paint() {
     clear(root);
-    const all = delprovQuestions(dp);
+    idx = hpQuestionIndex();
+    const all = idx.byDelprov[dp] || [];
     clear(body);
     if (tab === "historik") body.append(historyCard());
     else if (tab === "analys") body.append(...analysisCards());

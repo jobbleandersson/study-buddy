@@ -130,9 +130,24 @@ export function mergeStates(server, local, now = Date.now()) {
     lastBackupAt: Math.max(sa.lastBackupAt || 0, la.lastBackupAt || 0) || null,
   };
 
-  // saved questions — union (a bookmark set on either device stays)
+  // saved questions — per question, the side that changed its bookmark last decides (saved or not);
+  // one changed on neither side since the stamps began stays as the server has it, or the local
+  // copy adds it
   if (Array.isArray(s.savedQuestions) || Array.isArray(l.savedQuestions)) {
-    s.savedQuestions = [...new Set([...arr(s.savedQuestions), ...arr(l.savedQuestions)])];
+    const sAt = o(s.savedChangedAt), lAt = o(l.savedChangedAt);
+    const sSet = new Set(arr(s.savedQuestions)), lSet = new Set(arr(l.savedQuestions));
+    const ids = new Set([...sSet, ...lSet, ...Object.keys(sAt), ...Object.keys(lAt)]);
+    const out = [];
+    const at = {};
+    for (const id of ids) {
+      const localWins = (lAt[id] || 0) > (sAt[id] || 0);
+      const saved = localWins ? lSet.has(id) : (sAt[id] || lAt[id] ? sSet.has(id) : sSet.has(id) || lSet.has(id));
+      if (saved) out.push(id);
+      const stamp = Math.max(sAt[id] || 0, lAt[id] || 0);
+      if (stamp) at[id] = stamp;
+    }
+    s.savedQuestions = out;
+    s.savedChangedAt = at;
   }
 
   // achievements — union, keeping the earlier unlock stamp
