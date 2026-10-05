@@ -13,7 +13,7 @@ import {
 import { consume } from "../middleware/attemptLimit.js";
 import { isUniqueViolation } from "../errors.js";
 import { requireAuth } from "../middleware/requireAuth.js";
-import { emailEnabled, sendVerifyEmail, sendResetEmail, sendTwoFaEnabledEmail, sendTwoFaDisabledEmail, sendPasswordAddedEmail, sendTwoFaCodeEmail } from "../email.js";
+import { emailEnabled, sendVerifyEmail, sendResetEmail, sendTwoFaEnabledEmail, sendTwoFaDisabledEmail, sendPasswordAddedEmail, sendTwoFaCodeEmail, sendWelcomeEmail } from "../email.js";
 import { generateSecret, verifyTotp, otpauthUri } from "../totp.js";
 
 export const auth = Router();
@@ -414,6 +414,8 @@ auth.post("/auth/google", googleSignInLimit, asyncHandler(async (req, res) => {
     if (method) return res.json({ twoFactorRequired: true, method, challenge: issueTwoFaChallenge(user.id) });
 
     createSession(res, user.id);
+    // A brand-new account: Google has already proven the address, so the welcome goes now (best-effort).
+    if (created) sendWelcomeEmail(user.email).catch(() => {});
     res.json({ email: user.email, created, linked, emailVerified: true });
   } catch (e) {
     console.error("[study-buddy-server] /auth/google failed:", e);
@@ -473,13 +475,17 @@ auth.post("/auth/verify-email", verifyEmailIpLimit, asyncHandler(async (req, res
   // link (a double-tap, a mail scanner that opened it first) both pass the SELECT above, and only
   // one may win - the other reads as an already-used link.
   const now = Date.now();
+  let firstTime = false;
   const email = db.transaction(() => {
     const claimed = db.prepare("UPDATE email_verify_tokens SET used_at = ? WHERE id = ? AND used_at IS NULL").run(now, row.id);
     if (claimed.changes === 0) return null;
-    db.prepare("UPDATE users SET email_verified_at = ? WHERE id = ?").run(now, row.userId);
+    // Only the first confirmation counts as "new": a second link, or an address confirmed again, gets no welcome.
+    firstTime = db.prepare("UPDATE users SET email_verified_at = ? WHERE id = ? AND email_verified_at IS NULL").run(now, row.userId).changes === 1;
     return db.prepare("SELECT email FROM users WHERE id = ?").get(row.userId)?.email ?? null;
   })();
   if (!email) return badToken(res);
+  // An email sign-up is welcomed once its address is confirmed - not at signup, next to the confirm link.
+  if (firstTime) sendWelcomeEmail(email).catch(() => {});
   // The address goes back so a signed-in browser can tell whether this link was for ITS account.
   res.json({ ok: true, email });
 }));
