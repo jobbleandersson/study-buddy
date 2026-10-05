@@ -67,12 +67,38 @@ export async function sendEmail({ to, subject, html, critical = false, low = fal
 // to the console instead of an undefined-looking link.
 const PUBLIC_URL = (process.env.PUBLIC_URL || "http://localhost:8787").replace(/\/+$/, "");
 
-function layout(bodyHtml) {
+function layout(bodyHtml, footer = "If you didn't request this, you can ignore this email.") {
   return `<div style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:480px;margin:0 auto;color:#191D28">
     <h1 style="font-size:20px;margin:0 0 16px">PluggEra</h1>
     ${bodyHtml}
-    <p style="font-size:12px;color:#6B7386;margin-top:32px">If you didn't request this, you can ignore this email.</p>
+    <p style="font-size:12px;color:#6B7386;margin-top:32px">${footer}</p>
   </div>`;
+}
+
+/** Once per new account: right away for a Google sign-up, after the address is confirmed for an
+ *  email sign-up (so a new user never gets two mails at once, and nothing goes to an address that
+ *  was never proven). The server doesn't know the student's language, so it's Swedish first with
+ *  English below. `low`, like the verification mail: a welcome can be skipped, a sign-in code can't. */
+export function sendWelcomeEmail(to) {
+  const btn = (href, label) => `<a href="${href}" style="display:inline-block;background:#2C5CD6;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-weight:600">${label}</a>`;
+  const li = 'style="margin:0 0 6px"';
+  return sendEmail({
+    to, low: true, subject: "Välkommen till PluggEra",
+    html: layout(`
+      <p style="font-size:16px;margin:0 0 12px"><strong>Välkommen!</strong> Ditt konto är klart.</p>
+      <p style="margin:0 0 8px">Tre bra ställen att börja på:</p>
+      <ul style="margin:0 0 16px;padding-left:20px">
+        <li ${li}><a href="${PUBLIC_URL}/#/create" style="color:#2C5CD6">Skapa</a> – gör ett övningsset av dina egna anteckningar eller uppgifter.</li>
+        <li ${li}><a href="${PUBLIC_URL}/#/hp" style="color:#2C5CD6">Högskoleprovet</a> – öva varje delprov i provformat och få en uppskattad poäng.</li>
+        <li ${li}>Repetition – frågor du missar kommer tillbaka lagom tills du kan dem.</li>
+      </ul>
+      <p style="margin:0 0 24px">${btn(`${PUBLIC_URL}/`, "Öppna PluggEra")}</p>
+      <hr style="border:0;border-top:1px solid #E3E6EE;margin:0 0 16px">
+      <p style="font-size:14px;color:#3A4152;margin:0 0 8px"><strong>Welcome!</strong> Your account is ready. Make a practice set from your own notes under
+        <a href="${PUBLIC_URL}/#/create" style="color:#2C5CD6">Create</a>, practise the Swedish Högskoleprovet under
+        <a href="${PUBLIC_URL}/#/hp" style="color:#2C5CD6">Högskoleprovet</a>, and the questions you miss come back for review until you know them.</p>
+    `, "Du får det här mejlet för att ett konto skapades på PluggEra med den här adressen. · You're getting this because a PluggEra account was created with this address."),
+  });
 }
 
 export function sendVerifyEmail(to, token) {
