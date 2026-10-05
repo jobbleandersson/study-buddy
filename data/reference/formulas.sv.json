@@ -1,51 +1,795 @@
 {
-  "version": 1,
+  "version": 2,
   "sections": [
     {
       "id": "ma",
       "name": "Matematik",
       "groups": [
         {
-          "name": "Geometri",
+          "id": "area",
+          "name": "Area och omkrets",
           "items": [
-            { "name": "Rektangelns area", "formula": "A = b \\cdot h", "note": "b = bas, h = höjd" },
-            { "name": "Triangelns area", "formula": "A = \\dfrac{b \\cdot h}{2}", "note": "h vinkelrät mot basen" },
-            { "name": "Parallellogram", "formula": "A = b \\cdot h", "note": "" },
-            { "name": "Cirkelns area", "formula": "A = \\pi r^2", "note": "r = radie" },
-            { "name": "Cirkelns omkrets", "formula": "O = 2 \\pi r = \\pi d", "note": "d = diameter" },
-            { "name": "Cylinderns volym", "formula": "V = \\pi r^2 \\cdot h", "note": "" },
-            { "name": "Rätblockets volym", "formula": "V = l \\cdot b \\cdot h", "note": "" },
-            { "name": "Konens volym", "formula": "V = \\dfrac{\\pi r^2 \\cdot h}{3}", "note": "" },
-            { "name": "Klotets volym", "formula": "V = \\dfrac{4 \\pi r^3}{3}", "note": "" },
-            { "name": "Pythagoras sats", "formula": "a^2 + b^2 = c^2", "note": "c = hypotenusan i en rätvinklig triangel" }
+            {
+              "id": "rect-area",
+              "level": "hs",
+              "name": "Rektangelns area",
+              "formula": "A = b \\cdot h",
+              "vars": [
+                [
+                  "b",
+                  "basen"
+                ],
+                [
+                  "h",
+                  "höjden"
+                ]
+              ]
+            },
+            {
+              "id": "square-area",
+              "level": "hs",
+              "name": "Kvadratens area",
+              "formula": "A = s^2",
+              "vars": [
+                [
+                  "s",
+                  "sidan"
+                ]
+              ]
+            },
+            {
+              "id": "tri-area",
+              "level": "hs",
+              "name": "Triangelns area",
+              "formula": "A = \\dfrac{b \\cdot h}{2}",
+              "vars": [
+                [
+                  "b",
+                  "basen"
+                ],
+                [
+                  "h",
+                  "höjden, vinkelrätt mot basen"
+                ]
+              ]
+            },
+            {
+              "id": "para-area",
+              "level": "hs",
+              "name": "Parallellogrammets area",
+              "formula": "A = b \\cdot h",
+              "vars": [
+                [
+                  "b",
+                  "basen"
+                ],
+                [
+                  "h",
+                  "höjden"
+                ]
+              ]
+            },
+            {
+              "id": "trap-area",
+              "level": "hs",
+              "name": "Parallelltrapetsets area",
+              "formula": "A = \\dfrac{(a + b) \\cdot h}{2}",
+              "vars": [
+                [
+                  "a,\\ b",
+                  "de parallella sidorna"
+                ],
+                [
+                  "h",
+                  "höjden"
+                ]
+              ],
+              "keywords": "trapets"
+            },
+            {
+              "id": "circle-area",
+              "level": "hs",
+              "name": "Cirkelns area",
+              "formula": "A = \\pi r^2",
+              "vars": [
+                [
+                  "r",
+                  "radien"
+                ]
+              ],
+              "note": "π ≈ 3,14"
+            },
+            {
+              "id": "circle-circ",
+              "level": "hs",
+              "name": "Cirkelns omkrets",
+              "formula": "O = 2 \\pi r = \\pi d",
+              "vars": [
+                [
+                  "r",
+                  "radien"
+                ],
+                [
+                  "d",
+                  "diametern"
+                ]
+              ]
+            },
+            {
+              "id": "sector",
+              "level": "hs",
+              "name": "Cirkelsektor",
+              "formula": "A = \\dfrac{v}{360^\\circ} \\cdot \\pi r^2, \\quad b = \\dfrac{v}{360^\\circ} \\cdot 2 \\pi r",
+              "vars": [
+                [
+                  "v",
+                  "medelpunktsvinkeln"
+                ],
+                [
+                  "b",
+                  "bågens längd"
+                ]
+              ],
+              "keywords": "cirkelbåge"
+            }
           ]
         },
         {
-          "name": "Algebra",
+          "id": "volym",
+          "name": "Volym och begränsningsarea",
           "items": [
-            { "name": "Räta linjen", "formula": "y = kx + m", "note": "k = lutning, m = skärning med y-axeln" },
-            { "name": "Lutning (k-värde)", "formula": "k = \\dfrac{y_2 - y_1}{x_2 - x_1}", "note": "" },
-            { "name": "Andragradsekvation (pq-formeln)", "formula": "x = -\\dfrac{p}{2} \\pm \\sqrt{\\left(\\dfrac{p}{2}\\right)^2 - q}", "note": "för ekvationen x² + px + q = 0" },
-            { "name": "Konjugatregeln", "formula": "(a+b)(a-b) = a^2 - b^2", "note": "" },
-            { "name": "Kvadreringsreglerna", "formula": "(a \\pm b)^2 = a^2 \\pm 2ab + b^2", "note": "" },
-            { "name": "Potenslagar", "formula": "x^a \\cdot x^b = x^{a+b}, \\quad \\dfrac{x^a}{x^b} = x^{a-b}, \\quad (x^a)^b = x^{ab}", "note": "" },
-            { "name": "Negativ exponent", "formula": "x^{-a} = \\dfrac{1}{x^a}", "note": "" }
+            {
+              "id": "cuboid",
+              "level": "hs",
+              "name": "Rätblockets volym",
+              "formula": "V = l \\cdot b \\cdot h",
+              "vars": [
+                [
+                  "l",
+                  "längden"
+                ],
+                [
+                  "b",
+                  "bredden"
+                ],
+                [
+                  "h",
+                  "höjden"
+                ]
+              ],
+              "keywords": "låda"
+            },
+            {
+              "id": "cube",
+              "level": "hs",
+              "name": "Kubens volym",
+              "formula": "V = s^3",
+              "vars": [
+                [
+                  "s",
+                  "sidan"
+                ]
+              ]
+            },
+            {
+              "id": "prism",
+              "level": "hs",
+              "name": "Prismats volym",
+              "formula": "V = B \\cdot h",
+              "vars": [
+                [
+                  "B",
+                  "basytans area"
+                ],
+                [
+                  "h",
+                  "höjden"
+                ]
+              ]
+            },
+            {
+              "id": "cylinder",
+              "level": "hs",
+              "name": "Cylinderns volym",
+              "formula": "V = \\pi r^2 h",
+              "vars": [
+                [
+                  "r",
+                  "radien"
+                ],
+                [
+                  "h",
+                  "höjden"
+                ]
+              ]
+            },
+            {
+              "id": "pyramid",
+              "level": "hs",
+              "name": "Pyramidens volym",
+              "formula": "V = \\dfrac{B \\cdot h}{3}",
+              "vars": [
+                [
+                  "B",
+                  "basytans area"
+                ],
+                [
+                  "h",
+                  "höjden"
+                ]
+              ]
+            },
+            {
+              "id": "cone",
+              "level": "hs",
+              "name": "Konens volym",
+              "formula": "V = \\dfrac{\\pi r^2 h}{3}",
+              "vars": [
+                [
+                  "r",
+                  "bottenytans radie"
+                ],
+                [
+                  "h",
+                  "höjden"
+                ]
+              ]
+            },
+            {
+              "id": "sphere",
+              "level": "hs",
+              "name": "Klotets volym",
+              "formula": "V = \\dfrac{4 \\pi r^3}{3}",
+              "vars": [
+                [
+                  "r",
+                  "radien"
+                ]
+              ],
+              "keywords": "sfär"
+            },
+            {
+              "id": "sphere-area",
+              "level": "hs",
+              "name": "Klotets area",
+              "formula": "A = 4 \\pi r^2",
+              "vars": [
+                [
+                  "r",
+                  "radien"
+                ]
+              ]
+            },
+            {
+              "id": "cyl-mantle",
+              "level": "hs",
+              "name": "Cylinderns mantelarea",
+              "formula": "A = 2 \\pi r h",
+              "vars": [
+                [
+                  "r",
+                  "radien"
+                ],
+                [
+                  "h",
+                  "höjden"
+                ]
+              ]
+            }
           ]
         },
         {
-          "name": "Procent och andelar",
+          "id": "trig",
+          "name": "Trianglar och trigonometri",
           "items": [
-            { "name": "Andelen", "formula": "\\text{andel} = \\dfrac{\\text{delen}}{\\text{det hela}}", "note": "" },
-            { "name": "Förändringsfaktor", "formula": "\\text{nytt värde} = \\text{gammalt värde} \\cdot f", "note": "f = 1,25 vid +25 %, f = 0,80 vid −20 %" },
-            { "name": "Ränta på ränta", "formula": "K = K_0 \\cdot f^{\\,n}", "note": "K₀ = startkapital, n = antal år" }
+            {
+              "id": "angle-sum",
+              "level": "hs",
+              "name": "Vinkelsumman i en triangel",
+              "formula": "u + v + w = 180^\\circ"
+            },
+            {
+              "id": "polygon-sum",
+              "level": "hs",
+              "name": "Vinkelsumman i en månghörning",
+              "formula": "S = (n - 2) \\cdot 180^\\circ",
+              "vars": [
+                [
+                  "n",
+                  "antalet hörn"
+                ]
+              ]
+            },
+            {
+              "id": "pythagoras",
+              "level": "hs",
+              "name": "Pythagoras sats",
+              "formula": "a^2 + b^2 = c^2",
+              "vars": [
+                [
+                  "a,\\ b",
+                  "kateterna"
+                ],
+                [
+                  "c",
+                  "hypotenusan, sidan mitt emot den räta vinkeln"
+                ]
+              ],
+              "note": "Gäller i rätvinkliga trianglar."
+            },
+            {
+              "id": "scale",
+              "level": "hs",
+              "name": "Skala för area och volym",
+              "formula": "\\text{areaskala} = (\\text{längdskala})^2, \\quad \\text{volymskala} = (\\text{längdskala})^3",
+              "keywords": "likformighet förstoring"
+            },
+            {
+              "id": "trig-right",
+              "level": "gy",
+              "name": "Sinus, cosinus och tangens",
+              "formula": "\\sin v = \\dfrac{a}{c}, \\quad \\cos v = \\dfrac{b}{c}, \\quad \\tan v = \\dfrac{a}{b}",
+              "vars": [
+                [
+                  "a",
+                  "kateten mitt emot vinkeln v"
+                ],
+                [
+                  "b",
+                  "kateten intill vinkeln v"
+                ],
+                [
+                  "c",
+                  "hypotenusan"
+                ]
+              ],
+              "note": "I en rätvinklig triangel.",
+              "keywords": "trigonometri"
+            },
+            {
+              "id": "sine-rule",
+              "level": "gy",
+              "name": "Sinussatsen",
+              "formula": "\\dfrac{\\sin A}{a} = \\dfrac{\\sin B}{b} = \\dfrac{\\sin C}{c}",
+              "vars": [
+                [
+                  "a",
+                  "sidan mitt emot vinkeln A"
+                ]
+              ]
+            },
+            {
+              "id": "cosine-rule",
+              "level": "gy",
+              "name": "Cosinussatsen",
+              "formula": "c^2 = a^2 + b^2 - 2ab \\cos C",
+              "vars": [
+                [
+                  "C",
+                  "vinkeln mitt emot sidan c"
+                ]
+              ]
+            },
+            {
+              "id": "area-rule",
+              "level": "gy",
+              "name": "Areasatsen",
+              "formula": "A = \\dfrac{a b \\sin C}{2}",
+              "vars": [
+                [
+                  "C",
+                  "vinkeln mellan sidorna a och b"
+                ]
+              ]
+            },
+            {
+              "id": "trig-one",
+              "level": "gy",
+              "name": "Trigonometriska ettan",
+              "formula": "\\sin^2 v + \\cos^2 v = 1"
+            }
           ]
         },
         {
+          "id": "algebra",
+          "name": "Algebra och ekvationer",
+          "items": [
+            {
+              "id": "square-rules",
+              "level": "gy",
+              "name": "Kvadreringsreglerna",
+              "formula": "(a + b)^2 = a^2 + 2ab + b^2, \\quad (a - b)^2 = a^2 - 2ab + b^2"
+            },
+            {
+              "id": "conjugate",
+              "level": "gy",
+              "name": "Konjugatregeln",
+              "formula": "(a + b)(a - b) = a^2 - b^2"
+            },
+            {
+              "id": "pq",
+              "level": "gy",
+              "name": "pq-formeln",
+              "formula": "x = -\\dfrac{p}{2} \\pm \\sqrt{\\left(\\dfrac{p}{2}\\right)^2 - q}",
+              "note": "Löser x² + px + q = 0.",
+              "keywords": "andragradsekvation"
+            },
+            {
+              "id": "abc",
+              "level": "gy",
+              "name": "Lösningsformeln (abc-formeln)",
+              "formula": "x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}",
+              "note": "Löser ax² + bx + c = 0, där a ≠ 0.",
+              "keywords": "andragradsekvation"
+            },
+            {
+              "id": "proportional",
+              "level": "hs",
+              "name": "Proportionalitet",
+              "formula": "y = k \\cdot x",
+              "vars": [
+                [
+                  "k",
+                  "proportionalitetskonstanten"
+                ]
+              ]
+            },
+            {
+              "id": "inverse-prop",
+              "level": "gy",
+              "name": "Omvänd proportionalitet",
+              "formula": "y = \\dfrac{k}{x}",
+              "vars": [
+                [
+                  "k",
+                  "en konstant"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "potenser",
+          "name": "Potenser och logaritmer",
+          "items": [
+            {
+              "id": "power-laws",
+              "level": "hs",
+              "name": "Potenslagar",
+              "formula": "a^m \\cdot a^n = a^{m+n}, \\quad \\dfrac{a^m}{a^n} = a^{m-n}, \\quad (a^m)^n = a^{m \\cdot n}"
+            },
+            {
+              "id": "zero-neg",
+              "level": "hs",
+              "name": "Noll och negativ exponent",
+              "formula": "a^0 = 1, \\quad a^{-n} = \\dfrac{1}{a^n}",
+              "note": "Gäller när a ≠ 0."
+            },
+            {
+              "id": "product-power",
+              "level": "gy",
+              "name": "Potens av produkt och kvot",
+              "formula": "(ab)^n = a^n b^n, \\quad \\left(\\dfrac{a}{b}\\right)^n = \\dfrac{a^n}{b^n}"
+            },
+            {
+              "id": "roots",
+              "level": "gy",
+              "name": "Rötter som potenser",
+              "formula": "\\sqrt{a} = a^{1/2}, \\quad \\sqrt[n]{a} = a^{1/n}",
+              "keywords": "rot"
+            },
+            {
+              "id": "sci",
+              "level": "hs",
+              "name": "Grundpotensform",
+              "formula": "a \\cdot 10^n, \\quad 1 \\le a < 10",
+              "note": "Till exempel 4 500 000 = 4,5 · 10⁶.",
+              "keywords": "tiopotens"
+            },
+            {
+              "id": "log-def",
+              "level": "gy",
+              "name": "Tiologaritmen",
+              "formula": "10^x = y \\iff x = \\lg y",
+              "keywords": "logaritm lg"
+            },
+            {
+              "id": "ln-def",
+              "level": "gy",
+              "name": "Naturliga logaritmen",
+              "formula": "e^x = y \\iff x = \\ln y",
+              "note": "e ≈ 2,718",
+              "keywords": "logaritm"
+            },
+            {
+              "id": "log-laws",
+              "level": "gy",
+              "name": "Logaritmlagar",
+              "formula": "\\lg (ab) = \\lg a + \\lg b, \\quad \\lg \\dfrac{a}{b} = \\lg a - \\lg b, \\quad \\lg a^p = p \\cdot \\lg a",
+              "note": "Gäller även för ln."
+            }
+          ]
+        },
+        {
+          "id": "funktioner",
+          "name": "Funktioner",
+          "items": [
+            {
+              "id": "line",
+              "level": "hs",
+              "name": "Räta linjens ekvation",
+              "formula": "y = kx + m",
+              "vars": [
+                [
+                  "k",
+                  "lutningen"
+                ],
+                [
+                  "m",
+                  "där linjen skär y-axeln"
+                ]
+              ]
+            },
+            {
+              "id": "slope",
+              "level": "hs",
+              "name": "Lutning (k-värde)",
+              "formula": "k = \\dfrac{y_2 - y_1}{x_2 - x_1}",
+              "vars": [
+                [
+                  "(x_1, y_1),\\ (x_2, y_2)",
+                  "två punkter på linjen"
+                ]
+              ],
+              "keywords": "riktningskoefficient"
+            },
+            {
+              "id": "perpendicular",
+              "level": "gy",
+              "name": "Parallella och vinkelräta linjer",
+              "formula": "k_1 = k_2 \\ \\text{(parallella)}, \\quad k_1 \\cdot k_2 = -1 \\ \\text{(vinkelräta)}"
+            },
+            {
+              "id": "symmetry",
+              "level": "gy",
+              "name": "Symmetrilinje för en parabel",
+              "formula": "x = -\\dfrac{b}{2a}",
+              "note": "För y = ax² + bx + c.",
+              "keywords": "andragradsfunktion"
+            },
+            {
+              "id": "exp-func",
+              "level": "gy",
+              "name": "Exponentialfunktion",
+              "formula": "y = C \\cdot a^x",
+              "vars": [
+                [
+                  "C",
+                  "startvärdet"
+                ],
+                [
+                  "a",
+                  "förändringsfaktorn"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "procent",
+          "name": "Procent",
+          "items": [
+            {
+              "id": "share",
+              "level": "hs",
+              "name": "Andel",
+              "formula": "\\text{andelen} = \\dfrac{\\text{delen}}{\\text{det hela}}"
+            },
+            {
+              "id": "part",
+              "level": "hs",
+              "name": "Delen",
+              "formula": "\\text{delen} = \\text{andelen} \\cdot \\text{det hela}"
+            },
+            {
+              "id": "pct-change",
+              "level": "hs",
+              "name": "Procentuell förändring",
+              "formula": "\\text{förändring} = \\dfrac{\\text{nytt} - \\text{gammalt}}{\\text{gammalt}}",
+              "note": "Multiplicera med 100 för att få procent."
+            },
+            {
+              "id": "factor",
+              "level": "hs",
+              "name": "Förändringsfaktor",
+              "formula": "\\text{nytt värde} = f \\cdot \\text{gammalt värde}",
+              "note": "f = 1,25 vid +25 % och f = 0,80 vid −20 %."
+            },
+            {
+              "id": "repeated",
+              "level": "hs",
+              "name": "Upprepad förändring",
+              "formula": "K = K_0 \\cdot f^{\\,n}",
+              "vars": [
+                [
+                  "K_0",
+                  "startvärdet"
+                ],
+                [
+                  "f",
+                  "förändringsfaktorn"
+                ],
+                [
+                  "n",
+                  "antal gånger, till exempel år"
+                ]
+              ],
+              "keywords": "ränta på ränta"
+            }
+          ]
+        },
+        {
+          "id": "statistik",
           "name": "Sannolikhet och statistik",
           "items": [
-            { "name": "Sannolikhet", "formula": "P = \\dfrac{\\text{gynnsamma utfall}}{\\text{möjliga utfall}}", "note": "" },
-            { "name": "Oberoende händelser", "formula": "P(A \\text{ och } B) = P(A) \\cdot P(B)", "note": "" },
-            { "name": "Medelvärde", "formula": "\\bar{x} = \\dfrac{\\text{summan av värdena}}{\\text{antal värden}}", "note": "" }
+            {
+              "id": "prob",
+              "level": "hs",
+              "name": "Sannolikhet",
+              "formula": "P = \\dfrac{\\text{gynnsamma utfall}}{\\text{möjliga utfall}}",
+              "note": "När alla utfall är lika sannolika."
+            },
+            {
+              "id": "complement",
+              "level": "hs",
+              "name": "Komplementhändelse",
+              "formula": "P(\\text{inte } A) = 1 - P(A)"
+            },
+            {
+              "id": "independent",
+              "level": "hs",
+              "name": "Oberoende händelser",
+              "formula": "P(A \\text{ och } B) = P(A) \\cdot P(B)"
+            },
+            {
+              "id": "mean",
+              "level": "hs",
+              "name": "Medelvärde",
+              "formula": "\\bar{x} = \\dfrac{x_1 + x_2 + \\dots + x_n}{n}",
+              "vars": [
+                [
+                  "n",
+                  "antalet värden"
+                ]
+              ],
+              "keywords": "genomsnitt"
+            },
+            {
+              "id": "range",
+              "level": "hs",
+              "name": "Variationsbredd",
+              "formula": "\\text{variationsbredd} = x_{\\max} - x_{\\min}",
+              "vars": [
+                [
+                  "x_{\\max}",
+                  "det största värdet"
+                ],
+                [
+                  "x_{\\min}",
+                  "det minsta värdet"
+                ]
+              ]
+            },
+            {
+              "id": "stdev",
+              "level": "gy",
+              "name": "Standardavvikelse",
+              "formula": "s = \\sqrt{\\dfrac{\\sum (x_i - \\bar{x})^2}{n - 1}}",
+              "vars": [
+                [
+                  "\\bar{x}",
+                  "medelvärdet"
+                ],
+                [
+                  "n",
+                  "antalet värden"
+                ]
+              ],
+              "note": "För ett stickprov."
+            }
+          ]
+        },
+        {
+          "id": "derivator",
+          "name": "Derivator",
+          "items": [
+            {
+              "id": "deriv-def",
+              "level": "gy",
+              "name": "Derivatans definition",
+              "formula": "f'(x) = \\lim_{h \\to 0} \\dfrac{f(x + h) - f(x)}{h}"
+            },
+            {
+              "id": "d-power",
+              "level": "gy",
+              "name": "Derivatan av en potens",
+              "formula": "f(x) = x^n \\;\\Rightarrow\\; f'(x) = n x^{n-1}"
+            },
+            {
+              "id": "d-exp",
+              "level": "gy",
+              "name": "Derivatan av exponentialfunktioner",
+              "formula": "(e^x)' = e^x, \\quad (e^{kx})' = k e^{kx}, \\quad (a^x)' = a^x \\ln a"
+            },
+            {
+              "id": "d-ln",
+              "level": "gy",
+              "name": "Derivatan av ln x",
+              "formula": "(\\ln x)' = \\dfrac{1}{x}"
+            },
+            {
+              "id": "d-trig",
+              "level": "gy",
+              "name": "Derivatan av sin och cos",
+              "formula": "(\\sin x)' = \\cos x, \\quad (\\cos x)' = -\\sin x"
+            },
+            {
+              "id": "product",
+              "level": "gy",
+              "name": "Produktregeln",
+              "formula": "(f \\cdot g)' = f' g + f g'"
+            },
+            {
+              "id": "quotient",
+              "level": "gy",
+              "name": "Kvotregeln",
+              "formula": "\\left(\\dfrac{f}{g}\\right)' = \\dfrac{f' g - f g'}{g^2}"
+            },
+            {
+              "id": "chain",
+              "level": "gy",
+              "name": "Kedjeregeln",
+              "formula": "\\big(f(g(x))\\big)' = f'(g(x)) \\cdot g'(x)",
+              "keywords": "sammansatt funktion"
+            }
+          ]
+        },
+        {
+          "id": "integraler",
+          "name": "Integraler",
+          "items": [
+            {
+              "id": "prim-power",
+              "level": "gy",
+              "name": "Primitiv funktion till en potens",
+              "formula": "\\displaystyle\\int x^n \\, dx = \\dfrac{x^{n+1}}{n + 1} + C",
+              "note": "Gäller när n ≠ −1."
+            },
+            {
+              "id": "prim-exp",
+              "level": "gy",
+              "name": "Primitiv funktion till eᵏˣ",
+              "formula": "\\displaystyle\\int e^{kx} \\, dx = \\dfrac{e^{kx}}{k} + C"
+            },
+            {
+              "id": "prim-inv",
+              "level": "gy",
+              "name": "Primitiv funktion till 1/x",
+              "formula": "\\displaystyle\\int \\dfrac{1}{x} \\, dx = \\ln |x| + C"
+            },
+            {
+              "id": "ftc",
+              "level": "gy",
+              "name": "Integralkalkylens huvudsats",
+              "formula": "\\displaystyle\\int_a^b f(x) \\, dx = F(b) - F(a)",
+              "vars": [
+                [
+                  "F",
+                  "en primitiv funktion till f"
+                ]
+              ],
+              "keywords": "bestämd integral area under kurva"
+            }
           ]
         }
       ]
@@ -55,41 +799,696 @@
       "name": "Fysik",
       "groups": [
         {
+          "id": "rorelse",
           "name": "Rörelse",
           "items": [
-            { "name": "Medelhastighet", "formula": "v = \\dfrac{s}{t}", "note": "s = sträcka (m), t = tid (s)" },
-            { "name": "Acceleration", "formula": "a = \\dfrac{\\Delta v}{t}", "note": "enhet m/s²" },
-            { "name": "Sträcka vid konstant acceleration", "formula": "s = v_0 t + \\dfrac{a t^2}{2}", "note": "" },
-            { "name": "Hastighet vid konstant acceleration", "formula": "v = v_0 + at", "note": "" }
+            {
+              "id": "speed",
+              "level": "hs",
+              "name": "Medelhastighet",
+              "formula": "v = \\dfrac{s}{t}",
+              "vars": [
+                [
+                  "v",
+                  "hastigheten",
+                  "m/s"
+                ],
+                [
+                  "s",
+                  "sträckan",
+                  "m"
+                ],
+                [
+                  "t",
+                  "tiden",
+                  "s"
+                ]
+              ]
+            },
+            {
+              "id": "accel",
+              "level": "gy",
+              "name": "Acceleration",
+              "formula": "a = \\dfrac{\\Delta v}{\\Delta t}",
+              "vars": [
+                [
+                  "a",
+                  "accelerationen",
+                  "m/s²"
+                ],
+                [
+                  "\\Delta v",
+                  "hastighetsändringen",
+                  "m/s"
+                ],
+                [
+                  "\\Delta t",
+                  "tiden det tar",
+                  "s"
+                ]
+              ]
+            },
+            {
+              "id": "v-const-a",
+              "level": "gy",
+              "name": "Hastighet vid konstant acceleration",
+              "formula": "v = v_0 + a t",
+              "vars": [
+                [
+                  "v_0",
+                  "starthastigheten",
+                  "m/s"
+                ]
+              ]
+            },
+            {
+              "id": "s-const-a",
+              "level": "gy",
+              "name": "Sträcka vid konstant acceleration",
+              "formula": "s = v_0 t + \\dfrac{a t^2}{2}",
+              "vars": [
+                [
+                  "v_0",
+                  "starthastigheten",
+                  "m/s"
+                ]
+              ]
+            },
+            {
+              "id": "timeless",
+              "level": "gy",
+              "name": "Tidlösa formeln",
+              "formula": "v^2 - v_0^2 = 2 a s"
+            }
           ]
         },
         {
-          "name": "Krafter",
+          "id": "krafter",
+          "name": "Krafter och rörelsemängd",
           "items": [
-            { "name": "Newtons andra lag", "formula": "F = m \\cdot a", "note": "F i newton (N)" },
-            { "name": "Tyngd", "formula": "F_g = m \\cdot g", "note": "g ≈ 9,82 N/kg" },
-            { "name": "Tryck", "formula": "p = \\dfrac{F}{A}", "note": "enhet pascal (Pa)" },
-            { "name": "Densitet", "formula": "\\rho = \\dfrac{m}{V}", "note": "" },
-            { "name": "Hydrostatiskt tryck", "formula": "p = \\rho \\cdot g \\cdot h", "note": "vätsketryck på djupet h" }
+            {
+              "id": "weight",
+              "level": "hs",
+              "name": "Tyngdkraft",
+              "formula": "F_g = m \\cdot g",
+              "vars": [
+                [
+                  "F_g",
+                  "tyngdkraften",
+                  "N"
+                ],
+                [
+                  "m",
+                  "massan",
+                  "kg"
+                ],
+                [
+                  "g",
+                  "tyngdfaktorn, ≈ 9,82",
+                  "N/kg"
+                ]
+              ]
+            },
+            {
+              "id": "newton2",
+              "level": "gy",
+              "name": "Newtons andra lag",
+              "formula": "F = m \\cdot a",
+              "vars": [
+                [
+                  "F",
+                  "den resulterande kraften",
+                  "N"
+                ],
+                [
+                  "m",
+                  "massan",
+                  "kg"
+                ],
+                [
+                  "a",
+                  "accelerationen",
+                  "m/s²"
+                ]
+              ],
+              "keywords": "kraftekvationen"
+            },
+            {
+              "id": "friction",
+              "level": "gy",
+              "name": "Friktionskraft",
+              "formula": "F_f = \\mu \\cdot F_N",
+              "vars": [
+                [
+                  "\\mu",
+                  "friktionstalet"
+                ],
+                [
+                  "F_N",
+                  "normalkraften",
+                  "N"
+                ]
+              ]
+            },
+            {
+              "id": "hooke",
+              "level": "gy",
+              "name": "Hookes lag",
+              "formula": "F = k \\cdot x",
+              "vars": [
+                [
+                  "k",
+                  "fjäderkonstanten",
+                  "N/m"
+                ],
+                [
+                  "x",
+                  "förlängningen",
+                  "m"
+                ]
+              ],
+              "keywords": "fjäder"
+            },
+            {
+              "id": "moment",
+              "level": "hs",
+              "name": "Kraftmoment",
+              "formula": "M = F \\cdot l",
+              "vars": [
+                [
+                  "M",
+                  "momentet",
+                  "Nm"
+                ],
+                [
+                  "l",
+                  "hävarmen, vinkelrätt avstånd till vridpunkten",
+                  "m"
+                ]
+              ],
+              "keywords": "hävstång vridmoment"
+            },
+            {
+              "id": "momentum",
+              "level": "gy",
+              "name": "Rörelsemängd",
+              "formula": "p = m \\cdot v",
+              "vars": [
+                [
+                  "p",
+                  "rörelsemängden",
+                  "kg·m/s"
+                ]
+              ]
+            },
+            {
+              "id": "impulse",
+              "level": "gy",
+              "name": "Impuls",
+              "formula": "I = F \\cdot \\Delta t = \\Delta p",
+              "vars": [
+                [
+                  "I",
+                  "impulsen",
+                  "Ns"
+                ]
+              ]
+            },
+            {
+              "id": "centripetal",
+              "level": "gy",
+              "name": "Centripetalkraft",
+              "formula": "F = \\dfrac{m v^2}{r}",
+              "vars": [
+                [
+                  "r",
+                  "radien i cirkelbanan",
+                  "m"
+                ]
+              ],
+              "keywords": "cirkelrörelse"
+            },
+            {
+              "id": "gravity",
+              "level": "gy",
+              "name": "Gravitationslagen",
+              "formula": "F = G \\cdot \\dfrac{m_1 m_2}{r^2}",
+              "vars": [
+                [
+                  "G",
+                  "gravitationskonstanten"
+                ],
+                [
+                  "r",
+                  "avståndet mellan masscentrumen",
+                  "m"
+                ]
+              ]
+            }
           ]
         },
         {
+          "id": "tryck",
+          "name": "Tryck och densitet",
+          "items": [
+            {
+              "id": "density",
+              "level": "hs",
+              "name": "Densitet",
+              "formula": "\\rho = \\dfrac{m}{V}",
+              "vars": [
+                [
+                  "\\rho",
+                  "densiteten",
+                  "kg/m³"
+                ],
+                [
+                  "m",
+                  "massan",
+                  "kg"
+                ],
+                [
+                  "V",
+                  "volymen",
+                  "m³"
+                ]
+              ]
+            },
+            {
+              "id": "pressure",
+              "level": "hs",
+              "name": "Tryck",
+              "formula": "p = \\dfrac{F}{A}",
+              "vars": [
+                [
+                  "p",
+                  "trycket",
+                  "Pa = N/m²"
+                ],
+                [
+                  "F",
+                  "kraften",
+                  "N"
+                ],
+                [
+                  "A",
+                  "arean",
+                  "m²"
+                ]
+              ]
+            },
+            {
+              "id": "fluid-pressure",
+              "level": "hs",
+              "name": "Tryck i en vätska",
+              "formula": "p = \\rho \\cdot g \\cdot h",
+              "vars": [
+                [
+                  "\\rho",
+                  "vätskans densitet",
+                  "kg/m³"
+                ],
+                [
+                  "h",
+                  "djupet",
+                  "m"
+                ]
+              ],
+              "keywords": "vätsketryck hydrostatiskt"
+            },
+            {
+              "id": "buoyancy",
+              "level": "hs",
+              "name": "Lyftkraft",
+              "formula": "F_L = \\rho_v \\cdot g \\cdot V",
+              "vars": [
+                [
+                  "\\rho_v",
+                  "vätskans densitet",
+                  "kg/m³"
+                ],
+                [
+                  "V",
+                  "den undanträngda volymen",
+                  "m³"
+                ]
+              ],
+              "keywords": "Arkimedes princip"
+            }
+          ]
+        },
+        {
+          "id": "energi",
           "name": "Energi och effekt",
           "items": [
-            { "name": "Arbete", "formula": "W = F \\cdot s", "note": "enhet joule (J)" },
-            { "name": "Lägesenergi", "formula": "E_p = m \\cdot g \\cdot h", "note": "" },
-            { "name": "Rörelseenergi", "formula": "E_k = \\dfrac{m v^2}{2}", "note": "" },
-            { "name": "Effekt", "formula": "P = \\dfrac{W}{t}", "note": "enhet watt (W)" },
-            { "name": "Verkningsgrad", "formula": "\\eta = \\dfrac{\\text{nyttig energi}}{\\text{tillförd energi}}", "note": "" }
+            {
+              "id": "work",
+              "level": "hs",
+              "name": "Arbete",
+              "formula": "W = F \\cdot s",
+              "vars": [
+                [
+                  "W",
+                  "arbetet",
+                  "J"
+                ],
+                [
+                  "s",
+                  "sträckan i kraftens riktning",
+                  "m"
+                ]
+              ]
+            },
+            {
+              "id": "ep",
+              "level": "hs",
+              "name": "Lägesenergi",
+              "formula": "E_p = m \\cdot g \\cdot h",
+              "vars": [
+                [
+                  "h",
+                  "höjden",
+                  "m"
+                ]
+              ]
+            },
+            {
+              "id": "ek",
+              "level": "hs",
+              "name": "Rörelseenergi",
+              "formula": "E_k = \\dfrac{m v^2}{2}",
+              "vars": [
+                [
+                  "v",
+                  "hastigheten",
+                  "m/s"
+                ]
+              ]
+            },
+            {
+              "id": "power",
+              "level": "hs",
+              "name": "Effekt",
+              "formula": "P = \\dfrac{E}{t}",
+              "vars": [
+                [
+                  "P",
+                  "effekten",
+                  "W = J/s"
+                ],
+                [
+                  "E",
+                  "energin",
+                  "J"
+                ],
+                [
+                  "t",
+                  "tiden",
+                  "s"
+                ]
+              ]
+            },
+            {
+              "id": "efficiency",
+              "level": "hs",
+              "name": "Verkningsgrad",
+              "formula": "\\eta = \\dfrac{\\text{nyttig energi}}{\\text{tillförd energi}}",
+              "note": "Anges ofta i procent."
+            },
+            {
+              "id": "heat",
+              "level": "gy",
+              "name": "Värmeenergi",
+              "formula": "E = c \\cdot m \\cdot \\Delta T",
+              "vars": [
+                [
+                  "c",
+                  "specifika värmekapaciteten",
+                  "J/(kg·K)"
+                ],
+                [
+                  "\\Delta T",
+                  "temperaturändringen",
+                  "K"
+                ]
+              ]
+            },
+            {
+              "id": "spring-energy",
+              "level": "gy",
+              "name": "Fjäderns energi",
+              "formula": "E = \\dfrac{k x^2}{2}",
+              "vars": [
+                [
+                  "k",
+                  "fjäderkonstanten",
+                  "N/m"
+                ],
+                [
+                  "x",
+                  "förlängningen",
+                  "m"
+                ]
+              ]
+            }
           ]
         },
         {
-          "name": "El",
+          "id": "el",
+          "name": "Ellära",
           "items": [
-            { "name": "Ohms lag", "formula": "U = R \\cdot I", "note": "U i volt, I i ampere, R i ohm" },
-            { "name": "Elektrisk effekt", "formula": "P = U \\cdot I", "note": "" },
-            { "name": "Laddning", "formula": "Q = I \\cdot t", "note": "enhet coulomb (C)" },
-            { "name": "Elektrisk energi", "formula": "W = P \\cdot t", "note": "ofta i kWh: 1 kWh = 3,6 MJ" }
+            {
+              "id": "ohm",
+              "level": "hs",
+              "name": "Ohms lag",
+              "formula": "U = R \\cdot I",
+              "vars": [
+                [
+                  "U",
+                  "spänningen",
+                  "V"
+                ],
+                [
+                  "R",
+                  "resistansen",
+                  "Ω"
+                ],
+                [
+                  "I",
+                  "strömmen",
+                  "A"
+                ]
+              ]
+            },
+            {
+              "id": "el-power",
+              "level": "hs",
+              "name": "Elektrisk effekt",
+              "formula": "P = U \\cdot I",
+              "vars": [
+                [
+                  "P",
+                  "effekten",
+                  "W"
+                ]
+              ]
+            },
+            {
+              "id": "el-energy",
+              "level": "hs",
+              "name": "Elektrisk energi",
+              "formula": "E = P \\cdot t",
+              "note": "1 kWh = 3,6 MJ"
+            },
+            {
+              "id": "series",
+              "level": "hs",
+              "name": "Seriekoppling",
+              "formula": "R = R_1 + R_2 + \\dots"
+            },
+            {
+              "id": "parallel",
+              "level": "gy",
+              "name": "Parallellkoppling",
+              "formula": "\\dfrac{1}{R} = \\dfrac{1}{R_1} + \\dfrac{1}{R_2} + \\dots"
+            },
+            {
+              "id": "charge",
+              "level": "gy",
+              "name": "Laddning",
+              "formula": "Q = I \\cdot t",
+              "vars": [
+                [
+                  "Q",
+                  "laddningen",
+                  "C"
+                ]
+              ]
+            },
+            {
+              "id": "energy-qu",
+              "level": "gy",
+              "name": "Energi och spänning",
+              "formula": "W = Q \\cdot U",
+              "vars": [
+                [
+                  "W",
+                  "energin",
+                  "J"
+                ],
+                [
+                  "Q",
+                  "laddningen",
+                  "C"
+                ],
+                [
+                  "U",
+                  "spänningen",
+                  "V"
+                ]
+              ]
+            },
+            {
+              "id": "coulomb",
+              "level": "gy",
+              "name": "Coulombs lag",
+              "formula": "F = k \\cdot \\dfrac{Q_1 Q_2}{r^2}",
+              "vars": [
+                [
+                  "k",
+                  "Coulombs konstant"
+                ],
+                [
+                  "r",
+                  "avståndet mellan laddningarna",
+                  "m"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "vagor",
+          "name": "Vågor och ljus",
+          "items": [
+            {
+              "id": "wave",
+              "level": "hs",
+              "name": "Vågekvationen",
+              "formula": "v = f \\cdot \\lambda",
+              "vars": [
+                [
+                  "v",
+                  "våghastigheten",
+                  "m/s"
+                ],
+                [
+                  "f",
+                  "frekvensen",
+                  "Hz"
+                ],
+                [
+                  "\\lambda",
+                  "våglängden",
+                  "m"
+                ]
+              ],
+              "keywords": "ljud"
+            },
+            {
+              "id": "period",
+              "level": "hs",
+              "name": "Frekvens och period",
+              "formula": "f = \\dfrac{1}{T}",
+              "vars": [
+                [
+                  "T",
+                  "periodtiden",
+                  "s"
+                ]
+              ]
+            },
+            {
+              "id": "refr-index",
+              "level": "gy",
+              "name": "Brytningsindex",
+              "formula": "n = \\dfrac{c}{v}",
+              "vars": [
+                [
+                  "c",
+                  "ljusets hastighet i vakuum",
+                  "m/s"
+                ],
+                [
+                  "v",
+                  "ljusets hastighet i ämnet",
+                  "m/s"
+                ]
+              ]
+            },
+            {
+              "id": "snell",
+              "level": "gy",
+              "name": "Brytningslagen",
+              "formula": "n_1 \\sin \\alpha_1 = n_2 \\sin \\alpha_2",
+              "vars": [
+                [
+                  "\\alpha",
+                  "vinkeln mot normalen"
+                ]
+              ],
+              "keywords": "Snells lag ljusbrytning"
+            },
+            {
+              "id": "photon",
+              "level": "gy",
+              "name": "Fotonens energi",
+              "formula": "E = h \\cdot f",
+              "vars": [
+                [
+                  "h",
+                  "Plancks konstant"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "karn",
+          "name": "Atom- och kärnfysik",
+          "items": [
+            {
+              "id": "emc2",
+              "level": "gy",
+              "name": "Massa och energi",
+              "formula": "E = m c^2",
+              "vars": [
+                [
+                  "c",
+                  "ljusets hastighet",
+                  "m/s"
+                ]
+              ],
+              "keywords": "Einstein"
+            },
+            {
+              "id": "halflife",
+              "level": "gy",
+              "name": "Halveringstid",
+              "formula": "N = N_0 \\cdot \\left(\\dfrac{1}{2}\\right)^{t / T_{1/2}}",
+              "vars": [
+                [
+                  "N_0",
+                  "antalet kärnor från början"
+                ],
+                [
+                  "T_{1/2}",
+                  "halveringstiden",
+                  "s"
+                ]
+              ],
+              "keywords": "radioaktivt sönderfall"
+            }
           ]
         }
       ]
@@ -99,28 +1498,427 @@
       "name": "Kemi",
       "groups": [
         {
-          "name": "Substansmängd och massa",
+          "id": "substans",
+          "name": "Substansmängd",
           "items": [
-            { "name": "Substansmängd", "formula": "n = \\dfrac{m}{M}", "note": "n i mol, m i g, M = molmassa (g/mol)" },
-            { "name": "Antal partiklar", "formula": "N = n \\cdot N_A", "note": "N_A ≈ 6,022 · 10²³ mol⁻¹" },
-            { "name": "Densitet", "formula": "\\rho = \\dfrac{m}{V}", "note": "" }
+            {
+              "id": "moles",
+              "level": "gy",
+              "name": "Substansmängd",
+              "formula": "n = \\dfrac{m}{M}",
+              "vars": [
+                [
+                  "n",
+                  "substansmängden",
+                  "mol"
+                ],
+                [
+                  "m",
+                  "massan",
+                  "g"
+                ],
+                [
+                  "M",
+                  "molmassan",
+                  "g/mol"
+                ]
+              ],
+              "note": "Molmassan är summan av atommassorna i formeln.",
+              "keywords": "mol"
+            },
+            {
+              "id": "particles",
+              "level": "gy",
+              "name": "Antal partiklar",
+              "formula": "N = n \\cdot N_A",
+              "vars": [
+                [
+                  "N_A",
+                  "Avogadros konstant",
+                  "mol⁻¹"
+                ]
+              ]
+            }
           ]
         },
         {
+          "id": "losningar",
           "name": "Lösningar",
           "items": [
-            { "name": "Koncentration", "formula": "c = \\dfrac{n}{V}", "note": "c i mol/dm³, V i dm³ (liter)" },
-            { "name": "Spädning", "formula": "c_1 V_1 = c_2 V_2", "note": "substansmängden är oförändrad" },
-            { "name": "Masshalt", "formula": "\\text{masshalt} = \\dfrac{m_{\\text{ämne}}}{m_{\\text{lösning}}}", "note": "anges ofta i procent" }
+            {
+              "id": "conc",
+              "level": "gy",
+              "name": "Koncentration",
+              "formula": "c = \\dfrac{n}{V}",
+              "vars": [
+                [
+                  "c",
+                  "koncentrationen",
+                  "mol/dm³"
+                ],
+                [
+                  "n",
+                  "substansmängden",
+                  "mol"
+                ],
+                [
+                  "V",
+                  "volymen",
+                  "dm³"
+                ]
+              ],
+              "keywords": "molaritet"
+            },
+            {
+              "id": "mass-dissolved",
+              "level": "gy",
+              "name": "Massa löst ämne",
+              "formula": "m = c \\cdot V \\cdot M",
+              "vars": [
+                [
+                  "M",
+                  "molmassan",
+                  "g/mol"
+                ]
+              ]
+            },
+            {
+              "id": "dilution",
+              "level": "gy",
+              "name": "Spädning",
+              "formula": "c_1 V_1 = c_2 V_2",
+              "note": "Substansmängden ändras inte när man späder."
+            },
+            {
+              "id": "mass-fraction",
+              "level": "gy",
+              "name": "Masshalt",
+              "formula": "\\text{masshalt} = \\dfrac{m_{\\text{ämne}}}{m_{\\text{lösning}}}",
+              "note": "Anges ofta i procent."
+            }
           ]
         },
         {
-          "name": "Gaser och reaktioner",
+          "id": "gaser",
+          "name": "Gaser och temperatur",
           "items": [
-            { "name": "Allmänna gaslagen", "formula": "pV = nRT", "note": "R = 8,314 J/(mol·K), T i kelvin" },
-            { "name": "Molvolym (1 atm, 25 °C)", "formula": "V_m \\approx 24{,}5 \\ \\text{dm}^3/\\text{mol}", "note": "gäller ideala gaser" },
-            { "name": "Utbyte", "formula": "\\text{utbyte} = \\dfrac{\\text{verkligt}}{\\text{teoretiskt}}", "note": "anges i procent" },
-            { "name": "pH", "formula": "\\mathrm{pH} = -\\log[\\mathrm{H_3O^+}]", "note": "vätejonkoncentrationen i mol/dm³" }
+            {
+              "id": "kelvin",
+              "level": "hs",
+              "name": "Kelvin och Celsius",
+              "formula": "T = t + 273{,}15",
+              "vars": [
+                [
+                  "T",
+                  "temperaturen i kelvin",
+                  "K"
+                ],
+                [
+                  "t",
+                  "temperaturen i grader Celsius",
+                  "°C"
+                ]
+              ]
+            },
+            {
+              "id": "ideal-gas",
+              "level": "gy",
+              "name": "Allmänna gaslagen",
+              "formula": "p V = n R T",
+              "vars": [
+                [
+                  "p",
+                  "trycket",
+                  "Pa"
+                ],
+                [
+                  "V",
+                  "volymen",
+                  "m³"
+                ],
+                [
+                  "n",
+                  "substansmängden",
+                  "mol"
+                ],
+                [
+                  "R",
+                  "allmänna gaskonstanten",
+                  "J/(mol·K)"
+                ],
+                [
+                  "T",
+                  "temperaturen",
+                  "K"
+                ]
+              ]
+            },
+            {
+              "id": "combined",
+              "level": "gy",
+              "name": "Kombinerade gaslagen",
+              "formula": "\\dfrac{p_1 V_1}{T_1} = \\dfrac{p_2 V_2}{T_2}",
+              "note": "För en och samma gasmängd."
+            },
+            {
+              "id": "molar-volume",
+              "level": "gy",
+              "name": "Molvolym",
+              "formula": "V_m = \\dfrac{V}{n} \\approx 24{,}5 \\ \\mathrm{dm^3/mol}",
+              "note": "Vid 25 °C och 101,3 kPa."
+            }
+          ]
+        },
+        {
+          "id": "syror",
+          "name": "Syror och baser",
+          "items": [
+            {
+              "id": "ph",
+              "level": "gy",
+              "name": "pH",
+              "formula": "\\mathrm{pH} = -\\lg [\\mathrm{H_3O^+}]",
+              "note": "[H₃O⁺] i mol/dm³.",
+              "keywords": "surhet oxoniumjon"
+            },
+            {
+              "id": "h3o",
+              "level": "gy",
+              "name": "Oxoniumjonkoncentration",
+              "formula": "[\\mathrm{H_3O^+}] = 10^{-\\mathrm{pH}}",
+              "keywords": "vätejon"
+            },
+            {
+              "id": "poh",
+              "level": "gy",
+              "name": "pOH",
+              "formula": "\\mathrm{pOH} = -\\lg [\\mathrm{OH^-}], \\quad \\mathrm{pH} + \\mathrm{pOH} = 14",
+              "note": "Vid 25 °C.",
+              "keywords": "hydroxidjon bas"
+            },
+            {
+              "id": "kw",
+              "level": "gy",
+              "name": "Vattnets jonprodukt",
+              "formula": "K_w = [\\mathrm{H_3O^+}] \\cdot [\\mathrm{OH^-}] = 1{,}0 \\cdot 10^{-14}",
+              "note": "I (mol/dm³)², vid 25 °C."
+            }
+          ]
+        },
+        {
+          "id": "reaktioner",
+          "name": "Reaktioner",
+          "items": [
+            {
+              "id": "yield",
+              "level": "gy",
+              "name": "Utbyte",
+              "formula": "\\text{utbyte} = \\dfrac{\\text{verkligt utbyte}}{\\text{teoretiskt utbyte}}",
+              "note": "Anges ofta i procent."
+            },
+            {
+              "id": "equilibrium",
+              "level": "gy",
+              "name": "Jämviktskonstant",
+              "formula": "K = \\dfrac{[\\mathrm{C}]^c \\, [\\mathrm{D}]^d}{[\\mathrm{A}]^a \\, [\\mathrm{B}]^b}",
+              "note": "För reaktionen aA + bB ⇌ cC + dD.",
+              "keywords": "jämvikt"
+            },
+            {
+              "id": "enthalpy",
+              "level": "gy",
+              "name": "Entalpiändring",
+              "formula": "\\Delta H = H_{\\text{produkter}} - H_{\\text{reaktanter}}",
+              "note": "ΔH < 0: exoterm. ΔH > 0: endoterm.",
+              "keywords": "energi exoterm endoterm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ko",
+      "name": "Konstanter och enheter",
+      "groups": [
+        {
+          "id": "konstanter",
+          "name": "Konstanter",
+          "items": [
+            {
+              "id": "k-g",
+              "level": "hs",
+              "name": "Tyngdfaktorn",
+              "formula": "g \\approx 9{,}82 \\ \\mathrm{N/kg}",
+              "note": "Vid jordytan i Sverige."
+            },
+            {
+              "id": "k-water-density",
+              "level": "hs",
+              "name": "Vattnets densitet",
+              "formula": "\\rho \\approx 1000 \\ \\mathrm{kg/m^3} = 1{,}00 \\ \\mathrm{g/cm^3}"
+            },
+            {
+              "id": "k-zero",
+              "level": "hs",
+              "name": "Absoluta nollpunkten",
+              "formula": "0 \\ \\mathrm{K} = -273{,}15 \\ ^\\circ\\mathrm{C}"
+            },
+            {
+              "id": "k-c",
+              "level": "gy",
+              "name": "Ljusets hastighet i vakuum",
+              "formula": "c \\approx 3{,}00 \\cdot 10^8 \\ \\mathrm{m/s}"
+            },
+            {
+              "id": "k-na",
+              "level": "gy",
+              "name": "Avogadros konstant",
+              "formula": "N_A \\approx 6{,}022 \\cdot 10^{23} \\ \\mathrm{mol^{-1}}"
+            },
+            {
+              "id": "k-r",
+              "level": "gy",
+              "name": "Allmänna gaskonstanten",
+              "formula": "R \\approx 8{,}314 \\ \\mathrm{J/(mol \\cdot K)}"
+            },
+            {
+              "id": "k-h",
+              "level": "gy",
+              "name": "Plancks konstant",
+              "formula": "h \\approx 6{,}626 \\cdot 10^{-34} \\ \\mathrm{J \\cdot s}"
+            },
+            {
+              "id": "k-G",
+              "level": "gy",
+              "name": "Gravitationskonstanten",
+              "formula": "G \\approx 6{,}674 \\cdot 10^{-11} \\ \\mathrm{N \\cdot m^2/kg^2}"
+            },
+            {
+              "id": "k-e",
+              "level": "gy",
+              "name": "Elementarladdningen",
+              "formula": "e \\approx 1{,}602 \\cdot 10^{-19} \\ \\mathrm{C}"
+            },
+            {
+              "id": "k-coulomb",
+              "level": "gy",
+              "name": "Coulombs konstant",
+              "formula": "k \\approx 8{,}99 \\cdot 10^{9} \\ \\mathrm{N \\cdot m^2/C^2}"
+            },
+            {
+              "id": "k-water-c",
+              "level": "gy",
+              "name": "Vattnets specifika värmekapacitet",
+              "formula": "c \\approx 4{,}18 \\ \\mathrm{kJ/(kg \\cdot K)}"
+            }
+          ]
+        },
+        {
+          "id": "prefix",
+          "name": "Prefix",
+          "items": [
+            {
+              "id": "prefixes",
+              "level": "hs",
+              "name": "Prefix för enheter",
+              "table": [
+                [
+                  "T",
+                  "tera",
+                  "10^{12}"
+                ],
+                [
+                  "G",
+                  "giga",
+                  "10^{9}"
+                ],
+                [
+                  "M",
+                  "mega",
+                  "10^{6}"
+                ],
+                [
+                  "k",
+                  "kilo",
+                  "10^{3}"
+                ],
+                [
+                  "h",
+                  "hekto",
+                  "10^{2}"
+                ],
+                [
+                  "d",
+                  "deci",
+                  "10^{-1}"
+                ],
+                [
+                  "c",
+                  "centi",
+                  "10^{-2}"
+                ],
+                [
+                  "m",
+                  "milli",
+                  "10^{-3}"
+                ],
+                [
+                  "µ",
+                  "mikro",
+                  "10^{-6}"
+                ],
+                [
+                  "n",
+                  "nano",
+                  "10^{-9}"
+                ]
+              ],
+              "keywords": "kilo milli mikro mega giga nano"
+            }
+          ]
+        },
+        {
+          "id": "omvandling",
+          "name": "Enhetsomvandlingar",
+          "items": [
+            {
+              "id": "u-volume",
+              "level": "hs",
+              "name": "Volym",
+              "formula": "1 \\ \\mathrm{dm^3} = 1 \\ \\text{liter} = 1000 \\ \\mathrm{cm^3}, \\quad 1 \\ \\mathrm{m^3} = 1000 \\ \\text{liter}"
+            },
+            {
+              "id": "u-speed",
+              "level": "hs",
+              "name": "Hastighet",
+              "formula": "1 \\ \\mathrm{m/s} = 3{,}6 \\ \\mathrm{km/h}"
+            },
+            {
+              "id": "u-time",
+              "level": "hs",
+              "name": "Tid",
+              "formula": "1 \\ \\mathrm{h} = 60 \\ \\mathrm{min} = 3600 \\ \\mathrm{s}"
+            },
+            {
+              "id": "u-mass",
+              "level": "hs",
+              "name": "Massa",
+              "formula": "1 \\ \\mathrm{t} = 1000 \\ \\mathrm{kg}, \\quad 1 \\ \\mathrm{kg} = 1000 \\ \\mathrm{g}",
+              "keywords": "ton"
+            },
+            {
+              "id": "u-energy",
+              "level": "hs",
+              "name": "Energi",
+              "formula": "1 \\ \\mathrm{kWh} = 3{,}6 \\ \\mathrm{MJ}, \\quad 1 \\ \\mathrm{kcal} \\approx 4{,}18 \\ \\mathrm{kJ}",
+              "keywords": "kilowattimme kalori"
+            },
+            {
+              "id": "u-pressure",
+              "level": "hs",
+              "name": "Tryck",
+              "formula": "1 \\ \\mathrm{atm} \\approx 101{,}3 \\ \\mathrm{kPa}, \\quad 1 \\ \\mathrm{bar} = 100 \\ \\mathrm{kPa}"
+            }
           ]
         }
       ]

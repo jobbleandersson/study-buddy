@@ -129,14 +129,31 @@ export async function renderHpDelprov(dp, qs) {
       const h = hist[q.id];
       return !h ? "new" : h.correct ? "right" : "wrong";
     };
-    const rows = all.filter(({ q }) => (!topic || q.topic === topic) && (
-      !status || (status === "saved" ? store.isSaved(q.id) : statusOf(q) === status)));
+    const inTopic = all.filter(({ q }) => !topic || q.topic === topic);
+    const rows = inTopic.filter(({ q }) => !status || (status === "saved" ? store.isSaved(q.id) : statusOf(q) === status));
 
-    const select = (label, value, options, onchange) => el("label.hp-filter", {}, [
-      el("span", {}, label),
-      el("select", { onchange: (e) => onchange(e.target.value) },
-        options.map(([v, text]) => el("option", { value: v, selected: v === value }, text))),
-    ]);
+    // Status is a row of chips with how many questions each holds (within the chosen topic), so
+    // the choice is one tap and you can see what's there before tapping; the topic, which can be a
+    // long list, stays a dropdown.
+    const counts = { "": inTopic.length, new: 0, wrong: 0, right: 0, saved: 0 };
+    for (const { q } of inTopic) {
+      counts[statusOf(q)]++;
+      if (store.isSaved(q.id)) counts.saved++;
+    }
+    const statusChips = el("div.hp-fchips", { role: "group", "aria-label": t("hp.filterStatus") },
+      [["", t("hp.filterAll")], ["new", t("hp.status.new")], ["wrong", t("hp.status.wrong")],
+        ["right", t("hp.status.right")], ["saved", t("hp.status.saved")]].map(([v, label]) =>
+        el("button.hp-fchip" + (counts[v] ? "" : ".is-empty"), {
+          type: "button", "aria-pressed": String(v === status),
+          onclick: () => { status = v; shown = LIST_STEP; paint(); },
+        }, [label, el("b", {}, String(counts[v]))])));
+    const topicSelect = topics.length > 1 ? el("label.hp-fselect", {}, [
+      el("span.sr-only", {}, t("hp.filterTopic")),
+      el("select", { onchange: (e) => { topic = e.target.value; shown = LIST_STEP; paint(); } },
+        [["", t("hp.filterAllTopics")], ...topics.map((x) => [x, sentenceCase(x)])].map(([v, text]) =>
+          el("option", { value: v, selected: v === topic }, text))),
+      icon(ICONS.chevronDown, 16),
+    ]) : null;
     const statusChip = (s) => el(`span.hp-chip.is-${s}`, {}, t(`hp.status.${s}`));
 
     const list = el("ol.hp-qlist", {}, rows.slice(0, shown).map(({ q, set }) => {
@@ -168,13 +185,7 @@ export async function renderHpDelprov(dp, qs) {
           href: `#/hp/ova/${dp}?ids=${encodeURIComponent(rows.slice(0, 60).map(({ q }) => q.id).join(","))}`,
         }, [icon(ICONS.play, 14), t("hp.listPractise", { n: Math.min(rows.length, 60) })]) : null,
       ].filter(Boolean)),
-      el("div.hp-filters", {}, [
-        topics.length > 1 ? select(t("hp.filterTopic"), topic, [["", t("hp.filterAll")], ...topics.map((x) => [x, sentenceCase(x)])], (v) => { topic = v; shown = LIST_STEP; paint(); }) : null,
-        select(t("hp.filterStatus"), status, [
-          ["", t("hp.filterAll")], ["new", t("hp.status.new")], ["wrong", t("hp.status.wrong")],
-          ["right", t("hp.status.right")], ["saved", t("hp.status.saved")],
-        ], (v) => { status = v; shown = LIST_STEP; paint(); }),
-      ].filter(Boolean)),
+      el("div.hp-filters", {}, [statusChips, topicSelect].filter(Boolean)),
       rows.length ? list : el("p.note", {}, t("hp.listEmpty")),
       rows.length > shown ? el("button.linkbtn", { type: "button", onclick: () => { shown += LIST_STEP; paint(); } },
         t("hp.listMore", { n: rows.length - shown })) : null,

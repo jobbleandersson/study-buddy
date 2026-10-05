@@ -1,51 +1,795 @@
 {
-  "version": 1,
+  "version": 2,
   "sections": [
     {
       "id": "ma",
       "name": "Maths",
       "groups": [
         {
-          "name": "Geometry",
+          "id": "area",
+          "name": "Area and perimeter",
           "items": [
-            { "name": "Area of a rectangle", "formula": "A = b \\cdot h", "note": "b = base, h = height" },
-            { "name": "Area of a triangle", "formula": "A = \\dfrac{b \\cdot h}{2}", "note": "h perpendicular to the base" },
-            { "name": "Parallelogram", "formula": "A = b \\cdot h", "note": "" },
-            { "name": "Area of a circle", "formula": "A = \\pi r^2", "note": "r = radius" },
-            { "name": "Circumference of a circle", "formula": "O = 2 \\pi r = \\pi d", "note": "d = diameter" },
-            { "name": "Volume of a cylinder", "formula": "V = \\pi r^2 \\cdot h", "note": "" },
-            { "name": "Volume of a cuboid", "formula": "V = l \\cdot b \\cdot h", "note": "" },
-            { "name": "Volume of a cone", "formula": "V = \\dfrac{\\pi r^2 \\cdot h}{3}", "note": "" },
-            { "name": "Volume of a sphere", "formula": "V = \\dfrac{4 \\pi r^3}{3}", "note": "" },
-            { "name": "Pythagoras' theorem", "formula": "a^2 + b^2 = c^2", "note": "c = hypotenuse of a right-angled triangle" }
+            {
+              "id": "rect-area",
+              "level": "hs",
+              "name": "Area of a rectangle",
+              "formula": "A = b \\cdot h",
+              "vars": [
+                [
+                  "b",
+                  "the base"
+                ],
+                [
+                  "h",
+                  "the height"
+                ]
+              ]
+            },
+            {
+              "id": "square-area",
+              "level": "hs",
+              "name": "Area of a square",
+              "formula": "A = s^2",
+              "vars": [
+                [
+                  "s",
+                  "the side"
+                ]
+              ]
+            },
+            {
+              "id": "tri-area",
+              "level": "hs",
+              "name": "Area of a triangle",
+              "formula": "A = \\dfrac{b \\cdot h}{2}",
+              "vars": [
+                [
+                  "b",
+                  "the base"
+                ],
+                [
+                  "h",
+                  "the height, perpendicular to the base"
+                ]
+              ]
+            },
+            {
+              "id": "para-area",
+              "level": "hs",
+              "name": "Area of a parallelogram",
+              "formula": "A = b \\cdot h",
+              "vars": [
+                [
+                  "b",
+                  "the base"
+                ],
+                [
+                  "h",
+                  "the height"
+                ]
+              ]
+            },
+            {
+              "id": "trap-area",
+              "level": "hs",
+              "name": "Area of a trapezium",
+              "formula": "A = \\dfrac{(a + b) \\cdot h}{2}",
+              "vars": [
+                [
+                  "a,\\ b",
+                  "the parallel sides"
+                ],
+                [
+                  "h",
+                  "the height"
+                ]
+              ],
+              "keywords": "trapezoid"
+            },
+            {
+              "id": "circle-area",
+              "level": "hs",
+              "name": "Area of a circle",
+              "formula": "A = \\pi r^2",
+              "vars": [
+                [
+                  "r",
+                  "the radius"
+                ]
+              ],
+              "note": "π ≈ 3.14"
+            },
+            {
+              "id": "circle-circ",
+              "level": "hs",
+              "name": "Circumference of a circle",
+              "formula": "C = 2 \\pi r = \\pi d",
+              "vars": [
+                [
+                  "r",
+                  "the radius"
+                ],
+                [
+                  "d",
+                  "the diameter"
+                ]
+              ]
+            },
+            {
+              "id": "sector",
+              "level": "hs",
+              "name": "Sector of a circle",
+              "formula": "A = \\dfrac{v}{360^\\circ} \\cdot \\pi r^2, \\quad b = \\dfrac{v}{360^\\circ} \\cdot 2 \\pi r",
+              "vars": [
+                [
+                  "v",
+                  "the angle at the centre"
+                ],
+                [
+                  "b",
+                  "the arc length"
+                ]
+              ],
+              "keywords": "arc"
+            }
           ]
         },
         {
-          "name": "Algebra",
+          "id": "volym",
+          "name": "Volume and surface area",
           "items": [
-            { "name": "Straight line", "formula": "y = kx + m", "note": "k = gradient, m = y-intercept" },
-            { "name": "Gradient", "formula": "k = \\dfrac{y_2 - y_1}{x_2 - x_1}", "note": "" },
-            { "name": "Quadratic equation", "formula": "x = -\\dfrac{p}{2} \\pm \\sqrt{\\left(\\dfrac{p}{2}\\right)^2 - q}", "note": "for the equation x² + px + q = 0" },
-            { "name": "Difference of two squares", "formula": "(a+b)(a-b) = a^2 - b^2", "note": "" },
-            { "name": "Perfect square", "formula": "(a \\pm b)^2 = a^2 \\pm 2ab + b^2", "note": "" },
-            { "name": "Laws of exponents", "formula": "x^a \\cdot x^b = x^{a+b}, \\quad \\dfrac{x^a}{x^b} = x^{a-b}, \\quad (x^a)^b = x^{ab}", "note": "" },
-            { "name": "Negative exponent", "formula": "x^{-a} = \\dfrac{1}{x^a}", "note": "" }
+            {
+              "id": "cuboid",
+              "level": "hs",
+              "name": "Volume of a cuboid",
+              "formula": "V = l \\cdot b \\cdot h",
+              "vars": [
+                [
+                  "l",
+                  "the length"
+                ],
+                [
+                  "b",
+                  "the width"
+                ],
+                [
+                  "h",
+                  "the height"
+                ]
+              ],
+              "keywords": "box"
+            },
+            {
+              "id": "cube",
+              "level": "hs",
+              "name": "Volume of a cube",
+              "formula": "V = s^3",
+              "vars": [
+                [
+                  "s",
+                  "the side"
+                ]
+              ]
+            },
+            {
+              "id": "prism",
+              "level": "hs",
+              "name": "Volume of a prism",
+              "formula": "V = B \\cdot h",
+              "vars": [
+                [
+                  "B",
+                  "the area of the base"
+                ],
+                [
+                  "h",
+                  "the height"
+                ]
+              ]
+            },
+            {
+              "id": "cylinder",
+              "level": "hs",
+              "name": "Volume of a cylinder",
+              "formula": "V = \\pi r^2 h",
+              "vars": [
+                [
+                  "r",
+                  "the radius"
+                ],
+                [
+                  "h",
+                  "the height"
+                ]
+              ]
+            },
+            {
+              "id": "pyramid",
+              "level": "hs",
+              "name": "Volume of a pyramid",
+              "formula": "V = \\dfrac{B \\cdot h}{3}",
+              "vars": [
+                [
+                  "B",
+                  "the area of the base"
+                ],
+                [
+                  "h",
+                  "the height"
+                ]
+              ]
+            },
+            {
+              "id": "cone",
+              "level": "hs",
+              "name": "Volume of a cone",
+              "formula": "V = \\dfrac{\\pi r^2 h}{3}",
+              "vars": [
+                [
+                  "r",
+                  "the radius of the base"
+                ],
+                [
+                  "h",
+                  "the height"
+                ]
+              ]
+            },
+            {
+              "id": "sphere",
+              "level": "hs",
+              "name": "Volume of a sphere",
+              "formula": "V = \\dfrac{4 \\pi r^3}{3}",
+              "vars": [
+                [
+                  "r",
+                  "the radius"
+                ]
+              ],
+              "keywords": "ball"
+            },
+            {
+              "id": "sphere-area",
+              "level": "hs",
+              "name": "Surface area of a sphere",
+              "formula": "A = 4 \\pi r^2",
+              "vars": [
+                [
+                  "r",
+                  "the radius"
+                ]
+              ]
+            },
+            {
+              "id": "cyl-mantle",
+              "level": "hs",
+              "name": "Curved surface of a cylinder",
+              "formula": "A = 2 \\pi r h",
+              "vars": [
+                [
+                  "r",
+                  "the radius"
+                ],
+                [
+                  "h",
+                  "the height"
+                ]
+              ]
+            }
           ]
         },
         {
+          "id": "trig",
+          "name": "Triangles and trigonometry",
+          "items": [
+            {
+              "id": "angle-sum",
+              "level": "hs",
+              "name": "Angles in a triangle",
+              "formula": "u + v + w = 180^\\circ"
+            },
+            {
+              "id": "polygon-sum",
+              "level": "hs",
+              "name": "Angles in a polygon",
+              "formula": "S = (n - 2) \\cdot 180^\\circ",
+              "vars": [
+                [
+                  "n",
+                  "the number of corners"
+                ]
+              ]
+            },
+            {
+              "id": "pythagoras",
+              "level": "hs",
+              "name": "Pythagoras' theorem",
+              "formula": "a^2 + b^2 = c^2",
+              "vars": [
+                [
+                  "a,\\ b",
+                  "the two shorter sides"
+                ],
+                [
+                  "c",
+                  "the hypotenuse, opposite the right angle"
+                ]
+              ],
+              "note": "Holds in right-angled triangles."
+            },
+            {
+              "id": "scale",
+              "level": "hs",
+              "name": "Scale for area and volume",
+              "formula": "\\text{area scale} = (\\text{length scale})^2, \\quad \\text{volume scale} = (\\text{length scale})^3",
+              "keywords": "similarity enlargement"
+            },
+            {
+              "id": "trig-right",
+              "level": "gy",
+              "name": "Sine, cosine and tangent",
+              "formula": "\\sin v = \\dfrac{a}{c}, \\quad \\cos v = \\dfrac{b}{c}, \\quad \\tan v = \\dfrac{a}{b}",
+              "vars": [
+                [
+                  "a",
+                  "the side opposite angle v"
+                ],
+                [
+                  "b",
+                  "the side next to angle v"
+                ],
+                [
+                  "c",
+                  "the hypotenuse"
+                ]
+              ],
+              "note": "In a right-angled triangle.",
+              "keywords": "trigonometry"
+            },
+            {
+              "id": "sine-rule",
+              "level": "gy",
+              "name": "The sine rule",
+              "formula": "\\dfrac{\\sin A}{a} = \\dfrac{\\sin B}{b} = \\dfrac{\\sin C}{c}",
+              "vars": [
+                [
+                  "a",
+                  "the side opposite angle A"
+                ]
+              ]
+            },
+            {
+              "id": "cosine-rule",
+              "level": "gy",
+              "name": "The cosine rule",
+              "formula": "c^2 = a^2 + b^2 - 2ab \\cos C",
+              "vars": [
+                [
+                  "C",
+                  "the angle opposite side c"
+                ]
+              ]
+            },
+            {
+              "id": "area-rule",
+              "level": "gy",
+              "name": "Area of any triangle",
+              "formula": "A = \\dfrac{a b \\sin C}{2}",
+              "vars": [
+                [
+                  "C",
+                  "the angle between sides a and b"
+                ]
+              ]
+            },
+            {
+              "id": "trig-one",
+              "level": "gy",
+              "name": "Pythagorean identity",
+              "formula": "\\sin^2 v + \\cos^2 v = 1"
+            }
+          ]
+        },
+        {
+          "id": "algebra",
+          "name": "Algebra and equations",
+          "items": [
+            {
+              "id": "square-rules",
+              "level": "gy",
+              "name": "Squaring a sum or difference",
+              "formula": "(a + b)^2 = a^2 + 2ab + b^2, \\quad (a - b)^2 = a^2 - 2ab + b^2"
+            },
+            {
+              "id": "conjugate",
+              "level": "gy",
+              "name": "Difference of two squares",
+              "formula": "(a + b)(a - b) = a^2 - b^2"
+            },
+            {
+              "id": "pq",
+              "level": "gy",
+              "name": "The pq formula",
+              "formula": "x = -\\dfrac{p}{2} \\pm \\sqrt{\\left(\\dfrac{p}{2}\\right)^2 - q}",
+              "note": "Solves x² + px + q = 0.",
+              "keywords": "quadratic equation"
+            },
+            {
+              "id": "abc",
+              "level": "gy",
+              "name": "The quadratic formula",
+              "formula": "x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}",
+              "note": "Solves ax² + bx + c = 0, where a ≠ 0.",
+              "keywords": "quadratic equation"
+            },
+            {
+              "id": "proportional",
+              "level": "hs",
+              "name": "Direct proportion",
+              "formula": "y = k \\cdot x",
+              "vars": [
+                [
+                  "k",
+                  "the constant of proportionality"
+                ]
+              ]
+            },
+            {
+              "id": "inverse-prop",
+              "level": "gy",
+              "name": "Inverse proportion",
+              "formula": "y = \\dfrac{k}{x}",
+              "vars": [
+                [
+                  "k",
+                  "a constant"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "potenser",
+          "name": "Powers and logarithms",
+          "items": [
+            {
+              "id": "power-laws",
+              "level": "hs",
+              "name": "Laws of exponents",
+              "formula": "a^m \\cdot a^n = a^{m+n}, \\quad \\dfrac{a^m}{a^n} = a^{m-n}, \\quad (a^m)^n = a^{m \\cdot n}"
+            },
+            {
+              "id": "zero-neg",
+              "level": "hs",
+              "name": "Zero and negative exponents",
+              "formula": "a^0 = 1, \\quad a^{-n} = \\dfrac{1}{a^n}",
+              "note": "When a ≠ 0."
+            },
+            {
+              "id": "product-power",
+              "level": "gy",
+              "name": "Power of a product and a quotient",
+              "formula": "(ab)^n = a^n b^n, \\quad \\left(\\dfrac{a}{b}\\right)^n = \\dfrac{a^n}{b^n}"
+            },
+            {
+              "id": "roots",
+              "level": "gy",
+              "name": "Roots as powers",
+              "formula": "\\sqrt{a} = a^{1/2}, \\quad \\sqrt[n]{a} = a^{1/n}",
+              "keywords": "root"
+            },
+            {
+              "id": "sci",
+              "level": "hs",
+              "name": "Standard form",
+              "formula": "a \\cdot 10^n, \\quad 1 \\le a < 10",
+              "note": "For example 4,500,000 = 4.5 · 10⁶.",
+              "keywords": "scientific notation"
+            },
+            {
+              "id": "log-def",
+              "level": "gy",
+              "name": "Common logarithm",
+              "formula": "10^x = y \\iff x = \\lg y",
+              "keywords": "logarithm log"
+            },
+            {
+              "id": "ln-def",
+              "level": "gy",
+              "name": "Natural logarithm",
+              "formula": "e^x = y \\iff x = \\ln y",
+              "note": "e ≈ 2.718",
+              "keywords": "logarithm"
+            },
+            {
+              "id": "log-laws",
+              "level": "gy",
+              "name": "Laws of logarithms",
+              "formula": "\\lg (ab) = \\lg a + \\lg b, \\quad \\lg \\dfrac{a}{b} = \\lg a - \\lg b, \\quad \\lg a^p = p \\cdot \\lg a",
+              "note": "Also true for ln."
+            }
+          ]
+        },
+        {
+          "id": "funktioner",
+          "name": "Functions",
+          "items": [
+            {
+              "id": "line",
+              "level": "hs",
+              "name": "Equation of a straight line",
+              "formula": "y = kx + m",
+              "vars": [
+                [
+                  "k",
+                  "the gradient"
+                ],
+                [
+                  "m",
+                  "where the line crosses the y-axis"
+                ]
+              ]
+            },
+            {
+              "id": "slope",
+              "level": "hs",
+              "name": "Gradient",
+              "formula": "k = \\dfrac{y_2 - y_1}{x_2 - x_1}",
+              "vars": [
+                [
+                  "(x_1, y_1),\\ (x_2, y_2)",
+                  "two points on the line"
+                ]
+              ],
+              "keywords": "slope"
+            },
+            {
+              "id": "perpendicular",
+              "level": "gy",
+              "name": "Parallel and perpendicular lines",
+              "formula": "k_1 = k_2 \\ \\text{(parallel)}, \\quad k_1 \\cdot k_2 = -1 \\ \\text{(perpendicular)}"
+            },
+            {
+              "id": "symmetry",
+              "level": "gy",
+              "name": "Line of symmetry of a parabola",
+              "formula": "x = -\\dfrac{b}{2a}",
+              "note": "For y = ax² + bx + c.",
+              "keywords": "quadratic function"
+            },
+            {
+              "id": "exp-func",
+              "level": "gy",
+              "name": "Exponential function",
+              "formula": "y = C \\cdot a^x",
+              "vars": [
+                [
+                  "C",
+                  "the starting value"
+                ],
+                [
+                  "a",
+                  "the growth factor"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "procent",
           "name": "Percentages",
           "items": [
-            { "name": "Proportion", "formula": "\\text{proportion} = \\dfrac{\\text{part}}{\\text{whole}}", "note": "" },
-            { "name": "Multiplier", "formula": "\\text{new value} = \\text{old value} \\cdot f", "note": "f = 1.25 for +25%, f = 0.80 for −20%" },
-            { "name": "Compound interest", "formula": "K = K_0 \\cdot f^{\\,n}", "note": "K₀ = starting amount, n = number of years" }
+            {
+              "id": "share",
+              "level": "hs",
+              "name": "Proportion",
+              "formula": "\\text{proportion} = \\dfrac{\\text{part}}{\\text{whole}}"
+            },
+            {
+              "id": "part",
+              "level": "hs",
+              "name": "The part",
+              "formula": "\\text{part} = \\text{proportion} \\cdot \\text{whole}"
+            },
+            {
+              "id": "pct-change",
+              "level": "hs",
+              "name": "Percentage change",
+              "formula": "\\text{change} = \\dfrac{\\text{new} - \\text{old}}{\\text{old}}",
+              "note": "Multiply by 100 to get a percentage."
+            },
+            {
+              "id": "factor",
+              "level": "hs",
+              "name": "Multiplier",
+              "formula": "\\text{new value} = f \\cdot \\text{old value}",
+              "note": "f = 1.25 for +25% and f = 0.80 for −20%."
+            },
+            {
+              "id": "repeated",
+              "level": "hs",
+              "name": "Repeated change",
+              "formula": "K = K_0 \\cdot f^{\\,n}",
+              "vars": [
+                [
+                  "K_0",
+                  "the starting value"
+                ],
+                [
+                  "f",
+                  "the multiplier"
+                ],
+                [
+                  "n",
+                  "the number of times, for example years"
+                ]
+              ],
+              "keywords": "compound interest"
+            }
           ]
         },
         {
-          "name": "Probability & statistics",
+          "id": "statistik",
+          "name": "Probability and statistics",
           "items": [
-            { "name": "Probability", "formula": "P = \\dfrac{\\text{favourable outcomes}}{\\text{possible outcomes}}", "note": "" },
-            { "name": "Independent events", "formula": "P(A \\text{ and } B) = P(A) \\cdot P(B)", "note": "" },
-            { "name": "Mean", "formula": "\\bar{x} = \\dfrac{\\text{sum of values}}{\\text{number of values}}", "note": "" }
+            {
+              "id": "prob",
+              "level": "hs",
+              "name": "Probability",
+              "formula": "P = \\dfrac{\\text{favourable outcomes}}{\\text{possible outcomes}}",
+              "note": "When every outcome is equally likely."
+            },
+            {
+              "id": "complement",
+              "level": "hs",
+              "name": "Complement",
+              "formula": "P(\\text{not } A) = 1 - P(A)"
+            },
+            {
+              "id": "independent",
+              "level": "hs",
+              "name": "Independent events",
+              "formula": "P(A \\text{ and } B) = P(A) \\cdot P(B)"
+            },
+            {
+              "id": "mean",
+              "level": "hs",
+              "name": "Mean",
+              "formula": "\\bar{x} = \\dfrac{x_1 + x_2 + \\dots + x_n}{n}",
+              "vars": [
+                [
+                  "n",
+                  "the number of values"
+                ]
+              ],
+              "keywords": "average"
+            },
+            {
+              "id": "range",
+              "level": "hs",
+              "name": "Range",
+              "formula": "\\text{range} = x_{\\max} - x_{\\min}",
+              "vars": [
+                [
+                  "x_{\\max}",
+                  "the largest value"
+                ],
+                [
+                  "x_{\\min}",
+                  "the smallest value"
+                ]
+              ]
+            },
+            {
+              "id": "stdev",
+              "level": "gy",
+              "name": "Standard deviation",
+              "formula": "s = \\sqrt{\\dfrac{\\sum (x_i - \\bar{x})^2}{n - 1}}",
+              "vars": [
+                [
+                  "\\bar{x}",
+                  "the mean"
+                ],
+                [
+                  "n",
+                  "the number of values"
+                ]
+              ],
+              "note": "For a sample."
+            }
+          ]
+        },
+        {
+          "id": "derivator",
+          "name": "Derivatives",
+          "items": [
+            {
+              "id": "deriv-def",
+              "level": "gy",
+              "name": "Definition of the derivative",
+              "formula": "f'(x) = \\lim_{h \\to 0} \\dfrac{f(x + h) - f(x)}{h}"
+            },
+            {
+              "id": "d-power",
+              "level": "gy",
+              "name": "Derivative of a power",
+              "formula": "f(x) = x^n \\;\\Rightarrow\\; f'(x) = n x^{n-1}"
+            },
+            {
+              "id": "d-exp",
+              "level": "gy",
+              "name": "Derivatives of exponential functions",
+              "formula": "(e^x)' = e^x, \\quad (e^{kx})' = k e^{kx}, \\quad (a^x)' = a^x \\ln a"
+            },
+            {
+              "id": "d-ln",
+              "level": "gy",
+              "name": "Derivative of ln x",
+              "formula": "(\\ln x)' = \\dfrac{1}{x}"
+            },
+            {
+              "id": "d-trig",
+              "level": "gy",
+              "name": "Derivatives of sin and cos",
+              "formula": "(\\sin x)' = \\cos x, \\quad (\\cos x)' = -\\sin x"
+            },
+            {
+              "id": "product",
+              "level": "gy",
+              "name": "Product rule",
+              "formula": "(f \\cdot g)' = f' g + f g'"
+            },
+            {
+              "id": "quotient",
+              "level": "gy",
+              "name": "Quotient rule",
+              "formula": "\\left(\\dfrac{f}{g}\\right)' = \\dfrac{f' g - f g'}{g^2}"
+            },
+            {
+              "id": "chain",
+              "level": "gy",
+              "name": "Chain rule",
+              "formula": "\\big(f(g(x))\\big)' = f'(g(x)) \\cdot g'(x)",
+              "keywords": "composite function"
+            }
+          ]
+        },
+        {
+          "id": "integraler",
+          "name": "Integrals",
+          "items": [
+            {
+              "id": "prim-power",
+              "level": "gy",
+              "name": "Antiderivative of a power",
+              "formula": "\\displaystyle\\int x^n \\, dx = \\dfrac{x^{n+1}}{n + 1} + C",
+              "note": "When n ≠ −1."
+            },
+            {
+              "id": "prim-exp",
+              "level": "gy",
+              "name": "Antiderivative of eᵏˣ",
+              "formula": "\\displaystyle\\int e^{kx} \\, dx = \\dfrac{e^{kx}}{k} + C"
+            },
+            {
+              "id": "prim-inv",
+              "level": "gy",
+              "name": "Antiderivative of 1/x",
+              "formula": "\\displaystyle\\int \\dfrac{1}{x} \\, dx = \\ln |x| + C"
+            },
+            {
+              "id": "ftc",
+              "level": "gy",
+              "name": "Fundamental theorem of calculus",
+              "formula": "\\displaystyle\\int_a^b f(x) \\, dx = F(b) - F(a)",
+              "vars": [
+                [
+                  "F",
+                  "an antiderivative of f"
+                ]
+              ],
+              "keywords": "definite integral area under curve"
+            }
           ]
         }
       ]
@@ -55,41 +799,696 @@
       "name": "Physics",
       "groups": [
         {
+          "id": "rorelse",
           "name": "Motion",
           "items": [
-            { "name": "Average speed", "formula": "v = \\dfrac{s}{t}", "note": "s = distance (m), t = time (s)" },
-            { "name": "Acceleration", "formula": "a = \\dfrac{\\Delta v}{t}", "note": "unit m/s²" },
-            { "name": "Distance under constant acceleration", "formula": "s = v_0 t + \\dfrac{a t^2}{2}", "note": "" },
-            { "name": "Velocity under constant acceleration", "formula": "v = v_0 + at", "note": "" }
+            {
+              "id": "speed",
+              "level": "hs",
+              "name": "Average speed",
+              "formula": "v = \\dfrac{s}{t}",
+              "vars": [
+                [
+                  "v",
+                  "the speed",
+                  "m/s"
+                ],
+                [
+                  "s",
+                  "the distance",
+                  "m"
+                ],
+                [
+                  "t",
+                  "the time",
+                  "s"
+                ]
+              ]
+            },
+            {
+              "id": "accel",
+              "level": "gy",
+              "name": "Acceleration",
+              "formula": "a = \\dfrac{\\Delta v}{\\Delta t}",
+              "vars": [
+                [
+                  "a",
+                  "the acceleration",
+                  "m/s²"
+                ],
+                [
+                  "\\Delta v",
+                  "the change in velocity",
+                  "m/s"
+                ],
+                [
+                  "\\Delta t",
+                  "the time it takes",
+                  "s"
+                ]
+              ]
+            },
+            {
+              "id": "v-const-a",
+              "level": "gy",
+              "name": "Velocity under constant acceleration",
+              "formula": "v = v_0 + a t",
+              "vars": [
+                [
+                  "v_0",
+                  "the starting velocity",
+                  "m/s"
+                ]
+              ]
+            },
+            {
+              "id": "s-const-a",
+              "level": "gy",
+              "name": "Distance under constant acceleration",
+              "formula": "s = v_0 t + \\dfrac{a t^2}{2}",
+              "vars": [
+                [
+                  "v_0",
+                  "the starting velocity",
+                  "m/s"
+                ]
+              ]
+            },
+            {
+              "id": "timeless",
+              "level": "gy",
+              "name": "Velocity–distance formula",
+              "formula": "v^2 - v_0^2 = 2 a s"
+            }
           ]
         },
         {
-          "name": "Forces",
+          "id": "krafter",
+          "name": "Forces and momentum",
           "items": [
-            { "name": "Newton's second law", "formula": "F = m \\cdot a", "note": "F in newtons (N)" },
-            { "name": "Weight", "formula": "F_g = m \\cdot g", "note": "g ≈ 9.82 N/kg" },
-            { "name": "Pressure", "formula": "p = \\dfrac{F}{A}", "note": "unit pascal (Pa)" },
-            { "name": "Density", "formula": "\\rho = \\dfrac{m}{V}", "note": "" },
-            { "name": "Hydrostatic pressure", "formula": "p = \\rho \\cdot g \\cdot h", "note": "fluid pressure at depth h" }
+            {
+              "id": "weight",
+              "level": "hs",
+              "name": "Weight",
+              "formula": "F_g = m \\cdot g",
+              "vars": [
+                [
+                  "F_g",
+                  "the weight",
+                  "N"
+                ],
+                [
+                  "m",
+                  "the mass",
+                  "kg"
+                ],
+                [
+                  "g",
+                  "gravitational field strength, ≈ 9.82",
+                  "N/kg"
+                ]
+              ]
+            },
+            {
+              "id": "newton2",
+              "level": "gy",
+              "name": "Newton's second law",
+              "formula": "F = m \\cdot a",
+              "vars": [
+                [
+                  "F",
+                  "the resultant force",
+                  "N"
+                ],
+                [
+                  "m",
+                  "the mass",
+                  "kg"
+                ],
+                [
+                  "a",
+                  "the acceleration",
+                  "m/s²"
+                ]
+              ],
+              "keywords": "force"
+            },
+            {
+              "id": "friction",
+              "level": "gy",
+              "name": "Friction",
+              "formula": "F_f = \\mu \\cdot F_N",
+              "vars": [
+                [
+                  "\\mu",
+                  "the coefficient of friction"
+                ],
+                [
+                  "F_N",
+                  "the normal force",
+                  "N"
+                ]
+              ]
+            },
+            {
+              "id": "hooke",
+              "level": "gy",
+              "name": "Hooke's law",
+              "formula": "F = k \\cdot x",
+              "vars": [
+                [
+                  "k",
+                  "the spring constant",
+                  "N/m"
+                ],
+                [
+                  "x",
+                  "the extension",
+                  "m"
+                ]
+              ],
+              "keywords": "spring"
+            },
+            {
+              "id": "moment",
+              "level": "hs",
+              "name": "Moment",
+              "formula": "M = F \\cdot l",
+              "vars": [
+                [
+                  "M",
+                  "the moment",
+                  "Nm"
+                ],
+                [
+                  "l",
+                  "the lever arm, perpendicular distance to the pivot",
+                  "m"
+                ]
+              ],
+              "keywords": "lever torque"
+            },
+            {
+              "id": "momentum",
+              "level": "gy",
+              "name": "Momentum",
+              "formula": "p = m \\cdot v",
+              "vars": [
+                [
+                  "p",
+                  "the momentum",
+                  "kg·m/s"
+                ]
+              ]
+            },
+            {
+              "id": "impulse",
+              "level": "gy",
+              "name": "Impulse",
+              "formula": "I = F \\cdot \\Delta t = \\Delta p",
+              "vars": [
+                [
+                  "I",
+                  "the impulse",
+                  "Ns"
+                ]
+              ]
+            },
+            {
+              "id": "centripetal",
+              "level": "gy",
+              "name": "Centripetal force",
+              "formula": "F = \\dfrac{m v^2}{r}",
+              "vars": [
+                [
+                  "r",
+                  "the radius of the circular path",
+                  "m"
+                ]
+              ],
+              "keywords": "circular motion"
+            },
+            {
+              "id": "gravity",
+              "level": "gy",
+              "name": "Law of gravitation",
+              "formula": "F = G \\cdot \\dfrac{m_1 m_2}{r^2}",
+              "vars": [
+                [
+                  "G",
+                  "the gravitational constant"
+                ],
+                [
+                  "r",
+                  "the distance between the centres",
+                  "m"
+                ]
+              ]
+            }
           ]
         },
         {
-          "name": "Energy & power",
+          "id": "tryck",
+          "name": "Pressure and density",
           "items": [
-            { "name": "Work", "formula": "W = F \\cdot s", "note": "unit joule (J)" },
-            { "name": "Potential energy", "formula": "E_p = m \\cdot g \\cdot h", "note": "" },
-            { "name": "Kinetic energy", "formula": "E_k = \\dfrac{m v^2}{2}", "note": "" },
-            { "name": "Power", "formula": "P = \\dfrac{W}{t}", "note": "unit watt (W)" },
-            { "name": "Efficiency", "formula": "\\eta = \\dfrac{\\text{useful energy}}{\\text{energy supplied}}", "note": "" }
+            {
+              "id": "density",
+              "level": "hs",
+              "name": "Density",
+              "formula": "\\rho = \\dfrac{m}{V}",
+              "vars": [
+                [
+                  "\\rho",
+                  "the density",
+                  "kg/m³"
+                ],
+                [
+                  "m",
+                  "the mass",
+                  "kg"
+                ],
+                [
+                  "V",
+                  "the volume",
+                  "m³"
+                ]
+              ]
+            },
+            {
+              "id": "pressure",
+              "level": "hs",
+              "name": "Pressure",
+              "formula": "p = \\dfrac{F}{A}",
+              "vars": [
+                [
+                  "p",
+                  "the pressure",
+                  "Pa = N/m²"
+                ],
+                [
+                  "F",
+                  "the force",
+                  "N"
+                ],
+                [
+                  "A",
+                  "the area",
+                  "m²"
+                ]
+              ]
+            },
+            {
+              "id": "fluid-pressure",
+              "level": "hs",
+              "name": "Pressure in a liquid",
+              "formula": "p = \\rho \\cdot g \\cdot h",
+              "vars": [
+                [
+                  "\\rho",
+                  "the density of the liquid",
+                  "kg/m³"
+                ],
+                [
+                  "h",
+                  "the depth",
+                  "m"
+                ]
+              ],
+              "keywords": "hydrostatic"
+            },
+            {
+              "id": "buoyancy",
+              "level": "hs",
+              "name": "Buoyancy",
+              "formula": "F_L = \\rho_v \\cdot g \\cdot V",
+              "vars": [
+                [
+                  "\\rho_v",
+                  "the density of the liquid",
+                  "kg/m³"
+                ],
+                [
+                  "V",
+                  "the volume displaced",
+                  "m³"
+                ]
+              ],
+              "keywords": "Archimedes' principle upthrust"
+            }
           ]
         },
         {
+          "id": "energi",
+          "name": "Energy and power",
+          "items": [
+            {
+              "id": "work",
+              "level": "hs",
+              "name": "Work",
+              "formula": "W = F \\cdot s",
+              "vars": [
+                [
+                  "W",
+                  "the work",
+                  "J"
+                ],
+                [
+                  "s",
+                  "the distance in the direction of the force",
+                  "m"
+                ]
+              ]
+            },
+            {
+              "id": "ep",
+              "level": "hs",
+              "name": "Potential energy",
+              "formula": "E_p = m \\cdot g \\cdot h",
+              "vars": [
+                [
+                  "h",
+                  "the height",
+                  "m"
+                ]
+              ]
+            },
+            {
+              "id": "ek",
+              "level": "hs",
+              "name": "Kinetic energy",
+              "formula": "E_k = \\dfrac{m v^2}{2}",
+              "vars": [
+                [
+                  "v",
+                  "the speed",
+                  "m/s"
+                ]
+              ]
+            },
+            {
+              "id": "power",
+              "level": "hs",
+              "name": "Power",
+              "formula": "P = \\dfrac{E}{t}",
+              "vars": [
+                [
+                  "P",
+                  "the power",
+                  "W = J/s"
+                ],
+                [
+                  "E",
+                  "the energy",
+                  "J"
+                ],
+                [
+                  "t",
+                  "the time",
+                  "s"
+                ]
+              ]
+            },
+            {
+              "id": "efficiency",
+              "level": "hs",
+              "name": "Efficiency",
+              "formula": "\\eta = \\dfrac{\\text{useful energy}}{\\text{energy supplied}}",
+              "note": "Often given as a percentage."
+            },
+            {
+              "id": "heat",
+              "level": "gy",
+              "name": "Heat energy",
+              "formula": "E = c \\cdot m \\cdot \\Delta T",
+              "vars": [
+                [
+                  "c",
+                  "the specific heat capacity",
+                  "J/(kg·K)"
+                ],
+                [
+                  "\\Delta T",
+                  "the change in temperature",
+                  "K"
+                ]
+              ]
+            },
+            {
+              "id": "spring-energy",
+              "level": "gy",
+              "name": "Elastic energy",
+              "formula": "E = \\dfrac{k x^2}{2}",
+              "vars": [
+                [
+                  "k",
+                  "the spring constant",
+                  "N/m"
+                ],
+                [
+                  "x",
+                  "the extension",
+                  "m"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "el",
           "name": "Electricity",
           "items": [
-            { "name": "Ohm's law", "formula": "U = R \\cdot I", "note": "U in volts, I in amperes, R in ohms" },
-            { "name": "Electrical power", "formula": "P = U \\cdot I", "note": "" },
-            { "name": "Charge", "formula": "Q = I \\cdot t", "note": "unit coulomb (C)" },
-            { "name": "Electrical energy", "formula": "W = P \\cdot t", "note": "often in kWh: 1 kWh = 3.6 MJ" }
+            {
+              "id": "ohm",
+              "level": "hs",
+              "name": "Ohm's law",
+              "formula": "U = R \\cdot I",
+              "vars": [
+                [
+                  "U",
+                  "the voltage",
+                  "V"
+                ],
+                [
+                  "R",
+                  "the resistance",
+                  "Ω"
+                ],
+                [
+                  "I",
+                  "the current",
+                  "A"
+                ]
+              ]
+            },
+            {
+              "id": "el-power",
+              "level": "hs",
+              "name": "Electrical power",
+              "formula": "P = U \\cdot I",
+              "vars": [
+                [
+                  "P",
+                  "the power",
+                  "W"
+                ]
+              ]
+            },
+            {
+              "id": "el-energy",
+              "level": "hs",
+              "name": "Electrical energy",
+              "formula": "E = P \\cdot t",
+              "note": "1 kWh = 3.6 MJ"
+            },
+            {
+              "id": "series",
+              "level": "hs",
+              "name": "Resistors in series",
+              "formula": "R = R_1 + R_2 + \\dots"
+            },
+            {
+              "id": "parallel",
+              "level": "gy",
+              "name": "Resistors in parallel",
+              "formula": "\\dfrac{1}{R} = \\dfrac{1}{R_1} + \\dfrac{1}{R_2} + \\dots"
+            },
+            {
+              "id": "charge",
+              "level": "gy",
+              "name": "Charge",
+              "formula": "Q = I \\cdot t",
+              "vars": [
+                [
+                  "Q",
+                  "the charge",
+                  "C"
+                ]
+              ]
+            },
+            {
+              "id": "energy-qu",
+              "level": "gy",
+              "name": "Energy and voltage",
+              "formula": "W = Q \\cdot U",
+              "vars": [
+                [
+                  "W",
+                  "the energy",
+                  "J"
+                ],
+                [
+                  "Q",
+                  "the charge",
+                  "C"
+                ],
+                [
+                  "U",
+                  "the voltage",
+                  "V"
+                ]
+              ]
+            },
+            {
+              "id": "coulomb",
+              "level": "gy",
+              "name": "Coulomb's law",
+              "formula": "F = k \\cdot \\dfrac{Q_1 Q_2}{r^2}",
+              "vars": [
+                [
+                  "k",
+                  "Coulomb's constant"
+                ],
+                [
+                  "r",
+                  "the distance between the charges",
+                  "m"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "vagor",
+          "name": "Waves and light",
+          "items": [
+            {
+              "id": "wave",
+              "level": "hs",
+              "name": "The wave equation",
+              "formula": "v = f \\cdot \\lambda",
+              "vars": [
+                [
+                  "v",
+                  "the wave speed",
+                  "m/s"
+                ],
+                [
+                  "f",
+                  "the frequency",
+                  "Hz"
+                ],
+                [
+                  "\\lambda",
+                  "the wavelength",
+                  "m"
+                ]
+              ],
+              "keywords": "sound"
+            },
+            {
+              "id": "period",
+              "level": "hs",
+              "name": "Frequency and period",
+              "formula": "f = \\dfrac{1}{T}",
+              "vars": [
+                [
+                  "T",
+                  "the period",
+                  "s"
+                ]
+              ]
+            },
+            {
+              "id": "refr-index",
+              "level": "gy",
+              "name": "Refractive index",
+              "formula": "n = \\dfrac{c}{v}",
+              "vars": [
+                [
+                  "c",
+                  "the speed of light in a vacuum",
+                  "m/s"
+                ],
+                [
+                  "v",
+                  "the speed of light in the material",
+                  "m/s"
+                ]
+              ]
+            },
+            {
+              "id": "snell",
+              "level": "gy",
+              "name": "Snell's law",
+              "formula": "n_1 \\sin \\alpha_1 = n_2 \\sin \\alpha_2",
+              "vars": [
+                [
+                  "\\alpha",
+                  "the angle to the normal"
+                ]
+              ],
+              "keywords": "refraction"
+            },
+            {
+              "id": "photon",
+              "level": "gy",
+              "name": "Energy of a photon",
+              "formula": "E = h \\cdot f",
+              "vars": [
+                [
+                  "h",
+                  "Planck's constant"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "karn",
+          "name": "Atomic and nuclear physics",
+          "items": [
+            {
+              "id": "emc2",
+              "level": "gy",
+              "name": "Mass–energy equivalence",
+              "formula": "E = m c^2",
+              "vars": [
+                [
+                  "c",
+                  "the speed of light",
+                  "m/s"
+                ]
+              ],
+              "keywords": "Einstein"
+            },
+            {
+              "id": "halflife",
+              "level": "gy",
+              "name": "Half-life",
+              "formula": "N = N_0 \\cdot \\left(\\dfrac{1}{2}\\right)^{t / T_{1/2}}",
+              "vars": [
+                [
+                  "N_0",
+                  "the number of nuclei at the start"
+                ],
+                [
+                  "T_{1/2}",
+                  "the half-life",
+                  "s"
+                ]
+              ],
+              "keywords": "radioactive decay"
+            }
           ]
         }
       ]
@@ -99,28 +1498,427 @@
       "name": "Chemistry",
       "groups": [
         {
+          "id": "substans",
           "name": "Amount of substance",
           "items": [
-            { "name": "Amount of substance", "formula": "n = \\dfrac{m}{M}", "note": "n in mol, m in g, M = molar mass (g/mol)" },
-            { "name": "Number of particles", "formula": "N = n \\cdot N_A", "note": "N_A ≈ 6.022 · 10²³ mol⁻¹" },
-            { "name": "Density", "formula": "\\rho = \\dfrac{m}{V}", "note": "" }
+            {
+              "id": "moles",
+              "level": "gy",
+              "name": "Amount of substance",
+              "formula": "n = \\dfrac{m}{M}",
+              "vars": [
+                [
+                  "n",
+                  "the amount of substance",
+                  "mol"
+                ],
+                [
+                  "m",
+                  "the mass",
+                  "g"
+                ],
+                [
+                  "M",
+                  "the molar mass",
+                  "g/mol"
+                ]
+              ],
+              "note": "The molar mass is the sum of the atomic masses in the formula.",
+              "keywords": "mole"
+            },
+            {
+              "id": "particles",
+              "level": "gy",
+              "name": "Number of particles",
+              "formula": "N = n \\cdot N_A",
+              "vars": [
+                [
+                  "N_A",
+                  "Avogadro's constant",
+                  "mol⁻¹"
+                ]
+              ]
+            }
           ]
         },
         {
+          "id": "losningar",
           "name": "Solutions",
           "items": [
-            { "name": "Concentration", "formula": "c = \\dfrac{n}{V}", "note": "c in mol/dm³, V in dm³ (litres)" },
-            { "name": "Dilution", "formula": "c_1 V_1 = c_2 V_2", "note": "the amount of substance is unchanged" },
-            { "name": "Mass fraction", "formula": "\\text{mass fraction} = \\dfrac{m_{\\text{substance}}}{m_{\\text{solution}}}", "note": "often given as a percentage" }
+            {
+              "id": "conc",
+              "level": "gy",
+              "name": "Concentration",
+              "formula": "c = \\dfrac{n}{V}",
+              "vars": [
+                [
+                  "c",
+                  "the concentration",
+                  "mol/dm³"
+                ],
+                [
+                  "n",
+                  "the amount of substance",
+                  "mol"
+                ],
+                [
+                  "V",
+                  "the volume",
+                  "dm³"
+                ]
+              ],
+              "keywords": "molarity"
+            },
+            {
+              "id": "mass-dissolved",
+              "level": "gy",
+              "name": "Mass of dissolved substance",
+              "formula": "m = c \\cdot V \\cdot M",
+              "vars": [
+                [
+                  "M",
+                  "the molar mass",
+                  "g/mol"
+                ]
+              ]
+            },
+            {
+              "id": "dilution",
+              "level": "gy",
+              "name": "Dilution",
+              "formula": "c_1 V_1 = c_2 V_2",
+              "note": "The amount of substance doesn't change when you dilute."
+            },
+            {
+              "id": "mass-fraction",
+              "level": "gy",
+              "name": "Mass fraction",
+              "formula": "\\text{mass fraction} = \\dfrac{m_{\\text{substance}}}{m_{\\text{solution}}}",
+              "note": "Often given as a percentage."
+            }
           ]
         },
         {
-          "name": "Gases & reactions",
+          "id": "gaser",
+          "name": "Gases and temperature",
           "items": [
-            { "name": "Ideal gas law", "formula": "pV = nRT", "note": "R = 8.314 J/(mol·K), T in kelvin" },
-            { "name": "Molar volume (1 atm, 25 °C)", "formula": "V_m \\approx 24{,}5 \\ \\text{dm}^3/\\text{mol}", "note": "for ideal gases" },
-            { "name": "Yield", "formula": "\\text{yield} = \\dfrac{\\text{actual}}{\\text{theoretical}}", "note": "given as a percentage" },
-            { "name": "pH", "formula": "\\mathrm{pH} = -\\log[\\mathrm{H_3O^+}]", "note": "the hydrogen-ion concentration in mol/dm³" }
+            {
+              "id": "kelvin",
+              "level": "hs",
+              "name": "Kelvin and Celsius",
+              "formula": "T = t + 273.15",
+              "vars": [
+                [
+                  "T",
+                  "the temperature in kelvin",
+                  "K"
+                ],
+                [
+                  "t",
+                  "the temperature in degrees Celsius",
+                  "°C"
+                ]
+              ]
+            },
+            {
+              "id": "ideal-gas",
+              "level": "gy",
+              "name": "Ideal gas law",
+              "formula": "p V = n R T",
+              "vars": [
+                [
+                  "p",
+                  "the pressure",
+                  "Pa"
+                ],
+                [
+                  "V",
+                  "the volume",
+                  "m³"
+                ],
+                [
+                  "n",
+                  "the amount of substance",
+                  "mol"
+                ],
+                [
+                  "R",
+                  "the gas constant",
+                  "J/(mol·K)"
+                ],
+                [
+                  "T",
+                  "the temperature",
+                  "K"
+                ]
+              ]
+            },
+            {
+              "id": "combined",
+              "level": "gy",
+              "name": "Combined gas law",
+              "formula": "\\dfrac{p_1 V_1}{T_1} = \\dfrac{p_2 V_2}{T_2}",
+              "note": "For a fixed amount of gas."
+            },
+            {
+              "id": "molar-volume",
+              "level": "gy",
+              "name": "Molar volume",
+              "formula": "V_m = \\dfrac{V}{n} \\approx 24.5 \\ \\mathrm{dm^3/mol}",
+              "note": "At 25 °C and 101.3 kPa."
+            }
+          ]
+        },
+        {
+          "id": "syror",
+          "name": "Acids and bases",
+          "items": [
+            {
+              "id": "ph",
+              "level": "gy",
+              "name": "pH",
+              "formula": "\\mathrm{pH} = -\\lg [\\mathrm{H_3O^+}]",
+              "note": "[H₃O⁺] in mol/dm³.",
+              "keywords": "acidity oxonium hydronium"
+            },
+            {
+              "id": "h3o",
+              "level": "gy",
+              "name": "Oxonium ion concentration",
+              "formula": "[\\mathrm{H_3O^+}] = 10^{-\\mathrm{pH}}",
+              "keywords": "hydrogen ion hydronium"
+            },
+            {
+              "id": "poh",
+              "level": "gy",
+              "name": "pOH",
+              "formula": "\\mathrm{pOH} = -\\lg [\\mathrm{OH^-}], \\quad \\mathrm{pH} + \\mathrm{pOH} = 14",
+              "note": "At 25 °C.",
+              "keywords": "hydroxide base"
+            },
+            {
+              "id": "kw",
+              "level": "gy",
+              "name": "Ionic product of water",
+              "formula": "K_w = [\\mathrm{H_3O^+}] \\cdot [\\mathrm{OH^-}] = 1.0 \\cdot 10^{-14}",
+              "note": "In (mol/dm³)², at 25 °C."
+            }
+          ]
+        },
+        {
+          "id": "reaktioner",
+          "name": "Reactions",
+          "items": [
+            {
+              "id": "yield",
+              "level": "gy",
+              "name": "Yield",
+              "formula": "\\text{yield} = \\dfrac{\\text{actual yield}}{\\text{theoretical yield}}",
+              "note": "Often given as a percentage."
+            },
+            {
+              "id": "equilibrium",
+              "level": "gy",
+              "name": "Equilibrium constant",
+              "formula": "K = \\dfrac{[\\mathrm{C}]^c \\, [\\mathrm{D}]^d}{[\\mathrm{A}]^a \\, [\\mathrm{B}]^b}",
+              "note": "For the reaction aA + bB ⇌ cC + dD.",
+              "keywords": "equilibrium"
+            },
+            {
+              "id": "enthalpy",
+              "level": "gy",
+              "name": "Enthalpy change",
+              "formula": "\\Delta H = H_{\\text{products}} - H_{\\text{reactants}}",
+              "note": "ΔH < 0: exothermic. ΔH > 0: endothermic.",
+              "keywords": "energy exothermic endothermic"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ko",
+      "name": "Constants and units",
+      "groups": [
+        {
+          "id": "konstanter",
+          "name": "Constants",
+          "items": [
+            {
+              "id": "k-g",
+              "level": "hs",
+              "name": "Gravitational field strength",
+              "formula": "g \\approx 9.82 \\ \\mathrm{N/kg}",
+              "note": "At the Earth's surface in Sweden."
+            },
+            {
+              "id": "k-water-density",
+              "level": "hs",
+              "name": "Density of water",
+              "formula": "\\rho \\approx 1000 \\ \\mathrm{kg/m^3} = 1.00 \\ \\mathrm{g/cm^3}"
+            },
+            {
+              "id": "k-zero",
+              "level": "hs",
+              "name": "Absolute zero",
+              "formula": "0 \\ \\mathrm{K} = -273.15 \\ ^\\circ\\mathrm{C}"
+            },
+            {
+              "id": "k-c",
+              "level": "gy",
+              "name": "Speed of light in a vacuum",
+              "formula": "c \\approx 3.00 \\cdot 10^8 \\ \\mathrm{m/s}"
+            },
+            {
+              "id": "k-na",
+              "level": "gy",
+              "name": "Avogadro's constant",
+              "formula": "N_A \\approx 6.022 \\cdot 10^{23} \\ \\mathrm{mol^{-1}}"
+            },
+            {
+              "id": "k-r",
+              "level": "gy",
+              "name": "Gas constant",
+              "formula": "R \\approx 8.314 \\ \\mathrm{J/(mol \\cdot K)}"
+            },
+            {
+              "id": "k-h",
+              "level": "gy",
+              "name": "Planck's constant",
+              "formula": "h \\approx 6.626 \\cdot 10^{-34} \\ \\mathrm{J \\cdot s}"
+            },
+            {
+              "id": "k-G",
+              "level": "gy",
+              "name": "Gravitational constant",
+              "formula": "G \\approx 6.674 \\cdot 10^{-11} \\ \\mathrm{N \\cdot m^2/kg^2}"
+            },
+            {
+              "id": "k-e",
+              "level": "gy",
+              "name": "Elementary charge",
+              "formula": "e \\approx 1.602 \\cdot 10^{-19} \\ \\mathrm{C}"
+            },
+            {
+              "id": "k-coulomb",
+              "level": "gy",
+              "name": "Coulomb's constant",
+              "formula": "k \\approx 8.99 \\cdot 10^{9} \\ \\mathrm{N \\cdot m^2/C^2}"
+            },
+            {
+              "id": "k-water-c",
+              "level": "gy",
+              "name": "Specific heat capacity of water",
+              "formula": "c \\approx 4.18 \\ \\mathrm{kJ/(kg \\cdot K)}"
+            }
+          ]
+        },
+        {
+          "id": "prefix",
+          "name": "Prefixes",
+          "items": [
+            {
+              "id": "prefixes",
+              "level": "hs",
+              "name": "Unit prefixes",
+              "table": [
+                [
+                  "T",
+                  "tera",
+                  "10^{12}"
+                ],
+                [
+                  "G",
+                  "giga",
+                  "10^{9}"
+                ],
+                [
+                  "M",
+                  "mega",
+                  "10^{6}"
+                ],
+                [
+                  "k",
+                  "kilo",
+                  "10^{3}"
+                ],
+                [
+                  "h",
+                  "hecto",
+                  "10^{2}"
+                ],
+                [
+                  "d",
+                  "deci",
+                  "10^{-1}"
+                ],
+                [
+                  "c",
+                  "centi",
+                  "10^{-2}"
+                ],
+                [
+                  "m",
+                  "milli",
+                  "10^{-3}"
+                ],
+                [
+                  "µ",
+                  "micro",
+                  "10^{-6}"
+                ],
+                [
+                  "n",
+                  "nano",
+                  "10^{-9}"
+                ]
+              ],
+              "keywords": "kilo milli micro mega giga nano"
+            }
+          ]
+        },
+        {
+          "id": "omvandling",
+          "name": "Unit conversions",
+          "items": [
+            {
+              "id": "u-volume",
+              "level": "hs",
+              "name": "Volume",
+              "formula": "1 \\ \\mathrm{dm^3} = 1 \\ \\text{litre} = 1000 \\ \\mathrm{cm^3}, \\quad 1 \\ \\mathrm{m^3} = 1000 \\ \\text{litres}"
+            },
+            {
+              "id": "u-speed",
+              "level": "hs",
+              "name": "Speed",
+              "formula": "1 \\ \\mathrm{m/s} = 3.6 \\ \\mathrm{km/h}"
+            },
+            {
+              "id": "u-time",
+              "level": "hs",
+              "name": "Time",
+              "formula": "1 \\ \\mathrm{h} = 60 \\ \\mathrm{min} = 3600 \\ \\mathrm{s}"
+            },
+            {
+              "id": "u-mass",
+              "level": "hs",
+              "name": "Mass",
+              "formula": "1 \\ \\mathrm{t} = 1000 \\ \\mathrm{kg}, \\quad 1 \\ \\mathrm{kg} = 1000 \\ \\mathrm{g}",
+              "keywords": "tonne"
+            },
+            {
+              "id": "u-energy",
+              "level": "hs",
+              "name": "Energy",
+              "formula": "1 \\ \\mathrm{kWh} = 3.6 \\ \\mathrm{MJ}, \\quad 1 \\ \\mathrm{kcal} \\approx 4.18 \\ \\mathrm{kJ}",
+              "keywords": "kilowatt-hour calorie"
+            },
+            {
+              "id": "u-pressure",
+              "level": "hs",
+              "name": "Pressure",
+              "formula": "1 \\ \\mathrm{atm} \\approx 101.3 \\ \\mathrm{kPa}, \\quad 1 \\ \\mathrm{bar} = 100 \\ \\mathrm{kPa}"
+            }
           ]
         }
       ]
