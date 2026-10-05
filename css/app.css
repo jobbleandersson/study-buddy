@@ -4190,29 +4190,99 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .rulepeek__list li { font-size: 17px; font-weight: 600; line-height: 1.35; color: var(--ink); }
 .rulepeek__note { margin: 8px 0 0; font-size: 13px; color: var(--ink-soft); }
 
-.rules-page { max-width: 760px; }
-.rules-page h1 { margin-top: var(--s-3); }
-.rules-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: var(--s-4) 0 var(--s-5); }
+/* "Mina regler" (views/rules.js): each rule as a card in the student's own words, opened by a quote
+   mark in its subject's colour (--subject, set per group); grouped by subject in a two-up grid.
+   With no rules, the three steps that make one and a sample card. */
+.rules-page { max-width: 1040px; }
+.rules-screen { display: grid; gap: var(--s-5); }
+.rules-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--s-3) var(--s-5); flex-wrap: wrap; }
+.rules-head h1 { margin: 0; }
+.rules-head__sub { margin: 6px 0 0; max-width: 60ch; color: var(--ink-soft); }
+.rules-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .rules-actions .btn { display: inline-flex; align-items: center; gap: 8px; }
-.rules-groups { display: flex; flex-direction: column; gap: var(--s-5); }
-.rules-group__head { display: flex; align-items: center; gap: 10px; margin: 0 0 var(--s-2); font-size: var(--fs-md); font-weight: 600; }
-.rules-group__dot { width: 12px; height: 12px; border-radius: 50%; background: var(--subject); flex: none; }
-.rules-group__n { color: var(--ink-faint); font-weight: 500; font-size: var(--fs-sm); }
-.rules-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.rulerow { display: flex; align-items: center; gap: 12px; padding: 12px 12px 12px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); }
-.rulerow__main { flex: 1; min-width: 0; }
-.rulerow__text { margin: 0; font-size: 17px; font-weight: 600; line-height: 1.35; overflow-wrap: anywhere; }
-.rulerow__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin-top: 6px; font-size: 13px; color: var(--ink-faint); }
-.rulerow__topic { padding: 2px 10px; border-radius: var(--r-full); background: var(--subject-tint, var(--brand-tint)); color: var(--subject-ink, var(--brand-ink)); font-weight: 600; }
-.rulerow__actions { display: flex; align-items: center; gap: 8px; flex: none; }
-.rulerow__input { width: 100%; min-height: 44px; font: inherit; font-weight: 500; padding: 8px 12px; border-radius: var(--r-md); border: 2px solid var(--brand); background: var(--surface); color: var(--ink); }
-.rulerow__input:focus-visible { outline: none; box-shadow: none; }
-.rulerow--edit { flex-wrap: wrap; }
-.rulerow--edit .rulerow__main { flex-basis: 100%; }
-.rulerow--edit .rulerow__actions { margin-left: auto; }
-@media (max-width: 560px) {
-  .rulerow { padding-left: 14px; gap: 8px; }
+
+.rules-tools { display: grid; gap: var(--s-3); }
+.rules-tools__search { max-width: 520px; }
+.rules-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.rules-chip {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 14px;
+  border-radius: var(--r-full); border: 1px solid var(--line-strong); background: var(--surface);
+  font: inherit; font-size: var(--fs-sm); font-weight: 600; color: var(--ink-soft); cursor: pointer;
+  transition: border-color var(--dur-fast), background var(--dur-fast), color var(--dur-fast);
 }
+.rules-chip i { width: 9px; height: 9px; border-radius: 50%; background: var(--subject); }
+.rules-chip b { font-size: 12px; font-weight: 700; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+.rules-chip:hover { color: var(--ink); border-color: var(--ink-faint); }
+.rules-chip:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+.rules-chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--surface); }
+.rules-chip[aria-pressed="true"] b { color: inherit; opacity: .7; }
+.rules-nomatch { margin: 0; color: var(--ink-soft); }
+
+.rules-groups { display: grid; gap: var(--s-6); }
+.rules-group { display: grid; gap: var(--s-3); }
+.rules-group__head { display: flex; align-items: center; gap: 10px; margin: 0; font-size: var(--fs-lg); letter-spacing: -.01em; }
+.rules-group__dot { flex: none; width: 11px; height: 11px; border-radius: 50%; background: var(--subject); }
+.rules-group__n { font-size: var(--fs-sm); font-weight: 500; color: var(--ink-faint); }
+.rules-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s-3); grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+
+.myrule {
+  position: relative; display: flex; flex-direction: column; gap: 10px; min-width: 0;
+  padding: 16px 18px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg);
+  transition: border-color var(--dur-fast);
+}
+.myrule:hover { border-color: var(--line-strong); }
+.myrule__quote {
+  height: 22px; margin-bottom: -4px; font-family: Georgia, "Times New Roman", serif; font-size: 52px; line-height: .8;
+  font-weight: 700; color: var(--subject);
+}
+.myrule__text { margin: 0; font-size: 1.08rem; font-weight: 600; line-height: 1.45; color: var(--ink); overflow-wrap: anywhere; }
+.myrule__foot { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-top: auto; padding-top: 4px; font-size: 12.5px; color: var(--ink-faint); }
+.myrule__topic { padding: 2px 10px; border-radius: var(--r-full); font-weight: 600; background: var(--subject-tint, var(--brand-tint)); color: var(--subject-ink, var(--brand-ink)); }
+/* Edit and delete sit at the end of the bottom row, out of the way until the card is hovered or
+   focused; always there on touch. */
+.myrule__acts { display: flex; gap: 4px; margin-left: auto; opacity: 0; transition: opacity var(--dur-fast); }
+.myrule:hover .myrule__acts, .myrule:focus-within .myrule__acts { opacity: 1; }
+@media (hover: none) { .myrule__acts { opacity: 1; } }
+.myrule__del:hover { color: var(--retry-ink); border-color: var(--retry); }
+
+.myrule--edit { gap: 12px; }
+.myrule__field { position: relative; }
+.myrule__input {
+  display: block; width: 100%; min-height: 84px; resize: vertical; font: inherit; font-size: 1.02rem; font-weight: 600; line-height: 1.45;
+  padding: 10px 12px 22px; border-radius: var(--r-md); border: 2px solid var(--subject, var(--brand)); background: var(--surface); color: var(--ink);
+}
+.myrule__input:focus-visible { outline: none; box-shadow: 0 0 0 4px color-mix(in srgb, var(--subject, var(--brand)) 18%, transparent); }
+.myrule__count { position: absolute; right: 10px; bottom: 6px; font-size: 11.5px; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+.myrule__editacts { display: flex; gap: 8px; justify-content: flex-end; }
+
+/* No rules yet: how one comes about, beside one to look at. */
+.rules-empty {
+  display: grid; gap: var(--s-6); align-items: center; padding: var(--s-6);
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--shadow-1);
+}
+@media (min-width: 860px) { .rules-empty { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); } }
+.rules-empty__text { display: grid; gap: var(--s-4); justify-items: start; }
+.rules-empty__text h2 { margin: 0; font-size: var(--fs-xl); letter-spacing: -.015em; }
+.rules-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.rules-steps li { display: flex; align-items: flex-start; gap: 12px; color: var(--ink-soft); line-height: 1.5; }
+.rules-steps__n {
+  flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+  font-size: 13px; font-weight: 800; background: var(--brand-tint); color: var(--brand-ink);
+}
+.rules-empty__sample {
+  position: relative; display: grid; gap: 10px; padding: var(--s-5); border-radius: var(--r-lg);
+  background: color-mix(in oklab, var(--brand) 6%, var(--surface-sunk));
+}
+.rules-empty__tag { justify-self: start; font-size: 12px; font-weight: 700; color: var(--ink-faint); }
+.rules-empty__sample .myrule { box-shadow: var(--shadow-2); transform: rotate(-1.2deg); }
+
+@media (max-width: 560px) {
+  .rules-actions { width: 100%; }
+  .rules-actions .btn { flex: 1 1 auto; justify-content: center; }
+  .rules-empty { padding: var(--s-5) var(--s-4); }
+  .rules-empty__sample { padding: var(--s-4); }
+}
+@media (prefers-reduced-motion: reduce) { .rules-empty__sample .myrule { transform: none; } }
 
 /* Printed sheet: hidden on screen, the only thing shown when printing. */
 .rulesheet { display: none; }
