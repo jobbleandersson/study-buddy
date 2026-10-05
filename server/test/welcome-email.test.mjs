@@ -83,13 +83,13 @@ describe("the welcome mail", () => {
   test("a Google sign-up is welcomed straight away, and only the first time", async () => {
     const email = uniqueEmail("g-welcome");
     const client = makeClient(server.baseUrl);
-    const first = await client.post("/api/auth/google", { credential: googleToken({ sub: `g-${email}`, email }) });
+    const first = await client.post("/api/auth/google", { credential: googleToken({ sub: `g-${email}`, email }), consent: true });
     assert.equal(first.status, 200, JSON.stringify(first.json));
     assert.equal(first.json.created, true);
     await settle(() => welcomes(email).length > 0);
     assert.equal(welcomes(email).length, 1);
 
-    const again = await makeClient(server.baseUrl).post("/api/auth/google", { credential: googleToken({ sub: `g-${email}`, email }) });
+    const again = await makeClient(server.baseUrl).post("/api/auth/google", { credential: googleToken({ sub: `g-${email}`, email }), consent: true });
     assert.equal(again.status, 200);
     assert.equal(again.json.created, false);
     await settle(() => welcomes(email).length > 1);
