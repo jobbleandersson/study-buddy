@@ -92,6 +92,25 @@
       "prompt": "Ordet \"knutpunkt\" i andra stycket syftar på",
       "choices": ["en plats där linjer möts och passagerare byter", "en tågs slutstation", "ett stopp för att fylla på vatten", "en gräns mellan två bolag"],
       "answer": 0,
-      "explanation": "En *knutpunkt* i järnvägssammanhang är en station där flera linjer möts och trafik och resenärer byter — därav vikten av samordnad tid." }
+      "explanation": "En *knutpunkt* i järnvägssammanhang är en station där flera linjer möts och trafik och resenärer byter — därav vikten av samordnad tid." },
+    { "id": "q-hp-2026v-las-09", "kind": "mc", "variant": "las", "topic": "slutsats",
+      "stimulus": { "id": "las-text-3", "title": "Text 3 – Stadens träd",
+        "body": "När sommartemperaturen stiger blir staden varmare än landsbygden runt omkring. Asfalt och tegel lagrar solens värme under dagen och släpper ut den långsamt under natten, så att de svalaste timmarna uteblir. Fenomenet kallas värmeö och märks tydligast en stilla, klar kväll.\n\nTräd hör till de få åtgärder som verkar på flera sätt samtidigt. Kronan skuggar marken så att mindre värme lagras, och bladen avger vatten som kyler luften när det avdunstar. Mätningar i flera europeiska städer har visat att en gata med sammanhängande trädrader kan vara flera grader svalare än en kal gata i samma kvarter.\n\nEffekten förutsätter dock att träden mår bra. Ett träd som står i en liten grop omgiven av packad mark får för lite vatten och syre till rötterna; det växer långsamt och dör ofta innan kronan hunnit bli stor. Att plantera är därför den enkla delen. Det som avgör om staden faktiskt blir svalare är vad som händer under markytan de följande tjugo åren." },
+      "prompt": "Vilken slutsats drar författaren?",
+      "choices": [
+        "Det viktigaste för att träd ska kyla staden är att många träd planteras snabbt",
+        "Trädens kylande effekt beror på att de får goda växtförhållanden under lång tid",
+        "Värmeöar uppstår främst för att städer saknar träd",
+        "Träd kyler staden mer genom skugga än genom avdunstning"
+      ],
+      "answer": 1,
+      "explanation": "Sista stycket säger att planteringen är \"den enkla delen\" och att det avgörande är hur träden har det under marken under lång tid. Alternativ 1 är just det texten avfärdar; 3 och 4 påstår mer än texten säger." },
+    { "id": "q-hp-2026v-las-10", "kind": "mc", "variant": "las", "topic": "ord i sammanhang",
+      "stimulus": { "id": "las-text-3", "title": "Text 3 – Stadens träd",
+        "body": "När sommartemperaturen stiger blir staden varmare än landsbygden runt omkring. Asfalt och tegel lagrar solens värme under dagen och släpper ut den långsamt under natten, så att de svalaste timmarna uteblir. Fenomenet kallas värmeö och märks tydligast en stilla, klar kväll.\n\nTräd hör till de få åtgärder som verkar på flera sätt samtidigt. Kronan skuggar marken så att mindre värme lagras, och bladen avger vatten som kyler luften när det avdunstar. Mätningar i flera europeiska städer har visat att en gata med sammanhängande trädrader kan vara flera grader svalare än en kal gata i samma kvarter.\n\nEffekten förutsätter dock att träden mår bra. Ett träd som står i en liten grop omgiven av packad mark får för lite vatten och syre till rötterna; det växer långsamt och dör ofta innan kronan hunnit bli stor. Att plantera är därför den enkla delen. Det som avgör om staden faktiskt blir svalare är vad som händer under markytan de följande tjugo åren." },
+      "prompt": "Vad betyder det att de svalaste timmarna \"uteblir\"?",
+      "choices": ["De kommer senare än vanligt", "De blir kortare", "De inträffar inte", "De blir varmare än dagen"],
+      "answer": 2,
+      "explanation": "Att något *uteblir* betyder att det inte kommer alls. Värmen som släpps ut under natten gör att den svala perioden inte inträffar." }
   ]
 }

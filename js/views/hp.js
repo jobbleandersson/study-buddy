@@ -18,7 +18,7 @@ import { localDayKey } from "../lib/activity.js";
 import { countdownLabel } from "../lib/date-phrases.js";
 import { sparkline } from "../lib/spark.js";
 import { weakSpotQuestions, firstTryCorrect } from "../lib/mastery.js";
-import { loadHpIndex, loadHpTranslations, isHpImported, importHpSet, hpQuestionIndex } from "../data/hp-content.js";
+import { loadHpIndex, loadHpTranslations, isHpImported, importHpSet, hpQuestionIndex, upgradeHpSets } from "../data/hp-content.js";
 import {
   normedScore, parseHpSetId, isHpSetId, attemptNormedTotal, delprovEstimate, delprovStats, prognosisMargin,
   DELPROV_ORDER, VERBAL_DELPROV, KVANT_DELPROV, buildHpPlan, PASS_COUNT, CALIBRATION_N, HP_SITTINGS,
@@ -326,6 +326,7 @@ export async function renderHp() {
   let index = null, tr = { subjects: {}, sets: {} };
   try {
     index = await loadHpIndex();
+    await upgradeHpSets(index);   // shipped sets that have grown since the student added them
     tr = getLang() === "en" ? await loadHpTranslations() : { subjects: {}, sets: {} };
   } catch { /* the delprov board just won't render below; the overview doesn't need it */ }
 
