@@ -88,7 +88,7 @@ async function callJSON(body, opts) {
 
 // ---------- assignment generation ----------
 
-export async function generateAssignment({ material, topic, image, count = 6, gradeHint = "", preferFlashcards = false, moreLike = null }) {
+export async function generateAssignment({ material, topic, image, count = 6, gradeHint = "", preferFlashcards = false, moreLike = null, extraRules = "" }) {
   const userContent = [];
   if (image) {
     userContent.push({
@@ -103,6 +103,7 @@ export async function generateAssignment({ material, topic, image, count = 6, gr
     ? [
         `Here is an existing question set titled "${moreLike.title}" (subject: ${moreLike.subject}).`,
         `Existing questions (JSON):\n"""\n${JSON.stringify(moreLike.questions, null, 1)}\n"""`,
+        extraRules || null,
         moreKinds.length ? `Use ONLY these question kinds, in roughly the same mix as the existing questions: ${moreKinds.join(", ")}. Do not use any other kind.` : null,
         `Write about ${count} MORE questions in the same style, difficulty and topics. Do NOT repeat or lightly reword any existing question. Return the JSON object only — its "questions" array holds only the new questions.`,
       ].filter(Boolean).join("\n\n")

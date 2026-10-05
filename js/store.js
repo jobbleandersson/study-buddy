@@ -1625,6 +1625,16 @@ class Store extends EventTarget {
     this.update((s) => { s.srs[questionId] = record; });
   }
 
+  // ---------- saved questions (the bookmark in a session, a filter on the HP delprov pages) ----------
+  isSaved(questionId) { return (this.state.savedQuestions || []).includes(questionId); }
+  toggleSaved(questionId) {
+    this.update((s) => {
+      const list = Array.isArray(s.savedQuestions) ? s.savedQuestions : [];
+      s.savedQuestions = list.includes(questionId) ? list.filter((x) => x !== questionId) : [...list, questionId];
+    });
+    return this.isSaved(questionId);
+  }
+
   // ---------- settings ----------
   get settings() { return this.state.settings; }
   setSettings(patch) { this.update((s) => { Object.assign(s.settings, patch); s.settingsAt = Date.now(); }); }

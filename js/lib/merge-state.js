@@ -130,6 +130,11 @@ export function mergeStates(server, local, now = Date.now()) {
     lastBackupAt: Math.max(sa.lastBackupAt || 0, la.lastBackupAt || 0) || null,
   };
 
+  // saved questions — union (a bookmark set on either device stays)
+  if (Array.isArray(s.savedQuestions) || Array.isArray(l.savedQuestions)) {
+    s.savedQuestions = [...new Set([...arr(s.savedQuestions), ...arr(l.savedQuestions)])];
+  }
+
   // achievements — union, keeping the earlier unlock stamp
   const ach = { ...o(s.achievements) };
   for (const [id, ts] of Object.entries(o(l.achievements))) {

@@ -20,8 +20,8 @@ import { sparkline } from "../lib/spark.js";
 import { weakSpotQuestions, firstTryCorrect } from "../lib/mastery.js";
 import { loadHpIndex, loadHpTranslations, isHpImported, importHpSet } from "../data/hp-content.js";
 import {
-  normedScore, parseHpSetId, isHpSetId, attemptNormedTotal,
-  DELPROV_ORDER, DELPROV_PACE, VERBAL_DELPROV, KVANT_DELPROV, partOf, buildHpPlan,
+  normedScore, parseHpSetId, isHpSetId, attemptNormedTotal, delprovEstimate, delprovStats, prognosisMargin,
+  DELPROV_ORDER, VERBAL_DELPROV, KVANT_DELPROV, buildHpPlan, PASS_COUNT, CALIBRATION_N, HP_SITTINGS,
 } from "../lib/hp.js";
 
 const fmtN = (n) => (n == null ? "–" : Number(n).toFixed(2).replace(".", ","));
@@ -110,7 +110,15 @@ export function hpPrognosis() {
     .filter((n) => n != null)
     .slice(-8);
 
-  return { verbal: res.verbal, kvant: res.kvant, total: res.total, history };
+  // How many answers it rests on: the likely range around it narrows as that grows.
+  const n = runs.reduce((sum, a) => sum + (a.items?.length || 0), 0);
+  return { verbal: res.verbal, kvant: res.kvant, total: res.total, history, n, margin: prognosisMargin(n) };
+}
+
+/** Delprov with enough answers under a clock for their estimate to count (see CALIBRATION_N). */
+function calibratedCount() {
+  const stats = delprovStats(store.attempts, (id) => store.findQuestion(id)?.question.variant || null);
+  return DELPROV_ORDER.filter((dp) => (stats[dp]?.timed || 0) >= CALIBRATION_N).length;
 }
 
 function planDayWhen(offset, dayKey) {
@@ -165,6 +173,13 @@ function scoreZone(prog) {
     prog
       ? el("div.hp-hero__parts", {}, [part("verbal", prog.verbal), part("kvant", prog.kvant)])
       : el("p.hp-hero__hint", {}, t("hp.prognosisNone")),
+    prog ? el("p.hp-hero__range", {}, t("hp.prognosisRange", {
+      lo: fmtN(Math.max(0, prog.total - prog.margin)), hi: fmtN(Math.min(2, prog.total + prog.margin)),
+    })) : null,
+    el("p.hp-hero__calib", {}, [
+      el("span.hp-calib__bar", { "aria-hidden": "true" }, [el("i", { style: { width: `${(calibratedCount() / 8) * 100}%` } })]),
+      t("hp.calibHub", { n: calibratedCount(), q: CALIBRATION_N }),
+    ]),
     prog ? el("p.hp-hero__caption", {}, t("hp.prognosisCaption")) : null,
   ].filter(Boolean));
 }
@@ -195,6 +210,11 @@ function dateZone(hpDate, { editing, setEditing }) {
   return el("div.hp-hero__date", {}, [
     el("p.hp-hero__label", {}, t("hp.dayLabel")),
     el("p.hp-hero__prompt", {}, t("hp.noDatePrompt")),
+    // The next real sittings, one tap each.
+    ...HP_SITTINGS.filter((s) => s.day > localDayKey()).slice(0, 2).map((s) => el("button.btn.btn--ghost.btn--sm.hp-sitting", {
+      type: "button",
+      onclick: () => { if (store.setHpDate(s.day)) { toast(t("hp.dateSaved")); setEditing(false); } },
+    }, [icon(ICONS.calendar, 15), t(s.label)])),
     el("div.hp-hero__pick", {}, [
       datePick.el,
       el("button.btn.btn--sm", {
@@ -257,83 +277,27 @@ function delprovSets(index, dp) {
   return { main, extras: entries.filter((s) => s !== main) };
 }
 
-let dpDialog = null;
-function onDialogKey(e) { if (e.key === "Escape") closeDelprovDialog(); }
-
-function closeDelprovDialog() {
-  if (!dpDialog) return;
-  const { node, opener } = dpDialog;
-  dpDialog = null;
-  node.remove();
-  document.removeEventListener("keydown", onDialogKey);
-  window.removeEventListener("hashchange", closeDelprovDialog);
-  if (opener?.isConnected) opener.focus();
-}
-
-function openDelprovDialog(dp, { index, tr, acc }, opener) {
-  closeDelprovDialog();
-  const { main, extras } = delprovSets(index, dp);
-  const part = partOf(dp);
-  const pace = DELPROV_PACE[dp] || 12;
-  const rate = isHpImported(main.id) ? acc[dp]?.rate : null;
-  const count = plural(main.count, "common.questionOne", "common.questionMany");
-
-  const node = el("div.modal", {
-    role: "dialog", "aria-modal": "true", "aria-labelledby": "hp-dpd-title",
-    onclick: (e) => { if (e.target === node) closeDelprovDialog(); },
-  }, [
-    el("div.modal__card.hp-dpd", { style: { "--c": PART_COLOR[part], "--c-ink": PART_INK[part] } }, [
-      el("div.hp-dpd__head", {}, [
-        el("span.hp-dpd__code", {}, t(`hp.delprov.${dp}`)),
-        el("h3#hp-dpd-title", {}, t(`hp.name.${dp}`)),
-        el("button.iconbtn.iconbtn--sm.hp-dpd__close", {
-          type: "button", "aria-label": t("common.close"), onclick: closeDelprovDialog,
-        }, [icon(ICONS.close, 18)]),
-      ]),
-      el("p.hp-dpd__desc", {}, t(`hp.about.${dp}`)),
-      rate != null ? el("p.hp-dpd__last", {}, t("hp.soFar", { n: Math.round(rate * 100) })) : null,
-      el("div.hp-dpd__choices", {}, [
-        setLink("a.hp-dpd__choice.is-primary", main, `#/session/${main.id}?exam=1&min=${pace}`, {}, [
-          icon(ICONS.clock, 20),
-          el("span", {}, [el("strong", {}, t("hp.choiceTimed")), el("small", {}, t("hp.choiceTimedSub", { q: count, n: pace }))]),
-        ]),
-        setLink("a.hp-dpd__choice", main, `#/session/${main.id}`, {}, [
-          icon(ICONS.play, 20),
-          el("span", {}, [el("strong", {}, t("hp.choiceFree")), el("small", {}, t("hp.choiceFreeSub"))]),
-        ]),
-      ]),
-      el("div.hp-dpd__more", {}, [
-        ...extras.map((s) => setLink("a.linkbtn", s, `#/session/${s.id}`, {},
-          [icon(ICONS.layers, 15), tr.sets[s.id]?.title || s.title])),
-        setLink("a.linkbtn", main, `#/print/${main.id}`, {}, [icon(ICONS.fileText, 15), t("print.worksheet")]),
-      ]),
-    ].filter(Boolean)),
-  ]);
-  document.body.appendChild(node);
-  dpDialog = { node, opener };
-  document.addEventListener("keydown", onDialogKey);
-  // A choice navigates away; the dialog goes with the page it was opened over.
-  window.addEventListener("hashchange", closeDelprovDialog);
-  node.querySelector(".hp-dpd__choice")?.focus();
-}
-
+/** A delprov tile: its estimated level and how far its calibration has come; it opens the delprov's
+ *  own page (#/hp/<dp>), where practice is set up and every question can be browsed. */
 function delprovTile(dp, ctx) {
   const { main } = delprovSets(ctx.index, dp);
   if (!main) return null;
-  const rate = isHpImported(main.id) ? ctx.acc[dp]?.rate : null;
-  const tile = el("button.hp-tile", { type: "button", "aria-haspopup": "dialog" }, [
+  const s = ctx.stats[dp];
+  const level = s && s.answered ? delprovEstimate({ delprov: dp, correct: s.correct, total: s.answered }).normed : null;
+  const timedN = Math.min(s?.timed || 0, CALIBRATION_N);
+  return el("a.hp-tile", { href: `#/hp/${dp}` }, [
     el("span.hp-tile__code", {}, t(`hp.delprov.${dp}`)),
     el("span.hp-tile__name", {}, t(`hp.name.${dp}`)),
-    rate != null
-      ? el("span.hp-tile__status", {}, t("hp.pctRight", { n: Math.round(rate * 100) }))
+    level != null
+      ? el("span.hp-tile__status", {}, [el("strong", {}, fmtN(level)), " ", t("hp.tileLevel")])
       : el("span.hp-tile__status.is-none", {}, t("hp.notPracticed")),
+    el("span.hp-calib__bar", { title: t("hp.calibCount", { n: timedN, of: CALIBRATION_N }), "aria-label": t("hp.calibCount", { n: timedN, of: CALIBRATION_N }) },
+      [el("i", { style: { width: `${(timedN / CALIBRATION_N) * 100}%` } })]),
   ]);
-  tile.onclick = () => openDelprovDialog(dp, ctx, tile);
-  return tile;
 }
 
 function delprovBoard(index, tr, acc) {
-  const ctx = { index, tr, acc };
+  const ctx = { index, tr, acc, stats: delprovStats(store.attempts, (id) => store.findQuestion(id)?.question.variant || null) };
   const group = (key, list) => el("section.hp-group", {
     style: { "--c": PART_COLOR[key], "--c-ink": PART_INK[key] }, "aria-labelledby": `hp-group-${key}`,
   }, [
@@ -389,10 +353,8 @@ export async function renderHp() {
       .filter((dp) => acc[dp] && acc[dp].rate != null && sets.some((s) => parseHpSetId(s.id).delprov === dp))
       .map((dp) => ({ dp, v: acc[dp].rate }))
       .sort((a, b) => a.v - b.v);
-    const drillHash = (dp) => {
-      const set = sets.find((s) => parseHpSetId(s.id).delprov === dp);
-      return set ? `#/session/${set.id}?exam=1&min=${DELPROV_PACE[dp] || 12}` : "#/hp";
-    };
+    // A timed run of one provpass's worth of that delprov, at the test's pace.
+    const drillHash = (dp) => `#/hp/ova/${dp}?mode=timed&n=${PASS_COUNT[dp]}`;
     const dueN = store.dueQuestions().filter((d) => isHpSetId(d.assignment.id)).length;
 
     /* ---- overview: score, test day, next steps ---- */

@@ -194,3 +194,47 @@ describe("hp.buildHpPlan", () => {
     assert.equal(buildHpPlan({ hpDate: far }), null);
   });
 });
+
+import { minutesFor, pickPracticeIds, questionHistory, delprovStats, prognosisMargin, OPTION_COUNT, PASS_COUNT } from "../../js/lib/hp.js";
+
+describe("hp practice helpers", () => {
+  test("minutesFor follows the test's pace, longer with extended time", () => {
+    assert.equal(minutesFor("xyz", 12), 12);          // 60 s a question
+    assert.equal(minutesFor("ord", 10), 3);           // 18 s → 180 s
+    assert.equal(minutesFor("xyz", 10, { extended: true }), 15);
+    assert.equal(minutesFor("nog", 0), 1);
+  });
+  test("pickPracticeIds brings unseen, then missed, then the rest", () => {
+    const history = { a: { correct: true }, b: { correct: false }, c: { correct: true } };
+    const picked = pickPracticeIds(["a", "b", "c", "d"], 3, history, () => 0);
+    assert.equal(picked[0], "d");
+    assert.equal(picked[1], "b");
+    assert.equal(picked.length, 3);
+  });
+  test("questionHistory keeps the latest result and whether it was timed", () => {
+    const h = questionHistory([
+      { finishedAt: 2, timeLimitMin: 10, items: [{ questionId: "q", correct: true, firstTry: true }] },
+      { finishedAt: 1, items: [{ questionId: "q", correct: false }] },
+    ]);
+    assert.deepEqual(h.q, { correct: true, at: 2, timed: true });
+  });
+  test("delprovStats counts timed answers for calibration", () => {
+    const s = delprovStats([
+      { timeLimitMin: 5, items: [{ questionId: "x1", correct: true }, { questionId: "o1", correct: false }] },
+      { items: [{ questionId: "x2", correct: true }] },
+    ], (id) => (id.startsWith("x") ? "xyz" : "ord"));
+    assert.deepEqual(s.xyz, { timed: 1, answered: 2, correct: 2 });
+    assert.deepEqual(s.ord, { timed: 1, answered: 1, correct: 0 });
+  });
+  test("prognosisMargin narrows with more answers but never below 0.15", () => {
+    assert.equal(prognosisMargin(0), 0.5);
+    assert.equal(prognosisMargin(10), 0.5);
+    assert.equal(prognosisMargin(40), 0.25);
+    assert.equal(prognosisMargin(1000), 0.15);
+  });
+  test("the format tables cover all eight delprov", () => {
+    for (const dp of ["ord", "las", "mek", "elf", "xyz", "kva", "nog", "dtk"]) {
+      assert.ok(OPTION_COUNT[dp] >= 4 && PASS_COUNT[dp] > 0, dp);
+    }
+  });
+});
