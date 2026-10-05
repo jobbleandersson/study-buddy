@@ -55,6 +55,31 @@ async function addNow(dp, count) {
     ({ kind: "mc", topic, prompt, choices, answer, explanation, steps, stimulus }));
   if (!seed.length) throw new Error(t("hp.moreNoSeed"));
   const fixed = dp === "kva" || dp === "nog" ? seed[0].choices : null;
+
+  // Some of a batch can fail the format check or repeat a question, so a short batch gets one
+  // top-up for the rest. A failed top-up keeps what the first round gave.
+  const fresh = await writeBatch({ dp, count, seed, fixed, sets, ofDp });
+  if (!fresh.length) throw new Error(t("hp.moreFailed"));
+  if (fresh.length < count) {
+    try {
+      fresh.push(...await writeBatch({ dp, count: count - fresh.length, seed, fixed, sets: [...sets, { questions: fresh }], ofDp }));
+    } catch { /* keep the first round */ }
+  }
+  const added = fresh.slice(0, count);
+
+  const existing = store.getAssignment(aiSetId(dp));
+  if (existing) {
+    store.updateAssignment(existing.id, { questions: [...existing.questions, ...added] });
+  } else {
+    const subject = store.subjects.find((s) => s.id === sets[0]?.subjectId)?.name || t(`hp.name.${dp}`);
+    store.addAssignmentDoc({ id: aiSetId(dp), subject, type: "assignment", title: t("hp.aiSetTitle", { delprov: t(`hp.delprov.${dp}`) }), questions: added });
+  }
+  return added.length;
+}
+
+/** One request to the AI for `count` questions; returns the ones that pass the format check and
+ *  aren't already in `sets`. */
+async function writeBatch({ dp, count, seed, fixed, sets, ofDp }) {
   // What already exists, AI-made included, so nothing is written twice with new numbers.
   const taken = ofDp(sets).map((q) => String(q.prompt).replace(/\s+/g, " ").slice(0, 90));
 
@@ -93,15 +118,5 @@ async function addNow(dp, count) {
     }
     good.push(out);
   }
-  const fresh = newQuestionsOnly(good, sets);
-  if (!fresh.length) throw new Error(t("hp.moreFailed"));
-
-  const existing = store.getAssignment(aiSetId(dp));
-  if (existing) {
-    store.updateAssignment(existing.id, { questions: [...existing.questions, ...fresh] });
-  } else {
-    const subject = store.subjects.find((s) => s.id === sets[0]?.subjectId)?.name || t(`hp.name.${dp}`);
-    store.addAssignmentDoc({ id: aiSetId(dp), subject, type: "assignment", title: t("hp.aiSetTitle", { delprov: t(`hp.delprov.${dp}`) }), questions: fresh });
-  }
-  return fresh.length;
+  return newQuestionsOnly(good, sets);
 }

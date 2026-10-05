@@ -383,11 +383,15 @@ function shell(question, body, { showPrompt = true } = {}) {
   const promptEl = showPrompt ? el("div.question__prompt", { html: renderRich(question.prompt) }) : null;
   // Flashcards keep their text on the card itself, so they only get the speaker.
   const bar = target && promptEl && question.kind !== "flashcard" ? languageBar(question, target, promptEl) : null;
+  // NOG reads like the test: the question first, then statements (1) and (2) about it.
+  const frame = framePanel(question);
+  const frameAfter = question.variant === "nog";
   const node = el("div.question", {}, [
     passagePanel(activePassage),
-    framePanel(question),
+    frameAfter ? null : frame,
     figurePanel(question.figure),
     (showPrompt || speak) && el("div.question__topline", {}, [promptEl || el("span"), speak].filter(Boolean)),
+    frameAfter ? frame : null,
     bar?.el,
     activeRulePeek,
     body,

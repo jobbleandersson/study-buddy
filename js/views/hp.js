@@ -21,7 +21,7 @@ import { weakSpotQuestions, firstTryCorrect } from "../lib/mastery.js";
 import { loadHpIndex, loadHpTranslations, isHpImported, importHpSet, hpQuestionIndex, upgradeHpSets } from "../data/hp-content.js";
 import {
   normedScore, parseHpSetId, isHpSetId, attemptNormedTotal, delprovEstimate, delprovStats, prognosisMargin,
-  DELPROV_ORDER, VERBAL_DELPROV, KVANT_DELPROV, buildHpPlan, PASS_COUNT, CALIBRATION_N, HP_SITTINGS,
+  DELPROV_ORDER, VERBAL_DELPROV, KVANT_DELPROV, buildHpPlan, PASS_COUNT, CALIBRATION_N, HP_SITTINGS, scoredItems,
 } from "../lib/hp.js";
 
 const fmtN = (n) => (n == null ? "–" : Number(n).toFixed(2).replace(".", ","));
@@ -48,17 +48,17 @@ function hpSetOrder(index) {
 
 const locale = () => (getLang() === "sv" ? "sv-SE" : "en-GB");
 
-/** Recency-weighted accuracy per delprov, read straight off HP attempt items
- *  (the delprov comes from each question's `variant`, not its topic).
+/** Recency-weighted accuracy per delprov, read straight off HP attempt items, blank answers counting
+ *  as wrong (the delprov comes from each question's `variant`, not its topic).
  *  -> { [dp]: { rate, weight } } */
 function delprovAccuracy(variantOf = hpQuestionIndex().variantOf) {
   const runs = store.attempts
-    .filter((a) => a.hp && a.items && a.items.length)
+    .filter((a) => a.hp && scoredItems(a).length)
     .sort((a, b) => (a.finishedAt || 0) - (b.finishedAt || 0));
   const acc = {};
   runs.forEach((run, idx) => {
     const w = Math.pow(0.5, (runs.length - 1 - idx) / 4);
-    for (const it of run.items) {
+    for (const it of scoredItems(run)) {
       const v = variantOf(it.questionId);
       if (!v) continue;
       const e = acc[v] || (acc[v] = { num: 0, den: 0 });
@@ -111,7 +111,7 @@ export function hpPrognosis(acc = null) {
     .slice(-8);
 
   // How many answers it rests on: the likely range around it narrows as that grows.
-  const n = runs.reduce((sum, a) => sum + (a.items?.length || 0), 0);
+  const n = runs.reduce((sum, a) => sum + scoredItems(a).length, 0);
   return { verbal: res.verbal, kvant: res.kvant, total: res.total, history, n, margin: prognosisMargin(n) };
 }
 
@@ -209,11 +209,12 @@ function dateZone(hpDate, { editing, setEditing }) {
   return el("div.hp-hero__date", {}, [
     el("p.hp-hero__label", {}, t("hp.dayLabel")),
     el("p.hp-hero__prompt", {}, t("hp.noDatePrompt")),
-    // The next real sittings, one tap each.
-    ...HP_SITTINGS.filter((s) => s.day > localDayKey()).slice(0, 2).map((s) => el("button.btn.btn--ghost.btn--sm.hp-sitting", {
+    // The next real sittings, one tap each — a full button that says what it does.
+    ...HP_SITTINGS.filter((s) => s.day > localDayKey()).slice(0, 2).map((s) => el("button.btn.btn--sm.hp-sitting", {
       type: "button",
       onclick: () => { if (store.setHpDate(s.day)) { toast(t("hp.dateSaved")); setEditing(false); } },
-    }, [icon(ICONS.calendar, 15), t(s.label)])),
+    }, [icon(ICONS.calendarCheck, 15), t("hp.pickSitting", { sitting: t(s.label) })])),
+    HP_SITTINGS.some((s) => s.day > localDayKey()) ? el("p.note.hp-hero__or", {}, t("hp.orPickDate")) : null,
     el("div.hp-hero__pick", {}, [
       datePick.el,
       el("button.btn.btn--sm", {
@@ -390,17 +391,24 @@ export async function renderHp() {
       weakDelprov: rows.slice(0, 4).map((r) => r.dp),
       dueCount: dueN,
       softDelprov: rows.slice(4).map((r) => r.dp),
+      // The delprov with questions but no answers yet, so the plan covers the whole test.
+      freshDelprov: DELPROV_ORDER.filter((dp) => !rows.some((r) => r.dp === dp) && sets.some((s) => parseHpSetId(s.id).delprov === dp)),
+      prognosDone: store.attempts.some((a) => a.hpPrognos || a.hpPass),
     });
     const side = [];
     if (plan) {
       const dayRows = plan.map((r) => {
         const label = r.kind === "drill" ? t("hp.planDrill", { delprov: t(`hp.delprov.${r.delprov}`) })
+          : r.kind === "try" ? t("hp.planTry", { delprov: t(`hp.delprov.${r.delprov}`) })
+          : r.kind === "prognos" ? t("hp.planPrognos")
           : r.kind === "review" ? plural(r.n, "exam.planReviewOne", "exam.planReviewMany")
           : r.kind === "ord" ? t("hp.planOrd")
           : r.kind === "mock" ? t("hp.planMock")
           : r.kind === "reviewmiss" ? t("exam.planReviewMiss")
           : t("hp.planTestDay");
         const hash = r.kind === "drill" ? drillHash(r.delprov)
+          : r.kind === "try" ? `#/hp/ova/${r.delprov}?n=${PASS_COUNT[r.delprov]}`
+          : r.kind === "prognos" ? "#/hp/prognos"
           : r.kind === "review" || r.kind === "reviewmiss" ? "#/review"
           : r.kind === "ord" ? drillHash("ord")
           : r.kind === "mock" ? "#/hp/prov" : null;

@@ -222,24 +222,32 @@ export function rawByPart(items, variantOf) {
 /**
  * Day-by-day plan from today to the prov. Same row shape as exam-prep's
  * buildExamPlan so the existing .exam-prep__days markup renders it. null when
- * the date is missing, today/past, or > 45 days out, or there's nothing to do.
- *   { hpDate, weakDelprov:[codes], dueCount, softDelprov:[codes] }
+ * the date is missing, today/past, or > 45 days out.
+ *   { hpDate, weakDelprov:[codes], dueCount, softDelprov:[codes],
+ *     freshDelprov:[codes never practised], prognosDone:false → starts with the quick prognosis }
  */
-export function buildHpPlan({ hpDate, weakDelprov = [], dueCount = 0, softDelprov = [] } = {}) {
+export function buildHpPlan({ hpDate, weakDelprov = [], dueCount = 0, softDelprov = [], freshDelprov = [], prognosDone = true } = {}) {
   if (!hpDate) return null;
   const D = daysUntil(hpDate);
   if (D < 1 || D > 45) return null;
 
+  // Weak delprov and never-tried ones take turns, so every delprov comes up before the test, not
+  // only the ones already practised. A never-tried one starts as practice with the solutions shown.
   const rotate = [];
-  for (const d of weakDelprov.slice(0, 4)) rotate.push({ kind: "drill", delprov: d });
+  const weak = weakDelprov.slice(0, 4);
+  for (let i = 0; i < Math.max(weak.length, freshDelprov.length); i++) {
+    if (weak[i]) rotate.push({ kind: "drill", delprov: weak[i] });
+    if (freshDelprov[i]) rotate.push({ kind: "try", delprov: freshDelprov[i] });
+  }
   if (dueCount) rotate.push({ kind: "review", n: dueCount });
   for (const d of softDelprov.slice(0, 3)) {
     if (!rotate.some((r) => r.delprov === d)) rotate.push({ kind: "drill", delprov: d });
   }
   if (!rotate.length) rotate.push({ kind: "ord" });
-  if (!rotate.length) return null;
 
-  const MIN = { drill: 15, review: 15, ord: 10, mock: 55, reviewmiss: 15, testday: 0 };
+  // Without a first estimate, the plan opens with the quick prognosis — once, not in the rotation.
+  const first = prognosDone ? [] : [{ kind: "prognos" }];
+  const MIN = { drill: 15, try: 15, review: 15, ord: 10, prognos: 16, mock: 55, reviewmiss: 15, testday: 0 };
   const today = localDayKey();
   const rows = [];
   let rp = 0;
@@ -248,6 +256,7 @@ export function buildHpPlan({ hpDate, weakDelprov = [], dueCount = 0, softDelpro
     if (d === D) task = { kind: "testday" };
     else if (d === D - 1 && D >= 2) task = { kind: "reviewmiss" };
     else if (d === D - 2 && D >= 3) task = { kind: "mock" };
+    else if (first.length) task = first.shift();
     else { task = rotate[rp % rotate.length]; rp++; }
     rows.push({ dayOffset: d, dayKey: addDays(today, d), minutes: MIN[task.kind] ?? 15, ...task });
   }
@@ -283,14 +292,23 @@ export function minutesFor(dp, n, { extended = false } = {}) {
   return Math.max(1, Math.ceil(sec / 60));
 }
 
+/** An attempt's answers as they were scored: the answered items, then every question handed in blank
+ *  (a timed run or a test that was handed in early) as wrong — the count the results screen shows. */
+export function scoredItems(attempt) {
+  return [
+    ...(attempt?.items || []),
+    ...(attempt?.unanswered || []).map((questionId) => ({ questionId, correct: false, firstTry: false, blank: true })),
+  ];
+}
+
 /** How each question went the last time it was answered, from attempts in any order:
- *  { [questionId]: { correct, at, timed } }. `correct` is the first-try result. */
+ *  { [questionId]: { correct, at, timed } }. `correct` is the first-try result; blank counts as wrong. */
 export function questionHistory(attempts) {
   const out = {};
   const runs = (attempts || []).filter((a) => a && Array.isArray(a.items))
     .sort((a, b) => (a.finishedAt || 0) - (b.finishedAt || 0));
   for (const a of runs) {
-    for (const it of a.items) {
+    for (const it of scoredItems(a)) {
       if (!it || !it.questionId) continue;
       out[it.questionId] = { correct: it.firstTry ?? !!it.correct, at: a.finishedAt || 0, timed: !!a.timeLimitMin };
     }
@@ -314,13 +332,13 @@ export function pickPracticeIds(ids, n, history = {}, rand = Math.random) {
   return [...shuffle(fresh), ...shuffle(wrong), ...shuffle(right)].slice(0, Math.max(0, n));
 }
 
-/** Per delprov: answers given under a clock (calibration) and first-try results overall.
+/** Per delprov: answers given under a clock (calibration) and first-try results overall (blank = wrong).
  *  `variantOf(questionId)` → delprov code or null. -> { [dp]: { timed, answered, correct } } */
 export function delprovStats(attempts, variantOf) {
   const out = {};
   for (const a of attempts || []) {
     if (!a || !Array.isArray(a.items)) continue;
-    for (const it of a.items) {
+    for (const it of scoredItems(a)) {
       const dp = variantOf(it.questionId);
       if (!dp) continue;
       const s = out[dp] || (out[dp] = { timed: 0, answered: 0, correct: 0 });

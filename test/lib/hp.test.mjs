@@ -187,6 +187,23 @@ describe("hp.buildHpPlan", () => {
     assert.equal(rows[rows.length - 1].kind, "testday");
   });
 
+  test("opens with the quick prognosis once, then brings never-practised delprov in between the weak ones", () => {
+    const hpDate = new Date(Date.now() + 10 * 86400000).toISOString().slice(0, 10);
+    const rows = buildHpPlan({ hpDate, weakDelprov: ["xyz", "ord"], freshDelprov: ["las", "nog", "dtk"], prognosDone: false });
+    assert.equal(rows[0].kind, "prognos");
+    assert.equal(rows.filter((r) => r.kind === "prognos").length, 1);
+    assert.deepEqual(rows.slice(1, 6).map((r) => `${r.kind}:${r.delprov}`),
+      ["drill:xyz", "try:las", "drill:ord", "try:nog", "try:dtk"]);
+  });
+
+  test("a student who has practised nothing still gets every delprov, not only ORD", () => {
+    const hpDate = new Date(Date.now() + 12 * 86400000).toISOString().slice(0, 10);
+    const fresh = ["ord", "las", "mek", "elf", "xyz", "kva", "nog", "dtk"];
+    const rows = buildHpPlan({ hpDate, freshDelprov: fresh, prognosDone: false });
+    assert.deepEqual(new Set(rows.filter((r) => r.kind === "try").map((r) => r.delprov)), new Set(fresh));
+    assert.ok(!rows.some((r) => r.kind === "ord"));
+  });
+
   test("null when the test date is today, in the past, or more than 45 days out", () => {
     const today = new Date().toISOString().slice(0, 10);
     assert.equal(buildHpPlan({ hpDate: today }), null);
@@ -225,6 +242,12 @@ describe("hp practice helpers", () => {
     ], (id) => (id.startsWith("x") ? "xyz" : "ord"));
     assert.deepEqual(s.xyz, { timed: 1, answered: 2, correct: 2 });
     assert.deepEqual(s.ord, { timed: 1, answered: 1, correct: 0 });
+  });
+  test("questions handed in blank count as wrong, like on the results screen", () => {
+    const runs = [{ finishedAt: 1, timeLimitMin: 5, items: [{ questionId: "x1", correct: true }], unanswered: ["x2", "x3"] }];
+    const variantOf = () => "xyz";
+    assert.deepEqual(delprovStats(runs, variantOf).xyz, { timed: 3, answered: 3, correct: 1 });
+    assert.equal(questionHistory(runs).x2.correct, false);
   });
   test("prognosisMargin narrows with more answers but never below 0.15", () => {
     assert.equal(prognosisMargin(0), 0.5);
