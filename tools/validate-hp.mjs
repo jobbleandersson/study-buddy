@@ -13,7 +13,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const errors = [];
 const fail = (m) => errors.push(m);
 
-const CHOICE_COUNT = { ord: 5, las: 4, mek: 4, elf: 4, xyz: 5, kva: 4, nog: 5, dtk: 5 };
+const CHOICE_COUNT = { ord: 5, las: 4, mek: 4, elf: 4, xyz: 4, kva: 4, nog: 5, dtk: 4 };   // as on the real test (and OPTION_COUNT in js/lib/hp.js)
 const KVA_CHOICES = [
   "Kvantitet I är större",
   "Kvantitet II är större",

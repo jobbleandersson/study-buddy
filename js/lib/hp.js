@@ -259,3 +259,88 @@ export function buildHpPlan({ hpDate, weakDelprov = [], dueCount = 0, softDelpro
   }
   return rows;
 }
+
+/* ------------------------------------------------------------------ *
+ * Test pace, practice picks and calibration — the delprov pages (#/hp/<dp>)
+ * ------------------------------------------------------------------ */
+
+/** Seconds per question at the pace the official instructions suggest for each delprov (a 55-minute
+ *  provpass shared out between its delprov). */
+export const SEC_PER_Q = { ord: 18, las: 132, mek: 48, elf: 132, xyz: 60, kva: 60, nog: 100, dtk: 115 };
+
+/** Questions one delprov has in a real provpass. */
+export const PASS_COUNT = { ord: 10, las: 10, mek: 10, elf: 10, xyz: 12, kva: 10, nog: 6, dtk: 12 };
+
+/** Answer options per question on the real test. KVA and NOG always use the same fixed options. */
+export const OPTION_COUNT = { ord: 5, las: 4, mek: 4, elf: 4, xyz: 4, kva: 4, nog: 5, dtk: 4 };
+
+/** Upcoming test days, for a one-tap date on the hub. Only sittings whose date is confirmed. */
+export const HP_SITTINGS = [
+  { day: "2026-10-18", label: "hp.sittingAutumn2026" },
+];
+
+/** Timed answers a delprov needs before its estimate counts as calibrated. */
+export const CALIBRATION_N = 10;
+
+/** Minutes for `n` questions of a delprov at test pace (one and a half times that with extended
+ *  time), never under one. */
+export function minutesFor(dp, n, { extended = false } = {}) {
+  const sec = (SEC_PER_Q[dp] || 60) * Math.max(0, n) * (extended ? 1.5 : 1);
+  return Math.max(1, Math.ceil(sec / 60));
+}
+
+/** How each question went the last time it was answered, from attempts in any order:
+ *  { [questionId]: { correct, at, timed } }. `correct` is the first-try result. */
+export function questionHistory(attempts) {
+  const out = {};
+  const runs = (attempts || []).filter((a) => a && Array.isArray(a.items))
+    .sort((a, b) => (a.finishedAt || 0) - (b.finishedAt || 0));
+  for (const a of runs) {
+    for (const it of a.items) {
+      if (!it || !it.questionId) continue;
+      out[it.questionId] = { correct: it.firstTry ?? !!it.correct, at: a.finishedAt || 0, timed: !!a.timeLimitMin };
+    }
+  }
+  return out;
+}
+
+/** Pick `n` question ids to practise: never answered first, then the ones last answered wrong, then
+ *  the rest — each group in random order, so a run brings what's new or missed before repeats. */
+export function pickPracticeIds(ids, n, history = {}, rand = Math.random) {
+  const shuffle = (list) => {
+    const a = list.slice();
+    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rand() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+    return a;
+  };
+  const fresh = [], wrong = [], right = [];
+  for (const id of ids || []) {
+    const h = history[id];
+    (!h ? fresh : h.correct ? right : wrong).push(id);
+  }
+  return [...shuffle(fresh), ...shuffle(wrong), ...shuffle(right)].slice(0, Math.max(0, n));
+}
+
+/** Per delprov: answers given under a clock (calibration) and first-try results overall.
+ *  `variantOf(questionId)` → delprov code or null. -> { [dp]: { timed, answered, correct } } */
+export function delprovStats(attempts, variantOf) {
+  const out = {};
+  for (const a of attempts || []) {
+    if (!a || !Array.isArray(a.items)) continue;
+    for (const it of a.items) {
+      const dp = variantOf(it.questionId);
+      if (!dp) continue;
+      const s = out[dp] || (out[dp] = { timed: 0, answered: 0, correct: 0 });
+      s.answered++;
+      if (it.firstTry ?? it.correct) s.correct++;
+      if (a.timeLimitMin) s.timed++;
+    }
+  }
+  return out;
+}
+
+/** Half-width of the likely range around a prognosis built on `n` answers: wide with little data,
+ *  never narrower than 0,15 (no estimate from practice questions is closer than that). */
+export function prognosisMargin(n) {
+  if (!(n > 0)) return 0.5;
+  return Math.min(0.5, Math.max(0.15, round05(1.6 / Math.sqrt(n))));
+}

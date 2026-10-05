@@ -138,6 +138,8 @@ const routes = [
   { rx: /^\/exam-prep(?:\/(.*))?$/, view: (m, qs) => import("./views/exam-prep.js").then((mod) => mod.renderExamPrep(m[1] || null, qs)) },
   { rx: /^\/hp$/, view: () => import("./views/hp.js").then((mod) => mod.renderHp()) },
   { rx: /^\/hp\/mock$/, view: (m, qs) => import("./views/session.js").then((mod) => mod.renderHpMock(qs)) },
+  { rx: /^\/hp\/ova\/(ord|las|mek|elf|xyz|kva|nog|dtk)$/, view: (m, qs) => import("./views/session.js").then((mod) => mod.renderHpPractice(m[1], qs)) },
+  { rx: /^\/hp\/(ord|las|mek|elf|xyz|kva|nog|dtk)$/, view: (m, qs) => import("./views/hp-delprov.js").then((mod) => mod.renderHpDelprov(m[1], qs)) },
   { rx: /^\/session\/(.+)$/, view: (m, qs) => import("./views/session.js").then((mod) => mod.renderSession(m[1], qs)) },
   { rx: /^\/results\/(.+)$/, view: (m) => import("./views/results.js").then((mod) => mod.renderResults(m[1])) },
   { rx: /^\/progress$/, view: () => import("./views/progress.js").then((mod) => mod.renderProgress()) },
@@ -829,7 +831,7 @@ function shellActions() {
  *  those views is the way out. */
 function immersiveRoute() {
   return /^\/(session|review|practice|practice-weak|practice-rules|tonight|tonight-practice|print|teachback)(\/|$)/.test(currentPath())
-    || currentPath() === "/hp/mock";
+    || currentPath() === "/hp/mock" || currentPath().startsWith("/hp/ova/");
 }
 
 /** Routes that keep the nav chrome but are themselves a full chat with an AI

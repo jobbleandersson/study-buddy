@@ -400,7 +400,7 @@ function shell(question, body, { showPrompt = true } = {}) {
 // `revisable` (exam mode): there is no Check button — picking an option records it at once, and
 // picking another one replaces it, until the student hands the exam in. `initialPick` re-selects the
 // recorded choice when the student comes back to the question.
-function mc({ question, tutor, testMode, onDone, askConfidence, revealAfter = 2, revisable = false, initialPick = -1 }) {
+function mc({ question, tutor, testMode, onDone, askConfidence, revealAfter = 2, revisable = false, initialPick = -1, oneTry = false }) {
   const result = { correct: false, hintsUsed: 0 };
   let picked = -1, attempts = 0, done = false;
 
@@ -415,7 +415,10 @@ function mc({ question, tutor, testMode, onDone, askConfidence, revealAfter = 2,
 
   const checkBtn = el("button.btn.btn--sm", { type: "button", disabled: true, hidden: revisable, onclick: check }, t("q.check"));
   const feedback = el("div", {});
-  const list = el("div.choices", {}, btns);
+  // Four short options sit two by two, as on a test page, instead of a long column of one-word rows.
+  const shortChoices = question.choices.length === 4
+    && question.choices.every((c) => String(c).replace(/\$([^$]*)\$/g, (_, m) => m.slice(0, 8)).length <= 18);
+  const list = el("div.choices" + (shortChoices ? ".choices--grid" : ""), {}, btns);
 
   function sync() {
     btns.forEach((b, i) => b.setAttribute("aria-pressed", String(i === picked)));
@@ -470,10 +473,15 @@ function mc({ question, tutor, testMode, onDone, askConfidence, revealAfter = 2,
       result.firstTry = attempts === 1;
       result.hintsUsed = attempts - 1;
       feedback.className = "feedback ok";
-      feedback.innerHTML = renderRich(question.explanation || t("q.correct"));
+      feedback.innerHTML = renderRich(question.explanation || t("q.correct")) + stepsHtml(question);
       checkBtn.remove();
       tutor?.celebrate(t("q.tutorRight"));
       maybeConfidence(finalize(result), feedback, onDone, askConfidence);
+    } else if (oneTry) {
+      // Marked like the test: one pick, then the right answer and how to get there.
+      lastWrongChoice = question.choices[picked];
+      checkBtn.remove();
+      revealAnswer({ wrongPick: true });
     } else {
       result.hintsUsed = attempts;
       lastWrongChoice = question.choices[picked];
@@ -508,14 +516,16 @@ function mc({ question, tutor, testMode, onDone, askConfidence, revealAfter = 2,
     }
   }
 
-  function revealAnswer() {
+  function revealAnswer({ wrongPick = false } = {}) {
     done = true;
     result.correct = false;
     btns.forEach((b) => (b.disabled = true));
     btns[question.answer].classList.add("is-correct");
     node.langReveal?.();
     feedback.className = "feedback retry";
-    feedback.innerHTML = renderRich(question.explanation || t("q.answerIs", { letter: String.fromCharCode(65 + question.answer) }));
+    const letter = String.fromCharCode(65 + question.answer);
+    feedback.innerHTML = (wrongPick && question.explanation ? `<p><strong>${escapeHtml(t("q.answerIs", { letter }))}</strong></p>` : "")
+      + renderRich(question.explanation || t("q.answerIs", { letter })) + stepsHtml(question);
     explainWhyRow(tutor, question, lastWrongChoice, feedback);
     maybeConfidence(finalize(result), feedback, onDone, askConfidence);
   }
@@ -1140,6 +1150,12 @@ function explainWhyRow(tutor, question, theirAnswer, host) {
 }
 
 /** A worked problem's full solution: its steps, when it has them, then the answer. */
+/** A multiple-choice question's worked steps, when it has them, under its explanation. */
+function stepsHtml(question) {
+  const steps = Array.isArray(question.steps) ? question.steps.filter(Boolean) : [];
+  return steps.length ? `<ol class="solution__steps">${steps.map((s) => `<li>${renderRich(s)}</li>`).join("")}</ol>` : "";
+}
+
 function solutionHtml(question) {
   const steps = Array.isArray(question.steps) ? question.steps.filter(Boolean) : [];
   return `<div class="solution"><p style="margin-top:10px"><strong>${escapeHtml(t("q.fullSolution"))}</strong></p>`

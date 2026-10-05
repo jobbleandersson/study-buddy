@@ -7,7 +7,10 @@
 
 import { store, REVIEW_ID, PRACTICE_ID, WEAK_ID, RULES_ID, TONIGHT_ID, HP_MOCK_ID, NATIONAL_MIX_PREFIX, nationalMixId, EXAM_PASS_PREFIX, examPassId } from "../store.js";
 import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
-import { parseHpSetId, isHpSetId, rawByPart, DELPROV_ORDER } from "../lib/hp.js";
+import {
+  parseHpSetId, isHpSetId, rawByPart, DELPROV_ORDER, NORM_TABLES,
+  PASS_COUNT, SEC_PER_Q, minutesFor, pickPracticeIds, questionHistory,
+} from "../lib/hp.js";
 import { passageFor } from "../lib/passages.js";
 import { announce } from "../lib/a11y.js";
 import { t, plural } from "../lib/i18n.js";
@@ -384,6 +387,59 @@ export async function renderHpMock(qs) {
   });
 }
 
+/** A delprov practice run started from its page (#/hp/<dp>, views/hp-delprov.js): questions of one
+ *  delprov from every HP set the student has — the övningsprov, the ORD word bank, AI-made ones.
+ *    ?n=10        how many (default: what one provpass has)
+ *    ?ids=a,b     exactly these questions (a filtered list, or a single question)
+ *    ?mode=timed  a clock at the test's pace; with &fb=0 it runs like the test, marked at the end
+ *    ?ext=1       extended time (one and a half times as long) */
+export const HP_PRACTICE_PREFIX = "hp-ova-";
+export async function renderHpPractice(dp, qs) {
+  if (!DELPROV_ORDER.includes(dp)) return notFound(t("hp.notFoundDelprov"));
+  const pool = [];
+  for (const a of store.assignments) {
+    if (!isHpSetId(a.id)) continue;
+    const setDp = parseHpSetId(a.id).delprov;
+    for (const q of a.questions) if ((q.variant || setDp) === dp) pool.push(q.id);
+  }
+  if (!pool.length) return emptyScreen(t("hp.practiceEmptyTitle"), t("hp.practiceEmptyBody"), t(`hp.delprov.${dp}`));
+
+  const wanted = String(qs?.get?.("ids") || "").split(",").filter((id) => pool.includes(id));
+  const n = Math.max(1, Math.min(Math.round(Number(qs?.get?.("n"))) || PASS_COUNT[dp], 60));
+  const ids = wanted.length ? wanted : pickPracticeIds(pool, n, questionHistory(store.attempts));
+  const timed = qs?.get?.("mode") === "timed";
+  const marked = !timed || qs?.get?.("fb") !== "0";
+  const ext = qs?.get?.("ext") === "1";
+  const query = new URLSearchParams();
+  if (wanted.length) query.set("ids", wanted.join(",")); else query.set("n", String(n));
+  if (timed) { query.set("mode", "timed"); if (!marked) query.set("fb", "0"); }
+  if (ext) query.set("ext", "1");
+
+  return runSession({
+    // A list of chosen questions keeps its own slot, so it can't resume as a different list.
+    key: `${HP_PRACTICE_PREFIX}${dp}::${timed ? (marked ? "timed" : "exam") : "train"}${wanted.length ? `::${shortHash(wanted.join(","))}` : ""}`,
+    assignmentId: `${HP_PRACTICE_PREFIX}${dp}`,
+    title: t("hp.practiceTitle", { delprov: t(`hp.delprov.${dp}`) }),
+    type: "assignment",
+    examMode: timed && !marked,
+    timeLimitMin: timed ? minutesFor(dp, ids.length, { extended: ext }) : null,
+    hp: true,
+    hpTestId: null,
+    hpDelprov: dp,
+    hpOneTry: marked,
+    hpIntro: !wanted.length || ids.length > 1,
+    retryHash: `#/hp/ova/${dp}?${query}`,
+    questionIds: ids,
+    shuffle: false,
+  });
+}
+
+function shortHash(s) {
+  let h = 5381;
+  for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0;
+  return h.toString(36);
+}
+
 /* ------------------------------------------------------------------ */
 
 function runSession(config) {
@@ -431,7 +487,9 @@ function runSession(config) {
   const dots = el("div.progress-dots", { "aria-hidden": "true" });
   const adaptiveEl = el("div.adaptive");
   const testBar = el("div.testbar");
-  const stage = el("div");
+  const stage = el("div.session__stage");
+  // A pen to draw on top of the question with (HP runs), like scribbling in the test booklet.
+  const scratch = scratchPad(stage);
   const nextBtn = el("button.btn", { type: "button", disabled: true, onclick: next }, t("session.next"));
   const skipBtn = el("button.btn.btn--ghost", { type: "button", onclick: skip }, t("session.skip"));
   const exitBtn = el("button.btn.btn--ghost", { type: "button", onclick: exit }, t("session.exit"));
@@ -608,7 +666,12 @@ function runSession(config) {
 
   /* ----- exam clock (exam mode only) ----- */
   const examTimeText = el("span");
-  const examTimer = el("span.examtimer", { hidden: !isExam }, [icon(ICONS.clock, 13), examTimeText]);
+  // Exam mode, and any run with a time limit (a timed HP practice run is marked as it goes, but has
+  // the clock all the same).
+  const timed = isExam || !!config.timeLimitMin;
+  // Ahead of or behind the test's pace, for an HP run on the clock.
+  const paceEl = el("span.examtimer__pace", { hidden: true });
+  const examTimer = el("span.examtimer", { hidden: !timed }, [icon(ICONS.clock, 13), examTimeText, paceEl]);
   let examTick = null, examAutoSubmitted = false;
 
   function fmtClock(ms) {
@@ -620,6 +683,17 @@ function runSession(config) {
       const left = state.deadlineAt - Date.now();
       examTimer.classList.toggle("examtimer--warn", left <= 60000);
       examTimeText.textContent = fmtClock(left);
+      if (config.hp && config.timeLimitMin && state.order.length) {
+        // Against an even pace: ahead once answers come faster than the clock, behind only once the
+        // question being worked on has used up its own share of the time.
+        const perQ = (config.timeLimitMin * 60000) / state.order.length;
+        const elapsed = Date.now() - state.startedAt;
+        const ahead = answeredCount() * perQ - elapsed;
+        const over = elapsed - (answeredCount() + 1) * perQ;
+        paceEl.hidden = !(ahead > 5000 || over > 5000);
+        paceEl.textContent = ahead > 5000 ? t("hp.paceAhead", { t: fmtClock(ahead) }) : t("hp.paceBehind", { t: fmtClock(over) });
+        paceEl.classList.toggle("is-behind", !(ahead > 5000));
+      }
       if (left <= 0 && !examAutoSubmitted) {
         examAutoSubmitted = true;
         stopExam();
@@ -631,7 +705,7 @@ function runSession(config) {
     }
   }
   function startExam() {
-    if (!isExam || examTick) return;
+    if (!timed || examTick) return;
     tickExam();
     examTick = setInterval(tickExam, 1000);
   }
@@ -753,6 +827,9 @@ function runSession(config) {
       // the answer after one wrong try instead of two, so the student isn't
       // left with only "Lämna" as a way out.
       revealAfter: skipBtn.hidden ? 1 : 2,
+      // HP practice is marked like the real test is scored: the first pick counts, and a wrong one
+      // shows the right answer and the solution at once.
+      oneTry: !!config.hpOneTry && !testMode,
       onDone: (result) => {
         if (ended) return;
         const isNew = !state.items[question.id];
@@ -799,6 +876,7 @@ function runSession(config) {
         })
       : renderQuestion(questionOpts);
 
+    if (config.hp) stage.appendChild(hpQuestionBar(assignment, question));
     stage.appendChild(r.el);
     // A question that isn't multiple choice can't show the earlier answer again, so say it is recorded.
     if (isExam && answered && question.kind !== "mc") {
@@ -1117,10 +1195,73 @@ function runSession(config) {
     ]));
     skipBtn.hidden = true;
     paintProgress();
+  } else if (config.hpIntro && config.hpDelprov) {
+    showHpIntro(config.hpDelprov);
   } else {
     loadQuestion();
   }
-  startExam();
+  if (!stage.querySelector(".hp-intro")) startExam();
+
+  /* ----- HP: the delprov's instructions before the first question, then the bar above each ----- */
+  function showHpIntro(dp) {
+    const sec = SEC_PER_Q[dp] || 60;
+    const pace = sec % 60 === 0 ? t("hp.introMinutes", { n: sec / 60 })
+      : sec > 60 ? t("hp.introPaceMin", { m: Math.floor(sec / 60), s: sec % 60 }) : t("hp.introPaceSec", { s: sec });
+    // The clock shows the whole time until the run starts.
+    if (config.timeLimitMin) examTimeText.textContent = fmtClock(config.timeLimitMin * 60000);
+    stage.appendChild(el("div.panel.hp-intro", {}, [
+      el("p.hp-intro__code", {}, t(`hp.delprov.${dp}`)),
+      el("h3", {}, t(`hp.name.${dp}`)),
+      el("p", {}, t(`hp.instr.${dp}`)),
+      el("p.note.hp-intro__tip", {}, [icon(ICONS.spark, 15), " ", t(`hp.tip.${dp}`)]),
+      el("dl.hp-intro__facts", {}, [
+        el("dt", {}, t("hp.introCount")), el("dd", {}, String(state.order.length)),
+        el("dt", {}, t("hp.introPace")), el("dd", {}, pace),
+        config.timeLimitMin ? el("dt", {}, t("hp.introTime")) : null,
+        config.timeLimitMin ? el("dd", {}, t("hp.introMinutes", { n: config.timeLimitMin })) : null,
+        el("dt", {}, t("hp.introMarking")), el("dd", {}, t(isExam ? "hp.introMarkEnd" : "hp.introMarkNow")),
+      ].filter(Boolean)),
+      el("button.btn", {
+        type: "button",
+        onclick: () => {
+          // The clock starts now, not when the page opened.
+          state.startedAt = Date.now();
+          if (config.timeLimitMin) state.deadlineAt = state.startedAt + config.timeLimitMin * 60000;
+          loadQuestion();
+          startExam();
+        },
+      }, [icon(ICONS.play, 16), t("hp.introStart")]),
+    ]));
+  }
+
+  /** Where the question comes from, a bookmark, and a pen to work on top of it. */
+  function hpQuestionBar(assignment, question) {
+    const ref = parseHpSetId(assignment.id);
+    const source = /-ai$/.test(assignment.id) ? t("hp.srcAi")
+      : ref.test ? (NORM_TABLES[ref.test]?.label || t("hp.srcPractice"))
+      : assignment.title;
+    const saveBtn = el("button.iconbtn.iconbtn--sm.hp-qbar__save", {
+      type: "button", "aria-pressed": String(store.isSaved(question.id)),
+      "aria-label": t("hp.saveQuestion"), title: t("hp.saveQuestion"),
+      onclick: () => {
+        const on = store.toggleSaved(question.id);
+        saveBtn.setAttribute("aria-pressed", String(on));
+        toast(t(on ? "hp.savedToast" : "hp.unsavedToast"));
+      },
+    }, [icon(ICONS.bookmark, 16)]);
+    const penBtn = el("button.iconbtn.iconbtn--sm", {
+      type: "button", "aria-pressed": "false", "aria-label": t("hp.pen"), title: t("hp.pen"),
+      onclick: () => {
+        const on = scratch.toggle();
+        penBtn.setAttribute("aria-pressed", String(on));
+      },
+    }, [icon(ICONS.pencil, 16)]);
+    scratch.reset();
+    return el("div.hp-qbar", {}, [
+      el("span.hp-qbar__src", {}, source),
+      el("span.hp-qbar__tools", {}, [penBtn, saveBtn]),
+    ]);
+  }
 
   /* ----- keyboard shortcuts ----- */
   function onKeyDown(e) {
@@ -1350,6 +1491,7 @@ function runSession(config) {
     node,
     cleanup: () => {
       ended = true;
+      scratch.reset();
       setSessionActive(false);
       document.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("sb:langsession", onLangSession);
@@ -1389,8 +1531,44 @@ function freshState(config) {
     }
   }
   const startedAt = Date.now();
-  const deadlineAt = config.examMode && config.timeLimitMin ? startedAt + config.timeLimitMin * 60000 : null;
+  const deadlineAt = config.timeLimitMin ? startedAt + config.timeLimitMin * 60000 : null;
   return { ...config, order, cursor: 0, items: {}, skipped: [], flagged: [], choiceOrder, startedAt, deadlineAt };
+}
+
+/** A transparent drawing layer over `host` (position: relative). Off by default; when on it takes the
+ *  pointer, with a small "clear" button. Strokes are thrown away with the question. */
+function scratchPad(host) {
+  const canvas = el("canvas.scratch", { "aria-hidden": "true" });
+  const clearBtn = el("button.btn.btn--ghost.btn--sm.scratch__clear", { type: "button", onclick: () => wipe() }, t("hp.penClear"));
+  let on = false, drawing = false, ctx = null;
+  function size() {
+    const r = host.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = Math.max(1, Math.round(r.width * dpr));
+    canvas.height = Math.max(1, Math.round(host.scrollHeight * dpr));
+    canvas.style.height = `${host.scrollHeight}px`;
+    ctx = canvas.getContext("2d");
+    ctx.scale(dpr, dpr);
+    ctx.lineWidth = 2; ctx.lineCap = "round"; ctx.lineJoin = "round";
+    ctx.strokeStyle = getComputedStyle(host).getPropertyValue("--brand").trim() || "#3D5AFE";
+  }
+  function wipe() { if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height); }
+  const pos = (e) => { const r = canvas.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
+  canvas.addEventListener("pointerdown", (e) => { if (!on) return; drawing = true; canvas.setPointerCapture(e.pointerId); ctx.beginPath(); ctx.moveTo(...pos(e)); });
+  canvas.addEventListener("pointermove", (e) => { if (!drawing) return; ctx.lineTo(...pos(e)); ctx.stroke(); });
+  const stop = () => { drawing = false; };
+  canvas.addEventListener("pointerup", stop);
+  canvas.addEventListener("pointercancel", stop);
+  return {
+    toggle() {
+      on = !on;
+      if (on) { host.append(canvas, clearBtn); size(); }
+      else { canvas.remove(); clearBtn.remove(); }
+      host.classList.toggle("is-drawing", on);
+      return on;
+    },
+    reset() { on = false; drawing = false; canvas.remove(); clearBtn.remove(); host.classList.remove("is-drawing"); },
+  };
 }
 
 function shuffled(arr) {
