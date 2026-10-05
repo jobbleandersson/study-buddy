@@ -17,3 +17,6 @@ server/*.sqlite3-*
 .vscode
 .idea
 *.local
+
+# rendered TikTok images (tools/tiktok/render-hp-ord.mjs): marketing material, not part of the site
+tools/tiktok/out
