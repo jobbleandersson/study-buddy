@@ -43,6 +43,12 @@ export const MY_REVIEW_URL = `${API}/api/reviews/mine`;
 export const ADMIN_REVIEWS_URL = `${API}/api/admin/reviews`;
 export const adminReviewUrl = (id) => `${API}/api/admin/reviews/${encodeURIComponent(id)}`;
 
+// Anonymous error reports (js/lib/error-report.js) and the list of them at #/admin/errors. See
+// routes/client-errors.js.
+export const ERRORS_URL = `${API}/api/client-errors`;
+export const ADMIN_ERRORS_URL = `${API}/api/admin/client-errors`;
+export const adminErrorUrl = (id) => `${API}/api/admin/client-errors/${encodeURIComponent(id)}`;
+
 // Where people write with privacy, data and general questions. One place, so it changes in one place.
 // The contact form (#/contact) mails the same inbox from the server — see CONTACT_TO in server/src/email.js.
 export const CONTACT_EMAIL = "pluggera.organisation@gmail.com";

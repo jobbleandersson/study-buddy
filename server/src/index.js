@@ -25,6 +25,7 @@ import { account } from "./routes/account.js";
 import { waitlist } from "./routes/waitlist.js";
 import { contact } from "./routes/contact.js";
 import { analytics } from "./routes/analytics.js";
+import { clientErrors } from "./routes/client-errors.js";
 import { reviews } from "./routes/reviews.js";
 import { practicePages } from "./routes/practice-pages.js";
 
@@ -168,6 +169,7 @@ app.use("/api", account);
 app.use("/api", waitlist);
 app.use("/api", contact);
 app.use("/api", analytics);
+app.use("/api", clientErrors);
 app.use("/api", reviews);
 // An /api path no router claimed: answer in the API's own shape, not Express's HTML "Cannot GET".
 // (The static stand-in api/health, for hosts with no server, is never reached here — the health

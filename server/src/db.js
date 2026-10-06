@@ -247,6 +247,21 @@ db.exec(`
     utm_campaign TEXT,
     created_at INTEGER NOT NULL
   );
+  -- Anonymous script errors from students' browsers (routes/client-errors.js): one row per distinct
+  -- error (id = a hash of kind, message and source), counted. Never tied to an account or an IP.
+  CREATE TABLE IF NOT EXISTS client_errors (
+    id TEXT PRIMARY KEY,
+    kind TEXT NOT NULL,
+    message TEXT NOT NULL,
+    source TEXT,
+    stack TEXT,
+    route TEXT,
+    app_version TEXT,
+    browser TEXT,
+    count INTEGER NOT NULL DEFAULT 1,
+    first_at INTEGER NOT NULL,
+    last_at INTEGER NOT NULL
+  );
   -- LEGACY: backup codes were removed from the product (email codes are the recovery-free default;
   -- nothing reads or writes this table any more). Kept so old rows and deployed databases stay
   -- valid; they are cleared when 2FA is turned off or the account is deleted.
