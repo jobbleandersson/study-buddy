@@ -987,6 +987,7 @@ function worked({ question, tutor, live, testMode, onDone, targetLang }) {
     needWriting.hidden = true;
     ta.disabled = true;
     keypad.toggle?.remove(); keypad.pad?.remove(); doneBtn.remove();
+    revealBtn?.remove();   // the full solution is on screen now: no single steps left to show
     feedback.className = "feedback retry";
     feedback.innerHTML = `<p>${escapeHtml(t("q.workedGaveUp"))}</p>` +
       solutionHtml(question);
@@ -1035,6 +1036,7 @@ function worked({ question, tutor, live, testMode, onDone, targetLang }) {
     }
 
     doneBtn.remove();
+    revealBtn?.remove();   // the full solution follows: no single steps left to show
     const solution = solutionHtml(question);
 
     if (verdict) {

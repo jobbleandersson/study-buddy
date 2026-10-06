@@ -1104,6 +1104,8 @@ function runSession(config) {
       message: [t("session.handInQuestion"), notes.join(" ")].filter(Boolean).join("\n\n"),
       confirmLabel: t("session.handIn"),
       cancelLabel: t("session.handInBack"),
+      // Unanswered or flagged questions are a warning, not a reassurance.
+      warn: notes.length > 0,
     });
     if (ok && !ended) finish();
   }
@@ -1198,9 +1200,11 @@ function runSession(config) {
     if (ended) return;   // the clock ran out while "Hand in" was open, or the button was hit twice
     stopExam();
     const answered = Object.values(state.items);
-    // A test or exam hands in every question; the ones never answered are kept on the attempt so the
-    // results list them (with their answers) and the score, the HP estimate and "practise these" agree.
-    const graded = (config.type === "test" && !leftTestMode) || isExam;
+    // A test or exam hands in every question, and so does a timed run whose clock ran out: the ones
+    // never answered are kept on the attempt so the results list them (with their answers) and the
+    // score, the HP estimate and "practise these" agree. Otherwise a timed drill answered 1 of 5 before
+    // the clock ran out read as "100 %, 1 / 1".
+    const graded = (config.type === "test" && !leftTestMode) || isExam || !!opts.timedOut;
     const unanswered = graded ? state.order.filter((id) => !state.items[id]) : [];
     // The score is first-try answers; a choice found after wrong picks isn't counted.
     const correct = answered.filter(firstTryCorrect).length;
