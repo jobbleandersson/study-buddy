@@ -1,7 +1,8 @@
 // Router + persistent app shell.
 
 import { store } from "./store.js";
-import { PAGEVIEW_URL, PROXY_HEALTH_URL } from "./config.js";
+import { PAGEVIEW_URL, PROXY_HEALTH_URL, ERRORS_URL } from "./config.js";
+import { installErrorReporting } from "./lib/error-report.js";
 import { el, clear, mount, append, icon, ICONS, toast, showBanner, hideBanner, downloadText } from "./lib/dom.js";
 import { announce, focusHeading } from "./lib/a11y.js";
 import { t, plural, getLang, setLang, applyLang, LANGS, daysUntil } from "./lib/i18n.js";
@@ -14,6 +15,10 @@ import { isSessionActive } from "./lib/session-active.js";
 import { mountUpgradePrompt } from "./components/upgrade-prompt.js";
 import { loadLibraryIndex } from "./lib/library-content.js";
 import { playFanfare } from "./lib/sound.js";
+
+// First thing after the imports, so an error anywhere in boot is reported too (anonymous, see
+// lib/error-report.js).
+installErrorReporting(ERRORS_URL);
 
 const app = document.getElementById("app");
 
@@ -178,6 +183,7 @@ const routes = [
   { rx: /^\/start\/(lib-[a-z0-9-]+)$/, view: (m) => import("./views/library.js").then((mod) => mod.renderStartSet(m[1])) },
   { rx: /^\/rate$/, view: () => import("./views/rate.js").then((mod) => mod.renderRate()) },
   { rx: /^\/admin\/reviews$/, view: () => import("./views/admin-reviews.js").then((mod) => mod.renderAdminReviews()) },
+  { rx: /^\/admin\/errors$/, view: () => import("./views/admin-errors.js").then((mod) => mod.renderAdminErrors()) },
 ];
 
 let currentCleanup = null;

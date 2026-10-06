@@ -138,6 +138,9 @@ export const twoFaResendIpLimit = attemptLimit({ name: "twofa-resend-ip", max: n
 // opening the app on one school IP at once never gets blocked, tight enough
 // that a script hammering the endpoint can't grow the page_views table without bound.
 export const pageviewLimit = attemptLimit({ name: "pageview-ip", max: num("PAGEVIEW_PER_HOUR_PER_IP", 300), windowMs: HOUR });
+// Error reports from browsers: a page sends at most 10 per load (js/lib/error-report.js), so this only
+// stops a script from filling the table.
+export const clientErrorLimit = attemptLimit({ name: "client-error-ip", max: num("CLIENT_ERRORS_PER_HOUR_PER_IP", 60), windowMs: HOUR });
 
 // Class, friend and parent codes: only failed guesses count. These routes need
 // a session, so the tight limit is per account; the looser per-IP one catches
