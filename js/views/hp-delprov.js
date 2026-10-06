@@ -7,7 +7,7 @@
 
 import { store } from "../store.js";
 import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
-import { t, fmtDate, sentenceCase } from "../lib/i18n.js";
+import { t, fmtDate, sentenceCase, fmtDecimal } from "../lib/i18n.js";
 import { localDayKey, addDays } from "../lib/activity.js";
 import { renderRich } from "../lib/rich.js";
 import { previewPrompt } from "../lib/text.js";
@@ -20,7 +20,7 @@ import { AI_DELPROV, MORE_HP, addHpQuestions, isAddingHp } from "../components/h
 import { ClaudeError } from "../claude.js";
 import { sparkline } from "../lib/spark.js";
 
-const fmtN = (n) => (n == null ? "–" : Number(n).toFixed(2).replace(".", ","));
+const fmtN = (n) => (n == null ? "–" : fmtDecimal(n, 2));
 const LIST_STEP = 30;
 
 // The setup the student last chose for each delprov (not saved): mode, count, extended time, marking.

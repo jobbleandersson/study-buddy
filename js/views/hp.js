@@ -11,7 +11,7 @@
 
 import { store } from "../store.js";
 import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
-import { t, plural, daysUntil, getLang, sentenceCase } from "../lib/i18n.js";
+import { t, plural, daysUntil, getLang, sentenceCase, fmtDecimal } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { foldedDatePicker } from "../components/calendar.js";
 import { localDayKey } from "../lib/activity.js";
@@ -24,8 +24,8 @@ import {
   DELPROV_ORDER, VERBAL_DELPROV, KVANT_DELPROV, buildHpPlan, PASS_COUNT, CALIBRATION_N, HP_SITTINGS, scoredItems,
 } from "../lib/hp.js";
 
-const fmtN = (n) => (n == null ? "–" : Number(n).toFixed(2).replace(".", ","));
-const fmt1 = (n) => Number(n).toFixed(1).replace(".", ",");
+const fmtN = (n) => (n == null ? "–" : fmtDecimal(n, 2));
+const fmt1 = (n) => fmtDecimal(n, 1);
 /** Where a normed score sits along the 0–2 scale, as a CSS length. */
 const scalePos = (n) => `${(Math.max(0, Math.min(2, n)) / 2) * 100}%`;
 

@@ -513,7 +513,13 @@ function shortHash(s) {
 /* ------------------------------------------------------------------ */
 
 function runSession(config) {
-  const saved = store.getSession(config.key);
+  let saved = store.getSession(config.key);
+  // A timed run whose clock ran out while the student was away, with nothing answered, was never
+  // really taken: it starts over instead of being handed in as "0 of 14" into their history.
+  if (saved?.deadlineAt && saved.deadlineAt <= Date.now() && !Object.keys(saved.items || {}).length) {
+    store.clearSession(config.key);
+    saved = null;
+  }
   const resumable = saved && (saved.cursor > 0 || Object.keys(saved.items || {}).length > 0);
 
   const state = resumable
@@ -1223,7 +1229,9 @@ function runSession(config) {
       timeLimitMin: config.timeLimitMin || null,
       timedOut: !!opts.timedOut,
       startedAt: state.startedAt,
-      finishedAt: Date.now(),
+      // Time ran out while the student was away: the run ended at its deadline, not when they came back
+      // (otherwise "took 25 h" for a 16-minute prognosis).
+      finishedAt: opts.timedOut && state.deadlineAt ? Math.min(Date.now(), state.deadlineAt) : Date.now(),
       scorePct: denom ? Math.round((correct / denom) * 100) : 0,
       tutorHints: Number.isFinite(hintBudget) ? hintBudget - tutor.hintsLeft : 0,
       items: answered,

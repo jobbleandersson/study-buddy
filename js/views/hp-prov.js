@@ -4,12 +4,12 @@
 
 import { store, HP_MOCK_ID } from "../store.js";
 import { el, icon, ICONS, uid } from "../lib/dom.js";
-import { t, fmtDate } from "../lib/i18n.js";
+import { t, fmtDate, fmtDecimal } from "../lib/i18n.js";
 import { localDayKey } from "../lib/activity.js";
 import { ensureHpSets, hpQuestionIndex } from "../data/hp-content.js";
 import { VERBAL_DELPROV, KVANT_DELPROV, PASS_COUNT, questionHistory, attemptNormedTotal } from "../lib/hp.js";
 
-const fmtN = (n) => (n == null ? "–" : Number(n).toFixed(2).replace(".", ","));
+const fmtN = (n) => (n == null ? "–" : fmtDecimal(n, 2));
 const PASS_SIZE = (list) => list.reduce((n, dp) => n + PASS_COUNT[dp], 0);
 
 /** Per half: how many questions a provpass of it would get (each delprov only fills its own share),

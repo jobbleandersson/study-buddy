@@ -114,6 +114,12 @@ function parseDayKey(dayKey) {
   return new Date(y, m - 1, d);
 }
 
+/** A decimal the way the language writes it: "0,75" in Swedish, "0.75" in English. */
+export function fmtDecimal(n, digits = 2) {
+  const s = Number(n).toFixed(digits);
+  return getLang() === "sv" ? s.replace(".", ",") : s;
+}
+
 /** "fre 5 sep" / "Fri 5 Sep" — a due date, written the way the locale writes it. */
 export function fmtDate(dayKey) {
   if (!dayKey) return "";

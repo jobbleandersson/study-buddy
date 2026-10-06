@@ -9,7 +9,7 @@ import { clozeToUnderscores } from "../components/questions.js";
 import { masteryByTopic, masteryForSubject, weakSpotQuestions } from "../lib/mastery.js";
 import { reviewReason } from "../lib/srs.js";
 import { localDayKey, addDays, recentDays, questionsAnsweredToday, reviewAccuracyTrend } from "../lib/activity.js";
-import { t, plural, getLang } from "../lib/i18n.js";
+import { t, plural, getLang, fmtDecimal } from "../lib/i18n.js";
 import { goalRing } from "../components/goal-ring.js";
 import { homeButton } from "../components/nav.js";
 import { pageHead } from "../components/set-ui.js";
@@ -330,5 +330,5 @@ function hpPrognosisPanel() {
 }
 
 function fmtNormed(n) {
-  return n == null ? "–" : Number(n).toFixed(2).replace(".", ",");
+  return n == null ? "–" : fmtDecimal(n, 2);
 }
