@@ -1705,7 +1705,7 @@ body.no-chrome .sitechat__panel { display: none; }
   font-size: 11.5px; font-weight: 700; color: #fff; background: var(--brand);
 }
 .hp-day__num { font-family: var(--font-display); font-size: 28px; line-height: 1.05; margin-top: 4px; color: var(--ink); font-variant-numeric: tabular-nums; }
-.hp-day__wday { font-size: 11.5px; font-weight: 600; color: var(--ink-faint); margin-bottom: 6px; text-transform: lowercase; }
+.hp-day__wday { font-size: 11.5px; font-weight: 600; color: var(--ink-faint); margin-bottom: 6px; }
 .hp-day__txt { display: grid; gap: 2px; min-width: 0; }
 .hp-day__txt strong { font-family: var(--font-display); font-size: var(--fs-lg); letter-spacing: -.01em; color: var(--ink); }
 .hp-day__txt > span { font-size: var(--fs-sm); color: var(--ink-soft); }

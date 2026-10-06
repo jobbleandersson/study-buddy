@@ -8,7 +8,7 @@ import { estimatedGrade, gradeRank } from "../lib/grade.js";
 import { normedScore, delprovEstimate, scoreBand, parseHpSetId, attemptNormedTotal, prognosisMargin } from "../lib/hp.js";
 import { summarizeSchedule, dueLabel, retentionForecast } from "../lib/srs.js";
 import { celebrate, clearConfetti } from "../lib/confetti-helper.js";
-import { t, plural, daysUntil, sentenceCase } from "../lib/i18n.js";
+import { t, plural, daysUntil, sentenceCase, fmtDecimal } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { playFanfare } from "../lib/sound.js";
 import { parseCloze, clozeToUnderscores } from "../components/questions.js";
@@ -302,7 +302,7 @@ function gradeReveal(attempt) {
   ]);
 }
 
-const fmtNormed = (n) => (n == null ? "–" : Number(n).toFixed(2).replace(".", ","));
+const fmtNormed = (n) => (n == null ? "–" : fmtDecimal(n, 2));
 
 /** For a Högskoleprov run — a delprov drill under test conditions, or the
  *  mini-mock — a normed-score (0.00–2.00) estimate in place of the F–A reveal.
