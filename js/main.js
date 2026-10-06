@@ -153,7 +153,7 @@ const routes = [
   { rx: /^\/solve$/, view: (m, qs) => (qs.get("mode") === "check"
     ? import("./views/check.js").then((mod) => mod.renderCheck())
     : import("./views/solve.js").then((mod) => mod.renderSolve(qs))) },
-  { rx: /^\/reference$/, view: () => import("./views/reference.js").then((mod) => mod.renderReference()) },
+  { rx: /^\/reference$/, view: (m, qs) => import("./views/reference.js").then((mod) => mod.renderReference(qs)) },
   { rx: /^\/calculator$/, view: () => import("./views/calculator.js").then((mod) => mod.renderCalculator()) },
   { rx: /^\/achievements$/, view: () => import("./views/achievements.js").then((mod) => mod.renderAchievements()) },
   { rx: /^\/leaderboard$/, view: () => import("./views/leaderboard.js").then((mod) => mod.renderLeaderboard()) },
