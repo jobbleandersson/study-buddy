@@ -165,7 +165,7 @@ export function renderResults(attemptId) {
       reviewCta(),
     ].filter(Boolean)) : null,
 
-    el("div", { style: { display: "flex", gap: "12px", justifyContent: "center", marginTop: "24px", flexWrap: "wrap" } }, [
+    el("div.results__actions", {}, [
       canChallenge && el("button.btn", {
         type: "button",
         onclick: () => openChallengeDialog({ setId: attempt.assignmentId, title: heading, correct: rightN, total: answeredN }),

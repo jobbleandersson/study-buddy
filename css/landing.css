@@ -68,6 +68,8 @@
   font-size: 13.5px; font-weight: 600; color: var(--ink-soft); text-decoration: none;
 }
 .lp-eyebrow:hover { border-color: var(--line-strong); color: var(--ink); }
+/* On a phone it takes two lines: split them evenly, not one word left alone on the second. */
+.lp-eyebrow > span:not(.lp-eyebrow__dot) { text-wrap: balance; }
 .lp-eyebrow__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok-bright); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ok-bright) 22%, transparent); }
 .lp-eyebrow svg { color: var(--ink-faint); }
 .lp--home .lp-h1 { font-size: clamp(2.6rem, 6.6vw, 4.6rem); line-height: 1.02; letter-spacing: -.045em; }

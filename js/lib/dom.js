@@ -42,6 +42,13 @@ export function append(node, children) {
 
 export function clear(node) { while (node.firstChild) node.removeChild(node.firstChild); return node; }
 
+/** An email address (or part of one) as children that wrap after its "@" and dots, so a narrow cell
+ *  breaks "alva.berg@" / "skolan.se" rather than mid-word. */
+export function wrappableEmail(text) {
+  // No lookbehind (older Safari): match each piece up to and including its "@" or dot.
+  return (String(text).match(/[^@.]*[@.]?/g) || []).filter(Boolean).flatMap((part, i) => (i ? [el("wbr"), part] : [part]));
+}
+
 export function mount(root, ...nodes) { clear(root); append(root, nodes); return root; }
 
 let toastTimer;
@@ -128,6 +135,7 @@ export const ICONS = {
   copy: "M9 9h10a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V10a1 1 0 0 1 1-1Z M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1",
   dots: "M12 6h.01 M12 12h.01 M12 18h.01",
   search: "M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z M21 21l-4.3-4.3",
+  zoomIn: "M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z M21 21l-4.3-4.3 M11 8v6 M8 11h6",
   clock: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z M12 7v5l3 2",
   play: "M6 4l14 8-14 8V4Z",
   keyboard: "M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Z M7 10h.01 M11 10h.01 M15 10h.01 M17 10h.01 M7 14h10",

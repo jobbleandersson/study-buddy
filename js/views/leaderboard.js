@@ -4,7 +4,7 @@
 // backend; signed-out (or no server), it's a sign-in prompt.
 
 import { store, isAvatarDataUrl } from "../store.js";
-import { el, clear, toast, icon, ICONS } from "../lib/dom.js";
+import { el, clear, toast, icon, ICONS, wrappableEmail } from "../lib/dom.js";
 import { FRIEND_INVITE_CODE_URL, FRIEND_REDEEM_URL, FRIEND_LEADERBOARD_URL, unfriendUrl } from "../config.js";
 import { shareCard, tierEmoji } from "../lib/share-card.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
@@ -141,7 +141,7 @@ export function renderLeaderboard() {
     return el("div.lbrow" + (entry.isMe ? ".lbrow--me" : ""), {}, [
       lead,
       el("div.lbrow__who", {}, [
-        el("span.lbrow__handle", {}, entry.isMe ? t("leaderboard.you") : (entry.email ? entry.email.split("@")[0] : "?")),
+        el("span.lbrow__handle", {}, entry.isMe ? t("leaderboard.you") : (entry.email ? wrappableEmail(entry.email.split("@")[0]) : "?")),
         !entry.synced ? el("span.note", {}, t("leaderboard.notSyncedYet")) : null,
       ].filter(Boolean)),
       el("div.lbrow__stats", {}, [

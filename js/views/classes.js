@@ -6,7 +6,7 @@
 // Built from the same cards and rows as Settings (components/set-ui.js).
 
 import { store } from "../store.js";
-import { el, clear, toast, icon, ICONS } from "../lib/dom.js";
+import { el, clear, toast, icon, ICONS, wrappableEmail } from "../lib/dom.js";
 import { t, plural, getLang, relativeDay, daysUntil, sentenceCase } from "../lib/i18n.js";
 import { serverMessage } from "../lib/server-errors.js";
 import { homeButton } from "../components/nav.js";
@@ -308,7 +308,7 @@ export async function renderClassDetail(id) {
       const rows = cls.members.map((m) => el("tr", {}, [
         el("td", {}, el("div.classgrid__student", {}, [
           avatar(m.email),
-          el("span", {}, m.email),
+          el("span", {}, wrappableEmail(m.email)),
           el("button.iconbtn.iconbtn--sm", {
             type: "button", "aria-label": t("classes.removeStudent", { email: m.email }), title: t("classes.removeStudent", { email: m.email }),
             onclick: async () => {

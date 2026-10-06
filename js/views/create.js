@@ -537,7 +537,7 @@ export function renderCreate(prefill) {
     if (state.source === "import") {
       return el("div.panel", {}, [
         body,
-        el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginTop: "8px", alignItems: "start" } }, [
+        el("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))", gap: "12px", marginTop: "8px", alignItems: "start" } }, [
           el("label.field", {}, [el("span", {}, t("create.subject")), subjectFld.el]),
           el("label.field", {}, [el("span", {}, t("create.type")), typeSel]),
         ]),
@@ -566,7 +566,7 @@ export function renderCreate(prefill) {
     if (state.source === "blank") {
       return el("div.panel", {}, [
         el("p.note", { style: { marginBottom: "12px" } }, t("create.blankHint")),
-        el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", alignItems: "start" } }, [
+        el("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))", gap: "12px", alignItems: "start" } }, [
           el("label.field", {}, [el("span", {}, t("create.subject")), subjectFld.el]),
           el("label.field", {}, [el("span", {}, t("create.type")), typeSel]),
         ]),
@@ -613,7 +613,7 @@ export function renderCreate(prefill) {
 
     return el("div.panel", {}, [
       body,
-      el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", alignItems: "start" } }, [
+      el("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))", gap: "12px", alignItems: "start" } }, [
         el("label.field", {}, [
           el("span", {}, t("create.subject")), subjectFld.el,
           state.subjectLocked && el("span.note", { style: { display: "block", marginTop: "4px" } }, t("create.subjectLocked")),
@@ -688,7 +688,7 @@ export function renderCreate(prefill) {
 
     return el("div", {}, [
       el("div.panel", {}, [
-        el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", alignItems: "start" } }, [
+        el("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))", gap: "12px", alignItems: "start" } }, [
           el("label.field", {}, [el("span", {}, t("create.setTitle")), titleInput]),
           el("label.field", {}, [el("span", {}, t("create.subject")), subjectFld.el]),
         ]),

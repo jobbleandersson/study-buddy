@@ -338,6 +338,8 @@ export async function renderNationalMix(subjectId, qs) {
  *  under one 55-minute clock. Reuses runSession's exam machinery; the attempt
  *  is tagged `hp` so results shows a normed estimate. */
 export async function renderHpMock(qs) {
+  // Opened straight from a link, before the hub has brought the HP sets in.
+  await ensureHpSets();
   const hpSets = store.assignments.filter((a) => isHpSetId(a.id));
   if (!hpSets.length) {
     return emptyScreen(t("hp.mockEmptyTitle"), t("hp.mockEmptyBody"), t("hp.mockBadge"));
@@ -397,6 +399,7 @@ export async function renderHpMock(qs) {
 export const HP_PRACTICE_PREFIX = "hp-ova-";
 export async function renderHpPractice(dp, qs) {
   if (!DELPROV_ORDER.includes(dp)) return notFound(t("hp.notFoundDelprov"));
+  await ensureHpSets();
   const pool = hpPool(hpQuestionIndex(), dp);
   if (!pool.length) return emptyScreen(t("hp.practiceEmptyTitle"), t("hp.practiceEmptyBody"), t(`hp.delprov.${dp}`));
 
@@ -749,6 +752,13 @@ function runSession(config) {
   // Ahead of or behind the test's pace, for an HP run on the clock.
   const paceEl = el("span.examtimer__pace", { hidden: true });
   const examTimer = el("span.examtimer", { hidden: !timed }, [icon(ICONS.clock, 13), examTimeText, paceEl]);
+  // On a phone the header's clock scrolls away while the student works down a long question, so a
+  // small copy floats under the top bar until the header is back in view (CSS shows it on phones only).
+  const floatTimeText = el("span");
+  const floatTimer = el("span.examtimer.examtimer--float", { hidden: true, "aria-hidden": "true" }, [icon(ICONS.clock, 13), floatTimeText]);
+  const floatWatch = timed && "IntersectionObserver" in window
+    ? new IntersectionObserver(([e]) => { floatTimer.hidden = e.isIntersecting || examTimer.hidden; }, { rootMargin: "-80px 0px 0px 0px" })
+    : null;
   let examTick = null, examAutoSubmitted = false;
 
   function fmtClock(ms) {
@@ -780,6 +790,8 @@ function runSession(config) {
     } else {
       examTimeText.textContent = fmtClock(Date.now() - state.startedAt);
     }
+    floatTimeText.textContent = examTimeText.textContent;
+    floatTimer.classList.toggle("examtimer--warn", examTimer.classList.contains("examtimer--warn"));
   }
   function startExam() {
     if (!timed || examTick) return;
@@ -1622,13 +1634,16 @@ function runSession(config) {
       ]),
       tutor.el,
     ]),
+    timed ? floatTimer : null,
   ].filter(Boolean));
+  floatWatch?.observe(examTimer);
 
   return {
     title: config.title,
     node,
     cleanup: () => {
       ended = true;
+      floatWatch?.disconnect();
       scratch.reset();
       setSessionActive(false);
       document.removeEventListener("keydown", onKeyDown);

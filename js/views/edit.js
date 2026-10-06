@@ -115,7 +115,8 @@ export function renderEdit(assignmentId, qs) {
     el("h1", { style: { marginBottom: "16px" } }, t("edit.title")),
 
     el("div.panel", {}, [
-      el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", alignItems: "start" } }, [
+      // Side by side where there's room; stacked on a phone, where half a width cuts the title off.
+      el("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))", gap: "12px", alignItems: "start" } }, [
         el("label.field", {}, [el("span", {}, t("create.setTitle")), titleInput]),
         el("label.field", {}, [el("span", {}, t("create.subject")), subjectFld.el]),
       ]),

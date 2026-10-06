@@ -307,6 +307,9 @@ export function clozeToUnderscores(prompt, fill = "____") {
  * figureURL(). If the image 404s the whole <figure> is swapped for the alt
  * text — which by contract carries the data needed to answer — so the
  * question stays answerable offline or on a bad path.
+ *
+ * The figures are drawn small (a 340-wide viewBox), so on a phone their labels are tiny: tapping the
+ * figure, or the button under it, opens it full screen (see openFigure).
  */
 function figurePanel(figure) {
   if (!figure || !figure.src) return null;
@@ -318,9 +321,54 @@ function figurePanel(figure) {
       el("span", {}, figure.alt || ""),
     ]));
   });
-  wrap.appendChild(img);
+  // The image itself only answers a pointer; the button is the control (the image stays out of it, so
+  // its alt text, which carries the figure's data for a screen reader, isn't replaced by a label).
+  const zoomBtn = el("button.question__figzoom", {
+    type: "button", onclick: () => openFigure(img, zoomBtn),
+  }, [icon(ICONS.zoomIn, 16), t("hp.figureZoom")]);
+  img.addEventListener("click", () => openFigure(img, zoomBtn));
+  wrap.append(img, zoomBtn);
   if (figure.caption) wrap.appendChild(el("figcaption", {}, figure.caption));
   return wrap;
+}
+
+/** A figure full screen, on a plain ground. Tapping the picture toggles between fitting the screen
+ *  and twice that (scrolling to where it was tapped); Esc, the close button or leaving the page shut it. */
+function openFigure(img, opener) {
+  let zoomed = false;
+  const big = el("img.figview__img", { src: img.currentSrc || img.src, alt: img.alt });
+  const scroller = el("div.figview__scroll", {}, [big]);
+  const close = () => {
+    document.removeEventListener("keydown", onKey, true);
+    window.removeEventListener("hashchange", close);
+    overlay.remove();
+    opener?.focus?.();
+  };
+  // Capture phase, and swallowed: the session's answer shortcuts mustn't fire under the overlay.
+  function onKey(e) {
+    if (e.key === "Escape") { e.preventDefault(); close(); }
+    if (e.key !== "Tab") e.stopPropagation();
+    else { e.preventDefault(); closeBtn.focus(); }
+  }
+  big.addEventListener("click", (e) => {
+    const r = big.getBoundingClientRect();
+    const fx = (e.clientX - r.left) / r.width, fy = (e.clientY - r.top) / r.height;
+    zoomed = !zoomed;
+    overlay.classList.toggle("is-zoomed", zoomed);
+    if (zoomed) {
+      scroller.scrollLeft = fx * big.offsetWidth - scroller.clientWidth / 2;
+      scroller.scrollTop = fy * big.offsetHeight - scroller.clientHeight / 2;
+    }
+  });
+  const closeBtn = el("button.iconbtn.figview__close", { type: "button", "aria-label": t("common.close"), onclick: close }, [icon(ICONS.close, 20)]);
+  const overlay = el("div.figview", { role: "dialog", "aria-modal": "true", "aria-label": img.alt || t("hp.figureZoom") }, [
+    el("div.figview__bar", {}, [el("p.figview__hint", {}, t("hp.figureZoomHint")), closeBtn]),
+    scroller,
+  ]);
+  document.body.appendChild(overlay);
+  document.addEventListener("keydown", onKey, true);
+  window.addEventListener("hashchange", close);
+  closeBtn.focus();
 }
 
 /**
