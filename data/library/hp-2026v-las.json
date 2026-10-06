@@ -111,6 +111,78 @@
       "prompt": "Vad betyder det att de svalaste timmarna \"uteblir\"?",
       "choices": ["De kommer senare än vanligt", "De blir kortare", "De inträffar inte", "De blir varmare än dagen"],
       "answer": 2,
-      "explanation": "Att något *uteblir* betyder att det inte kommer alls. Värmen som släpps ut under natten gör att den svala perioden inte inträffar." }
+      "explanation": "Att något *uteblir* betyder att det inte kommer alls. Värmen som släpps ut under natten gör att den svala perioden inte inträffar." },
+    { "id": "q-hp-2026v-las-11", "kind": "mc", "variant": "las", "topic": "huvudtanke",
+      "stimulus": { "id": "las-text-4", "title": "Text 4 – Biblioteket som mötesplats",
+        "body": "Under större delen av 1900-talet mättes ett folkbiblioteks framgång i utlån. Ju fler böcker som lämnade huset, desto bättre ansågs verksamheten fungera, och lokalerna ritades därefter: långa hyllrader, en disk vid entrén och några få platser att sitta på.\n\nUnder de senaste decennierna har utlånen minskat i många svenska kommuner, samtidigt som antalet besök på flera håll har legat kvar eller till och med ökat. Människor kommer för att plugga, läsa tidningar, använda datorer, gå på språkcaféer eller helt enkelt sitta någonstans där det är varmt och där ingen förväntar sig att de ska köpa något. Många bibliotek har därför byggt om: hyllorna har blivit lägre och färre, och golvytan har lämnats åt bord, grupprum och scener.\n\nFörändringen är inte okontroversiell. Kritiker menar att biblioteket riskerar att bli ett allaktivitetshus där läsningen trängs undan. Försvarare svarar att uppdraget aldrig har varit att låna ut böcker som sådant, utan att ge alla tillgång till kunskap och kultur – och att en lokal där människor faktiskt vill vara är en förutsättning för det. Kanske säger debatten mindre om biblioteken än om hur ovanligt det har blivit med offentliga rum som inte kräver ett ärende." },
+      "prompt": "Vad handlar texten främst om?",
+      "choices": [
+        "Varför allt färre människor läser böcker",
+        "Hur bibliotekens lokaler och uppgift har förändrats när besökarnas behov har ändrats",
+        "Hur biblioteken kan få utlånen att öka igen",
+        "Varför kritikerna av bibliotekens ombyggnader har rätt"
+      ],
+      "answer": 1,
+      "explanation": "Texten beskriver skiftet från utlån till mötesplats, hur lokalerna har byggts om och debatten om det. Att utlånen minskar betyder inte att färre läser, och texten tar inte ställning för kritikerna." },
+    { "id": "q-hp-2026v-las-12", "kind": "mc", "variant": "las", "topic": "detaljförståelse",
+      "stimulus": { "id": "las-text-4", "title": "Text 4 – Biblioteket som mötesplats",
+        "body": "Under större delen av 1900-talet mättes ett folkbiblioteks framgång i utlån. Ju fler böcker som lämnade huset, desto bättre ansågs verksamheten fungera, och lokalerna ritades därefter: långa hyllrader, en disk vid entrén och några få platser att sitta på.\n\nUnder de senaste decennierna har utlånen minskat i många svenska kommuner, samtidigt som antalet besök på flera håll har legat kvar eller till och med ökat. Människor kommer för att plugga, läsa tidningar, använda datorer, gå på språkcaféer eller helt enkelt sitta någonstans där det är varmt och där ingen förväntar sig att de ska köpa något. Många bibliotek har därför byggt om: hyllorna har blivit lägre och färre, och golvytan har lämnats åt bord, grupprum och scener.\n\nFörändringen är inte okontroversiell. Kritiker menar att biblioteket riskerar att bli ett allaktivitetshus där läsningen trängs undan. Försvarare svarar att uppdraget aldrig har varit att låna ut böcker som sådant, utan att ge alla tillgång till kunskap och kultur – och att en lokal där människor faktiskt vill vara är en förutsättning för det. Kanske säger debatten mindre om biblioteken än om hur ovanligt det har blivit med offentliga rum som inte kräver ett ärende." },
+      "prompt": "Vilket påstående stämmer med texten?",
+      "choices": [
+        "Antalet besök har minskat lika mycket som utlånen",
+        "Försvararna anser att böcker inte längre behövs på bibliotek",
+        "Språkcaféer infördes för att få fler att låna böcker",
+        "Äldre bibliotekslokaler var utformade framför allt för utlån"
+      ],
+      "answer": 3,
+      "explanation": "Första stycket: framgången mättes i utlån \"och lokalerna ritades därefter\" – med långa hyllrader och få sittplatser. Besöken har legat kvar eller ökat, och de övriga påståendena står inte i texten." },
+    { "id": "q-hp-2026v-las-13", "kind": "mc", "variant": "las", "topic": "slutsats",
+      "stimulus": { "id": "las-text-4", "title": "Text 4 – Biblioteket som mötesplats",
+        "body": "Under större delen av 1900-talet mättes ett folkbiblioteks framgång i utlån. Ju fler böcker som lämnade huset, desto bättre ansågs verksamheten fungera, och lokalerna ritades därefter: långa hyllrader, en disk vid entrén och några få platser att sitta på.\n\nUnder de senaste decennierna har utlånen minskat i många svenska kommuner, samtidigt som antalet besök på flera håll har legat kvar eller till och med ökat. Människor kommer för att plugga, läsa tidningar, använda datorer, gå på språkcaféer eller helt enkelt sitta någonstans där det är varmt och där ingen förväntar sig att de ska köpa något. Många bibliotek har därför byggt om: hyllorna har blivit lägre och färre, och golvytan har lämnats åt bord, grupprum och scener.\n\nFörändringen är inte okontroversiell. Kritiker menar att biblioteket riskerar att bli ett allaktivitetshus där läsningen trängs undan. Försvarare svarar att uppdraget aldrig har varit att låna ut böcker som sådant, utan att ge alla tillgång till kunskap och kultur – och att en lokal där människor faktiskt vill vara är en förutsättning för det. Kanske säger debatten mindre om biblioteken än om hur ovanligt det har blivit med offentliga rum som inte kräver ett ärende." },
+      "prompt": "Vad antyder textens sista mening?",
+      "choices": [
+        "Att det har blivit ovanligt med platser där man kan vistas utan ett särskilt ärende",
+        "Att debatten om biblioteken är onödig",
+        "Att biblioteken borde ta betalt för sina lokaler",
+        "Att kritikerna egentligen vill ha färre offentliga rum"
+      ],
+      "answer": 0,
+      "explanation": "Sista meningen flyttar blicken från biblioteken till samhället: debatten visar hur ovanligt det har blivit med offentliga rum \"som inte kräver ett ärende\", alltså där man kan vara utan att handla eller ha ett syfte." },
+    { "id": "q-hp-2026v-las-14", "kind": "mc", "variant": "las", "topic": "detaljförståelse",
+      "stimulus": { "id": "las-text-5", "title": "Text 5 – Myrornas vägval",
+        "body": "En myra som har hittat föda lämnar på vägen hem ett spår av doftämnen, så kallade feromoner. Andra myror följer spåret och förstärker det med egna doftämnen när de i sin tur återvänder med föda. Eftersom feromonerna avdunstar efter en tid försvinner spår som ingen längre använder.\n\nMekanismen leder till ett anmärkningsvärt resultat. Om två vägar leder till samma födokälla hinner myrorna på den kortare vägen gå fram och tillbaka fler gånger på samma tid. Den vägen får därmed fler lager doft, lockar fler myror och blir snart den som nästan alla väljer. Ingen enskild myra jämför vägarna; valet växer fram ur många individers enkla beteende.\n\nForskare har lånat principen för att lösa problem som är svåra att räkna ut direkt, till exempel hur ett företag ska planera rutterna för sina leveransbilar. I datorn skickas mängder av konstgjorda myror ut längs möjliga vägar, och goda lösningar förstärks medan dåliga får blekna bort. Metoden garanterar inte det bästa svaret, men den hittar ofta ett mycket bra svar på rimlig tid – ungefär som myrorna själva." },
+      "prompt": "Varför blir den kortare vägen till slut den som nästan alla myror väljer?",
+      "choices": [
+        "Myrorna jämför vägarnas längd innan de ger sig av",
+        "Feromonerna avdunstar långsammare på korta vägar",
+        "Fler resor hinns med på den, så att doftspåret förstärks oftare",
+        "De första myrorna hittar alltid den kortaste vägen"
+      ],
+      "answer": 2,
+      "explanation": "Andra stycket: på den kortare vägen hinner myrorna gå fram och tillbaka fler gånger, så den får \"fler lager doft\". Texten säger uttryckligen att ingen myra jämför vägarna." },
+    { "id": "q-hp-2026v-las-15", "kind": "mc", "variant": "las", "topic": "ord i sammanhang",
+      "stimulus": { "id": "las-text-5", "title": "Text 5 – Myrornas vägval",
+        "body": "En myra som har hittat föda lämnar på vägen hem ett spår av doftämnen, så kallade feromoner. Andra myror följer spåret och förstärker det med egna doftämnen när de i sin tur återvänder med föda. Eftersom feromonerna avdunstar efter en tid försvinner spår som ingen längre använder.\n\nMekanismen leder till ett anmärkningsvärt resultat. Om två vägar leder till samma födokälla hinner myrorna på den kortare vägen gå fram och tillbaka fler gånger på samma tid. Den vägen får därmed fler lager doft, lockar fler myror och blir snart den som nästan alla väljer. Ingen enskild myra jämför vägarna; valet växer fram ur många individers enkla beteende.\n\nForskare har lånat principen för att lösa problem som är svåra att räkna ut direkt, till exempel hur ett företag ska planera rutterna för sina leveransbilar. I datorn skickas mängder av konstgjorda myror ut längs möjliga vägar, och goda lösningar förstärks medan dåliga får blekna bort. Metoden garanterar inte det bästa svaret, men den hittar ofta ett mycket bra svar på rimlig tid – ungefär som myrorna själva." },
+      "prompt": "Ordet \"anmärkningsvärt\" i andra stycket betyder ungefär",
+      "choices": [
+        "värt att lägga märke till",
+        "felaktigt",
+        "väntat",
+        "tillfälligt"
+      ],
+      "answer": 0,
+      "explanation": "Något *anmärkningsvärt* är så slående att det är värt att notera – här att en så enkel mekanism hittar den kortaste vägen." },
+    { "id": "q-hp-2026v-las-16", "kind": "mc", "variant": "las", "topic": "slutsats",
+      "stimulus": { "id": "las-text-5", "title": "Text 5 – Myrornas vägval",
+        "body": "En myra som har hittat föda lämnar på vägen hem ett spår av doftämnen, så kallade feromoner. Andra myror följer spåret och förstärker det med egna doftämnen när de i sin tur återvänder med föda. Eftersom feromonerna avdunstar efter en tid försvinner spår som ingen längre använder.\n\nMekanismen leder till ett anmärkningsvärt resultat. Om två vägar leder till samma födokälla hinner myrorna på den kortare vägen gå fram och tillbaka fler gånger på samma tid. Den vägen får därmed fler lager doft, lockar fler myror och blir snart den som nästan alla väljer. Ingen enskild myra jämför vägarna; valet växer fram ur många individers enkla beteende.\n\nForskare har lånat principen för att lösa problem som är svåra att räkna ut direkt, till exempel hur ett företag ska planera rutterna för sina leveransbilar. I datorn skickas mängder av konstgjorda myror ut längs möjliga vägar, och goda lösningar förstärks medan dåliga får blekna bort. Metoden garanterar inte det bästa svaret, men den hittar ofta ett mycket bra svar på rimlig tid – ungefär som myrorna själva." },
+      "prompt": "Vad säger texten om datormetoden som bygger på myrornas beteende?",
+      "choices": [
+        "Den ger alltid den bästa lösningen",
+        "Den används främst för att forska om myror",
+        "Den är långsammare än att räkna ut svaret direkt",
+        "Den ger ofta goda men inte nödvändigtvis bästa lösningar"
+      ],
+      "answer": 3,
+      "explanation": "Sista stycket: metoden \"garanterar inte det bästa svaret, men den hittar ofta ett mycket bra svar på rimlig tid\". Att direkt beräkning skulle gå snabbare står inte – texten säger tvärtom att problemen är svåra att räkna ut direkt." }
   ]
 }

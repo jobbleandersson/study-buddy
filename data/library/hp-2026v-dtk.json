@@ -24,7 +24,7 @@
       "prompt": "Under vilken månad var skillnaden mellan orternas dygnsmedeltemperatur störst?",
       "choices": ["april", "maj", "juni", "september"],
       "answer": 3,
-      "explanation": "Skillnaderna är: apr 4°, maj 4°, jun 2°, aug 6°, sep 7°. Störst i september (Nordby 23°, Söderhamn 16°)." },
+      "explanation": "Skillnaderna är: apr 4°, maj 4°, jun 2°, jul 2°, aug 6°, sep 7°. Störst i september (Nordby 23°, Söderhamn 16°)." },
     { "id": "q-hp-2026v-dtk-04", "kind": "mc", "variant": "dtk", "topic": "diagram",
       "figure": { "src": "hp/2026v/dtk-02.svg", "alt": "Linjediagram, dygnsmedeltemperatur °C apr–sep. Nordby: 4, 7, 13, 19, 24, 23. Söderhamn: 8, 11, 15, 17, 18, 16." },
       "prompt": "För hur många av de sex månaderna var Söderhamn varmare än Nordby?",
@@ -66,6 +66,94 @@
       "prompt": "Ett bud kör P → R → Q → S och sedan den kortaste vägen tillbaka till P. Hur långt kör budet totalt?",
       "choices": ["133 km", "143 km", "153 km", "163 km"],
       "answer": 3,
-      "explanation": "P–R–Q–S: $28 + 35 + 30 = 93$ km. Kortaste vägen S → P är S–Q–P: $30 + 40 = 70$ km (S–R–P är $45 + 28 = 73$). Totalt $93 + 70 = 163$ km." }
+      "explanation": "P–R–Q–S: $28 + 35 + 30 = 93$ km. Kortaste vägen S → P är S–Q–P: $30 + 40 = 70$ km (S–R–P är $45 + 28 = 73$). Totalt $93 + 70 = 163$ km." },
+    { "id": "q-hp-2026v-dtk-11", "kind": "mc", "variant": "dtk", "topic": "tabell",
+      "figure": { "src": "hp/2026v/dtk-06.svg", "alt": "Tabell, gymnasieelever per program i Västerby län 2025 (antal elever; andel kvinnor i procent; andel med högskolebehörighet i procent): Ekonomi 820, 58, 90. Naturvetenskap 640, 52, 94. Teknik 560, 25, 86. Samhällsvetenskap 900, 64, 88. Vård och omsorg 300, 80, 41. Totalt 3 220 elever." },
+      "prompt": "Ungefär hur många kvinnor gick på Teknikprogrammet?",
+      "choices": [
+        "Omkring 70",
+        "Omkring 140",
+        "Omkring 280",
+        "Omkring 420"
+      ],
+      "answer": 1,
+      "explanation": "25 % av 560 elever: $0{,}25 \\cdot 560 = 140$." },
+    { "id": "q-hp-2026v-dtk-12", "kind": "mc", "variant": "dtk", "topic": "tabell",
+      "figure": { "src": "hp/2026v/dtk-06.svg", "alt": "Tabell, gymnasieelever per program i Västerby län 2025 (antal elever; andel kvinnor i procent; andel med högskolebehörighet i procent): Ekonomi 820, 58, 90. Naturvetenskap 640, 52, 94. Teknik 560, 25, 86. Samhällsvetenskap 900, 64, 88. Vård och omsorg 300, 80, 41. Totalt 3 220 elever." },
+      "prompt": "På vilket program gick flest kvinnor?",
+      "choices": [
+        "Ekonomi",
+        "Naturvetenskap",
+        "Samhällsvetenskap",
+        "Vård och omsorg"
+      ],
+      "answer": 2,
+      "explanation": "Räkna antal, inte andel: Ekonomi $0{,}58 \\cdot 820 \\approx 476$, Naturvetenskap $0{,}52 \\cdot 640 \\approx 333$, Samhällsvetenskap $0{,}64 \\cdot 900 = 576$, Vård och omsorg $0{,}80 \\cdot 300 = 240$. Vård och omsorg har högst andel men är det minsta programmet." },
+    { "id": "q-hp-2026v-dtk-13", "kind": "mc", "variant": "dtk", "topic": "tabell",
+      "figure": { "src": "hp/2026v/dtk-06.svg", "alt": "Tabell, gymnasieelever per program i Västerby län 2025 (antal elever; andel kvinnor i procent; andel med högskolebehörighet i procent): Ekonomi 820, 58, 90. Naturvetenskap 640, 52, 94. Teknik 560, 25, 86. Samhällsvetenskap 900, 64, 88. Vård och omsorg 300, 80, 41. Totalt 3 220 elever." },
+      "prompt": "Ungefär hur stor andel av alla elever i tabellen gick på Samhällsvetenskapsprogrammet?",
+      "choices": [
+        "Omkring 18 %",
+        "Omkring 23 %",
+        "Omkring 28 %",
+        "Omkring 33 %"
+      ],
+      "answer": 2,
+      "explanation": "$900 / 3\\,220 \\approx 0{,}28$, alltså omkring 28 %." },
+    { "id": "q-hp-2026v-dtk-14", "kind": "mc", "variant": "dtk", "topic": "tabell",
+      "figure": { "src": "hp/2026v/dtk-06.svg", "alt": "Tabell, gymnasieelever per program i Västerby län 2025 (antal elever; andel kvinnor i procent; andel med högskolebehörighet i procent): Ekonomi 820, 58, 90. Naturvetenskap 640, 52, 94. Teknik 560, 25, 86. Samhällsvetenskap 900, 64, 88. Vård och omsorg 300, 80, 41. Totalt 3 220 elever." },
+      "prompt": "Ungefär hur många av eleverna på Vård och omsorg fick högskolebehörighet med sin examen?",
+      "choices": [
+        "Omkring 120",
+        "Omkring 180",
+        "Omkring 40",
+        "Omkring 250"
+      ],
+      "answer": 0,
+      "explanation": "41 % av 300 elever: $0{,}41 \\cdot 300 = 123$, alltså omkring 120. (41 är andelen i procent, inte antalet.)" },
+    { "id": "q-hp-2026v-dtk-15", "kind": "mc", "variant": "dtk", "topic": "diagram",
+      "figure": { "src": "hp/2026v/dtk-07.svg", "alt": "Kombinerat diagram, kollektivtrafik i Västerby 2020–2025. Staplar, antal resor i miljoner: 2020 18, 2021 22, 2022 28, 2023 32, 2024 34, 2025 36. Linje, andel resor betalda med app i procent: 20, 35, 50, 60, 70, 75." },
+      "prompt": "Ungefär hur många resor betalades med app 2022?",
+      "choices": [
+        "Omkring 7 miljoner",
+        "Omkring 14 miljoner",
+        "Omkring 20 miljoner",
+        "Omkring 28 miljoner"
+      ],
+      "answer": 1,
+      "explanation": "2022 gjordes 28 miljoner resor (staplarna, vänster axel) och 50 % betalades med app (linjen, höger axel): $0{,}5 \\cdot 28 = 14$ miljoner." },
+    { "id": "q-hp-2026v-dtk-16", "kind": "mc", "variant": "dtk", "topic": "diagram",
+      "figure": { "src": "hp/2026v/dtk-07.svg", "alt": "Kombinerat diagram, kollektivtrafik i Västerby 2020–2025. Staplar, antal resor i miljoner: 2020 18, 2021 22, 2022 28, 2023 32, 2024 34, 2025 36. Linje, andel resor betalda med app i procent: 20, 35, 50, 60, 70, 75." },
+      "prompt": "Mellan vilka två på varandra följande år ökade antalet resor mest?",
+      "choices": [
+        "2020 och 2021",
+        "2022 och 2023",
+        "2021 och 2022",
+        "2024 och 2025"
+      ],
+      "answer": 2,
+      "explanation": "Ökningarna är +4, +6, +4, +2 och +2 miljoner. Störst är ökningen från 2021 (22) till 2022 (28)." },
+    { "id": "q-hp-2026v-dtk-17", "kind": "mc", "variant": "dtk", "topic": "diagram",
+      "figure": { "src": "hp/2026v/dtk-07.svg", "alt": "Kombinerat diagram, kollektivtrafik i Västerby 2020–2025. Staplar, antal resor i miljoner: 2020 18, 2021 22, 2022 28, 2023 32, 2024 34, 2025 36. Linje, andel resor betalda med app i procent: 20, 35, 50, 60, 70, 75." },
+      "prompt": "Ungefär hur många fler resor betalades med app 2025 än 2020?",
+      "choices": [
+        "Omkring 23 miljoner",
+        "Omkring 18 miljoner",
+        "Omkring 27 miljoner",
+        "Omkring 55 miljoner"
+      ],
+      "answer": 0,
+      "explanation": "2025: $0{,}75 \\cdot 36 = 27$ miljoner. 2020: $0{,}20 \\cdot 18 = 3{,}6$ miljoner. Skillnaden är omkring 23 miljoner. (55 är skillnaden i procentenheter, inte i resor.)" },
+    { "id": "q-hp-2026v-dtk-18", "kind": "mc", "variant": "dtk", "topic": "diagram",
+      "figure": { "src": "hp/2026v/dtk-07.svg", "alt": "Kombinerat diagram, kollektivtrafik i Västerby 2020–2025. Staplar, antal resor i miljoner: 2020 18, 2021 22, 2022 28, 2023 32, 2024 34, 2025 36. Linje, andel resor betalda med app i procent: 20, 35, 50, 60, 70, 75." },
+      "prompt": "Vilket år betalades för första gången fler än 20 miljoner resor med app?",
+      "choices": [
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "answer": 2,
+      "explanation": "2022: 14 miljoner, 2023: $0{,}6 \\cdot 32 = 19{,}2$ miljoner, 2024: $0{,}7 \\cdot 34 = 23{,}8$ miljoner. Först 2024 är det fler än 20 miljoner." }
   ]
 }

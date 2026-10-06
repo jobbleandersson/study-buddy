@@ -111,6 +111,78 @@
         "The growing sense of familiarity feels like learning"
       ],
       "answer": 3,
-      "explanation": "The second paragraph: rereading makes the text familiar, and \"familiarity is easily mistaken for knowledge\". Option 3 contradicts the research described." }
+      "explanation": "The second paragraph: rereading makes the text familiar, and \"familiarity is easily mistaken for knowledge\". Option 3 contradicts the research described." },
+    { "id": "q-hp-2026v-elf-11", "kind": "mc", "variant": "elf", "topic": "main idea",
+      "stimulus": { "id": "elf-text-4", "title": "Text 4 – The return of the repair shop",
+        "body": "For decades, repairing a broken kettle or a pair of headphones made little economic sense. New products were cheap, labour was expensive, and many devices were glued shut in ways that made it hard to open them without causing further damage. Throwing things away became the rational choice, even for people who disliked doing it.\n\nThat calculation is starting to shift. Several countries have introduced rules requiring manufacturers to supply spare parts and repair information for a number of years after a product is sold. Volunteer-run \"repair cafés\", where people bring broken items and fix them together with more experienced helpers, have spread from a single event in Amsterdam to thousands of locations around the world.\n\nAdvocates are careful not to overstate their case. Repair will not make sense for every product, and an old fridge that uses far more electricity than a modern one may do more harm kept alive than replaced. Their argument is narrower: that the decision should be a real one, made by owners who have the information and parts they need, rather than one settled in advance by the way a product was designed." },
+      "prompt": "What is the main point of the text?",
+      "choices": [
+        "Repairing products is always better for the environment than replacing them.",
+        "Changing rules and habits are making repair a realistic option again, though not always the right one.",
+        "Repair cafés were started mainly as a protest against manufacturers.",
+        "Modern products are designed to be easier to repair than older ones."
+      ],
+      "answer": 1,
+      "explanation": "The text explains why repair stopped making sense, what is changing that, and the advocates' \"narrower\" argument. The claim that repair is always better is exactly what they are careful not to make." },
+    { "id": "q-hp-2026v-elf-12", "kind": "mc", "variant": "elf", "topic": "detail",
+      "stimulus": { "id": "elf-text-4", "title": "Text 4 – The return of the repair shop",
+        "body": "For decades, repairing a broken kettle or a pair of headphones made little economic sense. New products were cheap, labour was expensive, and many devices were glued shut in ways that made it hard to open them without causing further damage. Throwing things away became the rational choice, even for people who disliked doing it.\n\nThat calculation is starting to shift. Several countries have introduced rules requiring manufacturers to supply spare parts and repair information for a number of years after a product is sold. Volunteer-run \"repair cafés\", where people bring broken items and fix them together with more experienced helpers, have spread from a single event in Amsterdam to thousands of locations around the world.\n\nAdvocates are careful not to overstate their case. Repair will not make sense for every product, and an old fridge that uses far more electricity than a modern one may do more harm kept alive than replaced. Their argument is narrower: that the decision should be a real one, made by owners who have the information and parts they need, rather than one settled in advance by the way a product was designed." },
+      "prompt": "According to the text, why did repairing small appliances long make little economic sense?",
+      "choices": [
+        "New products were cheap compared with the cost of labour.",
+        "Spare parts were banned in many countries.",
+        "Repair cafés charged too much.",
+        "Most people were happy to throw things away."
+      ],
+      "answer": 0,
+      "explanation": "First paragraph: \"New products were cheap, labour was expensive\", and devices were hard to open. That people were happy to throw things away contradicts \"even for people who disliked doing it\"." },
+    { "id": "q-hp-2026v-elf-13", "kind": "mc", "variant": "elf", "topic": "inference",
+      "stimulus": { "id": "elf-text-4", "title": "Text 4 – The return of the repair shop",
+        "body": "For decades, repairing a broken kettle or a pair of headphones made little economic sense. New products were cheap, labour was expensive, and many devices were glued shut in ways that made it hard to open them without causing further damage. Throwing things away became the rational choice, even for people who disliked doing it.\n\nThat calculation is starting to shift. Several countries have introduced rules requiring manufacturers to supply spare parts and repair information for a number of years after a product is sold. Volunteer-run \"repair cafés\", where people bring broken items and fix them together with more experienced helpers, have spread from a single event in Amsterdam to thousands of locations around the world.\n\nAdvocates are careful not to overstate their case. Repair will not make sense for every product, and an old fridge that uses far more electricity than a modern one may do more harm kept alive than replaced. Their argument is narrower: that the decision should be a real one, made by owners who have the information and parts they need, rather than one settled in advance by the way a product was designed." },
+      "prompt": "What does the example of the old fridge show?",
+      "choices": [
+        "Old appliances are usually more reliable than new ones.",
+        "Manufacturers make fridges hard to repair on purpose.",
+        "Repair cafés cannot fix large appliances.",
+        "Keeping a product running can sometimes be the worse choice."
+      ],
+      "answer": 3,
+      "explanation": "The fridge uses so much electricity that it \"may do more harm kept alive than replaced\" – an example of why repair does not make sense for every product." },
+    { "id": "q-hp-2026v-elf-14", "kind": "mc", "variant": "elf", "topic": "detail",
+      "stimulus": { "id": "elf-text-5", "title": "Text 5 – Deciding in a second language",
+        "body": "When people think through a problem in a language they learned later in life, they sometimes reach different conclusions than they would in their native tongue. In a series of experiments, researchers asked participants to choose between risky options described either in their first language or in a foreign one. The same outcome could be worded as \"200 of 600 people will be saved\" or as \"400 of 600 people will die\". In their native language, participants were strongly swayed by the wording; in the foreign language, much less so.\n\nOne explanation is distance. A second language tends to carry less emotional weight, since words learned in a classroom rarely come with the memories and feelings attached to words learned in childhood. With less emotion pulling at them, people may rely more on slow, deliberate reasoning.\n\nThe finding is easy to misread. It does not show that a foreign language makes people wiser in general: the same distance can make them less sensitive to moral considerations that ought to matter. Nor does it apply equally to everyone. The effect seems to shrink as people become more fluent and start to live parts of their lives in the new language." },
+      "prompt": "What happened when participants made their choices in a foreign language?",
+      "choices": [
+        "They took fewer risks overall.",
+        "They were less influenced by how the options were worded.",
+        "They made more mistakes in their calculations.",
+        "They refused to choose between the options."
+      ],
+      "answer": 1,
+      "explanation": "First paragraph: in their native language participants were \"strongly swayed by the wording; in the foreign language, much less so\"." },
+    { "id": "q-hp-2026v-elf-15", "kind": "mc", "variant": "elf", "topic": "inference",
+      "stimulus": { "id": "elf-text-5", "title": "Text 5 – Deciding in a second language",
+        "body": "When people think through a problem in a language they learned later in life, they sometimes reach different conclusions than they would in their native tongue. In a series of experiments, researchers asked participants to choose between risky options described either in their first language or in a foreign one. The same outcome could be worded as \"200 of 600 people will be saved\" or as \"400 of 600 people will die\". In their native language, participants were strongly swayed by the wording; in the foreign language, much less so.\n\nOne explanation is distance. A second language tends to carry less emotional weight, since words learned in a classroom rarely come with the memories and feelings attached to words learned in childhood. With less emotion pulling at them, people may rely more on slow, deliberate reasoning.\n\nThe finding is easy to misread. It does not show that a foreign language makes people wiser in general: the same distance can make them less sensitive to moral considerations that ought to matter. Nor does it apply equally to everyone. The effect seems to shrink as people become more fluent and start to live parts of their lives in the new language." },
+      "prompt": "What explanation for the effect does the text give?",
+      "choices": [
+        "Translating forces people to read more slowly.",
+        "People trust information in a foreign language more.",
+        "Words in a second language usually carry fewer emotional associations.",
+        "Native languages are less precise than foreign ones."
+      ],
+      "answer": 2,
+      "explanation": "Second paragraph: a second language \"tends to carry less emotional weight\", so people may rely more on deliberate reasoning. Reading more slowly sounds close, but the text links the slower reasoning to less emotion, not to translating." },
+    { "id": "q-hp-2026v-elf-16", "kind": "mc", "variant": "elf", "topic": "inference",
+      "stimulus": { "id": "elf-text-5", "title": "Text 5 – Deciding in a second language",
+        "body": "When people think through a problem in a language they learned later in life, they sometimes reach different conclusions than they would in their native tongue. In a series of experiments, researchers asked participants to choose between risky options described either in their first language or in a foreign one. The same outcome could be worded as \"200 of 600 people will be saved\" or as \"400 of 600 people will die\". In their native language, participants were strongly swayed by the wording; in the foreign language, much less so.\n\nOne explanation is distance. A second language tends to carry less emotional weight, since words learned in a classroom rarely come with the memories and feelings attached to words learned in childhood. With less emotion pulling at them, people may rely more on slow, deliberate reasoning.\n\nThe finding is easy to misread. It does not show that a foreign language makes people wiser in general: the same distance can make them less sensitive to moral considerations that ought to matter. Nor does it apply equally to everyone. The effect seems to shrink as people become more fluent and start to live parts of their lives in the new language." },
+      "prompt": "Which statement would the author most likely agree with?",
+      "choices": [
+        "The effect is probably weaker for people who use the second language in everyday life.",
+        "Making important decisions in a foreign language is a reliable way to decide better.",
+        "The effect is equally strong for everyone who speaks two languages.",
+        "Emotions always lead to worse decisions."
+      ],
+      "answer": 0,
+      "explanation": "Last paragraph: the effect \"seems to shrink as people become more fluent and start to live parts of their lives in the new language\". The text explicitly warns against reading it as a way to decide better in general." }
   ]
 }
