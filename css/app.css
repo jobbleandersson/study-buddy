@@ -1508,6 +1508,12 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .admin-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
 .admin-review { display: grid; gap: var(--s-3); }
 .admin-review blockquote { margin: 0; }
+.admin-error { display: grid; gap: var(--s-2); }
+.admin-error__head, .admin-error__bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-2); }
+.admin-error__count { font-variant-numeric: tabular-nums; }
+.admin-error__msg { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+.admin-error__src { margin: 0; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12.5px; color: var(--ink-soft); overflow-wrap: anywhere; }
+.admin-error__stack pre { margin: var(--s-2) 0 0; padding: var(--s-3); max-height: 260px; overflow: auto; font-size: 12px; white-space: pre; background: var(--surface-sunk); border-radius: var(--r-md); }
 .admin-review blockquote p { margin: 0; line-height: 1.55; overflow-wrap: anywhere; }
 .admin-review .note { margin: 0; }
 

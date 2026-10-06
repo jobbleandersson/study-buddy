@@ -4,6 +4,7 @@ import { db } from "../db.js";
 import { requireAuth } from "../middleware/requireAuth.js";
 import { asyncHandler } from "../middleware/asyncHandler.js";
 import { attemptLimit } from "../middleware/attemptLimit.js";
+import { adminFailures, requireAdminKey } from "../middleware/adminKey.js";
 
 export const reviews = Router();
 
@@ -17,10 +18,7 @@ export const reviews = Router();
 //   POST   /api/admin/reviews/:id   approve or reject one
 //   DELETE /api/admin/reviews/:id   remove one entirely
 //
-// Moderation is a shared key rather than an account role: there are no roles in this schema (see the
-// comment on "links" in db.js), and an email allowlist would hand the role to whoever registers that
-// address first while email verification is off. Set it with `fly secrets set REVIEW_ADMIN_KEY=...`;
-// unset, the admin endpoints answer 404 as if they didn't exist.
+// Moderation needs the shared admin key - see middleware/adminKey.js.
 
 export const LIMITS = { textMin: 10, textMax: 600, nameMax: 30, contextMax: 60 };
 const LANGS = new Set(["sv", "en"]);
@@ -30,11 +28,6 @@ const PUBLIC_MAX = 50;
 const submitLimit = attemptLimit({
   name: "review-submit", max: Number(process.env.REVIEW_SUBMITS_PER_HOUR_PER_USER ?? 10), windowMs: 60 * 60_000,
   key: (req) => req.user?.userId,
-});
-// Only wrong keys count, per address: 10 guesses per 15 minutes.
-const adminFailures = attemptLimit({
-  name: "review-admin-fail", max: Number(process.env.REVIEW_ADMIN_FAILS_PER_15MIN_PER_IP ?? 10), windowMs: 15 * 60_000,
-  failureStatuses: [403],
 });
 
 const clean = (v, max) => String(v ?? "").replace(/\s+/g, " ").trim().slice(0, max + 1);
@@ -108,15 +101,6 @@ reviews.delete("/reviews/mine", requireAuth, (req, res) => {
 });
 
 /* ---------------- moderation ---------------- */
-
-function requireAdminKey(req, res, next) {
-  const wanted = process.env.REVIEW_ADMIN_KEY || "";
-  if (!wanted) return res.status(404).json({ error: { message: "Not found." } });
-  const given = Buffer.from(String(req.headers["x-admin-key"] || ""));
-  const want = Buffer.from(wanted);
-  if (given.length === want.length && crypto.timingSafeEqual(given, want)) return next();
-  return res.status(403).json({ error: { message: "Wrong admin key.", code: "admin_key" } });
-}
 
 reviews.get("/admin/reviews", adminFailures, requireAdminKey, (req, res) => {
   const status = ["pending", "approved", "rejected"].includes(req.query.status) ? req.query.status : "pending";
