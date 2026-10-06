@@ -14,6 +14,7 @@ import { openWelcomeQuiz } from "../components/onboarding.js";
 import { openSiteGate, siteIsLocked } from "../components/site-gate-dialog.js";
 import { REVIEWS, publishableReviews } from "../data/reviews.js";
 import { STUDY_MODES } from "../lib/study-modes.js";
+import { OPTION_COUNT } from "../lib/hp.js";
 
 /** Leaving the front page counts as having seen the intro, so the old
  *  first-run modal doesn't fire on top of the app right afterwards.
@@ -171,7 +172,7 @@ function hero() {
         // The shot is hidden below 900px (it would be unreadable); the empty source there keeps
         // phones from downloading 180 KB they never see.
         el("picture", {}, [
-          el("source", { media: "(max-width: 899.98px)", srcset: "data:image/gif;base64,R0lGODlhAQABAAAAACw=" }),
+          el("source", { media: "(max-width: 899.98px)", srcset: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" }),
           el("img", {
             src: `assets/shots/home-${lang}.jpg`, alt: t("lp.heroAlt"),
             width: 2160, height: 1350, decoding: "async", fetchpriority: "high",
@@ -248,10 +249,11 @@ function curveArt() {
   ]);
 }
 
-// Real delprov, with the real number of answer options each one uses.
+// Real delprov, with the number of answer options each one uses - read from the HP format table
+// (lib/hp.js), so the illustration follows the test format instead of a copy of it.
 const SHEET = [
-  ["hp.verbal", [["ORD", 5], ["LÄS", 4], ["MEK", 4], ["ELF", 4]]],
-  ["hp.kvant", [["XYZ", 5], ["KVA", 4], ["NOG", 5], ["DTK", 5]]],
+  ["hp.verbal", ["ord", "las", "mek", "elf"].map((dp) => [dp === "las" ? "LÄS" : dp.toUpperCase(), OPTION_COUNT[dp]])],
+  ["hp.kvant", ["xyz", "kva", "nog", "dtk"].map((dp) => [dp.toUpperCase(), OPTION_COUNT[dp]])],
 ];
 
 function sheetArt() {

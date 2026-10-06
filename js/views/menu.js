@@ -16,7 +16,7 @@ import { openQuickAdd, closeQuickAdd } from "../components/quick-add.js";
 import { ACHIEVEMENTS, nextAchievement } from "../lib/achievements.js";
 import { countdownLabel } from "../lib/date-phrases.js";
 import { prepHashForSet, upcomingExams } from "../lib/exam.js";
-import { prepFor, taskHash, taskLabel, shortCountdown } from "../components/exam-flow.js";
+import { prepFor, taskHash, taskLabel, shortCountdown, resumeFor, taskButtonLabel } from "../components/exam-flow.js";
 import { testsTomorrow } from "../lib/tonight.js";
 import { dailySlot } from "../components/daily-card.js";
 import { houseAd } from "../components/house-ad.js";
@@ -873,23 +873,6 @@ async function fillStarterSuggestion(slot) {
   slot.hidden = false;
 }
 
-/** The unfinished run of a set worth resuming: the plain one or the practice run a test started
- *  (`<id>::practice`), whichever has more answered — and only if something was answered, so a set that
- *  was merely opened isn't "in progress, 0 of 15". */
-function resumeFor(a) {
-  const runs = [
-    { key: a.id, hash: `#/session/${a.id}` },
-    { key: `${a.id}::practice`, hash: `#/session/${a.id}?practice=1` },
-  ];
-  let best = null;
-  for (const r of runs) {
-    const session = store.getSession(r.key);
-    const answered = session ? Object.keys(session.items || {}).length : 0;
-    if (answered > 0 && (!best || answered > best.answered)) best = { ...r, session, answered };
-  }
-  return best;
-}
-
 /** The next test, first thing on the home screen: how far off it is and today's task for it. */
 function nextTestCard() {
   const exam = upcomingExams(store.exams, store.assignments, localDayKey())[0];
@@ -898,7 +881,6 @@ function nextTestCard() {
   const subject = store.subjects.find((s) => s.id === exam.subjectId);
   const title = exam.title || t("exam.cardTitle", { subject: subject?.name || "" });
   const open = m.todayStudy.find((x) => !x.done)?.task || null;
-  const run = open?.set ? resumeFor(open.set) : null;
   return el("article.exam-card.home-exam", { style: { "--subject": store.subjectColor(exam.subjectId).solid } }, [
     el("div.exam-card__top", {}, [
       el("a.exam-card__name", { href: `#/exam-prep/${exam.id}` }, [el("span.exam-dot"), title]),
@@ -911,7 +893,7 @@ function nextTestCard() {
         ? [
             el("span.exam-card__task", {}, [el("b", {}, `${t("exam.planToday")}: `), taskLabel(open, subject?.name || "")]),
             el("a.btn.btn--sm", { href: taskHash(open, m) }, [
-              run ? t("exam.continueCount", { n: run.answered, total: open.set.questions.length }) : t("exam.planStart"),
+              taskButtonLabel(open),
               icon(ICONS.arrow, 14),
             ]),
           ]

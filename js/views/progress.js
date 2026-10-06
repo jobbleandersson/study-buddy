@@ -84,7 +84,7 @@ export function renderProgress() {
     el("p.pg-foot", {}, attempts.length === 0 ? t("prog.firstHint") : t("prog.summary", {
       days: plural(studied.size, "prog.daysOne", "prog.daysMany"),
       sessions: plural(attempts.length, "prog.sessionsOne", "prog.sessionsMany"),
-    }) + (bestStreak > 0 ? " · " + t("prog.personalBest", { n: bestStreak }) : "")),
+    }) + (bestStreak > 0 ? " · " + plural(bestStreak, "prog.personalBestOne", "prog.personalBest") : "")),
   ]);
 
   // ---- review, at a glance ----

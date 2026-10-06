@@ -953,8 +953,10 @@ a.next-test--soon { border-color: var(--retry); background: var(--retry-tint); }
 .cal__nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--s-2); }
 .cal__month {
   font-family: var(--font-display); font-weight: 700; font-size: var(--fs-sm);
-  text-transform: capitalize; letter-spacing: .01em;
+  letter-spacing: .01em;
 }
+/* Only the first letter: "Oktober 2026", but a week range keeps Swedish lowercase months ("5 okt. – 11 okt."). */
+.cal__month::first-letter { text-transform: uppercase; }
 .cal__navbtn {
   width: 30px; height: 30px; flex: none; border-radius: var(--r-sm);
   border: 1px solid var(--line-strong); background: var(--surface);
@@ -4028,6 +4030,19 @@ body:has(.hp-intro) .session__headright > .btn { display: none; }
 .lbrow__stats { display: flex; align-items: center; gap: var(--s-4); flex: none; }
 .lbrow__streak { display: inline-flex; align-items: center; gap: 4px; color: var(--retry-ink); font-weight: 700; font-size: var(--fs-sm); }
 .lbrow__questions { font-weight: 700; font-size: var(--fs-sm); color: var(--ink-soft); white-space: nowrap; }
+/* Phones: the stats move under the name so the name gets the row's width - two friends whose names
+   start the same (anna.l, anna.lindberg) would otherwise both cut to "anna…". */
+@media (max-width: 520px) {
+  .lbrow {
+    display: grid; grid-template-columns: auto minmax(0, 1fr) auto;
+    column-gap: var(--s-3); row-gap: 2px; align-items: center;
+  }
+  .lbrow > .lbavatar, .lbrow > .lbrank { grid-column: 1; grid-row: 1 / span 2; }
+  .lbrow__who { grid-column: 2; grid-row: 1; }
+  .lbrow__handle { white-space: normal; overflow-wrap: anywhere; }
+  .lbrow__stats { grid-column: 2; grid-row: 2; gap: var(--s-3); }
+  .lbrow > .iconbtn { grid-column: 3; grid-row: 1 / span 2; }
+}
 .lbcode {
   font-size: 22px; font-weight: 700; letter-spacing: .12em; font-family: ui-monospace, "SF Mono", Menlo, monospace;
   background: var(--surface-sunk); border: 1px dashed var(--line-strong); border-radius: var(--r-md);

@@ -4,7 +4,7 @@
 // same localStorage keys the questions and the tutor read, so the two places stay in step.
 
 import { el, icon, ICONS } from "../lib/dom.js";
-import { t } from "../lib/i18n.js";
+import { t, getLang } from "../lib/i18n.js";
 import {
   voicesForLang, rankVoices, voiceIsNatural, voiceIsOnline, voiceAdvice,
   getPreferredVoiceURI, setPreferredVoiceURI, getRate, setRate, speakSample, stopSpeaking,
@@ -81,7 +81,7 @@ export function voiceControls({ compact = false } = {}) {
   sel.addEventListener("change", () => { setPreferredVoiceURI(sel.value); paintTip(); play(); });
   sampleBtn.addEventListener("click", () => (playing && sampleBtn.textContent === t("voice.stop") ? stop() : play()));
   rateIn.value = String(getRate());
-  const paintRate = () => { rateVal.textContent = `${Number(rateIn.value).toFixed(1)}×`; };
+  const paintRate = () => { rateVal.textContent = `${Number(rateIn.value).toLocaleString(getLang() === "sv" ? "sv-SE" : "en-GB", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}×`; };
   paintRate();
   rateIn.addEventListener("input", () => { setRate(Number(rateIn.value)); paintRate(); });
   rateIn.addEventListener("change", play);   // let go of the slider: hear the new speed

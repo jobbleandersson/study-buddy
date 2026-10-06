@@ -1255,6 +1255,7 @@ export const STRINGS = {
     "streak.atRiskShort": "Streak at risk — study today",
 
     "prog.achievements": "Achievements",
+    "prog.personalBestOne": "personal best: {n} day",
     "prog.personalBest": "personal best: {n} days",
 
     "nav.solve": "PluggEra AI",
@@ -2372,7 +2373,7 @@ export const STRINGS = {
     "hp.planOrd": "Train ORD vocabulary",
     "hp.planTry": "Try {delprov} · practice with solutions",
     "hp.planPrognos": "Quick prognosis · your first estimate",
-    "hp.planMock": "Mini-mock — 40 questions, 55 min",
+    "hp.planMock": "A provpass under test conditions — 40 questions, 55 min",
     "hp.planTestDay": "Prov day — rest and trust the prep.",
     "hp.drillWeak": "Drill {delprov} on the clock",
     "hp.trainOrd": "Train ORD",
@@ -2454,11 +2455,11 @@ export const STRINGS = {
     "hp.notifToday": "Högskoleprovet is today",
     "hp.notifTomorrow": "Högskoleprovet is tomorrow",
     "hp.notifInDays": "Högskoleprovet in {n} days",
-    "hp.notifBody": "Run a mini-mock and drill your weakest delprov.",
+    "hp.notifBody": "Take a provpass under test conditions and drill your weakest delprov.",
     "hp.notifLink": "Open the HP hub",
     "ed.hpNote": "Högskoleprovet question ({delprov}) — image and layout are edited in the file.",
     "ach.track.hp": "Högskoleprovet",
-    "ach.desc.hp": "Finish {n} mini-mocks",
+    "ach.desc.hp": "{n}+ HP tests under test conditions",
 
     /* ---- högskoleprovet: add delprov panel ---- */
 
@@ -3322,7 +3323,7 @@ export const STRINGS = {
     "prog.reviewAll": "Repetera alla",
     "prog.qCountOne": "1 fråga",
     "prog.qCountMany": "{n} frågor",
-    "prog.lastScore": "Senaste resultat {score}%",
+    "prog.lastScore": "Senaste resultat {score} %",
     "prog.hpTotal": "normerad poäng",
     "srs.reasonMissed": "fel tidigare",
     "srs.reasonOverdue": "försenad",
@@ -4104,6 +4105,7 @@ export const STRINGS = {
     "streak.atRiskShort": "Svit i fara — plugga idag",
 
     "prog.achievements": "Utmärkelser",
+    "prog.personalBestOne": "personbästa: {n} dag",
     "prog.personalBest": "personbästa: {n} dagar",
 
     "nav.solve": "PluggEra AI",
@@ -5205,7 +5207,7 @@ export const STRINGS = {
     "hp.planOrd": "Träna ORD-ordförråd",
     "hp.planTry": "Prova {delprov} · övning med lösningar",
     "hp.planPrognos": "Snabbprognos · din första uppskattning",
-    "hp.planMock": "Minimock — 40 frågor, 55 min",
+    "hp.planMock": "Provpass under provvillkor — 40 frågor, 55 min",
     "hp.planTestDay": "Provdag — vila och lita på förberedelsen.",
     "hp.drillWeak": "Nöt {delprov} på tid",
     "hp.trainOrd": "Träna ORD",
@@ -5287,11 +5289,11 @@ export const STRINGS = {
     "hp.notifToday": "Högskoleprovet är idag",
     "hp.notifTomorrow": "Högskoleprovet är imorgon",
     "hp.notifInDays": "Högskoleprovet om {n} dagar",
-    "hp.notifBody": "Kör en minimock och nöt ditt svagaste delprov.",
+    "hp.notifBody": "Gör ett provpass under provvillkor och nöt ditt svagaste delprov.",
     "hp.notifLink": "Öppna HP-navet",
     "ed.hpNote": "Högskoleprovsfråga ({delprov}) — bild och layout redigeras i filen.",
     "ach.track.hp": "Högskoleprovet",
-    "ach.desc.hp": "Slutför {n} minimock-prov",
+    "ach.desc.hp": "{n}+ HP-prov under provvillkor",
 
     /* ---- högskoleprovet: lägg till delprov ---- */
 

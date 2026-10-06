@@ -116,7 +116,9 @@ export function achievementMetrics(state) {
   const streak = Math.max(currentStreak(days, frozen), state.activity?.bestStreak || 0);
   const questions = attempts.reduce((n, a) => n + (Array.isArray(a.items) ? a.items.length : 0), 0);
   const perfect = attempts.filter((a) => a.wasTest && a.scorePct === 100).length;
-  const hp = attempts.filter((a) => a.assignmentId === "__hpmock__").length;
+  // Högskoleprovet tests under test conditions: a quick prognosis, a provpass (a whole test is two),
+  // and the old mini-mock, which older attempts still carry.
+  const hp = attempts.filter((a) => a.hpPrognos || a.hpPass || a.assignmentId === "__hpmock__").length;
 
   const tm = masteryByTopic(attempts);
   const cOrBetter = gradeRank("C");
