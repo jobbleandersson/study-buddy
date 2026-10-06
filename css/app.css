@@ -3486,7 +3486,7 @@ body.route-chat .sitechat__panel { display: none; }
   border-radius: var(--r-md); background: var(--ok-tint); color: var(--ok-ink);
   font-size: var(--fs-sm); line-height: 1.4;
 }
-.confirmdlg--danger .confirmdlg__note { background: var(--retry-tint); color: var(--retry-ink); }
+.confirmdlg--danger .confirmdlg__note, .confirmdlg--warn .confirmdlg__note { background: var(--retry-tint); color: var(--retry-ink); }
 .confirmdlg__actions {
   display: flex; justify-content: flex-end; gap: var(--s-3);
   margin-top: var(--s-5); flex-wrap: wrap;

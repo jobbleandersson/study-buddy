@@ -3,12 +3,13 @@
 //   if (await confirmDialog({ message, confirmLabel, danger })) { ... }
 //
 // `message` may hold a blank line: the first paragraph becomes the question,
-// anything after it becomes a highlighted reassurance / warning note.
+// anything after it becomes a highlighted reassurance / warning note. The note is
+// green (a reassurance) unless `danger` or `warn` is set.
 
 import { el } from "../lib/dom.js";
 import { t } from "../lib/i18n.js";
 
-export function confirmDialog({ message = "", confirmLabel, cancelLabel, danger = false } = {}) {
+export function confirmDialog({ message = "", confirmLabel, cancelLabel, danger = false, warn = false } = {}) {
   return new Promise((resolve) => {
     const [body, ...noteParts] = String(message).split(/\n\n+/);
     const note = noteParts.join(" ").trim();
@@ -45,7 +46,7 @@ export function confirmDialog({ message = "", confirmLabel, cancelLabel, danger 
       type: "button", onclick: () => finish(false),
     }, cancelLabel || t("common.cancel"));
 
-    const overlay = el("div.modal.confirmdlg" + (danger ? ".confirmdlg--danger" : ""), {
+    const overlay = el("div.modal.confirmdlg" + (danger ? ".confirmdlg--danger" : warn ? ".confirmdlg--warn" : ""), {
       role: "alertdialog", "aria-modal": "true", "aria-label": body || t("common.confirm"),
       onclick: (e) => { if (e.target === overlay) finish(false); },
     }, [
