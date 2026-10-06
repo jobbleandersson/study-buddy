@@ -57,21 +57,29 @@ export function renderMenu(mode) {
   ]);
   sortSel.value = sortBy;
 
-  // Sort + subject chips live in a drawer behind a "Filter" toggle — but it
-  // springs open on its own whenever a filter is actually active, so the
-  // student can always see and clear what's narrowing the list.
-  const filterDrawer = el("div.filterdrawer", {}, [sortSel, chipsRow]);
+  // Sort + subject chips live in a drawer behind a "Filter" toggle that always opens and closes it.
+  // A filter left on shows as a count on the button, so a closed drawer never hides why the list is
+  // shorter, and "Clear filters" in the drawer puts both back in one tap.
+  const filterCount = el("span.filtertoggle__n", { hidden: true });
+  const clearFilters = el("button.linkbtn", {
+    type: "button", hidden: true,
+    onclick: () => { subjectFilter = "all"; sortBy = "recent"; sortSel.value = sortBy; paint(); },
+  }, t("menu.filterClear"));
+  const filterDrawer = el("div.filterdrawer", {}, [el("div.filterdrawer__row", {}, [sortSel, clearFilters]), chipsRow]);
   const filterToggle = el("button.btn.btn--ghost.btn--sm.filtertoggle", {
     type: "button", "aria-expanded": "false",
     onclick: () => { filtersOpen = !filtersOpen; paintFilterDrawer(); },
-  }, [t("menu.filter"), el("span.caret", { "aria-hidden": "true" }, "▾")]);
+  }, [t("menu.filter"), filterCount, el("span.caret", { "aria-hidden": "true" }, "▾")]);
 
   function paintFilterDrawer() {
-    const active = subjectFilter !== "all" || sortBy !== "recent";
-    const open = filtersOpen || active;
-    filterDrawer.hidden = !open;
-    filterToggle.setAttribute("aria-expanded", String(open));
-    filterToggle.classList.toggle("is-on", open);
+    const active = Number(subjectFilter !== "all") + Number(sortBy !== "recent");
+    filterDrawer.hidden = !filtersOpen;
+    filterToggle.setAttribute("aria-expanded", String(filtersOpen));
+    filterToggle.setAttribute("aria-label", active ? plural(active, "menu.filterOnOne", "menu.filterOnMany") : t("menu.filter"));
+    filterToggle.classList.toggle("is-on", filtersOpen || active > 0);
+    filterCount.hidden = !active;
+    filterCount.textContent = String(active);
+    clearFilters.hidden = !active;
   }
 
   /* ---------------- painting ---------------- */
