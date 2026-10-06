@@ -117,6 +117,31 @@ export const mockHash = (m, min) =>
   `#/national/mix/${m.subjectId}?exam=1&min=${min}&count=${mockCountFor(min)}&sets=${m.ids.join(",")}&${prov(m)}`;
 export const passHash = (m, min) => `#/exam-pass/${m.exam.id}?min=${min}`;
 
+/** The unfinished run of a set worth resuming: the plain one or the practice run a test started
+ *  (`<id>::practice`), whichever has more answered — and only if something was answered, so a set that
+ *  was merely opened isn't "in progress, 0 of 15". */
+export function resumeFor(a) {
+  const runs = [
+    { key: a.id, hash: `#/session/${a.id}` },
+    { key: `${a.id}::practice`, hash: `#/session/${a.id}?practice=1` },
+  ];
+  let best = null;
+  for (const r of runs) {
+    const session = store.getSession(r.key);
+    const answered = session ? Object.keys(session.items || {}).length : 0;
+    if (answered > 0 && (!best || answered > best.answered)) best = { ...r, session, answered };
+  }
+  return best;
+}
+
+/** The button on a plan task: "Fortsätt (3 av 9)" when a run of that set is under way, so every
+ *  page that offers the task says the same thing (the home card always did; the test pages said
+ *  "Starta" over a half-done run). */
+export function taskButtonLabel(task) {
+  const run = task?.set ? resumeFor(task.set) : null;
+  return run ? t("exam.continueCount", { n: run.answered, total: task.set.questions.length }) : t("exam.planStart");
+}
+
 export function taskLabel(task, subjectName) {
   switch (task.kind) {
     case "start": return t("exam.planFirst", { title: task.set.title });

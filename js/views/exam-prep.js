@@ -20,7 +20,7 @@ import { openExamDialog } from "../components/exam-dialog.js";
 import { addMoreQuestions, MORE_QUESTIONS } from "../components/exam-more.js";
 import {
   prepFor, taskHash, taskLabel, resolveExam, shortCountdown, weakHash, reviewHash, practiceHash, mockHash,
-  passHash, isStudyTask, nextStep,
+  passHash, isStudyTask, nextStep, taskButtonLabel,
 } from "../components/exam-flow.js";
 import { isHpSetId } from "../lib/hp.js";
 import {
@@ -291,7 +291,7 @@ export function renderExamPrep(param, qs) {
         el("span.exam-plan__tasks", {}, items.map(({ task, done }) => el("span.exam-plan__task" + (done ? ".is-done" : ""), {},
           [done ? icon(ICONS.check, 13) : null, taskLabel(task, subject.name)].filter(Boolean)))),
         dayDone ? el("span.exam-plan__tick", {}, [icon(ICONS.check, 15)])
-          : open ? el("a.btn.btn--sm", { href: taskHash(open.task, m) }, [t("exam.planStart"), icon(ICONS.arrow, 14)])
+          : open ? el("a.btn.btn--sm", { href: taskHash(open.task, m) }, [taskButtonLabel(open.task), icon(ICONS.arrow, 14)])
             : r.minutes ? el("span.exam-plan__min", {}, t("exam.planMin", { n: r.minutes })) : null,
       ].filter(Boolean)));
     });
@@ -515,7 +515,7 @@ function renderLanding() {
         : open
           ? [
               el("span.exam-card__task", {}, [el("b", {}, `${t("exam.planToday")}: `), taskLabel(open, s.name)]),
-              el("a.btn.btn--sm", { href: taskHash(open, m) }, [t("exam.planStart"), icon(ICONS.arrow, 14)]),
+              el("a.btn.btn--sm", { href: taskHash(open, m) }, [taskButtonLabel(open), icon(ICONS.arrow, 14)]),
             ]
           : [el("span.exam-card__task", {}, x.days === 0 ? t("exam.testDayBody") : t("exam.farOut"))]),
     ]);
