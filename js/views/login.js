@@ -19,6 +19,12 @@ function safeNext(raw) {
   return /^#\/[a-zA-Z0-9/_-]*(\?[a-zA-Z0-9_=&-]*)?$/.test(hash) ? hash : "#/settings";
 }
 
+// A request that never reached the server (offline, a dropped mobile connection) fails with the browser's
+// own words - "Failed to fetch", "Load failed", "NetworkError when attempting to fetch resource" - in
+// English whatever the app's language. Say it the student's way instead.
+const NETWORK_ERROR = /Failed to fetch|Load failed|NetworkError|network error/i;
+const messageOf = (err, fallbackKey) => (NETWORK_ERROR.test(err?.message || "") ? t("login.networkError") : err?.message || t(fallbackKey));
+
 export function renderLogin(qs) {
   const dest = safeNext(qs?.get?.("next"));
   let mode = "login"; // "login" | "signup" | "forgot" | "forgotSent" | "twofa"
@@ -30,9 +36,9 @@ export function renderLogin(qs) {
   const serverDown = !store.proxyUp;
 
   const emailInput = el("input", { id: "auth-email", type: "email", autocomplete: "email", required: true, placeholder: t("login.emailPlaceholder"), disabled: serverDown });
-  const passInput = el("input", { id: "auth-password", type: "password", placeholder: "••••••••", disabled: serverDown });
+  const passInput = el("input", { id: "auth-password", type: "password", placeholder: t("login.passwordPlaceholder"), disabled: serverDown });
   const codeInput = el("input", { id: "auth-code", type: "text", autocomplete: "one-time-code", placeholder: t("login.twofaPlaceholder"), disabled: serverDown });
-  const confirmInput = el("input", { id: "auth-confirm", type: "password", placeholder: "••••••••", disabled: serverDown, autocomplete: "new-password" });
+  const confirmInput = el("input", { id: "auth-confirm", type: "password", placeholder: t("login.confirmPlaceholder"), disabled: serverDown, autocomplete: "new-password" });
   const errorNote = el("p.auth__error", { hidden: true, role: "alert" });
   const submitBtn = el("button.auth__submit", { type: "submit", disabled: serverDown }, t("login.signIn"));
   const heading = el("h1.auth__title");
@@ -101,7 +107,9 @@ export function renderLogin(qs) {
     passInput.autocomplete = mode === "login" ? "current-password" : "new-password";
     consentRow.hidden = mode !== "signup" && !googleCredential;
     googleConfirmBtn.hidden = !googleCredential;
-    passInput.placeholder = mode === "login" ? "••••••••" : t("login.passwordHint");
+    passInput.placeholder = mode === "login" ? t("login.passwordPlaceholder") : t("login.passwordHint");
+    // A new password's minimum length is checked right here, before a round trip to the server.
+    if (mode === "signup") passInput.setAttribute("minlength", "8"); else passInput.removeAttribute("minlength");
   }
 
   function setMode(next) {
@@ -139,7 +147,7 @@ export function renderLogin(qs) {
       startResendCountdown(r.cooldownSec);
     } catch (err) {
       if (err.code === "twofa_restart") { pendingChallenge = null; setMode("login"); }
-      errorNote.textContent = err.message || t("login.somethingWrong");
+      errorNote.textContent = messageOf(err, "login.somethingWrong");
       errorNote.hidden = false;
       startResendCountdown(err.code === "twofa_cooldown" ? err.cooldownSec : 0);
     }
@@ -181,7 +189,7 @@ export function renderLogin(qs) {
         paintMode();
         errorNote.textContent = t("login.googleNeedsConsent");
       } else {
-        errorNote.textContent = err.message || t("login.googleFailed");
+        errorNote.textContent = messageOf(err, "login.googleFailed");
       }
       errorNote.hidden = false;
     }
@@ -215,7 +223,7 @@ export function renderLogin(qs) {
         mode = "forgotSent";
         paintMode();
       } catch (err) {
-        errorNote.textContent = err.message || t("login.somethingWrong");
+        errorNote.textContent = messageOf(err, "login.somethingWrong");
         errorNote.hidden = false;
       } finally {
         submitBtn.disabled = false;
@@ -238,7 +246,7 @@ export function renderLogin(qs) {
           pendingChallenge = null;
           setMode("login");
         }
-        errorNote.textContent = err.message || t("login.loginFailed");
+        errorNote.textContent = messageOf(err, "login.loginFailed");
         errorNote.hidden = false;
         if (mode === "twofa") codeInput.focus();
       } finally {
@@ -277,7 +285,7 @@ export function renderLogin(qs) {
       }
       location.hash = dest;
     } catch (err) {
-      errorNote.textContent = err.message || t("login.somethingWrong");
+      errorNote.textContent = messageOf(err, "login.somethingWrong");
       errorNote.hidden = false;
     } finally {
       submitBtn.disabled = false;
