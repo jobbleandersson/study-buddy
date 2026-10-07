@@ -23,6 +23,18 @@ function makeUser() {
   return id;
 }
 
+describe("usage: Claude Haiku 5.5", () => {
+  test("is allowed and priced at its own rates, with the long-prompt card past 100K tokens", () => {
+    assert.ok(usage.ALLOWED_MODELS.has("claude-haiku-5-5"));
+    // 10K in + 1K out: 10_000 * 0.1 + 1_000 * 0.5 = 1_500 micro-dollars.
+    assert.equal(usage.costMicroUsd("claude-haiku-5-5", { input: 10_000, output: 1_000 }), 1_500);
+    // 200K in + 1K out on the long card: 200_000 * 0.5 + 1_000 * 2.5 = 102_500.
+    assert.equal(usage.costMicroUsd("claude-haiku-5-5", { input: 200_000, output: 1_000 }), 102_500);
+    // A tenth of Haiku 4.5 for the same short request.
+    assert.equal(usage.costMicroUsd("claude-haiku-4-5", { input: 10_000, output: 1_000 }), 15_000);
+  });
+});
+
 describe("usage.costMicroUsd", () => {
   test("known models price input and output at their listed per-million rates", () => {
     // PRICE_PER_MTOK is USD per million tokens, which is also micro-dollars per token.

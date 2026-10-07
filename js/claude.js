@@ -25,13 +25,22 @@ const API_URL = PROXY_URL;
  */
 export const MODELS = {
   generate: "claude-sonnet-5",
-  tutor: "claude-haiku-4-5",
-  grade: "claude-haiku-4-5",
+  tutor: "claude-haiku-5-5",
+  grade: "claude-haiku-5-5",
   check: "claude-sonnet-5",
 };
 
 function headers() {
   return { "content-type": "application/json" };
+}
+
+// Claude Haiku 5.5 thinks before it answers unless told otherwise, and thinking counts against
+// max_tokens. Tutoring and marking need little of it: effort "low", and room for the thinking it does so
+// an answer is never cut off by it.
+const THINKING_ROOM = 1024;
+function tuned(body) {
+  if (body.model !== "claude-haiku-5-5") return body;
+  return { ...body, max_tokens: body.max_tokens + THINKING_ROOM, output_config: { effort: "low" } };
 }
 
 /** task: "generate" | "tutor" | "grade" | "check" | "solve" */
@@ -71,7 +80,7 @@ async function errorFrom(res) {
 async function callRaw(body, { strict = false } = {}) {
   let res;
   try {
-    res = await fetch(API_URL, { method: "POST", headers: headers(), body: JSON.stringify(body) });
+    res = await fetch(API_URL, { method: "POST", headers: headers(), body: JSON.stringify(tuned(body)) });
   } catch (e) {
     throw new ClaudeError(t("err.network"));
   }
@@ -79,6 +88,8 @@ async function callRaw(body, { strict = false } = {}) {
   const data = await res.json();
   // Cut off at the token cap: the JSON is incomplete, and asking again would just repeat it.
   if (strict && data.stop_reason === "max_tokens") throw new ClaudeError(t("err.genTooLong"));
+  // A safety decline comes back as a 200 with no answer; say so instead of showing nothing.
+  if (data.stop_reason === "refusal") throw new ClaudeError(t("err.refused"));
   return { text: data.content?.map((b) => b.text || "").join("") || "", usage: data.usage || null };
 }
 
@@ -351,19 +362,20 @@ export async function* tutorStream({ system, messages, signal, maxTokens = 800, 
     method: "POST",
     headers: headers(),
     signal,
-    body: JSON.stringify({
+    body: JSON.stringify(tuned({
       model: modelFor("tutor"),
       max_tokens: maxTokens,
       stream: true,
       system,
       messages,
-    }),
+    })),
   });
   if (!res.ok || !res.body) throw await errorFrom(res);
 
   const reader = res.body.getReader();
   const decoder = new TextDecoder();
   let buffer = "";
+  let said = false;
   try {
   while (true) {
     const { done, value } = await reader.read();
@@ -379,8 +391,10 @@ export async function* tutorStream({ system, messages, signal, maxTokens = 800, 
       let json;
       try { json = JSON.parse(payload); } catch { continue; }
       if (json.type === "content_block_delta" && json.delta?.type === "text_delta") {
+        said = true;
         yield json.delta.text;
       } else if (json.type === "message_delta" && json.delta?.stop_reason) {
+        if (json.delta.stop_reason === "refusal" && !said) throw new ClaudeError(t("err.refused"));
         onStop?.(json.delta.stop_reason);
       } else if (json.type === "error") {
         const key = STREAM_ERROR_KEYS[json.error?.type];

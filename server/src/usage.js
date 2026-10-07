@@ -35,6 +35,7 @@ export const MAX_OUTPUT_TOKENS =
  *  pricier model's rate either. */
 export const ALLOWED_MODELS = new Set([
   "claude-sonnet-5",
+  "claude-haiku-5-5",
   "claude-haiku-4-5",
   "claude-haiku-4-5-20251001",
 ]);
@@ -50,6 +51,8 @@ export const PRICE_PER_MTOK = {
   "claude-sonnet-5": { in: 2, out: 10 },
   "claude-haiku-4-5": { in: 1, out: 5 },
   "claude-haiku-4-5-20251001": { in: 1, out: 5 },
+  // Two rate cards: $0.10 / $0.50 up to a 100K-token prompt, $0.50 / $2.50 above (checked 2026-10-07).
+  "claude-haiku-5-5": { in: 0.1, out: 0.5, long: { from: 100_000, in: 0.5, out: 2.5 } },
 };
 const PRICIEST = { in: 2, out: 10 };   // for a model that isn't listed: assume the dearer one
 
@@ -58,7 +61,9 @@ const PRICIEST = { in: 2, out: 10 };   // for a model that isn't listed: assume 
  *  the prompt cache: a cache read costs 0.1x the input price, a write up to 2x (the 1-hour
  *  kind — assumed here, the dearer one). Thinking tokens arrive inside `output`. */
 export function costMicroUsd(model, { input = 0, output = 0, cacheWrite = 0, cacheRead = 0 } = {}) {
-  const p = PRICE_PER_MTOK[model] || PRICIEST;
+  let p = PRICE_PER_MTOK[model] || PRICIEST;
+  // A model priced by prompt length: the whole request is billed at the long rate past the threshold.
+  if (p.long && input + cacheRead + cacheWrite > p.long.from) p = p.long;
   return Math.round(input * p.in + output * p.out + cacheWrite * p.in * 2 + cacheRead * p.in * 0.1);
 }
 
