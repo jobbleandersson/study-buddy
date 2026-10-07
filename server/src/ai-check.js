@@ -9,7 +9,8 @@
 import { sendAiAlertEmail, sendAiRecoveredEmail } from "./email.js";
 
 const ANTHROPIC_URL = (process.env.NODE_ENV === "test" && process.env.ANTHROPIC_CHECK_URL) || "https://api.anthropic.com/v1/messages";
-const MODEL = "claude-haiku-4-5-20251001";
+// The model students' tutoring and marking run on, so the check tests what they use.
+const MODEL = "claude-haiku-5-5";
 const CACHE_MS = 10 * 60_000;
 
 let cached = null;

@@ -23,6 +23,8 @@ function proxyDisabled() {
 
 export const messages = Router();
 
+const EFFORTS = new Set(["low", "medium", "high"]);
+
 // Only forward the fields we expect. Anything else the client sent is dropped
 // before the request reaches Anthropic.
 function sanitizeBody(raw) {
@@ -36,7 +38,10 @@ function sanitizeBody(raw) {
   };
   if (b.system != null) out.system = b.system;
   if (b.stream === true) out.stream = true;
-  if (typeof b.temperature === "number") out.temperature = Math.max(0, Math.min(1, b.temperature));
+  // Claude Haiku 5.5 rejects non-default sampling parameters with a 400, so it never gets one.
+  if (typeof b.temperature === "number" && model !== "claude-haiku-5-5") out.temperature = Math.max(0, Math.min(1, b.temperature));
+  // How much the model thinks (Claude Haiku 5.5 thinks by default): only the known levels pass.
+  if (EFFORTS.has(b.output_config?.effort)) out.output_config = { effort: b.output_config.effort };
   return out;
 }
 
