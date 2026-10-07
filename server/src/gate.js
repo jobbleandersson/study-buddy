@@ -42,10 +42,10 @@ export function hasGate(req) {
   return typeof given === "string" && safeEqual(given, gateToken());
 }
 
-// The only API paths a device without the cookie may reach: the health check (it has to say whether the
+// The only API paths a device without the cookie may reach: the health checks (the first has to say whether the
 // site is locked) and the unlock itself. Anything that doesn't match exactly — odd slashes, other
 // paths — falls through to the refusal, so a weird URL can only ever be locked, never open.
-const OPEN_PATHS = /^\/(health|gate)\/?$/i;
+const OPEN_PATHS = /^\/(health|health\/ai|gate)\/?$/i;   // health/ai: an uptime monitor has no cookie
 // The front page's reviews: GET /api/reviews returns only approved reviews, with the name each student
 // chose (never an email or id — routes/reviews.js), and the landing page is public even while the site is
 // private. Reading that one list stays open; writing a review, /reviews/mine and the admin queue do not.

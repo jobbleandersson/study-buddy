@@ -26,6 +26,7 @@ import { waitlist } from "./routes/waitlist.js";
 import { contact } from "./routes/contact.js";
 import { analytics } from "./routes/analytics.js";
 import { clientErrors } from "./routes/client-errors.js";
+import { startAiWatch } from "./ai-check.js";
 import { reviews } from "./routes/reviews.js";
 import { practicePages } from "./routes/practice-pages.js";
 
@@ -246,6 +247,8 @@ try {
 } catch (e) {
   console.error("[study-buddy-server] sweeper failed to start:", e);
 }
+
+startAiWatch();   // mails ALERT_EMAIL if the AI stops answering (ai-check.js)
 
 app.listen(PORT, () => {
   console.log(`[study-buddy-server] listening on http://localhost:${PORT} (NODE_ENV=${process.env.NODE_ENV || "unset"})`);
