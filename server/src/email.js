@@ -181,6 +181,37 @@ export const CONTACT_TO = process.env.CONTACT_TO || "pluggera.organisation@gmail
 
 const escapeHtml = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 
+// Who hears that the AI is down (ai-check.js). `critical`: rare, and it must not be the mail the daily
+// budget drops on a busy day.
+const ALERT_TO = () => process.env.ALERT_EMAIL || CONTACT_TO;
+const AI_FIX = {
+  no_key: ["Servern har ingen API-nyckel (ANTHROPIC_API_KEY är tom eller saknas).", "Sätt nyckeln igen: fly secrets set ANTHROPIC_API_KEY=… -a studybuddy-jobble"],
+  key_rejected: ["Anthropic nekar nyckeln — den har gått ut eller tagits bort.", "Skapa en ny nyckel i Anthropic Console (API keys) och sätt den med fly secrets set ANTHROPIC_API_KEY=… -a studybuddy-jobble"],
+  no_credit: ["Anthropic-kontot har slut på kredit.", "Fyll på under Billing i Anthropic Console."],
+  upstream_error: ["Anthropic svarar med ett fel just nu.", "Oftast tillfälligt. Kolla status.anthropic.com; håller det i sig, kolla serverns loggar (fly logs)."],
+  unreachable: ["Servern når inte Anthropic.", "Oftast tillfälligt. Kolla status.anthropic.com och fly logs."],
+};
+
+export function sendAiAlertEmail(reason) {
+  const [what, fix] = AI_FIX[reason] || AI_FIX.upstream_error;
+  return sendEmail({
+    to: ALERT_TO(), critical: true, subject: "PluggEra: AI-funktionerna fungerar inte",
+    html: layout(`
+      <p><strong>AI:n i PluggEra svarar inte.</strong> Handledaren, att skapa set, AI-skrivna HP-frågor och rättning av fritextsvar fungerar inte för eleverna just nu.</p>
+      <p><strong>Orsak:</strong> ${escapeHtml(what)}</p>
+      <p><strong>Så åtgärdar du det:</strong> ${escapeHtml(fix)}</p>
+      <p style="font-size:13px;color:#6B7386">Kontrollerat två gånger med två minuters mellanrum (kod: ${escapeHtml(reason)}). Du får ett nytt mejl när det fungerar igen, och en påminnelse om dagen så länge det inte gör det. Status just nu: ${PUBLIC_URL}/api/health/ai</p>
+    `, "Automatisk kontroll från PluggEras server."),
+  });
+}
+
+export function sendAiRecoveredEmail() {
+  return sendEmail({
+    to: ALERT_TO(), critical: true, subject: "PluggEra: AI-funktionerna fungerar igen",
+    html: layout(`<p>AI:n i PluggEra svarar igen. Inget mer behöver göras.</p>`, "Automatisk kontroll från PluggEras server."),
+  });
+}
+
 /** A message from the contact form. Reply-To is the sender, so answering it in the inbox just works.
  *  Everything the visitor typed is escaped: this html lands in our own inbox. */
 export function sendContactEmail({ name, email, message }) {

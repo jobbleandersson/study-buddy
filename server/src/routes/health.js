@@ -2,6 +2,7 @@ import { Router } from "express";
 import crypto from "node:crypto";
 import { emailEnabled } from "../email.js";
 import { siteLocked, hasGate } from "../gate.js";
+import { checkAi } from "../ai-check.js";
 
 export const health = Router();
 
@@ -38,4 +39,17 @@ health.get("/health", (req, res) => {
     premiumUrl: /^https:\/\//.test(process.env.PREMIUM_URL || "") ? process.env.PREMIUM_URL : null,
     version: VERSION,
   });
+});
+
+// Whether the AI really answers (ai-check.js), for an uptime monitor: 200 when it does, 503 with the
+// reason when it doesn't. Cached for 10 minutes, so polling it costs at most one tiny request per 10 min.
+// Open while the site is locked (gate.js) and says nothing but ok/reason.
+health.get("/health/ai", async (req, res) => {
+  res.set("Cache-Control", "no-store");
+  try {
+    const r = await checkAi();
+    res.status(r.ok ? 200 : 503).json({ ok: r.ok, reason: r.reason, checkedAt: new Date(r.checkedAt).toISOString() });
+  } catch {
+    res.status(503).json({ ok: false, reason: "check_failed" });
+  }
 });
