@@ -35,8 +35,8 @@ export function maybeShowOnboarding() {
 /** The library only covers these; anything else falls back to a generic subject list. */
 const LIB_LEVEL = { ak7: "ak7", ak8: "ak8", ak9: "ak9", gy: "gymnasiet" };
 
-const LEVELS = ["k16", "ak7", "ak8", "ak9", "gy", "other"];
-const GOALS = [
+export const LEVELS = ["k16", "ak7", "ak8", "ak9", "gy", "other"];
+export const GOALS = [
   ["test", ICONS.target], ["grades", ICONS.chart], ["keepup", ICONS.book],
   ["hp", ICONS.award], ["stick", ICONS.layers], ["explore", ICONS.compass],
 ];

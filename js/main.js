@@ -152,6 +152,7 @@ const routes = [
   { rx: /^\/results\/(.+)$/, view: (m) => import("./views/results.js").then((mod) => mod.renderResults(m[1])) },
   { rx: /^\/progress$/, view: () => import("./views/progress.js").then((mod) => mod.renderProgress()) },
   { rx: /^\/settings$/, view: () => import("./views/settings.js").then((mod) => mod.renderSettings()) },
+  { rx: /^\/profile$/, view: () => import("./views/profile.js").then((mod) => mod.renderProfile()) },
   { rx: /^\/gallery$/, view: () => import("./views/gallery.js").then((mod) => mod.renderGallery()) },
   { rx: /^\/library$/, view: (m, qs) => import("./views/library.js").then((mod) => mod.renderLibrary(qs)) },
   { rx: /^\/utmaning$/, view: (m, qs) => import("./views/challenge.js").then((mod) => mod.renderChallenge(qs)) },
@@ -807,6 +808,7 @@ function shellActions() {
           store.avatar ? el("img.acctmenu__avatar", { src: store.avatar, alt: "" }) : null,
           el("p.note", {}, t("account.signedInAs", { email: store.authEmail || "" })),
         ].filter(Boolean)),
+        popoverLink("#/profile", ICONS.user, t("account.profile")),
         popoverLink("#/settings", ICONS.gear, t("account.settings")),
         el("button.cardmenu__item.cardmenu__item--danger", {
           type: "button",
@@ -1279,7 +1281,7 @@ store.init().then(() => {
     syncProfileFaces();
     const h = location.hash.replace(/^#/, "").split("?")[0];
     if (h === "" || h === "/" || h === "/study" || h === "/calendar" || h === "/progress"
-        || h === "/achievements" || h === "/hp" || h === "/exam-prep" || h.startsWith("/exam-prep/")) render({ softRefresh: true });
+        || h === "/achievements" || h === "/hp" || h === "/profile" || h === "/exam-prep" || h.startsWith("/exam-prep/")) render({ softRefresh: true });
   });
   // Daily goal hit (store.recordAttempt) — the same short fanfare the home page used to play.
   store.addEventListener("goalReached", () => playFanfare());
