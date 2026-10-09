@@ -9,22 +9,28 @@ import { parseLooseJSON } from "./lib/loose-json.js";
 import { normalizeCheck } from "./lib/check.js";
 import { parseScript } from "./lib/podcast.js";
 import { shuffleMc } from "./lib/choices.js";
+import { REVIEW_SYSTEM, reviewItems, parseVerdicts, flaggedIndexes } from "./lib/review.js";
+import { newQuestionsOnly } from "./lib/exam.js";
 
 const API_URL = PROXY_URL;
 
 /**
- * One fixed model per job — not a user choice. The jobs have very different
- * requirements: writing a question set is worth a stronger model, because
- * the result is saved and reused by every student who studies that set
- * afterward, not just once. Tutoring and grading (Solve included — it's a
- * tutoring conversation, not a one-shot lookup) are forgotten the moment
- * they're done, so they run on the fast, cheap model. Checking a photo of
- * handwritten working is the exception among the throwaway jobs: it has to read
- * handwriting and re-do the maths line by line, and telling a student a correct
- * line is wrong costs more trust than the price difference saves.
+ * One fixed model per job — not a user choice. Tutoring and grading (Solve included — it's a tutoring
+ * conversation, not a one-shot lookup) are forgotten the moment they're done, so they run on the fast,
+ * cheap model.
+ *
+ * A question set is saved and practised again and again, so a wrong answer key costs far more than the
+ * request. School sets are still written by the fast model, then checked by it in a second pass before
+ * they're saved (generateAssignment, lib/review.js): tested side by side, writer + reviewer left no
+ * wrong keys in 78 questions at about a twentieth of the strong model's price. Högskoleprov questions
+ * stay on the strong model: the reviewer missed a NOG logic slip it shared with the writer, and the
+ * fast model couldn't write KVA in the test's format at all. Checking a photo of handwritten working
+ * stays there too: it has to read handwriting and re-do the maths line by line.
  */
 export const MODELS = {
-  generate: "claude-sonnet-5",
+  generate: "claude-haiku-5-5",
+  review: "claude-haiku-5-5",
+  generateHp: "claude-sonnet-5",
   tutor: "claude-haiku-5-5",
   grade: "claude-haiku-5-5",
   check: "claude-sonnet-5",
@@ -40,7 +46,8 @@ function headers() {
 const THINKING_ROOM = 1024;
 function tuned(body) {
   if (body.model !== "claude-haiku-5-5") return body;
-  return { ...body, max_tokens: body.max_tokens + THINKING_ROOM, output_config: { effort: "low" } };
+  // A request that sets its own effort keeps it (the question reviewer thinks harder).
+  return { ...body, max_tokens: body.max_tokens + THINKING_ROOM, output_config: body.output_config || { effort: "low" } };
 }
 
 /** task: "generate" | "tutor" | "grade" | "check" | "solve" */
@@ -99,7 +106,7 @@ async function callJSON(body, opts) {
 
 // ---------- assignment generation ----------
 
-export async function generateAssignment({ material, topic, image, count = 6, gradeHint = "", preferFlashcards = false, moreLike = null, extraRules = "" }) {
+async function writeSet({ material, topic, image, count = 6, gradeHint = "", preferFlashcards = false, moreLike = null, extraRules = "", model }) {
   const userContent = [];
   if (image) {
     userContent.push({
@@ -114,6 +121,8 @@ export async function generateAssignment({ material, topic, image, count = 6, gr
     ? [
         `Here is an existing question set titled "${moreLike.title}" (subject: ${moreLike.subject}).`,
         `Existing questions (JSON):\n"""\n${JSON.stringify(moreLike.questions, null, 1)}\n"""`,
+        // A top-up after the review stays on the student's own material.
+        material ? `Study material the set is built on:\n"""\n${material}\n"""` : null,
         extraRules || null,
         moreKinds.length ? `Use ONLY these question kinds, in roughly the same mix as the existing questions: ${moreKinds.join(", ")}. Do not use any other kind.` : null,
         `Write about ${count} MORE questions in the same style, difficulty and topics. Do NOT repeat or lightly reword any existing question. Return the JSON object only — its "questions" array holds only the new questions.`,
@@ -127,7 +136,7 @@ export async function generateAssignment({ material, topic, image, count = 6, gr
   userContent.push({ type: "text", text: ask });
 
   const body = {
-    model: modelFor("generate"),
+    model,
     max_tokens: 16000,
     system: generationSystem({ gradeHint, preferFlashcards }),
     messages: [{ role: "user", content: userContent }],
@@ -148,6 +157,57 @@ export async function generateAssignment({ material, topic, image, count = 6, gr
     }, { strict: true });
     return normalizeDoc(parseLooseJSON(repair));
   }
+}
+
+/**
+ * Writes a question set. `task` picks the model (MODELS): "generate" for school sets, "generateHp" for
+ * Högskoleprov questions. When the writer is the fast model, its set is reviewed before it's returned
+ * (lib/review.js): questions the reviewer can't stand behind are dropped and replaced once, and a set it
+ * rejects for the most part is written again by the strong model instead.
+ */
+export async function generateAssignment({ task = "generate", ...params }) {
+  const model = modelFor(task);
+  const doc = await writeSet({ ...params, model });
+  if (model !== MODELS.review || !doc.questions.length) return doc;
+
+  const flagged = await reviewSet(doc.questions, params);
+  if (flagged == null || !flagged.length) return doc;   // no usable review keeps what was written
+  if (flagged.length > doc.questions.length / 2) return writeSet({ ...params, model: MODELS.generateHp });
+
+  const kept = doc.questions.filter((_, i) => !flagged.includes(i));
+  try {
+    // One top-up for what was dropped, written next to the kept questions and reviewed the same way.
+    // "More questions" for an existing set keeps that set in view too, so nothing in it is repeated.
+    const existing = params.moreLike?.questions || [];
+    const more = await writeSet({ ...params, model, count: flagged.length, moreLike: {
+      title: params.moreLike?.title || doc.title, subject: params.moreLike?.subject || doc.subject, questions: [...existing, ...kept],
+    } });
+    const fresh = newQuestionsOnly(more.questions, [{ questions: [...existing, ...kept] }]).slice(0, flagged.length);
+    const again = fresh.length ? await reviewSet(fresh, params) : [];
+    if (again) kept.push(...fresh.filter((_, i) => !again.includes(i)));
+  } catch { /* the reviewed set without its top-up is still a good set */ }
+  return { ...doc, questions: kept };
+}
+
+/** Indexes of the questions to drop, or null when no usable review came back (tried twice). */
+async function reviewSet(questions, { material, image } = {}) {
+  const content = [];
+  if (image) content.push({ type: "image", source: { type: "base64", media_type: image.mediaType, data: image.data } });
+  const basis = material ? `Underlaget frågorna bygger på:\n"""\n${material}\n"""\n\n` : image ? "Frågorna bygger på den bifogade bilden.\n\n" : "";
+  content.push({ type: "text", text: `${basis}Frågor att granska:\n${JSON.stringify(reviewItems(questions))}` });
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const text = await callJSON({
+        model: modelFor("review"), max_tokens: 12000, system: REVIEW_SYSTEM,
+        output_config: { effort: "high" }, messages: [{ role: "user", content }],
+      });
+      const flagged = flaggedIndexes(questions, parseVerdicts(text));
+      if (flagged) return flagged;
+    } catch (e) {
+      console.warn("[review] failed:", e?.message || e);
+    }
+  }
+  return null;
 }
 
 // Model output is checked field by field: a number where text belongs, a missing list or a null
