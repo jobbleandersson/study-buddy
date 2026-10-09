@@ -314,6 +314,8 @@ export function renderSettings() {
     const modelTable = el("table.preset-table", {}, [
       el("tbody", {}, [
         modelRow(t("set.jobWriting"), MODELS.generate, t("set.whenPerSet")),
+        modelRow(t("set.jobReview"), MODELS.review, t("set.whenPerSet")),
+        modelRow(t("set.jobHpWriting"), MODELS.generateHp, t("set.whenPerBatch")),
         modelRow(t("set.jobTutoring"), MODELS.tutor, t("set.whenEveryMsg")),
         modelRow(t("set.jobMarking"), MODELS.grade, t("set.whenEveryAnswer")),
       ]),

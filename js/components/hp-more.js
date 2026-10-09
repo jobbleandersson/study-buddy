@@ -84,6 +84,7 @@ async function writeBatch({ dp, count, seed, fixed, sets, ofDp }) {
   const taken = ofDp(sets).map((q) => String(q.prompt).replace(/\s+/g, " ").slice(0, 90));
 
   const gen = await generateAssignment({
+    task: "generateHp",   // the strong model: see MODELS in claude.js
     count,
     moreLike: { title: t(`hp.name.${dp}`), subject: `Högskoleprovet – ${dp.toUpperCase()}`, questions: seed },
     extraRules: [
