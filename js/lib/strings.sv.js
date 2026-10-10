@@ -13,6 +13,7 @@ export default {
   "common.copied": "Kopierat",
   "common.delete": "Ta bort",
   "common.loading": "Laddar…",
+  "common.openFailed": "Det gick inte att öppna. Kontrollera anslutningen och försök igen.",
   "common.progress": "Framsteg",
   "common.settings": "Inställningar",
   "common.newSet": "Nytt set",

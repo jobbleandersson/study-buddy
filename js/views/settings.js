@@ -135,8 +135,16 @@ export function renderSettings() {
   window.addEventListener("sb:themechange", onThemeChange);
 
   const langCtl = seg(t("common.language"), LANGS.map(([code, name]) => [code, name]), getLang(), (v) => {
-    // The whole app re-renders in the new language (main.js, sb:langchange).
-    setLang(v);
+    // The whole app re-renders in the new language (main.js, sb:langchange). A switch that didn't
+    // happen (offline, or overtaken by a later pick) puts the control back on the language in use.
+    setLang(v).then((ok) => {
+      if (ok) return;
+      const cur = getLang();
+      langCtl.querySelectorAll(".set-seg__opt").forEach((b, i) => {
+        b.setAttribute("aria-checked", String(LANGS[i][0] === cur));
+        b.tabIndex = LANGS[i][0] === cur ? 0 : -1;
+      });
+    });
   });
 
   const fontCtl = seg(t("set.font"), [

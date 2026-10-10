@@ -5920,3 +5920,8 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .profile-edit__group .chips { margin: 0; }
 .profile-edit__actions { display: flex; justify-content: flex-end; gap: var(--s-2); padding-top: var(--s-4); border-top: 1px solid var(--line); }
 @media (max-width: 480px) { .profile-edit__actions .btn { flex: 1; justify-content: center; } }
+
+/* Shown by js/boot.js when the app can't start (a module didn't load, or the browser is too old). */
+.boot-failed { max-width: 34rem; margin: 18vh auto 0; padding: 0 var(--s-4); display: grid; gap: var(--s-3); justify-items: start; color: var(--ink); }
+.boot-failed h1 { margin: 0; font-size: var(--fs-xl, 1.5rem); text-wrap: balance; }
+.boot-failed p { margin: 0; color: var(--ink-soft); line-height: 1.5; }

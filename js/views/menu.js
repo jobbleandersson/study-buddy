@@ -291,7 +291,7 @@ export function renderMenu(mode) {
         if (copy) toast(t("menu.copiedAs", { title: copy.title }));
       }),
       item(ICONS.play, t("menu.itemPrint"), () => { location.hash = `#/print/${a.id}`; }),
-      (store.canUseAI() || loadScript(scriptKey(a))) && (a.questions?.length || 0) > 0 && item(ICONS.headphones, t("menu.itemTalk"), () => import("../components/talk-player.js").then((m) => m.openTalk(a))),
+      (store.canUseAI() || loadScript(scriptKey(a))) && (a.questions?.length || 0) > 0 && item(ICONS.headphones, t("menu.itemTalk"), () => import("../components/talk-player.js").then((m) => m.openTalk(a), () => toast(t("common.openFailed")))),
       item(ICONS.share, t("menu.itemShare"), () => shareSet(a)),
       store.hasKey() && item(ICONS.spark, t("menu.itemMore"), () => { location.hash = `#/edit/${a.id}?more=1`; }),
       item(ICONS.trash, t("menu.itemDelete"), () => remove(a), true),

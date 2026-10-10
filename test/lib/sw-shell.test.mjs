@@ -6,7 +6,8 @@ import { fileURLToPath } from "node:url";
 
 // Every module the app loads has to be in the service worker's install list. The activate step
 // deletes the previous cache, so a module that isn't listed is gone offline after the next deploy —
-// and a missing startup import leaves a blank page with no error screen.
+// and a missing startup import leaves a blank page. (The English-only files are listed in LANG_FILES
+// instead, which a page in English has the worker cache; the string check below covers both lists.)
 const root = fileURLToPath(new URL("../../", import.meta.url));
 // Not part of the app: the public practice pages' own script (served by server/, never offline).
 const NOT_APP = new Set(["js/ova.js"]);
