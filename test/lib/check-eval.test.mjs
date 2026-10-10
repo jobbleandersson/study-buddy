@@ -2,7 +2,7 @@ import "./helpers.mjs";
 import { test, describe } from "node:test";
 import assert from "node:assert/strict";
 import {
-  EVAL_MODELS, costUsd, expectation, verdictFor, closeness, compareRuns, needsJudge, summarise, toCsv,
+  EVAL_MODELS, costUsd, expectation, verdictFor, closeness, compareRuns, needsJudge, summarise, toCsv, flaggedText,
 } from "../../js/lib/check-eval.js";
 
 const [H, S] = EVAL_MODELS.map((m) => m.id);
@@ -21,9 +21,60 @@ describe("expectation", () => {
     assert.deepEqual(expectation("ok"), { firstError: null });
     assert.deepEqual(expectation("line", "3"), { firstError: 3 });
     assert.deepEqual(expectation("line", 2.4), { firstError: 2 });
-    for (const bad of [["", ""], ["line", ""], ["line", "0"], ["line", "-1"], ["line", "abc"], ["x", 3], [undefined, undefined]]) {
+    for (const bad of [["", ""], ["line", ""], ["line", "   "], ["line", "0"], ["line", 0], ["line", null], ["x", 3], ["x", "-3x = 6"], [undefined, undefined]]) {
       assert.equal(expectation(...bad), null, JSON.stringify(bad));
     }
+  });
+
+  test("the wrong line can be given as what it says, which needs no line numbering", () => {
+    assert.deepEqual(expectation("line", " -3x = 6 "), { firstError: 0, text: "-3x = 6" });
+    assert.deepEqual(expectation("line", "x = 4.0"), { firstError: 0, text: "x = 4.0" });
+    assert.deepEqual(expectation("line", "100"), { firstError: 0, text: "100" });    // three digits is text, not a line number
+  });
+});
+
+describe("flaggedText", () => {
+  test("the text of the line flagged as the first mistake, else empty", () => {
+    assert.equal(flaggedText(checked(2).result), "3x = 15");
+    assert.equal(flaggedText(checked(null).result), "");
+    assert.equal(flaggedText(declined().result), "");
+    assert.equal(flaggedText(null), "");
+    assert.equal(flaggedText(checked(9).result), "");        // a number past the last line
+  });
+});
+
+describe("the same line under a different number", () => {
+  // The case that fooled the first version: the problem is line 1 for one model and not counted by the other.
+  const lines = ["7 - 3x = 1", "-3x = 6", "x = -2"];
+  const withProblem = { result: { status: "checked", firstError: 2, answerCorrect: false, lines: lines.map((text) => ({ text })) }, ms: 1, usage: {}, cost: 0 };
+  const withoutProblem = { result: { status: "checked", firstError: 1, answerCorrect: false, lines: lines.slice(1).map((text) => ({ text })) }, ms: 1, usage: {}, cost: 0 };
+
+  test("two models pointing at the same line agree even when they number it differently", () => {
+    const cmp = compareRuns(withProblem, withoutProblem);
+    assert.equal(cmp.disagree, false);
+    assert.equal(needsJudge({ runs: { [H]: withProblem, [S]: withoutProblem } }), false);
+  });
+
+  test("a key given as the line's text matches either numbering; a key given as a number does not", () => {
+    const byText = expectation("line", "-3x = 6");
+    assert.equal(verdictFor(byText, withProblem), "correct");
+    assert.equal(verdictFor(byText, withoutProblem), "correct");
+    const byNumber = expectation("line", 2);
+    assert.equal(verdictFor(byNumber, withProblem), "correct");
+    assert.equal(verdictFor(byNumber, withoutProblem), "wrong_line");
+  });
+
+  test("a different line is still a different line, and a slightly different transcription still matches", () => {
+    const other = { result: { status: "checked", firstError: 3, lines: lines.map((text) => ({ text })) } };
+    assert.equal(verdictFor(expectation("line", "-3x = 6"), other), "wrong_line");
+    assert.equal(compareRuns(withProblem, other).disagree, true);
+    const misread = { result: { status: "checked", firstError: 2, lines: [{ text: "7 - 3x = 1" }, { text: "-3x = 6." }, { text: "x = -2" }] } };
+    assert.equal(verdictFor(expectation("line", "-3x = 6"), misread), "correct");
+  });
+
+  test("with a text key, 'missed' and 'false flag' work as before", () => {
+    assert.equal(verdictFor(expectation("line", "-3x = 6"), checked(null)), "missed");
+    assert.equal(verdictFor(expectation("ok"), withProblem), "false_flag");
   });
 });
 
@@ -170,7 +221,13 @@ describe("toCsv", () => {
     const [head, row] = csv.split("\n");
     assert.match(head, /^photo,answer_key,Haiku 5\.5 status,/);
     assert.match(head, /models_disagree,who_was_right$/);
-    assert.match(row, /^page1\.jpg,line 2,checked,2,correct,4\.0,0\.0100,checked,3,wrong_line,4\.0,0\.0100,yes,both$/);
+    assert.match(row, /^page1\.jpg,line 2,checked,2,3x = 15,correct,4\.0,0\.0100,checked,3,x = 5,wrong_line,4\.0,0\.0100,yes,both$/);
+    assert.match(head, /Haiku 5\.5 flagged_line/);
+  });
+
+  test("a text key is written as the line's text", () => {
+    const row = toCsv([{ name: "p.jpg", expected: expectation("line", "-3x = 6"), runs: {} }]).split("\n")[1];
+    assert.ok(row.startsWith("p.jpg,line -3x = 6,"));
   });
 
   test("quotes and commas in a file name or error are escaped", () => {
@@ -182,6 +239,7 @@ describe("toCsv", () => {
 
   test("a photo that has not run yet has empty cells and no verdict", () => {
     const row = toCsv([{ name: "x.jpg", expected: null, runs: {} }]).split("\n")[1];
-    assert.equal(row, "x.jpg,,,,pending,,,,,pending,,,,");
+    // name, key, then per model: status, first_error, flagged_line, verdict, seconds, usd; then disagree, judge
+    assert.equal(row, ["x.jpg", "", "", "", "", "pending", "", "", "", "", "", "pending", "", "", "", ""].join(","));
   });
 });

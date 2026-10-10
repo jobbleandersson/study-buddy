@@ -34,15 +34,28 @@ export function costUsd(model, usage) {
   return (input * rate.in + output * rate.out) / 1e6;
 }
 
-/** What the person says the right answer is: "" = don't know, "ok" = every line follows, "line" = the
- *  first line that doesn't follow is `n`. Returns null when there is no answer key. */
-export function expectation(kind, n) {
+/** Two flagged lines count as the same line when they read alike (handwriting transcribes a touch differently). */
+export const SAME_LINE = 0.8;
+
+/** What the person says the right answer is: kind "" = don't know, "ok" = every line follows, "line" = the
+ *  first line that doesn't follow, given as a line NUMBER ("2") or, better, as what the line SAYS ("-3x = 6").
+ *  Text is better because models disagree on whether the problem itself is line 1 - they point at the same
+ *  line and number it differently. Returns null when there is no answer key. */
+export function expectation(kind, value) {
   if (kind === "ok") return { firstError: null };
-  if (kind === "line") {
-    const line = Math.round(Number(n));
-    return Number.isFinite(line) && line >= 1 ? { firstError: line } : null;
+  if (kind !== "line") return null;
+  if (typeof value === "number") {
+    const n = Math.round(value);
+    return Number.isFinite(n) && n >= 1 ? { firstError: n } : null;
   }
-  return null;
+  const v = String(value ?? "").trim();
+  if (/^\d{1,2}$/.test(v)) { const n = Number(v); return n >= 1 ? { firstError: n } : null; }
+  return v ? { firstError: 0, text: v } : null;            // firstError 0 = "no number; match by the text"
+}
+
+/** The text of the line a result flagged as the first mistake ("" when it flagged none). */
+export function flaggedText(r) {
+  return r && r.status === "checked" && r.firstError != null ? String(r.lines?.[r.firstError - 1]?.text ?? "") : "";
 }
 
 /** One model's run against the answer key. */
@@ -54,6 +67,7 @@ export function verdictFor(expected, run) {
   if (!expected) return "no_key";
   if (expected.firstError == null) return r.firstError == null ? "correct" : "false_flag";
   if (r.firstError == null) return "missed";
+  if (expected.text) return closeness(flaggedText(r), expected.text) >= SAME_LINE ? "correct" : "wrong_line";
   return r.firstError === expected.firstError ? "correct" : "wrong_line";
 }
 
@@ -82,7 +96,11 @@ export function compareRuns(a, b) {
   if (!a?.result || !b?.result) return null;
   const x = a.result, y = b.result;
   const sameStatus = x.status === y.status;
-  const sameFirstError = x.status === "checked" && y.status === "checked" ? x.firstError === y.firstError : sameStatus;
+  // The same line, whatever number each model gave it: they disagree on whether the problem is line 1.
+  const sameLine = (a, b) => a.firstError === b.firstError || closeness(flaggedText(a), flaggedText(b)) >= SAME_LINE;
+  const sameFirstError = x.status === "checked" && y.status === "checked"
+    ? (x.firstError == null || y.firstError == null ? x.firstError === y.firstError : sameLine(x, y))
+    : sameStatus;
   return {
     sameStatus,
     sameFirstError,
@@ -158,10 +176,10 @@ const csvCell = (v) => {
 /** One row per photo, for a spreadsheet. */
 export function toCsv(cases, models = EVAL_MODELS) {
   const head = ["photo", "answer_key"];
-  for (const m of models) head.push(`${m.label} status`, `${m.label} first_error`, `${m.label} verdict`, `${m.label} seconds`, `${m.label} usd`);
+  for (const m of models) head.push(`${m.label} status`, `${m.label} first_error`, `${m.label} flagged_line`, `${m.label} verdict`, `${m.label} seconds`, `${m.label} usd`);
   head.push("models_disagree", "who_was_right");
   const rows = cases.map((c) => {
-    const key = !c.expected ? "" : c.expected.firstError == null ? "all correct" : `line ${c.expected.firstError}`;
+    const key = !c.expected ? "" : c.expected.firstError == null ? "all correct" : `line ${c.expected.text || c.expected.firstError}`;
     const cells = [c.name, key];
     for (const m of models) {
       const run = c.runs?.[m.id];
@@ -169,6 +187,7 @@ export function toCsv(cases, models = EVAL_MODELS) {
       cells.push(
         run?.error ? `error: ${run.error}` : r?.status || "",
         r?.status === "checked" ? (r.firstError == null ? "none" : r.firstError) : "",
+        flaggedText(r),
         verdictFor(c.expected, run),
         run?.ms != null ? (run.ms / 1000).toFixed(1) : "",
         run?.cost != null ? run.cost.toFixed(4) : "",
