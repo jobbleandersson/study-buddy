@@ -2,24 +2,18 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { STRINGS } from "../../js/lib/strings.js";
+import en from "../../js/lib/strings.en.js";
+import sv from "../../js/lib/strings.sv.js";
+
+const STRINGS = { en, sv };
 
 // Object-literal syntax silently lets a duplicate key win-by-last-write, so
 // Object.keys() alone can't catch it - a duplicate never shows up as a
 // missing or extra key, just a value nobody notices got overwritten. This
-// re-scans the raw source for each language's own block of quoted keys.
-const SRC_PATH = fileURLToPath(new URL("../../js/lib/strings.js", import.meta.url));
-const SOURCE = readFileSync(SRC_PATH, "utf8");
-
+// re-scans the raw source of each language's own file for its quoted keys.
 function keysInBlock(lang) {
-  const start = SOURCE.indexOf(`\n  ${lang}: {`);
-  assert.ok(start >= 0, `couldn't find the ${lang} block`);
-  // The other top-level language block (or the closing of STRINGS) bounds it.
-  const after = SOURCE.slice(start + 1);
-  const nextBlock = after.search(/\n  \w+: \{/);
-  const end = nextBlock === -1 ? after.length : nextBlock;
-  const block = after.slice(0, end);
-  return [...block.matchAll(/^\s*"([^"]+)":/gm)].map((m) => m[1]);
+  const source = readFileSync(fileURLToPath(new URL(`../../js/lib/strings.${lang}.js`, import.meta.url)), "utf8");
+  return [...source.matchAll(/^\s*"([^"]+)":/gm)].map((m) => m[1]);
 }
 
 test("STRINGS.en and STRINGS.sv have exactly the same keys", () => {

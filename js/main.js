@@ -511,7 +511,7 @@ function langButton() {
     type: "button",
     "aria-label": `${t("common.language")} → ${nextLabel}`,
     title: `${t("common.language")} → ${nextLabel}`,
-    onclick: () => { setLang(next); toast(t("set.langUpdated")); },
+    onclick: () => setLang(next).then(() => toast(t("set.langUpdated"))),
   }, [el("span.langbtn__flag", { "aria-hidden": "true", html: flagSvg }), el("span.langbtn__code", {}, current.toUpperCase())]);
 }
 
