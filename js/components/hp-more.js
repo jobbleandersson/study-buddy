@@ -21,7 +21,7 @@ const FORMAT = {
   ord: "ORD: the prompt is a single Swedish word (or short expression); the five options are single words or short phrases, exactly one closest in meaning.",
   mek: "MEK: the prompt is one or two Swedish sentences with one to three gaps written as ______; each of the four options fills every gap (several words separated by \" – \"), exactly one fits in meaning and grammar.",
   xyz: "XYZ: a self-contained maths problem (arithmetic, algebra, geometry, functions, statistics) solvable without a calculator; four options, numeric or algebraic, written with $…$ for maths.",
-  kva: "KVA: put the two quantities in stimulus.quantities as two strings, any shared information in the prompt; the options are exactly the four fixed KVA options below, in that order.",
+  kva: "KVA: put the two quantities in stimulus.quantities as two strings, any information both quantities depend on (e.g. \"x > 0\") in stimulus.given as one string; the prompt is just \"Jämför kvantiteterna I och II.\"; the options are exactly the four fixed KVA options below, in that order.",
   nog: "NOG: a question in the prompt and the two statements in stimulus.statements as two strings; the options are exactly the five fixed NOG options below, in that order.",
 };
 
@@ -81,7 +81,9 @@ async function addNow(dp, count) {
  *  aren't already in `sets`. */
 async function writeBatch({ dp, count, seed, fixed, sets, ofDp }) {
   // What already exists, AI-made included, so nothing is written twice with new numbers.
-  const taken = ofDp(sets).map((q) => String(q.prompt).replace(/\s+/g, " ").slice(0, 90));
+  // Prompt and quantities or statements: a KVA prompt alone ("Jämför kvantiteterna I och II.") says nothing.
+  const taken = ofDp(sets).map((q) => [q.prompt, ...(q.stimulus?.quantities || []), ...(q.stimulus?.statements || []), q.stimulus?.given]
+    .filter((x) => typeof x === "string").join(" · ").replace(/\s+/g, " ").slice(0, 160));
 
   const gen = await generateAssignment({
     task: "generateHp",   // the strong model: see MODELS in claude.js
@@ -112,7 +114,9 @@ async function writeBatch({ dp, count, seed, fixed, sets, ofDp }) {
       const s = q.stimulus || {};
       const pair = dp === "kva" ? s.quantities : s.statements;
       if (!Array.isArray(pair) || pair.length !== 2 || !pair.every((x) => typeof x === "string" && x.trim())) continue;
-      out.stimulus = dp === "kva" ? { quantities: pair } : { statements: pair };
+      // Shared information ("En cirkel har omkretsen 20π cm.") is kept: without it a KVA can't be solved.
+      const given = typeof s.given === "string" && s.given.trim() ? s.given.trim() : null;
+      out.stimulus = dp === "kva" ? { quantities: pair, ...(given ? { given } : {}) } : { statements: pair };
     } else {
       if (q.choices.length !== OPTION_COUNT[dp]) continue;
       delete out.stimulus;
