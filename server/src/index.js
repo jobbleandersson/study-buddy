@@ -30,6 +30,7 @@ import { startAiWatch } from "./ai-check.js";
 import { reviews } from "./routes/reviews.js";
 import { practicePages } from "./routes/practice-pages.js";
 import { sharePages } from "./routes/share-pages.js";
+import { serviceWorker } from "./sw-build.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // The frontend (index.html, css/, js/, etc.) is the repo root — normally two
@@ -52,6 +53,12 @@ function findFrontendRoot() {
 const FRONTEND_ROOT = findFrontendRoot();
 const INDEX_HTML = path.join(FRONTEND_ROOT, "index.html");
 console.log(`[study-buddy-server] frontend root: ${FRONTEND_ROOT} (index.html ${fs.existsSync(INDEX_HTML) ? "found" : "MISSING"})`);
+
+// The service worker, stamped with a hash of the files it serves (sw-build.js). In production only by
+// default: on a local `npm start` it would keep serving the files as they were at startup until a
+// restart. SW_BUILD=on or off overrides that.
+const SW = (process.env.SW_BUILD || (process.env.NODE_ENV === "production" ? "on" : "off")) === "on" ? serviceWorker(FRONTEND_ROOT) : null;
+if (SW) console.log(`[study-buddy-server] service worker build ${SW.build}`);
 
 // CSP hashes for index.html's inline <script>s, taken from the file itself at startup. The
 // redirect script there has to stay inline (it runs before <base href="/">, which would break any
@@ -197,12 +204,22 @@ app.use(practicePages);
 // preview image and title. See routes/share-pages.js.
 app.use(sharePages(INDEX_HTML));
 
+// sw.js with its build filled in. "no-cache": the browser checks it on every visit (an unchanged one
+// is a 304), which is how a deploy reaches students.
+if (SW) {
+  app.get("/sw.js", (req, res) => {
+    res.set({ "Content-Type": "text/javascript; charset=utf-8", "Cache-Control": "no-cache", "X-Build": SW.build });
+    res.send(SW.body);
+  });
+}
+
 // Long-lived caching only for files that never change under the same name; see static-cache.js.
 app.use(express.static(FRONTEND_ROOT, {
   dotfiles: "ignore",
   setHeaders(res, filePath) {
     const cc = staticCacheControl(filePath);
     if (cc) res.setHeader("Cache-Control", cc);
+    if (SW) res.setHeader("X-Build", SW.build);   // see sw-build.js
   },
 }));
 
