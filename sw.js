@@ -10,6 +10,10 @@
 
 const CACHE = "studify-v250";
 
+// Left out on purpose (a phone's first visit downloads all of this): the PDF and zip readers, only
+// used to make a set from a file, which needs the AI and so a connection anyway; the extended-Latin
+// and Atkinson Hyperlegible fonts, only for rare letters and one setting. Each is cached below the
+// first time it's used.
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -17,12 +21,8 @@ const APP_SHELL = [
   "./css/tokens.css",
   "./css/fonts.css",
   "./assets/fonts/inter-latin.woff2",
-  "./assets/fonts/inter-latin-ext.woff2",
   "./assets/fonts/lexend-700-latin.woff2",
   "./assets/fonts/inter-italic-latin.woff2",
-  "./assets/fonts/atkinson-400-latin.woff2",
-  "./assets/fonts/atkinson-700-latin.woff2",
-  "./assets/fonts/atkinson-400-italic-latin.woff2",
   "./css/app.css",
   "./css/design.css",
   "./css/landing.css",
@@ -41,7 +41,8 @@ const APP_SHELL = [
   "./js/lib/activity.js",
   "./js/lib/theme.js",
   "./js/lib/i18n.js",
-  "./js/lib/strings.js",
+  "./js/lib/strings.sv.js",
+  "./js/lib/strings.en.js",
   "./js/lib/sound.js",
   "./js/lib/srs.js",
   "./js/lib/merge-state.js",
@@ -92,6 +93,7 @@ const APP_SHELL = [
   "./js/lib/typeface.js",
   "./js/lib/import.js",
   "./js/lib/split.js",
+  "./js/lib/blank-questions.js",
   "./js/data/national-tests.js",
   "./js/data/library.js",
   "./js/data/hp-content.js",
@@ -185,8 +187,6 @@ const APP_SHELL = [
   "./vendor/canvas-confetti.min.js",
   "./vendor/katex.min.js",
   "./vendor/katex.min.css",
-  "./vendor/pdf.min.js",
-  "./vendor/jszip.min.js",
   "./data/samples/sample-assignment.json",
   "./data/samples/sample-test.json",
   "./data/samples/scripted-tutor.json",

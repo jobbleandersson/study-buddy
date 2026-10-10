@@ -19,22 +19,9 @@ import { foldedDatePicker } from "../components/calendar.js";
 import { fileDrop } from "../components/file-drop.js";
 import { aiQuotaNote } from "../components/ai-gate.js";
 import { NATIONAL_TEST_LEVELS, NATIONAL_TEST_SUBJECTS, nationalSubjectName } from "../data/national-tests.js";
+import { blankQuestions } from "../lib/blank-questions.js";
 
-// Starter questions for a "build it myself" set — one of each kind, cycling.
-// Prompts are filled so the set saves and runs straight away; answers are
-// placeholders the student can edit (or leave blank while testing).
-const BLANK_KINDS = ["mc", "text", "cloze", "flashcard", "worked"];
-export function blankQuestions(n) {
-  return Array.from({ length: Math.max(1, n || 5) }, (_, i) => {
-    const kind = BLANK_KINDS[i % BLANK_KINDS.length];
-    const q = { id: uid(), topic: "demo", kind, prompt: t("create.blankQ", { n: i + 1 }) };
-    if (kind === "mc") { q.choices = ["A", "B", "C"]; q.answer = 0; }
-    else if (kind === "cloze") { q.prompt = t("create.blankCloze", { n: i + 1 }); }
-    else if (kind === "worked") { q.answer = ""; q.steps = []; }
-    else { q.answer = ""; }
-    return q;
-  });
-}
+export { blankQuestions };   // exam-dialog loads it from here
 
 // A generation survives navigating away from #/create — module-level, not
 // tied to any one call's local `state`/`paint`, so leaving mid-generation

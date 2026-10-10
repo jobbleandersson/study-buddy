@@ -2,11 +2,17 @@
 //
 // Mirrors lib/theme.js — read straight from localStorage so the page never
 // flashes the wrong language, and a change fires an event the router listens
-// for. The strings themselves live in lib/strings.js.
-
-import { STRINGS } from "./strings.js";
+// for. The strings themselves live in lib/strings.en.js and lib/strings.sv.js.
 
 const KEY = "studybuddy.lang";
+
+// Only the language on screen is loaded: both together were a third of everything a phone had to
+// download and parse before the first screen. The other one loads when the student switches.
+const STRINGS = {};
+const TABLES = { en: () => import("./strings.en.js"), sv: () => import("./strings.sv.js") };
+async function loadStrings(lang) {
+  STRINGS[lang] ||= (await TABLES[lang]()).default;
+}
 
 // Flag emoji render as bare "GB"/"SE" text on platforms without a color-emoji
 // font (stock Windows Chrome included), so these are small inline SVGs
@@ -56,8 +62,11 @@ export function applyLang(lang = getLang()) {
   document.documentElement.setAttribute("lang", lang);
 }
 
-export function setLang(lang) {
+/** Resolves once the app has switched; the new language's strings are loaded first, so nothing
+ *  re-renders half in the old one. */
+export async function setLang(lang) {
   if (!SUPPORTED.includes(lang)) return;
+  try { await loadStrings(lang); } catch { return; }   // offline before it was ever cached: stay
   localStorage.setItem(KEY, lang);
   applyLang(lang);
   window.dispatchEvent(new CustomEvent("sb:langchange", { detail: { lang } }));
@@ -67,11 +76,12 @@ export function setLang(lang) {
  * t("menu.newSet") -> "New set"
  * t("session.questionOf", { n: 2, total: 5 }) -> "Question 2 of 5"
  * Falls back sv -> en -> the key itself, so a missing translation degrades to
- * English rather than to a blank or a crash.
+ * English rather than to a blank or a crash. A language another tab switched
+ * to isn't loaded in this one: the loaded language stands in until reload.
  */
 export function t(key, vars) {
   const lang = getLang();
-  let s = STRINGS[lang]?.[key];
+  let s = (STRINGS[lang] || STRINGS[FALLBACK] || Object.values(STRINGS)[0])?.[key];
   if (s == null) s = STRINGS[FALLBACK]?.[key];
   if (s == null) {
     console.warn("[i18n] missing string:", key);
@@ -80,6 +90,13 @@ export function t(key, vars) {
   if (!vars) return s;
   return s.replace(/\{(\w+)\}/g, (m, name) => (name in vars ? String(vars[name]) : m));
 }
+
+// Top-level await: every module that imports this one runs only after the strings are in, so t()
+// works from their first line. Outside a browser (the unit tests) both load, since tests switch
+// language by writing localStorage directly.
+let startLang = "sv";
+try { startLang = getLang(); } catch { /* no storage: the default */ }
+await Promise.all(typeof document === "undefined" ? SUPPORTED.map(loadStrings) : [loadStrings(startLang)]);
 
 /** Picks a singular/plural key and passes {n} through. Both languages are
  *  one-vs-other, so a single rule covers them. */

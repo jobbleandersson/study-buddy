@@ -4,7 +4,7 @@
 // "photosynthesis" and taps a mode gets a useful reply without knowing how to write a prompt.
 //
 // Pure data and string building - no DOM, store or i18n imports - so it can be unit-tested. The labels
-// live in strings.js (chat.mode.<id>), and prompts.js adds the reply-language line when it builds the
+// live in strings.en.js / strings.sv.js (chat.mode.<id>), and prompts.js adds the reply-language line when it builds the
 // final system prompt.
 
 /** Order is the order they are shown in. `icon` names an entry of ICONS in lib/dom.js. */

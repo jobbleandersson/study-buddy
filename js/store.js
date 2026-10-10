@@ -858,7 +858,8 @@ class Store extends EventTarget {
     let index, tr;
     try {
       index = await loadLibraryIndex();
-      tr = await loadLibraryTranslations();
+      // The English overlay only names subjects in English; a Swedish boot needn't download it.
+      tr = lang === "en" ? await loadLibraryTranslations() : { subjects: {} };
     } catch { return 0; } // index not reachable/cached — try again next time
     const entryById = new Map(index.sets.map((s) => [s.id, s]));
 
