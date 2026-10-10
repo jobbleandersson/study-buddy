@@ -110,7 +110,7 @@ verification, and password reset — see `server/README.md` and the "Turning on 
 serve.ps1            frontend-only dev server (Windows PowerShell, no dependencies) — demo mode only
 index.html           shell — fonts, vendored libs, manifest, theme bootstrap
 manifest.json        PWA manifest (installable to a home screen)
-sw.js                service worker — network-first, cache fallback for offline
+sw.js                service worker — the app's files from a per-build cache (the server stamps the build: server/src/sw-build.js), the rest network-first
 css/tokens.css       design tokens (colour, type, spacing, motion) + dark theme
 css/app.css          layout + components
 js/main.js           hash router, app shell, service-worker registration

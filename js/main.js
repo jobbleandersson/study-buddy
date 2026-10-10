@@ -1184,11 +1184,33 @@ window.addEventListener("sb:langchange", async () => {
 // leaving someone on stale code — without reloading for them, which could throw away a half-finished
 // exam. Shown once per tab; dismissing it is final.
 let updateBar = null;
+/** Reloads into the newest version. The service worker serves the app's files from the version it
+ *  holds (sw.js), so a new one has to take over first, or the reload opens the old version again.
+ *  Waits at most 10 seconds for it. */
+async function reloadToNewVersion(button) {
+  button.disabled = true;
+  button.textContent = t("common.loading");
+  try {
+    const reg = await navigator.serviceWorker?.getRegistration();
+    await reg?.update();
+    const next = reg?.installing || reg?.waiting;
+    if (next) {
+      await new Promise((resolve) => {
+        const settled = () => next.state === "activated" || next.state === "redundant";
+        if (settled()) return resolve();
+        next.addEventListener("statechange", () => { if (settled()) resolve(); });
+        setTimeout(resolve, 10_000);
+      });
+    }
+  } catch { /* offline or no worker: a plain reload is all there is */ }
+  location.reload();
+}
+
 function showUpdateBar() {
   if (updateBar) return;
   updateBar = el("div.savebar.savebar--update.show", { role: "status" }, [
     el("span", {}, t("app.updateReady")),
-    el("button.savebar__action", { type: "button", onclick: () => location.reload() }, t("app.updateReload")),
+    el("button.savebar__action", { type: "button", onclick: (e) => reloadToNewVersion(e.currentTarget) }, t("app.updateReload")),
     el("button.savebar__close", { type: "button", "aria-label": t("common.close"), onclick: () => updateBar.remove() }, "×"),
   ]);
   document.body.appendChild(updateBar);

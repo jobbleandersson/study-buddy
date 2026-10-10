@@ -56,13 +56,15 @@ export function shapeReport({ kind, message, source, stack, origin = "", hash = 
   };
 }
 
-// The app version is the service worker's cache name ("studify-v242"): the code this page runs.
+// The app version is the service worker's cache name ("studify-3f9a1c0b2d4e", a hash of the files
+// it serves; see sw.js): the code this page runs. There is one, except for the moment a new
+// version installs next to it.
 let versionP = null;
 function appVersion() {
   versionP ||= (async () => {
     try {
-      const keys = (await caches.keys()).filter((k) => /^studify-v\d+$/.test(k));
-      return keys.sort((a, b) => Number(b.slice(9)) - Number(a.slice(9)))[0] || null;
+      const keys = (await caches.keys()).filter((k) => k.startsWith("studify-"));
+      return keys.length ? keys.sort().join(" ") : null;
     } catch { return null; }
   })();
   return versionP;
