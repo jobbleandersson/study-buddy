@@ -201,6 +201,7 @@ export default {
   "session.badgePractice": "Övning",
   "session.badgeWeak": "Svaga punkter",
   "session.reviewTitle": "Repetitionspass",
+  "session.reviewTitleHp": "Repetitionspass – högskoleprovet",
   "session.reviewMore": "{n} till väntar — kom tillbaka efter den här omgången.",
   "session.practiceTitle": "Övning",
   "session.weakTitle": "Svaga punkter",

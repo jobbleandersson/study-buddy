@@ -5,7 +5,7 @@ import { el, icon, ICONS } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { deltaFromAttempt, firstTryCorrect } from "../lib/mastery.js";
 import { estimatedGrade, gradeRank } from "../lib/grade.js";
-import { normedScore, delprovEstimate, scoreBand, parseHpSetId, attemptNormedTotal, prognosisMargin } from "../lib/hp.js";
+import { normedScore, delprovEstimate, scoreBand, parseHpSetId, isHpSetId, attemptNormedTotal, prognosisMargin } from "../lib/hp.js";
 import { summarizeSchedule, dueLabel, retentionForecast } from "../lib/srs.js";
 import { celebrate, clearConfetti } from "../lib/confetti-helper.js";
 import { t, plural, daysUntil, sentenceCase, fmtDecimal } from "../lib/i18n.js";
@@ -162,7 +162,7 @@ export function renderResults(attemptId) {
         when: sched.relearnOnly ? t("results.srsRelearnLabel") : dueLabel(sched.nextRec),
       })),
       bucketLine(sched) ? el("p.note", {}, bucketLine(sched)) : null,
-      reviewCta(),
+      reviewCta(attempt),
     ].filter(Boolean)) : null,
 
     el("div.results__actions", {}, [
@@ -477,10 +477,13 @@ function bucketLine(s) {
  *  forward. Only show a live "Review N" button when there's a real backlog;
  *  otherwise the honest message is that the home screen will surface these
  *  when their time comes (the "due" pill + app badge already track it). */
-function reviewCta() {
-  const dueNow = store.dueQuestions().length;
+function reviewCta(attempt) {
+  // After högskoleprovet (an HP set, pass, prognosis or an HP-only review), "review" means HP questions
+  // only — counted and opened the same way, so the number on the button is what the session holds.
+  const hp = !!attempt?.hp || /[?&]hp=1(&|$)/.test(attempt?.retryHash || "");
+  const dueNow = store.dueQuestions().filter((d) => !hp || isHpSetId(d.assignment.id)).length;
   return dueNow
-    ? el("a.btn.btn--sm", { href: "#/review" }, [icon(ICONS.spark, 16), t("results.srsReviewNow", { n: dueNow })])
+    ? el("a.btn.btn--sm", { href: hp ? "#/review?hp=1" : "#/review" }, [icon(ICONS.spark, 16), t("results.srsReviewNow", { n: dueNow })])
     : el("p.note", {}, t("results.srsComeBack"));
 }
 

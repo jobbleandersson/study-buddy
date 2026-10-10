@@ -127,10 +127,14 @@ export async function renderReview(qs) {
   const examId = provOf(qs);
   const setIds = (qs?.get?.("sets") || "").split(",").filter(Boolean);
   const scope = setIds.length ? new Set(setIds) : null;
-  const scopeQuery = scope ? `sets=${setIds.join(",")}` : "";
+  // ?hp=1: only högskoleprovet questions, for every "repeat" button reached from HP — mixing in Spanish
+  // vocabulary halfway through HP prep is not what the student asked for.
+  const hpOnly = qs?.get?.("hp") === "1";
+  const scopeQuery = [scope ? `sets=${setIds.join(",")}` : "", hpOnly ? "hp=1" : ""].filter(Boolean).join("&");
   const due = store.dueQuestions()
     .filter((d) => !bus || isBusQuestion(d.question))
-    .filter((d) => !scope || scope.has(d.assignment.id)); // most-overdue-first
+    .filter((d) => !scope || scope.has(d.assignment.id))
+    .filter((d) => !hpOnly || isHpSetId(d.assignment.id)); // most-overdue-first
   if (!due.length) {
     return bus
       ? emptyScreen(t("bus.noneTitle"), t("bus.noneReviewBody"), t("bus.badge"))
@@ -141,13 +145,13 @@ export async function renderReview(qs) {
 
   return runSession({
     // A test-scoped review gets its own resumable slot, so it can't resume into (or over) the all-sets one.
-    key: `${bus ? `${REVIEW_ID}::bus` : REVIEW_ID}${scope ? `::${scopeQuery}` : ""}`,
+    key: `${bus ? `${REVIEW_ID}::bus` : REVIEW_ID}${scopeQuery ? `::${scopeQuery}` : ""}`,
     assignmentId: REVIEW_ID,
-    title: t("session.reviewTitle"),
+    title: t(hpOnly ? "session.reviewTitleHp" : "session.reviewTitle"),
     type: "assignment",
     bus,
     reviewScope: scopeQuery,
-    retryHash: withProv(`#/review${bus || scope ? `?${[bus ? "bus=1" : "", scopeQuery].filter(Boolean).join("&")}` : ""}`, examId),
+    retryHash: withProv(`#/review${bus || scopeQuery ? `?${[bus ? "bus=1" : "", scopeQuery].filter(Boolean).join("&")}` : ""}`, examId),
     examId,
     questionIds: batch.map((d) => d.question.id),
     reviewRemaining: due.length - batch.length,
@@ -604,7 +608,7 @@ function runSession(config) {
    *  Review/practice/weak have a translated label; a real set uses its own
    *  (now possibly re-translated) title. */
   function headTitle() {
-    if (config.assignmentId === REVIEW_ID) return t("session.reviewTitle");
+    if (config.assignmentId === REVIEW_ID) return t(/(^|&)hp=1(&|$)/.test(config.reviewScope || "") ? "session.reviewTitleHp" : "session.reviewTitle");
     if (config.assignmentId === PRACTICE_ID) return t("session.practiceTitle");
     if (config.assignmentId === WEAK_ID) return t("session.weakTitle");
     if (config.assignmentId === RULES_ID) return t("session.rulesTitle");

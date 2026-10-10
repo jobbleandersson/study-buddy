@@ -186,6 +186,7 @@ export default {
   "session.badgePractice": "Practice",
   "session.badgeWeak": "Weak spots",
   "session.reviewTitle": "Review session",
+  "session.reviewTitleHp": "Review session – högskoleprovet",
   "session.reviewMore": "{n} more due — come back after this batch.",
   "session.practiceTitle": "Practice",
   "session.weakTitle": "Weak spots",
