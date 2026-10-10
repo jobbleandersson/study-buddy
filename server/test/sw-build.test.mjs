@@ -1,4 +1,5 @@
 import { test, describe, before, after } from "node:test";
+import http from "node:http";
 import assert from "node:assert/strict";
 import { mkdtempSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
@@ -74,9 +75,16 @@ describe("the stamped service worker over HTTP", () => {
     }
   });
 
+  // The raw client: fetch() adds "Cache-Control: no-cache" to a request with a hand-set If-None-Match
+  // (the fetch spec does), and a server rightly never answers that with a 304.
+  const rawGet = (urlPath, headers = {}) => new Promise((resolve, reject) => {
+    http.get(server.baseUrl + urlPath, { headers }, (res) => { res.resume(); res.on("end", () => resolve(res)); }).on("error", reject);
+  });
+
   test("an unchanged sw.js is a 304 when the browser checks it", async () => {
-    const first = await fetch(`${server.baseUrl}/sw.js`);
-    const again = await fetch(`${server.baseUrl}/sw.js`, { headers: { "if-none-match": first.headers.get("etag") } });
-    assert.equal(again.status, 304);
+    const first = await rawGet("/sw.js");
+    assert.ok(first.headers.etag);
+    const again = await rawGet("/sw.js", { "if-none-match": first.headers.etag });
+    assert.equal(again.statusCode, 304);
   });
 });
