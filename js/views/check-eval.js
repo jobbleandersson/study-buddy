@@ -15,14 +15,17 @@ import { store } from "../store.js";
 import { el, icon, ICONS, toast, uid, downloadText } from "../lib/dom.js";
 import { checkWorking, ClaudeError } from "../claude.js";
 import { shrinkImage } from "../lib/photo.js";
+import { t } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { bindFileTargets } from "../components/file-drop.js";
 import {
-  EVAL_MODELS, costUsd, expectation, verdictFor, compareRuns, needsJudge, summarise, toCsv,
+  EVAL_MODELS, costUsd, expectation, verdictFor, compareRuns, needsJudge, summarise, toCsv, flaggedText,
 } from "../lib/check-eval.js";
 
 const MAX_CASES = 40;
-const CONCURRENT = 2;                         // photos in flight at once (x2 models = 4 requests)
+const CONCURRENT = 1;                         // photos in flight at once (x2 models = 2 requests): 2 at a time hit the server's 20-requests-a-minute limit
+const RATE_RETRIES = 3;                       // how many times to wait out "slow down" before giving up on one request
+const RATE_WAIT_MS = 15000;
 const IDS = EVAL_MODELS.map((m) => m.id);
 const PER_PHOTO_ESTIMATE = 0.03;              // dollars, both models: only used for the "about $X" line
 
@@ -70,12 +73,21 @@ export function renderCheckEval() {
     paintCase(c);
     const todo = EVAL_MODELS.filter((m) => !c.runs[m.id] || c.runs[m.id].error);
     await Promise.all(todo.map(async (m) => {
-      const t0 = performance.now();
-      try {
-        const res = await checkWorking({ image: { mediaType: c.image.mediaType, data: c.image.data }, model: m.id });
-        c.runs[m.id] = { result: res, ms: Math.round(performance.now() - t0), usage: res.usage, cost: costUsd(m.id, res.usage) };
-      } catch (e) {
-        c.runs[m.id] = { error: e instanceof ClaudeError ? e.message : String(e?.message || e), ms: Math.round(performance.now() - t0) };
+      for (let attempt = 0; ; attempt++) {
+        const t0 = performance.now();
+        try {
+          const res = await checkWorking({ image: { mediaType: c.image.mediaType, data: c.image.data }, model: m.id });
+          c.runs[m.id] = { result: res, ms: Math.round(performance.now() - t0), usage: res.usage, cost: costUsd(m.id, res.usage) };
+          return;
+        } catch (e) {
+          // "Slow down" from the server: wait it out and ask again, rather than leaving a hole in the comparison.
+          if (e instanceof ClaudeError && e.message === t("err.rateLimited") && attempt < RATE_RETRIES && !st.stop) {
+            await new Promise((r) => setTimeout(r, RATE_WAIT_MS));
+            continue;
+          }
+          c.runs[m.id] = { error: e instanceof ClaudeError ? e.message : String(e?.message || e), ms: Math.round(performance.now() - t0) };
+          return;
+        }
       }
     }));
     c.status = "done";
@@ -218,7 +230,7 @@ export function renderCheckEval() {
       body.push(el("p", { style: { margin: 0 } }, r.status === "unreadable" ? "Said the photo is unreadable." : "Said there is no working to check."));
       if (r.reason) body.push(el("p.note", {}, r.reason));
     } else {
-      body.push(el("p", { style: { margin: 0, fontWeight: "600" } }, r.firstError == null ? "Every line follows" : `First error: line ${r.firstError}`));
+      body.push(el("p", { style: { margin: 0, fontWeight: "600" } }, r.firstError == null ? "Every line follows" : `First error: line ${r.firstError}, “${flaggedText(r)}”`));
       body.push(el("p.note", { style: { margin: 0 } }, `Final answer: ${r.answerCorrect === true ? "correct" : r.answerCorrect === false ? "wrong" : "unclear"}`));
     }
     if (run && !run.error) {
@@ -262,8 +274,10 @@ export function renderCheckEval() {
       el("option", { value: "line" }, "First wrong line is…"),
     ]);
     kindSel.value = c.kind;
+    // A number ("2") or what the line says ("-3x = 6"): the text is safer, because the models disagree on whether
+    // the problem itself counts as line 1 - they flag the same line and number it differently.
     const lineIn = c.kind === "line" ? el("input", {
-      type: "number", min: "1", max: "20", value: c.line, placeholder: "line", "aria-label": "Line number of the first mistake", style: { width: "70px" },
+      type: "text", value: c.line, placeholder: "line no. or its text", "aria-label": "The first wrong line: its number, or what it says", style: { width: "150px" },
       onchange: (e) => { c.line = e.target.value; c.expected = expectation(c.kind, c.line); paintCase(c); paintSummary(); },
     }) : null;
     const node = el("div.panel", { style: { display: "flex", flexWrap: "wrap", gap: "14px", alignItems: "flex-start", padding: "var(--s-4)" } }, [
