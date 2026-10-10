@@ -323,4 +323,14 @@ describe("exam.newQuestionsOnly", () => {
     ], sets);
     assert.deepEqual(out.map((q) => q.prompt), ["Nytt?", "Annat"]);
   });
+
+  test("KVA questions share one prompt and differ in their quantities: those count, symbols included", () => {
+    const kva = (a, b, given) => ({ prompt: "Jämför kvantiteterna I och II.", stimulus: { quantities: [a, b], ...(given ? { given } : {}) } });
+    const out = newQuestionsOnly(
+      [kva("2^5", "5^2"), kva("3^4", "4^3"), kva("x", "2x", "x > 0"), kva("x", "2x", "x < 0"), kva("3^4", " 4^3 ")],
+      [{ questions: [kva("2^5", "5^2")] }],
+    );
+    assert.deepEqual(out.map((q) => [...q.stimulus.quantities, q.stimulus.given]),
+      [["3^4", "4^3", undefined], ["x", "2x", "x > 0"], ["x", "2x", "x < 0"]]);
+  });
 });

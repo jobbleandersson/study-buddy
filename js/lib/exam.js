@@ -348,14 +348,26 @@ export function pickSeedQuestions(sets, max = 14, rng = Math.random) {
 
 const promptKey = (p) => String(p || "").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim();
 
-/** Generated questions that are not already in these sets (same prompt, ignoring case and punctuation)
- *  and not repeated within the batch itself. */
+// What makes a question this question: its prompt plus what it's asked about. Högskoleprov KVA questions all
+// share one prompt ("Jämför kvantiteterna I och II.") and differ only in their quantities, so a key on the
+// prompt alone took every new one for a copy of the first. Their symbols matter ("x > 0" is not "x < 0"), so
+// only case and spacing are ignored there.
+export const questionKey = (q) => {
+  const prompt = promptKey(q?.prompt);
+  const s = q?.stimulus || {};
+  const rest = [...(s.quantities || []), ...(s.statements || []), s.given]
+    .filter((x) => typeof x === "string" && x.trim()).map((x) => x.toLowerCase().replace(/\s+/g, " ").trim());
+  return prompt && rest.length ? `${prompt} | ${rest.join(" | ")}` : prompt;
+};
+
+/** Generated questions that are not already in these sets (same prompt and quantities or statements,
+ *  ignoring case and punctuation) and not repeated within the batch itself. */
 export function newQuestionsOnly(generated, sets) {
   const seen = new Set();
-  for (const a of sets || []) for (const q of a.questions || []) seen.add(promptKey(q.prompt));
+  for (const a of sets || []) for (const q of a.questions || []) seen.add(questionKey(q));
   const out = [];
   for (const q of generated || []) {
-    const k = promptKey(q.prompt);
+    const k = questionKey(q);
     if (!k || seen.has(k)) continue;
     seen.add(k);
     out.push(q);
