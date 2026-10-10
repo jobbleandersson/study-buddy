@@ -1,14 +1,20 @@
 // PluggEra service worker.
 //
-// Strategy: network-first for same-origin GETs, falling back to the cache.
-// Cache-first would be faster, but this app is under active development and
-// stale-file confusion is worse than a few milliseconds. Offline still works
-// because every successful response is cached on the way past.
+// Strategy: the app's own files (APP_SHELL and LANG_FILES below) come straight from this version's
+// cache. Asking the server about each of them first cost a phone ~70 round trips before the menu
+// on every open. That is only safe because the version is never set by hand: the server replaces
+// BUILD with a hash of every file listed here (server/src/sw-build.js), so a deploy that changes
+// any of them is a new service worker with a fresh cache, and one that changes none is not. The
+// page itself (navigation) and everything else same-origin stay network-first, cached on the way
+// past for offline. Served without the server (serve.ps1, a static host) BUILD stays "dev", and
+// everything is network-first as before, so local edits show on reload.
 //
 // Anything cross-origin (api.anthropic.com, Google Fonts) is left entirely
 // alone — API calls must never be served from a cache.
 
-const CACHE = "studify-v255";
+const BUILD = "dev";
+const CACHE = `studify-${BUILD}`;
+const VERSIONED = BUILD !== "dev";
 
 // Left out on purpose (a phone's first visit downloads all of this): the PDF and zip readers, only
 // used to make a set from a file, which needs the AI and so a connection anyway; the extended-Latin
@@ -205,12 +211,34 @@ const LANG_FILES = {
   en: ["./js/lib/strings.en.js", "./data/library/index.en.json", "./data/reference/formulas.en.json"],
 };
 
+// The files served from the cache (by full URL, no query). The page itself isn't: see the top.
+const OWN_FILES = new Set([...APP_SHELL, ...Object.values(LANG_FILES).flat()]
+  .filter((u) => u !== "./" && u !== "./index.html")
+  .map((u) => new URL(u, self.location.href).href));
+
+/** Fetches a file of this version into the cache. "no-cache" so the HTTP cache can't hand back an
+ *  older copy (an unchanged file is a cheap 304). The server stamps every file with the build it
+ *  belongs to (X-Build); during a rolling deploy a file can come from a machine still on the old
+ *  build, and caching it here would serve it for this whole version - that throws instead. */
+async function addFresh(cache, url) {
+  const res = await fetch(new Request(url, { cache: "no-cache" }));
+  if (!res.ok) throw new Error(`${res.status}`);
+  const build = res.headers.get("X-Build");
+  if (VERSIONED && build && build !== BUILD) throw new Error(`build ${build}, not ${BUILD}`);
+  await cache.put(url, res);
+}
+
 self.addEventListener("install", (event) => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE);
-    // Individually, so one 404 can't fail the whole install.
-    await Promise.all(APP_SHELL.map((url) =>
-      cache.add(url).catch((e) => console.warn("[sw] skipped", url, e.message))));
+    let mixed = false;
+    // Individually, so one 404 can't fail the whole install (a missing file is fetched when used).
+    // A file from another build can: the browser tries the install again on the next visit.
+    await Promise.all(APP_SHELL.map((url) => addFresh(cache, url).catch((e) => {
+      if (/^build /.test(e.message)) mixed = true;
+      console.warn("[sw] skipped", url, e.message);
+    })));
+    if (mixed) { await caches.delete(CACHE); throw new Error("files from two builds; trying again later"); }
     self.skipWaiting();
   })());
 });
@@ -239,7 +267,7 @@ async function cacheLang(lang) {
   if (!files) return;
   const cache = await caches.open(CACHE);
   await Promise.all(files.map(async (url) => {
-    if (!(await cache.match(url))) await cache.add(url).catch((e) => console.warn("[sw] skipped", url, e.message));
+    if (!(await cache.match(url))) await addFresh(cache, url).catch((e) => console.warn("[sw] skipped", url, e.message));
   }));
 }
 
@@ -315,6 +343,21 @@ self.addEventListener("fetch", (event) => {
   // sign-out or account deletion — and let an offline boot come up "signed in" as a previous
   // person from a stale copy — so they always go straight to the network, never through the cache.
   if (url.pathname.includes("/api/")) return;
+
+  // The app's own files: this version's copy, without asking the server (see the top). One that
+  // isn't in the cache yet (a skipped install fetch, a language file) is fetched and kept.
+  if (VERSIONED && request.mode !== "navigate" && !url.search && OWN_FILES.has(url.href)) {
+    event.respondWith((async () => {
+      const cache = await caches.open(CACHE);
+      const hit = await cache.match(request, { ignoreVary: true });
+      if (hit) return hit;
+      const res = await fetch(request, { cache: "no-cache" });
+      const build = res.headers.get("X-Build");
+      if (res.ok && (!build || build === BUILD)) cache.put(request, res.clone());
+      return res;
+    })());
+    return;
+  }
 
   event.respondWith((async () => {
     try {
