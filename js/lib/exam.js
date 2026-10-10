@@ -354,11 +354,16 @@ const promptKey = (p) => String(p || "").toLowerCase().replace(/[^\p{L}\p{N}]+/g
 // only case and spacing are ignored there.
 export const questionKey = (q) => {
   const prompt = promptKey(q?.prompt);
-  const s = q?.stimulus || {};
-  const rest = [...(s.quantities || []), ...(s.statements || []), s.given]
-    .filter((x) => typeof x === "string" && x.trim()).map((x) => x.toLowerCase().replace(/\s+/g, " ").trim());
+  const rest = stimulusParts(q).map((x) => x.toLowerCase().replace(/\s+/g, " ").trim());
   return prompt && rest.length ? `${prompt} | ${rest.join(" | ")}` : prompt;
 };
+
+/** What a question is asked about besides its prompt: a KVA's quantities and shared information, a
+ *  NOG's statements. Non-empty strings only. */
+export function stimulusParts(q) {
+  const s = q?.stimulus || {};
+  return [...(s.quantities || []), ...(s.statements || []), s.given].filter((x) => typeof x === "string" && x.trim());
+}
 
 /** Generated questions that are not already in these sets (same prompt and quantities or statements,
  *  ignoring case and punctuation) and not repeated within the batch itself. */

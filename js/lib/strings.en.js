@@ -14,6 +14,7 @@ export default {
   "common.copied": "Copied",
   "common.delete": "Delete",
   "common.loading": "Loading…",
+  "common.openFailed": "Couldn't open this. Check your connection and try again.",
   "common.progress": "Progress",
   "common.settings": "Settings",
   "common.newSet": "New set",

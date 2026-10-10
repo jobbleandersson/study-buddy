@@ -10,7 +10,7 @@ import { store } from "../store.js";
 import { uid } from "../lib/dom.js";
 import { t } from "../lib/i18n.js";
 import { generateAssignment } from "../claude.js";
-import { newQuestionsOnly } from "../lib/exam.js";
+import { newQuestionsOnly, stimulusParts } from "../lib/exam.js";
 import { OPTION_COUNT, isHpSetId, parseHpSetId } from "../lib/hp.js";
 
 export const AI_DELPROV = ["ord", "mek", "xyz", "kva", "nog"];
@@ -82,8 +82,7 @@ async function addNow(dp, count) {
 async function writeBatch({ dp, count, seed, fixed, sets, ofDp }) {
   // What already exists, AI-made included, so nothing is written twice with new numbers.
   // Prompt and quantities or statements: a KVA prompt alone ("Jämför kvantiteterna I och II.") says nothing.
-  const taken = ofDp(sets).map((q) => [q.prompt, ...(q.stimulus?.quantities || []), ...(q.stimulus?.statements || []), q.stimulus?.given]
-    .filter((x) => typeof x === "string").join(" · ").replace(/\s+/g, " ").slice(0, 160));
+  const taken = ofDp(sets).map((q) => [String(q.prompt), ...stimulusParts(q)].join(" · ").replace(/\s+/g, " ").slice(0, 160));
 
   const gen = await generateAssignment({
     task: "generateHp",   // the strong model: see MODELS in claude.js

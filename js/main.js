@@ -16,6 +16,9 @@ import { mountUpgradePrompt } from "./components/upgrade-prompt.js";
 import { loadLibraryIndex } from "./lib/library-content.js";
 import { playFanfare } from "./lib/sound.js";
 
+// Every module is in: boot.js's "couldn't start" screen stands down.
+window.__sbStarted = true;
+
 // First thing after the imports, so an error anywhere in boot is reported too (anonymous, see
 // lib/error-report.js).
 installErrorReporting(ERRORS_URL);
@@ -511,7 +514,7 @@ function langButton() {
     type: "button",
     "aria-label": `${t("common.language")} → ${nextLabel}`,
     title: `${t("common.language")} → ${nextLabel}`,
-    onclick: () => setLang(next).then(() => toast(t("set.langUpdated"))),
+    onclick: () => setLang(next).then((ok) => { if (ok) toast(t("set.langUpdated")); }),
   }, [el("span.langbtn__flag", { "aria-hidden": "true", html: flagSvg }), el("span.langbtn__code", {}, current.toUpperCase())]);
 }
 
@@ -1207,14 +1210,27 @@ setInterval(() => {
 // Offline support + home-screen install. Only over http(s) — a service worker
 // can't register from file://, and failing to register is not fatal.
 if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
-  window.addEventListener("load", () => {
+  // English-only files (the UI strings among them) aren't precached: the worker keeps them for a
+  // page that says it's in English (sw.js, SET_LANG) — also a new worker, whose cache starts empty.
+  const tellWorkerLang = () => navigator.serviceWorker.ready
+    .then((reg) => (navigator.serviceWorker.controller || reg.active)?.postMessage({ type: "SET_LANG", lang: getLang() }))
+    .catch(() => {});
+  const registerWorker = () => {
     navigator.serviceWorker.register("sw.js").catch((e) => {
       console.warn("Service worker not registered:", e.message);
     });
-  });
+    tellWorkerLang();
+  };
+  // After "load", so it doesn't compete with the first screen for the network. The page can be
+  // loaded already: lib/i18n.js awaits its strings at the top level, and "load" doesn't wait for
+  // that, so a fast load fires it before this line runs (and a listener would never be called).
+  if (document.readyState === "complete") registerWorker();
+  else window.addEventListener("load", registerWorker);
+  window.addEventListener("sb:langchange", tellWorkerLang);
   // No banner on the very first install — only when a new worker replaces an old one.
   const hadController = !!navigator.serviceWorker.controller;
   navigator.serviceWorker.addEventListener("controllerchange", () => {
+    tellWorkerLang();
     if (hadController) showUpdateBar();
   });
 }
