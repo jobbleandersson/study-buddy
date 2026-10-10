@@ -2,11 +2,17 @@
 //
 // Mirrors lib/theme.js — read straight from localStorage so the page never
 // flashes the wrong language, and a change fires an event the router listens
-// for. The strings themselves live in lib/strings.js.
-
-import { STRINGS } from "./strings.js";
+// for. The strings themselves live in lib/strings.en.js and lib/strings.sv.js.
 
 const KEY = "studybuddy.lang";
+
+// Only the language on screen is loaded: both together were a third of everything a phone had to
+// download and parse before the first screen. The other one loads when the student switches.
+const STRINGS = {};
+const TABLES = { en: () => import("./strings.en.js"), sv: () => import("./strings.sv.js") };
+async function loadStrings(lang) {
+  STRINGS[lang] ||= (await TABLES[lang]()).default;
+}
 
 // Flag emoji render as bare "GB"/"SE" text on platforms without a color-emoji
 // font (stock Windows Chrome included), so these are small inline SVGs
@@ -56,22 +62,48 @@ export function applyLang(lang = getLang()) {
   document.documentElement.setAttribute("lang", lang);
 }
 
-export function setLang(lang) {
-  if (!SUPPORTED.includes(lang)) return;
-  localStorage.setItem(KEY, lang);
+function switched(lang) {
   applyLang(lang);
   window.dispatchEvent(new CustomEvent("sb:langchange", { detail: { lang } }));
+}
+
+let switches = 0;   // counts setLang calls, so a slower earlier switch can't land after a later one
+
+/** Loads the language's strings, then switches (so nothing re-renders half in the old one).
+ *  Resolves true once switched; false when it couldn't load (offline before it was ever cached)
+ *  or a later call came in meanwhile. */
+export async function setLang(lang) {
+  if (!SUPPORTED.includes(lang)) return false;
+  const mine = ++switches;
+  try { await loadStrings(lang); } catch { return false; }
+  if (mine !== switches) return false;
+  localStorage.setItem(KEY, lang);
+  switched(lang);
+  return true;
+}
+
+// Another tab switched language: load it here too and re-render, so this tab doesn't run with
+// one language's text and the other's dates and AI replies.
+if (typeof window !== "undefined") {
+  window.addEventListener("storage", (e) => {
+    if (e.storageArea && e.storageArea !== localStorage) return;
+    if (e.key !== KEY && e.key !== null) return;   // null: storage was cleared
+    const lang = getLang();
+    loadStrings(lang).then(() => { if (getLang() === lang) switched(lang); }).catch(() => {});
+  });
 }
 
 /**
  * t("menu.newSet") -> "New set"
  * t("session.questionOf", { n: 2, total: 5 }) -> "Question 2 of 5"
- * Falls back sv -> en -> the key itself, so a missing translation degrades to
- * English rather than to a blank or a crash.
+ * Only the language on screen is loaded, so a missing translation (test/lib/strings.test.mjs keeps
+ * the two in step) falls back to English only when English is loaded, else to the key itself. While
+ * a language another tab switched to is still loading (the storage listener above), the loaded one
+ * stands in.
  */
 export function t(key, vars) {
   const lang = getLang();
-  let s = STRINGS[lang]?.[key];
+  let s = (STRINGS[lang] || STRINGS[FALLBACK] || Object.values(STRINGS)[0])?.[key];
   if (s == null) s = STRINGS[FALLBACK]?.[key];
   if (s == null) {
     console.warn("[i18n] missing string:", key);
@@ -80,6 +112,14 @@ export function t(key, vars) {
   if (!vars) return s;
   return s.replace(/\{(\w+)\}/g, (m, name) => (name in vars ? String(vars[name]) : m));
 }
+
+// Top-level await: every module that imports this one runs only after the strings are in, so t()
+// works from their first line. boot.js has already started the download (modulepreload), so it
+// doesn't wait for the rest of the module graph. Outside a browser (the unit tests) both load,
+// since tests switch language by writing localStorage directly.
+let startLang = "sv";
+try { startLang = getLang(); } catch { /* no storage: the default */ }
+await Promise.all(typeof document === "undefined" ? SUPPORTED.map(loadStrings) : [loadStrings(startLang)]);
 
 /** Picks a singular/plural key and passes {n} through. Both languages are
  *  one-vs-other, so a single rule covers them. */

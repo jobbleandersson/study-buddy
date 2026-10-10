@@ -10,7 +10,7 @@ import { t, getLang } from "../lib/i18n.js";
 import { localDayKey } from "../lib/activity.js";
 import { dayDiff } from "../lib/exam.js";
 import { subjectField } from "./subject-field.js";
-import { blankQuestions } from "../views/create.js";
+import { blankQuestions } from "../lib/blank-questions.js";
 
 let dialogEl = null;
 function onEsc(e) { if (e.key === "Escape") close(); }
