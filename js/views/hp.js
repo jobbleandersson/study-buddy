@@ -376,7 +376,7 @@ export async function renderHp() {
       nextSteps.push(setLink("a.btn.btn--ghost", wordBank, `#/session/${wordBank.id}`, {}, [icon(ICONS.layers, 16), t("hp.trainOrd")]));
     }
     if (dueN) {
-      nextSteps.push(el("a.btn.btn--ghost", { href: "#/review" }, [icon(ICONS.spark, 16), plural(dueN, "hp.dueOne", "hp.dueMany")]));
+      nextSteps.push(el("a.btn.btn--ghost", { href: "#/review?hp=1" }, [icon(ICONS.spark, 16), plural(dueN, "hp.dueOne", "hp.dueMany")]));
     }
     bodyEl.appendChild(el("section.hp-hero", { "aria-label": t("hp.pageTitle") }, [
       el("div.hp-hero__main", {}, [scoreZone(prog, calibratedCount(stats)), dateZone(hpDate, { editing: editingDate, setEditing })]),
@@ -409,7 +409,7 @@ export async function renderHp() {
         const hash = r.kind === "drill" ? drillHash(r.delprov)
           : r.kind === "try" ? `#/hp/ova/${r.delprov}?n=${PASS_COUNT[r.delprov]}`
           : r.kind === "prognos" ? "#/hp/prognos"
-          : r.kind === "review" || r.kind === "reviewmiss" ? "#/review"
+          : r.kind === "review" || r.kind === "reviewmiss" ? "#/review?hp=1"
           : r.kind === "ord" ? drillHash("ord")
           : r.kind === "mock" ? "#/hp/prov" : null;
         return el("li.exam-prep__day" + (r.dayOffset === 0 ? ".is-today" : "") + (r.kind === "testday" ? ".is-test" : ""), {}, [
