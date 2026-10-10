@@ -360,7 +360,7 @@ const tokensOf = (u) => (u ? (u.input_tokens || 0) + (u.output_tokens || 0) : 0)
  * Resolves the cleaned result from normalizeCheck() plus `tokens` (what the
  * call used, so the screen can say what it cost).
  */
-export async function checkWorking({ image = null, problem = "", workingText = "" }) {
+export async function checkWorking({ image = null, problem = "", workingText = "", model = null }) {
   const content = [];
   if (image) content.push({ type: "image", source: { type: "base64", media_type: image.mediaType, data: image.data } });
   const parts = [];
@@ -371,7 +371,8 @@ export async function checkWorking({ image = null, problem = "", workingText = "
   content.push({ type: "text", text: parts.join("\n\n") });
 
   const body = {
-    model: modelFor("check"),
+    // `model` is only passed by the model-comparison tool (views/check-eval.js); the page itself always uses the check model.
+    model: model || modelFor("check"),
     max_tokens: 2500,
     system: checkWorkSystem(),
     messages: [{ role: "user", content }],
@@ -379,6 +380,7 @@ export async function checkWorking({ image = null, problem = "", workingText = "
 
   const first = await callRaw(body);
   let tokens = tokensOf(first.usage);
+  const usage = { input_tokens: first.usage?.input_tokens || 0, output_tokens: first.usage?.output_tokens || 0 };
   let json;
   try {
     json = parseLooseJSON(first.text);
@@ -390,10 +392,12 @@ export async function checkWorking({ image = null, problem = "", workingText = "
       messages: [{ role: "user", content: [{ type: "text", text: `Return this as ONLY a valid JSON object in the shape described in your instructions — no other text:\n\n${first.text.slice(0, 6000)}` }] }],
     });
     tokens += tokensOf(repair.usage);
+    usage.input_tokens += repair.usage?.input_tokens || 0;
+    usage.output_tokens += repair.usage?.output_tokens || 0;
     try { json = parseLooseJSON(repair.text); }
     catch { throw new ClaudeError(t("check.err.parse")); }
   }
-  return { ...normalizeCheck(json), tokens };
+  return { ...normalizeCheck(json), tokens, usage };
 }
 
 // ---------- listen-as-conversation ----------
