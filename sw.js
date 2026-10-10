@@ -8,7 +8,7 @@
 // Anything cross-origin (api.anthropic.com, Google Fonts) is left entirely
 // alone — API calls must never be served from a cache.
 
-const CACHE = "studify-v250";
+const CACHE = "studify-v252";
 
 // Left out on purpose (a phone's first visit downloads all of this): the PDF and zip readers, only
 // used to make a set from a file, which needs the AI and so a connection anyway; the extended-Latin
