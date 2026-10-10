@@ -171,6 +171,8 @@ const routes = [
   { rx: /^\/solve$/, view: (m, qs) => (qs.get("mode") === "check"
     ? import("./views/check.js").then((mod) => mod.renderCheck())
     : import("./views/solve.js").then((mod) => mod.renderSolve(qs))) },
+  // A developer tool, linked from nowhere: compares the two models on "Kolla min uträkning" (views/check-eval.js).
+  { rx: /^\/dev\/check-eval$/, view: () => import("./views/check-eval.js").then((mod) => mod.renderCheckEval()) },
   { rx: /^\/reference$/, view: (m, qs) => import("./views/reference.js").then((mod) => mod.renderReference(qs)) },
   { rx: /^\/calculator$/, view: () => import("./views/calculator.js").then((mod) => mod.renderCalculator()) },
   { rx: /^\/achievements$/, view: () => import("./views/achievements.js").then((mod) => mod.renderAchievements()) },
