@@ -20,6 +20,15 @@ import { playFanfare } from "./lib/sound.js";
 // lib/error-report.js).
 installErrorReporting(ERRORS_URL);
 
+// pluggera.se/hp and the like are this same page with that screen's own preview image and title
+// (server/src/routes/share-pages.js, for a TikTok bio or a message). Open the screen they stand for,
+// back at "/#/…", so every other link and the service worker's scope work as they always have.
+const SHARE_PATHS = { "/hp": "#/hp" };
+{
+  const to = SHARE_PATHS[location.pathname.replace(/\/+$/, "").toLowerCase()];
+  if (to && !location.hash) history.replaceState(null, "", `/${location.search}${to}`);
+}
+
 const app = document.getElementById("app");
 
 // mountUpgradePrompt() only needs store/dom/i18n — already eager either way,

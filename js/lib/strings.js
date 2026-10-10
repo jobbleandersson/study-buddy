@@ -2550,7 +2550,7 @@ export const STRINGS = {
     "footer.contact": "Contact",
     "footer.copy": "PluggEra is an independent, ad-free study project.",
 
-    "lp.pageTitle": "Study smarter, not longer",
+    "lp.pageTitle": "Practise for tests and Högskoleprovet",
     "lp.aiP5": "Gives feedback on your own text against the knowledge requirements",
     "lp.trustEyebrow": "Safe to use",
     "lp.trustTitle": "Serious about studying, and about your data",
@@ -5460,7 +5460,7 @@ export const STRINGS = {
     "footer.contact": "Kontakt",
     "footer.copy": "PluggEra är ett fristående studieprojekt, utan annonser.",
 
-    "lp.pageTitle": "Plugga smartare, inte längre",
+    "lp.pageTitle": "Öva inför prov och högskoleprovet",
     "lp.aiP5": "Ger feedback på din egen text mot kunskapskraven",
     "lp.trustEyebrow": "Tryggt att använda",
     "lp.trustTitle": "Seriöst med plugget, och med din data",

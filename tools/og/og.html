@@ -1,0 +1,135 @@
+<!doctype html>
+<!-- Link-preview images (Open Graph): what a shared pluggera.se link shows in iMessage, WhatsApp,
+     Discord, Messenger, Slack and the like. 1200×630; ?v=home (the front page) or ?v=hp (/hp).
+     render-og.mjs (next to this file) shoots both into assets/. Previews are often shown small or
+     cropped toward a square, so the words sit on the left in big type and the picture of the app on
+     the right only has to read as "a real study app", not be legible. -->
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>PluggEra preview image</title>
+<style>
+  @font-face { font-family: "Inter"; font-weight: 400 800; src: url("../../assets/fonts/inter-latin.woff2") format("woff2"); }
+  @font-face { font-family: "Lexend"; font-weight: 700; src: url("../../assets/fonts/lexend-700-latin.woff2") format("woff2"); }
+
+  :root {
+    --blue-1: #2C5CD6; --blue-2: #1E45AC; --blue-3: #16357F;
+    --ink: #151C33; --ink-soft: #4A5372; --faint: #8A91A8; --line: #E3E7F0;
+    --tint: #EEF2FF; --brand-ink: #2347B0;
+    --ok: #1B7A50; --ok-tint: #E4F5EC; --ok-line: #9ED6B8;
+    --tangerine: #E8742A; --tangerine-tint: #FDEEE3; --tangerine-ink: #A34B12;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    width: 1200px; height: 630px; overflow: hidden; position: relative; color: #fff;
+    font-family: "Inter", system-ui, sans-serif;
+    background: linear-gradient(135deg, var(--blue-1) 0%, var(--blue-2) 52%, var(--blue-3) 100%);
+  }
+  /* The same two faint rings as the student card in the app (views/profile.js). */
+  body::before {
+    content: ""; position: absolute; right: -170px; top: -230px; width: 640px; height: 640px; border-radius: 50%;
+    border: 70px solid rgba(255, 255, 255, .05); box-shadow: 0 0 0 70px rgba(255, 255, 255, .028);
+  }
+
+  .copy { position: absolute; left: 76px; top: 66px; bottom: 66px; width: 610px; display: flex; flex-direction: column; }
+  .brand { display: flex; align-items: center; gap: 16px; }
+  .brand img { width: 58px; height: 58px; }
+  .brand span { font-family: "Lexend", "Inter", sans-serif; font-weight: 700; font-size: 38px; letter-spacing: -.035em; transform: skewX(-9deg); }
+  h1 { margin: 48px 0 0; font-weight: 800; font-size: 74px; line-height: 1.03; letter-spacing: -.035em; }
+  .lede { margin: 24px 0 0; font-size: 27px; line-height: 1.4; color: rgba(255, 255, 255, .86); max-width: 590px; text-wrap: pretty; }
+  .chips { margin-top: auto; display: flex; flex-wrap: wrap; gap: 12px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 9px; padding: 9px 17px; border-radius: 999px;
+    background: rgba(255, 255, 255, .13); border: 2px solid rgba(255, 255, 255, .24); font-size: 21px; font-weight: 700;
+  }
+  .chip svg { width: 21px; height: 21px; }
+
+  /* The app on the right: one real question, answered, tilted a touch and running off the edge. */
+  .stage { position: absolute; left: 712px; top: 112px; width: 436px; transform: rotate(-2.5deg); transform-origin: top left; }
+  .card {
+    background: #fff; color: var(--ink); border-radius: 28px; padding: 26px 26px 22px;
+    box-shadow: 0 40px 80px -30px rgba(5, 15, 50, .7), 0 6px 18px rgba(5, 15, 50, .25);
+  }
+  .card__top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+  .tag { display: inline-flex; align-items: center; gap: 9px; padding: 6px 14px; border-radius: 999px; background: var(--tint); color: var(--brand-ink); font-size: 18px; font-weight: 700; }
+  .tag i { width: 10px; height: 10px; border-radius: 50%; background: #2F8FD8; }
+  .dots { display: flex; gap: 6px; }
+  .dots i { width: 22px; height: 7px; border-radius: 4px; background: var(--line); }
+  .dots i.on { background: var(--blue-1); }
+  .q { margin: 0 0 16px; font-size: 27px; font-weight: 700; line-height: 1.25; letter-spacing: -.01em; }
+  .opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .opt { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; border: 2px solid var(--line); font-size: 23px; font-weight: 600; }
+  .opt b { width: 34px; height: 34px; flex: none; border-radius: 50%; display: grid; place-items: center; background: #F1F3F8; color: var(--ink-soft); font-size: 18px; font-weight: 800; }
+  .opt.is-right { border-color: var(--ok-line); background: var(--ok-tint); color: var(--ok); }
+  .opt.is-right b { background: var(--ok); color: #fff; }
+  .why { margin-top: 14px; padding: 12px 16px; border-radius: 14px; background: #F5F7FC; font-size: 19px; line-height: 1.4; color: var(--ink-soft); }
+  .why strong { color: var(--ink); }
+
+  /* HP: the estimate and the eight delprov, as the hub in the app shows them. */
+  .score__label { font-size: 20px; font-weight: 700; color: var(--ink-soft); }
+  .score__value { display: flex; align-items: baseline; gap: 12px; margin: 6px 0 14px; }
+  .score__value strong { font-size: 76px; font-weight: 800; letter-spacing: -.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+  .score__value span { font-size: 22px; color: var(--faint); font-weight: 600; }
+  .scale { position: relative; height: 14px; border-radius: 7px; background: linear-gradient(90deg, #E7ECF8 0%, #C9D6F6 55%, var(--blue-1) 100%); }
+  .scale i { position: absolute; top: 50%; width: 26px; height: 26px; border-radius: 50%; background: #fff; border: 5px solid var(--blue-1); transform: translate(-50%, -50%); box-shadow: 0 2px 6px rgba(0,0,0,.2); }
+  .ticks { display: flex; justify-content: space-between; margin-top: 10px; font-size: 17px; color: var(--faint); font-variant-numeric: tabular-nums; }
+  .parts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 20px; }
+  .part { border-radius: 14px; padding: 11px 0; text-align: center; font-family: "Lexend", "Inter", sans-serif; font-size: 21px; font-weight: 700; letter-spacing: .02em; }
+  .part--v { background: var(--tint); color: var(--brand-ink); }
+  .part--k { background: var(--tangerine-tint); color: var(--tangerine-ink); }
+</style>
+</head>
+<body>
+<div class="copy">
+  <div class="brand"><img src="../../assets/favicon.svg" alt=""><span>PluggEra</span></div>
+  <h1 id="h"></h1>
+  <p class="lede" id="lede"></p>
+  <div class="chips" id="chips"></div>
+</div>
+<div class="stage" id="stage"></div>
+<script>
+  const v = new URLSearchParams(location.search).get("v") || "home";
+  const check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  const chip = (s) => `<span class="chip">${check}${s}</span>`;
+
+  if (v === "hp") {
+    h.innerHTML = "Plugga till<br>högskoleprovet";
+    lede.textContent = "Alla åtta delprov i provformat, en uppskattad poäng och en plan fram till provdagen.";
+    chips.innerHTML = ["Gratis", "Förklaring till varje fråga"].map(chip).join("");
+    stage.innerHTML = `
+      <div class="card">
+        <div class="score__label">Uppskattad normerad poäng</div>
+        <div class="score__value"><strong>1,35</strong><span>av 2,0</span></div>
+        <div class="scale"><i style="left: 67.5%"></i></div>
+        <div class="ticks"><span>0,0</span><span>0,5</span><span>1,0</span><span>1,5</span><span>2,0</span></div>
+        <div class="parts">
+          ${["ORD", "LÄS", "MEK", "ELF"].map((p) => `<div class="part part--v">${p}</div>`).join("")}
+          ${["XYZ", "KVA", "NOG", "DTK"].map((p) => `<div class="part part--k">${p}</div>`).join("")}
+        </div>
+      </div>`;
+  } else {
+    h.innerHTML = "Plugga smartare,<br>inte längre.";
+    lede.textContent = "Färdiga övningar från åk 7 till högskoleprovet, med förklaring till varje fråga.";
+    chips.innerHTML = ["Gratis", "Utan reklam", "Följer läroplanen"].map(chip).join("");
+    // A real question from the library (ak9-matematik-procent), shown answered.
+    stage.innerHTML = `
+      <div class="card">
+        <div class="card__top">
+          <span class="tag"><i></i>Matematik åk 9</span>
+          <span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
+        </div>
+        <p class="q">Hur mycket är 25 % av 80 kr?</p>
+        <div class="opts">
+          <div class="opt"><b>A</b>16 kr</div>
+          <div class="opt"><b>B</b>25 kr</div>
+          <div class="opt is-right"><b>C</b>20 kr</div>
+          <div class="opt"><b>D</b>32 kr</div>
+        </div>
+        <div class="why"><strong>Rätt!</strong> 25 % är en fjärdedel, och 80&nbsp;/&nbsp;4&nbsp;=&nbsp;20&nbsp;kr.</div>
+      </div>`;
+  }
+  document.fonts.ready.then(() => { document.body.dataset.ready = "1"; });
+</script>
+</body>
+</html>

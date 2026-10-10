@@ -26,7 +26,7 @@ describe("public practice pages (indexing off, the default)", () => {
   test("while PUBLIC_INDEXING isn't on, every response says noindex and robots.txt lets crawlers see that", async () => {
     const { body } = await get(server.baseUrl, "/ova");
     assert.match(body, /<meta name="robots" content="noindex, nofollow"/);
-    for (const p of ["/", "/ova", "/api/health", "/assets/og-image.png"]) {
+    for (const p of ["/", "/ova", "/api/health", "/assets/og-pluggera.jpg"]) {
       const res = await fetch(`${server.baseUrl}${p}`);
       assert.equal(res.headers.get("x-robots-tag"), "noindex, nofollow", p);
     }
@@ -67,6 +67,20 @@ describe("public practice pages (indexing off, the default)", () => {
     assert.equal(status, 200);
     assert.match(type, /xml/);
     assert.ok((body.match(/<loc>[^<]*\/ova\/[a-z0-9-]+\/[a-z0-9-]+<\/loc>/g) || []).length >= 300);
+  });
+
+  // routes/share-pages.js (the page itself is checked in share-pages.test.mjs).
+  test("/hp is the app with the Högskoleprovet preview; / keeps the front page's", async () => {
+    for (const p of ["/hp", "/hp/", "/HP"]) {
+      const { status, type, body } = await get(server.baseUrl, p);
+      assert.equal(status, 200, p);
+      assert.match(type, /text\/html/, p);
+      assert.match(body, /<meta property="og:image" content="https:\/\/pluggera\.se\/assets\/og-hp\.jpg"/, p);
+      assert.match(body, /<div id="app"><\/div>/, p);
+    }
+    const home = await get(server.baseUrl, "/");
+    assert.match(home.body, /og-pluggera\.jpg/);
+    assert.doesNotMatch(home.body, /og-hp\.jpg/);
   });
 });
 

@@ -167,7 +167,7 @@ function page({ title, description, canonical, crumbs, body, noindex = false }) 
   <meta property="og:title" content="${esc(title)}" />
   <meta property="og:description" content="${esc(description)}" />
   <meta property="og:url" content="${esc(canonical)}" />
-  <meta property="og:image" content="${esc(new URL("/assets/og-image.png", canonical).href)}" />
+  <meta property="og:image" content="${esc(new URL("/assets/og-pluggera.jpg", canonical).href)}" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="/assets/favicon.svg" />
   <link rel="stylesheet" href="/css/fonts.css" />

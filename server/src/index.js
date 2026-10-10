@@ -29,6 +29,7 @@ import { clientErrors } from "./routes/client-errors.js";
 import { startAiWatch } from "./ai-check.js";
 import { reviews } from "./routes/reviews.js";
 import { practicePages } from "./routes/practice-pages.js";
+import { sharePages } from "./routes/share-pages.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // The frontend (index.html, css/, js/, etc.) is the repo root — normally two
@@ -192,6 +193,9 @@ app.use((req, res, next) => {
 // Public practice pages (/ova/...), robots.txt and sitemap.xml — server-rendered so search engines
 // can read them. See routes/practice-pages.js.
 app.use(practicePages);
+// Addresses of their own (pluggera.se/hp) for the screens worth sharing: the app with that screen's
+// preview image and title. See routes/share-pages.js.
+app.use(sharePages(INDEX_HTML));
 
 // Long-lived caching only for files that never change under the same name; see static-cache.js.
 app.use(express.static(FRONTEND_ROOT, {
