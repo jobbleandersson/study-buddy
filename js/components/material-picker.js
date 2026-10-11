@@ -81,7 +81,7 @@ export function openMaterialPicker({ onPick }) {
     el("div.modal__card.matpick", {}, [
       el("h3", { style: { marginBottom: "4px" } }, t("solve.materialTitle")),
       el("p.note", { style: { marginBottom: "12px" } }, t("solve.materialLead")),
-      store.assignments.length > 6 ? el("div.matpick__search", {}, search) : null,
+      store.assignments.length > 6 ? el("div.matpick__search", {}, [icon(ICONS.search, 16), search]) : null,
       list,
       status,
       fileInput,
