@@ -10,6 +10,7 @@ import { normalizeCheck } from "./lib/check.js";
 import { parseScript } from "./lib/podcast.js";
 import { shuffleMc } from "./lib/choices.js";
 import { REVIEW_SYSTEM, reviewItems, parseVerdicts, flaggedIndexes } from "./lib/review.js";
+import { CHECK_REVIEW_SYSTEM, reviewInput, parseReview, reviewAgrees, disagreementNote } from "./lib/check-review.js";
 import { newQuestionsOnly } from "./lib/exam.js";
 
 const API_URL = PROXY_URL;
@@ -24,8 +25,13 @@ const API_URL = PROXY_URL;
  * they're saved (generateAssignment, lib/review.js): tested side by side, writer + reviewer left no
  * wrong keys in 78 questions at about a twentieth of the strong model's price. Högskoleprov questions
  * stay on the strong model: the reviewer missed a NOG logic slip it shared with the writer, and the
- * fast model couldn't write KVA in the test's format at all. Checking a photo of handwritten working
- * stays there too: it has to read handwriting and re-do the maths line by line.
+ * fast model couldn't write KVA in the test's format at all.
+ *
+ * Checking a photo of handwritten working ("Kolla min uträkning") is on the fast model too, and checks
+ * itself the same way: a blind second pass redoes every step, and a disagreement is settled by one more
+ * look (checkWorking, lib/check-review.js). On the comparison tool (#/dev/check-eval) it matched the strong
+ * model on all 20 pages at a fourteenth of the price - drawn pages, though, so keep an eye on it with real
+ * handwriting.
  */
 export const MODELS = {
   generate: "claude-haiku-5-5",
@@ -33,7 +39,8 @@ export const MODELS = {
   generateHp: "claude-sonnet-5",
   tutor: "claude-haiku-5-5",
   grade: "claude-haiku-5-5",
-  check: "claude-sonnet-5",
+  check: "claude-haiku-5-5",
+  checkReview: "claude-haiku-5-5",
 };
 
 function headers() {
@@ -360,44 +367,100 @@ const tokensOf = (u) => (u ? (u.input_tokens || 0) + (u.output_tokens || 0) : 0)
  * Resolves the cleaned result from normalizeCheck() plus `tokens` (what the
  * call used, so the screen can say what it cost).
  */
-export async function checkWorking({ image = null, problem = "", workingText = "", model = null }) {
+/**
+ * "Kolla min uträkning". On the fast model it checks itself (lib/check-review.js): a blind reviewer redoes
+ * every step, and if it points at a different line, the page is checked once more with the disagreement
+ * spelled out - that answer, with its own hints, is the one returned. `review` defaults to on for the fast
+ * model and off for anything else; `model` and `review` are only passed by the comparison tool
+ * (views/check-eval.js). The result carries `review: { agreed, first, reviewer, final }` when a review ran.
+ */
+export async function checkWorking({ image = null, problem = "", workingText = "", model = null, review = null }) {
+  const useModel = model || modelFor("check");
+  const meter = { tokens: 0, usage: { input_tokens: 0, output_tokens: 0 } };
+  const first = await checkOnce({ image, problem, workingText, model: useModel, meter });
+  const withMeter = (r, extra = {}) => ({ ...r, tokens: meter.tokens, usage: meter.usage, ...extra });
+
+  if (!(review ?? useModel === MODELS.checkReview) || first.status !== "checked" || !first.lines.length) return withMeter(first);
+
+  let verdict = null;
+  try {
+    verdict = await reviewCheck({ image, problem, workingText, result: first, meter });
+  } catch (e) {
+    console.warn("[check review] failed:", e?.message || e);   // a review that can't run must not stop the student
+  }
+  if (!verdict || reviewAgrees(first, verdict)) return withMeter(first, verdict ? { review: { agreed: true, first: first.firstError, reviewer: verdict.firstError, final: first.firstError } } : {});
+
+  // They disagree: one more full check, told what each concluded. Its answer stands - with hints written for its line.
+  let final = first;
+  try {
+    final = await checkOnce({ image, problem, workingText, model: useModel, meter, note: disagreementNote(first, verdict), effort: "high" });
+  } catch (e) {
+    console.warn("[check review] deciding pass failed:", e?.message || e);
+  }
+  return withMeter(final, { review: { agreed: false, first: first.firstError, reviewer: verdict.firstError, final: final.firstError } });
+}
+
+/** One check of the page: the JSON reply, with one cheap repair pass if it isn't valid JSON. Adds what it used to `meter`. */
+async function checkOnce({ image, problem, workingText, model, meter, note = "", effort = null }) {
   const content = [];
   if (image) content.push({ type: "image", source: { type: "base64", media_type: image.mediaType, data: image.data } });
   const parts = [];
   if (problem.trim()) parts.push(`The problem, as the student gave it:\n"""\n${problem.trim()}\n"""`);
   if (workingText.trim()) parts.push(`The student's working, one line per step (typed, so there is no photo):\n"""\n${workingText.trim()}\n"""`);
   else if (image) parts.push("Check the working in the attached photo.");
+  if (note) parts.push(note);
   parts.push("Return the JSON object only.");
   content.push({ type: "text", text: parts.join("\n\n") });
 
   const body = {
-    // `model` is only passed by the model-comparison tool (views/check-eval.js); the page itself always uses the check model.
-    model: model || modelFor("check"),
-    max_tokens: 2500,
+    model,
+    // The deciding pass thinks harder (effort "high"), so it gets room for that thinking as well as the answer.
+    max_tokens: effort === "high" ? 8000 : 2500,
+    ...(effort ? { output_config: { effort } } : {}),
     system: checkWorkSystem(),
     messages: [{ role: "user", content }],
   };
 
-  const first = await callRaw(body);
-  let tokens = tokensOf(first.usage);
-  const usage = { input_tokens: first.usage?.input_tokens || 0, output_tokens: first.usage?.output_tokens || 0 };
+  const reply = await callRaw(body);
+  addUsage(meter, reply.usage);
   let json;
   try {
-    json = parseLooseJSON(first.text);
+    json = parseLooseJSON(reply.text);
   } catch {
     // One cheap repair pass: hand the model its own reply back, without the photo.
     const repair = await callRaw({
       ...body,
       max_tokens: 2500,
-      messages: [{ role: "user", content: [{ type: "text", text: `Return this as ONLY a valid JSON object in the shape described in your instructions — no other text:\n\n${first.text.slice(0, 6000)}` }] }],
+      output_config: undefined,
+      messages: [{ role: "user", content: [{ type: "text", text: `Return this as ONLY a valid JSON object in the shape described in your instructions — no other text:\n\n${reply.text.slice(0, 6000)}` }] }],
     });
-    tokens += tokensOf(repair.usage);
-    usage.input_tokens += repair.usage?.input_tokens || 0;
-    usage.output_tokens += repair.usage?.output_tokens || 0;
+    addUsage(meter, repair.usage);
     try { json = parseLooseJSON(repair.text); }
     catch { throw new ClaudeError(t("check.err.parse")); }
   }
-  return { ...normalizeCheck(json), tokens, usage };
+  return normalizeCheck(json);
+}
+
+/** The blind second look: the page and the first pass's lines, never its verdict. null when the reply isn't usable. */
+async function reviewCheck({ image, problem, workingText, result, meter }) {
+  const content = [];
+  if (image && !workingText.trim()) content.push({ type: "image", source: { type: "base64", media_type: image.mediaType, data: image.data } });
+  content.push({ type: "text", text: reviewInput(result, { problem }) });
+  const reply = await callRaw({
+    model: modelFor("checkReview"),
+    max_tokens: 6000,
+    output_config: { effort: "high" },
+    system: CHECK_REVIEW_SYSTEM,
+    messages: [{ role: "user", content }],
+  });
+  addUsage(meter, reply.usage);
+  return parseReview(reply.text, result.lines.length);
+}
+
+function addUsage(meter, usage) {
+  meter.tokens += tokensOf(usage);
+  meter.usage.input_tokens += usage?.input_tokens || 0;
+  meter.usage.output_tokens += usage?.output_tokens || 0;
 }
 
 // ---------- listen-as-conversation ----------
