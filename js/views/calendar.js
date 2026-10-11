@@ -7,7 +7,7 @@
 
 import { store } from "../store.js";
 import { el, clear, icon, ICONS } from "../lib/dom.js";
-import { t, fmtDate, relativeDay, daysUntil } from "../lib/i18n.js";
+import { t, plural, fmtDate, relativeDay, daysUntil } from "../lib/i18n.js";
 import { localDayKey, addDays } from "../lib/activity.js";
 import { buildMonthCells, weekdayHeaders, monthLabel } from "../components/calendar.js";
 import { homeButton } from "../components/nav.js";
@@ -16,7 +16,9 @@ import { openQuickAdd, closeQuickAdd } from "../components/quick-add.js";
 const MAX_CHIPS = 3;
 
 export function renderCalendarPage() {
-  const items = store.upcomingDue();               // every set with a dueAt, soonest first
+  // Each test once (standing for its sets) and each set with a deadline of its own, soonest first,
+  // with where a tap goes: a test to its Inför provet page, a set to practising it.
+  const items = store.calendarEntries();
   const today = localDayKey();
   const now = new Date();
 
@@ -44,7 +46,7 @@ export function renderCalendarPage() {
     chooserEl = el("div.cardmenu.daymenu", { role: "menu" }, dayItems.map((a) => {
       const color = store.subjectColor(a.subjectId);
       return el("a.cardmenu__item", {
-        href: `#/session/${a.id}`, role: "menuitem", onclick: closeChooser,
+        href: a.href, role: "menuitem", onclick: closeChooser,
       }, [
         el("span.daymenu__dot", { style: { background: color.solid } }),
         el("span", {}, a.title),
@@ -102,9 +104,9 @@ export function renderCalendarPage() {
 
     for (const a of dayItems.slice(0, MAX_CHIPS)) {
       const color = store.subjectColor(a.subjectId);
-      node.appendChild(el("a.plan-cal__chip" + (a.type === "test" ? ".is-test" : ""), {
-        href: `#/session/${a.id}`,
-        title: `${a.title}${a.type === "test" ? " · " + t("common.test") : ""}`,
+      node.appendChild(el("a.plan-cal__chip" + (a.kind === "test" ? ".is-test" : ""), {
+        href: a.href,
+        title: `${a.title}${a.kind === "test" ? " · " + t("common.test") : ""}`,
         style: { "--subject": color.solid, "--subject-ink": color.ink, "--subject-tint": color.tint },
       }, [
         el("span.plan-cal__chip-dot"),
@@ -158,48 +160,64 @@ export function renderCalendarPage() {
   const nextWeekEnd = addDays(weekEnd, 7);
 
   const groups = [
-    { key: "overdue", label: t("cal.agendaOverdue"), cls: "is-overdue", rows: [] },
     { key: "thisWeek", label: t("cal.agendaThisWeek"), cls: "", rows: [] },
     { key: "nextWeek", label: t("cal.agendaNextWeek"), cls: "", rows: [] },
     { key: "later", label: t("cal.agendaLater"), cls: "", rows: [] },
   ];
+  // Passed ones (kept for a week) wait behind their own toggle at the bottom, most recent first.
+  const past = items.filter((a) => a.dueAt < today).reverse();
   for (const a of items) {
-    const g = a.dueAt < today ? groups[0]
-      : a.dueAt <= weekEnd ? groups[1]
-      : a.dueAt <= nextWeekEnd ? groups[2]
-      : groups[3];
+    if (a.dueAt < today) continue;
+    const g = a.dueAt <= weekEnd ? groups[0]
+      : a.dueAt <= nextWeekEnd ? groups[1]
+      : groups[2];
     g.rows.push(a);
   }
 
   function agendaRow(a) {
     const color = store.subjectColor(a.subjectId);
     const left = daysUntil(a.dueAt);
-    const urgent = left < 0 ? "is-overdue" : left <= 2 ? "is-soon" : "";
-    return el("a.plan-row" + (urgent ? "." + urgent : ""), {
-      href: `#/session/${a.id}`,
+    const test = a.kind === "test";
+    const state = left < 0 ? "is-past" : left <= 2 ? "is-soon" : "";
+    return el("a.plan-row" + (state ? "." + state : ""), {
+      href: a.href,
       style: { "--subject": color.solid },
-      "aria-label": t("menu.upcomingStudyAria", { title: a.title }),
+      "aria-label": t(test ? "menu.upcomingTestAria" : "menu.upcomingStudyAria", { title: a.title }),
     }, [
       el("span.plan-row__body", {}, [
         el("span.plan-row__title", {}, a.title),
         el("span.plan-row__meta", {}, [
-          a.type === "test" ? el("span.plan-row__type", {}, t("common.test")) : null,
-          el("span", {}, `${fmtDate(a.dueAt)} · ${relativeDay(a.dueAt)}`),
+          test ? el("span.plan-row__type", {}, t("common.test")) : null,
+          el("span", {}, `${fmtDate(a.dueAt)} · ${test && left < 0 ? plural(-left, "date.agoOne", "date.agoMany") : relativeDay(a.dueAt)}`),
         ].filter(Boolean)),
       ]),
-      el("span.plan-row__go", {}, icon(ICONS.play, 14)),
+      el("span.plan-row__go", {}, icon(test ? ICONS.graduation : ICONS.play, 14)),
     ]);
   }
 
-  const agendaInner = items.length
-    ? groups.filter((g) => g.rows.length).map((g) =>
-        el("div.plan-agenda__group" + (g.cls ? "." + g.cls : ""), {}, [
-          el("p.plan-agenda__gtitle", {}, [
-            el("span", {}, g.label),
-            el("span.plan-agenda__count", {}, String(g.rows.length)),
-          ]),
-          el("div.plan-agenda__rows", {}, g.rows.map(agendaRow)),
-        ]))
+  const pastBlock = past.length
+    ? el("details.plan-agenda__past", {}, [
+        el("summary.plan-agenda__gtitle", {}, [
+          el("span", {}, t("menu.upcomingPast", { n: past.length })),
+        ]),
+        el("div.plan-agenda__rows", {}, past.map(agendaRow)),
+      ])
+    : null;
+
+  const ahead = groups.filter((g) => g.rows.length);
+  const agendaInner = ahead.length || past.length
+    ? [
+        ...ahead.map((g) =>
+          el("div.plan-agenda__group" + (g.cls ? "." + g.cls : ""), {}, [
+            el("p.plan-agenda__gtitle", {}, [
+              el("span", {}, g.label),
+              el("span.plan-agenda__count", {}, String(g.rows.length)),
+            ]),
+            el("div.plan-agenda__rows", {}, g.rows.map(agendaRow)),
+          ])),
+        ahead.length ? null : el("p.note", {}, t("cal.empty")),
+        pastBlock,
+      ].filter(Boolean)
     : [
         el("div.plan-agenda__empty", {}, [
           icon(ICONS.calendar, 26),

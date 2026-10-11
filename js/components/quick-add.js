@@ -81,6 +81,9 @@ export function openQuickAdd(dayKey, { onDone } = {}) {
       type, subject, title, dueAt: dayKey,
       questions: blankQuestions(3),
     });
+    // A test is a test record too, so the calendar opens it on its own Inför provet page (with a plan),
+    // named by what the student typed, else the page's "Inför provet i <subject>".
+    if (type === "test" && a) store.addExam({ subjectId: a.subjectId, date: dayKey, title: titleInput.value.trim(), setIds: [a.id] });
     closeQuickAdd();
     toast(t("quickadd.created", { title: a.title }));
     onDone?.(a);

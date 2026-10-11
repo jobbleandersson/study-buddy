@@ -61,6 +61,34 @@ export function upcomingExams(exams, assignments, today) {
     .sort((x, y) => x.date.localeCompare(y.date) || (x.createdAt || 0) - (y.createdAt || 0));
 }
 
+/**
+ * What the calendars show, soonest first: one entry per test, which stands for the sets it covers,
+ * and one per set with a deadline of its own. Each says where a tap goes: a test to its own Inför
+ * provet page, a set to practising it. A set marked as a test that no test record covers (from
+ * before tests had records) goes to Inför provet with its date and set, where it can be set up.
+ * `titleOf(exam)` names a test (the page's own fallback lives with the UI strings).
+ *   { key, kind: "test" | "set", id, dueAt, title, subjectId, href }
+ */
+export function calendarEntries(exams, assignments, titleOf) {
+  const out = [];
+  const covered = new Set();   // "setId|date" a test already stands for
+  for (const e of exams || []) {
+    if (!e?.date) continue;
+    for (const id of e.setIds || []) covered.add(`${id}|${e.date}`);
+    out.push({ key: `exam:${e.id}`, kind: "test", id: e.id, dueAt: e.date, title: titleOf(e), subjectId: e.subjectId, href: `#/exam-prep/${e.id}` });
+  }
+  for (const a of assignments || []) {
+    if (!a?.dueAt || covered.has(`${a.id}|${a.dueAt}`)) continue;
+    const test = a.type === "test";
+    out.push({
+      key: `set:${a.id}`, kind: test ? "test" : "set", id: a.id, dueAt: a.dueAt, title: a.title, subjectId: a.subjectId,
+      href: test ? `#/exam-prep/${a.subjectId}?date=${a.dueAt}&set=${a.id}` : `#/session/${a.id}`,
+    });
+  }
+  // Same day: tests first, then by name.
+  return out.sort((x, y) => x.dueAt.localeCompare(y.dueAt) || (x.kind === y.kind ? 0 : x.kind === "test" ? -1 : 1) || String(x.title).localeCompare(String(y.title)));
+}
+
 /** A subject's next test, or null. */
 export function nextExam(exams, assignments, subjectId, today) {
   return upcomingExams(exams, assignments, today).find((e) => e.subjectId === subjectId) || null;

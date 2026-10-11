@@ -15,7 +15,7 @@ import { openDueDialog, closeDueDialog } from "../components/due-dialog.js";
 import { openQuickAdd, closeQuickAdd } from "../components/quick-add.js";
 import { ACHIEVEMENTS, nextAchievement } from "../lib/achievements.js";
 import { countdownLabel } from "../lib/date-phrases.js";
-import { prepHashForSet, upcomingExams } from "../lib/exam.js";
+import { upcomingExams } from "../lib/exam.js";
 import { prepFor, taskHash, taskLabel, shortCountdown, resumeFor, taskButtonLabel } from "../components/exam-flow.js";
 import { testsTomorrow } from "../lib/tonight.js";
 import { dailySlot } from "../components/daily-card.js";
@@ -573,7 +573,7 @@ function openDayChooser(anchor, mark) {
     mark.items.map((a) => {
       const color = store.subjectColor(a.subjectId);
       return el("a.cardmenu__item", {
-        href: `#/session/${a.id}`, role: "menuitem",
+        href: a.href, role: "menuitem",
         onclick: () => closeDayChooser(),
       }, [
         el("span.daymenu__dot", { style: { background: color.solid } }),
@@ -605,27 +605,33 @@ const UPCOMING_COLLAPSED = 3;
 let upcomingExpanded = false;
 let calendarExpanded = false;
 
-function deadlineRailContent({ collapsible = false, forceCalendar = false } = {}) {
-  const items = store.upcomingDue();
-  if (!items.length && !forceCalendar) return null;
+let pastExpanded = false;
 
-  // items is soonest-first, so items[0] is the next deadline due — a test or a
-  // plain assignment. Shown as a countdown + study shortcut under the calendar,
-  // independent of which week/month the calendar is currently paged to. (It
-  // used to require a "test"-type set, so a library-first student — whose sets
-  // are all "assignment" — got no countdown at all.)
+function deadlineRailContent({ collapsible = false, forceCalendar = false } = {}) {
+  // Each test once (it stands for its sets) and each set with a deadline of its own, soonest first;
+  // every entry knows where a tap goes: a test to its Inför provet page, a set to practising it.
+  const all = store.calendarEntries();
+  if (!all.length && !forceCalendar) return null;
+  const today = localDayKey();
+  // What has passed (kept for a week, see the store's sweep) waits behind its own toggle instead of
+  // crowding the top of the list for days.
+  const items = all.filter((x) => x.dueAt >= today);
+  const past = all.filter((x) => x.dueAt < today).reverse();
+
+  // The next deadline still ahead, a test or a set: a countdown + shortcut under the calendar,
+  // whichever week or month the calendar is paged to.
   const nextDeadline = items[0];
 
-  // day key -> { ids, titles, items } for the calendar dots + the day chooser.
+  // day key -> { ids, titles, items } for the calendar dots + the day chooser (past days too).
   const marks = new Map();
-  for (const a of items) {
+  for (const a of all) {
     const m = marks.get(a.dueAt) || { ids: [], titles: [], items: [] };
-    m.ids.push(a.id); m.titles.push(a.title); m.items.push(a);
+    m.ids.push(a.key); m.titles.push(a.title); m.items.push(a);
     marks.set(a.dueAt, m);
   }
 
   const onPick = (_day, mark, cellEl) => {
-    if (mark.items.length === 1) { location.hash = `#/session/${mark.items[0].id}`; return; }
+    if (mark.items.length === 1) { location.hash = mark.items[0].href; return; }
     openDayChooser(cellEl, mark);
   };
 
@@ -659,9 +665,25 @@ function deadlineRailContent({ collapsible = false, forceCalendar = false } = {}
   paintCal();
   if (!collapsible) paintList(visibleItems);
 
-  // Nothing scheduled but the calendar is still shown (the #/calendar page):
-  // just the month + a hint, no "next deadline" line or list.
+  // Nothing ahead but the calendar is still shown: just the calendar + a hint, no "next deadline"
+  // line or list (passed ones keep their toggle).
   const emptyForced = forceCalendar && !items.length;
+
+  // Passed deadlines, behind "Passerade (n)". Open/closed is remembered while the app is open.
+  let pastBlock = null;
+  if (past.length) {
+    const pastList = el("div.upcoming__list.upcoming__list--past", { id: "upcoming-past" });
+    const pastToggle = el("button.upcoming__more.upcoming__pasttoggle", { type: "button", "aria-controls": "upcoming-past" });
+    const paintPast = () => {
+      pastToggle.textContent = pastExpanded ? t("menu.upcomingPastHide") : t("menu.upcomingPast", { n: past.length });
+      pastToggle.setAttribute("aria-expanded", String(pastExpanded));
+      pastList.hidden = !pastExpanded;
+      pastList.replaceChildren(...(pastExpanded ? past.map(row) : []));
+    };
+    pastToggle.addEventListener("click", () => { pastExpanded = !pastExpanded; paintPast(); });
+    paintPast();
+    pastBlock = el("div.upcoming__past", {}, [pastToggle, pastList]);
+  }
 
   return {
     el: el("section.upcoming", {}, [
@@ -670,6 +692,7 @@ function deadlineRailContent({ collapsible = false, forceCalendar = false } = {}
       emptyForced ? null : nextDeadlineLine(nextDeadline),
       emptyForced ? null : list,
       emptyForced ? null : more,
+      pastBlock,
     ].filter(Boolean)),
     calToggle,
   };
@@ -713,47 +736,45 @@ function deadlineRailContent({ collapsible = false, forceCalendar = false } = {}
 
   function row(a) {
     const left = daysUntil(a.dueAt);
-    const overdue = left < 0;
+    const passed = left < 0;
     const soon = left >= 0 && left <= 1;
+    const test = a.kind === "test";
     const color = store.subjectColor(a.subjectId);
     return el("a", {
-      href: `#/session/${a.id}`,
-      class: "upcoming__row" + (overdue ? " is-overdue" : soon ? " is-soon" : ""),
+      href: a.href,
+      class: "upcoming__row" + (passed ? " is-past" : soon ? " is-soon" : "") + (test ? " is-test" : ""),
       style: { "--subject": color.solid },
-      "aria-label": t("menu.upcomingStudyAria", { title: a.title }),
+      "aria-label": t(test ? "menu.upcomingTestAria" : "menu.upcomingStudyAria", { title: a.title }),
     }, [
       el("span.upcoming__dot"),
       el("span.upcoming__main", {}, [
         el("strong", {}, a.title),
-        el("span.upcoming__meta", {}, `${fmtDate(a.dueAt)} · ${relativeDay(a.dueAt)}`),
+        el("span.upcoming__meta", {}, [
+          test ? el("span.upcoming__tag", {}, t("common.test")) : null,
+          // A test that has been is "3 days ago"; a set past its deadline is late.
+          el("span", {}, `${fmtDate(a.dueAt)} · ${test && passed ? plural(-left, "date.agoOne", "date.agoMany") : relativeDay(a.dueAt)}`),
+        ].filter(Boolean)),
       ]),
-      el("span.upcoming__go", {}, icon(ICONS.play, 14)),
+      el("span.upcoming__go", {}, icon(test ? ICONS.graduation : ICONS.play, 14)),
     ]);
   }
 }
 
-/** Countdown + one-tap shortcut to the soonest deadline, sat under the
- *  calendar, with a small "Prep" link through to its exam-prep page.
- *  Days elsewhere, but hours once it's due today. Null when nothing has a
- *  due date. */
+/** Countdown + one-tap shortcut to the next deadline still ahead, sat under the calendar: a test
+ *  opens its Inför provet page, a set starts practising it. Null when nothing is ahead. */
 function nextDeadlineLine(a) {
   if (!a) return null;
   const d = daysUntil(a.dueAt);
   const soon = d <= 1;
-  const card = el("a.next-test" + (soon ? ".next-test--soon" : ""), {
-    href: `#/session/${a.id}`,
-    "aria-label": t("menu.upcomingStudyAria", { title: a.title }),
+  const test = a.kind === "test";
+  return el("div.next-test-wrap", {}, el("a.next-test" + (soon ? ".next-test--soon" : ""), {
+    href: a.href,
+    "aria-label": t(test ? "menu.upcomingTestAria" : "menu.upcomingStudyAria", { title: a.title }),
   }, [
-    el("span.next-test__when", {}, [icon(ICONS.clock, 14), el("span", {}, countdownLabel(a.dueAt))]),
+    el("span.next-test__when", {}, [icon(test ? ICONS.graduation : ICONS.clock, 14), el("span", {}, countdownLabel(a.dueAt))]),
     el("span.next-test__title", {}, a.title),
     el("span.next-test__go", {}, icon(ICONS.play, 14)),
-  ]);
-  return el("div.next-test-wrap", {}, [
-    card,
-    a.subjectId ? el("a.next-test__prep", {
-      href: prepHashForSet(store.exams, a),
-    }, [icon(ICONS.target, 13), t("exam.prepLink")]) : null,
-  ].filter(Boolean));
+  ]));
 }
 
 function ring(v, color) {
