@@ -92,6 +92,7 @@ const APP_SHELL = [
   "./js/lib/voice-answer.js",
   "./js/lib/check.js",
   "./js/lib/check-eval.js",
+  "./js/lib/check-review.js",
   "./js/lib/loose-json.js",
   "./js/lib/photo.js",
   "./js/lib/tonight.js",

@@ -209,6 +209,18 @@ describe("summarise", () => {
     assert.equal(s.models[H].msTotal, 4000 * 4 + 3000 + 500);
   });
 
+  test("counts how often the self-review ran and how often it disagreed with the first pass", () => {
+    const withReview = (agreed) => { const r = checked(2); r.result.review = { agreed, first: 2, reviewer: agreed ? 2 : 3, final: 2 }; return r; };
+    const s2 = summarise([
+      { expected: null, runs: { [H]: withReview(true), [S]: checked(2) } },
+      { expected: null, runs: { [H]: withReview(false), [S]: checked(2) } },
+      { expected: null, runs: { [H]: checked(2), [S]: checked(2) } },          // no review ran (e.g. unreadable page)
+    ]);
+    assert.equal(s2.models[H].reviewed, 2);
+    assert.equal(s2.models[H].reviewDisagreed, 1);
+    assert.equal(s2.models[S].reviewed, 0);
+  });
+
   test("an empty list is all zeros", () => {
     const e = summarise([]);
     assert.equal(e.cases, 0); assert.equal(e.models[H].ran, 0); assert.equal(e.disagreements, 0); assert.equal(e.agreement.comparable, 0);
@@ -219,10 +231,10 @@ describe("toCsv", () => {
   test("one header row, one row per photo, with the key, verdicts and judgement", () => {
     const csv = toCsv([{ name: "page1.jpg", expected: expectation("line", 2), judge: "both", runs: { [H]: checked(2), [S]: checked(3) } }]);
     const [head, row] = csv.split("\n");
-    assert.match(head, /^photo,answer_key,Haiku 5\.5 status,/);
+    assert.match(head, /^photo,answer_key,Haiku 5\.5 \+ review status,/);
     assert.match(head, /models_disagree,who_was_right$/);
     assert.match(row, /^page1\.jpg,line 2,checked,2,3x = 15,correct,4\.0,0\.0100,checked,3,x = 5,wrong_line,4\.0,0\.0100,yes,both$/);
-    assert.match(head, /Haiku 5\.5 flagged_line/);
+    assert.match(head, /Haiku 5\.5 \+ review flagged_line/);
   });
 
   test("a text key is written as the line's text", () => {

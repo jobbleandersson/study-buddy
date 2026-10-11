@@ -11,9 +11,10 @@
 //     runs: { [modelId]: { result, error, ms, usage, cost } } }
 // where `result` is what checkWorking() returned (lib/check.js normalizeCheck + usage).
 
-/** The two models compared, cheapest first. The ids are what the proxy accepts. */
+/** The two set-ups compared, cheapest first. The ids are what the proxy accepts. Haiku runs the way the page
+ *  runs it - checking itself with a blind second pass (claude.js checkWorking) - and Sonnet runs once. */
 export const EVAL_MODELS = [
-  { id: "claude-haiku-5-5", label: "Haiku 5.5" },
+  { id: "claude-haiku-5-5", label: "Haiku 5.5 + review" },
   { id: "claude-sonnet-5", label: "Sonnet 5" },
 ];
 
@@ -120,7 +121,7 @@ export function needsJudge(c, ids = EVAL_MODELS.map((m) => m.id)) {
 
 const blank = () => ({
   ran: 0, errors: 0, abstained: 0, scored: 0, correct: 0, falseFlags: 0, missed: 0, wrongLine: 0,
-  msTotal: 0, cost: 0, tokens: 0,
+  msTotal: 0, cost: 0, tokens: 0, reviewed: 0, reviewDisagreed: 0,
 });
 
 /** Everything the summary panel shows. */
@@ -142,6 +143,9 @@ export function summarise(cases, ids = EVAL_MODELS.map((m) => m.id)) {
       m.msTotal += run.ms || 0;
       m.cost += run.cost || 0;
       m.tokens += (Number(run.usage?.input_tokens) || 0) + (Number(run.usage?.output_tokens) || 0);
+      // The self-review (claude.js checkWorking): how often it ran, and how often it disagreed with the first pass.
+      const rv = run.result?.review;
+      if (rv) { m.reviewed += 1; if (rv.agreed === false) m.reviewDisagreed += 1; }
       const v = verdictFor(c.expected, run);
       if (v === "error") m.errors += 1;
       else if (v === "abstained") m.abstained += 1;

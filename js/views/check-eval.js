@@ -189,6 +189,7 @@ export function renderCheckEval() {
         td(m.label, { textAlign: "left", fontWeight: "600" }),
         td(x.scored ? `${x.correct}/${x.scored} (${pct(x.correct, x.scored)})` : "no keys yet"),
         td(x.falseFlags), td(x.missed), td(x.wrongLine), td(x.abstained), td(x.errors),
+        td(x.reviewed ? `${x.reviewDisagreed} of ${x.reviewed}` : "–"),
         td(x.ran ? `${(x.msTotal / x.ran / 1000).toFixed(1)} s` : "–"),
         td(x.ran ? `${usd(x.cost / x.ran)} · ${usd(x.cost)} total` : "–"),
       ]);
@@ -205,7 +206,7 @@ export function renderCheckEval() {
       el("table", { style: { width: "100%", borderCollapse: "collapse", fontSize: "13px" } }, [
         el("thead", {}, el("tr", {}, [
           th("Model", { textAlign: "left" }), th("Right line (of keyed)"), th("Flagged correct work"), th("Missed a slip"),
-          th("Wrong line"), th("Declined"), th("Errors"), th("Avg time"), th("Cost per photo"),
+          th("Wrong line"), th("Declined"), th("Errors"), th("Review changed it"), th("Avg time"), th("Cost per photo"),
         ])),
         el("tbody", {}, rows),
       ]),
@@ -235,6 +236,13 @@ export function renderCheckEval() {
     }
     if (run && !run.error) {
       body.push(el("p.note", { style: { margin: 0 } }, `${(run.ms / 1000).toFixed(1)} s · ${(run.usage?.input_tokens || 0) + (run.usage?.output_tokens || 0)} tokens · ${usd(run.cost || 0)}`));
+    }
+    const rv = r?.review;
+    if (rv) {
+      const said = (n) => (n == null ? "every line follows" : `line ${n}`);
+      body.push(el("p.note", { style: { margin: 0 } }, rv.agreed
+        ? "Self-review agreed."
+        : `Self-review disagreed: first pass said ${said(rv.first)}, reviewer said ${said(rv.reviewer)}; the deciding pass said ${said(rv.final)}.`));
     }
     if (r && r.status === "checked" && r.lines.length) {
       body.push(el("details", {}, [
