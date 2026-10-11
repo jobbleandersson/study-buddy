@@ -159,7 +159,10 @@ const examTitle = (exam, subject) => exam.title || t("exam.prepFor", { subject: 
 export function renderExamPrep(param, qs) {
   if (!param) return renderLanding();
 
-  const exam = resolveExam(param);
+  const exam = resolveExam(param, qs?.get?.("date") || null);
+  // A test whose day has passed (the store keeps it a week): what it covered, not a plan.
+  const passed = !exam ? store.getExam(param) : null;
+  if (passed) return renderPassedTest(passed);
   const subject = store.subjects.find((s) => s.id === (exam ? exam.subjectId : param));
   if (!subject) return emptyScreen(t("exam.noTest"));
   if (!exam) return renderNoTest(subject, qs);
@@ -560,6 +563,46 @@ function renderNoTest(subject, qs) {
         el("button.btn", { type: "button", onclick: open }, [icon(ICONS.plus, 16), t("exam.addTest")]),
       ]),
     ]),
+  };
+}
+
+/** A test whose day has passed (kept a week, then swept): when it was and its sets to keep practising,
+ *  with the test's dialog to move the date (a test that was put off) or delete it. */
+function renderPassedTest(rec) {
+  const subject = store.subjects.find((s) => s.id === rec.subjectId);
+  const title = rec.title || t("exam.prepFor", { subject: subject?.name || "" });
+  const color = store.subjectColor(rec.subjectId).solid;
+  const sets = (rec.setIds || []).map((id) => store.getAssignment(id)).filter(Boolean);
+  const edit = () => openExamDialog({
+    examId: rec.id,
+    onSaved: (saved) => { if (!saved) location.hash = "#/exam-prep"; },
+  });
+  return {
+    title,
+    node: el("div.exam-prep", {}, [
+      homeButton(),
+      el("section.exam-hero", { style: { "--subject": color } }, [
+        el("div.exam-hero__main", {}, [
+          el("p.exam-hero__eyebrow", {}, [el("span.exam-dot"), title]),
+          el("h1.exam-hero__title", {}, t("exam.passedTitle")),
+          el("p.exam-hero__meta", {}, sentenceCase(longDate(rec.date))),
+          el("p", {}, t("exam.passedBody")),
+          el("button.btn.btn--ghost.btn--sm", { type: "button", style: { marginTop: "12px" }, onclick: edit },
+            [icon(ICONS.calendar, 15), t("exam.passedEdit")]),
+        ]),
+      ]),
+      sets.length ? el("section.panel", {}, [
+        el("h2", {}, t("exam.passedSets")),
+        el("div.upcoming__list", {}, sets.map((a) => el("a.upcoming__row", {
+          href: `#/session/${a.id}`, style: { "--subject": color },
+          "aria-label": t("menu.upcomingStudyAria", { title: a.title }),
+        }, [
+          el("span.upcoming__dot"),
+          el("span.upcoming__main", {}, [el("strong", {}, a.title)]),
+          el("span.upcoming__go", {}, icon(ICONS.play, 14)),
+        ]))),
+      ]) : null,
+    ].filter(Boolean)),
   };
 }
 

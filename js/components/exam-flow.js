@@ -16,10 +16,13 @@ import {
 /** The mock length a plan task starts. */
 export const PLAN_MOCK_MIN = 40;
 
-/** A coming test by its id, or — for the older `#/exam-prep/<subjectId>` links — that subject's next one. */
-export function resolveExam(param) {
+/** A coming test by its id, or — for the `#/exam-prep/<subjectId>` links — that subject's next one;
+ *  with `date`, only its test on that day (a link for one particular test must not open another). */
+export function resolveExam(param, date = null) {
   const list = upcomingExams(store.exams, store.assignments, localDayKey());
-  return list.find((e) => e.id === param) || list.find((e) => e.subjectId === param) || null;
+  return list.find((e) => e.id === param)
+    || list.find((e) => e.subjectId === param && (!date || e.date === date))
+    || null;
 }
 
 const startOfToday = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d.getTime(); };

@@ -2,7 +2,7 @@ import { test, describe } from "node:test";
 import assert from "node:assert/strict";
 import {
   dayDiff, nextExam, upcomingExams, normalizeExam, examSetDates, examsFromMarkedSets, scopeAttempts,
-  topicsOf, readiness, practisedSince, buildExamPlan, prepHashForSet, pickSeedQuestions, newQuestionsOnly, PLAN_MAX_DAYS,
+  topicsOf, readiness, practisedSince, buildExamPlan, prepHashForSet, pickSeedQuestions, newQuestionsOnly, calendarEntries, PLAN_MAX_DAYS,
   planStartSets, MAX_SETS_PER_DAY, PLAN_MINUTES, distributeSets, questionsForMinutes, mockCountFor, buildStudyPass, pickMockQuestions,
 } from "../../js/lib/exam.js";
 
@@ -332,5 +332,38 @@ describe("exam.newQuestionsOnly", () => {
     );
     assert.deepEqual(out.map((q) => [...q.stimulus.quantities, q.stimulus.given]),
       [["3^4", "4^3", undefined], ["x", "2x", "x > 0"], ["x", "2x", "x < 0"]]);
+  });
+});
+
+describe("exam.calendarEntries", () => {
+  const exams = [{ id: "e1", subjectId: "s1", date: "2026-10-07", title: "", setIds: ["a", "b"] }];
+  const sets = [
+    { id: "a", subjectId: "s1", title: "Del 1", type: "test", dueAt: "2026-10-07" },
+    { id: "b", subjectId: "s1", title: "Del 2", type: "test", dueAt: "2026-10-07" },
+    { id: "c", subjectId: "s2", title: "Läxa", type: "assignment", dueAt: "2026-10-06" },
+    { id: "d", subjectId: "s3", title: "Gammalt prov", type: "test", dueAt: "2026-10-09" },
+    { id: "e", subjectId: "s1", title: "Inget datum", type: "assignment" },
+  ];
+  const out = calendarEntries(exams, sets, (e) => `Inför provet ${e.subjectId}`);
+
+  test("a test is one entry for all its sets, and opens its own Inför provet page", () => {
+    const tests = out.filter((x) => x.kind === "test" && x.dueAt === "2026-10-07");
+    assert.equal(tests.length, 1);
+    assert.equal(tests[0].href, "#/exam-prep/e1");
+    assert.equal(tests[0].title, "Inför provet s1");
+    assert.ok(!out.some((x) => x.id === "a" || x.id === "b"));
+  });
+
+  test("a set with its own deadline opens the set; a test set with no test record opens Inför provet for that date", () => {
+    assert.equal(out.find((x) => x.id === "c").href, "#/session/c");
+    assert.equal(out.find((x) => x.id === "c").kind, "set");
+    const old = out.find((x) => x.id === "d");
+    assert.equal(old.kind, "test");
+    assert.equal(old.href, "#/exam-prep/s3?date=2026-10-09&set=d");
+    assert.ok(!out.some((x) => x.id === "e"));
+  });
+
+  test("soonest first", () => {
+    assert.deepEqual(out.map((x) => x.dueAt), ["2026-10-06", "2026-10-07", "2026-10-09"]);
   });
 });

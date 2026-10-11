@@ -5,7 +5,7 @@ import { uid } from "./lib/dom.js";
 import { localDayKey, currentStreak, addDays, studiedToday, questionsAnsweredToday } from "./lib/activity.js";
 import { getLang, t } from "./lib/i18n.js";
 import { serverMessage } from "./lib/server-errors.js";
-import { normalizeExam, examsFromMarkedSets, examSetDates } from "./lib/exam.js";
+import { normalizeExam, examsFromMarkedSets, examSetDates, calendarEntries } from "./lib/exam.js";
 import { mergeStates, looksLikeBackup } from "./lib/merge-state.js";
 
 /** An Error carrying the server's message (translated where known) and its machine-readable code. */
@@ -1339,6 +1339,14 @@ class Store extends EventTarget {
     return this.state.assignments
       .filter((a) => !!a.dueAt)
       .sort((x, y) => x.dueAt.localeCompare(y.dueAt));
+  }
+
+  /** What the calendars show, soonest first: each test once (standing for its sets) and each set
+   *  with a deadline of its own, with where a tap goes. See calendarEntries in lib/exam.js. */
+  calendarEntries() {
+    const subjectName = (id) => this.state.subjects.find((s) => s.id === id)?.name || "";
+    return calendarEntries(this.state.exams, this.state.assignments,
+      (e) => e.title || t("exam.prepFor", { subject: subjectName(e.subjectId) }));
   }
 
   // ---------- in-progress sessions ----------

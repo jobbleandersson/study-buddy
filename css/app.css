@@ -818,7 +818,11 @@ button.plan-cal__cell:hover { background: var(--brand-tint); border-color: var(-
   display: flex; align-items: center; justify-content: space-between; gap: var(--s-2); margin: 0;
   font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-faint);
 }
-.plan-agenda__group.is-overdue .plan-agenda__gtitle { color: var(--retry-ink); }
+/* Passed deadlines: closed by default, at the bottom of the agenda. */
+.plan-agenda__past { padding-top: var(--s-2); border-top: 1px solid var(--line); }
+.plan-agenda__past > summary { display: list-item; cursor: pointer; }
+.plan-agenda__past[open] > summary { margin-bottom: var(--s-2); }
+.plan-row.is-past { opacity: .75; border-style: dashed; }
 .plan-agenda__count {
   font-size: 10.5px; font-weight: 700; color: var(--ink-faint);
   background: var(--surface-sunk); border-radius: var(--r-full); padding: 0 6px;
@@ -887,7 +891,9 @@ button.plan-cal__cell:hover { background: var(--brand-tint); border-color: var(-
 }
 .upcoming__row:hover { border-color: var(--brand); }
 .upcoming__row.is-soon { border-color: var(--retry); }
-.upcoming__row.is-overdue { border-color: var(--retry); background: var(--retry-tint); }
+/* Passed: under "Passerade", quieter than what is still ahead. */
+.upcoming__row.is-past { background: transparent; border-style: dashed; }
+.upcoming__row.is-past .upcoming__main strong { color: var(--ink-soft); }
 .upcoming__dot {
   width: 8px; height: 8px; flex: none; border-radius: var(--r-full);
   background: var(--subject, var(--brand));
@@ -898,8 +904,13 @@ button.plan-cal__cell:hover { background: var(--brand-tint); border-color: var(-
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 .upcoming__meta { display: block; font-size: 12px; color: var(--ink-soft); }
-.upcoming__row.is-soon .upcoming__meta,
-.upcoming__row.is-overdue .upcoming__meta { color: var(--retry-ink); }
+.upcoming__row.is-soon .upcoming__meta { color: var(--retry-ink); }
+.upcoming__tag {
+  display: inline-block; margin-right: 6px; padding: 0 6px; border-radius: var(--r-full);
+  background: var(--surface-sunk); color: var(--ink); font-weight: 600; font-size: 11px; line-height: 17px;
+}
+.upcoming__past { margin-top: var(--s-2); border-top: 1px solid var(--line); }
+.upcoming__past .upcoming__list { margin-top: var(--s-1); }
 .upcoming__go { flex: none; color: var(--ink-faint); display: grid; place-items: center; }
 .upcoming__row:hover .upcoming__go { color: var(--brand); }
 .upcoming__more {
@@ -929,13 +940,6 @@ a.next-test {
   text-decoration: none; color: inherit;
   transition: border-color var(--dur-fast), background var(--dur-fast);
 }
-.next-test__prep {
-  align-self: flex-start; display: inline-flex; align-items: center; gap: 5px;
-  padding: 2px 4px; font-size: 12px; font-weight: 600;
-  color: var(--brand-ink); text-decoration: none;
-}
-.next-test__prep:hover { text-decoration: underline; }
-.next-test__prep svg { flex: none; }
 a.next-test:hover { border-color: var(--brand); }
 .next-test__when {
   display: flex; align-items: center; gap: 6px;
@@ -5514,8 +5518,8 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
    and doesn't move anything; :where() keeps position at zero specificity so an element that is
    already absolutely placed stays where it is. */
 @media (pointer: coarse) {
-  :where(.brand, .house-ad__x, .next-test__prep, .exam-card__name, .chip, .datepick__chip, .cal__navbtn, .plan-nav__btn, .iconbtn--sm) { position: relative; }
-  :is(.brand, .house-ad__x, .next-test__prep, .exam-card__name, .cal__navbtn, .plan-nav__btn, .iconbtn--sm, .acard__menu, .set-switch)::after {
+  :where(.brand, .house-ad__x, .exam-card__name, .chip, .datepick__chip, .cal__navbtn, .plan-nav__btn, .iconbtn--sm) { position: relative; }
+  :is(.brand, .house-ad__x, .exam-card__name, .cal__navbtn, .plan-nav__btn, .iconbtn--sm, .acard__menu, .set-switch)::after {
     content: ""; position: absolute; inset: -7px;
   }
   /* Chips sit 8px apart in wrapping rows: grow up and down, barely sideways. */
