@@ -77,6 +77,8 @@ const APP_SHELL = [
   "./js/lib/challenge.js",
   "./js/lib/exam-nav.js",
   "./js/lib/expr.js",
+  "./js/lib/graph-math.js",
+  "./js/components/graph-calc.js",
   "./js/lib/study-modes.js",
   "./js/lib/passages.js",
   "./js/lib/chat-history.js",
