@@ -7,6 +7,12 @@
 //   atom  = number | const | 'x' | name '(' args ')' | '(' expr ')'
 // Supports the variable x, constants pi/π/e/tau, and the functions below.
 // compile(src) returns f(x) => Number, or throws with a short message.
+//
+// For the graphing calculator, compile(src, { params, fns }) also knows named parameters (sliders:
+// a, k, …) and the student's own functions (g(x) = f(x) + 1). The result is then called as
+// f(x, scope) with scope = { vars: { a: 2 }, fns: { f: (x, scope) => … } }. A run of letters that
+// isn't a name it knows, like "ax", is read as a product (a·x) when every letter is one it does
+// know. An unknown name throws an error carrying `.unknownName`, so the caller can offer a slider.
 
 import { t, getLang } from "./i18n.js";
 
@@ -62,14 +68,20 @@ function tokenize(src) {
   return tokens;
 }
 
-const add = (a, b) => (x) => a(x) + b(x);
-const sub = (a, b) => (x) => a(x) - b(x);
-const mul = (a, b) => (x) => a(x) * b(x);
-const div = (a, b) => (x) => a(x) / b(x);
-const pw = (a, b) => (x) => Math.pow(a(x), b(x));
-const neg = (a) => (x) => -a(x);
+const add = (a, b) => (x, p) => a(x, p) + b(x, p);
+const sub = (a, b) => (x, p) => a(x, p) - b(x, p);
+const mul = (a, b) => (x, p) => a(x, p) * b(x, p);
+const div = (a, b) => (x, p) => a(x, p) / b(x, p);
+const pw = (a, b) => (x, p) => Math.pow(a(x, p), b(x, p));
+const neg = (a) => (x, p) => -a(x, p);
 
-export function compile(src, { degrees = false } = {}) {
+/** How deep the student's functions may call each other: past it (f(x) = f(x) + 1) the value is NaN
+ *  and scope.loop is set, instead of a stack overflow. */
+export const MAX_DEPTH = 40;
+
+export function compile(src, { degrees = false, params = null, fns = null } = {}) {
+  const isParam = (nm) => !!params && params.has(nm);
+  const isFn = (nm) => !!fns && fns.has(nm);
   const tokens = tokenize(src);
   if (!tokens.length) throw new Error(t("calc.err.empty"));
   let pos = 0;
@@ -116,25 +128,59 @@ export function compile(src, { degrees = false } = {}) {
     if (tk.t === "(") { eat(); const e = parseExpr(); expect(")"); return e; }
     if (tk.t === "name") {
       eat();
-      const nm = tk.v.toLowerCase();
-      if (peek() && peek().t === "(") {
+      const raw = tk.v;
+      const nm = raw.toLowerCase();
+      const single = (name) => {
+        if (name.toLowerCase() === "x" && !isParam(name)) return (x) => x;
+        if (isParam(name)) return (x, p) => p.vars[name];
+        if (name.toLowerCase() in CONSTS) { const v = CONSTS[name.toLowerCase()]; return () => v; }
+        return null;
+      };
+      // "ax", "kx", "abc": letters the reader knows, written together as a student writes a product.
+      // Split into one name each, so the next power belongs to the last letter only (ax^2 = a·x²).
+      const product = () => params && raw.length > 1 && [...raw].every(single);
+      // A call: a built-in function, or one of the student's own. Anything else the reader knows
+      // before a bracket, a(x + 1) or x(x − 2), is a product, left to implicit multiplication.
+      const callable = FUNCS[nm] || isFn(raw);
+      if (peek() && peek().t === "(" && (callable || !(single(raw) || product()))) {
         eat();
         const args = [parseExpr()];
         while (peek() && peek().t === ",") { eat(); args.push(parseExpr()); }
         expect(")");
+        if (!FUNCS[nm] && isFn(raw)) {
+          const arg = args[0];
+          return (x, p) => {
+            if ((p.depth || 0) >= MAX_DEPTH) { p.loop = true; return NaN; }
+            p.depth = (p.depth || 0) + 1;
+            try { return p.fns[raw](arg(x, p), p); } finally { p.depth--; }
+          };
+        }
         const fn = FUNCS[nm];
-        if (!fn) throw new Error(t("calc.err.fn", { name: tk.v }));
-        return (x) => {
-          let a = args[0](x);
+        if (!fn) throw new Error(t("calc.err.fn", { name: raw }));
+        return (x, p) => {
+          let a = args[0](x, p);
           if (degrees && TRIG.has(nm)) a = a * Math.PI / 180;
           let r = fn(a);
           if (degrees && INVTRIG.has(nm)) r = r * 180 / Math.PI;
           return r;
         };
       }
-      if (nm === "x") return (x) => x;
-      if (nm in CONSTS) { const v = CONSTS[nm]; return () => v; }
-      throw new Error(t("calc.err.name", { name: tk.v }));
+      const known = single(raw);
+      if (known) return known;
+      if (product()) {
+        pos--;
+        tokens.splice(pos, 1, ...[...raw].map((c) => ({ t: "name", v: c })));
+        return parseAtom();
+      }
+      const err = new Error(t("calc.err.name", { name: raw }));
+      // An unknown single letter, alone or in a product ("a" in "ax^2"), is most likely a parameter
+      // the student means to vary. Not in "sinx" or "lnx": that's a function without its bracket.
+      const paramLetter = (c) => /^[a-wzA-WZ]$/.test(c) && c !== "e";
+      if (params && !Object.keys(FUNCS).some((f) => nm.startsWith(f))) {
+        const unknown = [...raw].filter((c) => !single(c));
+        if (unknown.length && unknown.every(paramLetter)) err.unknownName = unknown[0];
+      }
+      throw err;
     }
     throw new Error(t("calc.err.unexpected", { what: tk.t === "num" ? tk.v : tk.t }));
   }

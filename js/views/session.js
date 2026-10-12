@@ -38,6 +38,10 @@ import { buildStudyPass, questionsForMinutes, pickMockQuestions } from "../lib/e
 import { resolveExam, contextLine } from "../components/exam-flow.js";
 
 const TIP_SEEN_KEY = "studybuddy.shortcutTipSeen";
+// Which sets get the graphing calculator button: maths and physics subjects, and questions with a
+// function, an equation of a line or a power of x in them.
+const MATH_SUBJECT = /mat(te|ematik)|math|fysik|physics|\bma ?\d/i;
+const GRAPHY = /f\(x\)|\by\s*=|\bx\s*\^|x[²³]|\b(?:sin|cos|tan|ln|lg|log|sqrt)\s*\(|\bgrafen\b|\bderivat|\blutning|\bnollställ|\bextrempunkt/i;
 
 /** `?prov=<test id>`: the session was started from that test's prep page. Its header then says so,
  *  and the attempt remembers it, so the results screen can offer the next step of the test. */
@@ -1606,6 +1610,20 @@ function runSession(config) {
     href: busHref, "aria-label": t("bus.start"), title: t("bus.start"),
   }, [icon(ICONS.headphones, 18)]) : null;
 
+  // The graphing calculator, for maths: a set in a maths or physics subject, or one with a function
+  // or a formula in its questions. Not on Högskoleprovet, where no calculator is allowed.
+  const graphBtn = (() => {
+    if (config.hp || config.bus) return null;
+    const set = store.getAssignment(config.assignmentId);
+    const subject = set ? store.subjects.find((s) => s.id === set.subjectId)?.name || "" : "";
+    const graphy = (q) => q && GRAPHY.test([q.prompt, q.answer, ...(q.steps || [])].join(" "));
+    if (!MATH_SUBJECT.test(subject) && !state.order.some((id) => graphy(store.findQuestion(id)?.question))) return null;
+    return el("button.iconbtn.graphbtn", {
+      type: "button", "aria-label": t("graph.open"), title: t("graph.title"),
+      onclick: () => import("../components/graph-calc.js").then((m) => m.openGraphDialog(), () => toast(t("common.openFailed"))),
+    }, [icon(ICONS.chart, 18)]);
+  })();
+
   const node = el("div" + (config.bus ? ".session--bus" : ""), {}, [
     homeButton({ confirm: () => hasProgress() }),
     el("div.session__head", {}, [
@@ -1616,6 +1634,7 @@ function runSession(config) {
         pomoEl,
         badgeEl,
         busBtn,
+        graphBtn,
         readingBtn,
         shortcutsBtn,
       ]),
@@ -1663,6 +1682,8 @@ function runSession(config) {
       currentRenderer?.cleanup?.();
       resetBusPrime();
       tutor.destroy();
+      // A graphing calculator opened from this session goes with it.
+      if (document.querySelector(".gcalc-modal")) import("../components/graph-calc.js").then((m) => m.closeGraphDialog());
     },
   };
 }
