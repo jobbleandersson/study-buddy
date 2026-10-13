@@ -50,10 +50,15 @@ const OPEN_PATHS = /^\/(health|health\/ai|gate)\/?$/i;   // health/ai: an uptime
 // chose (never an email or id — routes/reviews.js), and the landing page is public even while the site is
 // private. Reading that one list stays open; writing a review, /reviews/mine and the admin queue do not.
 const OPEN_READS = /^\/reviews\/?$/i;
+// Stripe's webhook has to be reachable without the password cookie: Stripe's servers call it, and the signature
+// check in routes/billing.js is that route's own credential (an unsigned or stale request is a 400 and changes
+// nothing). POST only, and only that exact path; everything else behind the gate stays locked.
+const OPEN_POSTS = /^\/stripe\/webhook\/?$/i;
 
 export function requireGate(req, res, next) {
   if (!siteLocked() || OPEN_PATHS.test(req.path) || hasGate(req)) return next();
   if (req.method === "GET" && OPEN_READS.test(req.path)) return next();
+  if (req.method === "POST" && OPEN_POSTS.test(req.path)) return next();
   res.status(403).json({ error: { message: "Enter the site password first.", code: "site_locked" } });
 }
 
