@@ -251,6 +251,31 @@ fly logs                 # live server logs
 fly ssh console          # a shell inside the running machine, if you ever need one
 ```
 
+### Alerts by email
+
+Needs `RESEND_API_KEY` (section 3). They go to `ALERT_EMAIL`, or to the contact address if that's unset:
+
+```bash
+fly secrets set ALERT_EMAIL=you@example.com     # optional; default is CONTACT_TO
+```
+
+| You get a mail when… | From | Notes |
+|---|---|---|
+| a student sends or changes a review | the server | Links to `#/admin/reviews`. Never contains the student's email. |
+| the server hits an unexpected error (a 500) | the server | Route, message and the top of the stack. The same error on the same route is mailed at most once an hour; at most `ALERT_ERRORS_PER_DAY` (default 10, `0` = none) a day in all. |
+| the AI stops answering, and again when it's back | the server | Checked every 6 hours (`ai-check.js`). |
+| the whole site is down | **an outside monitor**, see below | A server that is down cannot send mail, so this one can't live in the app. |
+
+**Site-down monitor (free, about five minutes).** Make an account at [UptimeRobot](https://uptimerobot.com) (or Better Stack) and add one monitor:
+
+- Type: **HTTP(s) – keyword**
+- URL: `https://pluggera.se/api/health`
+- Keyword: `"ok":true` (alert when it's **missing**)
+- Interval: 5 minutes
+- Alert contact: your email
+
+`/api/health` stays open even while `SITE_PASSWORD` is set, so the monitor needs no password. Optionally add a second monitor on `https://pluggera.se/api/health/ai` to be told within minutes, not 6 hours, that the AI is down.
+
 ## Files this setup added
 
 - `Dockerfile` — how the app gets built into a deployable image
