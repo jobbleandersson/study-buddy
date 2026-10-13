@@ -94,6 +94,8 @@ export default {
   "menu.cardAria": "{title}, {subject}, {count} frågor",
   "menu.cardAriaOpen": "{title}, {subject}, {count} frågor, påbörjad",
   "menu.cardOptions": "Alternativ för {title}",
+  "menu.aiMade": "AI",
+  "menu.aiMadeTitle": "Skriven av PluggEra AI",
   "menu.masteryTitle": "{pct}% kunskapsnivå — hur bra det gått på det här settets områden",
   "menu.emptyFirstTitle": "Du har inte lagt till några set än",
   "menu.emptyFirstBody": "Öppna biblioteket för att hitta ett färdigt set i nästan vilket ämne som helst — eller ladda demo-seten för att se hur ett pass funkar.",

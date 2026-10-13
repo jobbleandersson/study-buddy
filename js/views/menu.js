@@ -11,6 +11,7 @@ import { masteryByTopic, masteryForAssignment } from "../lib/mastery.js";
 import { monthCalendar, weekStrip } from "../components/calendar.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { homeButton } from "../components/nav.js";
+import { aiTile, isAiSet } from "../components/ai-mark.js";
 import { openDueDialog, closeDueDialog } from "../components/due-dialog.js";
 import { openQuickAdd, closeQuickAdd } from "../components/quick-add.js";
 import { ACHIEVEMENTS, nextAchievement } from "../lib/achievements.js";
@@ -214,7 +215,7 @@ export function renderMenu(mode) {
 
     const overdue = a.dueAt ? daysUntil(a.dueAt) < 0 : false;
 
-    return el("div.acard", {
+    return el("div.acard" + (isAiSet(a) ? ".acard--ai" : ""), {
       role: "button", tabindex: "0",
       style: { "--subject": color.solid, "--subject-ink": color.ink, "--subject-tint": color.tint },
       "aria-label": t(open ? "menu.cardAriaOpen" : "menu.cardAria",
@@ -227,6 +228,7 @@ export function renderMenu(mode) {
       menuBtn,
       el("div", { style: { display: "flex", gap: "6px", flexWrap: "wrap", paddingRight: "28px" } }, [
         el("span.acard__tag", {}, subjectName),
+        isAiSet(a) && el("span.acard__tag.acard__tag--ai", { title: t("menu.aiMadeTitle") }, [aiTile(16), t("menu.aiMade")]),
         open && el("span.acard__tag.acard__tag--open", {}, t("menu.inProgress")),
         a.dueAt && el("span", {
           class: "acard__tag acard__tag--due" + (overdue ? " acard__tag--overdue" : ""),

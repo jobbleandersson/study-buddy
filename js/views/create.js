@@ -103,7 +103,7 @@ export function renderCreate(prefill) {
   // still running, or finished while nobody was looking: pick it straight
   // back up instead of starting over at "source".
   if (bg) {
-    if (bg.doc) { state.doc = bg.doc; state.step = "review"; bg = null; }
+    if (bg.doc) { state.doc = { ...bg.doc, ai: true }; state.step = "review"; bg = null; }
     else if (bg.error) { bg = null; } // already toasted when it failed; just land on source
     else {
       state.step = "generating";
@@ -112,7 +112,7 @@ export function renderCreate(prefill) {
         onDone: (doc) => {
           if (!mounted) { notifyBgDone(); return; }   // still nobody looking — leave it for next time
           if (bg === job) bg = null;                   // consumed now
-          state.doc = doc;
+          state.doc = { ...doc, ai: true };   // the AI wrote it: its card is marked
           state.step = "review"; paint();
         },
         onFail: (e) => {
@@ -172,6 +172,7 @@ export function renderCreate(prefill) {
         doc.subject = state.subject.trim() || doc.subject || t("common.general");
         doc.title = secs[i].title || doc.title;
         doc.type = state.type;
+        doc.ai = true;
         doc.questions = doc.questions.map((q) => ({ ...q, id: uid() }));
         store.addAssignmentDoc(doc);
         made++;
@@ -507,7 +508,7 @@ export function renderCreate(prefill) {
     const flashcardsCheck = el("input", { type: "checkbox", checked: state.preferFlashcards, onchange: (e) => { state.preferFlashcards = e.target.checked; } });
 
     const err = el("p.note.note--warn", { hidden: true });
-    const genBtn = el("button.btn", { type: "button", disabled: !store.hasKey(), onclick: generate }, [icon(ICONS.spark, 18), t("create.generate")]);
+    const genBtn = el("button.btn.btn--ai", { type: "button", disabled: !store.hasKey(), onclick: generate }, [icon(ICONS.spark, 18), t("create.generate")]);
 
     // Import needs no AI — the cards *are* the questions. Straight to review.
     function buildFromImport() {
@@ -583,7 +584,7 @@ export function renderCreate(prefill) {
         onDone: (doc) => {
           if (!mounted) { notifyBgDone(); return; }   // still nobody looking — leave it for next time
           if (bg === job) bg = null;                   // consumed now
-          state.doc = doc;
+          state.doc = { ...doc, ai: true };
           state.step = "review"; paint();
         },
         onFail: (e) => {

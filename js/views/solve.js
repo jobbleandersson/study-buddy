@@ -167,6 +167,7 @@ export function renderSolve(qs) {
     doc.title = brief.title || doc.title;
     doc.subject = brief.subject || doc.subject || t("common.general");
     doc.questions = doc.questions.map((q) => ({ ...q, id: uid() }));
+    doc.ai = true;
     const a = store.addAssignmentDoc(doc);
     store.refreshUsage?.();
     // Nobody is looking at the card any more (page left, or a new chat started): say where the set went.
