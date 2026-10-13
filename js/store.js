@@ -1130,6 +1130,27 @@ class Store extends EventTarget {
     return created;
   }
 
+  /** Removes a subject together with its sets and its tests (attempt history is kept, as when a set
+   *  is deleted). Returns what is needed to put it all back — see restoreSubject() — or null. */
+  removeSubject(id) {
+    const subject = this.state.subjects.find((x) => x.id === id);
+    if (!subject) return null;
+    // Copied before the sets go: deleting a set takes it off the tests that covered it.
+    const exams = this.state.exams.filter((e) => e.subjectId === id).map((e) => ({ ...e, setIds: [...e.setIds] }));
+    const sets = this.state.assignments.filter((a) => a.subjectId === id).map((a) => this.deleteAssignment(a.id)).filter(Boolean);
+    for (const e of exams) this.removeExam(e.id);
+    this.update((s) => { s.subjects = s.subjects.filter((x) => x.id !== id); });
+    return { subject: { ...subject }, exams, sets };
+  }
+
+  /** Puts back what removeSubject() removed: the subject, then its tests, then its sets. */
+  restoreSubject(snapshot) {
+    if (!snapshot?.subject) return;
+    this.update((s) => { if (!s.subjects.some((x) => x.id === snapshot.subject.id)) s.subjects.push(snapshot.subject); });
+    for (const e of snapshot.exams || []) this.restoreExam(e);
+    for (const a of snapshot.sets || []) this.restoreAssignment(a);
+  }
+
   // ---------- assignments ----------
   get assignments() { return this.state.assignments; }
 

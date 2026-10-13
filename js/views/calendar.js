@@ -264,6 +264,7 @@ export function renderCalendarPage() {
   return {
     title: t("menu.calendarTitle"),
     node,
-    cleanup: () => { closeChooser(); closeQuickAdd(); },
+    // Kept open through a rebuild of this page (a store change); closed when you leave it.
+    cleanup: () => { closeChooser(); if (location.hash.replace(/^#/, "").split("?")[0] !== "/calendar") closeQuickAdd(); },
   };
 }
