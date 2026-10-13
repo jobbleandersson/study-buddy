@@ -2899,6 +2899,8 @@ body.route-chat .sitechat__panel { display: none; }
   flex: 1; min-width: 0; padding: 7px 2px; border: none; outline: none; background: transparent;
   font: inherit; font-size: 15px; color: var(--ink); font-variant-numeric: tabular-nums;
 }
+/* The row's border already shows where you're typing (.gcalc__row:focus-within): no second ring inside it. */
+.gcalc__input:focus-visible { box-shadow: none; }
 .gcalc__input::placeholder { color: var(--ink-faint); }
 .gcalc__row.is-hidden .gcalc__input { color: var(--ink-faint); }
 .gcalc__del {
