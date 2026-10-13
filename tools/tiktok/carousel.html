@@ -1,0 +1,32 @@
+<!doctype html>
+<!-- TikTok photo carousels (swipe posts): one 1080×1920 slide per render. render-carousels.mjs (next to
+     this file) calls window.renderSlide(spec) for every slide of every post in posts.mjs and shoots it.
+     The look is slides.css, the layouts slides.js (shared with the videos in video.html).
+     Text takes **bold**, *italic*, ==highlight==, $math$ (KaTeX, as in the app) and \n for a line break. -->
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>PluggEra TikTok slide</title>
+<link rel="stylesheet" href="../../vendor/katex.min.css">
+<link rel="stylesheet" href="slides.css">
+<script src="../../vendor/katex.min.js"></script>
+</head>
+<body>
+<div class="frame" id="frame"></div>
+<script type="module">
+  import { topBar, foot, deco, LAYOUTS, fit } from "./slides.js";
+
+  window.renderSlide = async (s) => {
+    document.body.dataset.ready = "";
+    document.body.dataset.series = s.series || "hp";
+    const loud = s.type === "hook" || s.type === "cta";
+    document.getElementById("frame").innerHTML = `${loud ? deco() : ""}${topBar(s)}<div class="main">${LAYOUTS[s.type](s)}</div>${foot(s)}`;
+    await document.fonts.ready;
+    const main = document.querySelector(".main");
+    const scale = fit(main, !loud);
+    document.body.dataset.ready = "1";
+    return { fits: main.scrollHeight <= main.clientHeight + 2, scale };
+  };
+</script>
+</body>
+</html>

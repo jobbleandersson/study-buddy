@@ -1,0 +1,59 @@
+<!doctype html>
+<!-- TikTok videos: one 1080×1920 frame at a time. render-videos.mjs (next to this file) builds each
+     video in videos.mjs with window.setupVideo(spec), steps through it with seekVideo(t), shoots every
+     frame and feeds it to the encoder. The look is slides.css, the motion video.js. -->
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>PluggEra TikTok video</title>
+<link rel="stylesheet" href="../../vendor/katex.min.css">
+<link rel="stylesheet" href="slides.css">
+<script src="../../vendor/katex.min.js"></script>
+<style>
+  /* The texture and the big disc are layers of their own here, so they can drift. */
+  body { background: var(--bg); }
+  .frame::before { display: none; }
+  .tex { position: absolute; inset: -240px; background: var(--tex); pointer-events: none; }
+  .disc { position: absolute; left: 470px; top: 1180px; width: 1150px; height: 1150px; border-radius: 50%; background: var(--bg-deep); pointer-events: none; }
+
+  /* The scenes lie on top of each other in the space between the top bar and the footer. */
+  .stage { position: relative; z-index: 1; flex: 1; min-height: 0; margin-top: 30px; }
+  .stage > .main { position: absolute; inset: 0; margin: 0; }
+  .w { display: inline-block; }
+  /* The highlighter draws across, and the text under it turns dark as it passes. */
+  mark { background-size: var(--sweep, 100%) 80%; color: color-mix(in srgb, var(--pop-ink) var(--sweep, 100%), var(--fg)); }
+
+  /* The countdown seconds on the stamp. */
+  .stamp--time { gap: 0; align-content: center; }
+  .stamp--time b { font-family: "Lexend", "Inter", sans-serif; font-size: 92px; font-weight: 700; line-height: .9; letter-spacing: -.04em; }
+  .stamp--time small { font-size: 30px; letter-spacing: .1em; }
+
+  /* The question's head row: the delprov, and the ring timer that the verdict replaces. */
+  .qhead { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 156px; }
+  .timer { position: relative; flex: none; width: 156px; height: 156px; border-radius: 50%; background: var(--paper); border: var(--line); box-shadow: 7px 7px 0 var(--ink); }
+  .timer svg { position: absolute; inset: 6px; width: calc(100% - 12px); height: calc(100% - 12px); rotate: -90deg; }
+  .timer circle { fill: none; stroke-width: 13; }
+  .timer .trk { stroke: #E6E9F2; }
+  .timer .arc { stroke: var(--on-paper); stroke-linecap: round; }
+  .timer.is-low .arc { stroke: var(--bad); }
+  .timer b { position: absolute; inset: 0; display: grid; place-items: center; font-family: "Lexend", "Inter", sans-serif; font-size: 70px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .timer.is-low b { color: var(--bad); }
+  .qhead .verdict { top: 50%; right: 0; margin-top: -40px; font-size: 46px; padding: 16px 28px; }
+
+  /* An option's letter turns into a check mark when the answer shows. */
+  .opt b .c { display: none; }
+  .is-answer .opt.is-right b .l { display: none; }
+  .is-answer .opt.is-right b .c { display: grid; }
+  .stage .is-answer .opts { padding-top: 18px; }
+
+  .prompt--big { font-size: 80px; line-height: 1.12; letter-spacing: -.035em; }
+  .flash--small .word { font-size: 110px; }
+  .btn--small { padding: 22px 38px; font-size: 38px; }
+  .fx-flash { position: absolute; inset: 0; z-index: 5; background: #fff; opacity: 0; pointer-events: none; }
+</style>
+</head>
+<body>
+<div class="frame" id="frame"></div>
+<script type="module" src="video.js"></script>
+</body>
+</html>

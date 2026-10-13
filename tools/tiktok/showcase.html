@@ -1,0 +1,126 @@
+<!doctype html>
+<!-- The showcase video: the real app on a phone, feature by feature. render-videos.mjs films it like the
+     other videos (window.setupVideo / seekVideo, see motion.js); the screens come from
+     capture-showcase.mjs (out/showcase/), the story and the copy from showcase.js and videos.mjs. -->
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>PluggEra showcase video</title>
+<link rel="stylesheet" href="../../vendor/katex.min.css">
+<link rel="stylesheet" href="slides.css">
+<script src="../../vendor/katex.min.js"></script>
+<style>
+  /* The brand's own navy, for the opening and the close. */
+  [data-series="navy"] {
+    --bg: #151C33; --bg-deep: #1E2847; --pop: #38D2FF; --pop-ink: var(--ink); --on-paper: #2346FF;
+    --tex: radial-gradient(rgba(255, 255, 255, .09) 3px, transparent 3.6px) 0 0 / 46px 46px;
+  }
+
+  body { background: #151C33; }
+  .frame::before { display: none; }
+  .bgs, .over { position: absolute; inset: 0; }
+  .stage-all { position: absolute; inset: 0; overflow: hidden; }
+
+  /* Background layers: each scene's colour grows out of a point as a circle. */
+  .bg { position: absolute; inset: 0; overflow: hidden; background: var(--bg);
+    clip-path: circle(calc(var(--wipe, 3000) * 1px) at var(--wx, 540px) var(--wy, 960px)); }
+  .bg .tex { position: absolute; inset: -240px; background: var(--tex); }
+  .bg .disc { position: absolute; left: 470px; top: 1180px; width: 1150px; height: 1150px; border-radius: 50%; background: var(--bg-deep); }
+
+  /* The phone fades out just under the captions, so a zoom never runs into them. */
+  .phonewin { position: absolute; inset: 0;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 520px, #000 600px); mask-image: linear-gradient(to bottom, transparent 520px, #000 600px); }
+  /* The phone. Its screen is 390 CSS px of the app across (K canvas px each), a status bar on top. */
+  .phone {
+    position: absolute; left: 150px; top: 600px; width: 780px; padding: 18px; border-radius: 122px; transform-origin: 0 0;
+    background: #0E1330; box-shadow: 26px 26px 0 rgba(14, 19, 48, .88), inset 0 0 0 3px rgba(255, 255, 255, .14);
+  }
+  .phone::before, .phone::after { content: ""; position: absolute; width: 9px; border-radius: 6px; background: #0E1330; }
+  .phone::before { left: -8px; top: 300px; height: 150px; }
+  .phone::after { right: -8px; top: 380px; height: 220px; }
+  .screen { position: relative; width: 744px; border-radius: 104px; overflow: hidden; background: #F5F7FC; }
+  .status { position: relative; height: calc(47px * var(--k)); display: flex; align-items: center; justify-content: space-between; padding: 0 calc(30px * var(--k)) 0 calc(36px * var(--k)); background: #F5F7FC; color: #0E1330; z-index: 3; }
+  .status b { font-size: calc(16.5px * var(--k)); font-weight: 650; letter-spacing: -.01em; }
+  .status svg { height: calc(12px * var(--k)); width: auto; margin-left: calc(6px * var(--k)); }
+  .island { position: absolute; left: 50%; top: calc(11px * var(--k)); width: calc(122px * var(--k)); height: calc(35px * var(--k)); margin-left: calc(-61px * var(--k)); border-radius: 999px; background: #05070D; z-index: 4; }
+  .view { position: relative; height: calc(844px * var(--k)); overflow: hidden; background: #F5F7FC; }
+  .scr { position: absolute; inset: 0; overflow: hidden; background: #F5F7FC; filter: blur(calc(var(--blur, 0) * 1px)); }
+  .scr img { position: absolute; left: 0; top: 0; width: 100%; display: block; }
+  .scr .tab { top: auto; bottom: 0; }
+  .tap {
+    position: absolute; width: 110px; height: 110px; margin: -55px 0 0 -55px; border-radius: 50%; z-index: 5; opacity: 0;
+    background: rgba(14, 19, 48, .16); border: 6px solid rgba(14, 19, 48, .5); pointer-events: none;
+  }
+
+  /* Captions above the phone: a chip and the line. */
+  .cap { position: absolute; left: 90px; top: 210px; width: 840px; color: var(--fg); }
+  .cap .label { display: inline-block; margin-bottom: 9px; }
+  .cap .h { font-size: 88px; line-height: 1.04; }
+  .hero { position: absolute; left: 90px; width: 840px; transform-origin: 0 0; color: var(--fg); }
+  .hero .h { font-size: 146px; line-height: 1.0; }
+  .brandpill { position: absolute; left: 0; right: 0; top: 210px; display: flex; justify-content: center; }
+  .w { display: inline-block; }
+  mark { background-size: var(--sweep, 100%) 80%; color: color-mix(in srgb, var(--pop-ink) var(--sweep, 100%), var(--fg)); }
+
+  /* The short cut: the logo and the 1/5 counter on top, the hook big from the first frame. */
+  .promo-top { position: absolute; left: 90px; right: 150px; top: 200px; display: flex; align-items: center; justify-content: space-between; }
+  .counter {
+    display: inline-flex; align-items: baseline; gap: 2px; padding: 8px 24px 10px; border-radius: 18px; rotate: 4deg;
+    background: var(--pop); color: var(--pop-ink); border: var(--line); box-shadow: 6px 6px 0 var(--ink);
+    font-family: "Lexend", "Inter", sans-serif; font-weight: 700; font-size: 40px; line-height: 1; letter-spacing: -.02em;
+  }
+  .counter b { font-size: 60px; font-variant-numeric: tabular-nums; }
+  .hook { position: absolute; left: 90px; top: 330px; width: 840px; color: var(--fg); transform-origin: 0 0; }
+  .hook .h { font-size: 134px; line-height: 1.0; }
+
+  /* The ad (ad.js): full-frame scenes that swipe like the feed, phones tilted in 3D. */
+  .ad .sc { position: absolute; inset: 0; overflow: hidden; background: var(--bg); color: var(--fg); }
+  .ad .sc > .tex { position: absolute; inset: -240px; background: var(--tex); }
+  .ad .sc > .disc { position: absolute; left: 470px; top: 1180px; width: 1150px; height: 1150px; border-radius: 50%; background: var(--bg-deep); }
+  .ad .rig { position: absolute; inset: 0; perspective: 2600px; perspective-origin: 50% 62%; }
+  .ad .phone {
+    transform-origin: 50% 50%; transform: rotateX(calc(var(--rx, 0) * 1deg)) rotateY(calc(var(--ry, 0) * 1deg));
+    box-shadow: 0 70px 120px rgba(5, 8, 20, .42), inset 0 0 0 3px rgba(255, 255, 255, .14);
+  }
+  .ad .cap { top: 210px; }
+  .ad .cap .h { font-size: 96px; }
+  .notes {
+    position: absolute; left: 90px; top: 660px; width: 880px; padding: 40px 44px 48px 130px; transform: rotate(-3deg);
+    background:
+      linear-gradient(90deg, transparent 92px, rgba(232, 40, 96, .55) 92px 97px, transparent 97px),
+      repeating-linear-gradient(transparent 0 85px, rgba(14, 19, 48, .13) 85px 88px) 0 40px / 100% 88px,
+      #fff;
+    border: var(--line); border-radius: 28px; box-shadow: 14px 14px 0 var(--ink);
+    --fg: var(--ink); --pop: #FFE03D; --pop-ink: var(--ink); color: var(--ink);
+    font-size: 46px; font-weight: 650; font-style: italic; line-height: 88px; letter-spacing: -.01em;
+  }
+  /* A red rubber stamp, slammed onto the notes. */
+  .stamp-red {
+    position: absolute; left: 330px; top: 1040px; padding: 14px 34px 10px; border: 9px solid #E5243B; border-radius: 22px; transform: rotate(-12deg);
+    color: #E5243B; background: rgba(255, 255, 255, .86); font-family: "Lexend", "Inter", sans-serif; font-size: 110px; font-weight: 700;
+    line-height: 1; letter-spacing: .04em; text-transform: uppercase; box-shadow: 0 0 0 4px rgba(229, 36, 59, .25);
+  }
+  .notes p { margin: 0; white-space: nowrap; }
+  .sticker {
+    position: absolute; z-index: 5; display: inline-flex; align-items: baseline; gap: 12px; padding: 16px 28px 18px; border-radius: 20px;
+    background: var(--pop); color: var(--pop-ink); border: var(--line); box-shadow: 8px 8px 0 var(--ink); white-space: nowrap;
+    font-family: "Lexend", "Inter", sans-serif; font-size: 56px; font-weight: 700; line-height: 1; letter-spacing: -.02em;
+  }
+  .sticker small { font-family: "Inter", sans-serif; font-size: 32px; font-weight: 800; letter-spacing: 0; }
+  .sticker svg { width: 44px; height: 44px; align-self: center; }
+  .sticker:has(svg), .sticker:not(:has(small)) { font-family: "Inter", sans-serif; font-size: 40px; font-weight: 800; align-items: center; }
+  .curvecard { position: absolute; left: 90px; top: 640px; width: 840px; }
+  .schematic { position: absolute; left: 96px; top: 1175px; margin: 0; font-size: 28px; font-weight: 700; color: var(--fg-soft); }
+  .ad .fx-flash { position: absolute; inset: 0; z-index: 20; background: #fff; opacity: 0; pointer-events: none; }
+  .ad .close .tap, .ad .sc > .tap { z-index: 6; }
+
+  /* The close, in the same safe area as the other videos. */
+  .close { position: absolute; left: 90px; right: 150px; top: 200px; bottom: 470px; display: flex; flex-direction: column; color: var(--fg); }
+  .close .main { margin-top: 0; }
+</style>
+</head>
+<body>
+<div class="frame" id="frame" style="padding:0"></div>
+<script type="module" src="showcase.js"></script>
+</body>
+</html>
