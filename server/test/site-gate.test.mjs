@@ -177,3 +177,26 @@ describe("open (SITE_PASSWORD unset)", () => {
     assert.equal((await fetch(`${server.baseUrl}/ova`)).status, 200);
   });
 });
+
+describe("Stripe's webhook while the site is private", () => {
+  let server;
+  before(async () => { server = await startServer({ SITE_PASSWORD: PASSWORD, STRIPE_WEBHOOK_SECRET: "whsec_test" }); });
+  after(async () => { await server.stop(); });
+
+  test("a POST reaches the webhook without the password (and is turned away by its signature check, not the gate)", async () => {
+    const res = await fetch(`${server.baseUrl}/api/stripe/webhook`, {
+      method: "POST", headers: { "content-type": "application/json" }, body: "{}",
+    });
+    assert.equal(res.status, 400);
+    assert.equal((await res.json()).error.code, "bad_signature");
+  });
+
+  test("nothing else about it is open: a GET, or a neighbouring path, stays behind the gate", async () => {
+    const c = makeClient(server.baseUrl);
+    for (const [method, path] of [["get", "/api/stripe/webhook"], ["post", "/api/stripe/webhooks"], ["post", "/api/billing/checkout"], ["get", "/api/billing/status"]]) {
+      const r = await c[method](path, method === "post" ? {} : undefined);
+      assert.equal(r.status, 403, `${method} ${path}`);
+      assert.equal(r.json?.error?.code, "site_locked", `${method} ${path}`);
+    }
+  });
+});
