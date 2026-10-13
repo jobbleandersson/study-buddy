@@ -16,8 +16,8 @@ const HP_TICKS = ["Alla åtta delprov", "Förklaring till varje fråga", "Uppska
 const HP_CTA = { title: "Fler HP-frågor. ==Gratis.==", ticks: HP_TICKS, url: "pluggera.se/hp" };
 
 /** A real HP question against the clock: the hook, the question, the answer and why, where to practise. */
-const quiz = ({ id, dp, i, hook, caption }) => ({
-  id, kind: "quiz", series: "hp", badge: "Hinner du?", label: DELPROV[dp], q: hpQ(dp, i), hook, cta: HP_CTA, caption, tags: TAGS_HP,
+const quiz = ({ id, dp, i, hook, sub, caption }) => ({
+  id, kind: "quiz", series: "hp", badge: "Hinner du?", label: DELPROV[dp], q: hpQ(dp, i), hook, sub, cta: HP_CTA, caption, tags: TAGS_HP,
 });
 
 /** The short cut of the showcase (see showcase.js): the same five features under a different hook.
@@ -162,3 +162,39 @@ export const VIDEOS = [
     tags: ["#plugga", "#studietips", "#studytok", "#skola", "#prov", "#pluggera"],
   },
 ];
+
+/* ---------------- Round two (13 Oct) ---------------- */
+// Numbered after the first round, so the files already handed out keep their names.
+VIDEOS.push(
+  quiz({ id: "hinner-du-ekvationen", dp: "xyz", i: 0, hook: "$3x - 7 = 2x + 5$. ==Vad är x?==",
+    caption: "Löser du ekvationen innan tiden tar slut? Skriv svaret i kommentarerna! Fler HP-frågor gratis, länk i bio." }),
+  quiz({ id: "hinner-du-rektangeln", dp: "xyz", i: 3, hook: "Omkrets 30 cm, längd 9 cm. ==Vad är arean?==",
+    caption: "Rektangelns area – hinner du? Svara i kommentarerna! Fler HP-frågor gratis, länk i bio." }),
+  quiz({ id: "hinner-du-klassen", dp: "xyz", i: 6, hook: "8 fler flickor än pojkar. ==Hur stor är klassen?==", sub: "Tre femtedelar av eleverna är flickor.",
+    caption: "Hur många elever går i klassen? Svara innan tiden tar slut! Fler HP-frågor gratis, länk i bio." }),
+  quiz({ id: "hinner-du-k-vardet", dp: "xyz", i: 7, hook: "Genom (0, 3) och (4, 11). ==Vad är k?==",
+    caption: "Räta linjens k-värde på några sekunder? Svara i kommentarerna! Fler HP-frågor gratis, länk i bio." }),
+  quiz({ id: "hinner-du-x-i-kvadrat", dp: "kva", i: 1, hook: "$x^2$ eller $x$: ==vilket är störst?==", sub: "Ledtråd: $0 < x < 1$.",
+    caption: "x² eller x – vilket är störst? Den här lurar många. Fler KVA-frågor gratis, länk i bio." }),
+  quiz({ id: "hinner-du-omkretsar", dp: "kva", i: 4, hook: "Kvadrat med sidan 6 eller liksidig triangel med sidan 8: ==störst omkrets?==",
+    caption: "Kvadrat eller triangel – vilken har störst omkrets? Svara i kommentarerna! Fler KVA-frågor gratis, länk i bio." }),
+  quiz({ id: "hinner-du-tredjedel", dp: "kva", i: 5, hook: "En tredjedel plus en fjärdedel. ==Mer eller mindre än en halv?==",
+    caption: "1/3 + 1/4 – mer eller mindre än en halv? Svara innan tiden tar slut! Fler KVA-frågor gratis, länk i bio." }),
+  quiz({ id: "hinner-du-jamnt", dp: "nog", i: 2, hook: "Är $n$ jämnt? ==Räcker informationen?==",
+    caption: "En NOG-fråga om jämna och udda tal. Hinner du? Fler NOG-frågor gratis, länk i bio." }),
+  quiz({ id: "hinner-du-samlingen", dp: "mek", i: 7, hook: "Bara en bråkdel kan visas. ==Vilket ord saknas?==",
+    caption: "Vilket ord passar? Svara innan tiden tar slut! Fler MEK-frågor gratis, länk i bio." }),
+  quiz({ id: "hinner-du-romanen", dp: "mek", i: 1, hook: "Inget ord kändes överflödigt. ==Vilket ord saknas?==",
+    caption: "MEK: vilket ord saknas? Svara i kommentarerna! Fler MEK-frågor gratis, länk i bio." }),
+  ...[6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(ord),
+);
+// Two more hooks on the ad, to test against each other in paid campaigns.
+{
+  const base = VIDEOS.find((v) => v.id === "annons-glomska");
+  VIDEOS.push(
+    { ...base, id: "annons-blankt", copy: { ...base.copy, hook: "Kunde allt igår. ==Blankt på provet?==", stamp: "Blankt" },
+      caption: "Kunde allt igår men blev helt blank på provet? Testa dig själv i stället. Gratis övningar på pluggera.se" },
+    { ...base, id: "annons-stryka-under", copy: { ...base.copy, hook: "Stryker du under ==allt== i boken?" },
+      caption: "Stryker du under allt i boken – och glömmer det ändå? Testa dig själv i stället. Gratis övningar på pluggera.se" },
+  );
+}
