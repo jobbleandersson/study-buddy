@@ -55,7 +55,7 @@ export const CONTACT_EMAIL = "pluggera.organisation@gmail.com";
 export const CONTACT_URL = `${API}/api/contact`;
 
 // The only social link on the front page footer for now — see js/views/landing.js.
-export const TIKTOK_URL = "https://www.tiktok.com/@studiduogyu";
+export const TIKTOK_URL = "https://www.tiktok.com/@pluggera.organisation";
 export const STATE_URL = `${API}/api/state`;
 export const LINKS_URL = `${API}/api/links`;
 export const INVITE_CODE_URL = `${API}/api/links/invite-code`;
