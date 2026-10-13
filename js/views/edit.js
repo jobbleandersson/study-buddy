@@ -118,7 +118,8 @@ export function renderEdit(assignmentId, qs) {
       // Side by side where there's room; stacked on a phone, where half a width cuts the title off.
       el("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))", gap: "12px", alignItems: "start" } }, [
         el("label.field", {}, [el("span", {}, t("create.setTitle")), titleInput]),
-        el("label.field", {}, [el("span", {}, t("create.subject")), subjectFld.el]),
+        // A div, not a label: a label would press the first subject chip when its name is clicked.
+        el("div.field", {}, [el("span", {}, t("create.subject")), subjectFld.el]),
       ]),
       el("label.field", { style: { maxWidth: "260px" } }, [el("span", {}, t("create.type")), typeSel]),
       duePicker.el,
