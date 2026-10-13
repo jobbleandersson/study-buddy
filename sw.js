@@ -186,6 +186,7 @@ const APP_SHELL = [
   "./js/components/avatar-editor.js",
   "./js/components/subject-field.js",
   "./js/components/quick-add.js",
+  "./js/components/ach-next.js",
   "./js/components/reading-controls.js",
   "./js/components/voice-controls.js",
   "./js/components/file-drop.js",

@@ -13,7 +13,8 @@ import { t, plural, getLang, fmtDecimal } from "../lib/i18n.js";
 import { goalRing } from "../components/goal-ring.js";
 import { homeButton } from "../components/nav.js";
 import { pageHead } from "../components/set-ui.js";
-import { ACHIEVEMENTS, nextAchievement } from "../lib/achievements.js";
+import { ACHIEVEMENTS } from "../lib/achievements.js";
+import { achNext } from "../components/ach-next.js";
 import { estimatedGrade } from "../lib/grade.js";
 import { sparkline } from "../lib/spark.js";
 import { hpPrognosis } from "./hp.js";
@@ -110,13 +111,8 @@ export function renderProgress() {
   // ---- achievements ----
   const unlockedMap = store.unlockedAchievements;
   const got = ACHIEVEMENTS.filter((a) => a.id in unlockedMap).length;
-  const next = nextAchievement(store.state);
   const achievements = panel(ICONS.trophy, t("ach.teaserTitle"), t("ach.subtitle", { unlocked: got, total: ACHIEVEMENTS.length }), [
-    el("div.pg-bar", { role: "img", "aria-label": t("ach.subtitle", { unlocked: got, total: ACHIEVEMENTS.length }) },
-      [el("i", { style: { width: "0%" }, dataset: { w: Math.round((got / ACHIEVEMENTS.length) * 100) } })]),
-    el("p.note", {}, next
-      ? t("ach.teaserNext", { desc: `${t(next.def.nameKey)} · ${t(next.def.descKey, { n: next.def.target })} (${next.have}/${next.need})` })
-      : t("ach.teaserAllDone")),
+    achNext(),
   ], { actions: [el("a.linkbtn.pg-more", { href: "#/achievements" }, [t("prog.seeAll"), icon(ICONS.arrow, 14)])] });
 
   // ---- recall trend + Högskoleprovet ----

@@ -669,9 +669,10 @@ body.has-topmenu .sitechat__fab { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .home-tile:hover { transform: none; } }
 
-/* Achievements teaser: the badge closest to unlocking — its icon on a chip in
-   the tier's metal (--c), as the shortcut tiles carry theirs, and a slim bar in
-   that metal. Milestones have no metal and keep the brand blue. */
+/* The badge closest to unlocking (js/components/ach-next.js), on the home page
+   and the Progress page's trophy card — its icon on a chip in the tier's metal
+   (--c), as the shortcut tiles carry theirs, and a slim bar in that metal.
+   Milestones have no metal and keep the brand blue. */
 .ach-next { --c: var(--brand); --c-ink: var(--brand-ink); display: flex; gap: 12px; align-items: flex-start; }
 .ach-next--bronze   { --c: var(--ach-bronze);   --c-ink: var(--ach-bronze-ink); }
 .ach-next--silver   { --c: var(--ach-silver);   --c-ink: var(--ach-silver-ink); }
@@ -5420,8 +5421,6 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .pg-week__day.is-leaving .pg-week__n { color: var(--retry-ink); }
 .pg-leaving { display: flex; align-items: center; gap: 6px; margin: 0; font-size: var(--fs-sm); font-weight: 600; color: var(--retry-ink); }
 @media (prefers-reduced-motion: reduce) { .pg-week__bar i { transition: none; } }
-.pg-bar { height: 6px; border-radius: var(--r-full); background: var(--surface-sunk); overflow: hidden; }
-.pg-bar i { display: block; height: 100%; border-radius: inherit; background: var(--brand); transition: width var(--dur-slow) var(--ease-out); }
 
 /* Activity map: month names over the weeks, day names down the side. */
 .pg-heat { display: grid; gap: var(--s-3); }

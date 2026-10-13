@@ -1422,8 +1422,6 @@ export default {
   "ach.unlockedOn": "Upplåst {date}",
   "ach.unlockedEyebrow": "Utmärkelse upplåst",
   "ach.teaserTitle": "Troféer",
-  "ach.teaserNext": "Näst på tur: {desc}",
-  "ach.teaserAllDone": "Alla troféer insamlade — bra jobbat.",
   "ach.tier.milestone": "Milstolpe",
   "ach.milestonesTitle": "Milstolpar",
   "ach.notYet": "Inte än",

@@ -14,7 +14,8 @@ import { homeButton } from "../components/nav.js";
 import { aiTile, isAiSet } from "../components/ai-mark.js";
 import { openDueDialog, closeDueDialog } from "../components/due-dialog.js";
 import { openQuickAdd, closeQuickAdd } from "../components/quick-add.js";
-import { ACHIEVEMENTS, nextAchievement } from "../lib/achievements.js";
+import { ACHIEVEMENTS } from "../lib/achievements.js";
+import { achNext } from "../components/ach-next.js";
 import { countdownLabel } from "../lib/date-phrases.js";
 import { upcomingExams } from "../lib/exam.js";
 import { prepFor, taskHash, taskLabel, shortCountdown, resumeFor, taskButtonLabel } from "../components/exam-flow.js";
@@ -536,44 +537,15 @@ function calendarPanel() {
   ]);
 }
 
-// The badge closest to unlocking: its icon on a chip in the tier's metal, like
-// the shortcut tiles' chips, and a slim bar in that metal.
 function achievementsPanel() {
   const unlockedMap = store.unlockedAchievements;
   const unlocked = ACHIEVEMENTS.filter((a) => a.id in unlockedMap).length;
-  const next = nextAchievement(store.state);
-
-  const chip = (iconName) => el("span.ach-next__ic", { "aria-hidden": "true" }, icon(ICONS[iconName] || ICONS.award, 18));
-  const meter = (pct, count = null) => el("div.ach-next__meter", {}, [
-    el("div.ach-next__bar", {}, [el("i", { style: { width: `${pct}%` } })]),
-    count ? el("span.ach-next__count", {}, count) : null,
-  ]);
-  const body = next
-    ? el(`div.ach-next.ach-next--${next.def.tier}`, {}, [
-        chip(next.def.icon),
-        el("div.ach-next__body", {}, [
-          el("strong.ach-next__name", {}, t(next.def.nameKey)),
-          meter(Math.min(100, Math.round((next.have / next.need) * 100)), `${next.have}/${next.need}`),
-          el("p.ach-next__desc", {}, [
-            el("span.ach-next__tier", {}, t(`ach.tier.${next.def.tier}`)),
-            ` · ${t(next.def.descKey, { n: next.need })}`,
-          ]),
-        ]),
-      ])
-    : el("div.ach-next.ach-next--gold", {}, [
-        chip("trophy"),
-        el("div.ach-next__body", {}, [
-          el("strong.ach-next__name", {}, t("menu.achAllDone")),
-          meter(100),
-        ]),
-      ]);
-
   return el("section.home-panel.home-panel--ach", {}, [
     el("div.home-panel__label", {}, [
       el("span", {}, t("prog.achievements")),
       el("a.linkbtn", { href: "#/achievements" }, t("ach.subtitle", { unlocked, total: ACHIEVEMENTS.length })),
     ]),
-    body,
+    achNext(),
   ]);
 }
 

@@ -1407,8 +1407,6 @@ export default {
   "ach.unlockedOn": "Unlocked {date}",
   "ach.unlockedEyebrow": "Achievement unlocked",
   "ach.teaserTitle": "Achievements",
-  "ach.teaserNext": "Next up: {desc}",
-  "ach.teaserAllDone": "All badges collected — nice work.",
   "ach.tier.milestone": "Milestone",
   "ach.milestonesTitle": "Milestones",
   "ach.notYet": "Not yet",
