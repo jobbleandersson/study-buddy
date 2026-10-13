@@ -4,6 +4,7 @@ import { db } from "../db.js";
 import { requireAuth } from "../middleware/requireAuth.js";
 import { asyncHandler } from "../middleware/asyncHandler.js";
 import { attemptLimit } from "../middleware/attemptLimit.js";
+import { sendNewReviewEmail } from "../email.js";
 import { adminFailures, requireAdminKey } from "../middleware/adminKey.js";
 
 export const reviews = Router();
@@ -84,6 +85,7 @@ reviews.post("/reviews", requireAuth, submitLimit, asyncHandler(async (req, res)
   }
 
   const now = Date.now();
+  const existed = !!db.prepare("SELECT 1 FROM reviews WHERE user_id = ?").get(req.user.userId);
   db.prepare(`
     INSERT INTO reviews (id, user_id, rating, text, display_name, context, lang, consent, status, created_at, reviewed_at)
     VALUES (?, ?, ?, ?, ?, ?, ?, 1, 'pending', ?, NULL)
@@ -92,6 +94,9 @@ reviews.post("/reviews", requireAuth, submitLimit, asyncHandler(async (req, res)
       context = excluded.context, lang = excluded.lang, consent = 1,
       status = 'pending', created_at = excluded.created_at, reviewed_at = NULL
   `).run(crypto.randomUUID(), req.user.userId, rating, text, name, context, lang, now);
+  // Tell the owner there's something to approve. Best-effort and not waited for: sendEmail never throws
+  // and answers false when email is off, and the student's answer must not depend on it.
+  sendNewReviewEmail({ rating, name, context, lang, text, updated: existed });
   res.json({ ok: true, status: "pending" });
 }));
 

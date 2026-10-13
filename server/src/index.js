@@ -26,6 +26,7 @@ import { waitlist } from "./routes/waitlist.js";
 import { contact } from "./routes/contact.js";
 import { analytics } from "./routes/analytics.js";
 import { clientErrors } from "./routes/client-errors.js";
+import { reportServerError, routeLabel } from "./alerts.js";
 import { startAiWatch } from "./ai-check.js";
 import { reviews } from "./routes/reviews.js";
 import { practicePages } from "./routes/practice-pages.js";
@@ -246,6 +247,7 @@ app.use((err, req, res, next) => {
     return res.status(status).send(message);
   }
   console.error(`[study-buddy-server] error on ${req.method} ${req.originalUrl}:`, err);
+  reportServerError({ where: routeLabel(req.method, req.path), err });   // mails ALERT_EMAIL, rate-limited (alerts.js)
   if (res.headersSent) return next(err);
   if (req.originalUrl.startsWith("/api/")) {
     return res.status(500).json({ error: { message: "Something went wrong.", code: "server_error" } });
@@ -261,6 +263,7 @@ app.use((err, req, res, next) => {
 // exit and the host restart it.
 process.on("unhandledRejection", (reason) => {
   console.error("[study-buddy-server] unhandled rejection (still running):", reason);
+  reportServerError({ where: "unhandled rejection", err: reason });
 });
 
 try {

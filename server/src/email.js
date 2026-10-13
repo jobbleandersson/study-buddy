@@ -205,6 +205,41 @@ export function sendAiAlertEmail(reason) {
   });
 }
 
+/** A student has sent (or changed) a review: nothing shows on the front page until it's approved at
+ *  #/admin/reviews, so this is the nudge to go and look. Only what the student chose to publish
+ *  (their display name, optional description, text, stars) — no email address, no account id. Ordinary
+ *  mail, not critical: a review can wait, a sign-in code can't. */
+export function sendNewReviewEmail({ rating, name, context, lang, text, updated = false }) {
+  const stars = "★".repeat(rating) + "☆".repeat(5 - rating);
+  return sendEmail({
+    to: ALERT_TO(),
+    subject: `PluggEra: ${updated ? "ändrad recension" : "ny recension"} att granska (${rating}/5)`,
+    html: layout(`
+      <p><strong>${updated ? "En elev har ändrat sin recension" : "En elev har skrivit en recension"}.</strong> Den visas inte på startsidan förrän du godkänner den.</p>
+      <p style="font-size:22px;letter-spacing:2px;margin:12px 0;color:#2C5CD6">${stars}</p>
+      <blockquote style="margin:0 0 12px;padding:10px 14px;border-left:3px solid #C8CDDA;background:#F4F6FB;white-space:pre-wrap">${escapeHtml(text)}</blockquote>
+      <p style="font-size:14px;color:#3A4254"><strong>${escapeHtml(name)}</strong>${context ? ` · ${escapeHtml(context)}` : ""} · skriven på ${lang === "en" ? "engelska" : "svenska"}</p>
+      <p><a href="${PUBLIC_URL}/#/admin/reviews" style="display:inline-block;padding:10px 16px;background:#2C5CD6;color:#fff;border-radius:8px;text-decoration:none">Granska recensionen</a></p>
+    `, "Automatiskt mejl från PluggEras server."),
+  });
+}
+
+/** An unexpected server error (alerts.js decides when one is worth a mail). Everything that came
+ *  from the error is escaped: this html lands in our own inbox. */
+export function sendServerErrorEmail({ where, message, stack, suppressed = 0, at }) {
+  return sendEmail({
+    to: ALERT_TO(),
+    subject: `PluggEra: serverfel – ${String(where).slice(0, 80)}`,
+    html: layout(`
+      <p><strong>Servern fick ett oväntat fel.</strong> Eleven som råkade ut för det såg "Something went wrong".</p>
+      <p><strong>Var:</strong> ${escapeHtml(where)}<br><strong>Fel:</strong> ${escapeHtml(message)}<br><strong>När:</strong> ${escapeHtml(at)} (UTC)</p>
+      ${stack ? `<pre style="font-size:12px;background:#F4F6FB;padding:10px;overflow:auto;white-space:pre-wrap">${escapeHtml(stack)}</pre>` : ""}
+      ${suppressed ? `<p style="font-size:13px;color:#6B7386">Samma fel har hänt ${suppressed} gång${suppressed === 1 ? "" : "er"} till sedan förra mejlet.</p>` : ""}
+      <p style="font-size:13px;color:#6B7386">Se hela loggen: <code>fly logs -a studybuddy-jobble</code></p>
+    `, "Automatiskt mejl från PluggEras server. Samma fel mejlas högst en gång i timmen."),
+  });
+}
+
 export function sendAiRecoveredEmail() {
   return sendEmail({
     to: ALERT_TO(), critical: true, subject: "PluggEra: AI-funktionerna fungerar igen",
