@@ -850,7 +850,14 @@ function shellActions() {
     href: "#/leaderboard", "aria-label": t("nav.leaderboard"), title: t("nav.leaderboard"),
   }, [icon(ICONS.podium, 18)]);
 
-  return el("div.topbar__actions", {}, [leaderboardBtn, bellBtn, profileBtn]);
+  // On a phone the floating chat button is gone (it sat on top of cards and buttons): the chat opens
+  // from here instead. Hidden from 900px up, where the floating button stays.
+  const chatBtn = el("button.iconbtn.topbar__chat", {
+    type: "button", "aria-label": t("sitechat.fabLabel"), "aria-haspopup": "dialog", title: t("sitechat.fabLabel"),
+    onclick: (e) => { e.stopPropagation(); import("./components/site-chat.js").then((m) => m.toggleSiteChat()); },
+  }, [icon(ICONS.message, 18)]);
+
+  return el("div.topbar__actions", {}, [leaderboardBtn, chatBtn, bellBtn, profileBtn]);
 }
 
 /** Full-screen focus routes — a running session, a printable worksheet — where

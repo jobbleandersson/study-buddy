@@ -37,8 +37,8 @@ export function pageHead(title, sub) {
 
 /** What a card says when it has nothing in it yet — an icon, a line, and
  *  optionally what to do about it. */
-export function emptyState(iconPath, text, action = null) {
-  return el("div.set-empty", {}, [
+export function emptyState(iconPath, text, action = null, { compact = false } = {}) {
+  return el("div.set-empty" + (compact ? ".set-empty--compact" : ""), {}, [
     el("span.set-empty__ic", { "aria-hidden": "true" }, icon(iconPath, 20)),
     el("p", {}, text),
     action,

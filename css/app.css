@@ -758,10 +758,13 @@ body.has-topmenu .sitechat__fab { display: none; }
 }
 button.plan-cal__cell { cursor: pointer; transition: background var(--dur-fast), border-color var(--dur-fast); }
 button.plan-cal__cell:hover { background: var(--brand-tint); border-color: var(--brand-bright); }
-.plan-cal__cell.is-outside { background: var(--surface-sunk); }
-.plan-cal__cell.is-outside .plan-cal__date { opacity: .55; }
-.plan-cal__cell.is-past:not(.is-today) { background: var(--canvas); }
-.plan-cal__cell.is-past .plan-cal__chip { opacity: .5; }
+/* Days that have passed and the neighbouring months keep the same ground as the rest: only their number
+   steps back, in a colour that still reads (darker blocks and opacity left a patchy grid, grey in the
+   light theme, and chips at 1.9:1). Cells of the neighbouring months lose their frame instead. */
+.plan-cal__cell.is-outside { background: transparent; border-color: transparent; }
+.plan-cal__cell.is-past:not(.is-today) .plan-cal__date,
+.plan-cal__cell.is-outside .plan-cal__date { color: var(--ink-faint); font-weight: 600; }
+.plan-cal__cell.is-past .plan-cal__chip { background: var(--surface-sunk); color: var(--ink-soft); }
 .plan-cal__date {
   align-self: flex-end; padding: 1px 3px;
   font-size: 12px; font-weight: 700; color: var(--ink-soft); font-variant-numeric: tabular-nums;
@@ -775,13 +778,17 @@ button.plan-cal__cell:hover { background: var(--brand-tint); border-color: var(-
   display: flex; align-items: center; gap: 5px;
   padding: 2px 5px; border-radius: 5px;
   background: var(--subject-tint); color: var(--subject-ink);
-  font-size: 11px; font-weight: 600; line-height: 1.35; text-decoration: none;
+  font-size: 12px; font-weight: 600; line-height: 1.35; text-decoration: none;
   overflow: hidden;
 }
 .plan-cal__chip:hover { outline: 1px solid var(--subject); }
 .plan-cal__chip-dot { width: 5px; height: 5px; border-radius: 2px; background: var(--subject); flex: none; }
 .plan-cal__chip.is-test .plan-cal__chip-dot { border-radius: var(--r-full); }
-.plan-cal__chip-t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* Two lines before it is cut: "Prov · Samhällskunskap" doesn't fit one line of a day cell, and "Prov ·" says nothing. */
+.plan-cal__chip-t {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
+  min-width: 0; hyphens: auto; overflow-wrap: anywhere;
+}
 .plan-cal__more {
   align-self: flex-start; padding: 1px 3px; font: inherit; font-size: 10.5px; font-weight: 700;
   color: var(--ink-faint); background: none; border: none; cursor: pointer;
@@ -1009,7 +1016,7 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
   background: var(--brand); color: #fff; font-weight: 700;
   box-shadow: none;
 }
-.cal__cell:disabled { color: var(--ink-faint); opacity: .4; }
+.cal__cell:disabled { color: var(--ink-faint); opacity: .55; }
 .cal__cell:focus-visible { outline: 2px solid var(--brand); outline-offset: 1px; }
 .cal__dot {
   position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%);
@@ -2021,7 +2028,7 @@ body.no-chrome .sitechat__panel { display: none; }
 
 /* practice library */
 /* Library, step 1: one card per level with its size and subjects */
-.levelcards { display: grid; gap: var(--s-4); grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+.levelcards { display: grid; gap: var(--s-4); grid-template-columns: repeat(auto-fill, minmax(208px, 1fr)); }
 .levelcard {
   display: flex; flex-direction: column; gap: var(--s-3); text-align: left; cursor: pointer;
   padding: var(--s-5); border-radius: var(--r-lg); border: 1px solid var(--line);
@@ -2379,11 +2386,17 @@ body.route-chat .sitechat__fab,
 body.route-chat .sitechat__panel { display: none; }
 /* Clear of the fixed bottom tab bar on mobile. */
 @media (max-width: 899.98px) {
-  .sitechat__fab { bottom: calc(70px + var(--s-3) + env(safe-area-inset-bottom, 0)); width: 48px; height: 48px; }
-  .sitechat__fab svg { width: 21px; height: 21px; }
-  .sitechat__panel { bottom: calc(70px + 56px + var(--s-4) + env(safe-area-inset-bottom, 0)); }
-  /* The calculator's keypad fills the bottom of a phone screen; the bubble would sit on a key. */
-  body:has(.calc) :is(.sitechat__fab, .sitechat__panel) { display: none; }
+  /* The floating bubble sat on top of cards, progress rings and buttons: the chat opens from the top
+     bar here instead (main.js, .topbar__chat). */
+  .sitechat__fab { display: none; }
+  .topbar__chat { display: inline-grid; }
+  .sitechat__panel { bottom: calc(70px + var(--s-3) + env(safe-area-inset-bottom, 0)); }
+  /* The calculator's keypad fills the bottom of a phone screen, and a session or the AI page has its
+     own help: no chat there, and so no button for it. */
+  body:has(.calc) .sitechat__panel,
+  body:has(.calc) .topbar__chat,
+  body.route-immersive .topbar__chat,
+  body.route-chat .topbar__chat { display: none; }
 }
 @media (max-width: 480px) {
   .sitechat__panel { right: var(--s-3); left: var(--s-3); width: auto; }
@@ -3517,6 +3530,10 @@ body.route-chat .sitechat__panel { display: none; }
   background: var(--surface-sunk); color: var(--ink-faint);
 }
 .set-empty p { margin: 0; max-width: 46ch; font-size: var(--fs-sm); color: var(--ink-soft); }
+/* A section with nothing in it yet (no classes joined) takes a line, not a card's worth of space. */
+.set-empty--compact { display: flex; align-items: center; justify-content: flex-start; flex-wrap: wrap; gap: 6px 12px; padding: var(--s-2) 0; text-align: left; }
+.set-empty--compact .set-empty__ic { width: 32px; height: 32px; }
+.set-empty--compact p { max-width: none; }
 .set-empty + .set-row { border-top: 1px solid var(--line); }
 .set-loading { margin: 0; padding: var(--s-5) 0; font-size: var(--fs-sm); color: var(--ink-faint); }
 
@@ -3894,6 +3911,7 @@ body:has(.hp-intro) .session__headright > .btn { display: none; }
 .topbar__actions { display: flex; align-items: center; gap: var(--s-2); }
 .topbar__actions .iconbtn.is-active { color: var(--brand); border-color: var(--brand); }
 .topbar__bell { position: relative; }
+@media (min-width: 900px) { .topbar__chat { display: none; } }
 .topbar__dot {
   position: absolute; top: 5px; right: 5px; width: 9px; height: 9px;
   border-radius: var(--r-full); background: var(--retry); border: 2px solid var(--surface);
@@ -5453,8 +5471,8 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   flex: none; padding: 2px 9px; border-radius: var(--r-full); font-size: 12px; font-weight: 600; white-space: nowrap;
   background: var(--surface-sunk); color: var(--ink-soft);
 }
-.pg-drow__why.is-missed { background: var(--c-berry-tint); color: var(--c-berry-ink); }
-.pg-drow__why.is-late { background: var(--c-tangerine-tint); color: var(--c-tangerine-ink); }
+.pg-drow__why.is-missed { background: var(--c-berry-tint); color: var(--c-berry-text, var(--c-berry-ink)); }
+.pg-drow__why.is-late { background: var(--c-tangerine-tint); color: var(--c-tangerine-text, var(--c-tangerine-ink)); }
 .pg-drow__why.is-solid { background: var(--ok-tint); color: var(--ok-ink); }
 
 @media (max-width: 1100px) {
@@ -6018,12 +6036,13 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   margin: 0; font-family: var(--font-display); font-size: clamp(1.7rem, 3.4vw, 2.3rem); line-height: 1.08;
   letter-spacing: -.025em; color: #fff; overflow-wrap: anywhere;
 }
+/* "Lägg till ditt namn": a button that looks like one (it was a big dashed-underlined headline that read as a link). */
 .idcard__addname {
-  justify-self: start; padding: 0; border: 0; background: none; cursor: pointer; text-align: left;
-  font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 700; color: rgba(255, 255, 255, .78);
-  text-decoration: underline dashed rgba(255, 255, 255, .45); text-underline-offset: 7px; text-decoration-thickness: 2px;
+  justify-self: start; display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; cursor: pointer; text-align: left;
+  border: 1.5px dashed rgba(255, 255, 255, .6); border-radius: var(--r-full); background: rgba(255, 255, 255, .12);
+  font-family: var(--font-display); font-size: var(--fs-md, 1rem); font-weight: 600; color: #fff;
 }
-.idcard__addname:hover { color: #fff; }
+.idcard__addname:hover { background: rgba(255, 255, 255, .22); border-color: #fff; }
 .idcard__mail { margin: 0; font-size: var(--fs-sm); color: rgba(255, 255, 255, .8); overflow-wrap: anywhere; }
 .idcard__tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
 .idcard__tag {
@@ -6129,3 +6148,10 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .boot-failed { max-width: 34rem; margin: 18vh auto 0; padding: 0 var(--s-4); display: grid; gap: var(--s-3); justify-items: start; color: var(--ink); }
 .boot-failed h1 { margin: 0; font-size: var(--fs-xl, 1.5rem); text-wrap: balance; }
 .boot-failed p { margin: 0; color: var(--ink-soft); line-height: 1.5; }
+
+/* Högskoleprovet's score card: the calibration as a labelled bar with a hint, not a bare empty track. */
+.hp-calibbox { margin: var(--s-3) 0 0; padding: 10px 12px; border-radius: var(--r-md); background: var(--surface-sunk); display: grid; gap: 6px; }
+.hp-calibbox__row { display: flex; justify-content: space-between; gap: var(--s-3); font-size: var(--fs-sm); color: var(--ink-soft); }
+.hp-calibbox__row b { color: var(--ink); font-weight: 700; }
+.hp-calibbox__bar.hp-calib__bar { display: block; width: 100%; background: var(--line-strong); }
+.hp-calibbox__hint { margin: 0; font-size: 12.5px; color: var(--ink-soft); line-height: 1.45; }

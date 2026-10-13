@@ -162,7 +162,9 @@ function scoreZone(prog, calibrated) {
     el("p.hp-hero__label", {}, t("hp.reveal.eyebrow")),
     el("div.hp-hero__figure", {}, [
       prog ? el("strong.hp-hero__big", {}, fmtN(prog.total)) : el("strong.hp-hero__empty", {}, t("hp.noEstimate")),
-      prog && prog.history.length >= 2
+      // A line needs somewhere to go: three readings that aren't all the same. Two equal ones drew a flat,
+      // nearly invisible stroke that looked like a rendering glitch.
+      prog && prog.history.length >= 3 && Math.max(...prog.history) - Math.min(...prog.history) >= 0.02
         ? el("div.hp-hero__trend", {}, [
             sparkline(prog.history, { max: 2, ariaLabel: t("hp.trendAria", { list: prog.history.map(fmtN).join(", ") }) }),
           ])
@@ -175,9 +177,11 @@ function scoreZone(prog, calibrated) {
     prog ? el("p.hp-hero__range", {}, t("hp.prognosisRange", {
       lo: fmtN(Math.max(0, prog.total - prog.margin)), hi: fmtN(Math.min(2, prog.total + prog.margin)),
     })) : null,
-    el("p.hp-hero__calib", {}, [
-      el("span.hp-calib__bar", { "aria-hidden": "true" }, [el("i", { style: { width: `${(calibrated / 8) * 100}%` } })]),
-      t("hp.calibHub", { n: calibrated, q: CALIBRATION_N }),
+    // How far the estimate can be trusted: a labelled bar, and what to do about it.
+    el("div.hp-calibbox", {}, [
+      el("div.hp-calibbox__row", {}, [el("b", {}, t("hp.calibTitle")), el("span", {}, t("hp.calibOf", { n: calibrated }))]),
+      el("span.hp-calib__bar.hp-calibbox__bar", { "aria-hidden": "true" }, [el("i", { style: { width: `${(calibrated / 8) * 100}%` } })]),
+      el("p.hp-calibbox__hint", {}, t(calibrated >= 8 ? "hp.calibDone" : "hp.calibHint", { q: CALIBRATION_N })),
     ]),
     prog ? el("p.hp-hero__caption", {}, t("hp.prognosisCaption")) : null,
   ].filter(Boolean));
