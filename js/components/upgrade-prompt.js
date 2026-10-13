@@ -27,10 +27,16 @@ export function showUpgradePrompt({ resetsAt = null } = {}) {
   }
   function onKey(e) { if (e.key === "Escape") { e.stopPropagation(); close(); } }
 
-  const dismiss = el("button.btn" + (url ? ".btn--ghost" : ""), { type: "button", onclick: close }, t(url ? "upgrade.dismiss" : "upgrade.ok"));
-  const cta = url
-    ? el("a.btn", { href: url, target: "_blank", rel: "noopener noreferrer", onclick: close }, t("upgrade.cta"))
-    : null;
+  // With the paid plan set up for this account the button opens the Plus page in this tab; otherwise it is the
+  // old external premium link, if the server has one.
+  const plusOk = !!store.billing?.canCheckout && !store.billing?.plus;
+  const hasUpgrade = plusOk || !!url;
+  const dismiss = el("button.btn" + (hasUpgrade ? ".btn--ghost" : ""), { type: "button", onclick: close }, t(hasUpgrade ? "upgrade.dismiss" : "upgrade.ok"));
+  const cta = plusOk
+    ? el("a.btn", { href: "#/plus", onclick: close }, t("upgrade.ctaPlus"))
+    : url
+      ? el("a.btn", { href: url, target: "_blank", rel: "noopener noreferrer", onclick: close }, t("upgrade.cta"))
+      : null;
 
   const overlay = el("div.modal", {
     role: "dialog", "aria-modal": "true", "aria-labelledby": "upgrade-title",
@@ -40,7 +46,7 @@ export function showUpgradePrompt({ resetsAt = null } = {}) {
       el("div.upgradedlg__icon", {}, [icon(ICONS.spark, 22)]),
       el("h2.upgradedlg__title", { id: "upgrade-title" }, t("upgrade.title")),
       el("p.upgradedlg__body", {}, date ? t("upgrade.body", { date }) : t("upgrade.bodyNoDate")),
-      url ? el("p.upgradedlg__need", {}, t("upgrade.need")) : null,
+      hasUpgrade ? el("p.upgradedlg__need", {}, t("upgrade.need")) : null,
       el("div.upgradedlg__actions", {}, [dismiss, cta].filter(Boolean)),
     ].filter(Boolean)),
   ]);

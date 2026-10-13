@@ -136,6 +136,7 @@ const APP_SHELL = [
   "./js/views/legal.js",
   "./js/views/contact.js",
   "./js/views/premium-waitlist.js",
+  "./js/views/plus.js",
   "./js/views/rate.js",
   "./js/views/admin-reviews.js",
   "./js/views/admin-errors.js",

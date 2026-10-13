@@ -29,6 +29,7 @@ import { clientErrors } from "./routes/client-errors.js";
 import { startAiWatch } from "./ai-check.js";
 import { reviews } from "./routes/reviews.js";
 import { practicePages } from "./routes/practice-pages.js";
+import { billing } from "./routes/billing.js";
 import { sharePages } from "./routes/share-pages.js";
 import { serviceWorker } from "./sw-build.js";
 
@@ -159,6 +160,9 @@ app.use("/api", requireGate);
 // a few fields, so it gets a small cap — an anonymous request to, say, the waitlist can't make the
 // server parse 10MB of JSON.
 const LARGE_JSON_ROUTES = /^\/api\/(messages|state|assigned)\/?$/i;   // routing ignores case and a trailing slash, so this must too
+// Stripe's webhook is the exception: its signature covers the exact bytes it sent, so that one path
+// keeps its body raw (express.raw marks the request as parsed, so the JSON parsers below skip it).
+app.use("/api/stripe/webhook", express.raw({ type: "application/json", limit: "1mb" }));
 const jsonLarge = express.json({ limit: "10mb" });
 const jsonSmall = express.json({ limit: "100kb" });
 app.use((req, res, next) => (LARGE_JSON_ROUTES.test(req.path) ? jsonLarge : jsonSmall)(req, res, next));
@@ -180,6 +184,7 @@ app.use("/api", contact);
 app.use("/api", analytics);
 app.use("/api", clientErrors);
 app.use("/api", reviews);
+app.use("/api", billing);
 // An /api path no router claimed: answer in the API's own shape, not Express's HTML "Cannot GET".
 // (The static stand-in api/health, for hosts with no server, is never reached here — the health
 // router above answers that path first.)

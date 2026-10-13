@@ -22,6 +22,14 @@ export const MONTHLY_TOKEN_BUDGET =
     ? Number(process.env.AI_MONTHLY_TOKEN_BUDGET)
     : 200_000;
 
+/** Monthly ceiling for an account on the paid plan (PluggEra Plus, see billing.js): ten times the free
+ *  one by default. Still just a token count, so the server-wide daily dollar cap below remains the real
+ *  backstop. */
+export const PLUS_TOKEN_BUDGET =
+  Number(process.env.AI_PLUS_TOKEN_BUDGET) > 0
+    ? Number(process.env.AI_PLUS_TOKEN_BUDGET)
+    : 2_000_000;
+
 /** Hard cap on output tokens per request, whatever the client asks for.
  *  16k covers the largest legitimate use (generateAssignment). */
 export const MAX_OUTPUT_TOKENS =
@@ -128,10 +136,11 @@ export function isBudgetExempt(userId) {
   return list.includes(String(row.email).toLowerCase());
 }
 
-/** { ok, used, limit, resetsAt } — call before forwarding a request. */
-export function checkBudget(userId) {
+/** { ok, used, limit, resetsAt } — call before forwarding a request. `limit` is the account's own
+ *  ceiling (billing.js budgetFor: the Plus one for a subscriber), the free one by default. */
+export function checkBudget(userId, limit = MONTHLY_TOKEN_BUDGET) {
   const used = readUsage(userId).totalTokens;
-  return { ok: used < MONTHLY_TOKEN_BUDGET, used, limit: MONTHLY_TOKEN_BUDGET, resetsAt: periodResetsAt() };
+  return { ok: used < limit, used, limit, resetsAt: periodResetsAt() };
 }
 
 // ---------- the account-wide daily dollar cap ----------
