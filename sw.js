@@ -192,6 +192,7 @@ const APP_SHELL = [
   "./js/components/google-signin.js",
   "./js/components/password-field.js",
   "./js/components/mascot.js",
+  "./js/components/ai-mark.js",
   "./js/components/ai-head.js",
   "./js/components/calendar.js",
   "./js/components/goal-ring.js",

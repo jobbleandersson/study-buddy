@@ -161,13 +161,13 @@ export class TutorChat {
     this.formEl = el("form.tutor__form", { onsubmit: (e) => { e.preventDefault(); this._submit(); } }, [
       this.inputEl,
       voiceBtn,
-      el("button.iconbtn", { type: "submit", "aria-label": t("tutor.send"), style: { color: "var(--brand)" } }, [icon(ICONS.arrow, 18)]),
+      el("button.iconbtn.ai-send", { type: "submit", "aria-label": t("tutor.send") }, [icon(ICONS.arrow, 18)]),
     ]);
 
     this.subEl = el("div.tutor__sub", {}, this._subText());
 
     this.el = el("div.tutor.card", {}, [
-      el("div.tutor__head", {}, [
+      el("div.tutor__head.ai-halo", {}, [
         this.mascotEl,
         el("div", {}, [
           el("div.tutor__title", {}, t("tutor.name")),

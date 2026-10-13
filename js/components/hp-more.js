@@ -72,7 +72,7 @@ async function addNow(dp, count) {
     store.updateAssignment(existing.id, { questions: [...existing.questions, ...added] });
   } else {
     const subject = store.subjects.find((s) => s.id === sets[0]?.subjectId)?.name || t(`hp.name.${dp}`);
-    store.addAssignmentDoc({ id: aiSetId(dp), subject, type: "assignment", title: t("hp.aiSetTitle", { delprov: t(`hp.delprov.${dp}`) }), questions: added });
+    store.addAssignmentDoc({ id: aiSetId(dp), ai: true, subject, type: "assignment", title: t("hp.aiSetTitle", { delprov: t(`hp.delprov.${dp}`) }), questions: added });
   }
   return added.length;
 }

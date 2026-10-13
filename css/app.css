@@ -2185,6 +2185,67 @@ body.has-welcome { overflow: hidden; }
 .nav-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s-3); margin-top: var(--s-5); }
 .nav-row > div { flex-wrap: wrap; justify-content: flex-end; }
 
+/* ===== The AI's mark =====
+   The tile, soft shadow and halo from the PluggEra AI page's greeting (.solve-hero below), reused wherever the
+   AI is the one acting: the sidebar item, the tutor, the help chat, a set it wrote, the buttons that start it.
+   Plain flat icons stay for everything else, so this keeps meaning "the AI". The halo is the loud part — it
+   lives only on the active sidebar row and the tutor's header. components/ai-mark.js builds the tile. */
+.ai-tile {
+  --s: 40px; width: var(--s); height: var(--s); border-radius: calc(var(--s) * .3); display: grid; place-items: center; flex: none; color: #fff;
+  background: linear-gradient(140deg, color-mix(in oklab, var(--brand) 78%, #fff), var(--brand) 48%, color-mix(in oklab, var(--brand) 55%, #7650FF));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 calc(var(--s) * .2) calc(var(--s) * .5) calc(var(--s) * -.2) color-mix(in srgb, var(--brand) 75%, transparent);
+}
+.ai-tile svg { width: 55%; height: 55%; stroke-width: 2.1; }
+.ai-halo { position: relative; isolation: isolate; }
+.ai-halo::before {
+  content: ""; position: absolute; z-index: -1; left: var(--hx, 50%); top: var(--hy, 50%); width: var(--hw, 240px); height: var(--hh, 150px);
+  transform: translate(-50%, -50%); pointer-events: none; filter: blur(14px); animation: ai-breathe 7s ease-in-out infinite alternate;
+  background:
+    radial-gradient(48% 48% at 40% 50%, color-mix(in srgb, var(--brand) 30%, transparent), transparent 72%),
+    radial-gradient(42% 44% at 64% 44%, color-mix(in srgb, #7650FF 24%, transparent), transparent 72%);
+}
+@keyframes ai-breathe { from { opacity: .6; scale: .94; } to { opacity: 1; scale: 1.06; } }
+/* While the AI is thinking (mascot.js setMood) the tile pulses and a halo behind it speeds up. */
+.mascot.is-thinking .ai-tile { animation: ai-nudge 1.8s ease-in-out infinite alternate; }
+.ai-halo:has(.mascot.is-thinking)::before { animation-duration: 1.8s; }
+@keyframes ai-nudge { from { scale: 1; } to { scale: 1.07; } }
+@media (prefers-reduced-motion: reduce) { .ai-halo::before, .mascot.is-thinking .ai-tile { animation: none; } }
+
+/* Sidebar: the AI's row has the tile instead of a flat icon; on its own page it also gets the halo and a
+   faint blue wash across the row. (More specific than .sidebar__link.is-active so the design layer can't undo it.) */
+.sidebar__link--ai .ai-tile { --s: 22px; margin: -2px; }
+.sidebar__link .ai-tile svg { width: 55%; height: 55%; }
+.sidebar__link.sidebar__link--ai.is-active { background: linear-gradient(90deg, color-mix(in srgb, var(--brand) 22%, var(--brand-tint)), var(--brand-tint) 70%); }
+.sidebar__link--ai.ai-halo { --hx: 22px; --hw: 130px; --hh: 70px; }
+.topmenu__item .ai-tile { --s: 20px; margin: -2px; }
+
+/* The tutor's header: the glow sits behind its tile, clipped to the header. */
+.tutor__head.ai-halo { --hx: 34px; --hw: 220px; --hh: 100px; overflow: hidden; }
+/* The tutor's (and help chat's) replies carry a thin blue edge, so who is talking reads at a glance. */
+.tutor .msg.ai, .sitechat__log .msg.ai { background: color-mix(in srgb, var(--brand) 7%, var(--surface-sunk)); border: 1px solid color-mix(in srgb, var(--brand) 26%, var(--line)); }
+
+/* Buttons that start the AI: the same gradient as the tile. */
+.btn.btn--ai {
+  background: linear-gradient(140deg, color-mix(in oklab, var(--brand) 78%, #fff), var(--brand) 48%, color-mix(in oklab, var(--brand) 55%, #7650FF));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3), 0 10px 22px -10px color-mix(in srgb, var(--brand) 80%, transparent);
+}
+.btn.btn--ai:hover:not(:disabled) { background: linear-gradient(140deg, color-mix(in oklab, var(--brand) 78%, #fff), var(--brand) 48%, color-mix(in oklab, var(--brand) 55%, #7650FF)); filter: brightness(1.08); }
+.ai-send, button.sitechat__send {
+  background: linear-gradient(140deg, color-mix(in oklab, var(--brand) 78%, #fff), var(--brand));
+  box-shadow: 0 6px 14px -6px color-mix(in srgb, var(--brand) 80%, transparent);
+}
+.iconbtn.ai-send { width: 36px; height: 36px; border: 0; border-radius: var(--r-full); color: #fff; }
+.iconbtn.ai-send:hover:not(:disabled) { background: linear-gradient(140deg, color-mix(in oklab, var(--brand) 78%, #fff), var(--brand)); filter: brightness(1.08); border-color: transparent; }
+.iconbtn.ai-send svg { stroke-width: 2.2; }
+
+/* A set the AI wrote: a small AI chip and a faint blue wash behind the card. */
+.acard__tag--ai {
+  display: inline-flex; align-items: center; gap: 5px; padding: 2px 9px 2px 3px;
+  background: var(--brand-tint); color: var(--brand-ink); border: 1px solid color-mix(in srgb, var(--brand) 28%, transparent);
+}
+.acard__tag--ai .ai-tile { --s: 18px; border-radius: 99px; }
+.acard--ai { background: linear-gradient(180deg, color-mix(in srgb, var(--brand) 9%, var(--surface)), var(--surface) 70%); }
+
 /* ---------- tutor chat ---------- */
 .mascot { position: relative; display: inline-flex; flex: none; }
 .mascot__dot {
@@ -2241,7 +2302,8 @@ body.has-welcome { overflow: hidden; }
   position: fixed; right: var(--s-4); bottom: var(--s-4); z-index: 40;
   width: 56px; height: 56px; border-radius: var(--r-full);
   display: grid; place-items: center; border: none; cursor: pointer;
-  background: var(--brand); color: #fff; box-shadow: var(--shadow-2);
+  background: linear-gradient(140deg, color-mix(in oklab, var(--brand) 78%, #fff), var(--brand) 48%, color-mix(in oklab, var(--brand) 55%, #7650FF));
+  color: #fff; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3), var(--shadow-2), 0 12px 28px -10px color-mix(in srgb, var(--brand) 80%, transparent);
   transition: transform var(--dur-fast) var(--ease-spring);
 }
 .sitechat__fab:hover { transform: translateY(-2px) scale(1.05); }

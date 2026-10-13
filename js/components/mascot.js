@@ -1,10 +1,11 @@
-// A small, restrained avatar mark for the tutor — a brand glyph, not a
-// cartoon face. Mood still comes through, just as a subtle status dot
-// (like an online/typing indicator) rather than an expression change.
+// The AI's avatar — the tutor in a set, the PluggEra AI page header, the help chat: the same sparkle
+// tile as the AI page's hero (css: .ai-tile), not a cartoon face. Mood still comes through, just as a
+// subtle status dot (like an online/typing indicator) rather than an expression change, and while the
+// AI is thinking the tile slowly pulses (and a halo behind it, where the container has one, speeds up).
 // mascot(mood, size) -> HTMLElement ;  setMood(el, mood)
 //
-// The glyph is the app's AI sparkles (ICONS.spark), so the tutor wears the
-// same mark as "PluggEra AI" in the menu and on the home page.
+// The glyph is the app's AI sparkles (ICONS.spark), so the tutor wears the same mark as
+// "PluggEra AI" in the menu and on the home page.
 
 import { ICONS } from "../lib/dom.js";
 
@@ -18,19 +19,19 @@ export function mascot(mood = "idle", size = 40) {
   const wrap = document.createElement("span");
   wrap.className = "mascot";
   wrap.style.width = wrap.style.height = `${size}px`;
+  wrap.setAttribute("role", "img");
+  wrap.setAttribute("aria-label", "PluggEra");
   wrap.innerHTML = `
-    <svg width="${size}" height="${size}" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PluggEra">
-      <rect x="1" y="1" width="38" height="38" rx="10" fill="var(--brand-tint)" stroke="var(--line)"/>
-      <g transform="translate(9 9) scale(0.9167)" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="${ICONS.spark}"/>
-      </g>
-    </svg>
+    <span class="ai-tile" style="--s:${size}px" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${ICONS.spark}"/></svg>
+    </span>
     <i class="mascot__dot"></i>`;
   setMood(wrap, mood);
   return wrap;
 }
 
 export function setMood(el, mood) {
+  el.classList.toggle("is-thinking", mood === "thinking");
   const dot = el.querySelector(".mascot__dot");
   if (!dot) return;
   const cfg = DOT[mood];

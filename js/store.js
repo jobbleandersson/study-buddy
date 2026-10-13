@@ -1203,6 +1203,9 @@ class Store extends EventTarget {
       title: doc.title || "Untitled",
       sourceSummary: doc.sourceSummary || "",
       createdAt: Date.now(),
+      // Written by the AI (the AI chat, Skapa's generate, more HP questions): marks the set's card.
+      // Optional and additive: a set without it is simply not marked.
+      ...(doc.ai === true ? { ai: true } : {}),
       dueAt: DAY_RE.test(doc.dueAt || "") ? doc.dueAt : null,
       tutorStyle: doc.tutorStyle || "adaptive",
       topics: doc.topics || [...new Set((doc.questions || []).map((q) => q.topic).filter(Boolean))],

@@ -43,7 +43,7 @@ async function addMoreNow(exam, subjectName, label) {
   if (existing) {
     store.updateAssignment(existing.id, { questions: [...(existing.questions || []), ...fresh] });
   } else {
-    const a = store.addAssignmentDoc({ subject: subjectName, type: "assignment", title, questions: fresh });
+    const a = store.addAssignmentDoc({ subject: subjectName, type: "assignment", title, questions: fresh, ai: true });
     store.updateExam(exam.id, { setIds: [...now.setIds, a.id] });
   }
   return fresh.length;

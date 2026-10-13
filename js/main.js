@@ -13,6 +13,7 @@ import { openPopover, closePopover } from "./lib/popover.js";
 import { showAchievementUnlocks } from "./lib/achievement-toast.js";
 import { isSessionActive } from "./lib/session-active.js";
 import { mountUpgradePrompt } from "./components/upgrade-prompt.js";
+import { aiTile } from "./components/ai-mark.js";
 import { loadLibraryIndex } from "./lib/library-content.js";
 import { playFanfare } from "./lib/sound.js";
 
@@ -274,7 +275,7 @@ function nextLang() {
 function navGroups() {
   const main = [
     { href: "#/",         match: "/",          icon: ICONS.home,      label: t("nav.home") },
-    { href: "#/solve",    match: "/solve",     icon: ICONS.spark,     label: t("nav.solve") },
+    { href: "#/solve",    match: "/solve",     icon: ICONS.spark,     label: t("nav.solve"), ai: true },
   ];
   const study = [
     { href: "#/study",    match: "/study",     icon: ICONS.clipboard, label: t("nav.study") },
@@ -404,11 +405,12 @@ function sidebarNav() {
   const groups = navGroups()
     .map((g) => ({ ...g, items: g.items.filter((it) => !it.foot) }))
     .filter((g) => g.items.length);
-  const link = (it, inMore) => el("a.sidebar__link" + (navActive(it.match) ? ".is-active" : ""), {
+  // The AI's own row wears the AI tile (css: .ai-tile); on its own page it also gets the soft halo.
+  const link = (it, inMore) => el("a.sidebar__link" + (it.ai ? ".sidebar__link--ai" : "") + (navActive(it.match) ? ".is-active" : "") + (it.ai && navActive(it.match) ? ".ai-halo" : ""), {
     href: it.href,
     "aria-current": navActive(it.match) ? "page" : null,
     ...(inMore ? { title: it.label, "aria-label": it.label } : {}),
-  }, [icon(it.icon, 18), it.label]);
+  }, [it.ai ? aiTile(22) : icon(it.icon, 18), it.label]);
   const part = (g, gi, inMore) => {
     if (SIDEBAR_FLYOUT.has(g.key)) {
       return [
@@ -453,7 +455,7 @@ function moreMenu(active) {
       ...g.items.map((it) => el("a.topmenu__item" + (navActive(it.match) ? ".is-active" : ""), {
         href: it.href, role: "menuitem",
         "aria-current": navActive(it.match) ? "page" : null,
-      }, [icon(it.icon, 16), it.label])),
+      }, [it.ai ? aiTile(20) : icon(it.icon, 16), it.label])),
     ].filter(Boolean)),
     // The sidebar's theme switcher has no home on mobile (no sidebar) — so it
     // lives here, in the menu, rather than only in Settings. Language keeps
