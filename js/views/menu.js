@@ -374,7 +374,10 @@ export function renderMenu(mode) {
     countLabel,
     grid,
   ];
-  const menuCleanup = () => { closeCardMenu(); closeDueDialog(); closeDayChooser(); closeQuickAdd(); };
+  // The screen is rebuilt on every store change (a sync, a subject removed in the quick-add dialog): the
+  // quick-add dialog stays open through that and closes only when you leave the screen.
+  const onHome = () => ["", "/", "/study"].includes(location.hash.replace(/^#/, "").split("?")[0]);
+  const menuCleanup = () => { closeCardMenu(); closeDueDialog(); closeDayChooser(); if (!onHome()) closeQuickAdd(); };
 
   // "Study" = just the set library on its own page (reached from the nav).
   if (mode === "study") {

@@ -3073,6 +3073,13 @@ body.route-chat .sitechat__panel { display: none; }
 }
 .subjpick__more:hover { color: var(--ink); }
 .subjpick__new[hidden] { display: none; }
+/* Remove mode: the subjects of your own turn into remove buttons, the rest step back. */
+.subjpick__chip:disabled { opacity: .4; cursor: default; }
+.subjpick__chip:disabled:hover { border-color: var(--line-strong); }
+.subjpick__chip--remove { border-color: var(--retry); color: var(--retry-ink); background: var(--retry-tint); }
+.subjpick__chip--remove:hover { border-color: var(--retry-ink); }
+.subjpick__x { margin-left: 8px; font-weight: 700; }
+.subjpick__manage { margin-left: auto; color: var(--ink-faint); font-weight: 500; }
 
 /* Sign in with Google: Google's own button (its size/colours are fixed by
    Google), centred above the email form with an "or" rule beneath. The button
