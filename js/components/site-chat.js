@@ -20,6 +20,14 @@ import { resetDateText } from "./ai-gate.js";
 
 let mounted = false;
 
+let api = null;   // what the top bar's chat button (phones) calls: set once mounted
+
+/** Opens or closes the chat from outside: the top bar's button on a phone, where the floating button is gone. */
+export function toggleSiteChat() {
+  mountSiteChat();
+  api.toggle();
+}
+
 export function mountSiteChat() {
   if (mounted) return;
   mounted = true;
@@ -68,6 +76,7 @@ export function mountSiteChat() {
   }
 
   fab.addEventListener("click", () => (opened ? close() : open()));
+  api = { toggle: () => (opened ? close() : open()) };
 
   // Signed out (or the device was cleared): the conversation belonged to whoever was here before.
   store.addEventListener("deviceCleared", () => {

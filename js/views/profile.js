@@ -127,7 +127,7 @@ function studentCard(p, role) {
       el("div.idcard__id", {}, [
         name
           ? el("h2.idcard__name", {}, name)
-          : el("button.idcard__addname", { type: "button", onclick: () => openProfileEditor({ focusName: true }) }, t("profile.addName")),
+          : el("button.idcard__addname", { type: "button", onclick: () => openProfileEditor({ focusName: true }) }, [icon(ICONS.plus, 16), t("profile.addName")]),
         store.authed && store.authEmail ? el("p.idcard__mail", {}, store.authEmail) : null,
         tags.length ? el("div.idcard__tags", {}, tags) : null,
         since ? el("p.idcard__since", {}, t("profile.since", { when: monthYear(since) })) : null,

@@ -1621,7 +1621,7 @@ function runSession(config) {
     return el("button.iconbtn.graphbtn", {
       type: "button", "aria-label": t("graph.open"), title: t("graph.title"),
       onclick: () => import("../components/graph-calc.js").then((m) => m.openGraphDialog(), () => toast(t("common.openFailed"))),
-    }, [icon(ICONS.chart, 18)]);
+    }, [icon(ICONS.curve, 18)]);
   })();
 
   const node = el("div" + (config.bus ? ".session--bus" : ""), {}, [

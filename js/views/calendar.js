@@ -15,6 +15,13 @@ import { openQuickAdd, closeQuickAdd } from "../components/quick-add.js";
 
 const MAX_CHIPS = 3;
 
+// A test still on its default name ("Inför provet i Matematik") reads "Prov · Matematik" on a chip, which
+// is short enough to read in a day cell; one the student named keeps its name.
+const chipLabel = (a) => {
+  const subject = store.subjects.find((s) => s.id === a.subjectId)?.name || "";
+  return a.kind === "test" && subject && a.title === t("exam.prepFor", { subject }) ? `${t("common.test")} · ${subject}` : a.title;
+};
+
 export function renderCalendarPage() {
   // Each test once (standing for its sets) and each set with a deadline of its own, soonest first,
   // with where a tap goes: a test to its Inför provet page, a set to practising it.
@@ -111,7 +118,7 @@ export function renderCalendarPage() {
         style: { "--subject": color.solid, "--subject-ink": color.ink, "--subject-tint": color.tint },
       }, [
         el("span.plan-cal__chip-dot"),
-        el("span.plan-cal__chip-t", {}, a.title),
+        el("span.plan-cal__chip-t", {}, chipLabel(a)),
       ]));
     }
 

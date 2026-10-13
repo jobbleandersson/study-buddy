@@ -122,7 +122,7 @@ export async function renderClasses(qs) {
             ],
             { lead: avatar(c.name, { square: true }) },
           )))
-        : emptyState(ICONS.presentation, t("classes.teachingNone"), el("a.linkbtn", { href: "#/teachers" }, t("lp.teacherLink"))),
+        : emptyState(ICONS.presentation, t("classes.teachingNone"), el("a.linkbtn", { href: "#/teachers" }, t("lp.teacherLink")), { compact: true }),
       row(t("classes.createLabel"), t("classes.createNote"), el("div.set-inline", {}, [input, btn])),
     ]);
   }
@@ -148,7 +148,7 @@ export async function renderClasses(qs) {
 
   function paintMember(list, given) {
     if (!list.length) {
-      memberBody.replaceChildren(emptyState(ICONS.book, t("classes.memberNone")));
+      memberBody.replaceChildren(emptyState(ICONS.book, t("classes.memberNone"), null, { compact: true }));
       return;
     }
     memberBody.replaceChildren(...list.map((c) => {
