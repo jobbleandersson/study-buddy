@@ -139,7 +139,6 @@ export default {
   "premium.note": "No payment now, no account needed. One email if it ships — nothing else.",
   "premium.done": "You're on the list — thanks. We'll email you if this ships.",
   "menu.achAllDone": "Collection complete",
-  "menu.achNext": "Next",
 
   /* ---- due date dialog ---- */
   "due.title": "Due date",

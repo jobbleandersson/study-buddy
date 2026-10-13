@@ -14,7 +14,7 @@ import { homeButton } from "../components/nav.js";
 import { aiTile, isAiSet } from "../components/ai-mark.js";
 import { openDueDialog, closeDueDialog } from "../components/due-dialog.js";
 import { openQuickAdd, closeQuickAdd } from "../components/quick-add.js";
-import { ACHIEVEMENTS, TIER_NAMES, nextAchievement } from "../lib/achievements.js";
+import { ACHIEVEMENTS, nextAchievement } from "../lib/achievements.js";
 import { countdownLabel } from "../lib/date-phrases.js";
 import { upcomingExams } from "../lib/exam.js";
 import { prepFor, taskHash, taskLabel, shortCountdown, resumeFor, taskButtonLabel } from "../components/exam-flow.js";
@@ -536,52 +536,44 @@ function calendarPanel() {
   ]);
 }
 
-// The badge closest to unlocking, as a medal in its tier's metal ringed by how
-// far along it is, then the collection so far: a coin per metal and the count.
+// The badge closest to unlocking: its icon on a chip in the tier's metal, like
+// the shortcut tiles' chips, and a slim bar in that metal.
 function achievementsPanel() {
   const unlockedMap = store.unlockedAchievements;
   const unlocked = ACHIEVEMENTS.filter((a) => a.id in unlockedMap).length;
-  const total = ACHIEVEMENTS.length;
   const next = nextAchievement(store.state);
-  const perTier = TIER_NAMES.map((tier) => [tier, ACHIEVEMENTS.filter((a) => a.tier === tier && a.id in unlockedMap).length]);
 
-  const medal = (iconName, pct, count = null) => el("span.ach-next__medal", {}, [
-    el("span.ach-next__ring", { "aria-hidden": "true", style: { "--p": String(pct) } }, [
-      el("span.ach-next__coin", {}, icon(ICONS[iconName] || ICONS.award, 20)),
-    ]),
-    // "120/2000" is wider than the medal: set long counts a size smaller.
-    count ? el(`span.ach-next__count${count.length > 5 ? ".is-long" : ""}`, {}, count) : null,
+  const chip = (iconName) => el("span.ach-next__ic", { "aria-hidden": "true" }, icon(ICONS[iconName] || ICONS.award, 18));
+  const meter = (pct, count = null) => el("div.ach-next__meter", {}, [
+    el("div.ach-next__bar", {}, [el("i", { style: { width: `${pct}%` } })]),
+    count ? el("span.ach-next__count", {}, count) : null,
   ]);
-  const nextCard = next ? el(`a.ach-next.ach-next--${next.def.tier}`, { href: "#/achievements" }, [
-    medal(next.def.icon, Math.min(100, Math.round((next.have / next.need) * 100)), `${next.have}/${next.need}`),
-    el("span.ach-next__body", {}, [
-      el("span.ach-next__eyebrow", {}, `${t("menu.achNext")} · ${t(`ach.tier.${next.def.tier}`)}`),
-      el("strong.ach-next__name", {}, t(next.def.nameKey)),
-      el("span.ach-next__desc", {}, t(next.def.descKey, { n: next.need })),
-    ]),
-  ]) : el("a.ach-next.ach-next--gold", { href: "#/achievements" }, [
-    medal("trophy", 100),
-    el("span.ach-next__body", {}, [
-      el("span.ach-next__eyebrow", {}, t("ach.subtitle", { unlocked, total })),
-      el("strong.ach-next__name", {}, t("menu.achAllDone")),
-    ]),
-  ]);
+  const body = next
+    ? el(`div.ach-next.ach-next--${next.def.tier}`, {}, [
+        chip(next.def.icon),
+        el("div.ach-next__body", {}, [
+          el("strong.ach-next__name", {}, t(next.def.nameKey)),
+          meter(Math.min(100, Math.round((next.have / next.need) * 100)), `${next.have}/${next.need}`),
+          el("p.ach-next__desc", {}, [
+            el("span.ach-next__tier", {}, t(`ach.tier.${next.def.tier}`)),
+            ` · ${t(next.def.descKey, { n: next.need })}`,
+          ]),
+        ]),
+      ])
+    : el("div.ach-next.ach-next--gold", {}, [
+        chip("trophy"),
+        el("div.ach-next__body", {}, [
+          el("strong.ach-next__name", {}, t("menu.achAllDone")),
+          meter(100),
+        ]),
+      ]);
 
   return el("section.home-panel.home-panel--ach", {}, [
     el("div.home-panel__label", {}, [
       el("span", {}, t("prog.achievements")),
-      el("a.linkbtn.ach-all", { href: "#/achievements" }, [t("prog.seeAll"), icon(ICONS.chevronRight, 14)]),
+      el("a.linkbtn", { href: "#/achievements" }, t("ach.subtitle", { unlocked, total: ACHIEVEMENTS.length })),
     ]),
-    nextCard,
-    el("div.ach-tally", {
-      role: "img",
-      "aria-label": `${perTier.map(([tier, n]) => `${t(`ach.tier.${tier}`)} ${n}`).join(", ")}. ${t("ach.subtitle", { unlocked, total })}`,
-    }, [
-      ...perTier.map(([tier, n]) => el(`span.ach-tally__tier.ach-tally__tier--${tier}${n ? "" : ".is-empty"}`, { title: t(`ach.tier.${tier}`) }, [
-        el("i"), String(n),
-      ])),
-      el("span.ach-tally__total", {}, [el("b", {}, String(unlocked)), ` ${t("ach.ofTotal", { total })}`]),
-    ]),
+    body,
   ]);
 }
 

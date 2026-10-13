@@ -154,7 +154,6 @@ export default {
   "premium.note": "Ingen betalning nu, inget konto behövs. Ett mejl om det blir av — inget annat.",
   "premium.done": "Du är med på listan — tack. Vi mejlar dig om det blir av.",
   "menu.achAllDone": "Samlingen är komplett",
-  "menu.achNext": "Nästa",
 
   /* ---- due date dialog ---- */
   "due.title": "Deadline",

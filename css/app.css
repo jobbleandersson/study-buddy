@@ -669,79 +669,28 @@ body.has-topmenu .sitechat__fab { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .home-tile:hover { transform: none; } }
 
-/* Achievements teaser: the badge closest to unlocking — a medal in its tier's
-   metal (--c), ringed by how far along it is — then the collection so far, a
-   coin per metal. Milestones have no metal and keep the brand blue. */
-@property --ach-p { syntax: "<number>"; inherits: false; initial-value: 0; }
-.home-panel__label .ach-all { display: inline-flex; align-items: center; gap: 1px; }
-.ach-next {
-  --c: var(--brand); --c-ink: var(--brand-ink);
-  display: flex; align-items: center; gap: 14px;
-  padding: 12px 14px 12px 12px; border-radius: var(--r-md);
-  color: var(--ink); text-decoration: none;
-  background: linear-gradient(135deg, color-mix(in oklab, var(--c) 15%, var(--surface)), color-mix(in oklab, var(--c) 3%, var(--surface)) 72%);
-  border: 1px solid color-mix(in oklab, var(--c) 32%, var(--line));
-  transition: border-color var(--dur-fast), box-shadow var(--dur-fast), transform var(--dur-fast);
-}
-.ach-next:hover {
-  border-color: color-mix(in oklab, var(--c) 62%, var(--line)); transform: translateY(-1px);
-  box-shadow: 0 8px 20px -12px color-mix(in srgb, var(--c) 80%, transparent);
-}
-.ach-next:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+/* Achievements teaser: the badge closest to unlocking — its icon on a chip in
+   the tier's metal (--c), as the shortcut tiles carry theirs, and a slim bar in
+   that metal. Milestones have no metal and keep the brand blue. */
+.ach-next { --c: var(--brand); --c-ink: var(--brand-ink); display: flex; gap: 12px; align-items: flex-start; }
 .ach-next--bronze   { --c: var(--ach-bronze);   --c-ink: var(--ach-bronze-ink); }
 .ach-next--silver   { --c: var(--ach-silver);   --c-ink: var(--ach-silver-ink); }
 .ach-next--gold     { --c: var(--ach-gold);     --c-ink: var(--ach-gold-ink); }
 .ach-next--platinum { --c: var(--ach-platinum); --c-ink: var(--ach-platinum-ink); }
-.ach-next__medal { position: relative; flex: none; display: grid; justify-items: center; padding-bottom: 8px; }
-.ach-next__ring {
-  --ach-p: var(--p, 0);
-  width: 54px; height: 54px; border-radius: var(--r-full); display: grid; place-items: center;
-  background: conic-gradient(var(--c) calc(var(--ach-p) * 1%), color-mix(in oklab, var(--c) 20%, var(--surface-sunk)) 0);
-  animation: ach-ring-fill 1.1s var(--ease-out) .15s both;
+.ach-next__ic {
+  flex: none; width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; color: #fff;
+  background: linear-gradient(145deg, color-mix(in oklab, var(--c) 62%, #fff), var(--c) 55%, color-mix(in oklab, var(--c) 75%, #000));
 }
-@keyframes ach-ring-fill { from { --ach-p: 0; } }
-.ach-next__coin {
-  width: 46px; height: 46px; border-radius: var(--r-full); display: grid; place-items: center;
-  color: var(--c-ink);
-  background: radial-gradient(circle at 32% 26%, color-mix(in oklab, var(--c) 30%, var(--surface)), color-mix(in oklab, var(--c) 9%, var(--surface)) 74%);
-  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--c) 26%, transparent);
-}
-.ach-next--platinum .ach-next__ring { background: conic-gradient(#9DB6CB, var(--ach-platinum), #C6BCE8 calc(var(--ach-p) * 1%), color-mix(in oklab, var(--c) 20%, var(--surface-sunk)) 0); }
-.ach-next__count {
-  position: absolute; left: 50%; bottom: 0; translate: -50% 0;
-  padding: 0 7px; border-radius: var(--r-full); white-space: nowrap;
-  font-size: 11px; font-weight: 700; line-height: 17px; font-variant-numeric: tabular-nums;
-  color: var(--c-ink); background: var(--surface);
-  border: 1px solid color-mix(in oklab, var(--c) 45%, var(--line));
-}
-.ach-next__count.is-long { padding: 0 5px; font-size: 10px; letter-spacing: -.02em; }
-.ach-next__body { display: grid; gap: 1px; min-width: 0; }
-.ach-next__eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--c-ink); }
-.ach-next__name { font-family: var(--font-display); font-size: 15px; font-weight: 700; line-height: 1.25; letter-spacing: -.01em; color: var(--ink); }
-.ach-next__desc { font-size: 12.5px; line-height: 1.35; color: var(--ink-soft); }
-.ach-tally {
-  display: flex; align-items: center; gap: 12px;
-  margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line);
-  font-size: 13px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums;
-}
-.ach-tally__tier { display: inline-flex; align-items: center; gap: 5px; }
-.ach-tally__tier i {
-  width: 14px; height: 14px; border-radius: var(--r-full);
-  background: linear-gradient(145deg, color-mix(in oklab, var(--m) 58%, #fff), var(--m) 55%, color-mix(in oklab, var(--m) 72%, #000));
-  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, .28);
-}
-.ach-tally__tier--bronze { --m: var(--ach-bronze); }
-.ach-tally__tier--silver { --m: var(--ach-silver); }
-.ach-tally__tier--gold   { --m: var(--ach-gold); }
-.ach-tally__tier--platinum i { background: var(--ach-platinum-sheen); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--ach-platinum) 75%, transparent); }
-.ach-tally__tier.is-empty { color: var(--ink-faint); font-weight: 600; }
-.ach-tally__tier.is-empty i { opacity: .35; }
-.ach-tally__total { margin-left: auto; font-size: 12.5px; font-weight: 600; color: var(--ink-faint); white-space: nowrap; }
-.ach-tally__total b { color: var(--ink); font-weight: 700; }
-@media (prefers-reduced-motion: reduce) {
-  .ach-next__ring { animation: none; }
-  .ach-next:hover { transform: none; }
-}
+.ach-next--platinum .ach-next__ic { background: var(--ach-platinum-sheen); color: #34506A; }
+.ach-next__body { flex: 1; min-width: 0; }
+.ach-next__name { display: block; font-size: 14px; font-weight: 650; line-height: 1.3; color: var(--ink); }
+.ach-next__meter { display: flex; align-items: center; gap: 8px; margin: 5px 0 4px; }
+.ach-next__count { flex: none; font-size: 12px; font-weight: 600; line-height: 1; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+.ach-next__bar { flex: 1; height: 6px; border-radius: var(--r-full); background: var(--surface-sunk); overflow: hidden; }
+.ach-next__bar i { display: block; height: 100%; border-radius: inherit; background: var(--c); }
+.ach-next--platinum .ach-next__bar i { background: linear-gradient(90deg, #9DB6CB, var(--ach-platinum), #C6BCE8); }
+.ach-next__desc { margin: 0; font-size: 12.5px; line-height: 1.35; color: var(--ink-soft); }
+.ach-next__tier { color: var(--c-ink); font-weight: 650; }
 
 /* Studify promoting Studify (see js/components/house-ad.js) — a tinted banner so it reads as
    "part of the app," not an inserted ad slot. */
