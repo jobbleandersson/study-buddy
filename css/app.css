@@ -5308,6 +5308,19 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .pg-big strong { font-family: var(--font-display); font-size: 34px; line-height: 1; letter-spacing: -.02em; color: var(--ink); font-variant-numeric: tabular-nums; }
 .pg-big span { color: var(--ink-soft); font-size: var(--fs-sm); }
 .pg-fullbtn { justify-content: center; }
+/* This week's review: a bar per day for the questions that came due then, today last. */
+.pg-week { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; margin-top: var(--s-1); }
+.pg-week__day { display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0; }
+.pg-week__n { min-height: 15px; font-size: 11px; font-weight: 700; line-height: 15px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.pg-week__bar { display: flex; align-items: flex-end; width: 100%; max-width: 30px; height: 52px; border-radius: 7px; background: var(--surface-sunk); overflow: hidden; }
+.pg-week__bar i { display: block; width: 100%; height: 0; border-radius: 7px; background: var(--brand-bright); transition: height .6s cubic-bezier(.2, .8, .2, 1); }
+.pg-week__lbl { max-width: 100%; overflow: hidden; white-space: nowrap; font-size: 11px; color: var(--ink-faint); }
+.pg-week__day.is-today .pg-week__bar i { background: var(--brand); }
+.pg-week__day.is-today .pg-week__lbl { font-weight: 700; color: var(--brand-ink); }
+.pg-week__day.is-leaving .pg-week__bar i { background: var(--retry); }
+.pg-week__day.is-leaving .pg-week__n { color: var(--retry-ink); }
+.pg-leaving { display: flex; align-items: center; gap: 6px; margin: 0; font-size: var(--fs-sm); font-weight: 600; color: var(--retry-ink); }
+@media (prefers-reduced-motion: reduce) { .pg-week__bar i { transition: none; } }
 .pg-bar { height: 6px; border-radius: var(--r-full); background: var(--surface-sunk); overflow: hidden; }
 .pg-bar i { display: block; height: 100%; border-radius: inherit; background: var(--brand); transition: width var(--dur-slow) var(--ease-out); }
 

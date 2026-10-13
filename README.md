@@ -52,7 +52,8 @@ it, there's no API for it to reach. Opening `index.html` directly with `file://`
 - **Results** — animated score ring, elapsed time, per-topic mastery change, confetti
   at 80%+, and a **Practise these now** button that drills just what you missed.
 - **Progress** — study streak, mastery meter per subject, and **Review today**, which
-  builds a session from the questions that are due across *every* set (SM-2-lite).
+  builds a session from the questions that are due across *every* set (SM-2-lite). The
+  pile is a week deep: a question that has waited more than seven days drops out of it.
 - **Due dates** — give an assignment or test a deadline (in Create, Edit, or the card
   ⋮ menu). The menu shows an **Upcoming** list, soonest first, with a one-click
   Study button per row. Overdue rows go amber and clear themselves a week later.

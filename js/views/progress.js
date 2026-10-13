@@ -7,7 +7,7 @@ import { el, icon, ICONS } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { clozeToUnderscores } from "../components/questions.js";
 import { masteryByTopic, masteryForSubject, weakSpotQuestions } from "../lib/mastery.js";
-import { reviewReason } from "../lib/srs.js";
+import { reviewReason, REVIEW_WINDOW_DAYS } from "../lib/srs.js";
 import { localDayKey, addDays, recentDays, questionsAnsweredToday, reviewAccuracyTrend } from "../lib/activity.js";
 import { t, plural, getLang, fmtDecimal } from "../lib/i18n.js";
 import { goalRing } from "../components/goal-ring.js";
@@ -87,13 +87,22 @@ export function renderProgress() {
     }) + (bestStreak > 0 ? " · " + plural(bestStreak, "prog.personalBestOne", "prog.personalBest") : "")),
   ]);
 
-  // ---- review, at a glance ----
+  // ---- this week's review: the pile, and the day each question in it came due ----
   const dueItems = store.dueQuestions();
+  const week = recentDays(REVIEW_WINDOW_DAYS, today).map((key) => ({ key, n: 0 }));
+  const dayOf = new Map(week.map((d) => [d.key, d]));
+  for (const d of dueItems) {
+    const day = dayOf.get(localDayKey(new Date(d.rec.dueAt)));
+    if (day) day.n++;
+  }
+  const leaving = week[0].n;   // came due six days ago: out of the pile tomorrow
   const review = panel(ICONS.clock, t("prog.due"), null, [
     el("div.pg-big", {}, [
       el("strong", {}, String(dueItems.length)),
       el("span", {}, plural(dueItems.length, "prog.dueWaitingOne", "prog.dueWaitingMany")),
     ]),
+    dueItems.length ? reviewWeek(week, today) : null,
+    dueItems.length && leaving ? el("p.pg-leaving", {}, [icon(ICONS.clock, 14), plural(leaving, "prog.leavingOne", "prog.leavingMany")]) : null,
     el("p.note", {}, dueItems.length ? t("prog.reviewExplain") : t("prog.nothingDue")),
     dueItems.length ? el("a.btn.btn--sm.pg-fullbtn", { href: "#/review" }, [icon(ICONS.spark, 16), t("prog.reviewToday")]) : null,
   ]);
@@ -152,6 +161,7 @@ export function renderProgress() {
 
   requestAnimationFrame(() => {
     node.querySelectorAll("[data-w]").forEach((f) => { f.style.width = `${f.dataset.w}%`; });
+    node.querySelectorAll("[data-h]").forEach((f) => { f.style.height = `${f.dataset.h}%`; });
     // On a narrow screen the map scrolls sideways — start at this week.
     node.querySelectorAll(".pg-heat__scroll").forEach((sc) => { sc.scrollLeft = sc.scrollWidth; });
   });
@@ -184,6 +194,23 @@ function kpi(iconPath, tone, label, value, sub, { side = null, warn = false } = 
   ].filter(Boolean));
 }
 
+/** A day key ("2026-10-13") as a local date. */
+const dayDate = (k) => new Date(Number(k.slice(0, 4)), Number(k.slice(5, 7)) - 1, Number(k.slice(8, 10)));
+
+/** The review pile over its seven days, oldest first: a bar per day for the questions that came due
+ *  then. The oldest day's drop out tomorrow, so that bar is amber. */
+function reviewWeek(week, today) {
+  const locale = getLang() === "sv" ? "sv-SE" : "en-GB";
+  const max = Math.max(1, ...week.map((d) => d.n));
+  const name = (d) => (d.key === today ? t("prog.weekToday") : dayDate(d.key).toLocaleDateString(locale, { weekday: "short" }).replace(".", ""));
+  return el("div.pg-week", { role: "img", "aria-label": t("prog.weekAria", { list: week.map((d) => `${name(d)} ${d.n}`).join(", ") }) },
+    week.map((d, i) => el("div.pg-week__day" + (d.key === today ? ".is-today" : "") + (i === 0 && d.n ? ".is-leaving" : ""), { "aria-hidden": "true" }, [
+      el("span.pg-week__n", {}, d.n ? String(d.n) : ""),
+      el("span.pg-week__bar", {}, [el("i", { dataset: { h: d.n ? Math.max(10, Math.round((d.n / max) * 100)) : 0 } })]),
+      el("span.pg-week__lbl", {}, name(d)),
+    ])));
+}
+
 /** HEAT_WEEKS weeks, Monday on top, oldest week left; each day shaded by how many
  *  questions you answered, protected (streak-freeze) days in blue. */
 function heatmap(today, studied, frozen, perDay) {
@@ -191,7 +218,7 @@ function heatmap(today, studied, frozen, perDay) {
   const mondayIdx = (new Date().getDay() + 6) % 7;     // Mon=0 … Sun=6
   const keys = recentDays(mondayIdx + (HEAT_WEEKS - 1) * 7 + 1, today);
   const weeks = Math.ceil(keys.length / 7);
-  const parse = (k) => new Date(Number(k.slice(0, 4)), Number(k.slice(5, 7)) - 1, Number(k.slice(8, 10)));
+  const parse = dayDate;
   const level = (n) => (n >= 50 ? 4 : n >= 25 ? 3 : n >= 10 ? 2 : 1);
 
   const cells = keys.map((k) => {

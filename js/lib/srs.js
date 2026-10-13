@@ -46,6 +46,24 @@ export function isDue(rec, now = Date.now()) {
   return !rec || rec.dueAt <= now;
 }
 
+/** How far back the review pile reaches, in days: today and the six before it. A question waits in
+ *  the pile for a week after it comes due and then drops out, so the pile never holds more than a
+ *  week's worth; practising its set again puts it back on the schedule. */
+export const REVIEW_WINDOW_DAYS = 7;
+
+/** The local midnight the review window starts at. */
+export function reviewWindowStart(now = Date.now()) {
+  const d = new Date(now);
+  d.setHours(0, 0, 0, 0);
+  d.setDate(d.getDate() - (REVIEW_WINDOW_DAYS - 1));
+  return d.getTime();
+}
+
+/** In the review pile: due now, and came due inside the window. */
+export function inReview(rec, now = Date.now()) {
+  return !!rec && rec.dueAt <= now && rec.dueAt >= reviewWindowStart(now);
+}
+
 /** Reuses the same phrasing as due dates, so both lists read alike. A record
  *  due within a day (a just-missed same-session retry) reads "later today"
  *  rather than rounding up to "Tomorrow". */

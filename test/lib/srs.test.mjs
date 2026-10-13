@@ -1,7 +1,8 @@
 import "./helpers.mjs";
 import { test, describe } from "node:test";
 import assert from "node:assert/strict";
-import { fresh, fromCorrect, review, isDue, summarizeSchedule, retentionForecast } from "../../js/lib/srs.js";
+import { fresh, fromCorrect, review, isDue, inReview, reviewWindowStart, REVIEW_WINDOW_DAYS, summarizeSchedule, retentionForecast } from "../../js/lib/srs.js";
+import { dueQuestions } from "../../js/lib/library.js";
 
 describe("srs.fromCorrect", () => {
   test("wrong answer is always 'again'", () => {
@@ -78,6 +79,32 @@ describe("srs.isDue", () => {
   });
   test("due after now is not due", () => {
     assert.equal(isDue({ dueAt: 200 }, 100), false);
+  });
+});
+
+describe("srs.inReview: the pile is a week deep", () => {
+  const now = new Date(2026, 9, 13, 15, 0).getTime();          // Tue 13 Oct, 15:00 local
+  const at = (day, h = 12) => new Date(2026, 9, day, h, 0).getTime();
+  test("the window starts at local midnight six days back", () => {
+    assert.equal(REVIEW_WINDOW_DAYS, 7);
+    assert.equal(reviewWindowStart(now), new Date(2026, 9, 7, 0, 0).getTime());
+  });
+  test("came due today or in the six days before: in the pile", () => {
+    assert.equal(inReview({ dueAt: at(13, 9) }, now), true);
+    assert.equal(inReview({ dueAt: at(7, 0) }, now), true);
+  });
+  test("came due before that: dropped out", () => {
+    assert.equal(inReview({ dueAt: at(6, 23) }, now), false);
+    assert.equal(inReview({ dueAt: at(1) }, now), false);
+  });
+  test("not due yet, or no record: not in the pile", () => {
+    assert.equal(inReview({ dueAt: at(14) }, now), false);
+    assert.equal(inReview(null, now), false);
+  });
+  test("dueQuestions keeps only the pile, oldest first", () => {
+    const sets = [{ id: "s", questions: [{ id: "a" }, { id: "b" }, { id: "c" }, { id: "d" }] }];
+    const srs = { a: { dueAt: at(12) }, b: { dueAt: at(2) }, c: { dueAt: at(9) }, d: { dueAt: at(15) } };
+    assert.deepEqual(dueQuestions(sets, srs, now).map((x) => x.question.id), ["c", "a"]);
   });
 });
 
