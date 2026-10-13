@@ -68,6 +68,7 @@ export function renderCalendarPage() {
   let viewY = now.getFullYear();
   let viewM = now.getMonth();
 
+  let paintPast = null;   // set below, once the agenda exists; paintCal repaints the passed block through it
   const monthLbl = el("span.plan-cal__month");
   const gridWrap = el("div.plan-cal__body");
   const todayBtn = el("button.btn.btn--ghost.btn--sm.plan-cal__today", {
@@ -137,6 +138,7 @@ export function renderCalendarPage() {
 
   function paintCal() {
     monthLbl.textContent = monthLabel(viewY, viewM);
+    paintPast?.();   // the agenda's passed block follows the month on show (not there on the very first paint)
     todayBtn.hidden = viewY === now.getFullYear() && viewM === now.getMonth();
     clear(gridWrap);
     gridWrap.appendChild(el("div.plan-cal__wd", {}, weekdayHeaders().map((w) => el("span", {}, w))));
@@ -195,14 +197,27 @@ export function renderCalendarPage() {
     ]);
   }
 
-  const pastBlock = past.length
-    ? el("details.plan-agenda__past", {}, [
-        el("summary.plan-agenda__gtitle", {}, [
-          el("span", {}, t("menu.upcomingPast", { n: past.length })),
-        ]),
-        el("div.plan-agenda__rows", {}, past.map(agendaRow)),
-      ])
-    : null;
+  // Only the passed deadlines inside the month the grid is showing: last week's belong to last month's
+  // page when the weeks straddle, and paging to a month with none leaves the block out. Rebuilt on every
+  // paging (paintPast, called from paintCal); whether it's open survives the rebuild.
+  let pastOpen = false;
+  const pastHost = el("div.plan-agenda__pasthost");
+  paintPast = () => {
+    const first = `${viewY}-${String(viewM + 1).padStart(2, "0")}-01`;
+    const last = `${viewY}-${String(viewM + 1).padStart(2, "0")}-${String(new Date(viewY, viewM + 1, 0).getDate()).padStart(2, "0")}`;
+    const shown = past.filter((a) => a.dueAt >= first && a.dueAt <= last);
+    if (!shown.length) { pastHost.replaceChildren(); return; }
+    const details = el("details.plan-agenda__past", { open: pastOpen }, [
+      el("summary.plan-agenda__gtitle", {}, [
+        el("span", {}, t("menu.upcomingPast", { n: shown.length })),
+      ]),
+      el("div.plan-agenda__rows", {}, shown.map(agendaRow)),
+    ]);
+    details.addEventListener("toggle", () => { pastOpen = details.open; });
+    pastHost.replaceChildren(details);
+  };
+  paintPast();
+  const pastBlock = pastHost;
 
   const ahead = groups.filter((g) => g.rows.length);
   const agendaInner = ahead.length || past.length
