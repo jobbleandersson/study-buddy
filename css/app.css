@@ -3053,10 +3053,26 @@ body.route-chat .sitechat__panel { display: none; }
   .source-grid--subjects .source-opt--subject .note { display: none; }
 }
 
-/* Subject field: text input + one-tap chips for the subjects that exist. */
-.subjectfield { display: flex; flex-direction: column; gap: var(--s-2); }
-.subjchips { display: flex; flex-wrap: wrap; gap: 6px; }
-.subjchips .chip { font-size: var(--fs-sm); font-weight: 600; }
+/* Subject picker (components/subject-field.js): a short row of subjects, then "+ Nytt ämne". */
+.subjectfield { display: flex; flex-direction: column; gap: var(--s-3); }
+.subjpick { display: flex; flex-wrap: wrap; gap: 8px; }
+.subjpick__chip {
+  padding: 7px 14px; border-radius: var(--r-full); cursor: pointer;
+  border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink);
+  font: inherit; font-size: var(--fs-sm); font-weight: 600; line-height: 1.2;
+  transition: border-color var(--dur-fast), background var(--dur-fast), color var(--dur-fast);
+}
+.subjpick__chip:hover { border-color: var(--brand); }
+.subjpick__chip:focus-visible { outline: none; box-shadow: var(--ring); }
+.subjpick__chip[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
+.subjpick__chip--new { border-style: dashed; color: var(--brand-ink); }
+.subjpick__chip--new[aria-pressed="true"] { background: transparent; border-style: solid; border-color: var(--brand); color: var(--brand-ink); }
+.subjpick__more {
+  padding: 7px 4px; border: none; background: none; cursor: pointer; font: inherit; font-size: var(--fs-sm);
+  font-weight: 600; color: var(--ink-soft); text-decoration: underline; text-underline-offset: 3px;
+}
+.subjpick__more:hover { color: var(--ink); }
+.subjpick__new[hidden] { display: none; }
 
 /* Sign in with Google: Google's own button (its size/colours are fixed by
    Google), centred above the email form with an "or" rule beneath. The button
@@ -4113,8 +4129,6 @@ body:has(.hp-intro) .session__headright > .btn { display: none; }
   outline: none; border-color: var(--brand); background: var(--surface);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 18%, transparent);
 }
-.quickadd .subjectfield { display: grid; gap: 10px; }
-.quickadd .subjchips .chip { padding: 5px 11px; font-size: 13px; }
 
 .quickadd__types { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-2); }
 .quickadd__type {

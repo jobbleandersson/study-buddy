@@ -525,7 +525,7 @@ export function renderCreate(prefill) {
       return el("div.panel", {}, [
         body,
         el("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))", gap: "12px", marginTop: "8px", alignItems: "start" } }, [
-          el("label.field", {}, [el("span", {}, t("create.subject")), subjectFld.el]),
+          el("div.field", {}, [el("span", {}, t("create.subject")), subjectFld.el]),
           el("label.field", {}, [el("span", {}, t("create.type")), typeSel]),
         ]),
         err,
@@ -554,7 +554,7 @@ export function renderCreate(prefill) {
       return el("div.panel", {}, [
         el("p.note", { style: { marginBottom: "12px" } }, t("create.blankHint")),
         el("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))", gap: "12px", alignItems: "start" } }, [
-          el("label.field", {}, [el("span", {}, t("create.subject")), subjectFld.el]),
+          el("div.field", {}, [el("span", {}, t("create.subject")), subjectFld.el]),
           el("label.field", {}, [el("span", {}, t("create.type")), typeSel]),
         ]),
         el("label.field", { style: { maxWidth: "160px" } }, [el("span", {}, t("create.howMany")), countInput]),
@@ -601,7 +601,7 @@ export function renderCreate(prefill) {
     return el("div.panel", {}, [
       body,
       el("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))", gap: "12px", alignItems: "start" } }, [
-        el("label.field", {}, [
+        el("div.field", {}, [
           el("span", {}, t("create.subject")), subjectFld.el,
           state.subjectLocked && el("span.note", { style: { display: "block", marginTop: "4px" } }, t("create.subjectLocked")),
         ]),
@@ -677,7 +677,7 @@ export function renderCreate(prefill) {
       el("div.panel", {}, [
         el("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))", gap: "12px", alignItems: "start" } }, [
           el("label.field", {}, [el("span", {}, t("create.setTitle")), titleInput]),
-          el("label.field", {}, [el("span", {}, t("create.subject")), subjectFld.el]),
+          el("div.field", {}, [el("span", {}, t("create.subject")), subjectFld.el]),
         ]),
         duePicker.el,
         countNote,

@@ -9,6 +9,7 @@ import { store } from "../store.js";
 import { t, getLang } from "../lib/i18n.js";
 import { localDayKey } from "../lib/activity.js";
 import { dayDiff } from "../lib/exam.js";
+import { isHpSetId } from "../lib/hp.js";
 import { subjectField } from "./subject-field.js";
 import { blankQuestions } from "../lib/blank-questions.js";
 
@@ -66,9 +67,9 @@ export function openQuickAdd(dayKey, { onDone } = {}) {
   const when = days === 0 ? t("date.today") : days === 1 ? t("date.tomorrow") : days > 1 ? t("date.inDays", { n: days }) : null;
   const longDate = fmt({ weekday: "long", day: "numeric", month: "long" });
 
-  // Default to the subject of the most recent set, if any — most people add a
-  // run of deadlines for the same course.
-  const recentSubjectId = store.assignments[0]?.subjectId;
+  // Default to the subject of the most recent set of your own (not a Högskoleprov one, whose "subject"
+  // is a delprov), if any — most people add a run of deadlines for the same course.
+  const recentSubjectId = store.assignments.find((a) => !isHpSetId(a.id))?.subjectId;
   const subjectFld = subjectField({
     value: store.subjects.find((s) => s.id === recentSubjectId)?.name || "",
   });
