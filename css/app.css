@@ -2213,11 +2213,13 @@ body.has-welcome { overflow: hidden; }
 
 /* Sidebar: the AI's row has the tile instead of a flat icon; on its own page it also gets the halo and a
    faint blue wash across the row. (More specific than .sidebar__link.is-active so the design layer can't undo it.) */
-.sidebar__link--ai .ai-tile { --s: 22px; margin: -2px; }
+.sidebar__link--ai .ai-tile { margin: -3px; border-radius: 7px; }   /* 24px (main.js): 3px past the 18px icons on each side, so labels still line up */
 /* The sidebar and phone menu colour (and size) every row's icon, active and hovered rows included — including
    design.css's `.sidebar__link.is-active svg { color: var(--brand) }`, which made the sparkle blue on the blue
    tile. The tile's sparkle stays white, at its own size, whatever the row is doing. */
-.sidebar__link.sidebar__link--ai .ai-tile svg, .topmenu__item.topmenu__item .ai-tile svg { width: 55%; height: 55%; color: #fff; }
+/* At 24px the sparkle needs to fill more of the tile, at a firmer stroke than the rows' thin 1.8px icons, to read as
+   a mark rather than a smudge. */
+.sidebar__link.sidebar__link--ai .ai-tile svg, .topmenu__item.topmenu__item .ai-tile svg { width: 66%; height: 66%; stroke-width: 2.2; color: #fff; }
 .sidebar__link.sidebar__link--ai.is-active { background: linear-gradient(90deg, color-mix(in srgb, var(--brand) 22%, var(--brand-tint)), var(--brand-tint) 70%); }
 .sidebar__link--ai.ai-halo { --hx: 22px; --hw: 130px; --hh: 70px; }
 .topmenu__item .ai-tile { --s: 20px; margin: -2px; }
