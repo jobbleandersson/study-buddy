@@ -661,29 +661,33 @@ function deadlineRailContent({ collapsible = false, forceCalendar = false } = {}
   // The rail's list always mirrors whichever week/month the calendar is
   // currently showing; the dialog's onView never fires, so it keeps the
   // full sorted list.
+  // Passed deadlines, behind "Passerade (n)". Like the list above, the rail's copy only holds the ones
+  // inside whichever week or month the calendar is paged to — a deadline from last Tuesday belongs to
+  // last week, and paging to a week with none leaves the block out entirely. The dialog (no onView, so
+  // pastRange stays null) keeps every passed one. Open/closed is remembered while the app is open.
+  // Declared before the first paintCal(), whose onView call paints it.
+  let pastRange = null;   // [start, end] day keys of what the calendar shows
+  const pastList = el("div.upcoming__list.upcoming__list--past", { id: "upcoming-past" });
+  const pastToggle = el("button.upcoming__more.upcoming__pasttoggle", { type: "button", "aria-controls": "upcoming-past" });
+  const pastBlock = el("div.upcoming__past", { hidden: true }, [pastToggle, pastList]);
+  pastToggle.addEventListener("click", () => { pastExpanded = !pastExpanded; paintPast(); });
+  function paintPast() {
+    const shown = pastRange ? past.filter((a) => a.dueAt >= pastRange[0] && a.dueAt <= pastRange[1]) : past;
+    pastBlock.hidden = !shown.length;
+    pastToggle.textContent = pastExpanded ? t("menu.upcomingPastHide") : t("menu.upcomingPast", { n: shown.length });
+    pastToggle.setAttribute("aria-expanded", String(pastExpanded));
+    pastList.hidden = !pastExpanded;
+    pastList.replaceChildren(...(pastExpanded ? shown.map(row) : []));
+  }
+
   let visibleItems = items;
   paintCal();
+  paintPast();   // the dialog's only paint; the rail's was already done by the calendar's onView
   if (!collapsible) paintList(visibleItems);
 
   // Nothing ahead but the calendar is still shown: just the calendar + a hint, no "next deadline"
   // line or list (passed ones keep their toggle).
   const emptyForced = forceCalendar && !items.length;
-
-  // Passed deadlines, behind "Passerade (n)". Open/closed is remembered while the app is open.
-  let pastBlock = null;
-  if (past.length) {
-    const pastList = el("div.upcoming__list.upcoming__list--past", { id: "upcoming-past" });
-    const pastToggle = el("button.upcoming__more.upcoming__pasttoggle", { type: "button", "aria-controls": "upcoming-past" });
-    const paintPast = () => {
-      pastToggle.textContent = pastExpanded ? t("menu.upcomingPastHide") : t("menu.upcomingPast", { n: past.length });
-      pastToggle.setAttribute("aria-expanded", String(pastExpanded));
-      pastList.hidden = !pastExpanded;
-      pastList.replaceChildren(...(pastExpanded ? past.map(row) : []));
-    };
-    pastToggle.addEventListener("click", () => { pastExpanded = !pastExpanded; paintPast(); });
-    paintPast();
-    pastBlock = el("div.upcoming__past", {}, [pastToggle, pastList]);
-  }
 
   return {
     el: el("section.upcoming", {}, [
@@ -716,11 +720,15 @@ function deadlineRailContent({ collapsible = false, forceCalendar = false } = {}
     visibleItems = items.filter((a) => a.dueAt >= start && a.dueAt <= end);
     if (calEmpty) calEmpty.hidden = visibleItems.length > 0;
     paintList(visibleItems);
+    pastRange = [start, end];
+    paintPast();
   }
 
   function onMonthView(start, end) {
     visibleItems = items.filter((a) => a.dueAt >= start && a.dueAt <= end);
     paintList(visibleItems);
+    pastRange = [start, end];
+    paintPast();
   }
 
   function paintList(shownItems) {
