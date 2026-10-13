@@ -410,7 +410,7 @@ function sidebarNav() {
     href: it.href,
     "aria-current": navActive(it.match) ? "page" : null,
     ...(inMore ? { title: it.label, "aria-label": it.label } : {}),
-  }, [it.ai ? aiTile(22) : icon(it.icon, 18), it.label]);
+  }, [it.ai ? aiTile(24) : icon(it.icon, 18), it.label]);
   const part = (g, gi, inMore) => {
     if (SIDEBAR_FLYOUT.has(g.key)) {
       return [
