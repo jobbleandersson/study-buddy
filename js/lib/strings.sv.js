@@ -153,7 +153,8 @@ export default {
   "premium.lead": "Det finns ingen betald nivå än. Vi funderar på en — troligen en högre månatlig AI-gräns för den som pluggar mycket. Lämna din mejl så hör vi av oss den dag den finns, och inte förrän dess.",
   "premium.note": "Ingen betalning nu, inget konto behövs. Ett mejl om det blir av — inget annat.",
   "premium.done": "Du är med på listan — tack. Vi mejlar dig om det blir av.",
-  "menu.achAllDone": "Alla utmärkelser upplåsta — snyggt jobbat.",
+  "menu.achAllDone": "Samlingen är komplett",
+  "menu.achNext": "Nästa",
 
   /* ---- due date dialog ---- */
   "due.title": "Deadline",

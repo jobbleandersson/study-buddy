@@ -138,7 +138,8 @@ export default {
   "premium.lead": "There's no paid plan yet. We're thinking about one — likely a higher monthly AI limit for students who study a lot. Leave your email and we'll write the day it exists, and not before.",
   "premium.note": "No payment now, no account needed. One email if it ships — nothing else.",
   "premium.done": "You're on the list — thanks. We'll email you if this ships.",
-  "menu.achAllDone": "Every achievement unlocked — nicely done.",
+  "menu.achAllDone": "Collection complete",
+  "menu.achNext": "Next",
 
   /* ---- due date dialog ---- */
   "due.title": "Due date",
