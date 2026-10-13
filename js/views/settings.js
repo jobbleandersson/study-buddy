@@ -291,7 +291,22 @@ export function renderSettings() {
   }
 
   function premiumLink() {
-    return store.isPremium() ? null : el("a.btn.btn--ghost.btn--sm", { href: "#/premium" }, t("set.premiumLink"));
+    if (store.isPremium()) return null;
+    // With Stripe set up (and this account allowed to use it) the button goes to the real Plus page; otherwise
+    // it is still the waitlist.
+    return store.billing?.canCheckout
+      ? el("a.btn.btn--ghost.btn--sm", { href: "#/plus" }, t("set.planGet"))
+      : el("a.btn.btn--ghost.btn--sm", { href: "#/premium" }, t("set.premiumLink"));
+  }
+
+  /** The "Plan" row: Plus with a manage link, or free with a way to get Plus. Nothing when the server has no
+   *  paid plan (or this account can't use it yet) - the free plan is not worth a row of its own then. */
+  function planRow() {
+    const b = store.billing;
+    if (!b) return null;
+    if (b.plus) return row(t("set.planLabel"), t("set.planPlus"), el("a.btn.btn--ghost.btn--sm", { href: "#/plus" }, t("set.planManage")));
+    if (!b.canCheckout) return null;
+    return row(t("set.planLabel"), t("set.planFree"), el("a.btn.btn--ghost.btn--sm", { href: "#/plus" }, t("set.planGet")));
   }
 
   function aiSection() {
@@ -331,6 +346,7 @@ export function renderSettings() {
 
     return card(ICONS.spark, t("set.aiTitle"), t("set.aiSub"), [
       row(t("set.aiOnLabel"), t("set.aiOnNote"), statusPill(true, t("set.aiPillOn"))),
+      planRow(),
       pct != null ? row(t("set.aiMonthLabel"), [
         t("set.aiUsedPct", { pct }),
         usage.resetsAt ? " " + t("set.aiRefills", { date: fmtResetDate(usage.resetsAt) }) : "",

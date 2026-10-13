@@ -195,6 +195,7 @@ const routes = [
   { rx: /^\/privacy$/, view: () => import("./views/legal.js").then((mod) => mod.renderPrivacy()) },
   { rx: /^\/contact$/, view: () => import("./views/contact.js").then((mod) => mod.renderContact()) },
   { rx: /^\/premium$/, view: () => import("./views/premium-waitlist.js").then((mod) => mod.renderPremiumWaitlist()) },
+  { rx: /^\/plus$/, view: (m, qs) => import("./views/plus.js").then((mod) => mod.renderPlus(qs)) },
   { rx: /^\/start\/(lib-[a-z0-9-]+)$/, view: (m) => import("./views/library.js").then((mod) => mod.renderStartSet(m[1])) },
   { rx: /^\/rate$/, view: () => import("./views/rate.js").then((mod) => mod.renderRate()) },
   { rx: /^\/admin\/reviews$/, view: () => import("./views/admin-reviews.js").then((mod) => mod.renderAdminReviews()) },

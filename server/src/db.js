@@ -190,6 +190,27 @@ db.exec(`
     created_at INTEGER NOT NULL
   );
 
+  -- The paid plan (PluggEra Plus), one row per account that has ever started checkout. Written only by
+  -- the Stripe webhook (routes/billing.js): the row says what Stripe last told us, so the account's plan
+  -- is never decided by anything the browser sends. "status" is Stripe's own word (active, trialing,
+  -- past_due, canceled, ...); billing.js decides which of those count as Plus.
+  CREATE TABLE IF NOT EXISTS subscriptions (
+    user_id TEXT PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+    stripe_customer_id TEXT,
+    stripe_subscription_id TEXT,
+    status TEXT NOT NULL DEFAULT 'incomplete',
+    current_period_end INTEGER,
+    cancel_at_period_end INTEGER NOT NULL DEFAULT 0,
+    updated_at INTEGER NOT NULL
+  );
+  CREATE INDEX IF NOT EXISTS subscriptions_customer ON subscriptions(stripe_customer_id);
+
+  -- Stripe webhook event ids already handled, so a resent event is a no-op.
+  CREATE TABLE IF NOT EXISTS stripe_events (
+    id TEXT PRIMARY KEY,
+    received_at INTEGER NOT NULL
+  );
+
   -- Same shape as invite_codes / friend_codes, kept separate for the same reason those two are:
   -- a token means something different in each flow, so one lookup can't accidentally redeem a
   -- token from the other. Only ever one *unused* row per user at a time in practice — a new

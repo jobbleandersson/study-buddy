@@ -30,7 +30,7 @@ import { loadLibraryIndex, loadLibraryTranslations, englishFile } from "./lib/li
 import { cleanRuleText, rulesForQuestion, RULE_MAX_COUNT } from "./lib/rules.js";
 import {
   PROXY_HEALTH_URL, SITE_GATE_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_GOOGLE_URL, AUTH_SET_PASSWORD_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, ACCOUNT_URL,
-  RESEND_VERIFICATION_URL, VERIFY_EMAIL_URL, FORGOT_PASSWORD_URL, RESET_PASSWORD_URL, STATE_URL, USAGE_URL,
+  RESEND_VERIFICATION_URL, VERIFY_EMAIL_URL, FORGOT_PASSWORD_URL, RESET_PASSWORD_URL, STATE_URL, USAGE_URL, BILLING_STATUS_URL,
   AUTH_2FA_VERIFY_URL, AUTH_2FA_RESEND_URL, AUTH_2FA_SETUP_URL, AUTH_2FA_CONFIRM_URL, AUTH_2FA_DISABLE_URL,
 } from "./config.js";
 
@@ -480,6 +480,10 @@ class Store extends EventTarget {
     // comes back 402 so the gates close without another round trip.
     this.aiUsage = null;
     this._aiQuotaOut = false;
+    // The paid plan (PluggEra Plus): `_plus` comes with the usage figures, `billing` is the fuller status
+    // from /api/billing/status ({ enabled, canCheckout, plus, renewsAt, cancelsAtPeriodEnd, ... }), or null.
+    this._plus = false;
+    this.billing = null;
     // The state_blobs version this device last synced against. Read from
     // localStorage (not just defaulted to 0) so it survives a page reload —
     // see SYNC_VERSION_KEY above.
@@ -599,6 +603,7 @@ class Store extends EventTarget {
       // in the background, so a slow network never holds up the first paint.
       else this._catchUp();
       await this.refreshUsage();
+      await this.refreshBilling();
     }
 
     this.emit();
@@ -637,15 +642,31 @@ class Store extends EventTarget {
   /** Pull this month's Claude spend. Best-effort — an older server without the
    *  route, or an unmetered one, just leaves aiUsage null and the gates open. */
   async refreshUsage() {
-    if (!this.authed) { this.aiUsage = null; this._aiQuotaOut = false; return; }
+    if (!this.authed) { this.aiUsage = null; this._aiQuotaOut = false; this._plus = false; this.billing = null; return; }
     try {
       const res = await fetch(USAGE_URL, { credentials: "include" });
       if (!res.ok) return;
       const d = await res.json();
+      this._plus = !!d?.plus;
       if (!d || d.metered === false || typeof d.limit !== "number") { this.aiUsage = null; this._aiQuotaOut = false; return; }
       this.aiUsage = { used: d.used || 0, limit: d.limit, resetsAt: d.resetsAt || null };
       this._aiQuotaOut = this.aiUsage.used >= this.aiUsage.limit;
     } catch { /* offline — keep what we had */ }
+  }
+
+  /** Pull the account's plan ("PluggEra Plus"). Best-effort like refreshUsage(): an older server, or one
+   *  with no Stripe set up, leaves `billing` null and the UI shows nothing about plans. */
+  async refreshBilling() {
+    if (!this.authed) { this.billing = null; return null; }
+    try {
+      const res = await fetch(BILLING_STATUS_URL, { credentials: "include" });
+      if (!res.ok) return this.billing;
+      const d = await res.json();
+      this.billing = d?.enabled ? d : null;
+      this._plus = !!d?.plus;
+      this.emit();
+    } catch { /* offline — keep what we had */ }
+    return this.billing;
   }
 
   /** Called by claude.js when a request comes back 402: the monthly budget is
@@ -1717,7 +1738,7 @@ class Store extends EventTarget {
   /** No paid plan exists yet (see the Phase 2 note on canUseAI() above) — this is a placeholder
    *  that always says "not premium" so free-tier-only UI (house-ad promos, upsell copy) has one
    *  place to check. Wire it to a real entitlement the day one ships, and this UI hides itself. */
-  isPremium() { return false; }
+  isPremium() { return this._plus; }
 
   /** True when the monthly Claude allowance is spent (a 402 latched it, or the
    *  last usage fetch was at/over the limit). Read by Settings. */

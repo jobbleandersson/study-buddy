@@ -1,11 +1,12 @@
 import { Router } from "express";
 import { requireAuth } from "../middleware/requireAuth.js";
+import { budgetFor, isPlus } from "../billing.js";
 import { asyncHandler } from "../middleware/asyncHandler.js";
 import { takeToken, RATE_PER_MIN } from "../middleware/rateLimit.js";
 import {
   recordUsage, checkBudget, isBudgetExempt, checkDailyCap, reserveSpend, worstCaseMicro, readUsage, currentPeriod, periodResetsAt,
   checkUserDailyShare, reserveUserSpend,
-  MONTHLY_TOKEN_BUDGET, MAX_OUTPUT_TOKENS, ALLOWED_MODELS,
+  MAX_OUTPUT_TOKENS, ALLOWED_MODELS,
 } from "../usage.js";
 
 const ANTHROPIC_URL = "https://api.anthropic.com/v1/messages";
@@ -176,7 +177,7 @@ messages.post("/messages", ...guards, asyncHandler(async (req, res) => {
       log({ userId, model: body.model, status: 429, err: "user_daily_cap" });
       return res.status(429).json({ error: { message: "You've used today's share of AI. Try again tomorrow.", code: "user_daily_cap" }, resetsAt: cap.resetsAt });
     }
-    const budget = isBudgetExempt(userId) ? { ok: true } : checkBudget(userId);
+    const budget = isBudgetExempt(userId) ? { ok: true } : checkBudget(userId, budgetFor(userId));
     if (!budget.ok) {
       return res.status(402).json({
         error: { message: "You've reached this month's AI limit.", code: "quota_exceeded" },
@@ -306,7 +307,8 @@ messages.get("/usage", requireAuth, (req, res) => {
   res.json({
     period: currentPeriod(),
     used: u.totalTokens,
-    limit: MONTHLY_TOKEN_BUDGET,
+    limit: budgetFor(req.user.userId),
+    plus: isPlus(req.user.userId),
     requests: u.requests,
     resetsAt: periodResetsAt(),
     // An exempt account (AI_BUDGET_EXEMPT_EMAILS) has no monthly ceiling, so the client shows no limit for it.

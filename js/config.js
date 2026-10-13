@@ -89,3 +89,9 @@ export const WAITLIST_PREMIUM_URL = `${API}/api/waitlist/premium`;
 // where traffic comes from (e.g. a TikTok bio link's ?utm_source=tiktok)
 // without a cookie or a user id.
 export const PAGEVIEW_URL = `${API}/api/analytics/pageview`;
+
+// PluggEra Plus (the paid plan): what the account's plan is, and the two redirects to Stripe's hosted pages.
+// See server/src/routes/billing.js.
+export const BILLING_STATUS_URL = `${API}/api/billing/status`;
+export const BILLING_CHECKOUT_URL = `${API}/api/billing/checkout`;
+export const BILLING_PORTAL_URL = `${API}/api/billing/portal`;
