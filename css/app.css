@@ -2296,12 +2296,15 @@ body.has-welcome { overflow: hidden; }
 .iconbtn.ai-send:hover:not(:disabled) { background: linear-gradient(140deg, color-mix(in oklab, var(--brand) 78%, #fff), var(--brand)); filter: brightness(1.08); border-color: transparent; }
 .iconbtn.ai-send svg { stroke-width: 2.2; }
 
-/* A set the AI wrote: a small AI chip and a faint blue wash behind the card. */
-.acard__tag--ai {
-  display: inline-flex; align-items: center; gap: 5px; padding: 2px 9px 2px 3px;
-  background: var(--brand-tint); color: var(--brand-ink); border: 1px solid color-mix(in srgb, var(--brand) 28%, transparent);
+/* A set the AI wrote: a chip the size and shape of the subject tag beside it, in the AI's own blue-to-violet,
+   with a white sparkle (no tile inside a pill), and a faint blue wash behind the card. :root lifts it over
+   the dark theme's rule that tints every tag's text in its subject's colour. */
+:root .acard__tag.acard__tag--ai {
+  display: inline-flex; align-items: center; gap: 4px; padding-left: 6px;
+  color: #fff; background: linear-gradient(120deg, var(--brand), color-mix(in oklab, var(--brand) 55%, #7650FF));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .22), 0 4px 10px -6px color-mix(in srgb, var(--brand) 85%, transparent);
 }
-.acard__tag--ai .ai-tile { --s: 18px; border-radius: 99px; }
+.acard__tag--ai svg { flex: none; stroke-width: 2.3; }
 .acard--ai { background: linear-gradient(180deg, color-mix(in srgb, var(--brand) 9%, var(--surface)), var(--surface) 70%); }
 
 /* ---------- tutor chat ---------- */
