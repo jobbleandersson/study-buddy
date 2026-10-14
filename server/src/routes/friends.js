@@ -3,7 +3,7 @@ import crypto from "node:crypto";
 import { db } from "../db.js";
 import { requireAuth } from "../middleware/requireAuth.js";
 import { codeGuessLimits } from "../middleware/authLimits.js";
-import { readDigest } from "../state-digest.js";
+import { readDigest, displayNameOf } from "../state-digest.js";
 
 export const friends = Router();
 
@@ -20,10 +20,6 @@ function randomCode() {
 // Canonical, order-independent pair — the smaller id is always stored first,
 // so a friendship is one row regardless of which side queries it.
 function pair(a, b) { return a < b ? [a, b] : [b, a]; }
-
-function friendEmail(userId) {
-  return db.prepare("SELECT email FROM users WHERE id = ?").get(userId)?.email || null;
-}
 
 friends.post("/friends/invite-code", requireAuth, (req, res) => {
   const id = crypto.randomUUID();
@@ -54,7 +50,7 @@ friends.post("/friends/redeem", requireAuth, ...codeGuessLimits, (req, res) => {
   `).run(crypto.randomUUID(), a, b, now);
   db.prepare("UPDATE friend_codes SET used_at = ? WHERE id = ?").run(now, invite.id);
 
-  res.json({ friendEmail: friendEmail(invite.user_id) });
+  res.json({ friendName: displayNameOf(invite.user_id) });
 });
 
 friends.delete("/friends/:linkId", requireAuth, (req, res) => {
@@ -97,7 +93,9 @@ friends.get("/friends/leaderboard", requireAuth, (req, res) => {
     return {
       userId,
       linkId: linkIdFor.get(userId) || null,
-      email: friendEmail(userId),
+      // A first name or a masked address, never the address itself: a friend code is shared in chats
+      // and a stranger who gets one must not walk away with a minor's email.
+      name: userId === req.user.userId ? null : displayNameOf(userId),
       isMe: userId === req.user.userId,
       synced: !!digest,
       avatar: digest?.avatar ?? null,

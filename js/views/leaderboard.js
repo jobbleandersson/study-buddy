@@ -66,7 +66,7 @@ export function renderLeaderboard() {
       redeemBtn.disabled = true;
       try {
         const data = await api(FRIEND_REDEEM_URL, { method: "POST", body: JSON.stringify({ code }) });
-        toast(t("leaderboard.addedFriend", { email: data.friendEmail }));
+        toast(t("leaderboard.addedFriend", { name: data.friendName }));
         input.value = "";
         paintBoard();
       } catch (e) { toast(e.message); }
@@ -109,7 +109,7 @@ export function renderLeaderboard() {
     const removeBtn = !entry.isMe ? el("button.iconbtn.iconbtn--sm", {
       type: "button", "aria-label": t("leaderboard.removeFriend"), title: t("leaderboard.removeFriend"),
       onclick: async () => {
-        if (!(await confirmDialog({ message: t("leaderboard.removeConfirm", { email: entry.email || "?" }) }))) return;
+        if (!(await confirmDialog({ message: t("leaderboard.removeConfirm", { name: entry.name || "?" }) }))) return;
         try { await api(unfriendUrl(entry.linkId), { method: "DELETE" }); paintBoard(); }
         catch (e) { toast(e.message); }
       },
@@ -141,7 +141,7 @@ export function renderLeaderboard() {
     return el("div.lbrow" + (entry.isMe ? ".lbrow--me" : ""), {}, [
       lead,
       el("div.lbrow__who", {}, [
-        el("span.lbrow__handle", {}, entry.isMe ? t("leaderboard.you") : (entry.email ? wrappableEmail(entry.email.split("@")[0]) : "?")),
+        el("span.lbrow__handle", {}, entry.isMe ? t("leaderboard.you") : (entry.name ? wrappableEmail(entry.name) : "?")),
         !entry.synced ? el("span.note", {}, t("leaderboard.notSyncedYet")) : null,
       ].filter(Boolean)),
       el("div.lbrow__stats", {}, [

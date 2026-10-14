@@ -4,7 +4,7 @@ import { db } from "../db.js";
 import { requireAuth } from "../middleware/requireAuth.js";
 import { librarySet } from "../library-data.js";
 import { studentSetProgress, classTopics } from "../class-stats.js";
-import { readDigest } from "../state-digest.js";
+import { readDigest, displayNameOf } from "../state-digest.js";
 import { codeGuessLimits } from "../middleware/authLimits.js";
 import { isUniqueViolation } from "../errors.js";
 
@@ -105,10 +105,11 @@ classes.get("/classes/:id", requireAuth, (req, res) => {
   const cls = teacherClass(req, res);
   if (!cls) return;
   const members = db.prepare(`
-    SELECT u.id AS userId, u.email, m.joined_at AS joinedAt
+    SELECT u.id AS userId, m.joined_at AS joinedAt
     FROM class_members m JOIN users u ON u.id = m.student_user_id
-    WHERE m.class_id = ? ORDER BY u.email
-  `).all(cls.id);
+    WHERE m.class_id = ?
+  `).all(cls.id).map((m) => ({ ...m, name: displayNameOf(m.userId) }))
+    .sort((a, b) => a.name.localeCompare(b.name));   // a name or a masked address, never the address itself (anyone can run a class)
   const assignments = db.prepare(
     "SELECT id, set_id AS setId, due_at AS dueAt, created_at AS createdAt FROM class_assignments WHERE class_id = ? ORDER BY created_at"
   ).all(cls.id).map((a) => ({ ...a, title: librarySet(a.setId)?.title ?? a.setId }));
@@ -122,9 +123,10 @@ classes.get("/classes/:id/results", requireAuth, (req, res) => {
   if (!cls) return;
 
   const members = db.prepare(`
-    SELECT u.id AS userId, u.email FROM class_members m JOIN users u ON u.id = m.student_user_id
-    WHERE m.class_id = ? ORDER BY u.email
-  `).all(cls.id);
+    SELECT u.id AS userId FROM class_members m JOIN users u ON u.id = m.student_user_id
+    WHERE m.class_id = ?
+  `).all(cls.id).map((m) => ({ ...m, name: displayNameOf(m.userId) }))
+    .sort((a, b) => a.name.localeCompare(b.name));
 
   const rows = db.prepare(
     "SELECT id, set_id AS setId FROM class_assignments WHERE class_id = ? ORDER BY created_at"
@@ -147,7 +149,7 @@ classes.get("/classes/:id/results", requireAuth, (req, res) => {
       setId: a.setId,
       total: set.questions.length,
       students: perStudent.map(({ m, p }) => ({
-        userId: m.userId, email: m.email, seen: p.seen, known: p.known, lastAt: p.lastAt,
+        userId: m.userId, name: m.name, seen: p.seen, known: p.known, lastAt: p.lastAt,
       })),
       topics: classTopics(perStudent.map(({ p }) => p)).slice(0, 5),
     };

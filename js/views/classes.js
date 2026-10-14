@@ -307,12 +307,12 @@ export async function renderClassDetail(id) {
 
       const rows = cls.members.map((m) => el("tr", {}, [
         el("td", {}, el("div.classgrid__student", {}, [
-          avatar(m.email),
-          el("span", {}, wrappableEmail(m.email)),
+          avatar(m.name),
+          el("span", {}, wrappableEmail(m.name)),
           el("button.iconbtn.iconbtn--sm", {
-            type: "button", "aria-label": t("classes.removeStudent", { email: m.email }), title: t("classes.removeStudent", { email: m.email }),
+            type: "button", "aria-label": t("classes.removeStudent", { name: m.name }), title: t("classes.removeStudent", { name: m.name }),
             onclick: async () => {
-              if (!(await confirmDialog({ message: t("classes.removeStudentConfirm", { email: m.email }), confirmLabel: t("classes.remove"), danger: true }))) return;
+              if (!(await confirmDialog({ message: t("classes.removeStudentConfirm", { name: m.name }), confirmLabel: t("classes.remove"), danger: true }))) return;
               try { await api(`${classUrl(id)}/members/${m.userId}`, { method: "DELETE" }); await reload(); } catch (e) { toast(e.message); }
             },
           }, [icon(ICONS.close, 14)]),
