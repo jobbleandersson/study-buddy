@@ -3,7 +3,7 @@ import { requireAuth } from "../middleware/requireAuth.js";
 import { asyncHandler } from "../middleware/asyncHandler.js";
 import { attemptLimit } from "../middleware/attemptLimit.js";
 import {
-  billingEnabled, isTestMode, canCheckout, isPlus, subscriptionOf, verifyStripeSignature, applyEvent,
+  billingEnabled, isTestMode, canCheckout, isPlus, subscriptionOf, verifyStripeSignature, applyEvent, refundCancelTarget, cancelSubscriptionNow,
   createCheckoutSession, createPortalSession,
 } from "../billing.js";
 import { PLUS_TOKEN_BUDGET } from "../usage.js";
@@ -74,7 +74,7 @@ billing.post("/billing/portal", requireAuth, checkoutLimit, asyncHandler(async (
 // Stripe's webhook. The body arrives RAW (index.js mounts express.raw on this path ahead of the JSON
 // parser) because the signature covers the exact bytes. No session cookie: Stripe is the caller, and the
 // signature is the only credential - an unsigned or stale request is a 400 and changes nothing.
-billing.post("/stripe/webhook", (req, res) => {
+billing.post("/stripe/webhook", async (req, res) => {
   const secret = process.env.STRIPE_WEBHOOK_SECRET;
   if (!secret) return res.status(404).end();
   if (!verifyStripeSignature(req.body, req.get("stripe-signature"), secret)) {
@@ -84,6 +84,13 @@ billing.post("/stripe/webhook", (req, res) => {
   try { event = JSON.parse(req.body.toString("utf8")); }
   catch { return res.status(400).json({ error: { message: "Bad JSON.", code: "bad_request" } }); }
   try {
+    // A full refund ends the plan. Stop the billing at Stripe FIRST: if that fails the event is not recorded
+    // as handled and we answer 500, so Stripe sends it again - recording it first would turn the retry into a
+    // no-op and leave the customer being charged for a plan we had already ended on our side.
+    const refunded = refundCancelTarget(event);
+    if (refunded && !(await cancelSubscriptionNow(refunded.subscriptionId))) {
+      return res.status(500).json({ error: { message: "Could not cancel the subscription.", code: "server_error" } });
+    }
     const result = applyEvent(event);
     console.log(`[billing] ${event.type} -> ${result}`);
     res.json({ received: true });

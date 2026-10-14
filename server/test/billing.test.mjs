@@ -14,7 +14,7 @@ const BODY = { model: "claude-haiku-4-5", max_tokens: 5, messages: [{ role: "use
 /** A stand-in for the three Stripe calls the server makes. `calls` records each one (path, method, form). */
 async function startFakeStripe() {
   const calls = [];
-  const fake = { calls, deleteStatus: 200 };
+  const fake = { calls, deleteStatus: 200, deleteMessage: null };
   const srv = http.createServer((req, res) => {
     let raw = "";
     req.on("data", (d) => { raw += d; });
@@ -22,7 +22,10 @@ async function startFakeStripe() {
       const form = Object.fromEntries(new URLSearchParams(raw));
       calls.push({ method: req.method, path: req.url, form, auth: req.headers.authorization });
       res.setHeader("content-type", "application/json");
-      if (req.method === "DELETE") { res.statusCode = fake.deleteStatus; return res.end(JSON.stringify({ id: "sub_x", status: "canceled" })); }
+      if (req.method === "DELETE") {
+        res.statusCode = fake.deleteStatus;
+        return res.end(JSON.stringify(fake.deleteStatus === 200 ? { id: "sub_x", status: "canceled" } : { error: { message: fake.deleteMessage ?? "boom" } }));
+      }
       if (req.url === "/v1/checkout/sessions") return res.end(JSON.stringify({ url: "https://checkout.stripe.test/c/abc" }));
       if (req.url === "/v1/billing_portal/sessions") return res.end(JSON.stringify({ url: "https://billing.stripe.test/p/abc" }));
       res.statusCode = 404; res.end("{}");
@@ -212,6 +215,78 @@ describe("with a test key", () => {
     assert.equal(r.status, 200);
     assert.equal(r.json.url, "https://billing.stripe.test/p/abc");
     assert.equal(stripe.calls.filter((c) => c.path === "/v1/billing_portal/sessions").pop().form.customer, "cus_o");
+  });
+
+  describe("a refund ends the plan", () => {
+    const refundEvent = (customer, extra = {}) => ({
+      id: `evt_${++evCounter}`, type: "charge.refunded",
+      data: { object: { id: "ch_1", customer, amount: 9900, amount_refunded: 9900, refunded: true, created: Math.floor(Date.now() / 1000), ...extra } },
+    });
+    const withPlus = async (email, sub, customer) => {
+      const u = await signUp(server, email);
+      await sendEvent(server, subEvent("customer.subscription.created", u.id, { id: sub, customer }));
+      assert.equal((await u.client.get("/api/billing/status")).json.plus, true, "setup: Plus is on");
+      return u;
+    };
+    const cancelled = (sub) => stripe.calls.some((c) => c.method === "DELETE" && c.path === `/v1/subscriptions/${sub}`);
+    const isPlus = async (u) => (await u.client.get("/api/billing/status")).json.plus;
+
+    test("a full refund cancels the subscription at Stripe and ends Plus at once", async () => {
+      const u = await withPlus("refund-full@example.se", "sub_rf", "cus_rf");
+      assert.equal((await sendEvent(server, refundEvent("cus_rf"))).status, 200);
+      assert.equal(cancelled("sub_rf"), true);
+      assert.equal(await isPlus(u), false);
+      assert.equal((await u.client.get("/api/usage")).json.limit, 1000);
+    });
+
+    test("a refund counted by amount (no refunded flag) is a full refund too", async () => {
+      const u = await withPlus("refund-amount@example.se", "sub_ra", "cus_ra");
+      await sendEvent(server, refundEvent("cus_ra", { refunded: false }));
+      assert.equal(await isPlus(u), false);
+    });
+
+    test("a partial refund leaves the plan alone", async () => {
+      const u = await withPlus("refund-part@example.se", "sub_rp", "cus_rp");
+      assert.equal((await sendEvent(server, refundEvent("cus_rp", { refunded: false, amount_refunded: 3000 }))).status, 200);
+      assert.equal(cancelled("sub_rp"), false);
+      assert.equal(await isPlus(u), true);
+    });
+
+    test("refunding an old payment, after later months were paid, leaves the plan alone", async () => {
+      const u = await withPlus("refund-old@example.se", "sub_ro", "cus_ro");
+      await sendEvent(server, refundEvent("cus_ro", { created: Math.floor(Date.now() / 1000) - 60 * 86400 }));
+      assert.equal(cancelled("sub_ro"), false);
+      assert.equal(await isPlus(u), true);
+    });
+
+    test("if Stripe can't cancel, the webhook fails so Stripe resends it - and the resend then succeeds", async () => {
+      const u = await withPlus("refund-retry@example.se", "sub_rr", "cus_rr");
+      const ev = refundEvent("cus_rr");
+      stripe.deleteStatus = 500;
+      assert.equal((await sendEvent(server, ev)).status, 500);
+      assert.equal(await isPlus(u), true, "not recorded as handled: the plan is still on");
+      stripe.deleteStatus = 200;
+      assert.equal((await sendEvent(server, ev)).status, 200, "the same event, resent");
+      assert.equal(await isPlus(u), false);
+    });
+
+    test("a subscription Stripe already cancelled is fine", async () => {
+      const u = await withPlus("refund-gone@example.se", "sub_rg", "cus_rg");
+      stripe.deleteStatus = 400;
+      stripe.deleteMessage = "A canceled subscription can only update its cancellation_details.";
+      assert.equal((await sendEvent(server, refundEvent("cus_rg"))).status, 200);
+      assert.equal(await isPlus(u), false);
+      stripe.deleteStatus = 200; stripe.deleteMessage = null;
+    });
+
+    test("a refund for someone who isn't on Plus, or isn't ours, changes nothing", async () => {
+      const before = stripe.calls.length;
+      assert.equal((await sendEvent(server, refundEvent("cus_nobody_at_all"))).status, 200);
+      const lapsed = await signUp(server, "refund-lapsed@example.se");
+      await sendEvent(server, subEvent("customer.subscription.created", lapsed.id, { id: "sub_rl", customer: "cus_rl", status: "canceled" }));
+      assert.equal((await sendEvent(server, refundEvent("cus_rl"))).status, 200);
+      assert.equal(stripe.calls.length, before, "nothing was sent to Stripe");
+    });
   });
 
   describe("deleting an account with a subscription", () => {

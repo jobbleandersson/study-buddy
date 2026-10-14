@@ -102,6 +102,29 @@ function userIdFor({ metadataUserId, customerId }) {
   return null;
 }
 
+// A refund only ends the plan when it is for a payment of the current billing period (with a few days of
+// slack): refunding an old month after later ones were paid is someone tidying up, not leaving.
+const REFUND_WINDOW_MS = 35 * 24 * 3600_000;
+
+/** Does this event say a Plus customer's current payment was refunded in full? If so, who and which
+ *  Stripe subscription has to end: { userId, subscriptionId }; otherwise null. A refund should end the
+ *  plan whoever makes it - from the Stripe dashboard by hand, say, which knows nothing about our database.
+ *  A partial refund (goodwill, a billing mistake) does not: the person still has the plan they paid for.
+ *  Pure reading of the database; the caller does the cancelling at Stripe, then applyEvent records it. */
+export function refundCancelTarget(event) {
+  if (event?.type !== "charge.refunded") return null;
+  const charge = event.data?.object || {};
+  const full = charge.refunded === true || (Number(charge.amount) > 0 && Number(charge.amount_refunded) >= Number(charge.amount));
+  if (!full) return null;
+  const userId = userIdFor({ customerId: charge.customer });
+  if (!userId) return null;
+  const sub = subscriptionOf(userId);
+  if (!sub?.subscriptionId || !isPlusStatus(sub.status)) return null;
+  const paidAt = Number(charge.created) * 1000;
+  if (sub.periodEnd != null && Number.isFinite(paidAt) && paidAt < sub.periodEnd - REFUND_WINDOW_MS) return null;
+  return { userId, subscriptionId: sub.subscriptionId };
+}
+
 /** Apply one verified webhook event. Returns what was done (for the log and the tests):
  *  "duplicate" (seen before), "ignored" (a kind we do not use, or an account that no longer exists),
  *  or "updated". Never throws for an unfamiliar event - Stripe sends many kinds and a 4xx would make it
@@ -133,6 +156,15 @@ export const applyEvent = db.transaction((event) => {
       status: event.type === "customer.subscription.deleted" ? "canceled" : String(obj.status || "incomplete"),
       periodEnd: periodEndMs(obj), cancel: obj.cancel_at_period_end ? 1 : 0, now: Date.now(),
     });
+    return "updated";
+  }
+
+  // A full refund ends the plan (the route has already cancelled the subscription at Stripe): record it now,
+  // so Plus stops at once rather than when the cancel event arrives.
+  if (event.type === "charge.refunded") {
+    const target = refundCancelTarget(event);
+    if (!target) return "ignored";
+    upsertStmt.run({ userId: target.userId, customerId: null, subscriptionId: null, status: "canceled", periodEnd: null, cancel: 0, now: Date.now() });
     return "updated";
   }
   return "ignored";
@@ -190,15 +222,16 @@ export async function createPortalSession({ customerId, origin }) {
   return session.url;
 }
 
-/** End a subscription right now (the account it belongs to is being deleted). A subscription that is
- *  already gone at Stripe (404) is fine - that is the goal. Returns false only if Stripe could not be
- *  reached or refused, so the caller can say so instead of silently leaving someone paying. */
+/** End a subscription right now (the account it belongs to is being deleted, or its payment was refunded).
+ *  A subscription that is already gone or already cancelled at Stripe is fine - that is the goal. Returns
+ *  false only if Stripe could not be reached or refused, so the caller can say so instead of silently
+ *  leaving someone paying. */
 export async function cancelSubscriptionNow(subscriptionId) {
   try {
     await stripe("DELETE", `/v1/subscriptions/${encodeURIComponent(subscriptionId)}`);
     return true;
   } catch (e) {
-    if (e.status === 404) return true;
+    if (e.status === 404 || (e.status === 400 && /cancel/i.test(e.message))) return true;
     console.error("[billing] could not cancel subscription:", e.message);
     return false;
   }
