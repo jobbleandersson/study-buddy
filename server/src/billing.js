@@ -141,6 +141,9 @@ export function refundCancelTarget(event) {
   if (!sub?.subscriptionId || !isPlusStatus(sub.status)) return null;
   // A refund that happened before the newest thing we know about the plan (a returning customer's new
   // subscription, say) was about the plan before it: a late or resent event must not cancel this one.
+  // Known trade-off: last_event_at is "newest event applied", not "when this plan began", so a genuine
+  // refund that is delivered after an unrelated newer subscription event is skipped too. Cancelling a
+  // plan someone just paid for is the worse mistake; a skipped refund shows in Stripe's dashboard.
   const refundedAt = eventAt(event);
   if (refundedAt != null && sub.lastEventAt != null && refundedAt < sub.lastEventAt) return null;
   const paidAt = Number(charge.created) * 1000;
