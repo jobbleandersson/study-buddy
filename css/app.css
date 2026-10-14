@@ -502,6 +502,9 @@ body.has-topmenu .sitechat__fab { display: none; }
   transition: background var(--dur-fast), color var(--dur-fast);
 }
 .tab[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-1); }
+/* How many sets each tab holds. */
+.tab__n { margin-left: 6px; font-size: 11.5px; font-weight: 700; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+.tab[aria-selected="true"] .tab__n { color: var(--ink-soft); }
 
 .chips { display: flex; flex-wrap: wrap; gap: var(--s-2); margin: 0 0 var(--s-4); }
 .chip {
@@ -1012,8 +1015,6 @@ a.next-test:hover { border-color: var(--brand); }
 .next-test--soon .next-test__when,
 .next-test--soon .next-test__when svg { color: var(--brand-ink); }
 
-.acard__tag--due { background: var(--surface-sunk); color: var(--ink-soft); }
-.acard__tag--overdue { background: var(--retry-tint); color: var(--retry-ink); }
 
 /* ---------- daily goal ring ---------- */
 .ring--goal { width: 34px; height: 34px; }
@@ -1101,6 +1102,14 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
   flex-wrap: wrap; margin-bottom: var(--s-3);
 }
 .librarybar .tabs { flex: none; }
+/* Phone: the tabs and Filter share the first row, the search takes the whole second one. */
+@media (max-width: 560px) {
+  .librarybar .search { order: 3; flex: 1 0 100%; }
+  .librarybar .tabs { flex: 1; }
+  .librarybar .tab { flex: 1; }
+}
+/* The Studera page (#/study): the title and its "+ New" button share a row. */
+.study-page__sub { margin: 4px 0 18px; }
 .librarybar .tools { flex: 1; min-width: 260px; margin-bottom: 0; justify-content: flex-end; }
 .tools { display: flex; gap: var(--s-3); margin-bottom: var(--s-4); flex-wrap: wrap; }
 .search { position: relative; display: flex; align-items: center; flex: 1; min-width: 180px; color: var(--ink-faint); }
@@ -1146,9 +1155,28 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
   padding: 3px 8px; border-radius: var(--r-full);
   background: var(--subject-tint, var(--brand-tint)); color: var(--subject-ink, var(--brand-ink));
 }
-.acard__tag--open { background: var(--ok-tint); color: var(--ok-ink); }
-.acard__title { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-lg); }
-.acard__meta { margin-top: auto; display: flex; align-items: center; justify-content: space-between; color: var(--ink-faint); font-size: var(--fs-sm); }
+.acard__title {
+  font-family: var(--font-display); font-weight: 600; font-size: 1.125rem; line-height: 1.3;   /* 18: two lines hold most titles */
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
+}
+/* The card's top row: the subject (a dot in its colour, the name trimmed to one line) and the AI chip. */
+.acard__top { display: flex; align-items: center; gap: 8px; min-width: 0; min-height: 22px; padding-right: 28px; }
+.acard__subject {
+  flex: 1; min-width: 0; display: inline-flex; align-items: center; gap: 7px;
+  font-size: 12.5px; font-weight: 600; color: var(--ink-soft);
+}
+.acard__dot { flex: none; width: 8px; height: 8px; border-radius: 3px; background: var(--subject, var(--brand)); }
+.acard__subjectname { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.acard__top .acard__tag--ai { flex: none; }
+/* The bottom: a deadline and a run left part-way (with how far it got), then the count and the ring. */
+.acard__foot { margin-top: auto; display: grid; gap: 8px; }
+.acard__status { display: flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; color: var(--ink-soft); }
+.acard__status svg { flex: none; color: var(--ink-faint); }
+.acard__status.is-open, .acard__status.is-open svg { color: var(--brand-ink); }
+.acard__status.is-late, .acard__status.is-late svg { color: var(--retry-ink); }
+.acard__progress { height: 4px; border-radius: var(--r-full); background: var(--surface-sunk); overflow: hidden; margin-top: -2px; }
+.acard__progress i { display: block; height: 100%; border-radius: inherit; background: var(--subject, var(--brand)); }
+.acard__meta { display: flex; align-items: center; justify-content: space-between; color: var(--ink-faint); font-size: var(--fs-sm); }
 .acard__go { transition: transform var(--dur-mid) var(--ease-spring); }
 
 .acard--new {

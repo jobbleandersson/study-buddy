@@ -133,7 +133,8 @@ export function renderMenu(mode) {
 
     const items = visibleSets();
     clear(grid);
-    if (store.assignments.length) grid.appendChild(newCard());   // first run: the empty state below already offers it
+    // First run: the empty state below already offers it. The Studera page has it as a button in its header.
+    if (store.assignments.length && mode !== "study") grid.appendChild(newCard());
     for (const a of items) grid.appendChild(card(a, topicMastery));
 
     // A search that misses in this tab but hits in the other is a dead end
@@ -215,8 +216,19 @@ export function renderMenu(mode) {
     }, [icon(ICONS.dots, 18)]);
 
     const overdue = a.dueAt ? daysUntil(a.dueAt) < 0 : false;
+    const ai = isAiSet(a);
+    const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+    // What's going on with it, above the footer: its deadline, and a run left part-way with how far it got.
+    const status = [
+      a.dueAt && el("div.acard__status" + (overdue ? ".is-late" : ""), { title: t("menu.dueLabel", { date: fmtDate(a.dueAt) }) },
+        [icon(ICONS.calendar, 13), el("span", {}, cap(relativeDay(a.dueAt)))]),
+      open && el("div.acard__status.is-open", {},
+        [icon(ICONS.play, 12), el("span", {}, `${t("menu.inProgress")} · ${t("menu.answeredOf", { n: openCount, total: a.questions.length })}`)]),
+      open && el("div.acard__progress", { "aria-hidden": "true" },
+        [el("i", { style: { width: `${Math.min(100, Math.round((openCount / Math.max(1, a.questions.length)) * 100))}%` } })]),
+    ].filter(Boolean);
 
-    return el("div.acard" + (isAiSet(a) ? ".acard--ai" : ""), {
+    return el("div.acard" + (ai ? ".acard--ai" : ""), {
       role: "button", tabindex: "0",
       style: { "--subject": color.solid, "--subject-ink": color.ink, "--subject-tint": color.tint },
       "aria-label": t(open ? "menu.cardAriaOpen" : "menu.cardAria",
@@ -227,23 +239,21 @@ export function renderMenu(mode) {
       },
     }, [
       menuBtn,
-      el("div", { style: { display: "flex", gap: "6px", flexWrap: "wrap", paddingRight: "28px" } }, [
-        el("span.acard__tag", {}, subjectName),
-        isAiSet(a) && el("span.acard__tag.acard__tag--ai", { title: t("menu.aiMadeTitle") }, [icon(ICONS.spark, 12), t("menu.aiMade")]),
-        open && el("span.acard__tag.acard__tag--open", {}, t("menu.inProgress")),
-        a.dueAt && el("span", {
-          class: "acard__tag acard__tag--due" + (overdue ? " acard__tag--overdue" : ""),
-          title: t("menu.dueLabel", { date: fmtDate(a.dueAt) }),
-        }, relativeDay(a.dueAt)),
+      // The subject as a dot in its colour and a name that trims on one line, so a long one ("XYZ – Matematisk
+      // problemlösning") never wraps and every title starts at the same height.
+      el("div.acard__top", {}, [
+        el("span.acard__subject", { title: subjectName }, [el("span.acard__dot"), el("span.acard__subjectname", {}, subjectName)]),
+        ai && el("span.acard__tag.acard__tag--ai", { title: t("menu.aiMadeTitle") }, [icon(ICONS.spark, 12), t("menu.aiMade")]),
       ].filter(Boolean)),
-      el("div.acard__title", {}, a.title),
-      el("div.acard__meta", {}, [
-        el("span", {}, open
-          ? t("menu.answeredOf", { n: openCount, total: a.questions.length })
-          : plural(a.questions.length, "common.questionOne", "common.questionMany")
+      el("div.acard__title", { title: a.title }, a.title),
+      el("div.acard__foot", {}, [
+        ...status,
+        el("div.acard__meta", {}, [
+          el("span", {}, plural(a.questions.length, "common.questionOne", "common.questionMany")
             + (attempts ? t("menu.doneTimes", { n: attempts }) : "")),
-        m == null ? el("span", { style: { color: "var(--subject)" }, "aria-hidden": "true" }, icon(ICONS.arrow, 18))
-          : ring(m, color.solid),
+          m == null ? el("span", { style: { color: "var(--subject)" }, "aria-hidden": "true" }, icon(ICONS.arrow, 18))
+            : ring(m, color.solid),
+        ]),
       ]),
     ]);
   }
@@ -357,15 +367,19 @@ export function renderMenu(mode) {
     tabBtn(t("common.tests"), "test"),
   ]);
   function tabBtn(label, value) {
+    const n = store.assignments.filter((a) => a.type === value).length;
     return el("button.tab", {
       role: "tab", "aria-selected": String(tab === value),
       onclick: () => switchTab(value),
-    }, label);
+    }, [label, n ? el("span.tab__n", {}, String(n)) : null]);
   }
+  // The Studera page's "+ New" sits in its header and follows the tab.
+  const newLabel = el("span", {}, t(tab === "assignment" ? "menu.newAssignment" : "menu.newTest"));
   function switchTab(value) {
     tab = value;
     tabsEl.querySelectorAll(".tab").forEach((b, i) =>
       b.setAttribute("aria-selected", String((i === 0 ? "assignment" : "test") === value)));
+    newLabel.textContent = t(tab === "assignment" ? "menu.newAssignment" : "menu.newTest");
     paint();
   }
 
@@ -386,10 +400,13 @@ export function renderMenu(mode) {
   if (mode === "study") {
     return {
       title: t("menu.studyTitle"),
-      node: el("div", {}, [
+      node: el("div.study-page", {}, [
         homeButton(),
-        el("h1", { style: { marginBottom: "4px" } }, t("menu.studyTitle")),
-        el("p.note", { style: { marginBottom: "18px" } }, t("menu.studySub")),
+        el("div.planner-page__head", {}, [
+          el("h1", {}, t("menu.studyTitle")),
+          el("a.btn.btn--sm", { href: "#/create" }, [icon(ICONS.plus, 16), newLabel]),
+        ]),
+        el("p.note.study-page__sub", {}, t("menu.studySub")),
         ...libraryUI,
       ]),
       cleanup: menuCleanup,
