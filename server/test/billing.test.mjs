@@ -643,6 +643,18 @@ describe("a chargeback ends the plan", () => {
     assert.equal(await isPlus(u), true);
   });
 
+  test("a dispute event older than the newest thing known about the plan is ignored (same guard as refunds)", async () => {
+    const u = await signUp(server, "dispute-stale@example.se");
+    const t = now();
+    await sendEvent(server, { ...subEvent("customer.subscription.created", u.id, { id: "sub_ds", customer: "cus_ds" }), created: t });
+    stripe.charges.ch_ds = { customer: "cus_ds", created: t };
+    assert.equal((await sendEvent(server, { ...disputeEvent("ch_ds"), created: t - 3600 })).status, 200);
+    assert.equal(cancelled("sub_ds"), false);
+    assert.equal(await isPlus(u), true);
+    assert.equal((await sendEvent(server, { ...disputeEvent("ch_ds"), created: t + 60 })).status, 200, "a dispute after it does end the plan");
+    assert.equal(await isPlus(u), false);
+  });
+
   test("a dispute from someone who isn't on Plus, or isn't ours, or with no charge named, changes nothing", async () => {
     const before = stripe.calls.filter((c) => c.method === "DELETE").length;
     stripe.charges.ch_x = { customer: "cus_nobody_at_all", created: now() };

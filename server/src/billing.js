@@ -126,47 +126,44 @@ function eventAt(event) {
 // slack): refunding an old month after later ones were paid is someone tidying up, not leaving.
 const REFUND_WINDOW_MS = 35 * 24 * 3600_000;
 
-/** Does this event say a Plus customer's current payment was refunded in full? If so, who and which
- *  Stripe subscription has to end: { userId, subscriptionId }; otherwise null. A refund should end the
- *  plan whoever makes it - from the Stripe dashboard by hand, say, which knows nothing about our database.
- *  A partial refund (goodwill, a billing mistake) does not: the person still has the plan they paid for.
- *  Pure reading of the database; the caller does the cancelling at Stripe, then applyEvent records it. */
-export function refundCancelTarget(event) {
-  if (event?.type !== "charge.refunded") return null;
-  const charge = event.data?.object || {};
-  const full = charge.refunded === true || (Number(charge.amount) > 0 && Number(charge.amount_refunded) >= Number(charge.amount));
-  if (!full) return null;
+/** Who and which Stripe subscription has to end because a payment of theirs is being taken back (a refund
+ *  or a chargeback): { userId, subscriptionId }, or null when it doesn't concern a running plan. Pure reading
+ *  of the database; the caller does the cancelling at Stripe, then applyEvent records it. */
+function planEndTarget(event, charge) {
   const userId = userIdFor({ customerId: charge.customer });
   if (!userId) return null;
   const sub = subscriptionOf(userId);
   if (!sub?.subscriptionId || !isPlusStatus(sub.status)) return null;
-  // A refund that happened before the newest thing we know about the plan (a returning customer's new
-  // subscription, say) was about the plan before it: a late or resent event must not cancel this one.
+  // An event from before the newest thing we know about the plan (a returning customer's new subscription,
+  // say) was about the plan before it: a late or resent event must not cancel this one.
   // Known trade-off: last_event_at is "newest event applied", not "when this plan began", so a genuine
   // refund that is delivered after an unrelated newer subscription event is skipped too. Cancelling a
   // plan someone just paid for is the worse mistake; a skipped refund shows in Stripe's dashboard.
-  const refundedAt = eventAt(event);
-  if (refundedAt != null && sub.lastEventAt != null && refundedAt < sub.lastEventAt) return null;
+  const at = eventAt(event);
+  if (at != null && sub.lastEventAt != null && at < sub.lastEventAt) return null;
   const paidAt = Number(charge.created) * 1000;
   if (sub.periodEnd != null && Number.isFinite(paidAt) && paidAt < sub.periodEnd - REFUND_WINDOW_MS) return null;
   return { userId, subscriptionId: sub.subscriptionId };
 }
 
+/** Does this event say a Plus customer's current payment was refunded in full? If so, who and which
+ *  Stripe subscription has to end: { userId, subscriptionId }; otherwise null. A refund should end the
+ *  plan whoever makes it - from the Stripe dashboard by hand, say, which knows nothing about our database.
+ *  A partial refund (goodwill, a billing mistake) does not: the person still has the plan they paid for. */
+export function refundCancelTarget(event) {
+  if (event?.type !== "charge.refunded") return null;
+  const charge = event.data?.object || {};
+  const full = charge.refunded === true || (Number(charge.amount) > 0 && Number(charge.amount_refunded) >= Number(charge.amount));
+  return full ? planEndTarget(event, charge) : null;
+}
+
 /** The same question for a chargeback (charge.dispute.created): the cardholder asked their bank to take the
  *  money back, so the plan ends - like a full refund, without waiting for how the dispute turns out. A dispute
  *  carries only the charge's id, not who paid, so the caller looks the charge up at Stripe first (getCharge)
- *  and passes it in; `charge.customer` is the link to the account. Only a payment of the current billing
- *  period counts, as for refunds. Returns { userId, subscriptionId } or null. */
+ *  and passes it in; `charge.customer` is the link to the account. */
 export function disputeCancelTarget(event, charge) {
   if (event?.type !== "charge.dispute.created" || !charge) return null;
-  const userId = userIdFor({ customerId: charge.customer });
-  if (!userId) return null;
-  const sub = subscriptionOf(userId);
-  if (!sub?.subscriptionId || !isPlusStatus(sub.status)) return null;
-  if (isStale(sub, event, sub.subscriptionId, false)) return null;
-  const paidAt = Number(charge.created) * 1000;
-  if (sub.periodEnd != null && Number.isFinite(paidAt) && paidAt < sub.periodEnd - REFUND_WINDOW_MS) return null;
-  return { userId, subscriptionId: sub.subscriptionId };
+  return planEndTarget(event, charge);
 }
 
 /** Apply one verified webhook event. Returns what was done (for the log and the tests):
