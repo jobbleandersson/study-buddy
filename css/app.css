@@ -3011,8 +3011,33 @@ body.route-chat .sitechat__panel { display: none; }
 }
 .gcalc__range { width: 100%; margin: 0; accent-color: var(--brand); }
 .gcalc__val { font-size: 13px; font-weight: 700; color: var(--ink); text-align: right; }
-.gcalc__help { margin: var(--s-3) 0; font-size: 12.5px; }
 .gcalc__tools { margin: 0; }
+/* Small headings over the tools, the folded examples and the folded list of points. */
+.gcalc__label { margin: 0 0 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-faint); }
+summary.gcalc__label {
+  display: flex; align-items: center; gap: 7px; width: fit-content; min-height: 24px; margin: 0;
+  list-style: none; cursor: pointer;
+}
+summary.gcalc__label::-webkit-details-marker { display: none; }
+summary.gcalc__label::before {
+  content: ""; width: 5px; height: 5px; margin-left: 1px;
+  border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg); transition: transform var(--dur-fast);
+}
+details[open] > summary.gcalc__label { margin-bottom: 6px; }
+details[open] > summary.gcalc__label::before { transform: rotate(45deg); }
+summary.gcalc__label:hover { color: var(--ink-soft); }
+summary.gcalc__label:focus-visible { outline: none; box-shadow: var(--ring); border-radius: 4px; }
+.gcalc__exlist { display: grid; gap: 4px; }
+.gcalc__exbtn {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px; width: 100%;
+  padding: 7px 10px; border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--surface);
+  font: inherit; text-align: left; color: var(--ink); cursor: pointer;
+}
+.gcalc__exbtn:hover { border-color: var(--brand); }
+.gcalc__exbtn:focus-visible { outline: none; box-shadow: var(--ring); }
+.gcalc__exbtn code { font-family: inherit; font-size: 14px; font-variant-numeric: tabular-nums; }
+.gcalc__exbtn span { flex: none; font-size: 12px; color: var(--ink-faint); }
 .gcalc__stage {
   position: relative; height: 460px; overflow: hidden;
   border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface);
@@ -3033,12 +3058,8 @@ body.route-chat .sitechat__panel { display: none; }
 .gcalc__zbtn:hover { border-color: var(--brand); }
 .gcalc__zbtn:focus-visible { outline: none; box-shadow: var(--ring); }
 .gcalc__hint { margin: 6px 0 0; font-size: 12.5px; }
-.gcalc__side { grid-row: span 2; }
+.gcalc__side { grid-row: span 2; display: grid; gap: var(--s-4); }
 .gcalc__points { grid-column: 2; }
-.gcalc__points:empty { display: none; }
-.gcalc__ptitle {
-  margin: 0 0 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-faint);
-}
 .gcalc__plist { margin: 0; padding-left: 18px; columns: 2 240px; column-gap: var(--s-5); font-size: 13.5px; font-variant-numeric: tabular-nums; }
 @media (max-width: 800px) {
   .gcalc { grid-template-columns: minmax(0, 1fr); }

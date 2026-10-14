@@ -4,7 +4,7 @@
 // lib/graph-math.js: no outside library, nothing sent anywhere. Used on #/calculator and in a
 // dialog from a maths practice session (openGraphDialog).
 
-import { el, clear, icon, ICONS } from "../lib/dom.js";
+import { el, icon, ICONS } from "../lib/dom.js";
 import { t, getLang } from "../lib/i18n.js";
 import { fmtNumber } from "../lib/expr.js";
 import { buildModel, specialPoints, slope, niceStep } from "../lib/graph-math.js";
@@ -213,6 +213,26 @@ export function graphCalculator() {
   const tools = el("div.chips.gcalc__tools", { role: "group", "aria-label": t("graph.toolsLabel") },
     ["roots", "extrema", "intersections", "tangent"].map(toolChip));
 
+  /* ---- examples: folded away, and one tap puts one in a row instead of a paragraph to read ---- */
+
+  const EXAMPLES = [
+    ["x^2 - 3", "fn"], ["y = 2x + 1", "line"], ["x = 2", "vline"], ["ax^2", "slider"],
+    [getLang() === "sv" ? "A = (1; 2)" : "A = (1, 2)", "point"],
+  ];
+  function addExample(text) {
+    const last = state.rows[state.rows.length - 1];
+    if (last && !last.text.trim()) last.text = text;
+    else state.rows.push(newRow(text, { color: nextColor() }));
+    rebuild(); paintRows();
+    addMissingSliders();   // "ax^2" brings its slider for a
+  }
+  const examples = el("details.gcalc__ex", {}, [
+    el("summary.gcalc__label", {}, t("graph.examples")),
+    el("div.gcalc__exlist", {}, EXAMPLES.map(([text, kind]) => el("button.gcalc__exbtn", {
+      type: "button", "aria-label": t("graph.exAdd", { expr: text }), onclick: () => addExample(text),
+    }, [el("code", {}, text), el("span", {}, t(`graph.ex.${kind}`))]))),
+  ]);
+
   /* ---- canvas ---- */
 
   const canvas = el("canvas.gcalc__canvas", { tabindex: "0", role: "img" });
@@ -227,7 +247,10 @@ export function graphCalculator() {
       zoomBtn(ICONS.home, t("graph.reset"), () => { state.view = null; draw(); }),
     ]),
   ]);
-  const pointsEl = el("div.gcalc__points");
+  const pointsSum = el("summary.gcalc__label");
+  const pointsList = el("ul.gcalc__plist");
+  const pointsEl = el("details.gcalc__points", {}, [pointsSum, pointsList]);
+  pointsEl.hidden = true;
 
   let W = 0, H = 0;
   const view = () => state.view || (state.view = { cx: 0, cy: 0, scale: Math.max(20, (W || 600) / DEFAULT_SCALE_UNITS) });
@@ -396,14 +419,13 @@ export function graphCalculator() {
     return `${what}: ${coord(p.x, p.y)}`;
   }
 
-  // The points in view, as text: for reading off, copying, and screen readers.
+  // The points in view, as text: for reading off, copying, and screen readers. Folded away, since
+  // the graph already labels them; open, it stays open while the view changes.
   function paintPoints() {
-    clear(pointsEl);
+    pointsEl.hidden = !found.length;
     if (!found.length) return;
-    pointsEl.append(
-      el("p.gcalc__ptitle", {}, t("graph.pointsTitle")),
-      el("ul.gcalc__plist", {}, found.slice(0, 30).map((p) => el("li", {}, pointWords(p)))),
-    );
+    pointsSum.textContent = t("graph.pointsTitle", { n: found.length });
+    pointsList.replaceChildren(...found.slice(0, 30).map((p) => el("li", {}, pointWords(p))));
   }
 
   /* ---- pointer: drag to move the view, pinch or wheel to zoom, tap a graph to read it ---- */
@@ -500,8 +522,8 @@ export function graphCalculator() {
   const node = el("div.gcalc", {}, [
     el("div.gcalc__side", {}, [
       rowsEl,
-      el("p.note.gcalc__help", {}, t("graph.help")),
-      tools,
+      el("div", {}, [el("p.gcalc__label", { "aria-hidden": "true" }, t("graph.toolsLabel")), tools]),
+      examples,
     ]),
     el("div.gcalc__main", {}, [stage, el("p.note.gcalc__hint", {}, t("graph.hint"))]),
     // Its own block: on a phone it comes after the rows, so a long list never pushes them away.
