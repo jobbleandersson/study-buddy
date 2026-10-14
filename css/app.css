@@ -5683,7 +5683,8 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 /* The head on one line: the name never wraps, the status trims, "Ny konversation" is a plus on a phone. */
 .solvehead__name { white-space: nowrap; }
 .solvehead__status { min-width: 0; white-space: nowrap; }
-.solvehead__status { overflow: hidden; text-overflow: ellipsis; }
+/* Only the words trim: clipping the whole line cut the live dot's pulse ring (it grows 6px around the dot). */
+.solvehead__statustext { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .solve-chat__reset { display: inline-flex; align-items: center; gap: 6px; }
 
 @media (max-width: 899px) {

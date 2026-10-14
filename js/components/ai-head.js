@@ -29,7 +29,8 @@ export function aiHead(extra = []) {
     clear(statusEl);
     append(statusEl, [
       el(`i.solvehead__livedot${on ? "" : ".is-off"}`, { "aria-hidden": "true" }),
-      t(statusKey),
+      // The text trims on its own, so the dot's pulse ring isn't cut off with it.
+      el("span.solvehead__statustext", {}, t(statusKey)),
     ]);
     return on;
   }
