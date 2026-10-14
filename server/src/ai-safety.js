@@ -22,5 +22,7 @@ export function withSafetyRules(system) {
   const rules = { type: "text", text: SAFETY_RULES };
   if (system == null) return [rules];
   if (typeof system === "string") return system ? [rules, { type: "text", text: system }] : [rules];
-  return [rules, ...system];
+  // Anything else (a number, an object) stays as one more block, which bodyContentOk in routes/messages.js
+  // then refuses with a 400 as before; spreading it would throw and turn a bad request into a 500.
+  return Array.isArray(system) ? [rules, ...system] : [rules, system];
 }
