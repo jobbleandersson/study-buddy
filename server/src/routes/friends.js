@@ -3,7 +3,7 @@ import crypto from "node:crypto";
 import { db } from "../db.js";
 import { requireAuth } from "../middleware/requireAuth.js";
 import { codeGuessLimits } from "../middleware/authLimits.js";
-import { readDigest, displayNameOf } from "../state-digest.js";
+import { readDigest, displayNames } from "../state-digest.js";
 
 export const friends = Router();
 
@@ -50,7 +50,7 @@ friends.post("/friends/redeem", requireAuth, ...codeGuessLimits, (req, res) => {
   `).run(crypto.randomUUID(), a, b, now);
   db.prepare("UPDATE friend_codes SET used_at = ? WHERE id = ?").run(now, invite.id);
 
-  res.json({ friendName: displayNameOf(invite.user_id) });
+  res.json({ friendName: displayNames([invite.user_id]).get(invite.user_id) });
 });
 
 friends.delete("/friends/:linkId", requireAuth, (req, res) => {
@@ -85,8 +85,10 @@ friends.get("/friends/leaderboard", requireAuth, (req, res) => {
   // What this page needs from each person's saved state comes from its small summary (state-digest.js,
   // already checked and cut down when it was saved), not from parsing the whole state — up to 10 MB —
   // of every friend on every view. A person who never synced has none (digest is null).
+  const digests = new Map(userIds.map((id) => [id, readDigest(id)]));
+  const names = displayNames(userIds.filter((id) => id !== req.user.userId), digests);
   const entries = userIds.map((userId) => {
-    const digest = readDigest(userId);
+    const digest = digests.get(userId);
     const questionsThisWeek = (digest?.attempts || [])
       .filter(([at]) => at >= weekStart)
       .reduce((n, [, answered]) => n + answered, 0);
@@ -95,7 +97,7 @@ friends.get("/friends/leaderboard", requireAuth, (req, res) => {
       linkId: linkIdFor.get(userId) || null,
       // A first name or a masked address, never the address itself: a friend code is shared in chats
       // and a stranger who gets one must not walk away with a minor's email.
-      name: userId === req.user.userId ? null : displayNameOf(userId),
+      name: names.get(userId) ?? null,
       isMe: userId === req.user.userId,
       synced: !!digest,
       avatar: digest?.avatar ?? null,

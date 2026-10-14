@@ -104,8 +104,30 @@ export function readDigest(userId) {
 
 const emailStmt = db.prepare("SELECT email FROM users WHERE id = ?");
 
-/** What other people see for this account: their profile first name, else their email masked. Never the
- *  address itself. */
-export function displayNameOf(userId) {
-  return readDigest(userId)?.name || maskEmail(emailStmt.get(userId)?.email);
+/** What other people see for these accounts: the profile first name, else the email masked. Never the
+ *  address itself. First names are not unique, so two accounts with the same label (in one list: a class,
+ *  a leaderboard) get the masked address added, and if even that is the same, a number: the person who
+ *  removes "Anna" from a class must be able to tell which one they mean.
+ *  `digests` (userId -> digest) saves reading again what the caller has already read. Returns Map userId -> label. */
+export function displayNames(userIds, digests = new Map()) {
+  const masks = new Map();
+  const labels = new Map();
+  for (const id of userIds) {
+    const mask = maskEmail(emailStmt.get(id)?.email);
+    const digest = digests.has(id) ? digests.get(id) : readDigest(id);
+    masks.set(id, mask);
+    labels.set(id, digest?.name || mask);
+  }
+  const count = (m) => { const c = new Map(); for (const l of m.values()) c.set(l.toLowerCase(), (c.get(l.toLowerCase()) || 0) + 1); return c; };
+  let dup = count(labels);
+  for (const [id, label] of labels) {
+    if (dup.get(label.toLowerCase()) > 1 && label !== masks.get(id)) labels.set(id, `${label} (${masks.get(id)})`);
+  }
+  dup = count(labels);
+  const nth = new Map();
+  for (const id of [...userIds].sort()) {
+    const key = labels.get(id).toLowerCase();
+    if (dup.get(key) > 1) { const n = (nth.get(key) || 0) + 1; nth.set(key, n); if (n > 1) labels.set(id, `${labels.get(id)} #${n}`); }
+  }
+  return labels;
 }

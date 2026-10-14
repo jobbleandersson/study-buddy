@@ -96,6 +96,58 @@ describe("names, not emails, for a class teacher", () => {
   });
 });
 
+describe("two people with the same label stay tellable apart", () => {
+  let server;
+  before(async () => { server = await startServer(); });
+  after(async () => { await server.stop(); });
+
+  test("a class with two students called Anna lists them with their masked addresses", async () => {
+    const teacher = await account(server.baseUrl, "lararen");
+    const a1 = await account(server.baseUrl, "ann");
+    const a2 = await account(server.baseUrl, "berit");
+    const other = await account(server.baseUrl, "olof");
+    await putState(a1.c, { profile: { name: "Anna" }, attempts: [] });
+    await putState(a2.c, { profile: { name: "ANNA" }, attempts: [] });
+    await putState(other.c, { profile: { name: "Olof" }, attempts: [] });
+    const made = (await teacher.c.post("/api/classes", { name: "8A" })).json;
+    for (const s of [a1, a2, other]) await s.c.post("/api/classes/join", { code: made.code });
+
+    const names = (await teacher.c.get(`/api/classes/${made.id}`)).json.members.map((m) => m.name);
+    assert.ok(names.includes("Olof"), "a name that is alone stays plain");
+    assert.deepEqual(names.filter((n) => /^anna/i.test(n)).sort(), ["ANNA (b•••@example.com)", "Anna (a•••@example.com)"]);
+  });
+
+  test("two accounts with no name and the same masked address are numbered", async () => {
+    const teacher = await account(server.baseUrl, "lararen");
+    const s1 = await account(server.baseUrl, "kim");
+    const s2 = await account(server.baseUrl, "kaj");
+    const made = (await teacher.c.post("/api/classes", { name: "9C" })).json;
+    for (const s of [s1, s2]) await s.c.post("/api/classes/join", { code: made.code });
+    const names = (await teacher.c.get(`/api/classes/${made.id}`)).json.members.map((m) => m.name).sort();
+    assert.equal(new Set(names).size, 2);
+    assert.ok(names.every((n) => n.startsWith("k•••@example.com")), names.join(" | "));
+    assert.ok(names.some((n) => n.endsWith("#2")));
+  });
+
+  test("the same goes for friends on a leaderboard, and not for you", async () => {
+    const me = await account(server.baseUrl, "emil");
+    const f1 = await account(server.baseUrl, "nina");
+    const f2 = await account(server.baseUrl, "nils");
+    await putState(me.c, { profile: { name: "Nina" }, attempts: [] });
+    await putState(f1.c, { profile: { name: "Nina" }, attempts: [] });
+    await putState(f2.c, { profile: { name: "Nina" }, attempts: [] });
+    for (const f of [f1, f2]) {
+      const code = (await f.c.post("/api/friends/invite-code")).json.code;
+      assert.equal((await me.c.post("/api/friends/redeem", { code })).status, 200);
+    }
+    const entries = (await me.c.get("/api/friends/leaderboard")).json.entries;
+    const others = entries.filter((e) => !e.isMe).map((e) => e.name);
+    assert.equal(new Set(others).size, 2);
+    assert.ok(others.every((n) => n.startsWith("Nina (n•••@example.com)")), others.join(" | "));
+    assert.equal(entries.find((e) => e.isMe).name, null);
+  });
+});
+
 describe("the name and mask helpers", () => {
   test("nameFrom keeps letters, marks, spaces, apostrophes and hyphens, at most 24 characters", () => {
     assert.equal(nameFrom({ profile: { name: "Zoë" } }), "Zoë");
