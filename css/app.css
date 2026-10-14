@@ -5799,6 +5799,15 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .chatdef { display: inline-block; margin-left: 4px; padding: 0 8px; border-radius: var(--r-full); background: var(--brand-tint); color: var(--brand-ink); font-size: .9em; font-weight: 600; }
 .chatquick { margin-top: 10px; }
 .home-exam { margin: 0 0 var(--s-4); }
+/* The countdown and the × that hides the card until tomorrow (nextTestCard in views/menu.js). */
+.exam-card__end { display: flex; align-items: center; gap: 4px; flex: none; }
+.exam-card__x {
+  width: 28px; height: 28px; padding: 0; margin-right: -6px; border: none; border-radius: var(--r-full);
+  display: grid; place-items: center; background: transparent; color: var(--ink-faint); cursor: pointer;
+  transition: background var(--dur-fast), color var(--dur-fast);
+}
+.exam-card__x:hover { background: var(--surface-sunk); color: var(--ink); }
+.exam-card__x:focus-visible { outline: none; box-shadow: var(--ring); }
 
 /* Mobile audit: small controls get a finger-sized hit area on touch screens. The ::after is invisible
    and doesn't move anything; :where() keeps position at zero specificity so an element that is

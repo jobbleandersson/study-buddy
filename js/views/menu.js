@@ -929,18 +929,52 @@ async function fillStarterSuggestion(slot) {
   slot.hidden = false;
 }
 
+// The test card's × hides it for the rest of the day, on this device: like the house ad's, a nicety and
+// not study data, so it stays out of the synced state. Tomorrow, or another test, brings the card back.
+const TEST_CARD_KEY = "studybuddy.testCardHidden";
+function testCardHidden(id) {
+  try { const v = JSON.parse(localStorage.getItem(TEST_CARD_KEY) || "null"); return v?.id === id && v?.day === localDayKey(); }
+  catch { return false; }
+}
+function setTestCardHidden(id) {
+  try {
+    if (id) localStorage.setItem(TEST_CARD_KEY, JSON.stringify({ id, day: localDayKey() }));
+    else localStorage.removeItem(TEST_CARD_KEY);
+  } catch { /* private mode: it just won't stay hidden */ }
+}
+
 /** The next test, first thing on the home screen: how far off it is and today's task for it. */
 function nextTestCard() {
   const exam = upcomingExams(store.exams, store.assignments, localDayKey())[0];
-  if (!exam || exam.days > 21 || !exam.sets.length) return null;
+  if (!exam || exam.days > 21 || !exam.sets.length || testCardHidden(exam.id)) return null;
   const m = prepFor(exam);
   const subject = store.subjects.find((s) => s.id === exam.subjectId);
   const title = exam.title || t("exam.cardTitle", { subject: subject?.name || "" });
   const open = m.todayStudy.find((x) => !x.done)?.task || null;
-  return el("article.exam-card.home-exam", { style: { "--subject": store.subjectColor(exam.subjectId).solid } }, [
+  const hideBtn = el("button.exam-card__x", {
+    type: "button", title: t("menu.testCardHideTitle"), "aria-label": t("menu.testCardHide", { title }),
+    onclick: () => {
+      const parent = card.parentNode, next = card.nextSibling;
+      const gone = () => {
+        setTestCardHidden(exam.id);
+        card.remove();
+        toast(t("menu.testCardHidden"), {
+          actionLabel: t("common.undo"),
+          onAction: () => { setTestCardHidden(null); card.getAnimations().forEach((a) => a.cancel()); parent?.insertBefore(card, next); },
+        });
+      };
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches || !card.animate) { gone(); return; }
+      card.animate([{ opacity: 1, transform: "none" }, { opacity: 0, transform: "translateY(-6px)" }],
+        { duration: 160, easing: "ease-in", fill: "forwards" }).finished.then(gone, gone);
+    },
+  }, icon(ICONS.close, 15));
+  const card = el("article.exam-card.home-exam", { style: { "--subject": store.subjectColor(exam.subjectId).solid } }, [
     el("div.exam-card__top", {}, [
       el("a.exam-card__name", { href: `#/exam-prep/${exam.id}` }, [el("span.exam-dot"), title]),
-      el("span.exam-pill" + (exam.days <= 2 ? ".is-soon" : ""), {}, shortCountdown(exam.days)),
+      el("div.exam-card__end", {}, [
+        el("span.exam-pill" + (exam.days <= 2 ? ".is-soon" : ""), {}, shortCountdown(exam.days)),
+        hideBtn,
+      ]),
     ]),
     el("div.exam-card__today", {}, m.allDoneToday
       ? [el("span.exam-card__done", {}, [icon(ICONS.check, 15), t("exam.doneLabel")]),
@@ -955,4 +989,5 @@ function nextTestCard() {
           ]
         : [el("a.btn.btn--ghost.btn--sm", { href: `#/exam-prep/${exam.id}` }, t("nav.examPrep"))]),
   ]);
+  return card;
 }
