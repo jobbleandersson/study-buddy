@@ -2079,6 +2079,7 @@ export default {
   "plus.manage": "Manage subscription",
   "plus.thanks": "Thanks! Plus can take a few seconds to switch on.",
   "plus.thanksDone": "Plus is on. Enjoy!",
+  "plus.processing": "Your payment is going through. Plus switches on in a moment, so there's no need to pay again.",
   "set.planLabel": "Plan",
   "set.planFree": "You're on the free plan.",
   "set.planPlus": "You have PluggEra Plus.",

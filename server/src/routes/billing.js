@@ -3,8 +3,8 @@ import { requireAuth } from "../middleware/requireAuth.js";
 import { asyncHandler } from "../middleware/asyncHandler.js";
 import { attemptLimit } from "../middleware/attemptLimit.js";
 import {
-  billingEnabled, isTestMode, canCheckout, isPlus, subscriptionOf, verifyStripeSignature, applyEvent, refundCancelTarget, cancelSubscriptionNow,
-  createCheckoutSession, createPortalSession,
+  billingEnabled, isTestMode, canCheckout, isPlus, subscriptionOf, verifyStripeSignature, applyEvent, refundCancelTarget, disputeCancelTarget, getCharge, cancelSubscriptionNow,
+  createCheckoutSession, createPortalSession, checkoutBlocker,
 } from "../billing.js";
 import { PLUS_TOKEN_BUDGET } from "../usage.js";
 
@@ -51,7 +51,12 @@ billing.post("/billing/checkout", requireAuth, checkoutLimit, asyncHandler(async
     return res.status(409).json({ error: { message: "You already have Plus.", code: "already_plus" } });
   }
   try {
-    const url = await createCheckoutSession({ userId, email, origin: originOf(req) });
+    // A payment that has gone through at Stripe but hasn't reached us yet must not be paid for twice.
+    const blocked = await checkoutBlocker(userId);
+    if (blocked) {
+      return res.status(409).json({ error: { message: "Your payment is going through. Plus switches on in a moment.", code: blocked } });
+    }
+    const { url } = await createCheckoutSession({ userId, email, origin: originOf(req) });
     res.json({ url });
   } catch (e) {
     console.error("[billing] checkout failed:", e.message);
@@ -87,11 +92,16 @@ billing.post("/stripe/webhook", async (req, res) => {
     // A full refund ends the plan. Stop the billing at Stripe FIRST: if that fails the event is not recorded
     // as handled and we answer 500, so Stripe sends it again - recording it first would turn the retry into a
     // no-op and leave the customer being charged for a plan we had already ended on our side.
-    const refunded = refundCancelTarget(event);
-    if (refunded && !(await cancelSubscriptionNow(refunded.subscriptionId))) {
+    // A chargeback (dispute) ends it too; it names only the charge, so look that up at Stripe first (a failure
+    // throws, which is the same retry-by-500 below).
+    let charge = null;
+    const disputedCharge = event?.type === "charge.dispute.created" ? event.data?.object?.charge : null;
+    if (typeof disputedCharge === "string" && disputedCharge) charge = await getCharge(disputedCharge);
+    const ending = refundCancelTarget(event) || disputeCancelTarget(event, charge);
+    if (ending && !(await cancelSubscriptionNow(ending.subscriptionId))) {
       return res.status(500).json({ error: { message: "Could not cancel the subscription.", code: "server_error" } });
     }
-    const result = applyEvent(event);
+    const result = applyEvent(event, charge);
     console.log(`[billing] ${event.type} -> ${result}`);
     res.json({ received: true });
   } catch (e) {

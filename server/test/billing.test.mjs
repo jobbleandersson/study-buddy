@@ -14,7 +14,7 @@ const BODY = { model: "claude-haiku-4-5", max_tokens: 5, messages: [{ role: "use
 /** A stand-in for the three Stripe calls the server makes. `calls` records each one (path, method, form). */
 async function startFakeStripe() {
   const calls = [];
-  const fake = { calls, deleteStatus: 200, deleteMessage: null };
+  const fake = { calls, deleteStatus: 200, deleteMessage: null, sessionsCreated: [], sessionStatus: {}, sessionSubscription: {}, sessionLookupStatus: 200, charges: {}, chargeLookupStatus: 200 };
   const srv = http.createServer((req, res) => {
     let raw = "";
     req.on("data", (d) => { raw += d; });
@@ -26,7 +26,25 @@ async function startFakeStripe() {
         res.statusCode = fake.deleteStatus;
         return res.end(JSON.stringify(fake.deleteStatus === 200 ? { id: "sub_x", status: "canceled" } : { error: { message: fake.deleteMessage ?? "boom" } }));
       }
-      if (req.url === "/v1/checkout/sessions") return res.end(JSON.stringify({ url: "https://checkout.stripe.test/c/abc" }));
+      const session = req.url.match(/^\/v1\/checkout\/sessions\/([^/?]+)(\/expire)?$/);
+      if (session && fake.sessionLookupStatus !== 200) {
+        res.statusCode = fake.sessionLookupStatus;
+        return res.end(JSON.stringify({ error: { message: "lookup failed" } }));
+      }
+      if (session && req.method === "GET") return res.end(JSON.stringify({ id: session[1], status: fake.sessionStatus[session[1]] ?? "open", subscription: fake.sessionSubscription[session[1]] ?? null }));
+      if (session && session[2] && req.method === "POST") { fake.sessionStatus[session[1]] = "expired"; return res.end(JSON.stringify({ id: session[1], status: "expired" })); }
+      if (req.url === "/v1/checkout/sessions") {
+        const id = `cs_test_${fake.sessionsCreated.length + 1}`;
+        fake.sessionsCreated.push(id);
+        return res.end(JSON.stringify({ id, url: "https://checkout.stripe.test/c/abc" }));
+      }
+      const charge = req.url.match(/^\/v1\/charges\/([^/?]+)$/);
+      if (charge) {
+        if (fake.chargeLookupStatus !== 200) { res.statusCode = fake.chargeLookupStatus; return res.end(JSON.stringify({ error: { message: "lookup failed" } })); }
+        const c = fake.charges[charge[1]];
+        if (!c) { res.statusCode = 404; return res.end(JSON.stringify({ error: { message: "No such charge" } })); }
+        return res.end(JSON.stringify({ id: charge[1], ...c }));
+      }
       if (req.url === "/v1/billing_portal/sessions") return res.end(JSON.stringify({ url: "https://billing.stripe.test/p/abc" }));
       res.statusCode = 404; res.end("{}");
     });
@@ -415,5 +433,237 @@ describe("with a live key everyone can check out", () => {
     assert.equal(r.status, 502);
     assert.equal(r.json.error.code, "billing_unavailable");
     stripe.stop = async () => {};   // already closed; keep the after() hook happy
+  });
+});
+
+describe("a second checkout while the first payment is still going through", () => {
+  let server, stripe;
+  before(async () => {
+    stripe = await startFakeStripe();
+    server = await startServer({
+      ANTHROPIC_API_KEY: "dummy",
+      STRIPE_SECRET_KEY: "sk_live_abc", STRIPE_PRICE_ID: "price_live", STRIPE_WEBHOOK_SECRET: SECRET, STRIPE_API_BASE: stripe.url,
+    });
+  });
+  after(async () => { await server.stop(); await stripe.stop(); });
+
+  const created = () => stripe.sessionsCreated.length;
+  const completed = (userId, sessionId, sub, customer) => ({
+    id: `evt_${++evCounter}`, type: "checkout.session.completed",
+    data: { object: { id: sessionId, mode: "subscription", client_reference_id: userId, customer, subscription: sub } },
+  });
+
+  test("Stripe says the last session is paid but the webhook hasn't come: refused, and no second session is made", async () => {
+    const u = await signUp(server, "pay-twice@example.se");
+    assert.equal((await u.client.post("/api/billing/checkout", {})).status, 200);
+    const first = stripe.sessionsCreated.at(-1);
+    stripe.sessionStatus[first] = "complete";
+    const before = created();
+    const r = await u.client.post("/api/billing/checkout", {});
+    assert.equal(r.status, 409);
+    assert.equal(r.json.error.code, "payment_processing");
+    assert.equal(created(), before, "no second Checkout was opened");
+  });
+
+  test("a session that was only opened and abandoned is expired, and a new one starts", async () => {
+    const u = await signUp(server, "abandoned@example.se");
+    await u.client.post("/api/billing/checkout", {});
+    const first = stripe.sessionsCreated.at(-1);
+    const r = await u.client.post("/api/billing/checkout", {});
+    assert.equal(r.status, 200);
+    assert.equal(stripe.sessionStatus[first], "expired", "the old one can't be paid later from another tab");
+    assert.ok(stripe.calls.some((c) => c.method === "POST" && c.path === `/v1/checkout/sessions/${first}/expire`));
+    assert.notEqual(stripe.sessionsCreated.at(-1), first);
+  });
+
+  test("if Stripe can't be asked, it is a 502 and nothing is opened (no guessing)", async () => {
+    const u = await signUp(server, "lookup-fails@example.se");
+    await u.client.post("/api/billing/checkout", {});
+    const before = created();
+    stripe.sessionLookupStatus = 500;
+    const r = await u.client.post("/api/billing/checkout", {});
+    stripe.sessionLookupStatus = 200;
+    assert.equal(r.status, 502);
+    assert.equal(created(), before);
+  });
+
+  test("once 'checkout completed' has linked the subscription but its status hasn't followed, a new checkout is refused; then Plus is on", async () => {
+    const u = await signUp(server, "linked@example.se");
+    await u.client.post("/api/billing/checkout", {});
+    const sid = stripe.sessionsCreated.at(-1);
+    await sendEvent(server, completed(u.id, sid, "sub_lk", "cus_lk"));
+    const before = created();
+    const r = await u.client.post("/api/billing/checkout", {});
+    assert.equal(r.status, 409);
+    assert.equal(r.json.error.code, "payment_processing");
+    assert.equal(created(), before);
+    await sendEvent(server, subEvent("customer.subscription.created", u.id, { id: "sub_lk", customer: "cus_lk" }));
+    assert.equal((await u.client.post("/api/billing/checkout", {})).json.error.code, "already_plus");
+  });
+
+  test("someone whose plan ended can subscribe again: the finished checkout is not remembered against them", async () => {
+    const u = await signUp(server, "returning@example.se");
+    await u.client.post("/api/billing/checkout", {});
+    const sid = stripe.sessionsCreated.at(-1);
+    stripe.sessionStatus[sid] = "complete";
+    await sendEvent(server, completed(u.id, sid, "sub_rt", "cus_rt"));
+    await sendEvent(server, subEvent("customer.subscription.created", u.id, { id: "sub_rt", customer: "cus_rt" }));
+    await sendEvent(server, subEvent("customer.subscription.deleted", u.id, { id: "sub_rt", customer: "cus_rt", status: "canceled" }));
+    const r = await u.client.post("/api/billing/checkout", {});
+    assert.equal(r.status, 200, "a returning customer is not blocked by their old, paid checkout");
+  });
+
+  test("a paid checkout whose 'completed' event never arrived doesn't block a returning customer for good", async () => {
+    const u = await signUp(server, "heals@example.se");
+    await u.client.post("/api/billing/checkout", {});
+    const sid = stripe.sessionsCreated.at(-1);
+    stripe.sessionStatus[sid] = "complete";
+    stripe.sessionSubscription[sid] = "sub_heal";
+    // the subscription's own events arrive (so the plan is linked), the checkout-completed one is lost
+    await sendEvent(server, subEvent("customer.subscription.created", u.id, { id: "sub_heal", customer: "cus_heal" }));
+    await sendEvent(server, subEvent("customer.subscription.deleted", u.id, { id: "sub_heal", customer: "cus_heal", status: "canceled" }));
+    const r = await u.client.post("/api/billing/checkout", {});
+    assert.equal(r.status, 200, "the old, paid and now-ended checkout is not held against them");
+    assert.equal(server.db.prepare("SELECT last_checkout_session AS s FROM subscriptions WHERE user_id = ?").get(u.id).s, stripe.sessionsCreated.at(-1), "now remembering the new one");
+  });
+
+  test("starting a checkout does not make an account look like it has a plan", async () => {
+    const u = await signUp(server, "just-looking@example.se");
+    await u.client.post("/api/billing/checkout", {});
+    const st = (await u.client.get("/api/billing/status")).json;
+    assert.equal(st.plus, false);
+    assert.equal(st.hasCustomer, false);
+  });
+});
+
+describe("deleting an account while Stripe is switched off", () => {
+  let server;
+  before(async () => { server = await startServer({ ANTHROPIC_API_KEY: "dummy" }); });   // no Stripe secrets at all
+  after(async () => { await server.stop(); });
+
+  const giveSubscription = (userId, status, { cancelAtPeriodEnd = 0, periodEnd = Date.now() + 20 * 86400_000 } = {}) => server.db.prepare(
+    `INSERT INTO subscriptions (user_id, stripe_customer_id, stripe_subscription_id, status, current_period_end, cancel_at_period_end, updated_at)
+     VALUES (?, 'cus_off', 'sub_off', ?, ?, ?, ?)`
+  ).run(userId, status, periodEnd, cancelAtPeriodEnd, Date.now());
+  const exists = (id) => server.db.prepare("SELECT COUNT(*) AS n FROM users WHERE id = ?").get(id).n === 1;
+
+  test("a plan that is still running is not deleted with it: nothing could stop Stripe charging for it", async () => {
+    const u = await signUp(server, "off-active@example.se");
+    giveSubscription(u.id, "active");
+    const r = await u.client.delete("/api/account", { password: "longenough1" });
+    assert.equal(r.status, 503);
+    assert.equal(r.json.error.code, "billing_unavailable");
+    assert.ok(exists(u.id), "the account is still there");
+    assert.equal(server.db.prepare("SELECT COUNT(*) AS n FROM subscriptions WHERE user_id = ?").get(u.id).n, 1);
+  });
+
+  test("a plan already set to end by itself, or one that has ended, doesn't hold the deletion up", async () => {
+    const ending = await signUp(server, "off-ending@example.se");
+    giveSubscription(ending.id, "active", { cancelAtPeriodEnd: 1 });
+    assert.equal((await ending.client.delete("/api/account", { password: "longenough1" })).status, 200);
+    const ended = await signUp(server, "off-ended@example.se");
+    giveSubscription(ended.id, "canceled");
+    assert.equal((await ended.client.delete("/api/account", { password: "longenough1" })).status, 200);
+    assert.ok(!exists(ending.id) && !exists(ended.id));
+  });
+
+  test("a plan whose paid period ran out long ago (the cancel event never came) doesn't block the deletion either", async () => {
+    const u = await signUp(server, "off-lapsed@example.se");
+    giveSubscription(u.id, "active", { periodEnd: Date.now() - 10 * 86400_000 });
+    assert.equal((await u.client.delete("/api/account", { password: "longenough1" })).status, 200);
+    assert.ok(!exists(u.id));
+  });
+
+  test("an account that never had a plan is deleted as usual", async () => {
+    const u = await signUp(server, "off-never@example.se");
+    assert.equal((await u.client.delete("/api/account", { password: "longenough1" })).status, 200);
+  });
+});
+
+describe("a chargeback ends the plan", () => {
+  let server, stripe;
+  before(async () => {
+    stripe = await startFakeStripe();
+    server = await startServer({
+      ANTHROPIC_API_KEY: "dummy",
+      STRIPE_SECRET_KEY: "sk_live_abc", STRIPE_PRICE_ID: "price_live", STRIPE_WEBHOOK_SECRET: SECRET, STRIPE_API_BASE: stripe.url,
+    });
+  });
+  after(async () => { await server.stop(); await stripe.stop(); });
+
+  const now = () => Math.floor(Date.now() / 1000);
+  const disputeEvent = (chargeId) => ({ id: `evt_${++evCounter}`, type: "charge.dispute.created", data: { object: { id: `dp_${evCounter}`, charge: chargeId } } });
+  const withPlus = async (email, sub, customer) => {
+    const u = await signUp(server, email);
+    await sendEvent(server, subEvent("customer.subscription.created", u.id, { id: sub, customer }));
+    assert.equal((await u.client.get("/api/billing/status")).json.plus, true, "setup: Plus is on");
+    return u;
+  };
+  const cancelled = (sub) => stripe.calls.some((c) => c.method === "DELETE" && c.path === `/v1/subscriptions/${sub}`);
+  const isPlus = async (u) => (await u.client.get("/api/billing/status")).json.plus;
+
+  test("a dispute on the current payment cancels the subscription at Stripe and ends Plus at once", async () => {
+    const u = await withPlus("dispute@example.se", "sub_dp", "cus_dp");
+    stripe.charges.ch_dp = { customer: "cus_dp", created: now() };
+    assert.equal((await sendEvent(server, disputeEvent("ch_dp"))).status, 200);
+    assert.ok(stripe.calls.some((c) => c.method === "GET" && c.path === "/v1/charges/ch_dp"), "the charge was looked up to find who paid");
+    assert.equal(cancelled("sub_dp"), true);
+    assert.equal(await isPlus(u), false);
+  });
+
+  test("if the charge can't be looked up the webhook fails so Stripe resends it - and the resend then succeeds", async () => {
+    const u = await withPlus("dispute-retry@example.se", "sub_dr", "cus_dr");
+    stripe.charges.ch_dr = { customer: "cus_dr", created: now() };
+    const ev = disputeEvent("ch_dr");
+    stripe.chargeLookupStatus = 500;
+    assert.equal((await sendEvent(server, ev)).status, 500);
+    stripe.chargeLookupStatus = 200;
+    assert.equal(await isPlus(u), true, "not recorded as handled: the plan is still on");
+    assert.equal((await sendEvent(server, ev)).status, 200, "the same event, resent");
+    assert.equal(await isPlus(u), false);
+  });
+
+  test("if Stripe can't cancel, the same retry applies", async () => {
+    const u = await withPlus("dispute-nocancel@example.se", "sub_dn", "cus_dn");
+    stripe.charges.ch_dn = { customer: "cus_dn", created: now() };
+    const ev = disputeEvent("ch_dn");
+    stripe.deleteStatus = 500;
+    assert.equal((await sendEvent(server, ev)).status, 500);
+    stripe.deleteStatus = 200;
+    assert.equal(await isPlus(u), true);
+    assert.equal((await sendEvent(server, ev)).status, 200);
+    assert.equal(await isPlus(u), false);
+  });
+
+  test("a dispute over an old payment (later months were paid since) leaves the plan alone", async () => {
+    const u = await withPlus("dispute-old@example.se", "sub_do", "cus_do");
+    stripe.charges.ch_do = { customer: "cus_do", created: now() - 60 * 86400 };
+    assert.equal((await sendEvent(server, disputeEvent("ch_do"))).status, 200);
+    assert.equal(cancelled("sub_do"), false);
+    assert.equal(await isPlus(u), true);
+  });
+
+  test("a dispute event older than the newest thing known about the plan is ignored (same guard as refunds)", async () => {
+    const u = await signUp(server, "dispute-stale@example.se");
+    const t = now();
+    await sendEvent(server, { ...subEvent("customer.subscription.created", u.id, { id: "sub_ds", customer: "cus_ds" }), created: t });
+    stripe.charges.ch_ds = { customer: "cus_ds", created: t };
+    assert.equal((await sendEvent(server, { ...disputeEvent("ch_ds"), created: t - 3600 })).status, 200);
+    assert.equal(cancelled("sub_ds"), false);
+    assert.equal(await isPlus(u), true);
+    assert.equal((await sendEvent(server, { ...disputeEvent("ch_ds"), created: t + 60 })).status, 200, "a dispute after it does end the plan");
+    assert.equal(await isPlus(u), false);
+  });
+
+  test("a dispute from someone who isn't on Plus, or isn't ours, or with no charge named, changes nothing", async () => {
+    const before = stripe.calls.filter((c) => c.method === "DELETE").length;
+    stripe.charges.ch_x = { customer: "cus_nobody_at_all", created: now() };
+    assert.equal((await sendEvent(server, disputeEvent("ch_x"))).status, 200);
+    const lapsed = await signUp(server, "dispute-lapsed@example.se");
+    await sendEvent(server, subEvent("customer.subscription.created", lapsed.id, { id: "sub_dl", customer: "cus_dl", status: "canceled" }));
+    stripe.charges.ch_dl = { customer: "cus_dl", created: now() };
+    assert.equal((await sendEvent(server, disputeEvent("ch_dl"))).status, 200);
+    assert.equal((await sendEvent(server, { id: `evt_${++evCounter}`, type: "charge.dispute.created", data: { object: { id: "dp_none" } } })).status, 200);
+    assert.equal(stripe.calls.filter((c) => c.method === "DELETE").length, before, "nothing was cancelled");
   });
 });
