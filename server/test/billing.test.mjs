@@ -228,6 +228,16 @@ describe("with a test key", () => {
         await sendEvent(server, at(subEvent("customer.subscription.created", u.id, { id: "sub_b", customer: "cus_resub" }), 1_800_010_300));
         assert.equal(await isPlusNow(u), true);
       });
+
+      test("the checkout event arriving first does not make the subscription's earlier 'active' stale", async () => {
+        const u = await signUp(server, "checkout-first@example.se");
+        await sendEvent(server, at({ id: `evt_${++evCounter}`, type: "checkout.session.completed", data: { object: {
+          mode: "subscription", client_reference_id: u.id, customer: "cus_cf", subscription: "sub_cf" } } }, 1_800_020_101));
+        assert.equal(await isPlusNow(u), false, "linked only: nothing paid is known yet");
+        // Stripe made this a second BEFORE the checkout event, but it was delivered after it.
+        await sendEvent(server, at(subEvent("customer.subscription.updated", u.id, { id: "sub_cf", customer: "cus_cf" }), 1_800_020_100));
+        assert.equal(await isPlusNow(u), true, "the real status still lands");
+      });
     });
 
     test("events for unknown accounts or kinds are acknowledged and ignored", async () => {
@@ -287,6 +297,24 @@ describe("with a test key", () => {
     test("a refund counted by amount (no refunded flag) is a full refund too", async () => {
       const u = await withPlus("refund-amount@example.se", "sub_ra", "cus_ra");
       await sendEvent(server, refundEvent("cus_ra", { refunded: false }));
+      assert.equal(await isPlus(u), false);
+    });
+
+    test("a refund from before the current plan began (arriving late) does not cancel it", async () => {
+      const u = await signUp(server, "refund-late@example.se");
+      await sendEvent(server, { ...subEvent("customer.subscription.created", u.id, { id: "sub_rn", customer: "cus_rn" }), created: 1_800_030_000 });
+      assert.equal(await isPlus(u), true, "setup: the new plan is on");
+      // The old plan's refund, made earlier than the new subscription but delivered after it.
+      assert.equal((await sendEvent(server, { ...refundEvent("cus_rn"), created: 1_800_029_000 })).status, 200);
+      assert.equal(cancelled("sub_rn"), false, "nothing was sent to Stripe");
+      assert.equal(await isPlus(u), true);
+    });
+
+    test("a refund made after the plan's newest event still cancels it", async () => {
+      const u = await signUp(server, "refund-after@example.se");
+      await sendEvent(server, { ...subEvent("customer.subscription.created", u.id, { id: "sub_rf2", customer: "cus_rf2" }), created: 1_800_040_000 });
+      assert.equal((await sendEvent(server, { ...refundEvent("cus_rf2"), created: 1_800_040_500 })).status, 200);
+      assert.equal(cancelled("sub_rf2"), true);
       assert.equal(await isPlus(u), false);
     });
 
