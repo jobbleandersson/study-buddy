@@ -14,7 +14,7 @@ const BODY = { model: "claude-haiku-4-5", max_tokens: 5, messages: [{ role: "use
 /** A stand-in for the three Stripe calls the server makes. `calls` records each one (path, method, form). */
 async function startFakeStripe() {
   const calls = [];
-  const fake = { calls, deleteStatus: 200, deleteMessage: null, sessionsCreated: [], sessionStatus: {}, sessionLookupStatus: 200 };
+  const fake = { calls, deleteStatus: 200, deleteMessage: null, sessionsCreated: [], sessionStatus: {}, sessionLookupStatus: 200, charges: {}, chargeLookupStatus: 200 };
   const srv = http.createServer((req, res) => {
     let raw = "";
     req.on("data", (d) => { raw += d; });
@@ -37,6 +37,13 @@ async function startFakeStripe() {
         const id = `cs_test_${fake.sessionsCreated.length + 1}`;
         fake.sessionsCreated.push(id);
         return res.end(JSON.stringify({ id, url: "https://checkout.stripe.test/c/abc" }));
+      }
+      const charge = req.url.match(/^\/v1\/charges\/([^/?]+)$/);
+      if (charge) {
+        if (fake.chargeLookupStatus !== 200) { res.statusCode = fake.chargeLookupStatus; return res.end(JSON.stringify({ error: { message: "lookup failed" } })); }
+        const c = fake.charges[charge[1]];
+        if (!c) { res.statusCode = 404; return res.end(JSON.stringify({ error: { message: "No such charge" } })); }
+        return res.end(JSON.stringify({ id: charge[1], ...c }));
       }
       if (req.url === "/v1/billing_portal/sessions") return res.end(JSON.stringify({ url: "https://billing.stripe.test/p/abc" }));
       res.statusCode = 404; res.end("{}");
@@ -549,5 +556,81 @@ describe("deleting an account while Stripe is switched off", () => {
   test("an account that never had a plan is deleted as usual", async () => {
     const u = await signUp(server, "off-never@example.se");
     assert.equal((await u.client.delete("/api/account", { password: "longenough1" })).status, 200);
+  });
+});
+
+describe("a chargeback ends the plan", () => {
+  let server, stripe;
+  before(async () => {
+    stripe = await startFakeStripe();
+    server = await startServer({
+      ANTHROPIC_API_KEY: "dummy",
+      STRIPE_SECRET_KEY: "sk_live_abc", STRIPE_PRICE_ID: "price_live", STRIPE_WEBHOOK_SECRET: SECRET, STRIPE_API_BASE: stripe.url,
+    });
+  });
+  after(async () => { await server.stop(); await stripe.stop(); });
+
+  const now = () => Math.floor(Date.now() / 1000);
+  const disputeEvent = (chargeId) => ({ id: `evt_${++evCounter}`, type: "charge.dispute.created", data: { object: { id: `dp_${evCounter}`, charge: chargeId } } });
+  const withPlus = async (email, sub, customer) => {
+    const u = await signUp(server, email);
+    await sendEvent(server, subEvent("customer.subscription.created", u.id, { id: sub, customer }));
+    assert.equal((await u.client.get("/api/billing/status")).json.plus, true, "setup: Plus is on");
+    return u;
+  };
+  const cancelled = (sub) => stripe.calls.some((c) => c.method === "DELETE" && c.path === `/v1/subscriptions/${sub}`);
+  const isPlus = async (u) => (await u.client.get("/api/billing/status")).json.plus;
+
+  test("a dispute on the current payment cancels the subscription at Stripe and ends Plus at once", async () => {
+    const u = await withPlus("dispute@example.se", "sub_dp", "cus_dp");
+    stripe.charges.ch_dp = { customer: "cus_dp", created: now() };
+    assert.equal((await sendEvent(server, disputeEvent("ch_dp"))).status, 200);
+    assert.ok(stripe.calls.some((c) => c.method === "GET" && c.path === "/v1/charges/ch_dp"), "the charge was looked up to find who paid");
+    assert.equal(cancelled("sub_dp"), true);
+    assert.equal(await isPlus(u), false);
+  });
+
+  test("if the charge can't be looked up the webhook fails so Stripe resends it - and the resend then succeeds", async () => {
+    const u = await withPlus("dispute-retry@example.se", "sub_dr", "cus_dr");
+    stripe.charges.ch_dr = { customer: "cus_dr", created: now() };
+    const ev = disputeEvent("ch_dr");
+    stripe.chargeLookupStatus = 500;
+    assert.equal((await sendEvent(server, ev)).status, 500);
+    stripe.chargeLookupStatus = 200;
+    assert.equal(await isPlus(u), true, "not recorded as handled: the plan is still on");
+    assert.equal((await sendEvent(server, ev)).status, 200, "the same event, resent");
+    assert.equal(await isPlus(u), false);
+  });
+
+  test("if Stripe can't cancel, the same retry applies", async () => {
+    const u = await withPlus("dispute-nocancel@example.se", "sub_dn", "cus_dn");
+    stripe.charges.ch_dn = { customer: "cus_dn", created: now() };
+    const ev = disputeEvent("ch_dn");
+    stripe.deleteStatus = 500;
+    assert.equal((await sendEvent(server, ev)).status, 500);
+    stripe.deleteStatus = 200;
+    assert.equal(await isPlus(u), true);
+    assert.equal((await sendEvent(server, ev)).status, 200);
+    assert.equal(await isPlus(u), false);
+  });
+
+  test("a dispute over an old payment (later months were paid since) leaves the plan alone", async () => {
+    const u = await withPlus("dispute-old@example.se", "sub_do", "cus_do");
+    stripe.charges.ch_do = { customer: "cus_do", created: now() - 60 * 86400 };
+    assert.equal((await sendEvent(server, disputeEvent("ch_do"))).status, 200);
+    assert.equal(cancelled("sub_do"), false);
+    assert.equal(await isPlus(u), true);
+  });
+
+  test("a dispute from someone who isn't on Plus, or isn't ours, or with no charge named, changes nothing", async () => {
+    const before = stripe.calls.filter((c) => c.method === "DELETE").length;
+    stripe.charges.ch_x = { customer: "cus_nobody_at_all", created: now() };
+    assert.equal((await sendEvent(server, disputeEvent("ch_x"))).status, 200);
+    const lapsed = await signUp(server, "dispute-lapsed@example.se");
+    await sendEvent(server, subEvent("customer.subscription.created", lapsed.id, { id: "sub_dl", customer: "cus_dl", status: "canceled" }));
+    stripe.charges.ch_dl = { customer: "cus_dl", created: now() };
+    assert.equal((await sendEvent(server, disputeEvent("ch_dl"))).status, 200);
+    assert.equal((await sendEvent(server, { id: `evt_${++evCounter}`, type: "charge.dispute.created", data: { object: { id: "dp_none" } } })).status, 200);
+    assert.equal(stripe.calls.filter((c) => c.method === "DELETE").length, before, "nothing was cancelled");
   });
 });

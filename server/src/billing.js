@@ -152,11 +152,28 @@ export function refundCancelTarget(event) {
   return { userId, subscriptionId: sub.subscriptionId };
 }
 
+/** The same question for a chargeback (charge.dispute.created): the cardholder asked their bank to take the
+ *  money back, so the plan ends - like a full refund, without waiting for how the dispute turns out. A dispute
+ *  carries only the charge's id, not who paid, so the caller looks the charge up at Stripe first (getCharge)
+ *  and passes it in; `charge.customer` is the link to the account. Only a payment of the current billing
+ *  period counts, as for refunds. Returns { userId, subscriptionId } or null. */
+export function disputeCancelTarget(event, charge) {
+  if (event?.type !== "charge.dispute.created" || !charge) return null;
+  const userId = userIdFor({ customerId: charge.customer });
+  if (!userId) return null;
+  const sub = subscriptionOf(userId);
+  if (!sub?.subscriptionId || !isPlusStatus(sub.status)) return null;
+  if (isStale(sub, event, sub.subscriptionId, false)) return null;
+  const paidAt = Number(charge.created) * 1000;
+  if (sub.periodEnd != null && Number.isFinite(paidAt) && paidAt < sub.periodEnd - REFUND_WINDOW_MS) return null;
+  return { userId, subscriptionId: sub.subscriptionId };
+}
+
 /** Apply one verified webhook event. Returns what was done (for the log and the tests):
  *  "duplicate" (seen before), "stale" (older than what is already known), "ignored" (a kind we do not
  *  use, or an account that no longer exists), or "updated". Never throws for an unfamiliar event -
  *  Stripe sends many kinds and a 4xx would make it retry them for days. */
-export const applyEvent = db.transaction((event) => {
+export const applyEvent = db.transaction((event, charge = null) => {
   if (!event?.id || !event?.type) return "ignored";
   if (seenStmt.run(event.id, Date.now()).changes === 0) return "duplicate";
   const obj = event.data?.object || {};
@@ -202,6 +219,14 @@ export const applyEvent = db.transaction((event) => {
   // so Plus stops at once rather than when the cancel event arrives.
   if (event.type === "charge.refunded") {
     const target = refundCancelTarget(event);
+    if (!target) return "ignored";
+    upsertStmt.run({ userId: target.userId, customerId: null, subscriptionId: null, status: "canceled", periodEnd: null, cancel: 0, now: Date.now(), at: eventAt(event) });
+    return "updated";
+  }
+
+  // A chargeback ends the plan the same way (the route has already looked the charge up and cancelled at Stripe).
+  if (event.type === "charge.dispute.created") {
+    const target = disputeCancelTarget(event, charge);
     if (!target) return "ignored";
     upsertStmt.run({ userId: target.userId, customerId: null, subscriptionId: null, status: "canceled", periodEnd: null, cancel: 0, now: Date.now(), at: eventAt(event) });
     return "updated";
@@ -287,6 +312,12 @@ export async function createCheckoutSession({ userId, email, origin }) {
   });
   if (session.id) rememberCheckoutStmt.run(userId, Date.now(), session.id);
   return { url: session.url, id: session.id };
+}
+
+/** A charge as Stripe has it - a chargeback only names the charge, and the customer is on the charge. Throws if
+ *  Stripe can't be asked, so the webhook fails and Stripe sends the event again rather than dropping it. */
+export async function getCharge(chargeId) {
+  return stripe("GET", `/v1/charges/${encodeURIComponent(chargeId)}`);
 }
 
 /** Stripe's own "manage or cancel your subscription" page for this customer. */
