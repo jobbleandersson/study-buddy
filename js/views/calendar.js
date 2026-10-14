@@ -6,7 +6,7 @@
 // dialog — this is the one place that's meant to be a page you plan from.
 
 import { store } from "../store.js";
-import { el, clear, icon, ICONS } from "../lib/dom.js";
+import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
 import { t, plural, fmtDate, relativeDay, daysUntil } from "../lib/i18n.js";
 import { localDayKey, addDays } from "../lib/activity.js";
 import { buildMonthCells, weekdayHeaders, monthLabel } from "../components/calendar.js";
@@ -14,6 +14,32 @@ import { homeButton } from "../components/nav.js";
 import { openQuickAdd, closeQuickAdd } from "../components/quick-add.js";
 
 const MAX_CHIPS = 3;
+
+// The month on show, kept through a rebuild of the page (a store change — removing a deadline, say) so it
+// doesn't jump back to this month; forgotten when you leave the page.
+let viewMonth = null;
+
+/** Take a deadline off the calendar, with a moment to undo: a set loses its date, a test is removed (the
+ *  sets it covered stay, back as plain sets). */
+function removeDeadline(a) {
+  if (a.key.startsWith("exam:")) {
+    const rec = store.removeExam(a.id);
+    if (!rec) return;
+    const subject = store.subjects.find((s) => s.id === rec.subjectId)?.name || "";
+    toast(t("examdlg.removed", { subject }), { actionLabel: t("common.undo"), onAction: () => store.restoreExam(rec) });
+  } else {
+    const prev = a.dueAt;
+    store.setDueDate(a.id, null);
+    toast(t("due.cleared"), { actionLabel: t("common.undo"), onAction: () => store.setDueDate(a.id, prev) });
+  }
+}
+
+/** The × beside a deadline (an agenda row or a day's chip) that removes it. */
+const removeBtn = (a, cls, size = 14) => el(`button.${cls}`, {
+  type: "button", title: t("cal.removeTitle"),
+  "aria-label": t(a.key.startsWith("exam:") ? "cal.removeTest" : "cal.removeDue", { title: a.title }),
+  onclick: (e) => { e.preventDefault(); e.stopPropagation(); removeDeadline(a); },
+}, icon(ICONS.close, size));
 
 // A test still on its default name ("Inför provet i Matematik") reads "Prov · Matematik" on a chip, which
 // is short enough to read in a day cell; one the student named keeps its name.
@@ -72,8 +98,8 @@ export function renderCalendarPage() {
 
   /* ---------------- the month grid ---------------- */
 
-  let viewY = now.getFullYear();
-  let viewM = now.getMonth();
+  let viewY = viewMonth?.y ?? now.getFullYear();
+  let viewM = viewMonth?.m ?? now.getMonth();
 
   let paintPast = null;   // set below, once the agenda exists; paintCal repaints the passed block through it
   const monthLbl = el("span.plan-cal__month");
@@ -112,13 +138,16 @@ export function renderCalendarPage() {
 
     for (const a of dayItems.slice(0, MAX_CHIPS)) {
       const color = store.subjectColor(a.subjectId);
-      node.appendChild(el("a.plan-cal__chip" + (a.kind === "test" ? ".is-test" : ""), {
-        href: a.href,
-        title: `${a.title}${a.kind === "test" ? " · " + t("common.test") : ""}`,
-        style: { "--subject": color.solid, "--subject-ink": color.ink, "--subject-tint": color.tint },
-      }, [
-        el("span.plan-cal__chip-dot"),
-        el("span.plan-cal__chip-t", {}, chipLabel(a)),
+      node.appendChild(el("div.plan-cal__chipwrap", {}, [
+        el("a.plan-cal__chip" + (a.kind === "test" ? ".is-test" : ""), {
+          href: a.href,
+          title: `${a.title}${a.kind === "test" ? " · " + t("common.test") : ""}`,
+          style: { "--subject": color.solid, "--subject-ink": color.ink, "--subject-tint": color.tint },
+        }, [
+          el("span.plan-cal__chip-dot"),
+          el("span.plan-cal__chip-t", {}, chipLabel(a)),
+        ]),
+        removeBtn(a, "plan-cal__chip-x", 11),
       ]));
     }
 
@@ -144,6 +173,7 @@ export function renderCalendarPage() {
   }
 
   function paintCal() {
+    viewMonth = { y: viewY, m: viewM };
     monthLbl.textContent = monthLabel(viewY, viewM);
     paintPast?.();   // the agenda's passed block follows the month on show (not there on the very first paint)
     todayBtn.hidden = viewY === now.getFullYear() && viewM === now.getMonth();
@@ -188,7 +218,7 @@ export function renderCalendarPage() {
     const left = daysUntil(a.dueAt);
     const test = a.kind === "test";
     const state = left < 0 ? "is-past" : left <= 2 ? "is-soon" : "";
-    return el("a.plan-row" + (state ? "." + state : ""), {
+    const link = el("a.plan-row" + (state ? "." + state : ""), {
       href: a.href,
       style: { "--subject": color.solid },
       "aria-label": t(test ? "menu.upcomingTestAria" : "menu.upcomingStudyAria", { title: a.title }),
@@ -197,11 +227,12 @@ export function renderCalendarPage() {
         el("span.plan-row__title", {}, a.title),
         el("span.plan-row__meta", {}, [
           test ? el("span.plan-row__type", {}, t("common.test")) : null,
-          el("span", {}, `${fmtDate(a.dueAt)} · ${test && left < 0 ? plural(-left, "date.agoOne", "date.agoMany") : relativeDay(a.dueAt)}`),
+          el("span", {}, [`${fmtDate(a.dueAt)} · `,
+            el("span.plan-row__when", {}, test && left < 0 ? plural(-left, "date.agoOne", "date.agoMany") : relativeDay(a.dueAt))]),
         ].filter(Boolean)),
       ]),
-      el("span.plan-row__go", {}, icon(test ? ICONS.graduation : ICONS.play, 14)),
     ]);
+    return el("div.plan-item", {}, [link, removeBtn(a, "plan-row__x")]);
   }
 
   // Only the passed deadlines inside the month the grid is showing: last week's belong to last month's
@@ -272,6 +303,9 @@ export function renderCalendarPage() {
     title: t("menu.calendarTitle"),
     node,
     // Kept open through a rebuild of this page (a store change); closed when you leave it.
-    cleanup: () => { closeChooser(); if (location.hash.replace(/^#/, "").split("?")[0] !== "/calendar") closeQuickAdd(); },
+    cleanup: () => {
+      closeChooser();
+      if (location.hash.replace(/^#/, "").split("?")[0] !== "/calendar") { closeQuickAdd(); viewMonth = null; }
+    },
   };
 }

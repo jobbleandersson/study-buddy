@@ -780,6 +780,7 @@ button.plan-cal__cell:hover { background: var(--brand-tint); border-color: var(-
 .plan-cal__cell.is-past:not(.is-today) .plan-cal__date,
 .plan-cal__cell.is-outside .plan-cal__date { color: var(--ink-faint); font-weight: 600; }
 .plan-cal__cell.is-past .plan-cal__chip { background: var(--surface-sunk); color: var(--ink-soft); }
+.plan-cal__cell.is-past .plan-cal__chip-x { background: var(--surface-sunk); }
 .plan-cal__date {
   align-self: flex-end; padding: 1px 3px;
   font-size: 12px; font-weight: 700; color: var(--ink-soft); font-variant-numeric: tabular-nums;
@@ -797,6 +798,19 @@ button.plan-cal__cell:hover { background: var(--brand-tint); border-color: var(-
   overflow: hidden;
 }
 .plan-cal__chip:hover { outline: 1px solid var(--subject); }
+/* A chip's × (removeBtn in views/calendar.js) shows on hover or keyboard focus, over the chip's right
+   end; on a touch screen wide enough for chip titles it stays faintly visible. */
+.plan-cal__chipwrap { position: relative; }
+.plan-cal__chip-x {
+  position: absolute; top: 1px; right: 1px; width: 18px; height: 18px; padding: 0;
+  display: grid; place-items: center; border: none; border-radius: 4px; cursor: pointer;
+  background: var(--subject-tint, var(--surface-sunk)); color: var(--ink-soft);
+  opacity: 0; transition: opacity var(--dur-fast), color var(--dur-fast);
+}
+.plan-cal__chipwrap:hover .plan-cal__chip-x, .plan-cal__chip-x:focus-visible { opacity: 1; }
+.plan-cal__chip-x:hover { color: var(--ink); }
+.plan-cal__chip-x:focus-visible { outline: none; box-shadow: var(--ring); }
+@media (hover: none) and (min-width: 561px) { .plan-cal__chip-x { opacity: .8; } }
 .plan-cal__chip-dot { width: 5px; height: 5px; border-radius: 2px; background: var(--subject); flex: none; }
 .plan-cal__chip.is-test .plan-cal__chip-dot { border-radius: var(--r-full); }
 /* Two lines before it is cut: "Prov · Samhällskunskap" doesn't fit one line of a day cell, and "Prov ·" says nothing. */
@@ -829,6 +843,7 @@ button.plan-cal__cell:hover { background: var(--brand-tint); border-color: var(-
   .plan-cal__add svg { display: none; }
   .plan-cal__add:active { background: var(--brand-tint); }
   .plan-cal__chip, .plan-cal__more { position: relative; z-index: 1; }
+  .plan-cal__chip-x { display: none; }
   .plan-cal__date { pointer-events: none; }
 }
 
@@ -859,7 +874,19 @@ button.plan-cal__cell:hover { background: var(--brand-tint); border-color: var(-
   transition: background var(--dur-fast), border-color var(--dur-fast);
 }
 .plan-row:hover { background: var(--surface-sunk); }
-.plan-row.is-soon { border-color: var(--retry); border-left-color: var(--retry); }
+/* A row's link with an × beside it that removes the deadline (removeBtn in views/calendar.js). */
+.plan-item { position: relative; }
+.plan-item .plan-row { padding-right: 40px; }
+.plan-row__x {
+  position: absolute; right: 6px; top: 50%; translate: 0 -50%;
+  width: 28px; height: 28px; padding: 0; border: none; border-radius: var(--r-full);
+  display: grid; place-items: center; background: transparent; color: var(--ink-faint); cursor: pointer;
+  transition: background var(--dur-fast), color var(--dur-fast);
+}
+.plan-row__x:hover { background: var(--surface-sunk); color: var(--ink); }
+.plan-row__x:focus-visible { outline: none; box-shadow: var(--ring); }
+/* Within two days: just the day word in the accent, as on the home page — no warning-coloured card. */
+.plan-row.is-soon .plan-row__when { color: var(--brand-ink); font-weight: 600; }
 .plan-row.is-overdue { border-color: var(--retry); border-left-color: var(--retry); background: var(--retry-tint); }
 .plan-row__body { flex: 1; min-width: 0; }
 .plan-row__title {
@@ -867,16 +894,14 @@ button.plan-cal__cell:hover { background: var(--brand-tint); border-color: var(-
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 .plan-row__meta { display: flex; align-items: center; gap: var(--s-2); font-size: 12px; color: var(--ink-soft); }
-.plan-row.is-soon .plan-row__meta, .plan-row.is-overdue .plan-row__meta { color: var(--retry-ink); }
+.plan-row.is-overdue .plan-row__meta { color: var(--retry-ink); }
 .plan-row__type {
   font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em;
   color: var(--brand-ink); background: var(--brand-tint); border-radius: var(--r-full); padding: 0 5px;
 }
-.plan-row.is-soon .plan-row__type, .plan-row.is-overdue .plan-row__type {
+.plan-row.is-overdue .plan-row__type {
   color: var(--retry-ink); background: color-mix(in srgb, var(--retry) 22%, transparent);
 }
-.plan-row__go { flex: none; color: var(--ink-faint); display: grid; place-items: center; }
-.plan-row:hover .plan-row__go { color: var(--brand); }
 
 .plan-agenda__empty {
   display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--s-2);
