@@ -2078,6 +2078,7 @@ export default {
   "plus.manage": "Hantera prenumeration",
   "plus.thanks": "Tack! Det kan ta några sekunder innan Plus slås på.",
   "plus.thanksDone": "Plus är på. Njut!",
+  "plus.processing": "Din betalning går igenom. Plus slås på om en stund, så du behöver inte betala igen.",
   "set.planLabel": "Abonnemang",
   "set.planFree": "Du har det kostnadsfria abonnemanget.",
   "set.planPlus": "Du har PluggEra Plus.",

@@ -387,6 +387,13 @@ if (!db.prepare("PRAGMA table_info(subscriptions)").all().some((c) => c.name ===
   db.exec("ALTER TABLE subscriptions ADD COLUMN last_event_at INTEGER");
 }
 
+// The Stripe Checkout session an account last started (billing.js). Before starting another, the server asks
+// Stripe whether that one was already paid, so a second click while the first payment's webhook is still on
+// its way can't buy the plan twice. Cleared once the checkout.session.completed event has been applied.
+if (!db.prepare("PRAGMA table_info(subscriptions)").all().some((c) => c.name === "last_checkout_session")) {
+  db.exec("ALTER TABLE subscriptions ADD COLUMN last_checkout_session TEXT");
+}
+
 // A small summary of each state (state-digest.js), written when the state is saved, so the class results
 // and the friends leaderboard don't parse everyone's whole 10 MB state on every request. NULL on rows
 // saved before this existed: their summary is built on first read.

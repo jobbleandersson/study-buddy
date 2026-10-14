@@ -34,7 +34,8 @@ export const isPlusStatus = (status) => PLUS_STATUSES.has(status);
 
 const rowStmt = db.prepare(
   `SELECT stripe_customer_id AS customerId, stripe_subscription_id AS subscriptionId, status,
-          current_period_end AS periodEnd, cancel_at_period_end AS cancelAtPeriodEnd, last_event_at AS lastEventAt
+          current_period_end AS periodEnd, cancel_at_period_end AS cancelAtPeriodEnd, last_event_at AS lastEventAt,
+          last_checkout_session AS lastCheckoutSession, updated_at AS updatedAt
    FROM subscriptions WHERE user_id = ?`
 );
 
@@ -179,6 +180,8 @@ export const applyEvent = db.transaction((event) => {
       status: (sameSub && existing.status) || (!existing?.subscriptionId && existing?.status) || "incomplete",
       periodEnd: null, cancel: sameSub && existing?.cancelAtPeriodEnd ? 1 : 0, now: Date.now(), at: null,
     });
+    // This checkout is done and linked: it no longer needs asking Stripe about (checkoutBlocker below).
+    clearCheckoutStmt.run(userId, obj.id || null);
     return "updated";
   }
 
@@ -236,7 +239,40 @@ async function stripe(method, path, params) {
   return json;
 }
 
-/** A Checkout page for the Plus plan. `origin` is where the person comes back to (https://pluggera.se). */
+// Which Checkout session an account last started. A row made only for this (no subscription yet) is a
+// placeholder: status "incomplete", no subscription id, so nothing treats it as a plan.
+const rememberCheckoutStmt = db.prepare(`
+  INSERT INTO subscriptions (user_id, status, updated_at, last_checkout_session) VALUES (?, 'incomplete', ?, ?)
+  ON CONFLICT(user_id) DO UPDATE SET last_checkout_session = excluded.last_checkout_session
+`);
+const clearCheckoutStmt = db.prepare("UPDATE subscriptions SET last_checkout_session = NULL WHERE user_id = ? AND last_checkout_session IS ?");
+
+const PROCESSING_MS = 10 * 60_000;
+
+/** Is a payment for this account already going through that we haven't been told about yet? If so a second
+ *  checkout would buy the plan twice: someone pays, lands back on the site before Stripe's webhook has
+ *  switched Plus on, and presses the button again. Returns "payment_processing" to refuse, or null to go
+ *  ahead. Two signals: the "checkout completed" event linked a subscription whose own status hasn't followed
+ *  yet, or Stripe says the session we last started is already complete. A session still open is expired, so
+ *  it can't be paid later in another tab. Throws if Stripe can't be asked - the caller must not guess. */
+export async function checkoutBlocker(userId) {
+  const sub = subscriptionOf(userId);
+  if (!sub) return null;
+  if (sub.subscriptionId && sub.status === "incomplete" && Date.now() - sub.updatedAt < PROCESSING_MS) return "payment_processing";
+  if (!sub.lastCheckoutSession) return null;
+  let previous;
+  try {
+    previous = await stripe("GET", `/v1/checkout/sessions/${encodeURIComponent(sub.lastCheckoutSession)}`);
+  } catch (e) {
+    if (e.status === 404) return null;   // Stripe no longer knows it: nothing to pay
+    throw e;
+  }
+  if (previous.status === "complete") return "payment_processing";
+  if (previous.status === "open") await stripe("POST", `/v1/checkout/sessions/${encodeURIComponent(sub.lastCheckoutSession)}/expire`);
+  return null;
+}
+
+/** A Checkout page for the Plus plan: { url, id }. `origin` is where the person comes back to (https://pluggera.se). */
 export async function createCheckoutSession({ userId, email, origin }) {
   const existing = subscriptionOf(userId);
   const session = await stripe("POST", "/v1/checkout/sessions", {
@@ -249,7 +285,8 @@ export async function createCheckoutSession({ userId, email, origin }) {
     success_url: `${origin}/#/plus?paid=1`,
     cancel_url: `${origin}/#/plus`,
   });
-  return session.url;
+  if (session.id) rememberCheckoutStmt.run(userId, Date.now(), session.id);
+  return { url: session.url, id: session.id };
 }
 
 /** Stripe's own "manage or cancel your subscription" page for this customer. */

@@ -4,7 +4,7 @@ import { asyncHandler } from "../middleware/asyncHandler.js";
 import { attemptLimit } from "../middleware/attemptLimit.js";
 import {
   billingEnabled, isTestMode, canCheckout, isPlus, subscriptionOf, verifyStripeSignature, applyEvent, refundCancelTarget, cancelSubscriptionNow,
-  createCheckoutSession, createPortalSession,
+  createCheckoutSession, createPortalSession, checkoutBlocker,
 } from "../billing.js";
 import { PLUS_TOKEN_BUDGET } from "../usage.js";
 
@@ -51,7 +51,12 @@ billing.post("/billing/checkout", requireAuth, checkoutLimit, asyncHandler(async
     return res.status(409).json({ error: { message: "You already have Plus.", code: "already_plus" } });
   }
   try {
-    const url = await createCheckoutSession({ userId, email, origin: originOf(req) });
+    // A payment that has gone through at Stripe but hasn't reached us yet must not be paid for twice.
+    const blocked = await checkoutBlocker(userId);
+    if (blocked) {
+      return res.status(409).json({ error: { message: "Your payment is going through. Plus switches on in a moment.", code: blocked } });
+    }
+    const { url } = await createCheckoutSession({ userId, email, origin: originOf(req) });
     res.json({ url });
   } catch (e) {
     console.error("[billing] checkout failed:", e.message);

@@ -49,10 +49,19 @@ account.delete("/account", requireAuth, deleteFailures, asyncHandler(async (req,
   // A live subscription is ended at Stripe before the account goes: once the row is deleted nothing
   // here could find it again, and someone would keep being charged for an account that no longer exists.
   // If Stripe can't be reached the delete is refused, so they can try again rather than be left paying.
+  // With Stripe switched off here (no secret key) nothing can end the subscription, and deleting the row
+  // would leave Stripe charging an account nobody can find any more - so an account whose plan is still
+  // running (and is not already set to end by itself) is not deleted until billing is back or the plan is
+  // ended some other way.
   const sub = subscriptionOf(userId);
-  if (sub?.subscriptionId && isPlusStatus(sub.status) && process.env.STRIPE_SECRET_KEY) {
-    if (!(await cancelSubscriptionNow(sub.subscriptionId))) {
-      return res.status(502).json({ error: { message: "Couldn't cancel your subscription just now, so the account wasn't deleted. Try again in a moment.", code: "billing_unavailable" } });
+  if (sub?.subscriptionId && isPlusStatus(sub.status)) {
+    if (process.env.STRIPE_SECRET_KEY) {
+      if (!(await cancelSubscriptionNow(sub.subscriptionId))) {
+        return res.status(502).json({ error: { message: "Couldn't cancel your subscription just now, so the account wasn't deleted. Try again in a moment.", code: "billing_unavailable" } });
+      }
+    } else if (!sub.cancelAtPeriodEnd) {
+      console.error("[account] delete refused: a running subscription and no Stripe key to cancel it with");
+      return res.status(503).json({ error: { message: "Your Plus subscription can't be cancelled right now, so the account wasn't deleted. Please try again later.", code: "billing_unavailable" } });
     }
   }
 

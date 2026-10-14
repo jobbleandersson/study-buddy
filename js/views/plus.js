@@ -18,6 +18,9 @@ const fmtDate = (ts) => new Date(ts).toLocaleDateString(getLang() === "sv" ? "sv
 
 export function renderPlus(qs) {
   const justPaid = qs?.get?.("paid") === "1";
+  // Just back from paying: until the webhook has switched Plus on (or we stop looking), there is no "get Plus"
+  // button to press a second time - the server refuses a second checkout then anyway, this just says why first.
+  let waiting = justPaid;
   const panel = el("section.panel.formcard", {});
   const node = el("div.settings", {}, [
     homeButton({ grid: true }),
@@ -36,7 +39,7 @@ export function renderPlus(qs) {
       const res = await fetch(url, { method: "POST", credentials: "include", headers: { "content-type": "application/json" }, body: "{}" });
       const data = await res.json().catch(() => ({}));
       if (!res.ok || typeof data.url !== "string" || !/^https:\/\//.test(data.url)) {
-        throw new Error(serverMessage(data?.error?.message, t("plus.error")));
+        throw new Error(data?.error?.code === "payment_processing" ? t("plus.processing") : serverMessage(data?.error?.message, t("plus.error")));
       }
       window.location.assign(data.url);
     } catch (err) {
@@ -77,7 +80,7 @@ export function renderPlus(qs) {
         el("p", { style: { fontWeight: "700", fontSize: "1.25rem", margin: "4px 0" } }, t("plus.price")),
         el("p.note", {}, t("plus.priceNote")),
         b.testMode ? el("p.note.note--warn", {}, t("plus.testMode")) : null,
-        ...actionButton(t("plus.cta"), BILLING_CHECKOUT_URL),
+        ...(waiting ? [] : actionButton(t("plus.cta"), BILLING_CHECKOUT_URL)),
       );
     } else {
       // Plus isn't open to this account (no Stripe set up, or a test-mode rollout for testers only).
@@ -94,7 +97,7 @@ export function renderPlus(qs) {
   if (justPaid) {
     let tries = 0;
     const timer = setInterval(async () => {
-      if (!node.isConnected || store.billing?.plus || ++tries > 10) { clearInterval(timer); return; }
+      if (!node.isConnected || store.billing?.plus || ++tries > 10) { clearInterval(timer); waiting = false; paint(); return; }
       await store.refreshBilling();
       paint();
       if (store.billing?.plus) { toast(t("plus.thanksDone")); store.refreshUsage?.(); }
