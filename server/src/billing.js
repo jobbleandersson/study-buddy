@@ -34,7 +34,7 @@ export const isPlusStatus = (status) => PLUS_STATUSES.has(status);
 
 const rowStmt = db.prepare(
   `SELECT stripe_customer_id AS customerId, stripe_subscription_id AS subscriptionId, status,
-          current_period_end AS periodEnd, cancel_at_period_end AS cancelAtPeriodEnd
+          current_period_end AS periodEnd, cancel_at_period_end AS cancelAtPeriodEnd, last_event_at AS lastEventAt
    FROM subscriptions WHERE user_id = ?`
 );
 
@@ -76,15 +76,18 @@ export function verifyStripeSignature(rawBody, header, secret, { toleranceSec = 
 // ---------- applying an event ----------
 
 const upsertStmt = db.prepare(`
-  INSERT INTO subscriptions (user_id, stripe_customer_id, stripe_subscription_id, status, current_period_end, cancel_at_period_end, updated_at)
-  VALUES (@userId, @customerId, @subscriptionId, @status, @periodEnd, @cancel, @now)
+  INSERT INTO subscriptions (user_id, stripe_customer_id, stripe_subscription_id, status, current_period_end, cancel_at_period_end, updated_at, last_event_at)
+  VALUES (@userId, @customerId, @subscriptionId, @status, @periodEnd, @cancel, @now, @at)
   ON CONFLICT(user_id) DO UPDATE SET
     stripe_customer_id     = COALESCE(@customerId, stripe_customer_id),
     stripe_subscription_id = COALESCE(@subscriptionId, stripe_subscription_id),
     status                 = @status,
     current_period_end     = COALESCE(@periodEnd, current_period_end),
     cancel_at_period_end   = @cancel,
-    updated_at             = @now
+    updated_at             = @now,
+    last_event_at          = CASE WHEN @at IS NULL THEN last_event_at
+                                  WHEN last_event_at IS NULL OR @at > last_event_at THEN @at
+                                  ELSE last_event_at END
 `);
 const userByIdStmt = db.prepare("SELECT id FROM users WHERE id = ?");
 const userByCustomerStmt = db.prepare("SELECT user_id AS id FROM subscriptions WHERE stripe_customer_id = ?");
@@ -101,6 +104,20 @@ function userIdFor({ metadataUserId, customerId }) {
   if (customerId) return userByCustomerStmt.get(customerId)?.id || null;
   return null;
 }
+
+/** Is this event older than what the account already reflects? Stripe does not promise to deliver events
+ *  in the order they happened, so a late "updated" must not undo a newer "deleted" (a cancelled plan
+ *  coming back to life), nor the old subscription's "deleted" cancel a new one a returning customer
+ *  started. Only judged when the event carries Stripe's `created` time, which every real one does. */
+function isStale(existing, event, subscriptionId, isDeletion) {
+  const at = Number(event.created) > 0 ? Number(event.created) * 1000 : null;
+  if (at == null || !existing) return false;
+  if (existing.lastEventAt != null && at < existing.lastEventAt) return true;
+  // The same second is not ordered: a cancelled subscription never comes back, so anything but its
+  // own deletion that shows up afterwards for the same subscription is an old event arriving late.
+  return existing.status === "canceled" && !!subscriptionId && existing.subscriptionId === subscriptionId && !isDeletion;
+}
+const eventAt = (event) => (Number(event.created) > 0 ? Number(event.created) * 1000 : null);
 
 // A refund only ends the plan when it is for a payment of the current billing period (with a few days of
 // slack): refunding an old month after later ones were paid is someone tidying up, not leaving.
@@ -126,9 +143,9 @@ export function refundCancelTarget(event) {
 }
 
 /** Apply one verified webhook event. Returns what was done (for the log and the tests):
- *  "duplicate" (seen before), "ignored" (a kind we do not use, or an account that no longer exists),
- *  or "updated". Never throws for an unfamiliar event - Stripe sends many kinds and a 4xx would make it
- *  retry them for days. */
+ *  "duplicate" (seen before), "stale" (older than what is already known), "ignored" (a kind we do not
+ *  use, or an account that no longer exists), or "updated". Never throws for an unfamiliar event -
+ *  Stripe sends many kinds and a 4xx would make it retry them for days. */
 export const applyEvent = db.transaction((event) => {
   if (!event?.id || !event?.type) return "ignored";
   if (seenStmt.run(event.id, Date.now()).changes === 0) return "duplicate";
@@ -138,12 +155,17 @@ export const applyEvent = db.transaction((event) => {
     if (obj.mode !== "subscription") return "ignored";
     const userId = userIdFor({ metadataUserId: obj.client_reference_id, customerId: obj.customer });
     if (!userId) return "ignored";
-    // The subscription events carry the real status; this one just links the account to the Stripe
-    // customer and subscription, so they can find it. Never downgrades a status already received.
     const existing = subscriptionOf(userId);
+    if (isStale(existing, event, obj.subscription, false)) return "stale";
+    // The subscription events carry the real status; this one just links the account to the Stripe
+    // customer and subscription, so they can find it. Never downgrades a status already received for
+    // THIS subscription; a different one (a returning customer's new plan) starts from scratch rather
+    // than inheriting the old plan's "canceled".
+    const sameSub = !!existing?.subscriptionId && existing.subscriptionId === obj.subscription;
     upsertStmt.run({
       userId, customerId: obj.customer || null, subscriptionId: obj.subscription || null,
-      status: existing?.status || "incomplete", periodEnd: null, cancel: existing?.cancelAtPeriodEnd ? 1 : 0, now: Date.now(),
+      status: (sameSub && existing.status) || (!existing?.subscriptionId && existing?.status) || "incomplete",
+      periodEnd: null, cancel: sameSub && existing?.cancelAtPeriodEnd ? 1 : 0, now: Date.now(), at: eventAt(event),
     });
     return "updated";
   }
@@ -151,10 +173,12 @@ export const applyEvent = db.transaction((event) => {
   if (event.type === "customer.subscription.created" || event.type === "customer.subscription.updated" || event.type === "customer.subscription.deleted") {
     const userId = userIdFor({ metadataUserId: obj.metadata?.user_id, customerId: obj.customer });
     if (!userId) return "ignored";
+    const deleted = event.type === "customer.subscription.deleted";
+    if (isStale(subscriptionOf(userId), event, obj.id, deleted)) return "stale";
     upsertStmt.run({
       userId, customerId: obj.customer || null, subscriptionId: obj.id || null,
-      status: event.type === "customer.subscription.deleted" ? "canceled" : String(obj.status || "incomplete"),
-      periodEnd: periodEndMs(obj), cancel: obj.cancel_at_period_end ? 1 : 0, now: Date.now(),
+      status: deleted ? "canceled" : String(obj.status || "incomplete"),
+      periodEnd: periodEndMs(obj), cancel: obj.cancel_at_period_end ? 1 : 0, now: Date.now(), at: eventAt(event),
     });
     return "updated";
   }
@@ -164,7 +188,7 @@ export const applyEvent = db.transaction((event) => {
   if (event.type === "charge.refunded") {
     const target = refundCancelTarget(event);
     if (!target) return "ignored";
-    upsertStmt.run({ userId: target.userId, customerId: null, subscriptionId: null, status: "canceled", periodEnd: null, cancel: 0, now: Date.now() });
+    upsertStmt.run({ userId: target.userId, customerId: null, subscriptionId: null, status: "canceled", periodEnd: null, cancel: 0, now: Date.now(), at: eventAt(event) });
     return "updated";
   }
   return "ignored";

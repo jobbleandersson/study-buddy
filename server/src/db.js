@@ -379,3 +379,17 @@ for (const [col, def] of [
 if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === "password_set_at")) {
   db.exec("ALTER TABLE users ADD COLUMN password_set_at INTEGER");
 }
+
+// When Stripe created the newest webhook event applied to a subscription row (ms). Stripe does not
+// promise to deliver events in order, so billing.js drops one older than this instead of letting a
+// late "updated" undo a newer "deleted". NULL = nothing with a time on it yet (rows from before this).
+if (!db.prepare("PRAGMA table_info(subscriptions)").all().some((c) => c.name === "last_event_at")) {
+  db.exec("ALTER TABLE subscriptions ADD COLUMN last_event_at INTEGER");
+}
+
+// A small summary of each state (state-digest.js), written when the state is saved, so the class results
+// and the friends leaderboard don't parse everyone's whole 10 MB state on every request. NULL on rows
+// saved before this existed: their summary is built on first read.
+if (!db.prepare("PRAGMA table_info(state_blobs)").all().some((c) => c.name === "digest")) {
+  db.exec("ALTER TABLE state_blobs ADD COLUMN digest TEXT");
+}

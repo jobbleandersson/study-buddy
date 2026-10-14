@@ -14,11 +14,9 @@ jobs:
         with:
           node-version-file: .node-version
 
-      # No server/package-lock.json on purpose (see server/package.json's
-      # better-sqlite3 pin, and the Dockerfile's own comment) - npm install,
-      # not npm ci.
+      # Exactly what server/package-lock.json says, like the Dockerfile: CI tests what gets deployed.
       - name: Install server dependencies
-        run: npm install
+        run: npm ci
         working-directory: server
 
       - name: Validate library content
@@ -29,3 +27,20 @@ jobs:
 
       - name: Server integration tests
         run: npm run test:server
+
+  # Known vulnerabilities in what the server runs on (not the dev tools: there are none). Shown as its
+  # own check but never blocks a merge: a new advisory against an old package would otherwise turn every
+  # open branch red overnight. Open the job's log when it is yellow.
+  audit:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .node-version
+
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=moderate
+        working-directory: server

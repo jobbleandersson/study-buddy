@@ -17,6 +17,13 @@ describe("security headers", () => {
     assert.match(csp, /frame-src[^;]*https:\/\/accounts\.google\.com/);
   });
 
+  test("scripts may not use eval or inline code: no 'unsafe-eval' or 'unsafe-inline' in script-src", async () => {
+    const { res } = await client.get("/api/health");
+    const script = /script-src([^;]*)/.exec(res.headers.get("content-security-policy"))?.[1] || "";
+    assert.doesNotMatch(script, /unsafe-eval/, "pdf.js is told not to use eval (js/material.js), so the page must not allow it");
+    assert.doesNotMatch(script, /unsafe-inline/);
+  });
+
   test("basic hardening headers are present even on an API response", async () => {
     const { res } = await client.get("/api/health");
     assert.equal(res.headers.get("x-content-type-options"), "nosniff");

@@ -185,6 +185,51 @@ describe("with a test key", () => {
       assert.equal((await lapsed.client.get("/api/billing/status")).json.plus, false);
     });
 
+    describe("events that arrive out of order (Stripe's `created` says which is newer)", () => {
+      const at = (event, created) => ({ ...event, created });
+      const isPlusNow = async (u) => (await u.client.get("/api/billing/status")).json.plus;
+
+      test("a late 'updated' does not bring a cancelled subscription back", async () => {
+        const u = await signUp(server, "late-update@example.se");
+        const o = { id: "sub_late", customer: "cus_late" };
+        await sendEvent(server, at(subEvent("customer.subscription.created", u.id, o), 1_800_000_000));
+        await sendEvent(server, at(subEvent("customer.subscription.deleted", u.id, { ...o, status: "canceled" }), 1_800_000_200));
+        assert.equal(await isPlusNow(u), false);
+        await sendEvent(server, at(subEvent("customer.subscription.updated", u.id, o), 1_800_000_100));   // older, delivered late
+        assert.equal(await isPlusNow(u), false);
+      });
+
+      test("in the same second, nothing but its own deletion follows a cancelled subscription", async () => {
+        const u = await signUp(server, "same-second@example.se");
+        const o = { id: "sub_same", customer: "cus_same" };
+        await sendEvent(server, at(subEvent("customer.subscription.deleted", u.id, { ...o, status: "canceled" }), 1_800_000_500));
+        await sendEvent(server, at(subEvent("customer.subscription.updated", u.id, o), 1_800_000_500));
+        assert.equal(await isPlusNow(u), false);
+      });
+
+      test("the old subscription's late cancellation does not cancel the new one a returning customer started", async () => {
+        const u = await signUp(server, "returning@example.se");
+        await sendEvent(server, at(subEvent("customer.subscription.created", u.id, { id: "sub_old", customer: "cus_ret" }), 1_800_001_000));
+        await sendEvent(server, at(subEvent("customer.subscription.created", u.id, { id: "sub_new", customer: "cus_ret" }), 1_800_003_000));
+        assert.equal(await isPlusNow(u), true);
+        await sendEvent(server, at(subEvent("customer.subscription.deleted", u.id, { id: "sub_old", customer: "cus_ret", status: "canceled" }), 1_800_002_000));
+        assert.equal(await isPlusNow(u), true, "the old plan ending first in time, but arriving last, changes nothing");
+      });
+
+      test("a new plan after a cancellation starts from scratch, not as the old plan's 'canceled'", async () => {
+        const u = await signUp(server, "resub@example.se");
+        const old = { id: "sub_a", customer: "cus_resub" };
+        await sendEvent(server, at(subEvent("customer.subscription.created", u.id, old), 1_800_010_000));
+        await sendEvent(server, at(subEvent("customer.subscription.deleted", u.id, { ...old, status: "canceled" }), 1_800_010_100));
+        await sendEvent(server, at({ id: `evt_${++evCounter}`, type: "checkout.session.completed", data: { object: {
+          mode: "subscription", client_reference_id: u.id, customer: "cus_resub", subscription: "sub_b" } } }, 1_800_010_200));
+        assert.equal(await isPlusNow(u), false, "linked, but nothing paid is known yet");
+        // The new subscription's own events are not mistaken for the cancelled one's leftovers.
+        await sendEvent(server, at(subEvent("customer.subscription.created", u.id, { id: "sub_b", customer: "cus_resub" }), 1_800_010_300));
+        assert.equal(await isPlusNow(u), true);
+      });
+    });
+
     test("events for unknown accounts or kinds are acknowledged and ignored", async () => {
       assert.equal((await sendEvent(server, subEvent("customer.subscription.created", "no-such-user", { customer: "cus_nobody" }))).status, 200);
       assert.equal((await sendEvent(server, { id: `evt_${++evCounter}`, type: "charge.refunded", data: { object: {} } })).status, 200);

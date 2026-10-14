@@ -4,40 +4,32 @@
 // their state — never the rest of it — and only per-set numbers and
 // per-topic counts leave this module. "Known" means the same as everywhere
 // else in the app: a question whose most recent answer was right first try.
+// The state itself is not read here: state-digest.js keeps each student's last answer to every
+// question, and that is all this needs.
 
 /**
  * How one student is doing on one set.
- * `set` is { questions: [{ id, topic }] } from library-data.js; `blob` is the
- * student's synced state (or null if they've never synced).
+ * `set` is { questions: [{ id, topic }] } from library-data.js; `digest` is the student's
+ * state summary (state-digest.js), or null if they've never synced.
  * → { total, seen, known, lastAt, topics: { [topic]: { answered, wrong } } }
  */
-export function studentSetProgress(blob, set) {
-  const topicOf = new Map(set.questions.map((q) => [q.id, q.topic]));
-  const latest = new Map(); // questionId -> { at, ok }
+export function studentSetProgress(digest, set) {
+  const answers = digest?.answers && typeof digest.answers === "object" ? digest.answers : {};
   let lastAt = 0;
-
-  const attempts = Array.isArray(blob?.attempts) ? blob.attempts : [];
-  for (const attempt of attempts) {
-    const at = Number(attempt?.finishedAt) || 0;
-    for (const item of Array.isArray(attempt?.items) ? attempt.items : []) {
-      if (!topicOf.has(item?.questionId)) continue;
-      if (at > lastAt) lastAt = at;
-      const ok = item.firstTry ?? !!item.correct;
-      const prev = latest.get(item.questionId);
-      if (!prev || at >= prev.at) latest.set(item.questionId, { at, ok });
-    }
-  }
-
+  let seen = 0;
   let known = 0;
   const topics = {};
-  for (const [qid, { ok }] of latest) {
+  for (const q of set.questions) {
+    if (!Object.hasOwn(answers, q.id)) continue;
+    const [at, ok] = answers[q.id];
+    seen++;
+    if (at > lastAt) lastAt = at;
     if (ok) known++;
-    const topic = topicOf.get(qid);
-    const row = (topics[topic] ??= { answered: 0, wrong: 0 });
+    const row = (topics[q.topic] ??= { answered: 0, wrong: 0 });
     row.answered++;
     if (!ok) row.wrong++;
   }
-  return { total: set.questions.length, seen: latest.size, known, lastAt: lastAt || null, topics };
+  return { total: set.questions.length, seen, known, lastAt: lastAt || null, topics };
 }
 
 /** Add every student's per-topic counts together: [{ topic, answered, wrong }],

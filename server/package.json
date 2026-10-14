@@ -4,6 +4,7 @@
   "private": true,
   "description": "Backend key proxy for Studify — holds the Claude API key server-side and proxies requests, so it never reaches the browser.",
   "type": "module",
+  "engines": { "node": ">=24" },
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
@@ -11,7 +12,7 @@
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
-    "better-sqlite3": "11.10.0",
+    "better-sqlite3": "12.8.0",
     "compression": "1.8.2",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",

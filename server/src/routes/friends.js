@@ -3,6 +3,7 @@ import crypto from "node:crypto";
 import { db } from "../db.js";
 import { requireAuth } from "../middleware/requireAuth.js";
 import { codeGuessLimits } from "../middleware/authLimits.js";
+import { readDigest } from "../state-digest.js";
 
 export const friends = Router();
 
@@ -73,17 +74,6 @@ function activeFriendIds(userId) {
   `).all(userId, userId, userId);
 }
 
-// A profile picture (js/components/avatar-editor.js) travels inside each person's synced state. That
-// blob is whatever the client PUT, so before a picture goes out to a friend it is checked against the
-// same shape and size cap as js/store.js (AVATAR_RE / AVATAR_MAX) — anything else is dropped, never
-// forwarded to other people's browsers.
-const AVATAR_RE = /^data:image\/(webp|jpeg|png);base64,[A-Za-z0-9+/=]+$/;
-const AVATAR_MAX = 200_000;
-function avatarFrom(blob) {
-  const a = blob?.avatar;
-  return typeof a === "string" && a.length <= AVATAR_MAX && AVATAR_RE.test(a) ? a : null;
-}
-
 // This week's questions answered, and current streak, for the signed-in user
 // and every active friend — resets weekly (a lifetime-total leaderboard would
 // just be permanently led by whoever joined first). Streak/week boundaries
@@ -96,28 +86,23 @@ friends.get("/friends/leaderboard", requireAuth, (req, res) => {
   const userIds = [req.user.userId, ...friendRows.map((r) => r.friendUserId)];
   const weekStart = startOfWeekUTC(Date.now());
 
-  // A friend's saved state is whatever their client wrote — read it defensively, so one odd blob
-  // can't turn everybody's leaderboard into an error.
-  const arr = (x) => (Array.isArray(x) ? x : []);
+  // What this page needs from each person's saved state comes from its small summary (state-digest.js,
+  // already checked and cut down when it was saved), not from parsing the whole state — up to 10 MB —
+  // of every friend on every view. A person who never synced has none (digest is null).
   const entries = userIds.map((userId) => {
-    const row = db.prepare("SELECT blob FROM state_blobs WHERE user_id = ?").get(userId);
-    let blob = null;
-    try { blob = row ? JSON.parse(row.blob) : null; } catch { /* unreadable: shows as nothing done */ }
-    if (!blob || typeof blob !== "object") blob = null;
-    const attempts = arr(blob?.attempts);
-    const questionsThisWeek = attempts
-      .filter((a) => a && (Number(a.finishedAt) || 0) >= weekStart)
-      .reduce((n, a) => n + arr(a.items).length, 0);
+    const digest = readDigest(userId);
+    const questionsThisWeek = (digest?.attempts || [])
+      .filter(([at]) => at >= weekStart)
+      .reduce((n, [, answered]) => n + answered, 0);
     return {
       userId,
       linkId: linkIdFor.get(userId) || null,
       email: friendEmail(userId),
       isMe: userId === req.user.userId,
-      synced: !!row,
-      avatar: avatarFrom(blob),
+      synced: !!digest,
+      avatar: digest?.avatar ?? null,
       questionsThisWeek,
-      streak: currentStreakFromUTC(arr(blob?.activity?.daysStudied).filter((d) => typeof d === "string"),
-        arr(blob?.activity?.frozenDays).filter((d) => typeof d === "string")),
+      streak: currentStreakFromUTC(digest?.days, digest?.frozen),
     };
   });
 
