@@ -15,6 +15,11 @@ Several Claude sessions, plus the cloud sessions of a second developer, work on 
 5. Cloud sessions can't run `flyctl`. They open PRs; a local session merges and deploys.
 6. **Ask first for anything hard to undo or that touches production data or secrets:** deleting or overwriting data, `fly secrets set/unset`, changing the site password or admin keys, force-pushing, switching billing on. Secrets never go in the repo, a PR, a commit message or chat. Refer to them by name only.
 7. Keep PRs to one purpose, match the code around your change, and say in the PR how you verified it.
+8. **Review before you merge, with Anthropic's skills.** Merging needs no human review, so these stand in for one:
+   - `/security-review` on every PR that touches accounts, sign-in, `gate.js`, billing, email, the AI endpoints, uploads, or anything that stores or shows student data.
+   - `/code-review` on every PR before it is merged, whatever its size. Fix what it finds (`--fix` helps), then push and recheck CI.
+   - `/claude-api` whenever you write or change code that calls the Anthropic API (the AI tutor, `ai-check.js`, model IDs, prompts, caching). Use current model IDs from the skill, never from memory.
+   Say in the PR description which of these you ran and what came out. Cloud sessions that can't run a skill say so in the PR, and the merging session runs it before merging.
 
 ## Run and test
 
