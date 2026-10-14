@@ -2,6 +2,7 @@ import { Router } from "express";
 import { requireAuth } from "../middleware/requireAuth.js";
 import { budgetFor, isPlus } from "../billing.js";
 import { asyncHandler } from "../middleware/asyncHandler.js";
+import { withSafetyRules } from "../ai-safety.js";
 import { takeToken, RATE_PER_MIN } from "../middleware/rateLimit.js";
 import {
   recordUsage, checkBudget, isBudgetExempt, checkDailyCap, reserveSpend, worstCaseMicro, readUsage, currentPeriod, periodResetsAt,
@@ -28,7 +29,7 @@ const EFFORTS = new Set(["low", "medium", "high"]);
 
 // Only forward the fields we expect. Anything else the client sent is dropped
 // before the request reaches Anthropic.
-function sanitizeBody(raw) {
+export function sanitizeBody(raw) {
   const b = raw && typeof raw === "object" ? raw : {};
   const model = String(b.model || "");
   const asked = Number(b.max_tokens);
@@ -37,7 +38,9 @@ function sanitizeBody(raw) {
     max_tokens: Number.isFinite(asked) && asked > 0 ? Math.min(asked, MAX_OUTPUT_TOKENS) : MAX_OUTPUT_TOKENS,
     messages: Array.isArray(b.messages) ? b.messages : [],
   };
-  if (b.system != null) out.system = b.system;
+  // The server's own safety rules always come first (ai-safety.js): the client's system prompt is only
+  // as trustworthy as the student's browser.
+  out.system = withSafetyRules(b.system);
   if (b.stream === true) out.stream = true;
   // Claude Haiku 5.5 rejects non-default sampling parameters with a 400, so it never gets one.
   if (typeof b.temperature === "number" && model !== "claude-haiku-5-5") out.temperature = Math.max(0, Math.min(1, b.temperature));

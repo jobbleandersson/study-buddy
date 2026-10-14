@@ -49,8 +49,10 @@ export function emptyState(iconPath, text, action = null, { compact = false } = 
  *  comes from the text, so the same name keeps the same colour. */
 export function avatar(text, { square = false } = {}) {
   const s = String(text || "?");
-  const words = s.split("@")[0].split(/[\s._-]+/).filter(Boolean);
-  const initials = (words.length > 1 ? words[0][0] + words[1][0] : s.slice(0, 2)).toUpperCase();
+  // Letters and digits only, so a masked address ("s•••@school.se") gives "S", not "S•".
+  const base = s.split("@")[0].replace(/[^\p{L}\p{N}\s._-]/gu, "");
+  const words = base.split(/[\s._-]+/).filter(Boolean);
+  const initials = (words.length > 1 ? words[0][0] + words[1][0] : base.slice(0, 2) || "?").toUpperCase();
   let h = 0;
   for (const ch of s) h = (h * 31 + ch.charCodeAt(0)) % 360;
   return el("span.set-avatar" + (square ? ".set-avatar--sq" : ""), { "aria-hidden": "true", style: { "--hue": String(h) } }, initials);

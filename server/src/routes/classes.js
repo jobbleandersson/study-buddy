@@ -4,7 +4,7 @@ import { db } from "../db.js";
 import { requireAuth } from "../middleware/requireAuth.js";
 import { librarySet } from "../library-data.js";
 import { studentSetProgress, classTopics } from "../class-stats.js";
-import { readDigest } from "../state-digest.js";
+import { readDigest, displayNames } from "../state-digest.js";
 import { codeGuessLimits } from "../middleware/authLimits.js";
 import { isUniqueViolation } from "../errors.js";
 
@@ -104,11 +104,14 @@ classes.get("/classes", requireAuth, (req, res) => {
 classes.get("/classes/:id", requireAuth, (req, res) => {
   const cls = teacherClass(req, res);
   if (!cls) return;
-  const members = db.prepare(`
-    SELECT u.id AS userId, u.email, m.joined_at AS joinedAt
+  const rows = db.prepare(`
+    SELECT u.id AS userId, m.joined_at AS joinedAt
     FROM class_members m JOIN users u ON u.id = m.student_user_id
-    WHERE m.class_id = ? ORDER BY u.email
+    WHERE m.class_id = ?
   `).all(cls.id);
+  // A name or a masked address, never the address itself (anyone can run a class).
+  const names = displayNames(rows.map((m) => m.userId));
+  const members = rows.map((m) => ({ ...m, name: names.get(m.userId) })).sort((a, b) => a.name.localeCompare(b.name));
   const assignments = db.prepare(
     "SELECT id, set_id AS setId, due_at AS dueAt, created_at AS createdAt FROM class_assignments WHERE class_id = ? ORDER BY created_at"
   ).all(cls.id).map((a) => ({ ...a, title: librarySet(a.setId)?.title ?? a.setId }));
@@ -121,10 +124,14 @@ classes.get("/classes/:id/results", requireAuth, (req, res) => {
   const cls = teacherClass(req, res);
   if (!cls) return;
 
-  const members = db.prepare(`
-    SELECT u.id AS userId, u.email FROM class_members m JOIN users u ON u.id = m.student_user_id
-    WHERE m.class_id = ? ORDER BY u.email
-  `).all(cls.id);
+  const memberIds = db.prepare(`
+    SELECT u.id AS userId FROM class_members m JOIN users u ON u.id = m.student_user_id
+    WHERE m.class_id = ?
+  `).all(cls.id).map((m) => m.userId);
+  // Each summary is read once and shared by the names and the progress below.
+  const digests = new Map(memberIds.map((id) => [id, readDigest(id)]));   // null: never synced, counts as nothing done
+  const names = displayNames(memberIds, digests);
+  const members = memberIds.map((userId) => ({ userId, name: names.get(userId) })).sort((a, b) => a.name.localeCompare(b.name));
 
   const rows = db.prepare(
     "SELECT id, set_id AS setId FROM class_assignments WHERE class_id = ? ORDER BY created_at"
@@ -135,7 +142,7 @@ classes.get("/classes/:id/results", requireAuth, (req, res) => {
   // megabytes parsed in the one process that serves everyone, on every page view.
   const progress = new Map();
   for (const m of members) {
-    const digest = readDigest(m.userId);   // null: never synced, counts as nothing done
+    const digest = digests.get(m.userId);
     progress.set(m.userId, rows.map(({ set }) => (set ? studentSetProgress(digest, set) : null)));
   }
 
@@ -147,7 +154,7 @@ classes.get("/classes/:id/results", requireAuth, (req, res) => {
       setId: a.setId,
       total: set.questions.length,
       students: perStudent.map(({ m, p }) => ({
-        userId: m.userId, email: m.email, seen: p.seen, known: p.known, lastAt: p.lastAt,
+        userId: m.userId, name: m.name, seen: p.seen, known: p.known, lastAt: p.lastAt,
       })),
       topics: classTopics(perStudent.map(({ p }) => p)).slice(0, 5),
     };

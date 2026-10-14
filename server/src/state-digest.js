@@ -13,7 +13,7 @@
 import { db } from "./db.js";
 
 /** Bump when the shape below changes: older rows are then rebuilt from their state on next read. */
-export const DIGEST_VERSION = 1;
+export const DIGEST_VERSION = 2;
 
 // A profile picture (js/components/avatar-editor.js) travels inside each person's synced state. That
 // blob is whatever the client PUT, so before a picture goes out to a friend it is checked against the
@@ -24,6 +24,24 @@ const AVATAR_MAX = 200_000;
 export function avatarFrom(blob) {
   const a = blob?.avatar;
   return typeof a === "string" && a.length <= AVATAR_MAX && AVATAR_RE.test(a) ? a : null;
+}
+
+// The first name a student typed on their profile (js/components/onboarding.js cleanName) is what friends
+// and a class teacher see instead of an email address. It is whatever the client PUT, so it is cut down
+// here to the same rule the app uses: letters, marks, spaces, apostrophes and hyphens, 24 characters.
+export function nameFrom(blob) {
+  const n = blob?.profile?.name;
+  if (typeof n !== "string") return null;
+  const clean = n.replace(/[^\p{L}\p{M}\s'’-]/gu, "").replace(/\s+/g, " ").trim().slice(0, 24);
+  return clean || null;
+}
+
+/** "jonas.berg@school.se" -> "j•••@school.se": enough for a person to recognise their own pupil, not
+ *  enough to write to them. Used when a student has set no name. */
+export function maskEmail(email) {
+  const [local, domain] = String(email || "").split("@");
+  if (!local || !domain) return "?";
+  return `${[...local][0]}•••@${domain}`;
 }
 
 const arr = (x) => (Array.isArray(x) ? x : []);
@@ -54,6 +72,7 @@ export function digestOf(blob) {
   return {
     v: DIGEST_VERSION,
     avatar: avatarFrom(state),
+    name: nameFrom(state),
     attempts,
     days: strings(state?.activity?.daysStudied),
     frozen: strings(state?.activity?.frozenDays),
@@ -81,4 +100,34 @@ export function readDigest(userId) {
   // Only if the state hasn't moved on meanwhile (a save carries its own summary).
   saveStmt.run(JSON.stringify(digest), userId, row.version);
   return digest;
+}
+
+const emailStmt = db.prepare("SELECT email FROM users WHERE id = ?");
+
+/** What other people see for these accounts: the profile first name, else the email masked. Never the
+ *  address itself. First names are not unique, so two accounts with the same label (in one list: a class,
+ *  a leaderboard) get the masked address added, and if even that is the same, a number: the person who
+ *  removes "Anna" from a class must be able to tell which one they mean.
+ *  `digests` (userId -> digest) saves reading again what the caller has already read. Returns Map userId -> label. */
+export function displayNames(userIds, digests = new Map()) {
+  const masks = new Map();
+  const labels = new Map();
+  for (const id of userIds) {
+    const mask = maskEmail(emailStmt.get(id)?.email);
+    const digest = digests.has(id) ? digests.get(id) : readDigest(id);
+    masks.set(id, mask);
+    labels.set(id, digest?.name || mask);
+  }
+  const count = (m) => { const c = new Map(); for (const l of m.values()) c.set(l.toLowerCase(), (c.get(l.toLowerCase()) || 0) + 1); return c; };
+  let dup = count(labels);
+  for (const [id, label] of labels) {
+    if (dup.get(label.toLowerCase()) > 1 && label !== masks.get(id)) labels.set(id, `${label} (${masks.get(id)})`);
+  }
+  dup = count(labels);
+  const nth = new Map();
+  for (const id of [...userIds].sort()) {
+    const key = labels.get(id).toLowerCase();
+    if (dup.get(key) > 1) { const n = (nth.get(key) || 0) + 1; nth.set(key, n); if (n > 1) labels.set(id, `${labels.get(id)} #${n}`); }
+  }
+  return labels;
 }
