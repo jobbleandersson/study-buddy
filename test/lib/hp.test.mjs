@@ -1,10 +1,15 @@
 import "./helpers.mjs";
-import { test, describe } from "node:test";
+import { test, describe, mock } from "node:test";
 import assert from "node:assert/strict";
 import {
   NORM_TABLES, GENERIC_NORM, PART_MAX, partOf, normedScore, delprovEstimate,
   scoreBand, parseHpSetId, isHpSetId, attemptNormedTotal, rawByPart, buildHpPlan,
 } from "../../js/lib/hp.js";
+import { localDayKey, addDays } from "../../js/lib/activity.js";
+
+// A test date `n` days from today, as the app keeps it: the student's local calendar day. Not
+// toISOString(), whose UTC day is yesterday's between midnight and 02:00 in Sweden.
+const inDays = (n) => addDays(localDayKey(), n);
 
 describe("hp normering tables", () => {
   const tables = { ...NORM_TABLES, generic: GENERIC_NORM };
@@ -178,18 +183,14 @@ describe("hp.buildHpPlan", () => {
   });
 
   test("produces one row per day up to and including the test day", () => {
-    const today = new Date();
-    const target = new Date(today.getTime() + 5 * 86400000);
-    const hpDate = target.toISOString().slice(0, 10);
-    const rows = buildHpPlan({ hpDate, weakDelprov: ["ord"], dueCount: 3 });
+    const rows = buildHpPlan({ hpDate: inDays(5), weakDelprov: ["ord"], dueCount: 3 });
     assert.ok(rows);
     assert.equal(rows.length, 6); // day 0..5 inclusive
     assert.equal(rows[rows.length - 1].kind, "testday");
   });
 
   test("opens with the quick prognosis once, then brings never-practised delprov in between the weak ones", () => {
-    const hpDate = new Date(Date.now() + 10 * 86400000).toISOString().slice(0, 10);
-    const rows = buildHpPlan({ hpDate, weakDelprov: ["xyz", "ord"], freshDelprov: ["las", "nog", "dtk"], prognosDone: false });
+    const rows = buildHpPlan({ hpDate: inDays(10), weakDelprov: ["xyz", "ord"], freshDelprov: ["las", "nog", "dtk"], prognosDone: false });
     assert.equal(rows[0].kind, "prognos");
     assert.equal(rows.filter((r) => r.kind === "prognos").length, 1);
     assert.deepEqual(rows.slice(1, 6).map((r) => `${r.kind}:${r.delprov}`),
@@ -197,18 +198,30 @@ describe("hp.buildHpPlan", () => {
   });
 
   test("a student who has practised nothing still gets every delprov, not only ORD", () => {
-    const hpDate = new Date(Date.now() + 12 * 86400000).toISOString().slice(0, 10);
     const fresh = ["ord", "las", "mek", "elf", "xyz", "kva", "nog", "dtk"];
-    const rows = buildHpPlan({ hpDate, freshDelprov: fresh, prognosDone: false });
+    const rows = buildHpPlan({ hpDate: inDays(12), freshDelprov: fresh, prognosDone: false });
     assert.deepEqual(new Set(rows.filter((r) => r.kind === "try").map((r) => r.delprov)), new Set(fresh));
     assert.ok(!rows.some((r) => r.kind === "ord"));
   });
 
   test("null when the test date is today, in the past, or more than 45 days out", () => {
-    const today = new Date().toISOString().slice(0, 10);
-    assert.equal(buildHpPlan({ hpDate: today }), null);
-    const far = new Date(Date.now() + 100 * 86400000).toISOString().slice(0, 10);
-    assert.equal(buildHpPlan({ hpDate: far }), null);
+    assert.equal(buildHpPlan({ hpDate: inDays(0) }), null);
+    assert.equal(buildHpPlan({ hpDate: inDays(-3) }), null);
+    assert.equal(buildHpPlan({ hpDate: inDays(46) }), null);
+    assert.equal(buildHpPlan({ hpDate: inDays(45) }).length, 46);
+  });
+
+  test("half past midnight, the plan still starts today and ends on the test day", () => {
+    mock.timers.enable({ apis: ["Date"], now: new Date(2026, 9, 14, 0, 30) });
+    try {
+      const rows = buildHpPlan({ hpDate: "2026-10-18", weakDelprov: ["ord"] });
+      assert.equal(rows.length, 5);
+      assert.equal(rows[0].dayKey, "2026-10-14");
+      assert.equal(rows.at(-1).dayKey, "2026-10-18");
+      assert.equal(rows.at(-1).kind, "testday");
+    } finally {
+      mock.timers.reset();
+    }
   });
 });
 
