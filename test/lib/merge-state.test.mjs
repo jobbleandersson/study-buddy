@@ -36,6 +36,15 @@ describe("mergeStates: settings", () => {
   });
 });
 
+describe("mergeStates: reminders clicked away on the home page", () => {
+  test("the later change wins, an undo included", () => {
+    const server = { dismissedDue: { "set:a": "2026-10-15" }, dismissedDueAt: 10 };
+    assert.deepEqual(mergeStates(server, { dismissedDue: {}, dismissedDueAt: 20 }, NOW).dismissedDue, {});
+    assert.deepEqual(mergeStates(server, { dismissedDue: { "set:b": "2026-10-20" }, dismissedDueAt: 5 }, NOW).dismissedDue,
+      { "set:a": "2026-10-15" });
+  });
+});
+
 describe("mergeStates: review schedule", () => {
   test("a miss on this device isn't undone by the server's older, longer run of hits", () => {
     const server = { srs: { q1: { reps: 4, dueAt: NOW + 9e8, reviewedAt: 100 } } };

@@ -607,8 +607,9 @@ function deadlineRailContent({ collapsible = false, forceCalendar = false } = {}
   if (!all.length && !forceCalendar) return null;
   const today = localDayKey();
   // What has passed (kept for a week, see the store's sweep) waits behind its own toggle instead of
-  // crowding the top of the list for days.
-  const items = all.filter((x) => x.dueAt >= today);
+  // crowding the top of the list for days. A reminder clicked away (its ×) leaves the list and the card
+  // but keeps its dot on the calendar: the deadline itself still stands.
+  const items = all.filter((x) => x.dueAt >= today && !store.isDueDismissed(x));
   const past = all.filter((x) => x.dueAt < today).reverse();
 
   // The next deadline still ahead, a test or a set: a countdown + shortcut under the calendar,
@@ -636,14 +637,9 @@ function deadlineRailContent({ collapsible = false, forceCalendar = false } = {}
   // always gets the full month with no toggle, and its list is never
   // filtered down to whatever's currently paged in.
   const calWrap = el("div.cal-collapse");
-  // When the viewed week is empty, point at what *is* coming rather than just
-  // saying "nothing" — the deadline the student cares about is often a week or
-  // two out, exactly when this used to read as a flat dead end.
-  const calEmpty = collapsible
-    ? el("p.note.cal-empty", {}, items.length
-        ? t("menu.calendarEmptyWeekNext", { when: countdownLabel(items[0].dueAt) })
-        : t("menu.calendarEmptyWeek"))
-    : null;
+  // When the viewed week is empty, just say so: what *is* coming next, with its countdown, is the
+  // card under the calendar (nextDeadlineLine), so this line doesn't repeat it.
+  const calEmpty = collapsible ? el("p.note.cal-empty", {}, t("menu.calendarEmptyWeek")) : null;
   const calToggle = collapsible ? el("button.linkbtn.cal-collapse__toggle", { type: "button" }) : null;
   if (calToggle) calToggle.addEventListener("click", () => { calendarExpanded = !calendarExpanded; paintCal(); });
 
@@ -673,6 +669,10 @@ function deadlineRailContent({ collapsible = false, forceCalendar = false } = {}
     pastList.replaceChildren(...(pastExpanded ? shown.map(row) : []));
   }
 
+  // Shown only while its deadline isn't already a row in the list below (paintList), so the same
+  // deadline never sits there twice.
+  const nextLine = nextDeadlineLine(nextDeadline);
+
   let visibleItems = items;
   paintCal();
   paintPast();   // the dialog's only paint; the rail's was already done by the calendar's onView
@@ -686,7 +686,7 @@ function deadlineRailContent({ collapsible = false, forceCalendar = false } = {}
     el: el("section.upcoming", {}, [
       calEmpty,
       calWrap,
-      emptyForced ? null : nextDeadlineLine(nextDeadline),
+      nextLine,
       emptyForced ? null : list,
       emptyForced ? null : more,
       pastBlock,
@@ -728,6 +728,7 @@ function deadlineRailContent({ collapsible = false, forceCalendar = false } = {}
     const overflow = shownItems.length - UPCOMING_COLLAPSED;
     const shown = overflow > 0 && !upcomingExpanded ? shownItems.slice(0, UPCOMING_COLLAPSED) : shownItems;
     list.replaceChildren(...shown.map(row));
+    if (nextLine) nextLine.hidden = shown.includes(nextDeadline);
     more.hidden = overflow <= 0;
     if (overflow > 0) {
       more.textContent = upcomingExpanded ? t("menu.upcomingLess") : t("menu.upcomingAll", { n: shownItems.length });
@@ -741,7 +742,7 @@ function deadlineRailContent({ collapsible = false, forceCalendar = false } = {}
     const soon = left >= 0 && left <= 1;
     const test = a.kind === "test";
     const color = store.subjectColor(a.subjectId);
-    return el("a", {
+    const link = el("a", {
       href: a.href,
       class: "upcoming__row" + (passed ? " is-past" : soon ? " is-soon" : "") + (test ? " is-test" : ""),
       style: { "--subject": color.solid },
@@ -753,12 +754,36 @@ function deadlineRailContent({ collapsible = false, forceCalendar = false } = {}
         el("span.upcoming__meta", {}, [
           test ? el("span.upcoming__tag", {}, t("common.test")) : null,
           // A test that has been is "3 days ago"; a set past its deadline is late.
-          el("span", {}, `${fmtDate(a.dueAt)} · ${test && passed ? plural(-left, "date.agoOne", "date.agoMany") : relativeDay(a.dueAt)}`),
+          el("span", {}, [`${fmtDate(a.dueAt)} · `,
+            el("span.upcoming__when", {}, test && passed ? plural(-left, "date.agoOne", "date.agoMany") : relativeDay(a.dueAt))]),
         ].filter(Boolean)),
       ]),
-      el("span.upcoming__go", {}, icon(test ? ICONS.graduation : ICONS.play, 14)),
+      passed ? el("span.upcoming__go", {}, icon(test ? ICONS.graduation : ICONS.play, 14)) : null,
     ]);
+    // One still ahead can be clicked away; a passed one leaves on its own after a week.
+    return passed ? link : el("div.upcoming__item", {}, [link, dismissReminderBtn(a)]);
   }
+}
+
+/** The × that clicks a deadline's reminder away from Kommande. Its calendar dot stays (the deadline
+ *  still stands), and the toast offers a moment to undo. */
+function dismissReminderBtn(a) {
+  return el("button.upcoming__x", {
+    type: "button", title: t("menu.reminderDismissTitle"),
+    "aria-label": t("menu.reminderDismiss", { title: a.title }),
+    onclick: (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const box = e.currentTarget.parentElement;
+      const go = () => {
+        store.dismissDue(a);
+        toast(t("menu.reminderHidden"), { actionLabel: t("common.undo"), onAction: () => store.undismissDue(a) });
+      };
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches || !box.animate) { go(); return; }
+      box.animate([{ opacity: 1, transform: "none" }, { opacity: 0, transform: "translateX(24px)" }],
+        { duration: 160, easing: "ease-in", fill: "forwards" }).finished.then(go, go);
+    },
+  }, icon(ICONS.close, 14));
 }
 
 /** Countdown + one-tap shortcut to the next deadline still ahead, sat under the calendar: a test
@@ -768,14 +793,16 @@ function nextDeadlineLine(a) {
   const d = daysUntil(a.dueAt);
   const soon = d <= 1;
   const test = a.kind === "test";
-  return el("div.next-test-wrap", {}, el("a.next-test" + (soon ? ".next-test--soon" : ""), {
-    href: a.href,
-    "aria-label": t(test ? "menu.upcomingTestAria" : "menu.upcomingStudyAria", { title: a.title }),
-  }, [
-    el("span.next-test__when", {}, [icon(test ? ICONS.graduation : ICONS.clock, 14), el("span", {}, countdownLabel(a.dueAt))]),
-    el("span.next-test__title", {}, a.title),
-    el("span.next-test__go", {}, icon(ICONS.play, 14)),
-  ]));
+  return el("div.next-test-wrap", {}, [
+    el("a.next-test" + (soon ? ".next-test--soon" : ""), {
+      href: a.href,
+      "aria-label": t(test ? "menu.upcomingTestAria" : "menu.upcomingStudyAria", { title: a.title }),
+    }, [
+      el("span.next-test__when", {}, [icon(test ? ICONS.graduation : ICONS.clock, 14), el("span", {}, countdownLabel(a.dueAt))]),
+      el("span.next-test__title", {}, a.title),
+    ]),
+    dismissReminderBtn(a),
+  ]);
 }
 
 function ring(v, color) {

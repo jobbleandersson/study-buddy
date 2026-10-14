@@ -121,6 +121,9 @@ export default {
   "menu.calendarShowMonth": "Full month",
   "menu.calendarShowWeek": "This week",
   "menu.calendarEmptyWeek": "Nothing due this week.",
+  "menu.reminderDismiss": "Dismiss the reminder for {title}",
+  "menu.reminderDismissTitle": "Dismiss",
+  "menu.reminderHidden": "Reminder dismissed. The deadline stays on the calendar.",
   "menu.dueLabel": "Due {date}",
   "menu.panelSets": "Your sets",
   "menu.filter": "Filter",
@@ -2361,7 +2364,6 @@ export default {
   "leaderboard.addedFriend": "You and {email} are now on each other's leaderboard.",
 
   /* ---- new-user walkthrough fixes ---- */
-  "menu.calendarEmptyWeekNext": "Nothing this week — next is {when}.",
   "due.markTest": "This is a test — show a countdown and build an exam plan",
   "ach.nextUp": "Next up",
   "ach.pageLede": "Earn medals by studying steadily. Every track has four tiers — bronze, silver, gold and platinum.",

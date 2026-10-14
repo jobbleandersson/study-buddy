@@ -228,6 +228,8 @@ function seedState() {
     avatarAt: 0,                     // when it was last set or removed — the later change wins a sync merge
     achievements: {},                // { id: unlockedAt } — 0 = "already true when shipped"
     readNotifications: {},           // { [notificationId]: signature } — see buildNotifications() in main.js
+    dismissedDue: {},                // { [calendar entry key]: dueAt } — reminders clicked away in Kommande (home)
+    dismissedDueAt: 0,               // when that last changed — the later change wins a sync merge
     activity: {
       daysStudied: [],               // the real record; the streak is derived from it
       frozenDays: [],                // days a freeze covered — count as studied
@@ -329,6 +331,7 @@ function finishMigrate(s) {
   s.activity = { ...seedState().activity, ...(s.activity || {}) };
   s.achievements = s.achievements || {};
   s.readNotifications = s.readNotifications || {};
+  if (!s.dismissedDue || typeof s.dismissedDue !== "object" || Array.isArray(s.dismissedDue)) s.dismissedDue = {};
 
   // Achievements moved from ~15 one-off badges to 5 tiered tracks plus a few
   // kept milestones. Carry the old unlocks that have a direct equivalent so an
@@ -698,6 +701,10 @@ class Store extends EventTarget {
     // A test that has passed is done with. And re-assert what the coming ones imply for their sets,
     // which a sync from another device may have left out of step.
     this.state.exams = this.state.exams.filter((e) => e.date >= cutoff);
+    // A clicked-away reminder whose day has passed has nothing left to hide.
+    for (const [key, day] of Object.entries(this.state.dismissedDue || {})) {
+      if (day < today) delete this.state.dismissedDue[key];
+    }
     const dates = examSetDates(this.state.exams, today);
     for (const a of this.state.assignments) {
       const d = dates.get(a.id);
@@ -1673,6 +1680,17 @@ class Store extends EventTarget {
   markNotificationRead(id, signature) {
     this.state.readNotifications[id] = signature;
     this.save();
+  }
+
+  // A deadline's reminder clicked away on the home page's Kommande list (an entry from calendarEntries()).
+  // Only the reminder goes: the deadline itself, and its dot on the calendar, stay. Kept against the
+  // date, so moving the deadline to another day brings the reminder back.
+  isDueDismissed(entry) { return this.state.dismissedDue?.[entry.key] === entry.dueAt; }
+  dismissDue(entry) {
+    this.update((s) => { s.dismissedDue = { ...(s.dismissedDue || {}), [entry.key]: entry.dueAt }; s.dismissedDueAt = Date.now(); });
+  }
+  undismissDue(entry) {
+    this.update((s) => { const d = { ...(s.dismissedDue || {}) }; delete d[entry.key]; s.dismissedDue = d; s.dismissedDueAt = Date.now(); });
   }
 
   setSrs(questionId, record) {

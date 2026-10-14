@@ -136,6 +136,9 @@ export default {
   "menu.calendarShowMonth": "Hela månaden",
   "menu.calendarShowWeek": "Denna vecka",
   "menu.calendarEmptyWeek": "Inget att göra denna vecka.",
+  "menu.reminderDismiss": "Klicka bort påminnelsen om {title}",
+  "menu.reminderDismissTitle": "Klicka bort",
+  "menu.reminderHidden": "Påminnelsen är borta. Deadlinen ligger kvar i kalendern.",
   "menu.dueLabel": "Deadline {date}",
   "menu.panelSets": "Dina set",
   "menu.filter": "Filter",
@@ -2360,7 +2363,6 @@ export default {
   "leaderboard.addedFriend": "Du och {email} finns nu på varandras topplista.",
 
   /* ---- new-user walkthrough fixes ---- */
-  "menu.calendarEmptyWeekNext": "Inget denna vecka — nästa {when}.",
   "due.markTest": "Det här är ett prov — visa nedräkning och bygg en provplan",
   "ach.nextUp": "Näst på tur",
   "ach.pageLede": "Samla medaljer genom att plugga regelbundet. Varje spår har fyra nivåer – brons, silver, guld och platina.",

@@ -168,6 +168,11 @@ export function mergeStates(server, local, now = Date.now()) {
     s.settings = l.settings;
     s.settingsAt = l.settingsAt;
   }
+  // reminders clicked away on the home page — the later change wins, so an undo isn't brought back
+  if ((l.dismissedDueAt || 0) > (s.dismissedDueAt || 0) && l.dismissedDue && typeof l.dismissedDue === "object") {
+    s.dismissedDue = l.dismissedDue;
+    s.dismissedDueAt = l.dismissedDueAt;
+  }
   return s;
 }
 
