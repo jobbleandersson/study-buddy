@@ -14,7 +14,7 @@ const BODY = { model: "claude-haiku-4-5", max_tokens: 5, messages: [{ role: "use
 /** A stand-in for the three Stripe calls the server makes. `calls` records each one (path, method, form). */
 async function startFakeStripe() {
   const calls = [];
-  const fake = { calls, deleteStatus: 200, deleteMessage: null, sessionsCreated: [], sessionStatus: {}, sessionLookupStatus: 200, charges: {}, chargeLookupStatus: 200 };
+  const fake = { calls, deleteStatus: 200, deleteMessage: null, sessionsCreated: [], sessionStatus: {}, sessionSubscription: {}, sessionLookupStatus: 200, charges: {}, chargeLookupStatus: 200 };
   const srv = http.createServer((req, res) => {
     let raw = "";
     req.on("data", (d) => { raw += d; });
@@ -31,7 +31,7 @@ async function startFakeStripe() {
         res.statusCode = fake.sessionLookupStatus;
         return res.end(JSON.stringify({ error: { message: "lookup failed" } }));
       }
-      if (session && req.method === "GET") return res.end(JSON.stringify({ id: session[1], status: fake.sessionStatus[session[1]] ?? "open" }));
+      if (session && req.method === "GET") return res.end(JSON.stringify({ id: session[1], status: fake.sessionStatus[session[1]] ?? "open", subscription: fake.sessionSubscription[session[1]] ?? null }));
       if (session && session[2] && req.method === "POST") { fake.sessionStatus[session[1]] = "expired"; return res.end(JSON.stringify({ id: session[1], status: "expired" })); }
       if (req.url === "/v1/checkout/sessions") {
         const id = `cs_test_${fake.sessionsCreated.length + 1}`;
@@ -513,6 +513,20 @@ describe("a second checkout while the first payment is still going through", () 
     assert.equal(r.status, 200, "a returning customer is not blocked by their old, paid checkout");
   });
 
+  test("a paid checkout whose 'completed' event never arrived doesn't block a returning customer for good", async () => {
+    const u = await signUp(server, "heals@example.se");
+    await u.client.post("/api/billing/checkout", {});
+    const sid = stripe.sessionsCreated.at(-1);
+    stripe.sessionStatus[sid] = "complete";
+    stripe.sessionSubscription[sid] = "sub_heal";
+    // the subscription's own events arrive (so the plan is linked), the checkout-completed one is lost
+    await sendEvent(server, subEvent("customer.subscription.created", u.id, { id: "sub_heal", customer: "cus_heal" }));
+    await sendEvent(server, subEvent("customer.subscription.deleted", u.id, { id: "sub_heal", customer: "cus_heal", status: "canceled" }));
+    const r = await u.client.post("/api/billing/checkout", {});
+    assert.equal(r.status, 200, "the old, paid and now-ended checkout is not held against them");
+    assert.equal(server.db.prepare("SELECT last_checkout_session AS s FROM subscriptions WHERE user_id = ?").get(u.id).s, stripe.sessionsCreated.at(-1), "now remembering the new one");
+  });
+
   test("starting a checkout does not make an account look like it has a plan", async () => {
     const u = await signUp(server, "just-looking@example.se");
     await u.client.post("/api/billing/checkout", {});
@@ -527,10 +541,10 @@ describe("deleting an account while Stripe is switched off", () => {
   before(async () => { server = await startServer({ ANTHROPIC_API_KEY: "dummy" }); });   // no Stripe secrets at all
   after(async () => { await server.stop(); });
 
-  const giveSubscription = (userId, status, { cancelAtPeriodEnd = 0 } = {}) => server.db.prepare(
+  const giveSubscription = (userId, status, { cancelAtPeriodEnd = 0, periodEnd = Date.now() + 20 * 86400_000 } = {}) => server.db.prepare(
     `INSERT INTO subscriptions (user_id, stripe_customer_id, stripe_subscription_id, status, current_period_end, cancel_at_period_end, updated_at)
      VALUES (?, 'cus_off', 'sub_off', ?, ?, ?, ?)`
-  ).run(userId, status, Date.now() + 20 * 86400_000, cancelAtPeriodEnd, Date.now());
+  ).run(userId, status, periodEnd, cancelAtPeriodEnd, Date.now());
   const exists = (id) => server.db.prepare("SELECT COUNT(*) AS n FROM users WHERE id = ?").get(id).n === 1;
 
   test("a plan that is still running is not deleted with it: nothing could stop Stripe charging for it", async () => {
@@ -551,6 +565,13 @@ describe("deleting an account while Stripe is switched off", () => {
     giveSubscription(ended.id, "canceled");
     assert.equal((await ended.client.delete("/api/account", { password: "longenough1" })).status, 200);
     assert.ok(!exists(ending.id) && !exists(ended.id));
+  });
+
+  test("a plan whose paid period ran out long ago (the cancel event never came) doesn't block the deletion either", async () => {
+    const u = await signUp(server, "off-lapsed@example.se");
+    giveSubscription(u.id, "active", { periodEnd: Date.now() - 10 * 86400_000 });
+    assert.equal((await u.client.delete("/api/account", { password: "longenough1" })).status, 200);
+    assert.ok(!exists(u.id));
   });
 
   test("an account that never had a plan is deleted as usual", async () => {

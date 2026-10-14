@@ -292,7 +292,16 @@ export async function checkoutBlocker(userId) {
     if (e.status === 404) return null;   // Stripe no longer knows it: nothing to pay
     throw e;
   }
-  if (previous.status === "complete") return "payment_processing";
+  if (previous.status === "complete") {
+    // The payment went through. If that subscription is already linked to the account (its events arrived,
+    // even if the "checkout completed" one was dropped) there is nothing left to wait for: forget the session,
+    // or a customer whose plan later ended would be refused here for good.
+    if (typeof previous.subscription === "string" && previous.subscription === sub.subscriptionId) {
+      clearCheckoutStmt.run(userId, sub.lastCheckoutSession);
+      return null;
+    }
+    return "payment_processing";
+  }
   if (previous.status === "open") await stripe("POST", `/v1/checkout/sessions/${encodeURIComponent(sub.lastCheckoutSession)}/expire`);
   return null;
 }
