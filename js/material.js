@@ -36,7 +36,10 @@ async function extractPdfTextFromBuffer(buf) {
   try { lib = await loadVendor("vendor/pdf.min.js", "pdfjsLib"); } catch { throw new Error(t("err.pdfNoLib")); }
   lib.GlobalWorkerOptions.workerSrc = "vendor/pdf.worker.min.js";
 
-  const pdf = await lib.getDocument({ data: buf }).promise;
+  // isEvalSupported: false keeps pdf.js from compiling anything from the file into code (the hole
+  // CVE-2024-4367 used in versions before 4.2.67; this vendored copy is 3.11.174), and means the
+  // page's CSP needs no 'unsafe-eval' (server/src/index.js).
+  const pdf = await lib.getDocument({ data: buf, isEvalSupported: false }).promise;
   const pages = [];
   const limit = Math.min(pdf.numPages, 40);
   for (let p = 1; p <= limit; p++) {

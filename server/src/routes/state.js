@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { db } from "../db.js";
 import { requireAuth } from "../middleware/requireAuth.js";
+import { digestOf } from "../state-digest.js";
 
 export const state = Router();
 
@@ -32,10 +33,13 @@ state.put("/state", requireAuth, (req, res) => {
   }
 
   const newVersion = currentVersion + 1;
+  // The summary the class results and leaderboard read (state-digest.js), worked out from the body
+  // this request has already parsed.
   db.prepare(`
-    INSERT INTO state_blobs (user_id, version, blob, updated_at) VALUES (?, ?, ?, ?)
-    ON CONFLICT(user_id) DO UPDATE SET version = excluded.version, blob = excluded.blob, updated_at = excluded.updated_at
-  `).run(req.user.userId, newVersion, JSON.stringify(blob), Date.now());
+    INSERT INTO state_blobs (user_id, version, blob, updated_at, digest) VALUES (?, ?, ?, ?, ?)
+    ON CONFLICT(user_id) DO UPDATE SET version = excluded.version, blob = excluded.blob, updated_at = excluded.updated_at,
+                                       digest = excluded.digest
+  `).run(req.user.userId, newVersion, JSON.stringify(blob), Date.now(), JSON.stringify(digestOf(blob)));
 
   res.json({ version: newVersion });
 });
