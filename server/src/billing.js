@@ -110,14 +110,16 @@ function userIdFor({ metadataUserId, customerId }) {
  *  coming back to life), nor the old subscription's "deleted" cancel a new one a returning customer
  *  started. Only judged when the event carries Stripe's `created` time, which every real one does. */
 function isStale(existing, event, subscriptionId, isDeletion) {
-  const at = Number(event.created) > 0 ? Number(event.created) * 1000 : null;
+  const at = eventAt(event);
   if (at == null || !existing) return false;
   if (existing.lastEventAt != null && at < existing.lastEventAt) return true;
   // The same second is not ordered: a cancelled subscription never comes back, so anything but its
   // own deletion that shows up afterwards for the same subscription is an old event arriving late.
   return existing.status === "canceled" && !!subscriptionId && existing.subscriptionId === subscriptionId && !isDeletion;
 }
-const eventAt = (event) => (Number(event.created) > 0 ? Number(event.created) * 1000 : null);
+function eventAt(event) {
+  return Number(event.created) > 0 ? Number(event.created) * 1000 : null;
+}
 
 // A refund only ends the plan when it is for a payment of the current billing period (with a few days of
 // slack): refunding an old month after later ones were paid is someone tidying up, not leaving.
@@ -137,6 +139,13 @@ export function refundCancelTarget(event) {
   if (!userId) return null;
   const sub = subscriptionOf(userId);
   if (!sub?.subscriptionId || !isPlusStatus(sub.status)) return null;
+  // A refund that happened before the newest thing we know about the plan (a returning customer's new
+  // subscription, say) was about the plan before it: a late or resent event must not cancel this one.
+  // Known trade-off: last_event_at is "newest event applied", not "when this plan began", so a genuine
+  // refund that is delivered after an unrelated newer subscription event is skipped too. Cancelling a
+  // plan someone just paid for is the worse mistake; a skipped refund shows in Stripe's dashboard.
+  const refundedAt = eventAt(event);
+  if (refundedAt != null && sub.lastEventAt != null && refundedAt < sub.lastEventAt) return null;
   const paidAt = Number(charge.created) * 1000;
   if (sub.periodEnd != null && Number.isFinite(paidAt) && paidAt < sub.periodEnd - REFUND_WINDOW_MS) return null;
   return { userId, subscriptionId: sub.subscriptionId };
@@ -160,12 +169,15 @@ export const applyEvent = db.transaction((event) => {
     // The subscription events carry the real status; this one just links the account to the Stripe
     // customer and subscription, so they can find it. Never downgrades a status already received for
     // THIS subscription; a different one (a returning customer's new plan) starts from scratch rather
-    // than inheriting the old plan's "canceled".
+    // than inheriting the old plan's "canceled". The status written here is only a placeholder, so this
+    // event does not move last_event_at (at: null): otherwise the real subscription event Stripe created
+    // a second earlier, if it arrives after this one, would be dropped as stale and leave a paying
+    // customer on "incomplete".
     const sameSub = !!existing?.subscriptionId && existing.subscriptionId === obj.subscription;
     upsertStmt.run({
       userId, customerId: obj.customer || null, subscriptionId: obj.subscription || null,
       status: (sameSub && existing.status) || (!existing?.subscriptionId && existing?.status) || "incomplete",
-      periodEnd: null, cancel: sameSub && existing?.cancelAtPeriodEnd ? 1 : 0, now: Date.now(), at: eventAt(event),
+      periodEnd: null, cancel: sameSub && existing?.cancelAtPeriodEnd ? 1 : 0, now: Date.now(), at: null,
     });
     return "updated";
   }
