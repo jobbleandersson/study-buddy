@@ -1,0 +1,247 @@
+{
+  "id": "lib-hp-xyz-ovningsprov-02",
+  "type": "test",
+  "subject": "XYZ – Matematisk problemlösning",
+  "title": "XYZ – övningsprov 2",
+  "sourceSummary": "Egenskrivna övningsuppgifter i Högskoleprovets XYZ-format. Detta är inte ett officiellt utgivet prov.",
+  "topics": [
+    "algebra",
+    "andelar",
+    "aritmetik",
+    "funktioner",
+    "geometri",
+    "sannolikhet",
+    "statistik"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hp-xyz2-01",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "aritmetik",
+      "prompt": "Vad är $0{,}2 \\cdot 0{,}15$?",
+      "choices": [
+        "$0{,}003$",
+        "$0{,}03$",
+        "$0{,}3$",
+        "$3$"
+      ],
+      "answer": 1,
+      "explanation": "$0{,}2 \\cdot 0{,}15 = 0{,}030 = 0{,}03$. Räkna $2 \\cdot 15 = 30$ och flytta sedan decimaltecknet tre steg – lika många som faktorerna har decimaler tillsammans.",
+      "steps": [
+        "Räkna utan decimaler: $2 \\cdot 15 = 30$.",
+        "Faktorerna har tillsammans tre decimaler, så svaret får tre decimaler: $0{,}030$."
+      ]
+    },
+    {
+      "id": "q-hp-xyz2-02",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "algebra",
+      "prompt": "Förenkla $(x + 3)^2 - (x - 3)^2$.",
+      "choices": [
+        "$0$",
+        "$18$",
+        "$12x$",
+        "$2x^2 + 18$"
+      ],
+      "answer": 2,
+      "explanation": "$(x + 3)^2 = x^2 + 6x + 9$ och $(x - 3)^2 = x^2 - 6x + 9$. Skillnaden blir $12x$. Snabbare med konjugatregeln: $a^2 - b^2 = (a + b)(a - b) = 2x \\cdot 6 = 12x$.",
+      "steps": [
+        "Utveckla båda kvadraterna med kvadreringsreglerna.",
+        "$(x^2 + 6x + 9) - (x^2 - 6x + 9) = 12x$."
+      ]
+    },
+    {
+      "id": "q-hp-xyz2-03",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "andelar",
+      "prompt": "En jacka kostar 800 kr. Priset sänks med 25 %, och därefter sänks det nya priset med ytterligare 20 %. Vad kostar jackan efter båda sänkningarna?",
+      "choices": [
+        "360 kr",
+        "440 kr",
+        "480 kr",
+        "500 kr"
+      ],
+      "answer": 2,
+      "explanation": "Efter den första sänkningen kostar jackan $0{,}75 \\cdot 800 = 600$ kr. Den andra sänkningen räknas på det nya priset: $0{,}80 \\cdot 600 = 480$ kr. Fällan är att lägga ihop procentsatserna till 45 %, vilket ger 440 kr.",
+      "steps": [
+        "Första sänkningen: $0{,}75 \\cdot 800 = 600$ kr.",
+        "Andra sänkningen gäller det nya priset: $0{,}80 \\cdot 600 = 480$ kr."
+      ]
+    },
+    {
+      "id": "q-hp-xyz2-04",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "geometri",
+      "prompt": "En rätvinklig triangel har hypotenusan 13 cm och ena kateten 5 cm. Vad är triangelns area?",
+      "choices": [
+        "$15\\ \\text{cm}^2$",
+        "$30\\ \\text{cm}^2$",
+        "$32{,}5\\ \\text{cm}^2$",
+        "$60\\ \\text{cm}^2$"
+      ],
+      "answer": 1,
+      "explanation": "Pythagoras sats ger den andra kateten: $\\sqrt{13^2 - 5^2} = \\sqrt{144} = 12$ cm. Arean är $\\dfrac{5 \\cdot 12}{2} = 30\\ \\text{cm}^2$.",
+      "steps": [
+        "Använd Pythagoras sats för att hitta den andra kateten: $13^2 - 5^2 = 144$, så kateten är 12 cm.",
+        "Kateterna är bas och höjd: arean är $\\dfrac{5 \\cdot 12}{2}$."
+      ]
+    },
+    {
+      "id": "q-hp-xyz2-05",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "funktioner",
+      "prompt": "Om $f(x) = 2x^2 - 3x$, vad är $f(-2)$?",
+      "choices": [
+        "$-2$",
+        "$2$",
+        "$14$",
+        "$22$"
+      ],
+      "answer": 2,
+      "explanation": "$f(-2) = 2 \\cdot (-2)^2 - 3 \\cdot (-2) = 2 \\cdot 4 + 6 = 14$. Tänk på att $(-2)^2 = 4$ och att $-3 \\cdot (-2) = +6$.",
+      "steps": [
+        "Byt ut varje $x$ mot $(-2)$, med parentes.",
+        "$(-2)^2 = 4$ och $-3 \\cdot (-2) = 6$, så $f(-2) = 8 + 6$."
+      ]
+    },
+    {
+      "id": "q-hp-xyz2-06",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "aritmetik",
+      "prompt": "Vad är $\\dfrac{3^{5} \\cdot 3^{-2}}{3^{2}}$?",
+      "choices": [
+        "$\\dfrac{1}{9}$",
+        "$\\dfrac{1}{3}$",
+        "$1$",
+        "$3$"
+      ],
+      "answer": 3,
+      "explanation": "Med potenslagarna adderas exponenterna vid multiplikation och subtraheras vid division: $3^{5 + (-2) - 2} = 3^{1} = 3$.",
+      "steps": [
+        "I täljaren: $3^{5} \\cdot 3^{-2} = 3^{3}$.",
+        "Dela med $3^{2}$: $3^{3 - 2} = 3^{1}$."
+      ]
+    },
+    {
+      "id": "q-hp-xyz2-07",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "statistik",
+      "prompt": "Fyra personer har medelåldern 25 år. När en femte person ansluter till gruppen blir medelåldern 27 år. Hur gammal är den femte personen?",
+      "choices": [
+        "27 år",
+        "29 år",
+        "33 år",
+        "35 år"
+      ],
+      "answer": 3,
+      "explanation": "De fyra åldrarna är tillsammans $4 \\cdot 25 = 100$ år. Med fem personer är summan $5 \\cdot 27 = 135$ år. Den femte personen är alltså $135 - 100 = 35$ år.",
+      "steps": [
+        "Räkna med summor i stället för medelvärden: de fyra är tillsammans $4 \\cdot 25 = 100$ år.",
+        "Alla fem är tillsammans $5 \\cdot 27 = 135$ år."
+      ]
+    },
+    {
+      "id": "q-hp-xyz2-08",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "algebra",
+      "prompt": "Ett glas och en karaff väger tillsammans 900 g. Karaffen väger 500 g mer än glaset. Hur mycket väger glaset?",
+      "choices": [
+        "200 g",
+        "250 g",
+        "400 g",
+        "450 g"
+      ],
+      "answer": 0,
+      "explanation": "Kalla glasets vikt $g$. Då väger karaffen $g + 500$, och $g + (g + 500) = 900$. Det ger $2g = 400$, så glaset väger 200 g. Fällan är att svara $900 - 500 = 400$ g.",
+      "steps": [
+        "Kalla glasets vikt $g$. Vad väger då karaffen?",
+        "Ställ upp $g + (g + 500) = 900$ och lös ut $g$."
+      ]
+    },
+    {
+      "id": "q-hp-xyz2-09",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "geometri",
+      "prompt": "En cirkels radie ökar med 50 %. Med hur många procent ökar cirkelns area?",
+      "choices": [
+        "25 %",
+        "50 %",
+        "100 %",
+        "125 %"
+      ],
+      "answer": 3,
+      "explanation": "Arean är proportionell mot radien i kvadrat. Den nya radien är $1{,}5r$, så arean blir $1{,}5^2 = 2{,}25$ gånger så stor – en ökning med 125 %.",
+      "steps": [
+        "Arean är $\\pi r^2$. Hur ändras den om $r$ byts mot $1{,}5r$?",
+        "$(1{,}5r)^2 = 2{,}25r^2$, alltså 2,25 gånger den gamla arean."
+      ]
+    },
+    {
+      "id": "q-hp-xyz2-10",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "funktioner",
+      "prompt": "Linjen $y = kx + 4$ går genom punkten $(2, -2)$. Vad är $k$?",
+      "choices": [
+        "$-3$",
+        "$-1$",
+        "$1$",
+        "$3$"
+      ],
+      "answer": 0,
+      "explanation": "Sätt in punkten i ekvationen: $-2 = k \\cdot 2 + 4$. Det ger $2k = -6$, så $k = -3$.",
+      "steps": [
+        "Punkten ligger på linjen, så $x = 2$ och $y = -2$ uppfyller ekvationen.",
+        "$-2 = 2k + 4$ ger $2k = -6$."
+      ]
+    },
+    {
+      "id": "q-hp-xyz2-11",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "sannolikhet",
+      "prompt": "I en påse finns 3 röda och 5 blå kulor. Två kulor dras slumpmässigt, utan återläggning. Hur stor är sannolikheten att båda kulorna är röda?",
+      "choices": [
+        "$\\dfrac{3}{56}$",
+        "$\\dfrac{3}{28}$",
+        "$\\dfrac{9}{64}$",
+        "$\\dfrac{3}{16}$"
+      ],
+      "answer": 1,
+      "explanation": "Den första kulan är röd med sannolikheten $\\dfrac{3}{8}$. Då finns 2 röda kvar bland 7 kulor, så den andra är röd med sannolikheten $\\dfrac{2}{7}$. Tillsammans: $\\dfrac{3}{8} \\cdot \\dfrac{2}{7} = \\dfrac{6}{56} = \\dfrac{3}{28}$. Svaret $\\dfrac{9}{64}$ hade gällt om kulan lades tillbaka.",
+      "steps": [
+        "Sannolikheten att den första kulan är röd är $\\dfrac{3}{8}$.",
+        "Efter det finns 2 röda bland 7 kulor kvar. Multiplicera de två sannolikheterna."
+      ]
+    },
+    {
+      "id": "q-hp-xyz2-12",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "algebra",
+      "prompt": "Om $\\dfrac{x}{y} = \\dfrac{2}{3}$, vad är $\\dfrac{x + y}{x - y}$?",
+      "choices": [
+        "$-5$",
+        "$-\\dfrac{1}{5}$",
+        "$\\dfrac{1}{5}$",
+        "$5$"
+      ],
+      "answer": 0,
+      "explanation": "Sätt $x = 2t$ och $y = 3t$ (där $t \\neq 0$). Då är $\\dfrac{x + y}{x - y} = \\dfrac{5t}{-t} = -5$, vilket värde $t$ än har.",
+      "steps": [
+        "Skriv $x$ och $y$ med en gemensam faktor: $x = 2t$ och $y = 3t$.",
+        "Sätt in: $\\dfrac{2t + 3t}{2t - 3t}$, och förkorta med $t$."
+      ]
+    }
+  ]
+}
