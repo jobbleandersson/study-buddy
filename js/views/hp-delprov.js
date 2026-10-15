@@ -13,7 +13,7 @@ import { renderRich } from "../lib/rich.js";
 import { previewPrompt } from "../lib/text.js";
 import { ensureHpSets, hpQuestionIndex } from "../data/hp-content.js";
 import {
-  parseHpSetId, partOf, PASS_COUNT, SEC_PER_Q, CALIBRATION_N, minutesFor,
+  parseHpSetId, partOf, PASS_COUNT, MAX_RUN, SEC_PER_Q, CALIBRATION_N, minutesFor,
   questionHistory, delprovStats, delprovEstimate, NORM_TABLES, scoredItems,
 } from "../lib/hp.js";
 import { AI_DELPROV, MORE_HP, addHpQuestions, isAddingHp } from "../components/hp-more.js";
@@ -28,8 +28,10 @@ const LIST_STEP = 30;
 const setups = {};
 const setupFor = (dp) => setups[dp] || (setups[dp] = { mode: "train", n: null, ext: false, marked: true });
 
-/** The counts on offer for a delprov: 5, 10, 15 below its provpass size, and the provpass itself. */
-const countChoices = (dp) => [...new Set([...[5, 10, 15].filter((v) => v < PASS_COUNT[dp] || v === 5), PASS_COUNT[dp]])];
+/** The quick picks for a delprov, up to `max`: a few round counts and its provpass size. A bigger
+ *  pool (the ORD word banks) gets bigger picks; any other count is typed into the stepper beside them. */
+const countChoices = (dp, max) =>
+  [...new Set([5, 10, 20, 40, PASS_COUNT[dp]])].filter((v) => v <= max).sort((a, b) => a - b);
 
 function sourceOf(set) {
   const ref = parseHpSetId(set.id);
@@ -82,7 +84,10 @@ export async function renderHpDelprov(dp, qs) {
   /* ---- Öva: the setup ---- */
   function setupCard(poolSize) {
     const full = PASS_COUNT[dp];
-    const n = countChoices(dp).includes(setup.n) ? setup.n : full;
+    const max = Math.max(1, Math.min(poolSize, MAX_RUN));
+    const clampN = (v) => Math.max(1, Math.min(Math.round(Number(v)) || 1, max));
+    const n = clampN(setup.n ?? full);
+    const picks = countChoices(dp, max);
     const seg = (key, label) => el("button.hp-seg__opt", {
       type: "button", "aria-pressed": String(setup.mode === key), onclick: () => { setup.mode = key; paint(); },
     }, label);
@@ -94,30 +99,48 @@ export async function renderHpDelprov(dp, qs) {
       el("input", { type: "checkbox", checked: !!setup[key], onchange: (e) => { setup[key] = e.target.checked; paint(); } }),
       el("span", {}, [el("strong", {}, label), el("small", {}, sub)]),
     ]);
-    const count = Math.min(n, poolSize);
-    const q = new URLSearchParams({ n: String(count) });
-    if (timed) { q.set("mode", "timed"); if (!setup.marked) q.set("fb", "0"); }
-    if (timed && setup.ext) q.set("ext", "1");
-    const summary = timed
+    const hrefFor = (count) => {
+      const q = new URLSearchParams({ n: String(count) });
+      if (timed) { q.set("mode", "timed"); if (!setup.marked) q.set("fb", "0"); }
+      if (timed && setup.ext) q.set("ext", "1");
+      return `#/hp/ova/${dp}?${q}`;
+    };
+    const summaryFor = (count) => timed
       ? t("hp.setupSumTimed", { n: count, m: minutesFor(dp, count, { extended: setup.ext }) })
       : t("hp.setupSumTrain", { n: count });
+    const goLink = el("a.btn", { href: hrefFor(n) }, [icon(ICONS.play, 16), t("hp.setupStart")]);
+    const sumEl = el("span.note", {}, summaryFor(n));
+
+    // The stepper: − and + move in fives (or ones under ten), and the number can be typed. Typing
+    // only updates the start link and summary, so the field keeps focus; the chips repaint on change.
+    const stepOf = (v, dir) => (dir > 0 ? (v < 10 ? v + 1 : v + 5 - (v % 5)) : (v <= 10 ? v - 1 : v - 1 - ((v - 1) % 5)));
+    const input = el("input#hp-count-input.hp-stepper__input", {
+      type: "number", inputmode: "numeric", min: "1", max: String(max), value: String(n), "aria-label": t("hp.countCustom"),
+      oninput: (e) => { const v = clampN(e.target.value); goLink.href = hrefFor(v); sumEl.textContent = summaryFor(v); },
+      onchange: (e) => { setup.n = clampN(e.target.value); paint(); },
+    });
+    const stepBtn = (dir) => el("button.hp-stepper__btn", {
+      type: "button", "aria-label": t(dir > 0 ? "hp.countMore" : "hp.countLess"),
+      disabled: dir > 0 ? n >= max : n <= 1,
+      onclick: () => { setup.n = clampN(stepOf(n, dir)); paint(); },
+    }, dir > 0 ? "+" : "−");
 
     return el("section.set-card.hp-setup", { "aria-labelledby": "hp-setup-title" }, [
       el("h2#hp-setup-title", {}, t("hp.setupTitle")),
       el("p.note", {}, t("hp.setupSub")),
       el("div.hp-seg", { role: "group", "aria-label": t("hp.setupMode") }, [seg("train", t("hp.modeTrain")), seg("timed", t("hp.modeTimed"))]),
       el("p.hp-setup__modehint", {}, t(timed ? "hp.modeTimedSub" : "hp.modeTrainSub", { s: SEC_PER_Q[dp] })),
-      el("div.hp-counts", { role: "group", "aria-label": t("hp.setupCount") },
-        countChoices(dp).map((v) => countBtn(v, v === full ? t("hp.countFull", { n: full }) : String(v)))),
+      el("div.hp-counts", { role: "group", "aria-label": t("hp.setupCount") }, [
+        ...picks.map((v) => countBtn(v, v === full ? t("hp.countFull", { n: full }) : String(v))),
+        poolSize <= MAX_RUN && !picks.includes(poolSize) ? countBtn(poolSize, t("hp.countAll", { n: poolSize })) : null,
+        el("div.hp-stepper", { role: "group", "aria-label": t("hp.countCustom") }, [stepBtn(-1), input, stepBtn(1)]),
+      ].filter(Boolean)),
       timed ? el("div.hp-toggles", {}, [
         toggle("ext", t("hp.extTitle"), t("hp.extSub")),
         toggle("marked", t("hp.markTitle"), t("hp.markSub")),
       ]) : null,
-      count < n ? el("p.note", {}, t("hp.setupFewer", { n: poolSize })) : null,
-      el("div.hp-setup__go", {}, [
-        el("a.btn", { href: `#/hp/ova/${dp}?${q}` }, [icon(ICONS.play, 16), t("hp.setupStart")]),
-        el("span.note", {}, summary),
-      ]),
+      poolSize < full ? el("p.note", {}, t("hp.setupFewer", { n: poolSize })) : null,
+      el("div.hp-setup__go", {}, [goLink, sumEl]),
     ].filter(Boolean));
   }
 

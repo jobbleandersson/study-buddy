@@ -274,6 +274,9 @@ export const SEC_PER_Q = { ord: 18, las: 132, mek: 48, elf: 132, xyz: 60, kva: 6
 /** Questions one delprov has in a real provpass. */
 export const PASS_COUNT = { ord: 10, las: 10, mek: 10, elf: 10, xyz: 12, kva: 10, nog: 6, dtk: 12 };
 
+/** The most questions one practice run takes. */
+export const MAX_RUN = 60;
+
 /** Answer options per question on the real test. KVA and NOG always use the same fixed options. */
 export const OPTION_COUNT = { ord: 5, las: 4, mek: 4, elf: 4, xyz: 4, kva: 4, nog: 5, dtk: 4 };
 

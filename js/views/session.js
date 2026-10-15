@@ -9,7 +9,7 @@ import { store, REVIEW_ID, PRACTICE_ID, WEAK_ID, RULES_ID, TONIGHT_ID, HP_MOCK_I
 import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
 import {
   parseHpSetId, isHpSetId, rawByPart, DELPROV_ORDER, NORM_TABLES, VERBAL_DELPROV, KVANT_DELPROV,
-  PASS_COUNT, SEC_PER_Q, minutesFor, pickPracticeIds, questionHistory,
+  PASS_COUNT, MAX_RUN, SEC_PER_Q, minutesFor, pickPracticeIds, questionHistory,
 } from "../lib/hp.js";
 import { ensureHpSets, hpQuestionIndex } from "../data/hp-content.js";
 import { passageFor } from "../lib/passages.js";
@@ -412,7 +412,7 @@ export async function renderHpPractice(dp, qs) {
   if (!pool.length) return emptyScreen(t("hp.practiceEmptyTitle"), t("hp.practiceEmptyBody"), t(`hp.delprov.${dp}`));
 
   const wanted = String(qs?.get?.("ids") || "").split(",").filter((id) => pool.includes(id));
-  const n = Math.max(1, Math.min(Math.round(Number(qs?.get?.("n"))) || PASS_COUNT[dp], 60));
+  const n = Math.max(1, Math.min(Math.round(Number(qs?.get?.("n"))) || PASS_COUNT[dp], MAX_RUN));
   const ids = wanted.length ? wanted : pickPracticeIds(pool, n, questionHistory(store.attempts));
   const timed = qs?.get?.("mode") === "timed";
   const marked = !timed || qs?.get?.("fb") !== "0";

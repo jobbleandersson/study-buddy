@@ -5980,6 +5980,14 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .hp-counts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--s-3); }
 .hp-count { min-width: 48px; min-height: 40px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: var(--r-md); background: var(--surface); font: inherit; font-weight: 600; cursor: pointer; }
 .hp-count[aria-pressed="true"] { border-color: var(--c); background: color-mix(in oklab, var(--c) 10%, var(--surface)); color: var(--ink); }
+.hp-stepper { display: inline-flex; align-items: stretch; min-height: 40px; border: 1px solid var(--line-strong); border-radius: var(--r-md); background: var(--surface); overflow: hidden; }
+.hp-stepper:focus-within { border-color: var(--c); }
+.hp-stepper__btn { width: 38px; border: 0; background: transparent; color: var(--ink-soft); font: inherit; font-size: 1.15rem; font-weight: 600; cursor: pointer; }
+.hp-stepper__btn:hover:not(:disabled) { background: var(--surface-sunk); color: var(--ink); }
+.hp-stepper__btn:disabled { opacity: .35; cursor: default; }
+.hp-stepper__input { width: 3.2em; border: 0; border-inline: 1px solid var(--line); background: transparent; color: var(--ink); font: inherit; font-weight: 600; text-align: center; font-variant-numeric: tabular-nums; -moz-appearance: textfield; appearance: textfield; }
+.hp-stepper__input::-webkit-outer-spin-button, .hp-stepper__input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.hp-stepper__input:focus { outline: none; background: var(--surface-sunk); }
 .hp-toggles { display: grid; gap: 8px; margin-top: var(--s-3); }
 .hp-toggle { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
 .hp-toggle input { margin-top: 3px; }
