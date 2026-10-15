@@ -18,6 +18,19 @@ export function getTheme() {
 
 export function applyTheme(theme = getTheme()) {
   document.documentElement.setAttribute("data-theme", theme);
+  syncThemeColor(theme);
+}
+
+/** The browser's own bars (address bar, phone status bar) follow theme-color, set to the page's own
+ *  ground (--canvas) so they run into the page without a seam. index.html's two tags are per device
+ *  light/dark; a theme picked in the app wins over that, and "system" puts them back. The first run of
+ *  this is in boot.js, before first paint. */
+function syncThemeColor(theme) {
+  for (const meta of document.querySelectorAll('meta[name="theme-color"]')) {
+    const darkTag = /dark/.test(meta.getAttribute("media") || "");
+    meta.setAttribute("content", theme === "dark" || (theme === "system" && darkTag) ? "#0A0C11"
+      : theme === "paper" ? "#F1E7D0" : "#F6F7F9");
+  }
 }
 
 export function setTheme(theme) {

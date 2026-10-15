@@ -7,6 +7,10 @@ html, body { height: 100%; }
 /* Reserve the scrollbar's space on every page, so content doesn't shift
    sideways between short (no scrollbar) and long pages. */
 html { scrollbar-gutter: stable; }
+/* The page's own ground on <html> too, not only on <body>: iOS Safari colours its status bar and the
+   area around its floating toolbar from the root, and with no colour there it drew them white over a
+   dark theme. */
+html { background: var(--canvas); }
 
 body {
   font-family: var(--font-body);

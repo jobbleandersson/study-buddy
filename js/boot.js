@@ -10,6 +10,18 @@
   } catch (e) {
     root.setAttribute("data-theme", "system");
   }
+  // The browser's own bars (the address bar on Android, the status bar on an iPhone) take their colour
+  // from theme-color: the page's own ground (--canvas), so bars and page run together without a seam.
+  // index.html's two tags follow the device's light/dark setting, so a theme picked in the app (dark on a
+  // light phone) got the light one; point them at the theme on screen. Same as syncThemeColor() in
+  // lib/theme.js, which does it again on every change.
+  var picked = root.getAttribute("data-theme");
+  var metas = document.querySelectorAll('meta[name="theme-color"]');
+  for (var i = 0; i < metas.length; i++) {
+    var darkTag = /dark/.test(metas[i].getAttribute("media") || "");
+    metas[i].setAttribute("content", picked === "dark" || (picked === "system" && darkTag) ? "#0A0C11"
+      : picked === "paper" ? "#F1E7D0" : "#F6F7F9");
+  }
   try {
     var f = localStorage.getItem("studybuddy.font");
     root.setAttribute("data-font", f === "hyperlegible" ? "hyperlegible" : "system");

@@ -170,7 +170,10 @@ h1 { font-weight: 750; }
 
 /* ---------- mobile shell ---------- */
 @media (max-width: 899.98px) {
-  .topbar { background: color-mix(in srgb, var(--surface) 90%, transparent); }
+  /* The page's own colour, opaque: the phone's status bar above it takes the same one (theme-color, the
+     root's background), so bar and page are one surface. The hairline underneath still marks its edge. */
+  .topbar { background: var(--canvas); backdrop-filter: none; }
+  .tabbar { background: var(--canvas); backdrop-filter: none; }
   .brand { font-weight: 750; letter-spacing: -.02em; }
   .tabbar__item span { font-size: 11px; font-weight: 550; }
   .tabbar__item svg { stroke-width: 1.8; }
