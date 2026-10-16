@@ -1024,6 +1024,7 @@ export default {
   "srv.err.joinOwnClass": "Du kan inte gå med i din egen klass.",
   "srv.err.classFull": "Klassen är full.",
   "srv.err.tooManyAttempts": "För många försök. Försök igen om några minuter.",
+  "srv.err.hashBusy": "Servern har fullt upp just nu. Försök igen om en stund.",
   "srv.err.classLimit": "Du kan ha upp till 20 klasser.",
   "srv.err.pickSet": "Välj ett set från biblioteket.",
   "srv.err.badDate": "Datumet är inte giltigt.",
