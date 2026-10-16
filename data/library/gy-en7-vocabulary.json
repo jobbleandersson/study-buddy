@@ -18,7 +18,7 @@
       "prompt": "Which word is most appropriate in a formal academic essay?",
       "opener": "Vilket ord signalerar akademisk stil snarare än talspråk?",
       "choices": [
-        "a lot of",
+        "a whole lot of",
         "loads of",
         "considerable",
         "tons of"
@@ -66,7 +66,7 @@
         "big",
         "significant",
         "huge",
-        "major-ish"
+        "major-ish, sort of"
       ],
       "answer": 1,
       "explanation": "\"Significant\" är ett precist akademiskt ord som ofta även signalerar statistisk betydelse. \"Big\"/\"huge\" är vaga och vardagliga, och \"major-ish\" är inte standardengelska."
@@ -78,7 +78,7 @@
       "prompt": "Which sentence uses the most precise verb?",
       "opener": "Vilket verb visar att texten inte bara nämner något, utan för ett argument?",
       "choices": [
-        "The report says that funding should increase.",
+        "The report says that funding should increase next year.",
         "The report argues that funding should increase.",
         "The report goes on about funding increasing.",
         "The report talks about funding increasing."
@@ -148,7 +148,7 @@
         "a substantial issue",
         "a mega problem",
         "a huge deal",
-        "a really big thing"
+        "a really big thing indeed"
       ],
       "answer": 0,
       "explanation": "\"A substantial issue\" är precist och formellt. De andra alternativen är vardagliga eller överdrivet informella uttryck."
@@ -222,7 +222,7 @@
       "choices": [
         "For instance,",
         "Like,",
-        "You know,",
+        "You know what I mean,",
         "I mean,"
       ],
       "answer": 0,

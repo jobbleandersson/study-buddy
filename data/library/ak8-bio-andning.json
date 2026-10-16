@@ -23,7 +23,7 @@
         "Näsa → matstrupe → magsäck → lungor",
         "Näsa och mun → luftstrupe → luftrör → lungblåsor",
         "Mun → luftstrupe → magsäck → lungblåsor",
-        "Näsa → lungblåsor → luftstrupe → luftrör"
+        "Näsa → lungblåsor → luftstrupe → luftrör → matstrupe"
       ],
       "answer": 1,
       "explanation": "Luften värms och renas i näsan, går ner genom luftstrupen som delar sig i två luftrör och sedan i allt finare grenar som slutar i lungblåsorna. Matstrupen och magsäcken hör till matspjälkningen och har inget med andningen att göra — struplocket ser till att luft och mat hamnar rätt."
@@ -80,7 +80,7 @@
       "prompt": "Vilken uppgift har de röda blodkropparna?",
       "opener": "Tänk på ämnet hemoglobin och varför blodet är rött.",
       "choices": [
-        "De försvarar kroppen mot bakterier och virus",
+        "De försvarar kroppen mot bakterier och virus i blodet och i vävnaderna",
         "De transporterar syre från lungorna ut till kroppens celler",
         "De får blodet att levra sig vid ett sår",
         "De bryter ner näringsämnen i blodet"
@@ -133,7 +133,7 @@
       "prompt": "Vilken muskel drar ihop sig och gör att luft sugs in i lungorna vid inandning?",
       "opener": "Muskeln sitter under lungorna och arbetar varje gång du andas.",
       "choices": [
-        "Bicepsmuskeln",
+        "Bicepsmuskeln i överarmen och axeln",
         "Mellangärdet (diafragman)",
         "Hjärtmuskeln",
         "Tricepsmuskeln"
@@ -151,7 +151,7 @@
         "För att de ska tåla högt tryck",
         "För att göra gasutbytet med blodet snabbare och effektivare",
         "För att spara vikt i kroppen",
-        "För att de ska kunna dra ihop sig snabbt"
+        "För att de ska kunna dra ihop sig snabbt vid varje andetag och pumpa luften"
       ],
       "answer": 1,
       "explanation": "De tunna väggarna gör att syre och koldioxid kan diffundera mellan luft och blod på kortast möjliga väg, vilket gör gasutbytet effektivt. Lungblåsorna drar inte ihop sig aktivt som en muskel."
@@ -166,7 +166,7 @@
         "De pumpar blodet framåt",
         "De hindrar blodet från att rinna baklänges",
         "De bildar nya blodkroppar",
-        "De renar blodet från koldioxid"
+        "De renar blodet från koldioxid och slaggämnen"
       ],
       "answer": 1,
       "explanation": "Klaffarna öppnas och stängs så att blodet bara kan flöda åt ett håll genom hjärtat, från förmak till kammare och vidare ut. Det är hjärtmuskeln, inte klaffarna, som pumpar blodet framåt."
@@ -180,7 +180,7 @@
       "choices": [
         "Transportera syre",
         "Försvara kroppen mot bakterier och virus",
-        "Få blodet att levra sig",
+        "Få blodet att levra sig vid ett sår eller en blödning",
         "Transportera näring"
       ],
       "answer": 1,

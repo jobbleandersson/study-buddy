@@ -35,7 +35,7 @@
       "opener": "This ocean alone covers roughly a third of the Earth's surface and lies between Asia and the Americas.",
       "choices": [
         "The Atlantic",
-        "The Indian Ocean",
+        "The Indian Ocean, west of Australia",
         "The Arctic Ocean",
         "The Pacific Ocean"
       ],
@@ -49,7 +49,7 @@
       "prompt": "What is commonly used as a basic measure for comparing countries' economic income levels?",
       "opener": "The measure usually divides the country's total economy by the number of inhabitants.",
       "choices": [
-        "The country's area in square kilometres",
+        "The country's area in square kilometres and its total border length",
         "GDP per capita (gross domestic product per inhabitant)",
         "The number of World Heritage Sites in the country",
         "The population of the country's capital"
@@ -67,7 +67,7 @@
         "High-income countries always have a larger area",
         "High-income countries usually have better access to education, healthcare and infrastructure",
         "Low-income countries always have more inhabitants",
-        "There are no measurable differences between the groups"
+        "There are no measurable differences between the groups, only in how they are described in international statistics"
       ],
       "answer": 1,
       "explanation": "High-income countries generally have more resources to invest in education, healthcare, roads and other infrastructure, which contributes to higher life expectancy and living standards. The differences are not about the country's area or population, however, but about economic development and how resources are distributed and used."
@@ -164,7 +164,7 @@
       "choices": [
         "How evenly income is distributed among the country's inhabitants",
         "The country's total economic output",
-        "A rough picture of economic standard of living",
+        "A rough picture of economic standard of living in the country as a whole",
         "A way to compare countries economically"
       ],
       "answer": 0,
@@ -180,7 +180,7 @@
         "International trade organisations",
         "Military alliances",
         "Colonial powers",
-        "Individual nation-states"
+        "Individual nation-states that set the rules on their own"
       ],
       "answer": 0,
       "explanation": "International trade organisations like the WTO work to set common rules for trade between countries, for example around tariffs and trade disputes, to facilitate world trade."
@@ -195,7 +195,7 @@
         "Around the tropics, roughly 20-30 degrees north and south of the equator",
         "Only at the poles",
         "Only at the equator",
-        "Deserts are evenly spread across all latitudes"
+        "Deserts are evenly spread across all latitudes all over the world, even at the poles"
       ],
       "answer": 0,
       "explanation": "Many of the world's large desert belts, such as the Sahara and the Arabian Desert, are located around the tropics, where large-scale air circulation patterns produce descending, dry air that suppresses cloud formation and rainfall."

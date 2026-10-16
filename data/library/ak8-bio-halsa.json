@@ -54,7 +54,7 @@
         "Det dödar bakterier som redan finns i kroppen",
         "Det byter ut de vita blodkropparna mot nya",
         "Det gör att immunförsvaret bildar antikroppar och minnesceller i förväg",
-        "Det gör huden tätare så att smittan inte kommer in"
+        "Det gör huden tätare så att smittan inte kommer in genom hudens porer eller sår"
       ],
       "answer": 2,
       "explanation": "Ett vaccin innehåller avdödade eller ofarliga delar av en mikroorganism, vilket får immunförsvaret att bilda antikroppar och minnesceller — kommer den riktiga smittan senare känns den igen och stoppas innan man blir sjuk. Att döda bakterier som redan finns i kroppen är i stället antibiotikans uppgift; vaccin ges i förebyggande syfte."
@@ -67,7 +67,7 @@
       "opener": "Tänk på vad som orsakar en förkylning och vad antibiotika verkar på.",
       "choices": [
         "Förkylning orsakas av virus, och antibiotika verkar bara på bakterier",
-        "Antibiotika verkar bara i magen och når aldrig luftvägarna",
+        "Antibiotika verkar bara i magen och når aldrig luftvägarna eller lungorna",
         "Förkylningsbakterierna är för små för antibiotika",
         "Antibiotika fungerar bara på barn"
       ],
@@ -96,8 +96,8 @@
       "prompt": "Vilket påstående om levnadsvanor och hälsa stämmer bäst?",
       "opener": "Tänk på hur sömn, mat och motion samverkar över tid.",
       "choices": [
-        "Bara motion påverkar hälsan; sömn och kost har ingen betydelse",
-        "Tillräcklig sömn, varierad kost och regelbunden motion stärker både kroppen och immunförsvaret",
+        "Bara motion påverkar hälsan; sömn och kost har ingen betydelse för kroppen eller immunförsvaret",
+        "Tillräcklig sömn, varierad kost och regelbunden motion stärker kroppen och immunförsvaret",
         "Man kan hoppa över sömnen om man äter tillräckligt mycket",
         "Motion är bara nyttigt för den som redan är vältränad"
       ],
@@ -149,7 +149,7 @@
       "prompt": "Vad är tarmflora?",
       "opener": "Tänk på att inte alla bakterier är farliga.",
       "choices": [
-        "Skadliga bakterier som alltid gör en sjuk",
+        "Skadliga bakterier som alltid gör en sjuk och som måste bekämpas med antibiotika",
         "Nyttiga bakterier som lever i tarmen och hjälper till med matspjälkningen",
         "Virus som angriper tarmen",
         "En sorts vitamin"
@@ -197,7 +197,7 @@
         "Det påverkar bara vuxna",
         "Hjärnan är fortfarande under utveckling och kan skadas extra mycket",
         "Alkohol är ofarligt i alla åldrar",
-        "Tonåringar tål alkohol bättre än vuxna"
+        "Tonåringar tål alkohol bättre än vuxna eftersom de är yngre och friskare"
       ],
       "answer": 1,
       "explanation": "Tonåringars hjärnor är fortfarande under utveckling, och alkohol kan skada denna utveckling extra mycket jämfört med hos en fullt utvecklad vuxen hjärna. Tonåringar tål alltså inte alkohol bättre — snarare tvärtom."
@@ -224,7 +224,7 @@
       "prompt": "Vilken kombination av levnadsvanor stärker immunförsvaret bäst enligt biologisk forskning?",
       "opener": "Tänk på hur sömn, mat och rörelse samverkar för att stödja kroppens funktioner.",
       "choices": [
-        "Bara mycket sömn, inget annat spelar roll",
+        "Bara mycket sömn, inget annat spelar någon roll för immunförsvaret eller hälsan",
         "Tillräcklig sömn, varierad kost och regelbunden motion tillsammans",
         "Bara kosttillskott",
         "Att undvika all fysisk aktivitet"
