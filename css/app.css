@@ -2284,6 +2284,24 @@ body.has-welcome { overflow: hidden; }
 
 .nav-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s-3); margin-top: var(--s-5); }
 .nav-row > div { flex-wrap: wrap; justify-content: flex-end; }
+/* The edit screen's Cancel / Add question / Save row stays at the bottom of the screen however long the
+   set is. On a phone it sits above the fixed tab bar (about 60px). */
+.editbar {
+  position: sticky; bottom: 0; z-index: 15;
+  margin-top: var(--s-5); padding: var(--s-3) 0 calc(var(--s-3) + env(safe-area-inset-bottom, 0px));
+  background: var(--canvas); border-top: 1px solid var(--line);
+}
+.editbar__actions { display: flex; gap: 10px; }
+/* A field scrolled into view (a tap on a question near the bottom) must land above the bar, not under it. */
+html:has(.editbar) { scroll-padding-bottom: 160px; }
+@media (max-width: 899px) { .editbar { bottom: calc(60px + env(safe-area-inset-bottom, 0px)); padding-bottom: var(--s-3); } }
+@media (min-width: 380px) and (max-width: 899px) {
+  /* One row, not three, where the three buttons fit: the bar must not take a sixth of a phone screen.
+     Narrower than that they wrap rather than run off the side. */
+  .editbar { flex-wrap: nowrap; gap: 6px; }
+  .editbar__actions { flex-wrap: nowrap; gap: 6px; }
+  .editbar .btn { padding-left: 8px; padding-right: 8px; white-space: nowrap; }
+}
 
 /* ===== The AI's mark =====
    The tile, soft shadow and halo from the PluggEra AI page's greeting (.solve-hero below), reused wherever the
