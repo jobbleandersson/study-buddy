@@ -117,6 +117,7 @@ async function startOnce(env) {
       TWOFA_EMAIL_SENDS_PER_DAY_PER_ACCOUNT: "0",
       TWOFA_EMAIL_RESENDS: "0",
       TWOFA_RESEND_PER_HOUR_PER_IP: "0",
+      CODES_PER_HOUR_PER_USER: "0",
       EMAIL_DAILY_BUDGET: "0",
       ...env,
     },
