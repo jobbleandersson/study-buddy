@@ -4252,6 +4252,7 @@ body:has(.hp-intro) .session__headright > .btn { display: none; }
 .gradereveal__compare.up { color: var(--ok-ink); }
 .gradereveal__compare.down { color: var(--ink-soft); }
 .gradereveal__caption { font-size: var(--fs-sm); color: var(--ink-faint); margin-top: 2px; }
+.gradereveal__caption--note { max-width: 46ch; margin-inline: auto; margin-top: 6px; }
 
 /* ---------- instant solve: a chat from the first load ---------- */
 .solve-chat__log {

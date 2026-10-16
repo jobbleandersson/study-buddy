@@ -2613,6 +2613,7 @@ export default {
   "hp.topicsTitle": "Per topic",
   "hp.reveal.captionTest": "Estimate against the norm table for {test} — not an official result.",
   "hp.reveal.delprovCaption": "Very rough whole-test estimate from one delprov.",
+  "hp.reveal.ownQuestions": "The questions are our own and may be easier or harder than on the real test, so your real result may differ.",
   "hp.reveal.firstTime": "Your first Högskoleprovet run.",
   "hp.reveal.upFrom": "Up from your best of {n}",
   "hp.reveal.matchesBest": "Matches your best so far.",
