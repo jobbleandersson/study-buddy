@@ -268,6 +268,7 @@ db.exec(`
     utm_campaign TEXT,
     created_at INTEGER NOT NULL
   );
+  CREATE INDEX IF NOT EXISTS idx_page_views_created ON page_views(created_at);   -- the sweep and the dashboard both filter by date
   -- Anonymous script errors from students' browsers (routes/client-errors.js): one row per distinct
   -- error (id = a hash of kind, message and source), counted. Never tied to an account or an IP.
   CREATE TABLE IF NOT EXISTS client_errors (
