@@ -134,6 +134,11 @@ describe("expr: degrees mode is exact at multiples of 90", () => {
     assert.equal(evaluate("cos(-90)", deg), 0);
     assert.equal(evaluate("sin(720)", deg), 0);
   });
+  test("an angle that is a quarter turn up to floating-point error counts as one", () => {
+    assert.equal(evaluate("cos(1.1*90*(1/1.1))", deg), 0);
+    assert.equal(evaluate("sin(33*(90/33))", deg), 1);
+    assert.ok(Number.isNaN(evaluate("tan(1.1*90*(1/1.1))", deg)));
+  });
   test("tan is 0 at 0 and 180 and undefined at 90 and 270", () => {
     assert.equal(evaluate("tan(0)", deg), 0);
     assert.equal(evaluate("tan(180)", deg), 0);
@@ -157,6 +162,11 @@ describe("expr: a trailing decimal separator", () => {
     assert.equal(evaluate("5."), 5);
     assert.equal(evaluate("5,+3"), 8);
     assert.equal(evaluate("(2.)*4"), 8);
+  });
+  test("a separator that is not at the end of a number is still an error", () => {
+    assert.throws(() => evaluate("5,x"));
+    assert.throws(() => evaluate("5.."));
+    assert.throws(() => evaluate("5,5,"));
   });
   test("a decimal separator inside a number and the 1.2.3 guard still work", () => {
     assert.equal(evaluate("3,5"), 3.5);

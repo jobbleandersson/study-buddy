@@ -30,8 +30,9 @@ const TRIG = new Set(["sin", "cos", "tan"]);
 /** sin / cos / tan of an angle in degrees. At a multiple of 90° the answer is exact (cos 90° is 0, not
  *  6,1 · 10⁻¹⁷, the float noise of going through radians) and tan 90° is undefined, not 1,6 · 10¹⁶. */
 function trigDegrees(name, deg) {
-  const k = deg / 90;
-  if (Number.isInteger(k)) {
+  // Within 1e-9 of a quarter turn counts: 1,1 · 90 · (1 / 1,1) is 90.00000000000001 in floating point.
+  const k = Math.round(deg / 90);
+  if (Math.abs(deg / 90 - k) < 1e-9) {
     const q = ((k % 4) + 4) % 4;
     if (name === "sin") return [0, 1, 0, -1][q];
     if (name === "cos") return [1, 0, -1, 0][q];
