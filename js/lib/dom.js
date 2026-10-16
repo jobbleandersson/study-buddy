@@ -62,42 +62,62 @@ export function toastDuration(message, withAction = false) {
 /**
  * toast("Saved")                              — plain, about 2.6s or longer for a long text
  * toast("Deleted", { actionLabel: "Undo", onAction })  — with a button, 6s or longer
- * toast("Couldn't save", { alert: true })     — read out at once (role="alert") instead of politely
+ * toast("Couldn't save", { alert: true })     — read out at once (an inner role="alert") instead of politely
  *
- * The toast is a live region, so a screen reader reads it out. It is created empty and filled a frame
- * later: a region that appears with its text already in it is often not announced.
+ * The toast is a polite live region, so a screen reader reads it out. It is created empty and filled a
+ * frame later: a region that appears with its text already in it is often not announced.
  */
-export function toast(message, opts) {
+let toastFrame = 0;
+let toastState = null;   // { message, withAction } of the toast on screen, for the timer
+function toastEl() {
   let t = document.querySelector(".toast");
-  if (!t) { t = el("div.toast"); document.body.appendChild(t); }
-  t.setAttribute("role", opts?.alert ? "alert" : "status");
-  t.setAttribute("aria-live", opts?.alert ? "assertive" : "polite");
-  t.setAttribute("aria-atomic", "true");
-  clear(t);
-  const withAction = !!(opts?.actionLabel && typeof opts.onAction === "function");
-  const dismiss = () => t.classList.remove("show");
-  const arm = () => { clearTimeout(toastTimer); toastTimer = setTimeout(dismiss, toastDuration(message, withAction)); };
-
+  if (!t) {
+    t = el("div.toast", { role: "status", "aria-live": "polite", "aria-atomic": "true" });
+    // Stays up while the pointer or keyboard focus is on it (someone reading, or reaching for the button).
+    // addEventListener: focusin / focusout have no onfocusin / onfocusout properties.
+    const resume = () => { if (toastState && t.classList.contains("show")) armToast(t); };
+    t.addEventListener("mouseenter", () => clearTimeout(toastTimer));
+    t.addEventListener("focusin", () => clearTimeout(toastTimer));
+    t.addEventListener("mouseleave", resume);
+    t.addEventListener("focusout", resume);
+    document.body.appendChild(t);
+  }
+  return t;
+}
+function armToast(t) {
   clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => dismissToast(t), toastDuration(toastState?.message, toastState?.withAction));
+}
+function dismissToast(t) {
   t.classList.remove("show");
+  // Faded out but still in the page: its button must not stay a Tab stop.
+  t.querySelectorAll("button").forEach((b) => { b.tabIndex = -1; });
+}
+export function toast(message, opts) {
+  const t = toastEl();
+  const withAction = !!(opts?.actionLabel && typeof opts.onAction === "function");
+  toastState = { message, withAction };
+  clearTimeout(toastTimer);
+  cancelAnimationFrame(toastFrame);   // two toasts in one frame: only the last one is drawn
+  t.classList.remove("show");
+  clear(t);
   // Everything below waits for the frame: if the page is in a background tab the frame comes late, and a
   // timer started before it could already have run out by the time the toast became visible.
-  requestAnimationFrame(() => {
+  toastFrame = requestAnimationFrame(() => {
     if (withAction) {
       t.appendChild(el("span", {}, message));
       t.appendChild(el("button.toast__action", {
         type: "button",
-        onclick: () => { opts.onAction(); clearTimeout(toastTimer); dismiss(); },
+        onclick: () => { opts.onAction(); clearTimeout(toastTimer); dismissToast(t); },
       }, opts.actionLabel));
+    } else if (opts?.alert) {
+      t.appendChild(el("span", { role: "alert" }, message));
     } else {
       t.textContent = message;
     }
     t.classList.add("show");
-    arm();
+    armToast(t);
   });
-  // Stays up while the pointer or keyboard focus is on it (someone reading, or reaching for the button).
-  t.onmouseenter = t.onfocusin = () => clearTimeout(toastTimer);
-  t.onmouseleave = t.onfocusout = () => { if (t.classList.contains("show")) arm(); };
 }
 
 let banner = null;
