@@ -127,3 +127,52 @@ describe("mergeStates: saved questions", () => {
     assert.deepEqual(mergeStates({ savedQuestions: ["a"] }, { savedQuestions: ["b"] }, NOW).savedQuestions.sort(), ["a", "b"]);
   });
 });
+
+describe("mergeStates: deletions", () => {
+  const D = NOW - 100_000;                 // a deletion a little while ago
+  const before = D - 50_000, after = D + 50_000;
+  test("a set deleted on one device stays gone when the other syncs", () => {
+    const server = { assignments: [], deleted: { a: D } };
+    const local = { assignments: [set("a", "Old copy", before), set("b", "Kept", before)] };
+    assert.deepEqual(mergeStates(server, local, NOW).assignments.map((a) => a.id), ["b"]);
+    assert.deepEqual(mergeStates(local, server, NOW).assignments.map((a) => a.id), ["b"]);
+  });
+  test("a set edited or restored after it was deleted comes back", () => {
+    const out = mergeStates({ assignments: [], deleted: { a: D } }, { assignments: [set("a", "Edited later", after)] }, NOW);
+    assert.deepEqual(out.assignments.map((a) => a.id), ["a"]);
+  });
+  test("a set with no edit stamp is judged by when it was created", () => {
+    const made = (at) => ({ id: "a", title: "x", questions: [], createdAt: at });
+    assert.equal(mergeStates({ assignments: [], deleted: { a: D } }, { assignments: [made(after)] }, NOW).assignments.length, 1);
+    assert.equal(mergeStates({ assignments: [], deleted: { a: D } }, { assignments: [made(before)] }, NOW).assignments.length, 0);
+  });
+  test("rules and subjects follow the same rule", () => {
+    const out = mergeStates(
+      { rules: [], subjects: [], deleted: { r1: D, s1: D } },
+      { rules: [{ id: "r1", text: "t", createdAt: before }], subjects: [{ id: "s1", name: "Historia" }, { id: "s2", name: "Fysik" }] }, NOW);
+    assert.deepEqual(out.rules, []);
+    assert.deepEqual(out.subjects.map((x) => x.id), ["s2"]);
+  });
+  test("a test loses a deleted set, and goes with its last one", () => {
+    const server = { assignments: [set("a", "A", before), set("b", "B", before)], exams: [{ id: "e1", setIds: ["a", "b"], updatedAt: before }, { id: "e2", setIds: ["a"], updatedAt: before }], deleted: { a: D } };
+    const out = mergeStates(server, {}, NOW);
+    assert.deepEqual(out.assignments.map((a) => a.id), ["b"]);
+    assert.deepEqual(out.exams.map((e) => [e.id, e.setIds]), [["e1", ["b"]]]);
+  });
+  test("marks from both sides are kept (the later one wins) and old ones are dropped", () => {
+    const out = mergeStates({ deleted: { a: D - 5000, old: NOW - 200 * 86400000 } }, { deleted: { a: D, b: D - 9000 } }, NOW);
+    assert.deepEqual(out.deleted, { a: D, b: D - 9000 });
+  });
+});
+
+describe("mergeStates: profile", () => {
+  test("a rename on the device that syncs second is kept", () => {
+    const out = mergeStates({ profile: { name: "Anna" }, profileAt: 10 }, { profile: { name: "Annika" }, profileAt: 20 }, NOW);
+    assert.equal(out.profile.name, "Annika");
+  });
+  test("an older local profile does not replace the server's; without stamps the server's stays", () => {
+    assert.equal(mergeStates({ profile: { name: "Anna" }, profileAt: 30 }, { profile: { name: "Old" }, profileAt: 20 }, NOW).profile.name, "Anna");
+    assert.equal(mergeStates({ profile: { name: "Anna" } }, { profile: { name: "Other" } }, NOW).profile.name, "Anna");
+    assert.equal(mergeStates({}, { profile: { name: "Local" } }, NOW).profile.name, "Local");
+  });
+});
