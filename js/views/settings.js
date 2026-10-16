@@ -20,6 +20,7 @@ import { deleteAccountDialog } from "../components/delete-account-dialog.js";
 import { twofaSetupDialog } from "../components/twofa-setup-dialog.js";
 import { passwordConfirmDialog } from "../components/password-confirm-dialog.js";
 import { setPasswordDialog } from "../components/set-password-dialog.js";
+import { changePasswordDialog } from "../components/change-password-dialog.js";
 import { openWelcomeQuiz } from "../components/onboarding.js";
 import { playFanfare } from "../lib/sound.js";
 import { offlineSupported, isLibraryCached, cacheLibraryOffline } from "../lib/offline.js";
@@ -527,6 +528,21 @@ export function renderSettings() {
               onclick: async () => { if (await setPasswordDialog()) { toast(t("setpw.addedToast")); paint(); } },
             }, t("setpw.add")))
           : null,
+        !store.authPasswordless
+          ? row(t("set.pwChangeLabel"), t("set.pwChangeNote"), el("button.btn.btn--ghost.btn--sm", {
+              type: "button",
+              onclick: async () => { if (await changePasswordDialog()) toast(t("pwchange.done")); },
+            }, t("pwchange.title")))
+          : null,
+        row(t("set.signOutOthersLabel"), t("set.signOutOthersNote"), el("button.btn.btn--ghost.btn--sm", {
+          type: "button",
+          onclick: async (e) => {
+            const btn = e.currentTarget; btn.disabled = true;
+            try { toast(t((await store.signOutOtherDevices()) > 0 ? "set.signedOutOthers" : "set.signedOutOthersNone")); }
+            catch (err) { toast(err.message || t("login.somethingWrong")); }
+            finally { btn.disabled = false; }
+          },
+        }, t("set.signOutOthers"))),
         showTwofa
           ? row(t("set.twofaLabel"), t("set.twofaNote"),
               store.totpEnabled

@@ -34,7 +34,7 @@
       "opener": "The median is about the middle position, not about calculating something.",
       "choices": [
         "9",
-        "7,4",
+        "7.4",
         "5",
         "8"
       ],
@@ -50,7 +50,7 @@
       "choices": [
         "5",
         "6",
-        "5,5",
+        "5.5",
         "4"
       ],
       "answer": 0,
@@ -84,7 +84,7 @@
         "3 %"
       ],
       "answer": 2,
-      "explanation": "10 marbles in total, of which 3 are red: $\\frac{3}{10} = 0{,}3 = 30\\ \\%$."
+      "explanation": "10 marbles in total, of which 3 are red: $\\frac{3}{10} = 0.3 = 30\\ \\%$."
     },
     {
       "id": "q-ma9-stat-6",
@@ -207,7 +207,7 @@
       "answer": "40 %",
       "steps": [
         "Students without siblings: $30 - 18 = 12$.",
-        "The probability: $\\frac{12}{30} = \\frac{2}{5} = 0{,}4 = 40\\ \\%$."
+        "The probability: $\\frac{12}{30} = \\frac{2}{5} = 0.4 = 40\\ \\%$."
       ]
     },
     {
@@ -218,12 +218,12 @@
       "opener": "Work out both the mean and the median, and compare how the extreme value 95 affects them.",
       "choices": [
         "The mean is a better picture of a typical salary because it takes all the values into account.",
-        "The median (27) gives a better picture of a typical salary than the mean (40,2), because 95 pulls the mean up.",
+        "The median (27) gives a better picture of a typical salary than the mean (40.2), because 95 pulls the mean up.",
         "The mean and the median are the same size in this group.",
         "The mode is the most representative measure here."
       ],
       "answer": 1,
-      "explanation": "The mean is $(25+27+28+26+95)/5 = 40{,}2$, but the median (the middle value in 25, 26, 27, 28, 95) is only 27. The extreme value 95 pulls up the mean but does not affect the median as much. There is no mode here since no number repeats."
+      "explanation": "The mean is $(25+27+28+26+95)/5 = 40.2$, but the median (the middle value in 25, 26, 27, 28, 95) is only 27. The extreme value 95 pulls up the mean but does not affect the median as much. There is no mode here since no number repeats."
     }
   ]
 }

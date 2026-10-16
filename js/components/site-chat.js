@@ -194,11 +194,12 @@ export function mountSiteChat() {
 
     abort = new AbortController();
     let acc = "";
+    let stopReason = null;
     let ClaudeError;   // set once the lazy import below resolves; stays undefined if that itself fails
     try {
       const [claudeMod, promptsMod] = await Promise.all([import("../claude.js"), import("../prompts.js")]);
       ClaudeError = claudeMod.ClaudeError;
-      for await (const chunk of claudeMod.tutorStream({ system: promptsMod.siteHelpSystem(), messages, signal: abort.signal })) {
+      for await (const chunk of claudeMod.tutorStream({ system: promptsMod.siteHelpSystem(), messages, signal: abort.signal, onStop: (r) => { stopReason = r; } })) {
         acc += chunk;
         bubble.innerHTML = markdown(acc);
         logEl.scrollTop = logEl.scrollHeight;
@@ -210,6 +211,7 @@ export function mountSiteChat() {
         messages.pop();
       } else {
         messages.push({ role: "assistant", content: acc });
+        if (stopReason === "max_tokens") bubble.appendChild(el("p.msg__errnote", {}, t("tutor.truncated")));   // cut off by the length limit: say so
         announce(t("sitechat.prefix", { text: acc }));
       }
       setMood(mascotEl, "idle");

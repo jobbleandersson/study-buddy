@@ -8,13 +8,14 @@ import { asyncHandler } from "../middleware/asyncHandler.js";
 import {
   signupHourly, signupDaily, loginFailures, googleSignInLimit,
   resendVerificationLimit, forgotPasswordLimits, verifyEmailIpLimit, resetPasswordIpLimit,
-  twoFaVerifyLimits, twoFaPasswordLimit, setPasswordLimit, twoFaEmail, twoFaResendIpLimit, DAY_MS,
+  twoFaVerifyLimits, twoFaPasswordLimit, setPasswordLimit, changePasswordLimit, twoFaEmail, twoFaResendIpLimit, DAY_MS,
 } from "../middleware/authLimits.js";
 import { consume, TOO_MANY_MESSAGE } from "../middleware/attemptLimit.js";
 import { isUniqueViolation } from "../errors.js";
 import { requireAuth } from "../middleware/requireAuth.js";
+import { isPlausibleEmail } from "../emailCheck.js";
 import { mayMail } from "../mailLimits.js";
-import { emailEnabled, sendVerifyEmail, sendResetEmail, sendTwoFaEnabledEmail, sendTwoFaDisabledEmail, sendPasswordAddedEmail, sendTwoFaCodeEmail, sendWelcomeEmail } from "../email.js";
+import { emailEnabled, sendVerifyEmail, sendResetEmail, sendTwoFaEnabledEmail, sendTwoFaDisabledEmail, sendPasswordAddedEmail, sendPasswordChangedEmail, sendUseGoogleEmail, sendGoogleLinkedEmail, sendTwoFaCodeEmail, sendWelcomeEmail } from "../email.js";
 import { hashPassword, comparePassword, answerIfBusy } from "../passwordHash.js";
 import { generateSecret, verifyTotp, otpauthUri } from "../totp.js";
 
@@ -181,7 +182,7 @@ const consentRequired = (res) =>
 auth.post("/auth/signup", signupHourly, signupDaily, asyncHandler(async (req, res) => {
   const email = String(req.body?.email || "").trim().toLowerCase();
   const password = String(req.body?.password || "");
-  if (!email || !email.includes("@")) return res.status(400).json({ error: { message: "Enter a valid email." } });
+  if (!isPlausibleEmail(email)) return res.status(400).json({ error: { message: "Enter a valid email." } });
   if (password.length < 8) return res.status(400).json({ error: { message: "Password must be at least 8 characters." } });
   if (password.length > 200) return res.status(400).json({ error: { message: "Password is too long." } });   // bcrypt only reads 72 bytes; don't hash megabytes
   if (req.body?.consent !== true) return consentRequired(res);
@@ -396,6 +397,7 @@ auth.post("/auth/google", googleSignInLimit, asyncHandler(async (req, res) => {
           })();
           user = { id: existing.id, email: existing.email };
           linked = true;
+          sendGoogleLinkedEmail(existing.email).catch(() => {});
         } else {
           const id = crypto.randomUUID();
           db.prepare("INSERT INTO users (id, email, password_hash, google_sub, created_at, consent_at, terms_version, email_verified_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)")
@@ -512,7 +514,10 @@ const RESET_COOLDOWN_MS = 2 * 60 * 1000;
 auth.post("/auth/forgot-password", ...forgotPasswordLimits, asyncHandler(async (req, res) => {
   const email = String(req.body?.email || "").trim().toLowerCase();
   if (email && emailEnabled()) {
-    const user = db.prepare("SELECT id, password_set_at AS passwordSetAt FROM users WHERE email = ?").get(email);
+    const user = db.prepare("SELECT id, password_set_at AS passwordSetAt, google_sub AS googleSub FROM users WHERE email = ?").get(email);
+    // An account that signs in with Google and has no password has nothing to reset: tell the address so by mail
+    // instead of leaving whoever asked waiting for a link that never comes (the reply here is the same either way).
+    if (user && !user.passwordSetAt && user.googleSub && mayMail("reset", email, req)) sendUseGoogleEmail(email).catch(() => {});
     if (user && user.passwordSetAt) {
       const recent = db.prepare("SELECT 1 AS x FROM password_reset_tokens WHERE user_id = ? AND created_at > ?")
         .get(user.id, Date.now() - RESET_COOLDOWN_MS);
@@ -733,3 +738,41 @@ auth.post("/auth/set-password", requireAuth, setPasswordLimit, asyncHandler(asyn
   sendPasswordAddedEmail(req.user.email).catch(() => {});
   res.json({ ok: true });
 }));
+
+// Change the password from Settings. The current password has to be right (a stolen session alone must
+// not be able to take the account), only a wrong one counts against the limit, and every OTHER signed-in
+// device is signed out - the one making the change stays. A reset link mailed earlier dies too. The
+// owner is told by mail. A Google-only account has no password to change: it adds one through
+// /auth/set-password.
+auth.post("/auth/change-password", requireAuth, changePasswordLimit, asyncHandler(async (req, res) => {
+  const current = String(req.body?.currentPassword || "").slice(0, 200);
+  const next = String(req.body?.newPassword || "");
+  if (next.length < 8) return res.status(400).json({ error: { message: "Password must be at least 8 characters." } });
+  if (next.length > 200) return res.status(400).json({ error: { message: "Password is too long." } });
+  const user = db.prepare("SELECT password_hash AS hash, password_set_at AS setAt FROM users WHERE id = ?").get(req.user.userId);
+  if (!user?.setAt) return res.status(400).json({ error: { message: "This account has no password to change.", code: "no_password" } });
+  try {
+    if (!(await comparePassword(current, user.hash))) return wrongPasswordRes(res);
+    const hash = await hashPassword(next);
+    const now = Date.now();
+    const sid = req.cookies?.[COOKIE_NAME];
+    db.transaction(() => {
+      db.prepare("UPDATE users SET password_hash = ?, password_set_at = ? WHERE id = ?").run(hash, now, req.user.userId);
+      db.prepare("DELETE FROM sessions WHERE user_id = ? AND id != ?").run(req.user.userId, sid || "");
+      retireResetTokens(req.user.userId, now);
+    })();
+  } catch (e) {
+    if (answerIfBusy(e, res)) return;   // the password-hashing pool is full
+    throw e;
+  }
+  sendPasswordChangedEmail(req.user.email).catch(() => {});
+  res.json({ ok: true });
+}));
+
+// "Sign out other devices": ends every session of this account except the one asking. Needs no password -
+// it only removes access, and the person asking is already signed in.
+auth.post("/auth/logout-others", requireAuth, (req, res) => {
+  const sid = req.cookies?.[COOKIE_NAME];
+  const r = db.prepare("DELETE FROM sessions WHERE user_id = ? AND id != ?").run(req.user.userId, sid || "");
+  res.json({ ok: true, signedOut: r.changes });
+});

@@ -3,7 +3,8 @@
 //
 // Checks: choice counts per delprov, answer in range, KVA/NOG canonical
 // choices, figure files exist, stimulus identical within a group, count
-// matches index.json, norm tables monotonic in [0, 2.00].
+// matches index.json, norm tables monotonic in [0, 2.00], and no answer position holds more than 40 %
+// of a set of 10 or more (HP options are never reshuffled, so a skewed key position can be guessed).
 
 import { readFileSync, existsSync } from "node:fs";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -13,6 +14,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const errors = [];
 const fail = (m) => errors.push(m);
 
+const MAX_POSITION_SHARE = 0.4;
 const CHOICE_COUNT = { ord: 5, las: 4, mek: 4, elf: 4, xyz: 4, kva: 4, nog: 5, dtk: 4 };   // as on the real test (and OPTION_COUNT in js/lib/hp.js)
 const KVA_CHOICES = [
   "Kvantitet I är större",
@@ -79,6 +81,15 @@ for (const entry of hpSets) {
     }
     if (q.stimulus && q.stimulus.id) {
       (groups[q.stimulus.id] ||= []).push(JSON.stringify(q.stimulus));
+    }
+  }
+  const mc = (doc.questions || []).filter((q) => q.kind === "mc" && Number.isInteger(q.answer));
+  if (mc.length >= 10) {
+    const count = {};
+    for (const q of mc) count[q.answer] = (count[q.answer] || 0) + 1;
+    const [pos, n] = Object.entries(count).sort((a, b) => b[1] - a[1])[0];
+    if (n / mc.length > MAX_POSITION_SHARE) {
+      fail(`${entry.id}: option ${"ABCDE"[pos]} is the answer in ${n} of ${mc.length} questions (${Math.round((100 * n) / mc.length)} %, limit ${MAX_POSITION_SHARE * 100} %) - move some keys`);
     }
   }
   for (const [gid, list] of Object.entries(groups)) {

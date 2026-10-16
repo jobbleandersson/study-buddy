@@ -28,12 +28,6 @@ export function passwordConfirmDialog({ title, body, confirmLabel, submit }) {
     }
     function onKey(e) {
       if (e.key === "Escape") { e.stopPropagation(); if (!busy) close(false); }
-      else if (e.key === "Tab") {
-        const stops = [input, cancelBtn, confirmBtn].filter((n) => !n.disabled);
-        const at = stops.indexOf(document.activeElement);
-        e.preventDefault();
-        stops[(at + (e.shiftKey ? -1 : 1) + stops.length) % stops.length].focus();
-      }
     }
 
     async function onSubmit(e) {

@@ -203,14 +203,13 @@
       "id": "q-en8-per-14",
       "kind": "worked",
       "topic": "present perfect",
-      "prompt": "Correct the four errors: \"My sister have never tried sushi. She lived in Paris since 2021, and she has visit the Eiffel Tower already.\"",
-      "opener": "Blanda inte ihop present perfect och past simple — och kolla hjälpverb, particip och var already ska stå.",
-      "answer": "My sister has never tried sushi. She has lived in Paris since 2021, and she has already visited the Eiffel Tower.",
+      "prompt": "Correct the three errors: \"My sister have never tried sushi. She lived in Paris since 2021, and she has visit the Eiffel Tower already.\"",
+      "opener": "Blanda inte ihop present perfect och past simple — och kolla hjälpverb och particip.",
+      "answer": "My sister has never tried sushi. She has lived in Paris since 2021, and she has visited the Eiffel Tower already.",
       "steps": [
         "\"My sister have\" → \"My sister has\". Tredje person singular tar \"has\" som hjälpverb.",
         "\"She lived in Paris since 2021\" → \"She has lived in Paris since 2021\". Något som började i dåtid och fortfarande gäller uttrycks med present perfect + since.",
-        "\"has visit\" → \"has visited\". Efter have/has står perfektparticipet, som för regelbundna verb slutar på -ed.",
-        "\"visited the Eiffel Tower already\" → \"already visited the Eiffel Tower\". \"Already\" placeras vanligtvis mellan hjälpverbet och huvudverbet, inte sist i satsen."
+        "\"has visit\" → \"has visited\". Efter have/has står perfektparticipet, som för regelbundna verb slutar på -ed."
       ]
     },
     {

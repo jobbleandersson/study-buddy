@@ -25,7 +25,7 @@
         "$(3, 2)$"
       ],
       "answer": 0,
-      "explanation": "In $f(x) = (x-a)^2+b$ the vertex is $(a, b)$. Here $a=2$ and $b=3$, so the vertex is $(2, 3)$. Choosing $(-2,3)$ is a common sign error — it is $x-a$ in the formula, so $a$ is positive when there is a minus sign inside the brackets."
+      "explanation": "In $f(x) = (x-a)^2+b$ the vertex is $(a, b)$. Here $a=2$ and $b=3$, so the vertex is $(2, 3)$. Choosing $(-2.3)$ is a common sign error — it is $x-a$ in the formula, so $a$ is positive when there is a minus sign inside the brackets."
     },
     {
       "id": "q-ma2-funktioner-2",
@@ -137,7 +137,7 @@
         "$(2, -5)$"
       ],
       "answer": 0,
-      "explanation": "$(x+5)^2 = (x-(-5))^2$, so $a=-5$ and $b=-2$, giving the vertex $(-5,-2)$. Forgetting the sign change inside the brackets (answer B) is a common mistake."
+      "explanation": "$(x+5)^2 = (x-(-5))^2$, so $a=-5$ and $b=-2$, giving the vertex $(-5,-2)$. Forgetting the sign change inside the brackets, giving $(5, -2)$, is a common mistake."
     },
     {
       "id": "q-ma2-funktioner-10",
@@ -152,7 +152,7 @@
         "$x = -8$"
       ],
       "answer": 0,
-      "explanation": "The axis of symmetry is $x = -\\frac{p}{2} = -\\frac{8}{2} = -4$. Answering $x=4$ (answer B) misses the minus sign in the formula."
+      "explanation": "The axis of symmetry is $x = -\\frac{p}{2} = -\\frac{8}{2} = -4$. Answering $x=4$ misses the minus sign in the formula."
     },
     {
       "id": "q-ma2-funktioner-11",
@@ -227,7 +227,7 @@
         "$x = 6$"
       ],
       "answer": 0,
-      "explanation": "The axis of symmetry is $x = \\frac{12}{2\\cdot3} = \\frac{12}{6} = 2$. Forgetting to divide by $2a$ (and dividing by $a$ only) would incorrectly give answer B, $x=4$."
+      "explanation": "The axis of symmetry is $x = \\frac{12}{2\\cdot3} = \\frac{12}{6} = 2$. Forgetting to divide by $2a$ (and dividing by $a$ only) would incorrectly give $x=4$."
     }
   ]
 }

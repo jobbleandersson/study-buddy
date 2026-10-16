@@ -170,6 +170,38 @@ export function sendTwoFaCodeEmail(to, code, purpose) {
   });
 }
 
+export function sendPasswordChangedEmail(to) {
+  return sendEmail({
+    to, subject: "Your PluggEra password was changed",
+    html: layout(`
+      <p>The password for this PluggEra account was just changed, and every other device was signed out.</p>
+      <p style="font-size:13px;color:#6B7386">If this wasn't you, use "Forgot password" on the sign-in page to set a new one.</p>
+    `),
+  });
+}
+
+// Someone asked to reset the password of an address whose account signs in with Google and has no password.
+export function sendUseGoogleEmail(to) {
+  return sendEmail({
+    to, low: true, subject: "Sign in to PluggEra with Google",
+    html: layout(`
+      <p>Someone asked to reset the password for this address. The PluggEra account for it signs in with Google and has no password to reset: choose "Sign in with Google" on the sign-in page.</p>
+      <p style="font-size:13px;color:#6B7386">Want a password as well? Sign in with Google, open Settings and choose to add one. If this wasn't you, you can ignore this email.</p>
+    `),
+  });
+}
+
+// An existing password account was linked to Google: the password was turned off.
+export function sendGoogleLinkedEmail(to) {
+  return sendEmail({
+    to, low: true, subject: "Your PluggEra account now signs in with Google",
+    html: layout(`
+      <p>This PluggEra account was just linked to a Google sign-in. Its old password no longer works and every device was signed out: sign in with Google from now on.</p>
+      <p style="font-size:13px;color:#6B7386">Want a password as well? Sign in with Google, open Settings and choose to add one. If this wasn't you, sign in with Google to check your account.</p>
+    `),
+  });
+}
+
 export function sendPasswordAddedEmail(to) {
   return sendEmail({
     to, subject: "A password was added to your PluggEra account",

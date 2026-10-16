@@ -58,14 +58,17 @@ export function renderPrint(id, qs) {
     return el("div.psheet__item", {}, [...pre, head, ...body]);
   };
 
-  const answerEl = (q, i) => el("div.psheet__akey", {}, [
-    el("b", {}, `${i + 1}.`), " ",
-    q.kind === "mc"
-      ? `${String.fromCharCode(65 + (q.answer ?? 0))} — ` + strip(q.choices?.[q.answer ?? 0] || "")
-      : q.kind === "cloze"
-        ? parseCloze(q.prompt).filter((p) => p.blank).map((p) => p.blank[0]).join(", ")
-        : strip(q.answer || ""),
-  ]);
+  // The key renders like the questions do (renderRich): a worked answer written as $x^2$ prints as a
+  // formula, not as the dollar signs and backslashes it is stored with.
+  const answerParts = (q) => {
+    if (q.kind === "mc") {
+      return [`${String.fromCharCode(65 + (q.answer ?? 0))} — `, el("span", { html: renderRich(q.choices?.[q.answer ?? 0] || "") })];
+    }
+    if (q.kind === "cloze") return [el("span", { html: renderRich(parseCloze(q.prompt).filter((p) => p.blank).map((p) => p.blank[0]).join(", ")) })];
+    // ?? not ||: an answer of 0 is an answer.
+    return [el("span", { html: renderRich(q.answer ?? "") })];
+  };
+  const answerEl = (q, i) => el("div.psheet__akey", {}, [el("b", {}, `${i + 1}.`), " ", ...answerParts(q)]);
 
   const keyBlock = el("div.psheet__break", { hidden: !showKey }, [
     el("h2", {}, t("print.answerKey")),
@@ -109,4 +112,3 @@ export function renderPrint(id, qs) {
 function subjectName(a) {
   return store.subjects.find((s) => s.id === a.subjectId)?.name || "";
 }
-function strip(html) { return String(html).replace(/<[^>]+>/g, ""); }

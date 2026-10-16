@@ -25,7 +25,7 @@
         "$x = -1$ or $x = -6$"
       ],
       "answer": 0,
-      "explanation": "The numbers $-2$ and $-3$ give the product $6$ and the sum $-5$, so $x^2 - 5x + 6 = (x-2)(x-3) = 0$. That gives $x = 2$ or $x = 3$. Choosing negative numbers (answer B) mixes up the sign of the sum and the product."
+      "explanation": "The numbers $-2$ and $-3$ give the product $6$ and the sum $-5$, so $x^2 - 5x + 6 = (x-2)(x-3) = 0$. That gives $x = 2$ or $x = 3$. Choosing negative numbers mixes up the sign of the sum and the product."
     },
     {
       "id": "q-ma2-andragrad-2",
@@ -36,11 +36,11 @@
       "choices": [
         "$x = 4$ or $x = -2$",
         "$x = 2$ or $x = -4$",
-        "$x = -1 \\pm 3$",
+        "$x = -1 \\pm 9$",
         "$x = 8$ or $x = -1$"
       ],
       "answer": 1,
-      "explanation": "$x = -1 \\pm \\sqrt{1 - (-8)} = -1 \\pm \\sqrt{9} = -1 \\pm 3$, so $x = 2$ or $x = -4$. Answer C only shows the intermediate step without finishing the calculation."
+      "explanation": "$x = -1 \\pm \\sqrt{1 - (-8)} = -1 \\pm \\sqrt{9} = -1 \\pm 3$, so $x = 2$ or $x = -4$. The option $x = -1 \\pm 9$ forgets to take the square root of $9$."
     },
     {
       "id": "q-ma2-andragrad-3",
@@ -100,7 +100,7 @@
         "$(x-2)(x-4) = 0$, so $x = 2$ or $x = 4$"
       ],
       "answer": 1,
-      "explanation": "Take out $2x$: $2x^2 - 8x = 2x(x-4) = 0$. The zero-product method gives $x = 0$ or $x = 4$. Answer C only takes out $x$ (not $2x$) and then miscalculates $2x-8=0$, which actually gives $x=4$, not $x=8$."
+      "explanation": "Take out $2x$: $2x^2 - 8x = 2x(x-4) = 0$. The zero-product method gives $x = 0$ or $x = 4$. The option $x(2x - 8) = 0$ only takes out $x$ (not $2x$) and then miscalculates $2x-8=0$, which actually gives $x=4$, not $x=8$."
     },
     {
       "id": "q-ma2-andragrad-7",
@@ -137,7 +137,7 @@
         "$x = -3$ or $x = -4$"
       ],
       "answer": 0,
-      "explanation": "The numbers $-4$ and $3$ give the product $-12$ and the sum $-1$, so $x^2-x-12=(x-4)(x+3)=0$, giving $x=4$ or $x=-3$. Swapping the signs (answer B) confuses which number should be positive and which negative."
+      "explanation": "The numbers $-4$ and $3$ give the product $-12$ and the sum $-1$, so $x^2-x-12=(x-4)(x+3)=0$, giving $x=4$ or $x=-3$. Swapping the signs confuses which number should be positive and which negative."
     },
     {
       "id": "q-ma2-andragrad-10",
@@ -152,7 +152,7 @@
         "$x = 6$ or $x = 5$"
       ],
       "answer": 0,
-      "explanation": "$x = 3 \\pm \\sqrt{9-5} = 3 \\pm 2$, so $x=5$ or $x=1$. Answer B gets the sign wrong by mixing up $-p/2$ with $p/2$."
+      "explanation": "$x = 3 \\pm \\sqrt{9-5} = 3 \\pm 2$, so $x=5$ or $x=1$. The option $x = -5$ or $x = -1$ gets the sign wrong by mixing up $-p/2$ with $p/2$."
     },
     {
       "id": "q-ma2-andragrad-11",
@@ -197,7 +197,7 @@
         "$x(3x+6) = 0$, so $x = 0$ or $x = -6$"
       ],
       "answer": 0,
-      "explanation": "Take out $3x$: $3x^2+6x = 3x(x+2) = 0$, giving $x=0$ or $x=-2$. Answers C and D only take out $x$ (not $3x$) and then misread $3x+6=0$ — that equation actually gives $x=-2$, not $6$ or $-6$."
+      "explanation": "Take out $3x$: $3x^2+6x = 3x(x+2) = 0$, giving $x=0$ or $x=-2$. The options with $x(3x+6) = 0$ only take out $x$ (not $3x$) and then misread $3x+6=0$ — that equation actually gives $x=-2$, not $6$ or $-6$."
     },
     {
       "id": "q-ma2-andragrad-14",

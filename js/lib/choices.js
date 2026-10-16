@@ -19,6 +19,25 @@ export function choicesDependOnOrder(choices) {
   return list.some((c) => refers.some((rx) => rx.test(c)));
 }
 
+/** Does the explanation, opener or a step point at an option by its LETTER or POSITION? ("Svar B …",
+ *  "alternativ 2", "det första alternativet", "option C", "the last option") Shuffling would leave such a
+ *  sentence describing the wrong option, so a question like that keeps its authored order, like one whose
+ *  options point at each other. Values written as numbers ("Svaret 5 är differensen") are not positions.
+ *  Letters must be capitals (a lower-case "svar a" is just text). */
+const NAMES_OPTION = [
+  /\b(?:[Aa]lternativ(?:et)?|[Ss]var(?:et)?|[Oo]ptions?|[Aa]nswers?|[Cc]hoices?)\s+\(?[A-E]\)?(?![\p{L}\d])/u,
+  /\b(?:[Aa]lternativ(?:et)?|[Rr]ubrik(?:en)?|[Pp]åstående(?:t)?|[Oo]ption|[Ss]tatement|[Hh]eadline)\s+[1-5]\b/,
+  /\b(?:första|andra|tredje|fjärde|sista)\s+(?:alternativet|svaret|påståendet|svarsalternativet)/i,
+  /\b(?:första|andra|tredje|fjärde|sista)\s+(?:och|eller)\s+(?:det\s+)?(?:första|andra|tredje|fjärde|sista)\s+(?:alternativet|alternativen)/i,
+  /\b(?:de|den|det)\s+(?:(?:två|tre|fyra)\s+)?(?:första|sista)\s+(?:alternativen|alternativ|svaren|påståendena)/i,
+  /\b(?:the\s+)?(?:first|second|third|fourth|last)(?:\s+(?:two|three))?\s+(?:options?|choices?|answers?|statements?)\b/i,
+];
+export function explanationNamesOptions(q) {
+  const parts = [q?.explanation, q?.opener, ...(Array.isArray(q?.steps) ? q.steps : [])];
+  const text = parts.filter((p) => typeof p === "string").join(" | ");
+  return !!text && NAMES_OPTION.some((rx) => rx.test(text));
+}
+
 /** A shuffled copy of the index list [0..n-1] (Fisher–Yates). `rng` returns [0, 1). */
 export function shuffledIndexes(n, rng = Math.random) {
   const a = Array.from({ length: n }, (_, i) => i);
@@ -30,11 +49,11 @@ export function shuffledIndexes(n, rng = Math.random) {
 }
 
 /** The options of a multiple-choice question in a random order, with `answer` (the index of the correct
- *  one) pointing at the same option as before. Questions whose options depend on their order, and
+ *  one) pointing at the same option as before. Questions whose options (or explanation) depend on their order, and
  *  anything that isn't a valid multiple-choice question, come back unchanged. */
-export function shuffleMc({ choices, answer }, rng = Math.random) {
+export function shuffleMc({ choices, answer, explanation, opener, steps }, rng = Math.random) {
   if (!Array.isArray(choices) || choices.length < 2 || !Number.isInteger(answer) || answer < 0 || answer >= choices.length
-    || choicesDependOnOrder(choices)) {
+    || choicesDependOnOrder(choices) || explanationNamesOptions({ explanation, opener, steps })) {
     return { choices, answer };
   }
   const perm = shuffledIndexes(choices.length, rng);    // perm[newIndex] = oldIndex

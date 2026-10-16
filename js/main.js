@@ -16,6 +16,7 @@ import { mountUpgradePrompt } from "./components/upgrade-prompt.js";
 import { aiTile } from "./components/ai-mark.js";
 import { loadLibraryIndex } from "./lib/library-content.js";
 import { playFanfare } from "./lib/sound.js";
+import { mountModalA11y } from "./lib/modal-a11y.js";
 
 // Every module is in: boot.js's "couldn't start" screen stands down.
 window.__sbStarted = true;
@@ -58,6 +59,7 @@ mountUpgradePrompt();
 // stale render (see the renderGen guard below) resolves early without ever
 // finishing the real paint, and a store.init() rejection meant this code
 // never ran at all.
+mountModalA11y();   // focus trap, inert background and focus return for every aria-modal dialog
 function loadDeferredUI() {
   import("./components/command-palette.js").then((m) => m.mountCommandPalette());
   import("./components/site-chat.js").then((m) => m.mountSiteChat());
@@ -1361,6 +1363,38 @@ store.init().then(() => {
     } else {
       toast(t("sync.conflict"));
     }
+  });
+  // Saving to the account is not going through (no signal, a restart, a session that ended, a state over
+  // the size limit): the changes are safe on this device, and the student is told instead of left to assume.
+  let failTimer = null;
+  let syncBanner = false;   // the one banner is shared with 'save failed' and 'conflict': only hide what this showed
+  store.addEventListener("syncFailed", (e) => {
+    const kind = e.detail?.kind;
+    clearTimeout(failTimer);
+    const show = () => {
+      syncBanner = true;
+      if (kind === "toolarge") {
+        showBanner(t("sync.tooLargeBanner"), {
+          actionLabel: t("save.emergencyExport"), closeLabel: t("common.close"),
+          onAction: () => {
+            downloadText(`pluggera-backup-${localDayKey()}.json`, store.exportJSON());
+            store.markBackedUp();
+            toast(t("set.backupDownloaded"));
+          },
+        });
+      } else showBanner(t("sync.failedBanner"), { closeLabel: t("common.close") });
+    };
+    // A dropped signal is common and mends itself: only say something if it lasts.
+    if (kind === "toolarge") show(); else failTimer = setTimeout(() => { if (store.syncFailing) show(); }, 8000);
+  });
+  store.addEventListener("syncRecovered", () => { clearTimeout(failTimer); if (syncBanner) { syncBanner = false; hideBanner(); } });
+  store.addEventListener("sessionEnded", () => {
+    clearTimeout(failTimer);
+    syncBanner = true;
+    showBanner(t("sync.signedOutBanner"), {
+      actionLabel: t("login.signIn"), closeLabel: t("common.close"),
+      onAction: () => { location.hash = "#/login"; syncBanner = false; hideBanner(); },
+    });
   });
   store.addEventListener("streakFreezeUsed", (e) => {
     toast(t("streak.freezeUsedToast", { n: e.detail.streak }));

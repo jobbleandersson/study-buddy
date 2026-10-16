@@ -106,15 +106,15 @@
       "id": "q-en9-wc-7",
       "kind": "worked",
       "topic": "there their and they're",
-      "prompt": "Correct the five errors: \"There going to visit they're grandparents. Its a long drive, but there house has a big garden. Your always welcome their.\"",
-      "opener": "Five words from the same families are mixed up — test each word by spelling out the full phrase.",
+      "prompt": "Correct the six errors: \"There going to visit they're grandparents. Its a long drive, but there house has a big garden. Your always welcome their.\"",
+      "opener": "Six words from the same families are mixed up — test each word by spelling out the full phrase.",
       "answer": "They're going to visit their grandparents. It's a long drive, but their house has a big garden. You're always welcome there.",
       "steps": [
         "\"There going\" → \"They're going\". Test: \"they are going\" works — so \"they're\".",
         "\"they're grandparents\" → \"their grandparents\". This is ownership (whose grandparents) — \"their\".",
         "\"Its a long drive\" → \"It's a long drive\". Test: \"it is a long drive\" works — so \"it's\".",
         "\"there house\" → \"their house\". Ownership again — whose house, so \"their\".",
-        "\"Your always welcome their\" → \"You're always welcome there\". \"You are always welcome\" works (you're), and the last word points to a place, not ownership — \"there\"."
+        "\"Your always welcome their\" → \"You're always welcome there\" (two errors in the same clause). \"You are always welcome\" works (you're), and the last word points to a place, not ownership — \"there\"."
       ]
     },
     {

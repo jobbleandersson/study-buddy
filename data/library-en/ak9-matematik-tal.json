@@ -94,12 +94,12 @@
       "opener": "Standard form means a number between 1 and 10 multiplied by a power of ten.",
       "choices": [
         "$45 \\cdot 10^3$",
-        "$4{,}5 \\cdot 10^4$",
-        "$4{,}5 \\cdot 10^3$",
-        "$0{,}45 \\cdot 10^5$"
+        "$4.5 \\cdot 10^4$",
+        "$4.5 \\cdot 10^3$",
+        "$0.45 \\cdot 10^5$"
       ],
       "answer": 1,
-      "explanation": "The first factor should be between 1 and 10. $4{,}5 \\cdot 10^4 = 4{,}5 \\cdot 10\\,000 = 45\\,000$."
+      "explanation": "The first factor should be between 1 and 10. $4.5 \\cdot 10^4 = 4.5 \\cdot 10\\,000 = 45\\,000$."
     },
     {
       "id": "q-ma9-tal-7",
@@ -172,16 +172,16 @@
       "id": "q-ma9-tal-12",
       "kind": "mc",
       "topic": "powers",
-      "prompt": "The number $0{,}0032$ written in standard form is:",
+      "prompt": "The number $0.0032$ written in standard form is:",
       "opener": "In standard form the first factor must be between 1 and 10. Which way does the decimal point move?",
       "choices": [
         "$32 \\cdot 10^{-4}$",
-        "$3{,}2 \\cdot 10^{3}$",
-        "$0{,}32 \\cdot 10^{-2}$",
-        "$3{,}2 \\cdot 10^{-3}$"
+        "$3.2 \\cdot 10^{3}$",
+        "$0.32 \\cdot 10^{-2}$",
+        "$3.2 \\cdot 10^{-3}$"
       ],
       "answer": 3,
-      "explanation": "The first factor must be between 1 and 10, so $3{,}2$. The decimal point moves three places to the right, so the exponent is $-3$: $3{,}2 \\cdot 10^{-3} = 0{,}0032$. Both $32 \\cdot 10^{-4}$ and $0{,}32 \\cdot 10^{-2}$ have the same value, but they are not standard form because the first factor is not between 1 and 10."
+      "explanation": "The first factor must be between 1 and 10, so $3.2$. The decimal point moves three places to the right, so the exponent is $-3$: $3.2 \\cdot 10^{-3} = 0.0032$. Both $32 \\cdot 10^{-4}$ and $0.32 \\cdot 10^{-2}$ have the same value, but they are not standard form because the first factor is not between 1 and 10."
     },
     {
       "id": "q-ma9-tal-13",

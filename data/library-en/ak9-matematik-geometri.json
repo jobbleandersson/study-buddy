@@ -49,13 +49,13 @@
       "prompt": "What is the area of a circle with radius 3 cm? (Round to one decimal place.)",
       "opener": "Which of the formulas applies to area — the one with $r$ or the one with $r^2$?",
       "choices": [
-        "28,3 cm²",
-        "6,3 cm²",
-        "18,8 cm²",
-        "9,4 cm²"
+        "28.3 cm²",
+        "6.3 cm²",
+        "18.8 cm²",
+        "9.4 cm²"
       ],
       "answer": 0,
-      "explanation": "$A = \\pi r^2 = \\pi \\cdot 3^2 = 9\\pi \\approx 28{,}3$ cm². ($18{,}8$ cm is the circumference, $2\\pi r$.)"
+      "explanation": "$A = \\pi r^2 = \\pi \\cdot 3^2 = 9\\pi \\approx 28.3$ cm². ($18.8$ cm is the circumference, $2\\pi r$.)"
     },
     {
       "id": "q-ma9-geo-4",
@@ -108,11 +108,11 @@
       "topic": "volume",
       "prompt": "A cylinder has radius 2 cm and height 5 cm. Calculate the volume, rounded to one decimal place. Show the steps.",
       "opener": "Think of the cylinder as a circle that has been given height — what is the base area?",
-      "answer": "≈ 62,8 cm³",
+      "answer": "≈ 62.8 cm³",
       "steps": [
         "The base is a circle: $A = \\pi r^2 = \\pi \\cdot 2^2 = 4\\pi$ cm².",
         "The volume is the base area times the height: $V = 4\\pi \\cdot 5 = 20\\pi$ cm³.",
-        "Work it out: $20\\pi \\approx 62{,}8$ cm³."
+        "Work it out: $20\\pi \\approx 62.8$ cm³."
       ]
     },
     {
@@ -175,7 +175,7 @@
       "prompt": "A map has a scale of 1:50 000. Two towns are 8 cm apart on the map. How far apart are the towns in reality?",
       "opener": "Work out the distance in cm first, then convert to a more sensible unit.",
       "choices": [
-        "0,4 km",
+        "0.4 km",
         "4 km",
         "40 km",
         "400 km"
@@ -215,7 +215,7 @@
       "id": "q-ma9-geo-15",
       "kind": "mc",
       "topic": "volume",
-      "prompt": "A beam is 1,5 m long, 40 cm wide and 25 cm high. What is the volume in cm³?",
+      "prompt": "A beam is 1.5 m long, 40 cm wide and 25 cm high. What is the volume in cm³?",
       "opener": "Convert all the measurements to the same unit before multiplying.",
       "choices": [
         "600 cm³",
@@ -224,7 +224,7 @@
         "1 500 000 cm³"
       ],
       "answer": 2,
-      "explanation": "$1{,}5$ m $= 150$ cm. $V = 150 \\cdot 40 \\cdot 25 = 150\\,000$ cm³. Forgetting to convert the metre to centimetres (and using 15 cm) wrongly gives $15\\,000$ cm³."
+      "explanation": "$1.5$ m $= 150$ cm. $V = 150 \\cdot 40 \\cdot 25 = 150\\,000$ cm³. Forgetting to convert the metre to centimetres (and using 15 cm) wrongly gives $15\\,000$ cm³."
     }
   ]
 }

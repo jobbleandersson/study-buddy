@@ -90,16 +90,16 @@
       "id": "q-sp3-clauses-6",
       "kind": "mc",
       "topic": "que and quien",
-      "prompt": "När MÅSTE man använda \"quien\" istället för \"que\"?",
+      "prompt": "Vilket påstående om relativpronomenet \"quien\" stämmer?",
       "opener": "Tänk på prepositioner: con, a, de, para...",
       "choices": [
-        "Alltid när det gäller personer",
-        "Efter en preposition, om det syftar på en person",
-        "Alltid i icke-restriktiva satser",
-        "Aldrig — \"que\" fungerar överallt"
+        "Det kan syfta på både personer och saker, precis som \"que\"",
+        "Det syftar bara på personer och är vanligt efter en preposition, t.ex. \"con quien\"",
+        "Det används bara i satser som saknar subjekt",
+        "Det finns inte i modern spanska — \"que\" ersätter det överallt"
       ],
       "answer": 1,
-      "explanation": "\"Quien(es)\" krävs efter en preposition när det syftar på en person: \"la persona a quien escribí\", \"el amigo con quien viajé\". I övriga fall, särskilt som subjekt, är \"que\" oftast det naturliga valet även för personer."
+      "explanation": "\"Quien(es)\" syftar bara på personer och är vanligt efter en preposition: \"la persona a quien escribí\", \"el amigo con quien viajé\". Där går det också bra med \"el que\"/\"la que\" (\"la mujer con la que hablé\"). Som subjekt är \"que\" oftast det naturliga valet även för personer."
     },
     {
       "id": "q-sp3-clauses-7",
@@ -120,7 +120,7 @@
       "topic": "relative clauses",
       "prompt": "Hur används que, quien, donde och cuyo?",
       "opener": "Fyra relativpronomen, fyra olika funktioner.",
-      "answer": "que = det allmänna relativpronomenet, funkar för personer och saker, både som subjekt och objekt (el libro que leí, el hombre que vive aquí). quien/quienes = endast personer, obligatoriskt efter preposition (con quien, a quien) och vanligt efter komma. donde = plats, motsvarar en la que/en el que (la ciudad donde vivo). cuyo/cuya/cuyos/cuyas = possessivt \"vars\", böjs efter det ägda ordet, inte efter ägaren (el autor cuyos libros...). Kom ihåg: cuyo är INTE samma sak som frågeordet ¿cuál?."
+      "answer": "que = det allmänna relativpronomenet, funkar för personer och saker, både som subjekt och objekt (el libro que leí, el hombre que vive aquí). quien/quienes = endast personer, vanligt efter preposition (con quien, a quien; el/la que fungerar också) och efter komma. donde = plats, motsvarar en la que/en el que (la ciudad donde vivo). cuyo/cuya/cuyos/cuyas = possessivt \"vars\", böjs efter det ägda ordet, inte efter ägaren (el autor cuyos libros...). Kom ihåg: cuyo är INTE samma sak som frågeordet ¿cuál?."
     },
     {
       "id": "q-sp3-clauses-9",

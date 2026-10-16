@@ -28,6 +28,30 @@ describe("hp normering tables", () => {
   }
 });
 
+describe("hp normering curve", () => {
+  // Fitted to UHR's published tables for real sittings (see the note above NORM_TABLES in hp.js):
+  // about 48 of 80 right is 1.0, about 64 is 1.5, about 77 is 2.0, and 31 is 0.5.
+  const t = NORM_TABLES["2026v"];
+  for (const half of ["verbal", "kvant"]) {
+    test(`${half}: lands on the published anchor points`, () => {
+      assert.equal(t[half][14], 0);
+      assert.equal(t[half][31], 0.5);
+      assert.equal(t[half][48], 1);
+      assert.equal(t[half][64], 1.5);
+      assert.equal(t[half][77], 2);
+      assert.equal(t[half][80], 2);
+    });
+    test(`${half}: the middle of the scale is no longer generous (48 right is not 1.25)`, () => {
+      assert.ok(t[half][47] <= 1 && t[half][49] >= 1 && t[half][49] <= 1.05);
+      assert.ok(t[half][56] <= 1.3, `56 right gives ${t[half][56]}`);
+      assert.ok(t[half][70] <= 1.85, `70 right gives ${t[half][70]}`);
+    });
+  }
+  test("both halves share one curve (no per-test difficulty shift)", () => {
+    assert.deepEqual(t.verbal, t.kvant);
+  });
+});
+
 describe("hp.partOf", () => {
   test("classifies each delprov into verbal or kvant", () => {
     assert.equal(partOf("ord"), "verbal");

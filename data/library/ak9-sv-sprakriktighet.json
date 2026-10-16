@@ -205,12 +205,13 @@
       "kind": "worked",
       "topic": "stor bokstav",
       "prompt": "Rätta meningen och förklara varje ändring: \"Vi Åkte till frankrike i somras och bodde nära eiffeltornet, det var fantastiskt kul.\"",
-      "opener": "Leta efter tre fel med stor och liten bokstav — ett ord har fått en bokstav det inte ska ha, och två ord saknar en de borde ha.",
-      "answer": "Vi åkte till Frankrike i somras och bodde nära Eiffeltornet, det var fantastiskt kul.",
+      "opener": "Leta efter tre fel med stor och liten bokstav — ett ord har fått en bokstav det inte ska ha, och två ord saknar en de borde ha. Titta också på kommatecknet mitt i meningen.",
+      "answer": "Vi åkte till Frankrike i somras och bodde nära Eiffeltornet. Det var fantastiskt kul.",
       "steps": [
         "\"Vi Åkte\" → \"Vi åkte\": bara det första ordet i en mening ska ha stor bokstav, inte ett verb mitt i meningen.",
         "\"frankrike\" → \"Frankrike\": landnamn är egennamn och ska alltid ha stor bokstav, oavsett var i meningen de står.",
-        "\"eiffeltornet\" → \"Eiffeltornet\": namn på kända byggnader och sevärdheter är egennamn och skrivs med stor bokstav."
+        "\"eiffeltornet\" → \"Eiffeltornet\": namn på kända byggnader och sevärdheter är egennamn och skrivs med stor bokstav.",
+        "\", det var fantastiskt kul\" → \". Det var fantastiskt kul.\": två fullständiga huvudsatser får inte bindas ihop med bara komma (satsradning). Dela med punkt eller lägg till en konjunktion."
       ]
     },
     {
