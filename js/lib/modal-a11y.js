@@ -33,17 +33,19 @@ const focusablesIn = (root) => [...root.querySelectorAll(FOCUSABLE)].filter(isVi
 // The control that last had the user's attention outside any dialog. A dialog usually focuses its own
 // button synchronously, before the observer below runs, so document.activeElement can no longer tell us
 // who opened it; and Safari doesn't focus a button on click at all, so a click counts too.
+const stack = [];                 // open modals, innermost last: { node, opener, hidden }
 let lastActivator = null;
 // A control inside a dialog that is already open counts (it can open a second one, and focus returns
 // there); one inside a dialog that has only just been added doesn't (that is it focusing its own button).
 const remember = (e) => {
   const t = e.target && e.target.closest ? e.target.closest(FOCUSABLE) : null;
-  if (!t) return;
+  // A click on something that can't take focus (a div with a click handler) must not leave an older,
+  // unrelated control as the place focus returns to: better to return nowhere.
+  if (!t) { if (e.type === "pointerdown") lastActivator = null; return; }
   const modal = t.closest('[aria-modal="true"]');
   if (!modal || stack.some((s) => s.node === modal)) lastActivator = t;
 };
 
-const stack = [];                 // open modals, innermost last: { node, opener, hidden }
 const hiddenCount = new Map();    // page element -> how many open modals are hiding it
 
 function hide(elm) {
@@ -69,17 +71,18 @@ function opened(node) {
   if (stack.some((s) => s.node === node)) return;
   const opener = lastActivator && lastActivator.isConnected ? lastActivator : null;
   const hidden = [];
+  // Focus goes in first: hiding a subtree that still holds focus makes browsers refuse aria-hidden (and log it).
+  if (!node.contains(document.activeElement)) {
+    const first = focusablesIn(node)[0];
+    if (first) first.focus();
+    else { node.tabIndex = -1; node.focus(); }
+  }
   for (const child of document.body.children) {
     if (child === node || child.contains(node) || child.matches("script, style, link, .toast")) continue;
     hide(child);
     hidden.push(child);
   }
   stack.push({ node, opener, hidden });
-  if (!node.contains(document.activeElement)) {
-    const first = focusablesIn(node)[0];
-    if (first) first.focus();
-    else { node.tabIndex = -1; node.focus(); }
-  }
 }
 
 function closed(entry) {
