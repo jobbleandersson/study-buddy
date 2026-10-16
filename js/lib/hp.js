@@ -51,32 +51,39 @@ export const DELPROV_ORDER = ["ord", "las", "mek", "elf", "xyz", "kva", "nog", "
  * baked into file names and figure paths); only the human-facing label
  * changed. No real UHR table has been transcribed yet.
  *
- * Built from the published anchor points (≈150/160 total → 2.0, ≈120 → 1.5,
- * ≈95 → 1.0, ≈65 → 0.5) with a small per-test difficulty shift, so "which
- * practice test" already changes the estimate and the surrounding code is
- * exercised. Replace buildTable(...) with a real transcribed array (still
- * indexed 0..80) the day a real table is added, alongside its real questions.
+ * The curve is the app's OWN, fitted to what UHR's published tables for real sittings show per half
+ * (80 items): about 31 right gives 0.5 (verbal 29-32 in vt 2024, 32-35 in
+ * vt 2026; kvant 27-28), about 48 gives 1.0 (verbal 46-50 in vt 2024, kvant 46-49 in vt 2021), about
+ * 64 gives 1.5 (the needed score for 1.5 was 61-67 over the last eight sittings), about 77 gives 2.0
+ * (verbal 76-80 in vt 2024). Where 0.0 ends (14 right) is our own assumption: the tables we read did
+ * not give it. The real tables are re-made for every sitting, so this is a typical
+ * shape, not any one table. It is the same for every shipped practice test: we do not know how hard
+ * our own questions are compared with a real paper, so no per-test shift is applied.
+ * Replace buildTable(...) with a real transcribed array (still indexed 0..80) the day a real table
+ * is added, alongside its real questions.
  * ------------------------------------------------------------------ */
 
-/** Base raw(0..80) → normed(0..2) curve. Near-linear in the middle, flat at
- *  the bottom (you need ~18 raw to get off 0.0), steep at the very top. */
-function baseCurve(raw, shift = 0) {
-  const r = raw + shift;                 // difficulty shift: +ve = easier prov
-  if (r <= 12) return 0;
-  // linear segment fitted to the anchor points, then a small top-end lift
-  let n = (r - 12) * (2 / (74 - 12));
-  if (r > 66) n += (r - 66) * 0.02;      // last few raw points are worth more
-  return Math.max(0, Math.min(2, n));
+/** Anchor points [raw of 80, normed], linear in between; flat at 0.0 below the first and 2.0 above the last. */
+const ANCHORS = [[14, 0], [31, 0.5], [48, 1.0], [64, 1.5], [77, 2.0]];
+
+/** Base raw(0..80) -> normed(0..2) curve through ANCHORS. */
+function baseCurve(raw) {
+  if (raw <= ANCHORS[0][0]) return 0;
+  for (let i = 1; i < ANCHORS.length; i++) {
+    const [x0, y0] = ANCHORS[i - 1], [x1, y1] = ANCHORS[i];
+    if (raw <= x1) return y0 + ((raw - x0) / (x1 - x0)) * (y1 - y0);
+  }
+  return 2;
 }
 
 function round05(n) { return Math.round(n * 20) / 20; }
 
 /** Build a monotondic-non-decreasing, clamped [0,2], 0.05-rounded 81-array. */
-function buildTable(shift) {
+function buildTable() {
   const out = [];
   let prev = 0;
   for (let raw = 0; raw <= PART_MAX; raw++) {
-    const v = Math.max(prev, round05(baseCurve(raw, shift)));
+    const v = Math.max(prev, round05(baseCurve(raw)));
     out.push(v);
     prev = v;
   }
@@ -86,7 +93,7 @@ function buildTable(shift) {
 export const NORM_TABLES = {
   // Matches the set title "… – övningsprov 1" (data/library/hp-2026v-*.json) — see the note above
   // on why this is not "Våren 2026" even though the id keeps that shape.
-  "2026v": { label: "Övningsprov 1", verbal: buildTable(2), kvant: buildTable(1) },
+  "2026v": { label: "Övningsprov 1", verbal: buildTable(), kvant: buildTable() },
 };
 
 /** Element-wise mean of every shipped table — the fallback. */
