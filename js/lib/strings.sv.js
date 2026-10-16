@@ -825,6 +825,9 @@ export default {
 
   "sync.conflict": "Synkade från en annan enhet — vissa lokala ändringar här ersattes.",
   "sync.merged": "Slog ihop ändringar från en annan enhet.",
+  "sync.localWorkBanner": "Du övade utan konto på den här enheten innan du loggade in. Vill du lägga till det i ditt konto?",
+  "sync.localWorkAdd": "Lägg till",
+  "sync.localWorkAdded": "Tillagt i ditt konto.",
   "sync.failedBanner": "Dina ändringar har inte sparats på kontot än. Vi försöker igen automatiskt.",
   "sync.tooLargeBanner": "Din data är för stor för att sparas på kontot. Ladda ner en säkerhetskopia och ta bort stora set du inte använder.",
   "sync.signedOutBanner": "Du har loggats ut. Dina ändringar finns kvar på den här enheten men sparas inte på kontot förrän du loggar in igen.",

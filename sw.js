@@ -55,6 +55,7 @@ const APP_SHELL = [
   "./js/lib/session-active.js",
   "./js/lib/choices.js",
   "./js/lib/sync-status.js",
+  "./js/lib/local-work.js",
   "./js/lib/review.js",
   "./js/lib/grade.js",
   "./js/lib/popover.js",

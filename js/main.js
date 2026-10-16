@@ -1394,6 +1394,18 @@ store.init().then(() => {
       onAction: () => { location.hash = "#/login"; syncBanner = false; hideBanner(); },
     });
   });
+  // Signed in to an account that already had data, on a device where work was done before signing in:
+  // that work is not added on its own (on a shared computer it may be somebody else's).
+  store.addEventListener("localWorkHeld", () => {
+    syncBanner = true;
+    showBanner(t("sync.localWorkBanner"), {
+      actionLabel: t("sync.localWorkAdd"), closeLabel: t("common.close"),
+      onAction: async () => {
+        syncBanner = false; hideBanner();
+        if (await store.addHeldLocalWork()) toast(t("sync.localWorkAdded"));
+      },
+    });
+  });
   store.addEventListener("streakFreezeUsed", (e) => {
     toast(t("streak.freezeUsedToast", { n: e.detail.streak }));
   });
