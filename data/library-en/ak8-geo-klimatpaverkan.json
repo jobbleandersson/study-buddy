@@ -37,7 +37,7 @@
       "choices": [
         "Oxygen and nitrogen",
         "Carbon dioxide, methane and nitrous oxide",
-        "Argon and helium",
+        "Argon, helium, neon and krypton",
         "Hydrogen and nitrogen"
       ],
       "answer": 1,
@@ -67,8 +67,8 @@
       "choices": [
         "All parts of the world get more rainfall than today",
         "The world's winds die down and storms become impossible",
-        "Sea levels rise as glaciers and ice sheets melt and sea water expands as it warms",
-        "Sea levels fall because more water evaporates from the oceans"
+        "Sea levels rise as glaciers and ice sheets melt and sea water expands",
+        "Sea levels fall because more water evaporates from the oceans and stays on land as snow"
       ],
       "answer": 2,
       "explanation": "Sea levels rise for two reasons: meltwater from glaciers, Greenland and Antarctica flows into the oceans, and water takes up more space when it is warmed. Rainfall is not increasing everywhere – some areas such as the Sahel and the Mediterranean region are instead expected to become drier – and evaporated water falls back as rain, so it does not make sea levels fall."
@@ -80,8 +80,8 @@
       "prompt": "Why does a natural disaster often have much worse consequences in a low-income country than in a high-income country?",
       "opener": "Same earthquake, different houses – what decides how many people survive?",
       "choices": [
-        "Low-income countries are always in areas with earthquakes and volcanoes",
-        "They have weaker buildings, worse warning systems, worse healthcare, and lack the money and insurance to rebuild",
+        "Low-income countries are always in areas with earthquakes and volcanoes, which fully explains the difference",
+        "They have weaker buildings, worse warning systems and healthcare, and lack the money to rebuild",
         "Low-income countries always have more inhabitants than high-income countries",
         "Natural disasters are naturally more powerful in poor countries"
       ],
@@ -148,10 +148,10 @@
       "prompt": "What is an emissions allowance (\"utsläppsrätt\")?",
       "opener": "Think about how you can put a price on being allowed to emit greenhouse gases.",
       "choices": [
-        "A fine that every inhabitant of a country must pay each year",
+        "A fine that every inhabitant of a country must pay each year for their own carbon dioxide emissions",
         "A law that bans all driving in a city",
         "A price that only applies to plane tickets",
-        "A permit that gives a company the right to emit a certain amount of greenhouse gases, which can be bought and sold"
+        "A permit that gives a company the right to emit a certain amount of greenhouse gases and can be traded"
       ],
       "answer": 3,
       "explanation": "An emissions allowance is a permit to emit a certain amount of greenhouse gases, and by limiting the number of allowances and allowing them to be bought and sold between companies, an economic incentive is created to cut emissions. It is therefore not a personal fine, a general driving ban, or a price tied only to flights."
@@ -165,8 +165,8 @@
       "choices": [
         "The Arctic is closest to the sun during winter",
         "The Arctic has the most factories and industry in the world",
-        "There is actually no difference in warming rate between the Arctic and the rest of the Earth",
-        "As reflective ice and snow melt, darker ocean and land are exposed and absorb more solar heat, further amplifying the warming"
+        "There is actually no difference in warming rate between the Arctic and the rest of the Earth, according to measurements",
+        "As reflective ice and snow melt, darker ocean and land are exposed and absorb more solar heat"
       ],
       "answer": 3,
       "explanation": "Ice and snow reflect sunlight, but as they melt and darker ocean or land is exposed, more solar heat is absorbed, causing the temperature to rise even faster in a self-reinforcing process. The Arctic isn't closer to the sun and doesn't have the most industry in the world, nor does it warm at the same rate as the rest of the Earth – it's actually considerably faster there."
@@ -178,7 +178,7 @@
       "prompt": "What is an example of climate adaptation, as opposed to emissions reduction?",
       "opener": "Adaptation is about protecting against the consequences, not preventing the cause.",
       "choices": [
-        "Switching from coal power to wind power",
+        "Switching from coal power to wind power to reduce emissions across the whole country",
         "Flying less",
         "Eating less meat",
         "Building higher embankments and flood protection in an exposed coastal city"
@@ -209,7 +209,7 @@
       "opener": "The abbreviation stands for Intergovernmental Panel on Climate Change.",
       "choices": [
         "NATO",
-        "The World Bank alone",
+        "The World Bank together with the Red Cross",
         "The Red Cross",
         "The IPCC, the UN's climate panel"
       ],
