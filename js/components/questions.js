@@ -623,13 +623,15 @@ function text({ question, tutor, live, testMode, onDone, askConfidence, targetLa
   let tries = 0;   // practice: a miss can be tried once more before the model answer is shown
   const modelHtml = () => `<p style="margin-top:10px"><strong>${escapeHtml(t("q.modelAnswer"))}</strong> ${renderRich(question.answer)}</p>`;
 
+  /** The verdict, or null when the AI was asked and could not mark it (an outage, the monthly limit): the
+   *  caller decides what to do then. Without an AI at all the simple check is the design, as before. */
   async function grade(ans) {
     let verdict = null;
     try {
       if (live) {
         checkBtn.textContent = t(testMode ? "q.submitting" : "q.checking");
         try { verdict = await gradeAnswer({ question, studentAnswer: ans }); }
-        catch { verdict = null; }
+        catch { return null; }
       }
       if (!verdict) verdict = heuristic(ans, question.answer);
     } catch (e) {
@@ -637,6 +639,26 @@ function text({ question, tutor, live, testMode, onDone, askConfidence, targetLa
       verdict = { correct: false, feedback: t("q.gradingFailed"), missedPoints: [] };
     }
     return verdict;
+  }
+
+  /** AI marking was unavailable: show the model answer and let the student rate their own answer. */
+  function selfMark() {
+    closeInput();
+    feedback.className = "feedback";
+    feedback.innerHTML = `<p>${escapeHtml(t("q.gradingFailed"))}</p>` + modelHtml();
+    clear(selfRate);
+    selfRate.appendChild(el("p.note", { style: { marginTop: "12px" } }, t("q.selfMarkAsk")));
+    const end = (correct, srsGrade) => {
+      selfRate.querySelectorAll("button").forEach((b) => (b.disabled = true));
+      result.correct = correct;
+      if (srsGrade) result.srsGrade = srsGrade;
+      onDone(finalize(result));
+    };
+    selfRate.appendChild(el("div.selfrate", {}, [
+      el("button.btn.btn--ok.btn--sm", { type: "button", onclick: () => end(true) }, t("q.workedNailed")),
+      el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => end(true, "hard") }, t("q.workedRoughly")),
+      el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => end(false) }, t("q.workedMissed")),
+    ]));
   }
 
   function closeInput() {
@@ -650,7 +672,15 @@ function text({ question, tutor, live, testMode, onDone, askConfidence, targetLa
     if (!ans) return;
     checkBtn.disabled = true; ta.disabled = true;
     tries++;   // a check is not a hint: a right first answer is "easy", like any other question type
-    const verdict = await grade(ans);
+    let verdict = await grade(ans);
+    if (!verdict) {
+      // The AI could not mark it. A word-match would give a random-looking verdict that is then recorded
+      // as the student's result, so in practice the student compares with the model answer and says how
+      // it went (as for a worked solution). Where nobody can be asked (a test, or they moved on while it
+      // was being checked) the simple check stands, as before.
+      if (ta.isConnected && !testMode) return selfMark();
+      verdict = heuristic(ans, question.answer);
+    }
 
     // Moved on while this was being checked (skipped, went back, the run ended): record the verdict
     // for this question and touch nothing on screen — the tutor and buttons belong to another one now.
