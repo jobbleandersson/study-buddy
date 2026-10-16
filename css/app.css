@@ -91,6 +91,17 @@ a.streakbadge:hover {
 
 /* ---------- app shell ---------- */
 #app { min-height: 100%; display: flex; flex-direction: column; }
+/* Long words and URLs wrap instead of pushing a page wider than the screen (a 33-letter Swedish compound in
+   a question, a pasted link in a set title). "anywhere" also lowers the min-content width, so flex and
+   grid items shrink to fit rather than growing around the word. It is applied to the places that show a
+   student's or a set's own text, not to the whole app: short UI labels (tabs, chips, buttons) keep
+   their one line. Add a new text-heavy container to this list. */
+.shell__main h1, .shell__main h2, .shell__main h3,
+.question, .choice, .feedback, .delta__prompt, .delta__answer, .delta__explain, .delta__topic,
+.psheet__title, .psheet__meta, .psheet__q, .psheet__stimulus, .psheet__choices, .psheet__akey,
+.classgrid__title, .classmiss__topic, .set-row, .set-list, .set-misses,
+.acard__title, .exam-set__title { overflow-wrap: break-word; overflow-wrap: anywhere; }   /* break-word first: Safari < 15.4 has no "anywhere" */
+:is(.question, .choice, .feedback, .delta__explain, .psheet__q, .psheet__stimulus) :is(table, th, td, pre, code, .katex) { overflow-wrap: normal; }
 .shell { flex: 1; display: flex; align-items: stretch; }
 .shell__main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
 
@@ -1162,6 +1173,7 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .acard__title {
   font-family: var(--font-display); font-weight: 600; font-size: 1.125rem; line-height: 1.3;   /* 18: two lines hold most titles */
   display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
+  -webkit-hyphens: auto; hyphens: auto;   /* a long compound breaks (with a hyphen where it can) instead of being cut off */
 }
 /* The card's top row: the subject (a dot in its colour, the name trimmed to one line) and the AI chip. */
 .acard__top { display: flex; align-items: center; gap: 8px; min-width: 0; min-height: 22px; padding-right: 28px; }
@@ -1272,7 +1284,7 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .reading__knob { position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; transition: transform var(--dur-fast); }
 .reading__toggle.is-on .reading__knob { transform: translateX(18px); }
 
-.session { display: grid; grid-template-columns: 1fr 380px; gap: var(--s-5); align-items: start; }
+.session { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: var(--s-5); align-items: start; }
 /* The empty track was 1.05:1 against the page — invisible until it had fill.
    The border gives the shape an edge without shouting. */
 .progressbar {
@@ -3940,7 +3952,7 @@ kbd {
 
 /* ---------- responsive ---------- */
 @media (max-width: 860px) {
-  .session { grid-template-columns: 1fr; }
+  .session { grid-template-columns: minmax(0, 1fr); }
 
   /* Tutor becomes a slide-up sheet so a stuck student never has to scroll
      away from the question to reach help. */
