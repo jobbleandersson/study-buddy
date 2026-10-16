@@ -7,6 +7,7 @@ import { getLang, t } from "./lib/i18n.js";
 import { serverMessage } from "./lib/server-errors.js";
 import { normalizeExam, examsFromMarkedSets, examSetDates, calendarEntries } from "./lib/exam.js";
 import { mergeStates, looksLikeBackup } from "./lib/merge-state.js";
+import { classifyPushStatus, nextRetryDelay } from "./lib/sync-status.js";
 
 /** An Error carrying the server's message (translated where known) and its machine-readable code. */
 /** What login()/resetPassword() hand the caller when a second factor is still owed. `method` is
@@ -66,6 +67,8 @@ const SYNC_DISCARD_KEY = "studybuddy.v1.syncdiscard";
 // Set while this device has changes the server hasn't accepted yet, so a reload knows whether its
 // copy can simply take the server's newer one or has to be merged into it.
 const SYNC_DIRTY_KEY = "studybuddy.v1.syncdirty";
+// Whose session ended on this device while it held unsaved changes (see _sessionEnded).
+const SESSION_LOST_KEY = "studybuddy.v1.sessionLostFor";
 
 // Changes that hadn't reached the server when their account signed out here: { [email]: { at, blob } }.
 // The device is cleared for the next person either way; these are merged back in the next time that
@@ -609,6 +612,13 @@ class Store extends EventTarget {
       await this.refreshBilling();
     }
 
+    // Retry a save that could not go through as soon as the connection is back or the tab is shown again.
+    if (typeof window !== "undefined" && !this._syncHooks) {
+      this._syncHooks = true;
+      window.addEventListener("online", () => this._retryNow());
+      document.addEventListener("visibilitychange", () => { if (!document.hidden) this._retryNow(); });
+    }
+
     this.emit();
   }
 
@@ -617,6 +627,7 @@ class Store extends EventTarget {
   async _catchUp() {
     let res;
     try { res = await fetch(STATE_URL, { credentials: "include", signal: withTimeout(15000) }); } catch { return; }
+    if (res.status === 401) { this._sessionEnded(); return; }
     if (!res.ok) return;
     let payload;
     try { payload = await res.json(); } catch { return; }
@@ -637,6 +648,60 @@ class Store extends EventTarget {
       this.save({ skipPush: true });
       this.emit();
     }
+  }
+
+  // ---- when saving to the account does not work ----
+  // A save can fail without the student doing anything wrong: no signal, a server restart, a session that
+  // ended, a state over the size limit. The changes stay on this device either way; what was missing was
+  // any word about it and any second try. Events (listened to in main.js): "syncFailed" {kind: offline |
+  // server | toolarge}, "syncRecovered", "sessionEnded".
+  get syncFailing() { return this._syncFailing || null; }
+
+  _pushFailed(kind) {
+    if (!this.authed) return;
+    const changed = this._syncFailing !== kind;
+    this._syncFailing = kind;
+    if (changed) this.dispatchEvent(new CustomEvent("syncFailed", { detail: { kind } }));
+    if (kind === "offline" || kind === "server") this._scheduleRetry();
+  }
+
+  _pushSucceeded() {
+    clearTimeout(this._retryTimer);
+    this._retryDelay = 0;
+    if (this._syncFailing) {
+      this._syncFailing = null;
+      this.dispatchEvent(new CustomEvent("syncRecovered"));
+    }
+  }
+
+  _scheduleRetry() {
+    clearTimeout(this._retryTimer);
+    this._retryDelay = nextRetryDelay(this._retryDelay);
+    this._retryTimer = setTimeout(() => { if (this.authed) this._pushNow(); }, this._retryDelay);
+  }
+
+  /** The connection is back or the tab came to the front: send what is waiting. */
+  _retryNow() {
+    if (!this.authed || !(this._isDirty() || this._syncFailing)) return;
+    clearTimeout(this._retryTimer);
+    this._retryDelay = 0;
+    this._pushNow();
+  }
+
+  /** The server no longer knows this session (it ended, or the account signed out elsewhere). Nothing is
+   *  lost: the changes stay on this device. The app says so instead of looking signed in and not saving. */
+  _sessionEnded() {
+    if (!this.authed) return;
+    const email = this.authEmail;
+    clearTimeout(this._retryTimer);
+    this._syncFailing = null;
+    // The changes stay here, but this device now belongs to whoever signs in next: remember whose they are,
+    // so that a different person signing in does not get them merged into their account (_pullOnLogin).
+    try { if (email) localStorage.setItem(SESSION_LOST_KEY, String(email).toLowerCase()); } catch {}
+    this.authed = false;
+    this.authEmail = null;
+    this.dispatchEvent(new CustomEvent("sessionEnded", { detail: { email } }));
+    this.emit();
   }
 
   _isDirty() { try { return localStorage.getItem(SYNC_DIRTY_KEY) === "1"; } catch { return false; } }
@@ -2122,6 +2187,15 @@ class Store extends EventTarget {
   }
 
   async _pullOnLogin() {
+    // A session that ended on this device left its owner's unsaved changes here. If a DIFFERENT person is
+    // signing in now, those changes are not theirs: set them aside under the owner's address (merged back
+    // when the owner signs in here again) and start from an empty device. The same person: merged as usual.
+    let lostFor = null;
+    try { lostFor = localStorage.getItem(SESSION_LOST_KEY); localStorage.removeItem(SESSION_LOST_KEY); } catch {}
+    if (lostFor && lostFor !== String(this.authEmail || "").toLowerCase()) {
+      this._putUnsynced(lostFor, this.state);
+      this._clearDevice();
+    }
     let res;
     try { res = await fetch(STATE_URL, { credentials: "include" }); }
     catch { return; } // offline — keep local state, next save() will retry the push once reachable
@@ -2178,8 +2252,14 @@ class Store extends EventTarget {
         method: "PUT", credentials: "include",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ version: this._syncVersion, blob: this.state }),
+        signal: withTimeout(120000),   // a 10 MB state on a slow phone connection takes a while
       });
-    } catch { return; } // offline/unreachable — the next save() will try again
+    } catch { this._pushFailed("offline"); return; } // offline/unreachable: retried on reconnect and on a timer
+
+    const outcome = classifyPushStatus(res.status);
+    if (outcome === "signedout") { this._sessionEnded(); return; }
+    if (outcome === "toolarge") { this._pushFailed("toolarge"); return; }
+    if (outcome === "retry") { this._pushFailed("server"); return; }
 
     if (res.status === 409) {
       let payload = null;
@@ -2220,6 +2300,7 @@ class Store extends EventTarget {
       const data = await res.json();
       this._setSyncVersion(data.version);
       this._lastPushOk = true;
+      this._pushSucceeded();
       // The server has everything now. The discard copy from an earlier conflict is kept (until the
       // next one, or sign-out) so a merge that went wrong can still be undone from the backup banner.
       if (!this._pushAgain) this._setDirty(false);
