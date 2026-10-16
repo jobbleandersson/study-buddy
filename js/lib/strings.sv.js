@@ -1681,6 +1681,7 @@ export default {
   "gallery.questions": "{n} frågor",
 
   "cmd.placeholder": "Hoppa till ett set eller en åtgärd…",
+  "cmd.empty": "Inget matchar ”{q}”.",
   "cmd.openSet": "Öppna set",
   "cmd.action": "Åtgärd",
   "cmd.review": "Repetera idag",

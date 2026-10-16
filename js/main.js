@@ -16,6 +16,7 @@ import { mountUpgradePrompt } from "./components/upgrade-prompt.js";
 import { aiTile } from "./components/ai-mark.js";
 import { loadLibraryIndex } from "./lib/library-content.js";
 import { playFanfare } from "./lib/sound.js";
+import { mountModalA11y } from "./lib/modal-a11y.js";
 
 // Every module is in: boot.js's "couldn't start" screen stands down.
 window.__sbStarted = true;
@@ -58,6 +59,7 @@ mountUpgradePrompt();
 // stale render (see the renderGen guard below) resolves early without ever
 // finishing the real paint, and a store.init() rejection meant this code
 // never ran at all.
+mountModalA11y();   // focus trap, inert background and focus return for every aria-modal dialog
 function loadDeferredUI() {
   import("./components/command-palette.js").then((m) => m.mountCommandPalette());
   import("./components/site-chat.js").then((m) => m.mountSiteChat());

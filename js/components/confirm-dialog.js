@@ -32,11 +32,8 @@ export function confirmDialog({ message = "", confirmLabel, cancelLabel, danger 
         // Enter on the focused Cancel button must cancel, not confirm — let the native click run.
         if (document.activeElement === cancelBtn) return;
         e.stopPropagation(); e.preventDefault(); finish(true);
-      } else if (e.key === "Tab") {
-        // Keep focus inside the dialog.
-        e.preventDefault();
-        (document.activeElement === confirmBtn ? cancelBtn : confirmBtn).focus();
       }
+      // Tab stays inside the dialog by itself (lib/modal-a11y.js).
     }
 
     const confirmBtn = el("button.btn" + (danger ? ".btn--danger" : ""), {
@@ -60,6 +57,7 @@ export function confirmDialog({ message = "", confirmLabel, cancelLabel, danger 
     document.body.appendChild(overlay);
     document.addEventListener("keydown", onKey, true);
     window.addEventListener("hashchange", onNav);
-    confirmBtn.focus();
+    // A destructive question starts on "no": Enter or Space on a dialog that just opened must not delete.
+    (danger ? cancelBtn : confirmBtn).focus();
   });
 }

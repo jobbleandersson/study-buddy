@@ -1666,6 +1666,7 @@ export default {
   "gallery.questions": "{n} questions",
 
   "cmd.placeholder": "Jump to a set or an action…",
+  "cmd.empty": "Nothing matches “{q}”.",
   "cmd.openSet": "Open set",
   "cmd.action": "Action",
   "cmd.review": "Review today",

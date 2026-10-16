@@ -30,10 +30,12 @@ a { color: var(--brand-ink); }
 
 .tabular { font-variant-numeric: tabular-nums; }
 
+/* An outline, not a box-shadow: a component that sets its own box-shadow (the set cards, tiles, anything
+   with a shadow) used to override the ring and showed no focus at all. Components that draw their own
+   ring say so with outline: none; box-shadow: var(--ring) and still win by specificity. */
 :focus-visible {
-  outline: none;
-  box-shadow: var(--ring);
-  border-radius: var(--r-sm);
+  outline: 3px solid var(--focus-color, var(--brand));
+  outline-offset: 2px;
 }
 
 /* Elements with tabindex="-1" are only ever focused programmatically — we move
@@ -250,7 +252,7 @@ a.streakbadge:hover {
 /* The pressed state's box-shadow above outranks the global focus ring (higher
    specificity), so tabbing to the currently-active theme button showed no
    focus indicator at all — this outranks the pressed state in turn. */
-.sidebar__theme-btn[aria-pressed="true"]:focus-visible { box-shadow: var(--ring); }
+.sidebar__theme-btn[aria-pressed="true"]:focus-visible { outline: none; box-shadow: var(--ring); }
 
 /* No visible scrollbar on the sidebar. It still scrolls (wheel, trackpad,
    keyboard) when the nav outgrows a short screen — only the bar is hidden,
@@ -412,7 +414,7 @@ body.has-topmenu .sitechat__fab { display: none; }
 .iconbtn:hover { background: var(--surface-sunk); border-color: var(--line-strong); }
 /* Same cascade collision as .btn above: .iconbtn's own resting shadow otherwise
    silently beats the global focus ring on equal specificity + later source order. */
-.iconbtn:focus-visible { box-shadow: var(--ring); }
+.iconbtn:focus-visible { outline: none; box-shadow: var(--ring); }
 .iconbtn svg { stroke-width: 1.8; }
 
 /* Language toggle: the globe alone is ambiguous, so it carries the code it
@@ -457,7 +459,7 @@ body.has-topmenu .sitechat__fab { display: none; }
    :focus-visible rule (app.css:29) and comes later in the file, so it silently
    wins and a tabbed-to button shows no ring at all — this restores it by
    outranking both .btn and .btn--ghost's box-shadow on specificity alone. */
-.btn:focus-visible { box-shadow: var(--ring); }
+.btn:focus-visible { outline: none; box-shadow: var(--ring); }
 .btn--ghost { background: var(--surface); color: var(--ink); border: 1px solid var(--line-strong); box-shadow: 0 1px 2px rgba(16, 24, 40, .05); }
 .btn--ghost:hover { background: var(--surface-sunk); }
 .btn--ok { background: var(--ok); }
@@ -2277,6 +2279,7 @@ body.has-welcome { overflow: hidden; }
 .cmd__list { max-height: 320px; overflow-y: auto; }
 .cmd__row { width: 100%; display: flex; justify-content: space-between; gap: var(--s-3); align-items: center; padding: 10px var(--s-4); border: none; background: none; font: inherit; color: var(--ink); cursor: pointer; text-align: left; }
 .cmd__row.is-sel { background: var(--brand-tint); }
+.cmd__empty { padding: var(--s-4); color: var(--ink-soft); font-size: var(--fs-sm); overflow-wrap: anywhere; }
 .cmd__sub { font-size: 12px; color: var(--ink-faint); flex: none; }
 
 .nav-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s-3); margin-top: var(--s-5); }
@@ -2460,7 +2463,7 @@ body.has-welcome { overflow: hidden; }
 }
 .sitechat__composer:focus-within { border-color: var(--brand); box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 18%, transparent); }
 .sitechat__input { flex: 1; min-width: 0; font: inherit; font-size: var(--fs-sm); padding: 8px 0; border: 0; background: none; color: var(--ink); outline: none; }
-.sitechat__input:focus-visible { box-shadow: none; }
+.sitechat__input:focus-visible { outline: none; box-shadow: none; }
 .sitechat__send {
   flex: none; width: 36px; height: 36px; border-radius: var(--r-full); border: 0; display: grid; place-items: center;
   background: var(--brand); color: #fff; cursor: pointer; transition: opacity var(--dur-fast), transform var(--dur-fast);
@@ -3073,7 +3076,7 @@ body.route-chat .sitechat__panel { display: none; }
   font: inherit; font-size: 15px; color: var(--ink); font-variant-numeric: tabular-nums;
 }
 /* The row's border already shows where you're typing (.gcalc__row:focus-within): no second ring inside it. */
-.gcalc__input:focus-visible { box-shadow: none; }
+.gcalc__input:focus-visible { outline: none; box-shadow: none; }
 .gcalc__input::placeholder { color: var(--ink-faint); }
 .gcalc__row.is-hidden .gcalc__input { color: var(--ink-faint); }
 .gcalc__del {
