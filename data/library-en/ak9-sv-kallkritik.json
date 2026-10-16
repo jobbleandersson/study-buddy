@@ -36,7 +36,7 @@
         "Whether the text has many pictures",
         "Who wrote the text and which organisation is behind it",
         "How long the text is",
-        "Whether the text is written in Swedish"
+        "Whether the text is written in Swedish, has no spelling mistakes and many pictures"
       ],
       "answer": 1,
       "explanation": "The sender (who wrote it and which organisation is behind it) matters a great deal for credibility — an unknown, anonymous site is more uncertain than an established news agency or authority."
@@ -80,7 +80,7 @@
       "choices": [
         "Share the news right away if it feels important",
         "Search to see if other, well-known news sources report the same thing",
-        "Assume it's true because it's written down",
+        "Assume it's true because it's written on a news site",
         "Just check how many people have shared it"
       ],
       "answer": 1,
@@ -191,9 +191,9 @@
       "opener": "Are the words \"terrible\" and \"rammed through\" neutral, or strongly loaded?",
       "choices": [
         "The sentence is completely objective and factual",
-        "Word choices like \"terrible\" and \"rammed through\" show that the text is biased and expresses a strong opinion",
+        "Word choices like \"terrible\" and \"rammed through\" show that the text is biased",
         "The sentence contains only verifiable facts",
-        "It's impossible to tell if the sentence is biased"
+        "It's impossible to tell if the sentence is biased without reading the whole text"
       ],
       "answer": 1,
       "explanation": "Strongly loaded words (\"terrible\", \"rammed through\" instead of e.g. \"voted through\") signal that the text is biased and is pushing an opinion rather than simply reporting facts."

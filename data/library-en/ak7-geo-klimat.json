@@ -50,7 +50,7 @@
       "prompt": "Which factor matters most for how warm it is at a given place?",
       "opener": "Think about the angle at which the sun's rays hit the ground.",
       "choices": [
-        "How many people live there",
+        "How many people live there and in the surrounding area",
         "Latitude, i.e. the distance to the equator",
         "Which time zone the place is in",
         "How large the country is"
@@ -148,7 +148,7 @@
       "prompt": "Which climate zone is Sweden in?",
       "opener": "This zone lies between the tropics and the polar regions and has four distinct seasons.",
       "choices": [
-        "Tropical climate",
+        "Tropical climate with rainforest",
         "Temperate climate",
         "Polar climate",
         "Desert climate"
@@ -166,7 +166,7 @@
         "It makes no difference",
         "The temperature drops by about 0.6 degrees for every 100 metres of elevation gain",
         "The temperature rises with elevation",
-        "It only affects rainfall, not temperature"
+        "It only affects rainfall, not temperature, and only in summer"
       ],
       "answer": 1,
       "explanation": "The temperature drops by about 0.6 degrees for every 100 metres you climb, which is why high mountains can have snow even when it's warm in the valley. Elevation clearly affects temperature, not just rainfall."
@@ -179,7 +179,7 @@
       "opener": "The area is in the tropics, near the southern United States.",
       "choices": [
         "The Gulf of Mexico",
-        "The Norwegian Sea",
+        "The Norwegian Sea off Norway",
         "The Arctic Ocean",
         "The Mediterranean"
       ],

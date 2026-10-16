@@ -19,7 +19,7 @@
       "prompt": "What does the idiom 'to read between the lines' mean?",
       "opener": "Idiomet handlar inte om bokstäver, utan om vad texten INTE säger rakt ut.",
       "choices": [
-        "To read very carefully, word by word.",
+        "To read very carefully, word by word, without skipping a single line.",
         "To understand a meaning that is implied but not directly stated.",
         "To skip parts of a text.",
         "To translate a text literally."
@@ -37,7 +37,7 @@
         "That's a piece of cake.",
         "It's raining cats and dogs.",
         "It was a bitter pill to swallow, but necessary.",
-        "He kicked the bucket over it."
+        "He kicked the bucket over it, as the old saying goes."
       ],
       "answer": 2,
       "explanation": "\"A bitter pill to swallow\" beskriver något obehagligt man ändå måste acceptera, och passar en formell/allvarlig diskussion. De andra är antingen för vardagliga (\"piece of cake\", \"raining cats and dogs\") eller olämpliga i sammanhanget (\"kick the bucket\" betyder att dö och är slang)."
@@ -147,7 +147,7 @@
       "opener": "\"Not rocket science\" är ett vardagligt, informellt idiom.",
       "choices": [
         "It's not rocket science to see the correlation here.",
-        "The evidence strongly supports this conclusion.",
+        "The evidence strongly supports this conclusion in every respect.",
         "This finding warrants further investigation.",
         "The data indicate a clear trend."
       ],
@@ -221,9 +221,9 @@
       "prompt": "Correct the false-friend error: \"The politician's speech was very actual and addressed current problems directly.\"",
       "opener": "\"Actual\" är ett klassiskt false friend — det betyder inte \"aktuell\" på engelska.",
       "choices": [
-        "The politician's speech was very relevant/topical and addressed current problems directly.",
+        "The politician's speech was very relevant and addressed current problems directly.",
         "The politician's speech was very actual, addressing hypothetical problems.",
-        "The politician's speech was very eventual and addressed current problems directly.",
+        "The politician's speech was very eventual and addressed current problems directly as well.",
         "No correction needed; the sentence is correct as written."
       ],
       "answer": 0,

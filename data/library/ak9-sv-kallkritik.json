@@ -36,7 +36,7 @@
         "Om texten har många bilder",
         "Vem som skrivit texten och vilken organisation som ligger bakom",
         "Hur lång texten är",
-        "Om texten är skriven på svenska"
+        "Om texten är skriven på svenska, har inga stavfel och många bilder"
       ],
       "answer": 1,
       "explanation": "Avsändaren (vem som skrivit och vilken organisation som står bakom) avgör mycket om trovärdigheten — en okänd anonym sida är mer osäker än en etablerad nyhetsbyrå eller myndighet."
@@ -80,7 +80,7 @@
       "choices": [
         "Dela nyheten direkt om den känns viktig",
         "Söka om andra, kända nyhetskällor rapporterar samma sak",
-        "Anta att den är sann eftersom den är skriven",
+        "Anta att den är sann eftersom den är skriven på en nyhetssida",
         "Kolla bara hur många som delat den"
       ],
       "answer": 1,
@@ -191,9 +191,9 @@
       "opener": "Är orden \"usla\" och \"körde igenom\" neutrala eller starkt värdeladdade?",
       "choices": [
         "Meningen är helt objektiv och saklig",
-        "Ordval som \"usla\" och \"körde igenom\" visar att texten är vinklad och uttrycker en stark åsikt",
+        "Ordval som \"usla\" och \"körde igenom\" visar att texten är vinklad",
         "Meningen innehåller bara verifierbara fakta",
-        "Det går inte att avgöra om meningen är vinklad"
+        "Det går inte att avgöra om meningen är vinklad utan att läsa hela texten"
       ],
       "answer": 1,
       "explanation": "Starkt värdeladdade ord (\"usla\", \"körde igenom\" i stället för t.ex. \"röstade igenom\") signalerar att texten är vinklad och driver en åsikt snarare än att bara redovisa fakta."
