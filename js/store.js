@@ -30,7 +30,7 @@ import { findQuestion as findQuestionPure, dueQuestions as dueQuestionsPure } fr
 import { loadLibraryIndex, loadLibraryTranslations, englishFile } from "./lib/library-content.js";
 import { cleanRuleText, rulesForQuestion, RULE_MAX_COUNT } from "./lib/rules.js";
 import {
-  PROXY_HEALTH_URL, SITE_GATE_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_GOOGLE_URL, AUTH_SET_PASSWORD_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, ACCOUNT_URL,
+  PROXY_HEALTH_URL, SITE_GATE_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_GOOGLE_URL, AUTH_SET_PASSWORD_URL, AUTH_CHANGE_PASSWORD_URL, AUTH_LOGOUT_OTHERS_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, ACCOUNT_URL,
   RESEND_VERIFICATION_URL, VERIFY_EMAIL_URL, FORGOT_PASSWORD_URL, RESET_PASSWORD_URL, STATE_URL, USAGE_URL, BILLING_STATUS_URL,
   AUTH_2FA_VERIFY_URL, AUTH_2FA_RESEND_URL, AUTH_2FA_SETUP_URL, AUTH_2FA_CONFIRM_URL, AUTH_2FA_DISABLE_URL,
 } from "./config.js";
@@ -2106,6 +2106,26 @@ class Store extends EventTarget {
     if (!res.ok) throw authError(data, t("login.somethingWrong"));
     this.authPasswordless = false;
     this.emit();
+  }
+
+  /** Change the password of the signed-in account (the server signs every other device out). Throws with the
+   *  server's message, e.g. when the current password is wrong. */
+  async changePassword(currentPassword, newPassword) {
+    const res = await fetch(AUTH_CHANGE_PASSWORD_URL, {
+      method: "POST", credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ currentPassword, newPassword }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw authError(data, t("login.somethingWrong"));
+  }
+
+  /** Sign this account out everywhere except here. Resolves to how many other sessions were ended. */
+  async signOutOtherDevices() {
+    const res = await fetch(AUTH_LOGOUT_OTHERS_URL, { method: "POST", credentials: "include" });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw authError(data, t("login.somethingWrong"));
+    return Number(data.signedOut) || 0;
   }
 
   async logout() {
