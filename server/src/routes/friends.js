@@ -90,7 +90,7 @@ friends.get("/friends/leaderboard", requireAuth, (req, res) => {
   const entries = userIds.map((userId) => {
     const digest = digests.get(userId);
     const questionsThisWeek = (digest?.attempts || [])
-      .filter(([at]) => at >= weekStart)
+      .filter(([at]) => at >= weekStart && at < weekStart + 7 * 86_400_000)
       .reduce((n, [, answered]) => n + answered, 0);
     return {
       userId,

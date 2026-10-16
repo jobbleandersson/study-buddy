@@ -14,6 +14,7 @@ import { requireGate, gate } from "./gate.js";
 import { requireAuth } from "./middleware/requireAuth.js";
 import { stateSaveLimit } from "./middleware/stateLimits.js";
 import { assertShallow } from "./json-depth.js";
+import { startDigestBackfill } from "./state-digest.js";
 import { health } from "./routes/health.js";
 import { messages } from "./routes/messages.js";
 import { auth } from "./routes/auth.js";
@@ -174,10 +175,10 @@ const LARGE_JSON_ROUTES = /^\/api\/(messages|state|assigned)\/?$/i;   // routing
 // Stripe's webhook is the exception: its signature covers the exact bytes it sent, so that one path
 // keeps its body raw (express.raw marks the request as parsed, so the JSON parsers below skip it).
 app.use("/api/stripe/webhook", express.raw({ type: "application/json", limit: "1mb" }));
-// A saved state is refused when it nests deeper than any real one (json-depth.js), checked on the raw
-// bytes so a hostile body never reaches JSON.stringify.
-const STATE_PATH = /^\/api\/state\/?$/i;
-const jsonLarge = express.json({ limit: "10mb", verify: (req, res, buf) => { if (STATE_PATH.test(req.path)) assertShallow(req, res, buf); } });
+// A saved state or an assigned set is refused when it nests deeper than any real one (json-depth.js),
+// checked on the raw bytes so a hostile body never reaches the JSON.stringify that stores it.
+const STORED_JSON_PATH = /^\/api\/(state|assigned)\/?$/i;
+const jsonLarge = express.json({ limit: "10mb", verify: (req, res, buf) => { if (STORED_JSON_PATH.test(req.path)) assertShallow(req, res, buf); } });
 const jsonSmall = express.json({ limit: "100kb" });
 app.use((req, res, next) => (LARGE_JSON_ROUTES.test(req.path) ? jsonLarge : jsonSmall)(req, res, next));
 
@@ -286,6 +287,7 @@ process.on("unhandledRejection", (reason) => {
 
 try {
   startSweeper(); // prune expired sessions + used/old codes, hourly
+  startDigestBackfill(); // bring stored state summaries up to date in the background (state-digest.js)
 } catch (e) {
   console.error("[study-buddy-server] sweeper failed to start:", e);
 }

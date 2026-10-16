@@ -82,8 +82,10 @@ export function digestOf(blob) {
   const state = blob && typeof blob === "object" ? blob : null;
   const perDay = new Map();   // UTC day start (ms) -> answers given that day
   const latest = new Map();   // a Map while building: a question id like "__proto__" must stay data
+  const latestAt = Date.now() + 2 * DAY_MS;   // an attempt dated further ahead than that did not happen yet
   for (const attempt of arr(state?.attempts).slice(-MAX_ATTEMPTS)) {
     const at = Number(attempt?.finishedAt) || 0;
+    if (at > latestAt) continue;
     const items = arr(attempt?.items);
     const n = Math.min(items.length, MAX_ITEMS_PER_ATTEMPT);
     const day = at > 0 ? Math.floor(at / DAY_MS) * DAY_MS : 0;
@@ -132,6 +134,38 @@ export function readDigest(userId) {
   // Only if the state hasn't moved on meanwhile (a save carries its own summary).
   saveStmt.run(JSON.stringify(digest), userId, row.version);
   return digest;
+}
+
+/** Rebuild the stored summary of ONE state whose summary is missing, unreadable or from an older version:
+ *  the next one after `after` in user-id order. Returns that user's id, or null when none is left, so
+ *  a caller can walk the table once (a row that cannot be brought up to date is not asked for twice).
+ *  `database` is a parameter so it can be tried on a throw-away database. */
+export function backfillDigest(database = db, after = "") {
+  const row = database.prepare(`
+    SELECT user_id AS userId, version, blob FROM state_blobs
+    WHERE user_id > ? AND CASE WHEN digest IS NULL THEN 1 WHEN NOT json_valid(digest) THEN 1
+                               ELSE json_extract(digest, '$.v') IS NOT ? END
+    ORDER BY user_id LIMIT 1`).get(after, DIGEST_VERSION);
+  if (!row) return null;
+  let blob = null;
+  try { blob = JSON.parse(row.blob); } catch { /* unreadable: nothing done */ }
+  // Only if the state hasn't moved on meanwhile (a save carries its own summary).
+  database.prepare("UPDATE state_blobs SET digest = ? WHERE user_id = ? AND version = ?")
+    .run(JSON.stringify(digestOf(blob)), row.userId, row.version);
+  return row.userId;
+}
+
+/** After a deploy that changes the summary's shape every stored one is out of date, and rebuilding each on
+ *  the first request that reads it would parse up to 10 MB per student inside that request. Instead one
+ *  state is rebuilt every `everyMs`, starting a few seconds after the server is up. */
+export function startDigestBackfill({ everyMs = 250, startMs = Number(process.env.DIGEST_BACKFILL_START_MS) || 5000 } = {}) {
+  let after = "";
+  const tick = () => {
+    let next = null;
+    try { next = backfillDigest(db, after); } catch (e) { console.warn("[state-digest] backfill stopped:", e.message); }
+    if (next) { after = next; setTimeout(tick, everyMs).unref?.(); }
+  };
+  setTimeout(tick, startMs).unref?.();
 }
 
 const emailStmt = db.prepare("SELECT email FROM users WHERE id = ?");

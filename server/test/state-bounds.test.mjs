@@ -1,7 +1,8 @@
 import { test, describe, before, after } from "node:test";
 import assert from "node:assert/strict";
 import { startServer, makeClient } from "./harness.mjs";
-import { digestOf } from "../src/state-digest.js";
+import Database from "better-sqlite3";
+import { digestOf, backfillDigest, DIGEST_VERSION } from "../src/state-digest.js";
 import { jsonDepth, MAX_STATE_DEPTH } from "../src/json-depth.js";
 
 // What a saved study state may contain and how often it may be saved. The state is whatever the browser
@@ -145,5 +146,53 @@ describe("the whole server's budget for big saves", () => {
     assert.equal((await putRaw(server.baseUrl, a, big())).status, 200);
     assert.equal((await putRaw(server.baseUrl, b, big())).status, 429);
     assert.equal((await putRaw(server.baseUrl, b, stateText(0, { n: 1 }))).status, 200);
+  });
+});
+
+describe("future-dated attempts", () => {
+  test("do not count: a state cannot add up answers for days that have not come", () => {
+    const item = { questionId: "q", firstTry: true };
+    const future = Array.from({ length: 100 }, (_, i) => ({ finishedAt: Date.now() + (10 + i) * DAY, items: [item, item, item] }));
+    const d = digestOf({ attempts: [...future, { finishedAt: Date.now(), items: [item] }] });
+    assert.deepEqual(d.attempts.map(([, n]) => n), [1]);
+  });
+});
+
+describe("the background rebuild of stored summaries", () => {
+  function table() {
+    const db = new Database(":memory:");
+    db.exec("CREATE TABLE state_blobs (user_id TEXT PRIMARY KEY, version INTEGER, blob TEXT, updated_at INTEGER, digest TEXT)");
+    const put = db.prepare("INSERT INTO state_blobs VALUES (?, 1, ?, 0, ?)");
+    const blob = (q) => JSON.stringify({ attempts: [{ finishedAt: Date.now(), items: [{ questionId: q, firstTry: true }] }] });
+    put.run("u1", blob("a"), null);                                          // never summarised
+    put.run("u2", blob("b"), JSON.stringify({ v: DIGEST_VERSION - 1 }));     // an older version
+    put.run("u3", blob("c"), "not json");                                    // unreadable
+    put.run("u4", blob("d"), JSON.stringify({ v: DIGEST_VERSION, kept: true })); // current: left alone
+    put.run("u5", "{broken", null);                                          // an unreadable state: summarised as nothing done
+    return db;
+  }
+  test("walks the table once, rebuilds what is stale, leaves current ones alone", () => {
+    const db = table();
+    const done = []; let after = "";
+    for (let id = backfillDigest(db, after); id; id = backfillDigest(db, after)) { done.push(id); after = id; }
+    assert.deepEqual(done, ["u1", "u2", "u3", "u5"]);
+    const digest = (id) => JSON.parse(db.prepare("SELECT digest FROM state_blobs WHERE user_id = ?").get(id).digest);
+    assert.equal(digest("u1").v, DIGEST_VERSION);
+    assert.deepEqual(Object.keys(digest("u2").answers), ["b"]);
+    assert.equal(digest("u3").v, DIGEST_VERSION);
+    assert.deepEqual(digest("u5").answers, {});
+    assert.equal(digest("u4").kept, true, "a current summary is not touched");
+  });
+});
+
+describe("a deeply nested assigned set", () => {
+  let server;
+  before(async () => { server = await startServer(); });
+  after(async () => { await server.stop(); });
+  test("is refused with a 400 before anything stores it", async () => {
+    const c = await account(server.baseUrl);
+    const res = await fetch(server.baseUrl + "/api/assigned", { method: "POST", headers: { "content-type": "application/json", cookie: c.cookie },
+      body: `{"studentUserId":"x","doc":{"x":${"[".repeat(90_000)}${"]".repeat(90_000)}}}` });
+    assert.equal(res.status, 400);
   });
 });
