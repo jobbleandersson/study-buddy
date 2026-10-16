@@ -20,8 +20,8 @@
       "opener": "Tänk på vilken funktion medierna fyller gentemot dem som har politisk makt.",
       "choices": [
         "Att medierna formellt är en del av riksdagen",
-        "Att medierna har en viktig granskande funktion gentemot makthavare, vid sidan av den lagstiftande, verkställande och dömande makten",
-        "Att medierna bestämmer vilka lagar som stiftas",
+        "Att medierna granskar makthavare, vid sidan av riksdagen, regeringen och domstolarna",
+        "Att medierna bestämmer vilka lagar som stiftas och vem som får sitta i regeringen efter valet",
         "Att journalister utses genom allmänna val"
       ],
       "answer": 1,
@@ -34,9 +34,9 @@
       "prompt": "Vad menas med \"medielogik\" när det gäller vilka nyheter som får stort utrymme?",
       "opener": "Vilken sorts händelser tenderar att bli stora nyheter - de odramatiska eller de som fångar uppmärksamhet?",
       "choices": [
-        "Att alla nyheter behandlas exakt likvärdigt oavsett innehåll",
+        "Att alla nyheter behandlas exakt likvärdigt oavsett innehåll, publik eller hur viktiga de är för samhället",
         "Att bara statligt godkända nyheter publiceras",
-        "Att medier tenderar att prioritera det som är dramatiskt, personifierat, konfliktfyllt eller aktuellt, eftersom det fångar publikens uppmärksamhet",
+        "Att medier prioriterar det dramatiska och konfliktfyllda, eftersom det fångar uppmärksamhet",
         "Att nyhetsvärderingen aldrig förändras över tid"
       ],
       "answer": 2,
@@ -49,8 +49,8 @@
       "prompt": "Vad innebär opinionsbildning?",
       "opener": "Fundera på hur människors uppfattningar i samhällsfrågor formas över tid.",
       "choices": [
-        "Processen där människors åsikter i samhällsfrågor formas och påverkas, till exempel via medier, debatter, sociala rörelser och politiska kampanjer",
-        "Att en enda myndighet officiellt bestämmer allas åsikter",
+        "Processen där människors åsikter i samhällsfrågor formas, t.ex. via medier och debatter",
+        "Att en enda myndighet officiellt bestämmer vilka åsikter som är tillåtna och bestraffar avvikare",
         "Att enbart riksdagsledamöter får ha åsikter i sakfrågor",
         "Ett annat ord för ett allmänt val"
       ],
@@ -64,10 +64,10 @@
       "prompt": "Vilket av följande är exempel på kanaler som används för att påverka opinionen i samhällsfrågor?",
       "opener": "Tänk brett - opinionsbildning sker genom flera olika kanaler, inte bara en.",
       "choices": [
-        "Enbart statliga presskonferenser",
+        "Enbart statliga presskonferenser och officiella pressmeddelanden från myndigheter och departement",
         "Enbart skolans undervisning",
         "Enbart domstolarnas avgöranden",
-        "Insändare, debattartiklar, demonstrationer, sociala medier och lobbying är alla exempel på kanaler för att påverka opinionen"
+        "Insändare, debattartiklar, demonstrationer, sociala medier och lobbying är exempel på kanaler"
       ],
       "answer": 3,
       "explanation": "Opinionsbildning sker genom en rad olika kanaler - insändare, debattartiklar, demonstrationer, sociala medier, intresseorganisationers lobbying och mycket mer. Att bara peka ut en enskild kanal, som presskonferenser eller domstolsbeslut, ger en alltför snäv bild."
@@ -80,9 +80,9 @@
       "opener": "Tänk på hur ett flöde anpassas efter vad du redan klickat på och gillat tidigare.",
       "choices": [
         "Ett tekniskt fel som gör att appen kraschar",
-        "Att algoritmer visar innehåll anpassat efter det man redan gillat eller klickat på, vilket kan göra att man i huvudsak möter åsikter man redan delar",
+        "Att algoritmer visar innehåll anpassat efter vad man redan gillat, så att man mest möter egna åsikter",
         "Ett filter som tar bort all reklam från flödet",
-        "Ett system där en statlig myndighet väljer vad varje medborgare får se online"
+        "Ett system där en statlig myndighet väljer vad varje medborgare får se online och vilka sajter som stängs"
       ],
       "answer": 1,
       "explanation": "En filterbubbla uppstår när algoritmer, utifrån tidigare beteende, i huvudsak visar innehåll som bekräftar det man redan tycker eller intresserar sig för, vilket kan göra att man möter färre avvikande perspektiv - inte ett tekniskt fel eller en statlig styrning."
@@ -94,9 +94,9 @@
       "prompt": "Vilken risk brukar kopplas till filterbubblor och algoritmisk nyhetsspridning?",
       "opener": "Fundera på vad som händer med den samlade bilden av samhället om folk i praktiken ser olika verkligheter.",
       "choices": [
-        "Att alla användare garanterat får en mer allsidig bild av världen",
+        "Att alla användare garanterat får en mer allsidig bild av världen och mindre polarisering",
         "Att internetanvändningen helt upphör",
-        "Att man i mindre utsträckning möter andra perspektiv, vilket kan förstärka polarisering och göra det svårare att bedöma vad som är brett accepterat",
+        "Att man mer sällan möter andra perspektiv, vilket kan förstärka polarisering",
         "Att algoritmer aldrig påverkar vad enskilda användare får se"
       ],
       "answer": 2,
@@ -177,8 +177,8 @@
       "prompt": "Vad kan en person göra för att aktivt motverka effekten av en filterbubbla?",
       "opener": "Tänk på om lösningen är att söka upp andra perspektiv, eller att bara läsa mer av samma sak.",
       "choices": [
-        "Medvetet söka upp källor och perspektiv som skiljer sig från de man normalt exponeras för, snarare än att enbart förlita sig på ett algoritmstyrt flöde",
-        "Enbart använda en enda nyhetskälla för att undvika förvirring",
+        "Medvetet söka upp källor och perspektiv som skiljer sig från de man vanligen möter",
+        "Enbart använda en enda nyhetskälla för att undvika förvirring och motstridiga uppgifter",
         "Stänga av alla nyhetsflöden permanent",
         "Filterbubblor kan inte motverkas på något sätt"
       ],
@@ -192,8 +192,8 @@
       "prompt": "Vad innebär offentlighetsprincipen i relation till mediernas granskande roll i Sverige?",
       "opener": "Tänk på vilken rätt medborgare och journalister har att ta del av myndigheters handlingar.",
       "choices": [
-        "Att medborgare och journalister i regel har rätt att ta del av allmänna handlingar hos myndigheter, vilket underlättar mediernas granskning av makthavare",
-        "Att alla myndighetsmöten måste vara helt slutna för allmänheten",
+        "Att medborgare och journalister i regel kan ta del av allmänna handlingar hos myndigheter",
+        "Att alla myndighetsmöten och handlingar måste hållas helt slutna för allmänheten och pressen",
         "Att enbart staten får granska sig själv",
         "Att offentlighetsprincipen enbart gäller kommersiella företag"
       ],
@@ -224,7 +224,7 @@
       "choices": [
         "Flockjournalistik (eller \"drevjournalistik\")",
         "Investigativ journalistik",
-        "Public service-journalistik",
+        "Public service-journalistik med ansvar för opartiskhet",
         "Faktagranskning"
       ],
       "answer": 0,

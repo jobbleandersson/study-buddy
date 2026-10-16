@@ -19,8 +19,8 @@
       "prompt": "Vad kännetecknar religionsvetenskap som akademiskt ämne, till skillnad från teologi?",
       "opener": "Fundera på om ämnet utgår från en religions egen sanning eller studerar religion utifrån, oavsett trosinnehåll.",
       "choices": [
-        "Religionsvetenskap utgår från att en viss religion är sann och undervisar utifrån den",
-        "Religionsvetenskap studerar religioner och livsåskådningar utifrån, jämförande och beskrivande, utan att ta ställning till om trosuppfattningarna är sanna",
+        "Religionsvetenskap utgår från att en viss religion är sann och undervisar utifrån den och dess skrifter",
+        "Religionsvetenskap studerar religioner utifrån, utan att ta ställning till om tron är sann",
         "Religionsvetenskap handlar bara om kristendomens historia",
         "Religionsvetenskap och teologi är alltid exakt samma sak"
       ],
@@ -34,8 +34,8 @@
       "prompt": "Vad menas med \"myt\" inom religionsvetenskaplig terminologi?",
       "opener": "I vardagsspråk betyder \"myt\" ofta \"påhitt\", men det religionsvetenskapliga begreppet är snävare.",
       "choices": [
-        "En berättelse som forskare bevisat är helt falsk",
-        "En berättelse, ofta om gudar eller ursprung, som inom en tradition bär mening och förklarar tillvaron, oavsett om den är historiskt bekräftad",
+        "En berättelse som forskare bevisat är helt falsk och därför saknar värde för religionsvetenskapen",
+        "En berättelse, ofta om gudar eller ursprung, som inom en tradition bär mening",
         "Ett annat ord för helig lag",
         "En modern populärvetenskaplig text om rymden"
       ],
@@ -49,8 +49,8 @@
       "prompt": "Vilket av följande är ett exempel på en ritual, enligt religionsvetenskaplig terminologi?",
       "opener": "En ritual är en handling som upprepas enligt ett mönster och som ofta har symbolisk betydelse.",
       "choices": [
-        "Ett spontant, engångsartat beslut utan koppling till tradition",
-        "En strukturerad, återkommande handling med symbolisk innebörd, till exempel en dop- eller initiationsceremoni",
+        "Ett spontant, engångsartat beslut som en enskild person fattar utan koppling till tradition",
+        "En strukturerad, återkommande handling med symbolisk innebörd, t.ex. ett dop",
         "En helig text i skriven form",
         "En religiös byggnad"
       ],
@@ -79,8 +79,8 @@
       "prompt": "Hur används begreppet \"kult\" inom religionsvetenskap, till skillnad från den nedsättande vardagsbetydelsen (\"sekt\")?",
       "opener": "Det akademiska begreppet är betydligt bredare och mer neutralt än slanguttrycket.",
       "choices": [
-        "Som en beteckning på en farlig, manipulativ grupp",
-        "Som ett neutralt begrepp för dyrkan, vördnad eller organiserad religiös praktik kring till exempel en gud eller ett helgon, utan värdering",
+        "Som en beteckning på en farlig, manipulativ grupp med en karismatisk ledare",
+        "Som ett neutralt begrepp för organiserad dyrkan, utan värdering",
         "Som synonym till \"helig text\"",
         "Begreppet används aldrig inom religionsvetenskap"
       ],
@@ -132,9 +132,9 @@
       "prompt": "Vad innebär det att religionsvetenskap bedrivs \"icke-konfessionellt\"?",
       "opener": "Tänk på om ämnet förutsätter att en viss tro är sann, eller om det studerar tro utifrån.",
       "choices": [
-        "Att ämnet inte utgår från eller förespråkar någon särskild religions trosuppfattning som sann, utan studerar religioner neutralt",
+        "Att ämnet inte utgår från att någon religions tro är sann, utan studerar religioner neutralt",
         "Att ämnet enbart studerar en religion i taget utan jämförelser",
-        "Att ämnet förbjuder alla troende personer från att forska inom det",
+        "Att ämnet förbjuder alla troende personer från att forska inom det eller undervisa i det vid universitet",
         "Att ämnet endast får bedrivas av ateister"
       ],
       "answer": 0,
@@ -147,8 +147,8 @@
       "prompt": "Vad är en \"helig text\" i religionsvetenskaplig mening?",
       "opener": "Tänk på vad som gör en text \"helig\" inom en tradition, oavsett textens språk eller ålder.",
       "choices": [
-        "En skrift som inom en tradition tillskrivs särskild auktoritet och betydelse, oavsett dess litterära form eller ålder",
-        "Enbart en text skriven på ett klassiskt språk som latin eller sanskrit",
+        "En skrift som inom en tradition tillskrivs särskild auktoritet, oavsett litterär form eller ålder",
+        "Enbart en text skriven på ett klassiskt språk som latin eller sanskrit och kopierad för hand av präster eller munkar",
         "En text som är förbjuden att läsas av utomstående",
         "En text som saknar all tolkningshistoria"
       ],
@@ -177,7 +177,7 @@
       "prompt": "Om en forskare intervjuar praktiserande troende om deras religiösa upplevelser och sedan analyserar svaren med hjälp av samhällsvetenskapliga begrepp, vilken typ av ansats använder forskaren då?",
       "opener": "Tänk på vem som ger informationen (informanterna) och vem som sedan tolkar och strukturerar den (forskaren).",
       "choices": [
-        "En kombination av insiderröster (informanternas egna beskrivningar) och ett outsiderperspektiv (forskarens analytiska tolkning)",
+        "Insiderröster (informanternas egna beskrivningar) kombinerade med forskarens outsiderperspektiv",
         "Enbart ett rent insiderperspektiv, eftersom forskaren intervjuar troende",
         "Enbart ett rent outsiderperspektiv, eftersom forskaren inte är troende själv",
         "Varken insider- eller outsiderperspektiv, eftersom intervjuer inte räknas som en vetenskaplig metod"
@@ -192,8 +192,8 @@
       "prompt": "Vad är en risk med att jämföra religioner utan att ta hänsyn till deras respektive historiska och kulturella sammanhang?",
       "opener": "Tänk på om ett ord eller en praktik alltid betyder exakt samma sak oavsett i vilken kultur eller tid den förekommer.",
       "choices": [
-        "Man riskerar att dra missvisande slutsatser genom att jämföra begrepp eller praktiker som ser lika ut på ytan men har helt olika innebörd i sina respektive sammanhang",
-        "Jämförande metod har inga risker alls om man bara jämför tillräckligt många religioner",
+        "Man riskerar missvisande slutsatser när det som ser likt ut har olika innebörd i sina sammanhang",
+        "Jämförande metod har inga risker alls om man bara jämför tillräckligt många religioner med varandra",
         "Det är omöjligt att jämföra religioner utan kulturell kontext",
         "Risken gäller bara jämförelser mellan kristendom och islam"
       ],
@@ -222,10 +222,10 @@
       "prompt": "Om en forskare jämför hur judendom, kristendom och islam alla förhåller sig till fasta som religiös praktik, vad är poängen med en sådan tematisk jämförelse?",
       "opener": "Tänk på vad man kan lära sig genom att se en och samma typ av praktik i olika sammanhang.",
       "choices": [
-        "Att synliggöra hur en liknande praktik kan ha delvis gemensamma och delvis olika funktioner och betydelser inom olika traditioner",
+        "Att visa hur en liknande praktik kan ha både gemensamma och olika funktioner i olika traditioner",
         "Att bevisa att alla tre religionerna egentligen är samma religion",
         "Att avgöra vilken religions fasta är mest krävande fysiskt",
-        "Att jämförelser av praktiker aldrig ger någon religionsvetenskaplig kunskap"
+        "Att jämförelser av praktiker aldrig ger någon religionsvetenskaplig kunskap om de religioner som jämförs"
       ],
       "answer": 0,
       "explanation": "En tematisk jämförelse av en praktik som fasta gör det möjligt att se hur en liknande handling kan fylla delvis gemensamma funktioner (t.ex. andlig rening) men också ha distinkta betydelser och regler inom respektive tradition, utan att för den skull påstå att religionerna är identiska."

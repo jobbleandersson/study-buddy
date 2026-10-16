@@ -19,8 +19,8 @@
       "prompt": "Vad kännetecknar direkt demokrati jämfört med representativ demokrati?",
       "opener": "Fundera på vem som fattar besluten i sakfrågan - medborgarna själva eller ombud de valt.",
       "choices": [
-        "I direkt demokrati röstar medborgarna själva i varje enskild fråga, i representativ demokrati väljer de företrädare som beslutar åt dem",
-        "I representativ demokrati har medborgarna ingen möjlighet att påverka politiken",
+        "I direkt demokrati röstar medborgarna själva i varje fråga, i representativ väljer de företrädare",
+        "I representativ demokrati har medborgarna ingen möjlighet att påverka politiken mellan valen eller genom opinionsbildning",
         "Direkt demokrati innebär att en monark fattar alla beslut",
         "Det finns ingen egentlig skillnad mellan de två formerna"
       ],
@@ -34,8 +34,8 @@
       "prompt": "Sverige är en monarki. Vad innebär det i praktiken för kungens makt idag?",
       "opener": "Jämför med hur det såg ut innan 1974 års regeringsform - vad hände med kungens politiska befogenheter?",
       "choices": [
-        "Kungen är statschef men saknar formell politisk makt - en i huvudsak symbolisk och ceremoniell roll",
-        "Kungen leder regeringen och utser statsråd på egen hand",
+        "Kungen är statschef men saknar formell politisk makt och har en symbolisk roll",
+        "Kungen leder regeringen och utser statsråd på egen hand, utan riksdagens inblandning",
         "Kungen kan upplösa riksdagen när hen själv önskar",
         "Kungen har vetorätt mot lagar som riksdagen beslutat om"
       ],
@@ -49,10 +49,10 @@
       "prompt": "Vad innebär parlamentarism, den princip som styr förhållandet mellan riksdag och regering i Sverige?",
       "opener": "Tänk på vem regeringen måste ha stöd av, eller åtminstone inte bli nedröstad av, för att sitta kvar.",
       "choices": [
-        "Att regeringen måste ha riksdagens stöd eller tolerans för att kunna sitta kvar vid makten",
+        "Att regeringen måste ha riksdagens stöd eller tolerans för att sitta kvar",
         "Att kungen utser regeringen helt efter eget tycke",
         "Att domstolarna kan avsätta regeringen genom dom",
-        "Att bara ett parti får finnas representerat i riksdagen"
+        "Att bara ett parti får finnas representerat i riksdagen och alla ledamöter måste tillhöra det"
       ],
       "answer": 0,
       "explanation": "Parlamentarism innebär att regeringens makt vilar på riksdagens förtroende. Sverige tillämpar negativ parlamentarism: regeringen sitter kvar så länge inte en majoritet i riksdagen aktivt röstar emot den. Varken kungen eller domstolarna avgör vem som är regering."
@@ -79,10 +79,10 @@
       "prompt": "Vad kännetecknar deliberativ demokrati som modell?",
       "opener": "Ordet \"deliberation\" betyder överläggning - vad ligger i fokus mer än själva röstningen?",
       "choices": [
-        "Beslut fattas enbart genom snabba omröstningar utan någon diskussion",
+        "Beslut fattas enbart genom snabba omröstningar utan någon diskussion mellan medborgarna eller företrädarna",
         "Endast experter och tjänstemän får delta i besluten",
         "Makten samlas hos en enda ledare som avgör allt",
-        "Tonvikten ligger på samtal och argumentation, där medborgare får ompröva sina åsikter genom att lyssna på andras skäl innan beslut fattas"
+        "Tonvikten ligger på samtal och argumentation, där medborgare kan ompröva sina åsikter innan beslut fattas"
       ],
       "answer": 3,
       "explanation": "Deliberativ demokrati betonar att legitima beslut ska föregås av öppen diskussion och utbyte av argument, inte bara sammanräkning av röster. Idén är att förslag blir bättre och mer förankrade om medborgare får resonera tillsammans innan de tar ställning."
@@ -95,9 +95,9 @@
       "opener": "Tänk på vad som händer om makthavare kan styra domstolar och medier fritt.",
       "choices": [
         "Att ett och samma parti alltid vinner valen med stor marginal",
-        "En fri och oberoende press samt en rättsstat där lagarna gäller lika för alla, inklusive makthavare",
+        "En fri och oberoende press samt en rättsstat där lagarna gäller lika för alla",
         "Att val hålls så sällan som möjligt för att skapa stabilitet",
-        "Att domstolarna följer regeringens instruktioner i enskilda mål"
+        "Att domstolarna följer regeringens instruktioner i enskilda mål för att besluten ska bli snabbare"
       ],
       "answer": 1,
       "explanation": "En fungerande demokrati förutsätter bland annat en rättsstat, oberoende domstolar och en fri press som kan granska makten. Om domstolar styrs av regeringen eller pressen inte är fri urholkas kontrollmekanismerna som håller makthavare ansvariga."
@@ -147,8 +147,8 @@
       "prompt": "Vad innebär den svenska regeringsformens bestämmelse om att \"all offentlig makt utgår från folket\"?",
       "opener": "Tänk på varifrån den politiska makten ytterst ska härledas.",
       "choices": [
-        "Att den politiska makten i grunden ska härledas från medborgarna genom allmänna och fria val, inte från exempelvis en monark eller en självutnämnd elit",
-        "Att varje enskild medborgare måste godkänna varje lag personligen",
+        "Att makten ska härledas från medborgarna genom fria val, inte från en monark eller elit",
+        "Att varje enskild medborgare måste godkänna varje lag personligen i en folkomröstning varje år",
         "Att folket automatiskt äger all statlig egendom",
         "Att makten enbart utgår från riksdagens talman"
       ],
@@ -162,10 +162,10 @@
       "prompt": "Vilken funktion har Lagrådet i den svenska lagstiftningsprocessen?",
       "opener": "Tänk på vilket organ som granskar lagförslag innan riksdagen fattar sitt slutgiltiga beslut.",
       "choices": [
-        "Att granska lagförslag och yttra sig om hur de förhåller sig till grundlagarna och rättssäkerheten, innan riksdagen beslutar",
+        "Att granska lagförslag och yttra sig om deras förhållande till grundlagarna",
         "Att döma i alla brottmål i Sverige",
         "Att utse Sveriges statsminister",
-        "Att ersätta riksdagens lagstiftande funktion helt"
+        "Att ersätta riksdagens lagstiftande funktion helt och hållet och själva besluta om nya lagar"
       ],
       "answer": 0,
       "explanation": "Lagrådet granskar lagförslag och yttrar sig om hur de förhåller sig till grundlagen och rättssäkerheten, som en rådgivande instans innan riksdagen tar det slutgiltiga beslutet. Det dömer inte i enskilda brottmål och ersätter inte riksdagens lagstiftande makt."
@@ -207,8 +207,8 @@
       "prompt": "Varför brukar en fungerande opposition räknas som en viktig del av en demokrati?",
       "opener": "Tänk på vad som skulle saknas om ingen fick ifrågasätta den sittande makten.",
       "choices": [
-        "Oppositionen granskar och utmanar den sittande makten samt erbjuder väljarna ett alternativ, vilket håller makthavare ansvariga",
-        "Oppositionen behövs enbart för att fylla platser i parlamentet",
+        "Oppositionen granskar och utmanar makten och erbjuder väljarna ett alternativ",
+        "Oppositionen behövs enbart för att fylla platser i parlamentet och ge regeringen någon att rösta emot",
         "En stark opposition gör att val blir onödiga",
         "Opposition förekommer enbart i diktaturer"
       ],
@@ -222,9 +222,9 @@
       "prompt": "Vad innebär \"one person, one vote\" som demokratisk princip?",
       "opener": "Tänk på om vissa medborgares röster ska väga tyngre än andras.",
       "choices": [
-        "Att varje röstberättigad medborgares röst ska väga lika mycket i ett val, oavsett till exempel förmögenhet eller social status",
+        "Att varje röstberättigad medborgares röst ska väga lika mycket, oavsett förmögenhet eller status",
         "Att bara en person i hela landet får rösta",
-        "Att en person kan rösta obegränsat många gånger i samma val",
+        "Att en person kan rösta obegränsat många gånger i samma val om hen betalar en avgift för varje röst",
         "Att röstberättigande enbart gäller för en åldersgrupp"
       ],
       "answer": 0,

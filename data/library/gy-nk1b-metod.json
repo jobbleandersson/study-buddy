@@ -20,8 +20,8 @@
       "opener": "Tänk på vad som krävs för att man ska kunna testa ett påstående med observationer eller experiment.",
       "choices": [
         "Ett påstående som redan är bevisat sant",
-        "Ett testbart antagande eller förslag till förklaring, som i princip går att motbevisa genom observation eller experiment",
-        "En personlig åsikt som inte behöver kunna testas",
+        "Ett testbart antagande eller förslag till förklaring som i princip går att motbevisa",
+        "En personlig åsikt som inte behöver kunna testas eller ifrågasättas av andra forskare",
         "Ett annat ord för en naturvetenskaplig lag"
       ],
       "answer": 1,
@@ -35,8 +35,8 @@
       "opener": "Tänk på hur mycket stöd och hur brett förklaringsvärde respektive begrepp har.",
       "choices": [
         "En teori är bara en gissning, medan en hypotes är säkert bevisad",
-        "Det finns ingen skillnad, orden betyder exakt samma sak inom vetenskap",
-        "En hypotes är ett specifikt, ännu otestat antagande, medan en teori är en väl underbyggd förklaringsmodell som stöds av mycket samlad evidens från många observationer och experiment",
+        "Det finns ingen skillnad, orden betyder exakt samma sak inom vetenskap och används utbytbart i alla fält",
+        "En hypotes är ett ännu otestat antagande, medan en teori är en väl underbyggd förklaringsmodell",
         "En teori gäller bara inom matematik, aldrig inom naturvetenskap"
       ],
       "answer": 2,
@@ -64,7 +64,7 @@
       "prompt": "I ett experiment som undersöker om gödselmängd påverkar tomatplantors tillväxt, vad kallas gödselmängden, som forskaren medvetet varierar mellan grupperna?",
       "opener": "Tänk på vad forskaren aktivt ändrar, till skillnad från det som mäts som resultat.",
       "choices": [
-        "Den beroende variabeln",
+        "Den beroende variabeln i försöket",
         "Kontrollvariabeln",
         "Den oberoende variabeln",
         "Nollhypotesen"
@@ -94,8 +94,8 @@
       "prompt": "Vilken fråga är särskilt viktig att ställa när man källkritiskt granskar ett naturvetenskapligt påstående i en nyhetsartikel eller på sociala medier?",
       "opener": "Tänk på vad som skiljer en enskild, obekräftad studie från etablerad, samlad vetenskaplig kunskap.",
       "choices": [
-        "Om artikeln har många delningar på sociala medier",
-        "Om påståendet bygger på en enskild, obekräftad studie eller på samlad, granskad forskning, samt vem avsändaren är och om det finns intressen som kan påverka framställningen",
+        "Om artikeln har många delningar på sociala medier, många gillamarkeringar och kommentarer från läsare",
+        "Om påståendet bygger på en obekräftad studie eller granskad forskning, och vem som är avsändare",
         "Om texten är kort och lättläst",
         "Om artikeln publicerades samma vecka som man läser den"
       ],
@@ -132,8 +132,8 @@
       "prompt": "Vad innebär det att en hypotes ska vara falsifierbar?",
       "opener": "Tänk på vad som skulle behövas för att kunna bevisa att hypotesen är felaktig.",
       "choices": [
-        "Att det i princip måste vara möjligt att visa att hypotesen är fel genom observation eller experiment, även om den råkar vara sann",
-        "Att hypotesen redan måste vara bevisad falsk innan den prövas",
+        "Att det i princip måste vara möjligt att visa att hypotesen är fel genom observation eller experiment",
+        "Att hypotesen redan måste vara bevisad falsk innan den prövas i ett kontrollerat experiment eller en systematisk observation",
         "Att hypotesen aldrig får testas mer än en gång",
         "Att falsifierbarhet innebär att hypotesen alltid är felaktig"
       ],
@@ -147,9 +147,9 @@
       "prompt": "Vad är syftet med att upprepa ett experiment (replikera resultat), gärna av andra oberoende forskargrupper?",
       "opener": "Tänk på vad som skulle hända om ett enskilt experiment råkade ge ett resultat av en slump.",
       "choices": [
-        "Att öka tilltron till att resultatet är verkligt och inte bara berodde på slump eller ett engångsfel i den ursprungliga studien",
+        "Att öka tilltron till att resultatet är verkligt och inte berodde på slump eller ett engångsfel",
         "Att göra det svårare för andra forskare att förstå resultatet",
-        "Replikering är aldrig nödvändig om den första studien var stor nog",
+        "Replikering är aldrig nödvändig om den första studien var stor nog och publicerad i en erkänd tidskrift",
         "Att öka kostnaden för forskningen utan annan nytta"
       ],
       "answer": 0,
@@ -177,8 +177,8 @@
       "prompt": "Vad är ett vanligt kännetecken hos pseudovetenskapliga påståenden när det gäller hur de bemöter kritik eller motbevis?",
       "opener": "Tänk på hur ett påstående som INTE kan motbevisas hanterar obekväma resultat.",
       "choices": [
-        "De tenderar att omtolka eller bortförklara motbevis snarare än att revidera eller överge påståendet",
-        "De välkomnar alltid kritik och ändrar omedelbart sin ståndpunkt vid motbevis",
+        "De tenderar att omtolka eller bortförklara motbevis i stället för att revidera påståendet",
+        "De välkomnar alltid kritik och ändrar omedelbart sin ståndpunkt vid varje motbevis från kritiker",
         "De genomgår alltid sedvanlig peer review innan publicering",
         "De baseras alltid på kontrollerade, upprepade experiment"
       ],
@@ -192,8 +192,8 @@
       "prompt": "Varför är det problematiskt om en studie om ett läkemedels effekt enbart finansierats av företaget som säljer läkemedlet, utan oberoende granskning?",
       "opener": "Tänk på vem som tjänar på att studien visar ett visst resultat.",
       "choices": [
-        "Det finns en risk för intressekonflikt som kan (medvetet eller omedvetet) påverka hur studien utformas, tolkas eller presenteras",
-        "Finansieringskällan har aldrig någon betydelse för en studies tillförlitlighet",
+        "Det finns risk för intressekonflikt som kan påverka hur studien utformas, tolkas eller presenteras",
+        "Finansieringskällan har aldrig någon betydelse för en studies tillförlitlighet, bara dess resultat räknas",
         "Det innebär automatiskt att resultatet är falskt",
         "Företag får aldrig finansiera vetenskaplig forskning enligt lag"
       ],
@@ -207,10 +207,10 @@
       "prompt": "Vad innebär \"korrelation är inte samma sak som kausalitet\" i ett naturvetenskapligt sammanhang?",
       "opener": "Tänk på det klassiska exemplet med glassförsäljning och drunkningsolyckor, som båda ökar på sommaren.",
       "choices": [
-        "Att två faktorer som förändras tillsammans (samvarierar) inte nödvändigtvis betyder att den ena orsakar den andra — ett samband kan bero på en tredje, bakomliggande faktor",
+        "Att två faktorer som samvarierar inte nödvändigtvis betyder att den ena orsakar den andra",
         "Att korrelation och kausalitet alltid betyder exakt samma sak",
         "Att kausalitet är lättare att bevisa än korrelation i alla lägen",
-        "Att korrelation aldrig kan förekomma i naturvetenskapliga studier"
+        "Att korrelation aldrig kan förekomma i naturvetenskapliga studier, bara i samhällsvetenskap"
       ],
       "answer": 0,
       "explanation": "Att två faktorer samvarierar (korrelerar) betyder inte automatiskt att den ena orsakar den andra — sambandet kan bero på en tredje, bakomliggande faktor (t.ex. varmt väder som ökar både glassförsäljning och badande, och därmed drunkningsrisk)."

@@ -20,8 +20,8 @@
       "opener": "Think about what is required for a claim to be testable through observation or experiment.",
       "choices": [
         "A statement that has already been proven true",
-        "A testable assumption or proposed explanation, which can in principle be disproved through observation or experiment",
-        "A personal opinion that doesn't need to be testable",
+        "A testable assumption or proposed explanation that can in principle be disproved",
+        "A personal opinion that does not need to be testable or open to questioning by other researchers",
         "Another word for a scientific law"
       ],
       "answer": 1,
@@ -35,8 +35,8 @@
       "opener": "Think about how much support and how broad an explanatory value each term has.",
       "choices": [
         "A theory is just a guess, while a hypothesis is proven with certainty",
-        "There is no difference; the words mean exactly the same thing in science",
-        "A hypothesis is a specific, as-yet-untested assumption, while a theory is a well-established explanatory model supported by a large body of evidence gathered from many observations and experiments",
+        "There is no difference; the words mean exactly the same thing in science and are used interchangeably in every field",
+        "A hypothesis is a not-yet-tested assumption, while a theory is a well-established explanatory model",
         "A theory only applies in mathematics, never in natural science"
       ],
       "answer": 2,
@@ -64,7 +64,7 @@
       "prompt": "In an experiment investigating whether the amount of fertiliser affects the growth of tomato plants, what is the amount of fertiliser called, which the researcher deliberately varies between the groups?",
       "opener": "Think about what the researcher actively changes, as opposed to what is measured as the result.",
       "choices": [
-        "The dependent variable",
+        "The dependent variable of the experiment",
         "The control variable",
         "The independent variable",
         "The null hypothesis"
@@ -94,8 +94,8 @@
       "prompt": "Which question is particularly important to ask when critically evaluating a scientific claim in a news article or on social media?",
       "opener": "Think about what distinguishes a single, unconfirmed study from established, collective scientific knowledge.",
       "choices": [
-        "Whether the article has many shares on social media",
-        "Whether the claim is based on a single, unconfirmed study or on collective, peer-reviewed research, as well as who the source is and whether there are interests that could influence the presentation",
+        "Whether the article has many shares on social media, many likes and comments from readers",
+        "Whether the claim is based on an unconfirmed study or peer-reviewed research, and who the source is",
         "Whether the text is short and easy to read",
         "Whether the article was published the same week you're reading it"
       ],
@@ -132,8 +132,8 @@
       "prompt": "What does it mean for a hypothesis to be falsifiable?",
       "opener": "Think about what would be needed to prove the hypothesis wrong.",
       "choices": [
-        "That it must, in principle, be possible to show the hypothesis is wrong through observation or experiment, even if it happens to be true",
-        "That the hypothesis must already be proven false before it is tested",
+        "That it must in principle be possible to show the hypothesis is wrong through observation or experiment",
+        "That the hypothesis must already be proven false before it is tested in a controlled experiment or systematic observation",
         "That the hypothesis may never be tested more than once",
         "That falsifiability means the hypothesis is always incorrect"
       ],
@@ -147,9 +147,9 @@
       "prompt": "What is the purpose of repeating an experiment (replicating results), ideally by other independent research groups?",
       "opener": "Think about what would happen if a single experiment happened to give a result by chance.",
       "choices": [
-        "To increase confidence that the result is real and not just due to chance or a one-off error in the original study",
+        "To increase confidence that the result is real and not due to chance or a one-off error",
         "To make it harder for other researchers to understand the result",
-        "Replication is never necessary if the first study was large enough",
+        "Replication is never necessary if the first study was large enough and published in a recognised journal",
         "To increase the cost of the research with no other benefit"
       ],
       "answer": 0,
@@ -177,8 +177,8 @@
       "prompt": "What is a common feature of pseudoscientific claims regarding how they respond to criticism or contradictory evidence?",
       "opener": "Think about how a claim that CANNOT be disproved handles inconvenient results.",
       "choices": [
-        "They tend to reinterpret or explain away contradictory evidence rather than revising or abandoning the claim",
-        "They always welcome criticism and immediately change their position when faced with contradictory evidence",
+        "They tend to reinterpret or explain away contradictory evidence instead of revising the claim",
+        "They always welcome criticism and immediately change their position at every counterargument from critics",
         "They always undergo standard peer review before publication",
         "They are always based on controlled, repeated experiments"
       ],
@@ -192,8 +192,8 @@
       "prompt": "Why is it problematic if a study on a drug's effect was funded solely by the company that sells the drug, without independent review?",
       "opener": "Think about who benefits if the study shows a particular result.",
       "choices": [
-        "There is a risk of a conflict of interest that could (consciously or unconsciously) affect how the study is designed, interpreted or presented",
-        "The funding source never matters for a study's reliability",
+        "There is a risk of a conflict of interest that can affect how the study is designed, interpreted or presented",
+        "The funding source never matters for a study's reliability, only its results count",
         "It automatically means the result is false",
         "Companies are legally prohibited from funding scientific research"
       ],
@@ -207,10 +207,10 @@
       "prompt": "What does \"correlation is not the same as causation\" mean in a scientific context?",
       "opener": "Think of the classic example of ice cream sales and drowning incidents, both of which rise in summer.",
       "choices": [
-        "That two factors changing together (correlating) does not necessarily mean one causes the other — an association can be due to a third, underlying factor",
+        "That two factors that vary together do not necessarily mean one causes the other",
         "That correlation and causation always mean exactly the same thing",
         "That causation is always easier to prove than correlation",
-        "That correlation can never occur in scientific studies"
+        "That correlation can never occur in scientific studies, only in social science"
       ],
       "answer": 0,
       "explanation": "Two factors varying together (correlating) does not automatically mean one causes the other — the association can be due to a third, underlying factor (e.g. hot weather increasing both ice cream sales and swimming, and thereby drowning risk)."

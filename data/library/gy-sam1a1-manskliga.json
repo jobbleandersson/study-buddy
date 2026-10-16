@@ -51,7 +51,7 @@
       "choices": [
         "En ekonomisk rättighet",
         "En social rättighet",
-        "En rättighet som enbart gäller journalister",
+        "En rättighet som enbart gäller journalister och andra yrkesverksamma inom medierna",
         "En medborgerlig/politisk rättighet (yttrandefrihet)"
       ],
       "answer": 3,
@@ -65,8 +65,8 @@
       "opener": "Tänk på vilka aktörer det är som huvudsakligen omfattas av dessa regler - individer eller stater.",
       "choices": [
         "En synonym för Sveriges grundlagar",
-        "Regler som bara gäller relationer mellan privatpersoner inom ett och samma land",
-        "Regler och avtal som styr relationerna mellan stater, till exempel genom FN-stadgan och internationella konventioner",
+        "Regler som bara gäller relationer mellan privatpersoner inom ett och samma land eller en kommun",
+        "Regler och avtal som styr relationerna mellan stater, t.ex. FN-stadgan och konventioner",
         "Ett annat namn för svensk brottsbalk"
       ],
       "answer": 2,
@@ -80,8 +80,8 @@
       "opener": "Detta kallas ibland \"krigets lagar\" - vad tror du de reglerar?",
       "choices": [
         "Handelstullar mellan länder",
-        "Hur väpnade konflikter ska föras, bland annat skydd för civila, sårade och krigsfångar",
-        "Vilka officiella språk som talas inom FN",
+        "Hur väpnade konflikter ska föras, bland annat skydd för civila och krigsfångar",
+        "Vilka officiella språk som talas inom FN och hur dokument ska översättas mellan dem",
         "Internationella klimatavtal"
       ],
       "answer": 1,
@@ -94,9 +94,9 @@
       "prompt": "Vilket exempel visar hur två rättigheter kan komma i konflikt med varandra?",
       "opener": "Fundera på en situation där en persons frihet att uttrycka sig kan drabba en annan grupps skydd mot kränkningar.",
       "choices": [
-        "Yttrandefrihet kan komma i konflikt med skyddet mot diskriminering och hets mot folkgrupp, vilket gör att avvägningar ibland måste göras",
+        "Yttrandefrihet kan komma i konflikt med skyddet mot diskriminering och hets mot folkgrupp",
         "Rätten till utbildning kan aldrig påverka någon annan rättighet",
-        "Alla rättigheter är alltid exakt lika viktiga i varje enskild situation, utan undantag",
+        "Alla rättigheter är alltid exakt lika viktiga i varje enskild situation, utan undantag eller avvägning",
         "Mänskliga rättigheter gäller enbart under fredstid"
       ],
       "answer": 0,
@@ -132,9 +132,9 @@
       "prompt": "Vad är Europakonventionen om mänskliga rättigheter, och hur skiljer den sig från FN:s allmänna förklaring?",
       "opener": "Tänk på om det finns en domstol som faktiskt kan pröva klagomål enligt respektive dokument.",
       "choices": [
-        "En juridiskt bindande konvention för Europarådets medlemsstater, som till skillnad från FN:s icke-bindande förklaring kan prövas av Europadomstolen",
+        "En bindande konvention för Europarådets stater som kan prövas av Europadomstolen",
         "Ett annat namn för FN:s allmänna förklaring",
-        "En konvention som enbart gäller EU:s institutioner, inte enskilda medborgare",
+        "En konvention som enbart gäller EU:s institutioner, inte enskilda medborgare eller medlemsstaterna",
         "En konvention som saknar någon domstol för att pröva klagomål"
       ],
       "answer": 0,
@@ -147,9 +147,9 @@
       "prompt": "Barnkonventionen, som blev svensk lag 2020, är ett exempel på vad?",
       "opener": "Tänk på om detta är ett generellt dokument för alla, eller riktat mot en särskild grupp.",
       "choices": [
-        "En specifik, juridiskt bindande konvention som preciserar rättigheter för en särskild grupp - i detta fall barn",
+        "En specifik, bindande konvention som preciserar rättigheter för en särskild grupp, här barn",
         "En del av FN:s allmänna förklaring från 1948",
-        "En rent nationell svensk lag utan koppling till internationell rätt",
+        "En rent nationell svensk lag utan koppling till internationell rätt eller andra länders lagstiftning",
         "En konvention som enbart gäller inom EU"
       ],
       "answer": 0,
@@ -162,10 +162,10 @@
       "prompt": "Vad innebär rätten till en rättvis rättegång, som en del av medborgerliga/politiska rättigheter?",
       "opener": "Tänk på vad en anklagad person har rätt till innan en dom fastställs.",
       "choices": [
-        "Bland annat rätten till en opartisk domstol, att bli informerad om anklagelser och att få försvara sig innan en dom fastställs",
+        "Bland annat rätten till en opartisk domstol och att få försvara sig",
         "Att den anklagade alltid automatiskt frias",
         "Att rättegångar aldrig får hållas offentligt",
-        "Att enbart staten har rätt att överklaga en dom"
+        "Att enbart staten har rätt att överklaga en dom, medan den dömde måste acceptera domen"
       ],
       "answer": 0,
       "explanation": "Rätten till en rättvis rättegång omfattar bland annat rätten till en opartisk domstol, att informeras om anklagelserna och att få försvara sig innan dom fastställs. Den innebär varken automatisk frikännande eller ett förbud mot offentliga rättegångar."
@@ -177,9 +177,9 @@
       "prompt": "Vad är Internationella brottmålsdomstolen (ICC)?",
       "opener": "Tänk på om domstolen dömer stater eller enskilda individer.",
       "choices": [
-        "En permanent internationell domstol som kan lagföra individer för grova brott som folkmord, brott mot mänskligheten och krigsförbrytelser",
+        "En permanent internationell domstol som kan lagföra individer för folkmord och krigsförbrytelser",
         "En domstol som enbart dömer i handelstvister mellan stater",
-        "Ett annat namn för Internationella domstolen i Haag som dömer mellan stater",
+        "Ett annat namn för Internationella domstolen i Haag, som dömer i tvister mellan stater och organisationer",
         "En domstol som endast FN:s säkerhetsråd kan döma i"
       ],
       "answer": 0,
@@ -207,8 +207,8 @@
       "prompt": "Ge ett exempel på hur rätten till privatliv kan komma i konflikt med samhällets intresse av säkerhet.",
       "opener": "Tänk på metoder som används för att förebygga brott, och vad de kan innebära för den enskildes integritet.",
       "choices": [
-        "Övervakningsåtgärder som kameror eller avlyssning för att förebygga brott kan inskränka den personliga integriteten, vilket kräver en avvägning mellan trygghet och privatliv",
-        "Rätten till privatliv gäller alltid ovillkorligen utan några undantag",
+        "Övervakning som kameror eller avlyssning kan inskränka den personliga integriteten och kräver en avvägning",
+        "Rätten till privatliv gäller alltid ovillkorligen utan några undantag, även när andra människors liv står på spel",
         "Säkerhetsintresset kan aldrig påverka någons privatliv i praktiken",
         "De två rättigheterna har aldrig något samband med varandra"
       ],
