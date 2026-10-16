@@ -1,0 +1,356 @@
+{
+  "id": "lib-hp-dtk-ovningsprov-02",
+  "type": "test",
+  "subject": "DTK – Diagram, tabeller och kartor",
+  "title": "DTK – övningsprov 2",
+  "sourceSummary": "Egenskrivna övningsuppgifter i Högskoleprovets DTK-format med egenritade diagram. Detta är inte ett officiellt utgivet prov.",
+  "topics": [
+    "diagram",
+    "tabell"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hp-dtk2-01",
+      "kind": "mc",
+      "variant": "dtk",
+      "topic": "diagram",
+      "figure": {
+        "src": "hp/dtk2/dtk2-01.svg",
+        "alt": "Stapeldiagram, sålda elcyklar i tusental per kvartal. 2024: kv 1 10, kv 2 18, kv 3 26, kv 4 14. 2025: kv 1 15, kv 2 26, kv 3 25, kv 4 20."
+      },
+      "prompt": "Under vilket kvartal såldes färre elcyklar 2025 än 2024?",
+      "choices": [
+        "Kv 1",
+        "Kv 2",
+        "Kv 3",
+        "Kv 4"
+      ],
+      "answer": 2,
+      "explanation": "Bara under kvartal 3 var stapeln för 2025 lägre än för 2024: 25 000 mot 26 000."
+    },
+    {
+      "id": "q-hp-dtk2-02",
+      "kind": "mc",
+      "variant": "dtk",
+      "topic": "diagram",
+      "figure": {
+        "src": "hp/dtk2/dtk2-01.svg",
+        "alt": "Stapeldiagram, sålda elcyklar i tusental per kvartal. 2024: kv 1 10, kv 2 18, kv 3 26, kv 4 14. 2025: kv 1 15, kv 2 26, kv 3 25, kv 4 20."
+      },
+      "prompt": "Med ungefär hur många procent ökade den totala försäljningen av elcyklar från 2024 till 2025?",
+      "choices": [
+        "14 %",
+        "18 %",
+        "21 %",
+        "26 %"
+      ],
+      "answer": 3,
+      "explanation": "2024 såldes $10 + 18 + 26 + 14 = 68$ tusen och 2025 $15 + 26 + 25 + 20 = 86$ tusen. Ökningen är 18 tusen, och $\\dfrac{18}{68} \\approx 0{,}26$, alltså ungefär 26 %. Svaret 18 % är ökningen i tusental, inte i procent."
+    },
+    {
+      "id": "q-hp-dtk2-03",
+      "kind": "mc",
+      "variant": "dtk",
+      "topic": "diagram",
+      "figure": {
+        "src": "hp/dtk2/dtk2-01.svg",
+        "alt": "Stapeldiagram, sålda elcyklar i tusental per kvartal. 2024: kv 1 10, kv 2 18, kv 3 26, kv 4 14. 2025: kv 1 15, kv 2 26, kv 3 25, kv 4 20."
+      },
+      "prompt": "Under vilket kvartal var ökningen från 2024 till 2025 störst i procent?",
+      "choices": [
+        "Kv 1",
+        "Kv 2",
+        "Kv 3",
+        "Kv 4"
+      ],
+      "answer": 0,
+      "explanation": "Kvartal 1 ökade från 10 till 15 tusen, alltså med 50 %. Kvartal 2 ökade mest i antal (8 tusen), men från en högre nivå: $\\dfrac{8}{18} \\approx 44$ %. Kvartal 4 ökade med $\\dfrac{6}{14} \\approx 43$ %."
+    },
+    {
+      "id": "q-hp-dtk2-04",
+      "kind": "mc",
+      "variant": "dtk",
+      "topic": "diagram",
+      "figure": {
+        "src": "hp/dtk2/dtk2-01.svg",
+        "alt": "Stapeldiagram, sålda elcyklar i tusental per kvartal. 2024: kv 1 10, kv 2 18, kv 3 26, kv 4 14. 2025: kv 1 15, kv 2 26, kv 3 25, kv 4 20."
+      },
+      "prompt": "Ungefär hur stor andel av försäljningen 2025 skedde under årets andra halva (kvartal 3 och 4)?",
+      "choices": [
+        "48 %",
+        "52 %",
+        "56 %",
+        "60 %"
+      ],
+      "answer": 1,
+      "explanation": "Andra halvåret såldes $25 + 20 = 45$ tusen av totalt 86 tusen: $\\dfrac{45}{86} \\approx 0{,}52$, alltså ungefär 52 %."
+    },
+    {
+      "id": "q-hp-dtk2-05",
+      "kind": "mc",
+      "variant": "dtk",
+      "topic": "diagram",
+      "figure": {
+        "src": "hp/dtk2/dtk2-02.svg",
+        "alt": "Linjediagram, andel hushåll med solceller (%) 2018–2025. Götaland: 2, 3, 4, 6, 8, 11, 13, 14. Norrland: 1, 1, 2, 3, 5, 6, 9, 10."
+      },
+      "prompt": "Mellan vilka två år ökade andelen hushåll med solceller i Götaland mest?",
+      "choices": [
+        "2021–2022",
+        "2022–2023",
+        "2023–2024",
+        "2024–2025"
+      ],
+      "answer": 1,
+      "explanation": "Ökningen mellan 2022 och 2023 var 3 procentenheter (från 8 till 11). Ingen annan ettårsperiod ökade så mycket."
+    },
+    {
+      "id": "q-hp-dtk2-06",
+      "kind": "mc",
+      "variant": "dtk",
+      "topic": "diagram",
+      "figure": {
+        "src": "hp/dtk2/dtk2-02.svg",
+        "alt": "Linjediagram, andel hushåll med solceller (%) 2018–2025. Götaland: 2, 3, 4, 6, 8, 11, 13, 14. Norrland: 1, 1, 2, 3, 5, 6, 9, 10."
+      },
+      "prompt": "Med hur många procentenheter ökade andelen i Norrland mellan 2021 och 2025?",
+      "choices": [
+        "3",
+        "5",
+        "7",
+        "10"
+      ],
+      "answer": 2,
+      "explanation": "Andelen ökade från 3 % till 10 %, alltså med 7 procentenheter. (I procent är det en ökning med drygt 230 %, men frågan gäller procentenheter.)"
+    },
+    {
+      "id": "q-hp-dtk2-07",
+      "kind": "mc",
+      "variant": "dtk",
+      "topic": "diagram",
+      "figure": {
+        "src": "hp/dtk2/dtk2-02.svg",
+        "alt": "Linjediagram, andel hushåll med solceller (%) 2018–2025. Götaland: 2, 3, 4, 6, 8, 11, 13, 14. Norrland: 1, 1, 2, 3, 5, 6, 9, 10."
+      },
+      "prompt": "Vilket år var skillnaden mellan Götaland och Norrland störst?",
+      "choices": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "answer": 2,
+      "explanation": "Skillnaden var 3 procentenheter 2021 och 2022, 5 år 2023 och 4 år 2024. Störst år 2023 (11 mot 6)."
+    },
+    {
+      "id": "q-hp-dtk2-08",
+      "kind": "mc",
+      "variant": "dtk",
+      "topic": "diagram",
+      "figure": {
+        "src": "hp/dtk2/dtk2-02.svg",
+        "alt": "Linjediagram, andel hushåll med solceller (%) 2018–2025. Götaland: 2, 3, 4, 6, 8, 11, 13, 14. Norrland: 1, 1, 2, 3, 5, 6, 9, 10."
+      },
+      "prompt": "Hur många av åren var andelen i Götaland mindre än dubbelt så stor som i Norrland?",
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": 3,
+      "explanation": "Dubbla Norrlands andel är 2, 2, 4, 6, 10, 12, 18 och 20. Götaland ligger under det 2022 (8 mot 10), 2023 (11 mot 12), 2024 (13 mot 18) och 2025 (14 mot 20) – alltså 4 år. Åren 2018, 2020 och 2021 är Götaland exakt dubbelt så stor, och det är inte mindre än dubbelt."
+    },
+    {
+      "id": "q-hp-dtk2-09",
+      "kind": "mc",
+      "variant": "dtk",
+      "topic": "tabell",
+      "figure": {
+        "src": "hp/dtk2/dtk2-03.svg",
+        "alt": "Tabell, kollektivtrafik 2025. Ås: 80 000 invånare, 110 resor per invånare, 60 % med buss. Bro: 150 000 invånare, 90 resor per invånare, 45 % med buss. Kil: 40 000 invånare, 150 resor per invånare, 70 % med buss. Ljung: 120 000 invånare, 70 resor per invånare, 80 % med buss."
+      },
+      "prompt": "I vilken stad gjordes flest kollektivtrafikresor totalt under 2025?",
+      "choices": [
+        "Ås",
+        "Bro",
+        "Kil",
+        "Ljung"
+      ],
+      "answer": 1,
+      "explanation": "Antalet resor är invånare gånger resor per invånare: Ås 8,8 miljoner, Bro 13,5 miljoner, Kil 6,0 miljoner och Ljung 8,4 miljoner. Flest i Bro."
+    },
+    {
+      "id": "q-hp-dtk2-10",
+      "kind": "mc",
+      "variant": "dtk",
+      "topic": "tabell",
+      "figure": {
+        "src": "hp/dtk2/dtk2-03.svg",
+        "alt": "Tabell, kollektivtrafik 2025. Ås: 80 000 invånare, 110 resor per invånare, 60 % med buss. Bro: 150 000 invånare, 90 resor per invånare, 45 % med buss. Kil: 40 000 invånare, 150 resor per invånare, 70 % med buss. Ljung: 120 000 invånare, 70 resor per invånare, 80 % med buss."
+      },
+      "prompt": "I hur många av städerna gjorde invånarna i genomsnitt fler än 100 resor under året?",
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": 1,
+      "explanation": "Ås (110) och Kil (150) ligger över 100 resor per invånare. Bro (90) och Ljung (70) gör det inte."
+    },
+    {
+      "id": "q-hp-dtk2-11",
+      "kind": "mc",
+      "variant": "dtk",
+      "topic": "tabell",
+      "figure": {
+        "src": "hp/dtk2/dtk2-03.svg",
+        "alt": "Tabell, kollektivtrafik 2025. Ås: 80 000 invånare, 110 resor per invånare, 60 % med buss. Bro: 150 000 invånare, 90 resor per invånare, 45 % med buss. Kil: 40 000 invånare, 150 resor per invånare, 70 % med buss. Ljung: 120 000 invånare, 70 resor per invånare, 80 % med buss."
+      },
+      "prompt": "Ungefär hur många bussresor gjordes i Kil under 2025?",
+      "choices": [
+        "4,2 miljoner",
+        "6,0 miljoner",
+        "8,4 miljoner",
+        "10,5 miljoner"
+      ],
+      "answer": 0,
+      "explanation": "Kil hade $40\\,000 \\cdot 150 = 6$ miljoner resor, och 70 % av dem gjordes med buss: $0{,}70 \\cdot 6 = 4{,}2$ miljoner."
+    },
+    {
+      "id": "q-hp-dtk2-12",
+      "kind": "mc",
+      "variant": "dtk",
+      "topic": "tabell",
+      "figure": {
+        "src": "hp/dtk2/dtk2-03.svg",
+        "alt": "Tabell, kollektivtrafik 2025. Ås: 80 000 invånare, 110 resor per invånare, 60 % med buss. Bro: 150 000 invånare, 90 resor per invånare, 45 % med buss. Kil: 40 000 invånare, 150 resor per invånare, 70 % med buss. Ljung: 120 000 invånare, 70 resor per invånare, 80 % med buss."
+      },
+      "prompt": "I vilken stad gjordes flest bussresor under 2025?",
+      "choices": [
+        "Ås",
+        "Bro",
+        "Kil",
+        "Ljung"
+      ],
+      "answer": 3,
+      "explanation": "Bussresor = resor totalt gånger andelen med buss: Ås $8{,}8 \\cdot 0{,}60 \\approx 5{,}3$ miljoner, Bro $13{,}5 \\cdot 0{,}45 \\approx 6{,}1$ miljoner, Kil 4,2 miljoner och Ljung $8{,}4 \\cdot 0{,}80 \\approx 6{,}7$ miljoner. Flest i Ljung – trots att Bro har flest resor totalt."
+    },
+    {
+      "id": "q-hp-dtk2-13",
+      "kind": "mc",
+      "variant": "dtk",
+      "topic": "diagram",
+      "figure": {
+        "src": "hp/dtk2/dtk2-04.svg",
+        "alt": "Cirkeldiagram, elproduktion 2025 efter kraftslag: Vattenkraft 40 %, Kärnkraft 30 %, Vindkraft 20 %, Solkraft 4 %, Övrigt 6 %. Total produktion 160 TWh."
+      },
+      "prompt": "Hur många TWh el producerades med vindkraft 2025?",
+      "choices": [
+        "32 TWh",
+        "40 TWh",
+        "48 TWh",
+        "64 TWh"
+      ],
+      "answer": 0,
+      "explanation": "Vindkraften stod för 20 % av 160 TWh: $0{,}20 \\cdot 160 = 32$ TWh."
+    },
+    {
+      "id": "q-hp-dtk2-14",
+      "kind": "mc",
+      "variant": "dtk",
+      "topic": "diagram",
+      "figure": {
+        "src": "hp/dtk2/dtk2-04.svg",
+        "alt": "Cirkeldiagram, elproduktion 2025 efter kraftslag: Vattenkraft 40 %, Kärnkraft 30 %, Vindkraft 20 %, Solkraft 4 %, Övrigt 6 %. Total produktion 160 TWh."
+      },
+      "prompt": "Hur många gånger så mycket el producerades med vattenkraft som med solkraft?",
+      "choices": [
+        "2",
+        "4",
+        "8",
+        "10"
+      ],
+      "answer": 3,
+      "explanation": "Andelarna är 40 % och 4 %, och $\\dfrac{40}{4} = 10$. Andelarna kan jämföras direkt, eftersom båda räknas av samma total."
+    },
+    {
+      "id": "q-hp-dtk2-15",
+      "kind": "mc",
+      "variant": "dtk",
+      "topic": "diagram",
+      "figure": {
+        "src": "hp/dtk2/dtk2-04.svg",
+        "alt": "Cirkeldiagram, elproduktion 2025 efter kraftslag: Vattenkraft 40 %, Kärnkraft 30 %, Vindkraft 20 %, Solkraft 4 %, Övrigt 6 %. Total produktion 160 TWh."
+      },
+      "prompt": "Anta att vindkraften ökar med 16 TWh och att all annan produktion är oförändrad. Ungefär hur stor andel av den totala produktionen blir då vindkraft?",
+      "choices": [
+        "20 %",
+        "24 %",
+        "27 %",
+        "36 %"
+      ],
+      "answer": 2,
+      "explanation": "Vindkraften blir $32 + 16 = 48$ TWh och den totala produktionen $160 + 16 = 176$ TWh. Andelen blir $\\dfrac{48}{176} \\approx 0{,}27$, alltså ungefär 27 %. Fällan är att lägga ihop andelar: 16 TWh är inte 16 procentenheter."
+    },
+    {
+      "id": "q-hp-dtk2-16",
+      "kind": "mc",
+      "variant": "dtk",
+      "topic": "diagram",
+      "figure": {
+        "src": "hp/dtk2/dtk2-05.svg",
+        "alt": "Linjediagram, prisindex för livsmedel (2020 = 100): 2020 100, 2021 102, 2022 112, 2023 125, 2024 127, 2025 131."
+      },
+      "prompt": "Med hur många procent steg livsmedelspriserna mellan 2020 och 2023?",
+      "choices": [
+        "25 %",
+        "31 %",
+        "75 %",
+        "125 %"
+      ],
+      "answer": 0,
+      "explanation": "Indexet gick från 100 till 125. Eftersom 2020 är 100 kan ökningen läsas av direkt: 25 %."
+    },
+    {
+      "id": "q-hp-dtk2-17",
+      "kind": "mc",
+      "variant": "dtk",
+      "topic": "diagram",
+      "figure": {
+        "src": "hp/dtk2/dtk2-05.svg",
+        "alt": "Linjediagram, prisindex för livsmedel (2020 = 100): 2020 100, 2021 102, 2022 112, 2023 125, 2024 127, 2025 131."
+      },
+      "prompt": "Med ungefär hur många procent steg livsmedelspriserna mellan 2022 och 2023?",
+      "choices": [
+        "12 %",
+        "13 %",
+        "15 %",
+        "25 %"
+      ],
+      "answer": 0,
+      "explanation": "Indexet steg från 112 till 125, alltså med 13 indexenheter. Men ökningen i procent räknas från 112: $\\dfrac{13}{112} \\approx 0{,}116$, ungefär 12 %. Svaret 13 % är fällan – det gäller bara när basen är 100."
+    },
+    {
+      "id": "q-hp-dtk2-18",
+      "kind": "mc",
+      "variant": "dtk",
+      "topic": "diagram",
+      "figure": {
+        "src": "hp/dtk2/dtk2-05.svg",
+        "alt": "Linjediagram, prisindex för livsmedel (2020 = 100): 2020 100, 2021 102, 2022 112, 2023 125, 2024 127, 2025 131."
+      },
+      "prompt": "En matkasse kostade 800 kr år 2021. Ungefär vad kostade samma matkasse år 2025, om priset följde indexet?",
+      "choices": [
+        "940 kr",
+        "980 kr",
+        "1 030 kr",
+        "1 050 kr"
+      ],
+      "answer": 2,
+      "explanation": "Priset ändras i samma proportion som indexet: $800 \\cdot \\dfrac{131}{102} \\approx 1\\,027$ kr, alltså ungefär 1 030 kr. Fällan är att räkna $800 \\cdot 1{,}31 = 1\\,048$ kr – men 2021 års index är 102, inte 100."
+    }
+  ]
+}

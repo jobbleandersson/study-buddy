@@ -1,0 +1,233 @@
+{
+  "id": "lib-hp-nog-ovningsprov-02",
+  "type": "test",
+  "subject": "NOG – Kvantitativa resonemang",
+  "title": "NOG – övningsprov 2",
+  "sourceSummary": "Egenskrivna övningsuppgifter i Högskoleprovets NOG-format. Detta är inte ett officiellt utgivet prov.",
+  "topics": [
+    "kvantitativt resonemang"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hp-nog2-01",
+      "kind": "mc",
+      "variant": "nog",
+      "topic": "kvantitativt resonemang",
+      "prompt": "Hur många elever går i klassen?",
+      "stimulus": {
+        "statements": [
+          "Om 3 elever slutar blir det 24 elever kvar.",
+          "Det går dubbelt så många flickor som pojkar i klassen."
+        ]
+      },
+      "choices": [
+        "(1) ensam är tillräcklig men inte (2) ensam",
+        "(2) ensam är tillräcklig men inte (1) ensam",
+        "(1) och (2) tillsammans är tillräckliga men inte var för sig",
+        "(1) respektive (2) ensam är tillräcklig",
+        "(1) och (2) tillsammans är inte tillräckliga"
+      ],
+      "answer": 0,
+      "explanation": "(1) ger direkt 24 + 3 = 27 elever. (2) säger bara att antalet elever är delbart med 3 – det kan vara 27, men också 24 eller 30. Svar: (1) ensam räcker."
+    },
+    {
+      "id": "q-hp-nog2-02",
+      "kind": "mc",
+      "variant": "nog",
+      "topic": "kvantitativt resonemang",
+      "prompt": "Vad kostar en kaffe?",
+      "stimulus": {
+        "statements": [
+          "En kaffe och en bulle kostar tillsammans 45 kr.",
+          "Två kaffe kostar lika mycket som tre bullar, och en bulle kostar 18 kr."
+        ]
+      },
+      "choices": [
+        "(1) ensam är tillräcklig men inte (2) ensam",
+        "(2) ensam är tillräcklig men inte (1) ensam",
+        "(1) och (2) tillsammans är tillräckliga men inte var för sig",
+        "(1) respektive (2) ensam är tillräcklig",
+        "(1) och (2) tillsammans är inte tillräckliga"
+      ],
+      "answer": 1,
+      "explanation": "(2): två kaffe kostar $3 \\cdot 18 = 54$ kr, så en kaffe kostar 27 kr. (1) ger bara summan av två okända priser. Svar: (2) ensam räcker."
+    },
+    {
+      "id": "q-hp-nog2-03",
+      "kind": "mc",
+      "variant": "nog",
+      "topic": "kvantitativt resonemang",
+      "prompt": "Vad är $x$?",
+      "stimulus": {
+        "statements": [
+          "$3x - 4 = 11$",
+          "$\\dfrac{x}{5} = 1$"
+        ]
+      },
+      "choices": [
+        "(1) ensam är tillräcklig men inte (2) ensam",
+        "(2) ensam är tillräcklig men inte (1) ensam",
+        "(1) och (2) tillsammans är tillräckliga men inte var för sig",
+        "(1) respektive (2) ensam är tillräcklig",
+        "(1) och (2) tillsammans är inte tillräckliga"
+      ],
+      "answer": 3,
+      "explanation": "(1): $3x = 15$, så $x = 5$. (2): $x = 5$. Båda påståendena räcker var för sig."
+    },
+    {
+      "id": "q-hp-nog2-04",
+      "kind": "mc",
+      "variant": "nog",
+      "topic": "kvantitativt resonemang",
+      "prompt": "Hur gammal är Lisa?",
+      "stimulus": {
+        "statements": [
+          "Lisa är 4 år yngre än sin bror.",
+          "Om 5 år är Lisa och hennes bror tillsammans 40 år."
+        ]
+      },
+      "choices": [
+        "(1) ensam är tillräcklig men inte (2) ensam",
+        "(2) ensam är tillräcklig men inte (1) ensam",
+        "(1) och (2) tillsammans är tillräckliga men inte var för sig",
+        "(1) respektive (2) ensam är tillräcklig",
+        "(1) och (2) tillsammans är inte tillräckliga"
+      ],
+      "answer": 2,
+      "explanation": "(1) ger bara skillnaden mellan åldrarna och (2) bara summan (i dag är de 30 år tillsammans). Tillsammans: $L + (L + 4) = 30$, så Lisa är 13 år. Svar: tillsammans räcker, men inte var för sig."
+    },
+    {
+      "id": "q-hp-nog2-05",
+      "kind": "mc",
+      "variant": "nog",
+      "topic": "kvantitativt resonemang",
+      "prompt": "Vad är $a$?",
+      "stimulus": {
+        "statements": [
+          "$a + b = 10$",
+          "$2a + 2b = 20$"
+        ]
+      },
+      "choices": [
+        "(1) ensam är tillräcklig men inte (2) ensam",
+        "(2) ensam är tillräcklig men inte (1) ensam",
+        "(1) och (2) tillsammans är tillräckliga men inte var för sig",
+        "(1) respektive (2) ensam är tillräcklig",
+        "(1) och (2) tillsammans är inte tillräckliga"
+      ],
+      "answer": 4,
+      "explanation": "(2) är bara (1) multiplicerad med 2 och ger ingen ny information. Både $a = 3,\\ b = 7$ och $a = 6,\\ b = 4$ uppfyller båda påståendena. Svar: inte ens tillsammans räcker de."
+    },
+    {
+      "id": "q-hp-nog2-06",
+      "kind": "mc",
+      "variant": "nog",
+      "topic": "kvantitativt resonemang",
+      "prompt": "Hur stor är vinkeln $v$ i en triangel?",
+      "stimulus": {
+        "statements": [
+          "Triangeln är likbent.",
+          "Triangelns två andra vinklar är $50^\\circ$ och $80^\\circ$."
+        ]
+      },
+      "choices": [
+        "(1) ensam är tillräcklig men inte (2) ensam",
+        "(2) ensam är tillräcklig men inte (1) ensam",
+        "(1) och (2) tillsammans är tillräckliga men inte var för sig",
+        "(1) respektive (2) ensam är tillräcklig",
+        "(1) och (2) tillsammans är inte tillräckliga"
+      ],
+      "answer": 1,
+      "explanation": "(2): $v = 180^\\circ - 50^\\circ - 80^\\circ = 50^\\circ$. (Triangeln är då likbent, men det behöver man inte veta.) (1) ensam ger många möjligheter, till exempel $v = 60^\\circ$ eller $v = 100^\\circ$. Svar: (2) ensam räcker."
+    },
+    {
+      "id": "q-hp-nog2-07",
+      "kind": "mc",
+      "variant": "nog",
+      "topic": "kvantitativt resonemang",
+      "prompt": "Vad är medelvärdet av fem tal?",
+      "stimulus": {
+        "statements": [
+          "Talens summa är 60.",
+          "Det största talet är 20 och det minsta är 4."
+        ]
+      },
+      "choices": [
+        "(1) ensam är tillräcklig men inte (2) ensam",
+        "(2) ensam är tillräcklig men inte (1) ensam",
+        "(1) och (2) tillsammans är tillräckliga men inte var för sig",
+        "(1) respektive (2) ensam är tillräcklig",
+        "(1) och (2) tillsammans är inte tillräckliga"
+      ],
+      "answer": 0,
+      "explanation": "(1): medelvärdet är $\\dfrac{60}{5} = 12$. (2) säger inget om de tre mittersta talen, så medelvärdet kan vara allt från 7,2 till 16,8. Svar: (1) ensam räcker."
+    },
+    {
+      "id": "q-hp-nog2-08",
+      "kind": "mc",
+      "variant": "nog",
+      "topic": "kvantitativt resonemang",
+      "prompt": "Är det positiva heltalet $n$ delbart med 6?",
+      "stimulus": {
+        "statements": [
+          "$n$ är delbart med 3.",
+          "$n$ är delbart med 4."
+        ]
+      },
+      "choices": [
+        "(1) ensam är tillräcklig men inte (2) ensam",
+        "(2) ensam är tillräcklig men inte (1) ensam",
+        "(1) och (2) tillsammans är tillräckliga men inte var för sig",
+        "(1) respektive (2) ensam är tillräcklig",
+        "(1) och (2) tillsammans är inte tillräckliga"
+      ],
+      "answer": 2,
+      "explanation": "(1) ensam: 3 är inte delbart med 6, men 6 är det. (2) ensam: 4 är det inte, men 12 är det. Tillsammans är $n$ delbart med både 3 och 4, alltså med 12 – och då också med 6. Svar: tillsammans räcker, men inte var för sig."
+    },
+    {
+      "id": "q-hp-nog2-09",
+      "kind": "mc",
+      "variant": "nog",
+      "topic": "kvantitativt resonemang",
+      "prompt": "Hur lång är vägen mellan A och B?",
+      "stimulus": {
+        "statements": [
+          "En bil som kör i 80 km/h tar 45 minuter från A till B.",
+          "En cyklist som cyklar i 20 km/h tar 3 timmar från A till B."
+        ]
+      },
+      "choices": [
+        "(1) ensam är tillräcklig men inte (2) ensam",
+        "(2) ensam är tillräcklig men inte (1) ensam",
+        "(1) och (2) tillsammans är tillräckliga men inte var för sig",
+        "(1) respektive (2) ensam är tillräcklig",
+        "(1) och (2) tillsammans är inte tillräckliga"
+      ],
+      "answer": 3,
+      "explanation": "(1): $80 \\cdot 0{,}75 = 60$ km. (2): $20 \\cdot 3 = 60$ km. Båda påståendena räcker var för sig."
+    },
+    {
+      "id": "q-hp-nog2-10",
+      "kind": "mc",
+      "variant": "nog",
+      "topic": "kvantitativt resonemang",
+      "prompt": "Hur mycket pengar har Pelle?",
+      "stimulus": {
+        "statements": [
+          "Pelle har 30 kr mer än Stina.",
+          "Stina har hälften så mycket som Pelle och Olle har tillsammans."
+        ]
+      },
+      "choices": [
+        "(1) ensam är tillräcklig men inte (2) ensam",
+        "(2) ensam är tillräcklig men inte (1) ensam",
+        "(1) och (2) tillsammans är tillräckliga men inte var för sig",
+        "(1) respektive (2) ensam är tillräcklig",
+        "(1) och (2) tillsammans är inte tillräckliga"
+      ],
+      "answer": 4,
+      "explanation": "Tillsammans: $S = \\dfrac{(S + 30) + O}{2}$ ger $S = 30 + O$ och därmed $P = 60 + O$. Pelles pengar beror alltså på Olles, som vi inte vet något om. Har Olle 0 kr har Pelle 60 kr; har Olle 10 kr har Pelle 70 kr. Svar: inte ens tillsammans räcker de."
+    }
+  ]
+}
