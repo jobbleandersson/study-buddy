@@ -131,7 +131,8 @@ export function renderEdit(assignmentId, qs) {
 
     editor.el,
 
-    el("div.nav-row", {}, [
+    // Sticky: with 15+ questions the save button used to be 8000px down the page.
+    el("div.nav-row.editbar", {}, [
       el("a.btn.btn--ghost", { href: "#/" }, t("common.cancel")),
       el("div", { style: { display: "flex", gap: "10px" } }, [
         el("button.btn.btn--ghost", { type: "button", onclick: () => editor.addQuestion() }, t("create.addQuestion")),
