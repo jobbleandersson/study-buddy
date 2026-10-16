@@ -37,7 +37,7 @@
         "Ett bekvämt sätt att slippa se hela problemets komplexitet",
         "En vetenskapligt korrekt slutsats",
         "Ett skämt som författaren inte tar på allvar",
-        "Ett förslag på hur man löser problemet enkelt"
+        "Ett förslag på hur man löser problemet enkelt och snabbt för alla inblandade"
       ],
       "answer": 0,
       "explanation": "\"Simplificación cómoda\" (en bekväm förenkling) syftar på att det är lättare att skylla på individen än att erkänna hela systemet bakom — det är kritik, inte ett korrekt eller vetenskapligt påstående."
@@ -49,7 +49,7 @@
       "prompt": "Läs texten igen. Vad kan man dra för slutsats om författarens inställning till uttrycket \"fuerza de voluntad\" (viljestyrka) i sammanhanget?",
       "opener": "Notera ordet \"como si\" (som om) — vad signalerar det om författarens hållning?",
       "choices": [
-        "Författaren håller fullständigt med om att det handlar om viljestyrka.",
+        "Författaren håller fullständigt med om att det bara handlar om individens viljestyrka.",
         "Författaren är skeptisk till att problemet bara handlar om individens viljestyrka.",
         "Författaren har aldrig hört talas om uttrycket förut.",
         "Författaren tycker att viljestyrka är oviktigt för alla sorters problem."
@@ -65,7 +65,7 @@
       "opener": "Meningen är formulerad som en uppmaning kombinerad med en fråga — vad är syftet med det?",
       "choices": [
         "Att avsluta med en retorisk fråga som utmanar läsaren att tänka om",
-        "Att ge ett konkret, tekniskt råd om hur man stänger av notiser",
+        "Att ge ett konkret, tekniskt råd om hur man stänger av notiser i telefonen",
         "Att sammanfatta statistiken som nämndes tidigare i texten",
         "Att be om ursäkt för sina tidigare påståenden"
       ],
@@ -80,7 +80,7 @@
       "opener": "Notera att författaren skriver i jag-form och beskriver ett mönster hen själv känner igen.",
       "choices": [
         "Författaren upplever att tiden på mobilen glider iväg utan medvetet val",
-        "Författaren väljer alltid noga vilka videor hen tittar på",
+        "Författaren väljer alltid noga vilka videor hen tittar på och hur länge hen gör det",
         "Författaren använder aldrig mobilen för att kolla klockan",
         "Författaren är helt oberörd av problemet hen beskriver"
       ],
@@ -147,7 +147,7 @@
       "opener": "\"Piso\" betyder lägenhet i spansk spanska, och \"turístico\" syftar på turism.",
       "choices": [
         "Lägenheter som hyrs ut till turister",
-        "Hotell i stadens utkant",
+        "Hotell i stadens utkant som drivs av stora kedjor",
         "Turistbyråer",
         "Souvenirbutiker"
       ],
@@ -161,9 +161,9 @@
       "prompt": "Läs texten igen. Vad kan man dra för slutsats om författarens inställning till turism utifrån texten som helhet?",
       "opener": "Notera sista meningen, som börjar med \"No se trata de rechazar el turismo por completo\".",
       "choices": [
-        "Författaren är inte emot turism i sig, men vill att fördelarna fördelas mer rättvist",
+        "Författaren är inte emot turism i sig, men vill fördela fördelarna mer rättvist",
         "Författaren tycker att turism bara är av ondo och bör förbjudas",
-        "Författaren arbetar själv inom turistnäringen och försvarar den okritiskt",
+        "Författaren arbetar själv inom turistnäringen och försvarar den okritiskt och utan reservationer",
         "Författaren är helt likgiltig inför frågan"
       ],
       "answer": 0,
@@ -191,9 +191,9 @@
       "prompt": "Läs texten igen. Vad avslöjar meningen \"conté hasta once grupos de turistas que pasaron delante de mí en apenas veinte minutos\" om textens ton?",
       "opener": "Notera att det är en konkret, personlig siffra, inte en allmän statistik.",
       "choices": [
-        "En konkret, personlig iakttagelse som ger trovärdighet åt argumentet om överdriven turism",
+        "En konkret, personlig iakttagelse som ger trovärdighet åt argumentet om överturism",
         "En överdrift som inte ska tas bokstavligt",
-        "Ett bevis på att författaren arbetar som turistguide",
+        "Ett bevis på att författaren arbetar som turistguide i staden där texten utspelar sig",
         "En kritik riktad specifikt mot fotografer"
       ],
       "answer": 0,
@@ -207,7 +207,7 @@
       "opener": "\"Matiz\" betyder nyans.",
       "choices": [
         "Utan nyanser (förenklat)",
-        "Med stor omsorg",
+        "Med stor omsorg och noggrannhet",
         "Utan undantag",
         "Med tydliga bevis"
       ],

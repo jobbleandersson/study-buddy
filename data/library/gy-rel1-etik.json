@@ -19,8 +19,8 @@
       "prompt": "Filosofen Immanuel Kant förknippas med en form av pliktetik. Vad menar Kant kännetecknar en moraliskt rätt handling?",
       "opener": "Kant lade stor vikt vid om en handlingsregel skulle kunna gälla som allmän lag för alla.",
       "choices": [
-        "Att handlingen ger störst lycka åt flest människor",
-        "Att handlingen följer en maxim (handlingsregel) som man skulle kunna vilja se som en allmän lag för alla människor, oavsett konsekvenser",
+        "Att handlingen ger störst lycka åt flest människor, även om några behöver offras",
+        "Att handlingen följer en maxim som kunde bli allmän lag, oavsett konsekvenser",
         "Att handlingen känns rätt i stunden",
         "Att handlingen godkänns av en religiös ledare"
       ],
@@ -35,8 +35,8 @@
       "opener": "Tänk på vad som ska maximeras: individens känsla i stunden, eller något som gäller alla berörda.",
       "choices": [
         "Att handlingen följer en fast regel, oavsett resultat",
-        "Att handlingen maximerar den sammanlagda nyttan (t.ex. lycka och minskat lidande) för alla som berörs av den",
-        "Att handlingsutövaren har goda avsikter, oavsett resultat",
+        "Att handlingen maximerar den sammanlagda nyttan (lycka och minskat lidande) för alla berörda",
+        "Att handlingsutövaren har goda avsikter, oavsett resultat, och agerar av omsorg om andra människor",
         "Att handlingen är i linje med en helig skrift"
       ],
       "answer": 1,
@@ -49,8 +49,8 @@
       "prompt": "Vad skiljer sinnelagsetik från konsekvensetik när man bedömer en handling där avsikten var god men resultatet blev dåligt?",
       "opener": "Fundera på vilket av de två perspektiven som lägger tonvikten på avsikten snarare än utfallet.",
       "choices": [
-        "Sinnelagsetiken bedömer handlingen som moraliskt god eftersom avsikten var god, medan konsekvensetiken främst väger in det faktiska, dåliga utfallet",
-        "Sinnelagsetik och konsekvensetik ger alltid exakt samma bedömning",
+        "Sinnelagsetiken ser handlingen som god för att avsikten var god, konsekvensetiken väger in utfallet",
+        "Sinnelagsetik och konsekvensetik ger alltid exakt samma bedömning av en handling, oavsett fall och oavsett hur det gick",
         "Sinnelagsetik bryr sig bara om resultatet, aldrig om avsikten",
         "Konsekvensetik bryr sig bara om avsikten, aldrig om resultatet"
       ],
@@ -64,9 +64,9 @@
       "prompt": "Dygdetik brukar räknas som en fjärde normativ modell, vid sidan av pliktetik, konsekvensetik och sinnelagsetik. Vad står i fokus inom dygdetik?",
       "opener": "Dygdetiken frågar mindre \"vad ska jag göra?\" och mer \"vad slags person vill jag vara?\".",
       "choices": [
-        "Vilka regler som måste följas i varje enskild situation",
+        "Vilka regler som måste följas i varje enskild situation, oavsett vem som handlar eller varför",
         "Vilka konsekvenser en enskild handling ger upphov till",
-        "Att utveckla goda karaktärsdrag (dygder), som mod, klokhet och rättrådighet, och handla som en person med sådan karaktär skulle göra",
+        "Att utveckla goda karaktärsdrag (dygder) som mod, klokhet och rättrådighet",
         "Vilken helig text som ska tolkas bokstavligt"
       ],
       "answer": 2,
@@ -132,9 +132,9 @@
       "prompt": "Vad innebär det att pliktetik ofta beskrivs som en \"regelbaserad\" etisk modell?",
       "opener": "Tänk på vad som avgör om en handling är rätt enligt denna modell — resultatet, eller något annat.",
       "choices": [
-        "Att den bedömer om en handling är rätt eller fel utifrån om den följer en moralisk regel eller princip, oavsett vilka konsekvenser handlingen faktiskt får",
+        "Att den bedömer en handling utifrån om den följer en moralisk regel, oavsett konsekvenser",
         "Att den enbart tillämpas inom juridiken, aldrig i vardagsetik",
-        "Att den kräver att alla regler ska vara nedskrivna i en helig text",
+        "Att den kräver att alla regler ska vara nedskrivna i en helig text eller i en lag som staten fastställt",
         "Att den helt saknar koppling till någon filosof"
       ],
       "answer": 0,
@@ -147,8 +147,8 @@
       "prompt": "Vad är en praktisk svårighet som ofta lyfts fram som kritik mot konsekvensetiska resonemang?",
       "opener": "Tänk på hur säker man egentligen kan vara på framtiden innan man handlar.",
       "choices": [
-        "Det kan vara svårt att i förväg veta säkert vilka konsekvenser en handling faktiskt kommer att få, vilket gör den etiska bedömningen osäker",
-        "Konsekvensetik tar aldrig hänsyn till några konsekvenser alls",
+        "Det kan vara svårt att i förväg veta säkert vilka konsekvenser en handling får",
+        "Konsekvensetik tar aldrig hänsyn till några konsekvenser alls, bara till regler och avsikter",
         "Konsekvensetik kräver alltid att man följer en helig text",
         "Konsekvensetik är identisk med pliktetik i alla avseenden"
       ],
@@ -163,7 +163,7 @@
       "opener": "Tänk på vilket alternativ som lägger tonvikten på personens AVSIKT snarare än på resultatet eller en fast regel.",
       "choices": [
         "\"Han menade väl när han gav henne rådet, så jag klandrar honom inte trots att det gick fel\"",
-        "\"Handlingen gav flest positiva effekter totalt sett, så den var rätt\"",
+        "\"Handlingen gav flest positiva effekter totalt sett för alla inblandade, så den var rätt och bra\"",
         "\"Regeln säger att man aldrig får ljuga, punkt slut\"",
         "\"En dygdig person hade aldrig gjort så här\""
       ],
@@ -222,9 +222,9 @@
       "prompt": "Vad menar Aristoteles med begreppet \"den gyllene medelvägen\" inom dygdetiken?",
       "opener": "Tänk på mod som ett exempel: vad är för lite mod, och vad är för mycket?",
       "choices": [
-        "Att en dygd ofta utgör en balanspunkt mellan två laster — för lite och för mycket av en egenskap — t.ex. är mod balanspunkten mellan feghet och dumdristighet",
+        "Att en dygd är en balanspunkt mellan två laster, t.ex. mod mellan feghet och dumdristighet",
         "Att man alltid ska välja det billigaste alternativet i en situation",
-        "Att alla etiska frågor har exakt en rätt medelstor lösning oavsett sammanhang",
+        "Att alla etiska frågor har exakt en rätt medelstor lösning oavsett sammanhang eller person",
         "Att dygdetik innebär att aldrig ta ställning i svåra frågor"
       ],
       "answer": 0,

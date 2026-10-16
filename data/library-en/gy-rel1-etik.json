@@ -19,8 +19,8 @@
       "prompt": "The philosopher Immanuel Kant is associated with a form of deontological ethics. What does Kant think characterises a morally right action?",
       "opener": "Kant placed great weight on whether a rule for acting could hold as a universal law for everyone.",
       "choices": [
-        "That the action gives the greatest happiness to the greatest number of people",
-        "That the action follows a maxim (a rule for acting) that one could will to become a universal law for all people, regardless of consequences",
+        "That the action gives the greatest happiness to the greatest number, even if some have to be sacrificed",
+        "That the action follows a maxim that could become a universal law, regardless of consequences",
         "That the action feels right in the moment",
         "That the action is approved by a religious leader"
       ],
@@ -35,8 +35,8 @@
       "opener": "Think about what is to be maximised: the individual's feeling in the moment, or something that applies to everyone affected.",
       "choices": [
         "That the action follows a fixed rule, regardless of the result",
-        "That the action maximises the total benefit (e.g. happiness and reduced suffering) for everyone affected by it",
-        "That the person acting has good intentions, regardless of the result",
+        "That the action maximises the total benefit (happiness and reduced suffering) for everyone affected",
+        "That the person acting has good intentions, regardless of the result, and acts out of concern for other people",
         "That the action is in line with a sacred text"
       ],
       "answer": 1,
@@ -49,8 +49,8 @@
       "prompt": "What distinguishes the ethics of conviction from consequentialist ethics when judging an action where the intention was good but the outcome was bad?",
       "opener": "Consider which of the two perspectives puts the emphasis on the intention rather than the outcome.",
       "choices": [
-        "The ethics of conviction judges the action as morally good because the intention was good, while consequentialist ethics primarily weighs in the actual, bad outcome",
-        "The ethics of conviction and consequentialist ethics always give exactly the same judgement",
+        "The ethics of conviction sees the action as good because the intention was good, consequentialist ethics weighs the outcome",
+        "The ethics of conviction and consequentialist ethics always give exactly the same judgement of an action, in every case and however it turned out",
         "The ethics of conviction only cares about the result, never the intention",
         "Consequentialist ethics only cares about the intention, never the result"
       ],
@@ -64,9 +64,9 @@
       "prompt": "Virtue ethics is usually counted as a fourth normative model, alongside deontological ethics, consequentialist ethics and the ethics of conviction. What is the focus of virtue ethics?",
       "opener": "Virtue ethics asks less \"what should I do?\" and more \"what kind of person do I want to be?\".",
       "choices": [
-        "Which rules must be followed in every individual situation",
+        "Which rules must be followed in every individual situation, regardless of who acts or why",
         "What consequences an individual action gives rise to",
-        "Developing good character traits (virtues), such as courage, wisdom and justice, and acting as a person of such character would",
+        "Developing good character traits (virtues), such as courage, wisdom and justice",
         "Which sacred text should be interpreted literally"
       ],
       "answer": 2,
@@ -132,9 +132,9 @@
       "prompt": "What does it mean that deontological ethics is often described as a \"rule-based\" ethical model?",
       "opener": "Think about what determines whether an action is right according to this model — the outcome, or something else.",
       "choices": [
-        "That it judges whether an action is right or wrong based on whether it follows a moral rule or principle, regardless of what consequences the action actually has",
+        "That it judges an action by whether it follows a moral rule, regardless of consequences",
         "That it is only applied within law, never in everyday ethics",
-        "That it requires all rules to be written down in a sacred text",
+        "That it requires all rules to be written down in a sacred text or in a law laid down by the state",
         "That it has no connection to any philosopher at all"
       ],
       "answer": 0,
@@ -147,8 +147,8 @@
       "prompt": "What is a practical difficulty often raised as criticism of consequentialist reasoning?",
       "opener": "Think about how certain one can really be about the future before acting.",
       "choices": [
-        "It can be difficult to know in advance with certainty what consequences an action will actually have, which makes the ethical judgement uncertain",
-        "Consequentialist ethics never takes any consequences into account at all",
+        "It can be difficult to know in advance with certainty what consequences an action will have",
+        "Consequentialist ethics never takes any consequences into account at all, only rules and intentions",
         "Consequentialist ethics always requires following a sacred text",
         "Consequentialist ethics is identical to deontological ethics in every respect"
       ],
@@ -163,7 +163,7 @@
       "opener": "Think about which option places the emphasis on the person's INTENTION rather than on the result or a fixed rule.",
       "choices": [
         "\"He meant well when he gave her the advice, so I don't blame him even though it went wrong\"",
-        "\"The action produced the most positive effects overall, so it was right\"",
+        "\"The action produced the most positive effects overall for everyone involved, so it was right and good\"",
         "\"The rule says you must never lie, full stop\"",
         "\"A virtuous person would never have done this\""
       ],
@@ -222,9 +222,9 @@
       "prompt": "What does Aristotle mean by the concept of the \"golden mean\" within virtue ethics?",
       "opener": "Think of courage as an example: what is too little courage, and what is too much?",
       "choices": [
-        "That a virtue often constitutes a balance point between two vices — too little and too much of a trait — e.g. courage is the balance point between cowardice and recklessness",
+        "That a virtue is a balance point between two vices, e.g. courage between cowardice and recklessness",
         "That one should always choose the cheapest option in a situation",
-        "That every ethical question has exactly one correct, medium-sized solution regardless of context",
+        "That every ethical question has exactly one correct, medium-sized solution regardless of context or person",
         "That virtue ethics means never taking a position on difficult questions"
       ],
       "answer": 0,

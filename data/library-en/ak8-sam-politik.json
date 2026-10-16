@@ -35,10 +35,10 @@
       "prompt": "Who is Sweden's head of state, and what role does the head of state have?",
       "opener": "Sweden is a monarchy but also a democracy — think about what that means for power.",
       "choices": [
-        "The King, who has a mainly ceremonial and representative role without political power",
+        "The King, who has a mainly ceremonial role without political power",
         "The Prime Minister, who leads the Riksdag's work",
         "The Speaker, who both leads the Riksdag and governs the country",
-        "The King, who decides on new laws together with the Riksdag"
+        "The King, who decides on new laws together with the Riksdag and leads the government"
       ],
       "answer": 0,
       "explanation": "Sweden is a monarchy where the King is head of state, but under the 1974 Instrument of Government the head of state has no political powers — the role is ceremonial and representative. The Prime Minister leads the government (not the Riksdag), and the Speaker leads the Riksdag's work and proposes a Prime Minister, but does not govern the country."
@@ -66,7 +66,7 @@
       "opener": "Think about the services that exist close to where you live, and separate them from healthcare.",
       "choices": [
         "Schools and preschools, elderly care, social services, water and waste, and local roads",
-        "Hospital care, health centres and public transport across the whole county",
+        "Hospital care, health centres and public transport across the whole county, plus supervision of all schools in the county",
         "Defence, foreign policy and border control",
         "Courts, police and prisons"
       ],
@@ -81,7 +81,7 @@
       "opener": "All three elections are held at the same time — but how far apart are they?",
       "choices": [
         "Every other year",
-        "Every fifth year",
+        "Every fifth year, on the same election day in early October",
         "Every fourth year, on the same election day in September",
         "Every year"
       ],
@@ -134,7 +134,7 @@
       "opener": "This person also leads the Riksdag's work from the speaker's chair.",
       "choices": [
         "The King appoints the Prime Minister directly on his own",
-        "Voters vote directly for the Prime Minister on the ballot",
+        "Voters vote directly for the Prime Minister on the ballot at the Riksdag election",
         "The Prime Minister is appointed by the European Commission",
         "The Speaker proposes a candidate for Prime Minister, whom the Riksdag then votes on"
       ],
@@ -148,7 +148,7 @@
       "prompt": "What is the type of public inquiry called that often precedes a new Swedish bill?",
       "opener": "The abbreviation consists of three letters.",
       "choices": [
-        "A municipal referendum",
+        "A municipal referendum in all municipalities",
         "An EU regulation",
         "A royal decree",
         "A government official inquiry (SOU)"
@@ -163,7 +163,7 @@
       "prompt": "Who leads a municipality's political work between elections?",
       "opener": "Think about the local equivalents of the Riksdag and the government.",
       "choices": [
-        "The head of the county administrative board, appointed by the government",
+        "The head of the county administrative board, appointed by the government and directing all municipalities in the county",
         "Officials alone, without political direction",
         "The Riksdag directly",
         "The municipal council and a municipal executive board made up of politicians elected in the municipal election"
@@ -224,7 +224,7 @@
       "opener": "Think about what belongs at the county level rather than the municipal or national level.",
       "choices": [
         "Running the country's defence",
-        "Passing new laws for the whole country",
+        "Passing new laws for the whole country and deciding the state budget",
         "Passing judgement in criminal cases",
         "Being responsible for healthcare and regional public transport"
       ],

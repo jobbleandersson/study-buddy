@@ -37,7 +37,7 @@
       "choices": [
         "Syre och kväve",
         "Koldioxid, metan och lustgas",
-        "Argon och helium",
+        "Argon, helium, neon och krypton",
         "Vätgas och kväve"
       ],
       "answer": 1,
@@ -67,8 +67,8 @@
       "choices": [
         "Alla delar av världen får mer nederbörd än i dag",
         "Vindarna på jorden avtar och stormar blir omöjliga",
-        "Havsnivån stiger när glaciärer och landisar smälter och havsvattnet utvidgas när det värms",
-        "Havsnivån sjunker eftersom mer vatten avdunstar från haven"
+        "Havsnivån stiger när glaciärer och landisar smälter och havsvattnet utvidgas",
+        "Havsnivån sjunker eftersom mer vatten avdunstar från haven och stannar kvar som snö på land"
       ],
       "answer": 2,
       "explanation": "Havsnivån stiger av två skäl: smältvatten från glaciärer, Grönland och Antarktis rinner ut i haven, och vatten tar större plats när det värms upp. Nederbörden ökar inte överallt – vissa områden som Sahel och Medelhavsområdet väntas i stället bli torrare – och avdunstat vatten faller tillbaka som regn, så det får inte havsnivån att sjunka."
@@ -80,8 +80,8 @@
       "prompt": "Varför får en naturkatastrof ofta mycket värre följder i ett låginkomstland än i ett höginkomstland?",
       "opener": "Samma jordbävning, olika hus – vad avgör hur många som klarar sig?",
       "choices": [
-        "Låginkomstländer ligger alltid i områden med jordbävningar och vulkaner",
-        "De har svagare byggnader, sämre varningssystem, sämre sjukvård och saknar pengar och försäkringar för att bygga upp igen",
+        "Låginkomstländer ligger alltid i områden med jordbävningar och vulkaner, vilket helt förklarar skillnaden",
+        "De har svagare byggnader, sämre varningssystem och sjukvård och saknar pengar att bygga upp igen",
         "Låginkomstländer har alltid fler invånare än höginkomstländer",
         "Naturkatastrofer är av naturliga skäl kraftigare i fattiga länder"
       ],
@@ -148,10 +148,10 @@
       "prompt": "Vad är en utsläppsrätt?",
       "opener": "Tänk på hur man kan sätta ett pris på att få släppa ut växthusgaser.",
       "choices": [
-        "Ett bötesbelopp som alla invånare i ett land måste betala varje år",
+        "Ett bötesbelopp som alla invånare i ett land måste betala varje år för sina egna utsläpp av koldioxid",
         "En lag som förbjuder allt bilkörande i en stad",
         "Ett pris som bara gäller flygbiljetter",
-        "Ett tillstånd som ger ett företag rätt att släppa ut en viss mängd växthusgaser, och som kan köpas och säljas"
+        "Ett tillstånd som ger ett företag rätt att släppa ut en viss mängd växthusgaser och kan handlas"
       ],
       "answer": 3,
       "explanation": "En utsläppsrätt är ett tillstånd att släppa ut en viss mängd växthusgaser, och genom att antalet utsläppsrätter begränsas och de kan köpas och säljas mellan företag skapas ett ekonomiskt incitament att minska utsläppen. Det är alltså inte en personlig bot, ett generellt körförbud eller ett pris kopplat enbart till flygresor."
@@ -165,8 +165,8 @@
       "choices": [
         "Arktis ligger närmast solen under vintern",
         "Arktis har flest fabriker och mest industri i världen",
-        "Det finns egentligen ingen skillnad i uppvärmningstakt mellan Arktis och resten av jorden",
-        "När reflekterande is och snö smälter blottas mörkare hav och mark som absorberar mer solvärme, vilket förstärker uppvärmningen ytterligare"
+        "Det finns egentligen ingen skillnad i uppvärmningstakt mellan Arktis och resten av jorden, enligt mätningar",
+        "När reflekterande is och snö smälter blottas mörkare hav och mark som absorberar mer solvärme"
       ],
       "answer": 3,
       "explanation": "Is och snö reflekterar solljus, men när de smälter och mörkare hav eller mark blottas absorberas mer solvärme, vilket får temperaturen att stiga ännu snabbare i en självförstärkande process. Arktis ligger inte närmare solen och har varken mest industri i världen eller samma uppvärmningstakt som resten av jorden – den är faktiskt betydligt snabbare där."
@@ -178,10 +178,10 @@
       "prompt": "Vad är ett exempel på klimatanpassning, till skillnad från utsläppsminskning?",
       "opener": "Anpassning handlar om att skydda sig mot följderna, inte om att förhindra orsaken.",
       "choices": [
-        "Att byta från kolkraft till vindkraft",
+        "Att byta från kolkraft till vindkraft för att minska utsläppen i hela landet",
         "Att flyga mindre",
         "Att äta mindre kött",
-        "Att bygga högre vallar och skydd mot översvämning i en utsatt kuststad"
+        "Att bygga högre vallar och översvämningsskydd i en utsatt kuststad"
       ],
       "answer": 3,
       "explanation": "Att bygga vallar och skydd mot översvämning är klimatanpassning, eftersom det handlar om att skydda samhället mot konsekvenser som redan sker eller väntas ske. Att byta energikälla, flyga mindre och äta mindre kött är i stället exempel på utsläppsminskning, som syftar till att bromsa själva orsaken till klimatförändringarna."
@@ -209,7 +209,7 @@
       "opener": "Förkortningen står för Intergovernmental Panel on Climate Change.",
       "choices": [
         "NATO",
-        "Världsbanken enbart",
+        "Världsbanken tillsammans med Röda korset",
         "Röda korset",
         "IPCC, FN:s klimatpanel"
       ],

@@ -35,10 +35,10 @@
       "prompt": "Vem är Sveriges statschef och vilken roll har statschefen?",
       "opener": "Sverige är en monarki men samtidigt en demokrati — fundera på vad det betyder för makten.",
       "choices": [
-        "Kungen, som har en i huvudsak ceremoniell och representativ roll utan politisk makt",
+        "Kungen, som har en i huvudsak ceremoniell roll utan politisk makt",
         "Statsministern, som leder riksdagens arbete",
         "Talmannen, som både leder riksdagen och styr landet",
-        "Kungen, som beslutar om nya lagar tillsammans med riksdagen"
+        "Kungen, som beslutar om nya lagar tillsammans med riksdagen och leder regeringen"
       ],
       "answer": 0,
       "explanation": "Sverige är en monarki där kungen är statschef, men enligt 1974 års regeringsform har statschefen inga politiska maktbefogenheter — rollen är ceremoniell och representativ. Statsministern leder regeringen (inte riksdagen), och talmannen leder riksdagens arbete och föreslår statsminister, men styr inte landet."
@@ -66,7 +66,7 @@
       "opener": "Tänk på den verksamhet som finns nära dig där du bor, och skilj den från sjukvården.",
       "choices": [
         "Skola och förskola, äldreomsorg, socialtjänst, vatten och avfall samt lokala vägar",
-        "Sjukhusvård, vårdcentraler och kollektivtrafik i hela länet",
+        "Sjukhusvård, vårdcentraler och kollektivtrafik i hela länet, samt tillsyn av alla skolor i länet",
         "Försvar, utrikespolitik och gränskontroll",
         "Domstolar, polis och fängelser"
       ],
@@ -81,7 +81,7 @@
       "opener": "Alla tre valen hålls samtidigt — men hur långt är mellanrummet?",
       "choices": [
         "Vartannat år",
-        "Vart femte år",
+        "Vart femte år, på samma valdag i början av oktober",
         "Vart fjärde år, på samma valdag i september",
         "Varje år"
       ],
@@ -134,7 +134,7 @@
       "opener": "Personen leder också riksdagens arbete från talarstolen.",
       "choices": [
         "Kungen utser statsministern direkt på egen hand",
-        "Väljarna röstar direkt på statsministern på valsedeln",
+        "Väljarna röstar direkt på statsministern på valsedeln i samband med riksdagsvalet",
         "Statsministern utses av EU-kommissionen",
         "Talmannen föreslår en statsministerkandidat som riksdagen sedan röstar om"
       ],
@@ -148,7 +148,7 @@
       "prompt": "Vad heter den typ av offentlig utredning som ofta föregår ett nytt svenskt lagförslag?",
       "opener": "Förkortningen består av tre bokstäver.",
       "choices": [
-        "En kommunal folkomröstning",
+        "En kommunal folkomröstning i alla kommuner",
         "En EU-förordning",
         "Ett kungligt dekret",
         "En statlig offentlig utredning (SOU)"
@@ -163,7 +163,7 @@
       "prompt": "Vem leder en kommuns politiska arbete mellan valen?",
       "opener": "Tänk på de lokala motsvarigheterna till riksdag och regering.",
       "choices": [
-        "Länsstyrelsens chef, som utses av regeringen",
+        "Länsstyrelsens chef, som utses av regeringen och styr alla kommuner i länet direkt",
         "Enbart tjänstemän utan politisk styrning",
         "Riksdagen direkt",
         "Kommunfullmäktige och en kommunstyrelse med politiker valda i kommunvalet"
@@ -224,7 +224,7 @@
       "opener": "Tänk på vad som hör hemma på länsnivå snarare än på kommun- eller riksnivå.",
       "choices": [
         "Att sköta rikets försvar",
-        "Att stifta nya lagar för hela landet",
+        "Att stifta nya lagar för hela landet och besluta om statsbudgeten",
         "Att döma i brottmål",
         "Att ansvara för sjukvård och regional kollektivtrafik"
       ],

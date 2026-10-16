@@ -20,8 +20,8 @@
       "prompt": "Vilken viktig uppgift har nyhetsmedier i en demokrati?",
       "opener": "Fundera på vad medborgarna behöver veta för att kunna rösta klokt.",
       "choices": [
-        "Att bestämma vilka lagar som ska gälla",
-        "Att granska makthavare och ge medborgarna information så att de kan bilda sig en egen uppfattning",
+        "Att bestämma vilka lagar som ska gälla och hur de ska tillämpas av domstolarna i hela landet",
+        "Att granska makthavare och informera medborgarna så att de kan bilda sig en uppfattning",
         "Att utse regeringen efter valet",
         "Att döma dem som brutit mot lagen"
       ],
@@ -36,9 +36,9 @@
       "opener": "Den ena vill övertyga dig, den andra vill informera dig.",
       "choices": [
         "Debattartikeln är alltid längre än nyhetsartikeln",
-        "Nyhetsartikeln är skriven av en läsare och debattartikeln av en journalist",
+        "Nyhetsartikeln är skriven av en läsare och debattartikeln av en journalist som arbetar på tidningen",
         "Det finns ingen skillnad, båda är nyheter",
-        "Debattartikeln framför en åsikt och vill övertyga, medan nyhetsartikeln ska beskriva vad som hänt så sakligt som möjligt"
+        "Debattartikeln framför en åsikt och vill övertyga, nyhetsartikeln beskriver vad som hänt sakligt"
       ],
       "answer": 3,
       "explanation": "En debattartikel eller insändare framför skribentens åsikt, medan en nyhetsartikel ska rapportera fakta så neutralt som möjligt och redovisa flera sidor. Längden säger ingenting om vilken texttyp det är — och debattartiklar skrivs ofta just av läsare eller experter, inte av redaktionens journalister."
@@ -51,7 +51,7 @@
       "opener": "Den viktigaste frågan handlar om avsändaren.",
       "choices": [
         "Vem står bakom informationen, och varför är den publicerad?",
-        "Hur många färger finns på webbsidan?",
+        "Hur många färger och bilder finns det på webbsidan som visas?",
         "Hur många ord är texten?",
         "Har sidan en snygg logotyp?"
       ],
@@ -133,10 +133,10 @@
       "prompt": "Varför kallas medierna ibland \"den tredje statsmakten\"?",
       "opener": "Tänk på vilken kontrollerande funktion medierna har i förhållande till dem som styr.",
       "choices": [
-        "Eftersom de granskar makthavare och informerar medborgarna, vid sidan av lagstiftande och verkställande makt",
+        "Eftersom de granskar makthavare och informerar medborgarna, vid sidan av riksdag och regering",
         "Eftersom journalister får rösta två gånger i val",
         "Eftersom medierna äger alla företag i landet",
-        "Eftersom medierna bestämmer domstolarnas domar"
+        "Eftersom medierna bestämmer domstolarnas domar i de flesta mål som rör pressfrihet och yttrandefrihet"
       ],
       "answer": 0,
       "explanation": "Medierna kallas ibland den tredje statsmakten eftersom de granskar dem som har makt (till exempel riksdag och regering) och informerar medborgarna, vilket är en viktig funktion i en demokrati vid sidan av den lagstiftande och verkställande makten. Medierna varken röstar dubbelt, äger alla företag eller bestämmer domar."
@@ -148,8 +148,8 @@
       "prompt": "Vad är en ledare (ledartext) i en tidning?",
       "opener": "Ordet \"leder\" ger en ledtråd — vem för fram sin hållning i texten?",
       "choices": [
-        "En text där tidningens redaktion tar ställning i en fråga utifrån sin politiska hållning",
-        "En helt objektiv nyhetsartikel utan åsikter",
+        "En text där tidningens redaktion tar ställning i en fråga",
+        "En helt objektiv nyhetsartikel utan åsikter, skriven av tidningens reportrar",
         "En annons för en produkt",
         "En sportresultatlista"
       ],
@@ -164,7 +164,7 @@
       "opener": "Tänk på vem som var närmast händelsen när informationen skapades.",
       "choices": [
         "En förstahandskälla, till exempel ett ögonvittne eller ett originaldokument",
-        "En källa som bara upprepar vad andra redan sagt",
+        "En källa som bara upprepar vad andra redan sagt, utan att själv ha varit med om händelsen",
         "En källa som alltid är falsk",
         "En källa som inte får användas i skolarbeten"
       ],
@@ -178,8 +178,8 @@
       "prompt": "Vad bör du göra om du själv blir utsatt för kränkningar på nätet?",
       "opener": "Tänk på att både bevara bevis och ta hjälp av andra.",
       "choices": [
-        "Spara bevis genom skärmdumpar, blockera personen, berätta för en vuxen och vid behov anmäla till polisen",
-        "Svara med att kränka tillbaka så hårt som möjligt",
+        "Spara bevis med skärmdumpar, blockera personen, berätta för en vuxen och vid behov anmäla",
+        "Svara med att kränka tillbaka så hårt som möjligt och be alla dina vänner göra detsamma mot personen",
         "Radera allt direkt utan att spara några bevis",
         "Strunta i det eftersom inget kan göras online"
       ],
