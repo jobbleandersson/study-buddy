@@ -251,7 +251,7 @@ function normalizeDoc(doc) {
       if (answer < 0) return out;
       // The model tends to write the correct option first, whatever the prompt says, so the order is
       // randomised here, in code, rather than left to a request it can ignore.
-      Object.assign(out, shuffleMc({ choices: out.choices, answer: out.answer }));
+      Object.assign(out, shuffleMc({ choices: out.choices, answer: out.answer, explanation: out.explanation, opener: out.opener, steps: out.steps }));
     } else {
       out.answer = typeof q.answer === "string" ? q.answer : String(q.answer ?? "");
     }

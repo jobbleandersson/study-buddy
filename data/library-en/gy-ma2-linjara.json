@@ -25,7 +25,7 @@
         "$2$"
       ],
       "answer": 0,
-      "explanation": "$k = \\dfrac{\\Delta y}{\\Delta x} = \\dfrac{10-4}{2-0} = \\dfrac{6}{2} = 3$. Answering $6$ (option C) misses dividing by the change in x."
+      "explanation": "$k = \\dfrac{\\Delta y}{\\Delta x} = \\dfrac{10-4}{2-0} = \\dfrac{6}{2} = 3$. Answering $6$ misses dividing by the change in x."
     },
     {
       "id": "q-ma2-linjara-2",
@@ -40,7 +40,7 @@
         "The lines intersect at the origin"
       ],
       "answer": 1,
-      "explanation": "Both have $m=5$, i.e. the same y-intercept $(0.5)$. But $k=-2$ and $k=3$ respectively give different slopes — one decreases, the other increases. Parallel lines (option C) require the same gradient, which is not the case here."
+      "explanation": "Both have $m=5$, i.e. the same y-intercept $(0,5)$. But $k=-2$ and $k=3$ respectively give different slopes — one decreases, the other increases. Parallel lines require the same gradient, which is not the case here."
     },
     {
       "id": "q-ma2-linjara-3",
@@ -85,7 +85,7 @@
         "The lines cross each other at a point on the y-axis"
       ],
       "answer": 1,
-      "explanation": "The same gradient means the lines are parallel. With different y-intercepts they never cross, so the system of equations has no solution. Infinitely many solutions (option C) would require the lines to be identical, i.e. the same gradient and y-intercept."
+      "explanation": "The same gradient means the lines are parallel. With different y-intercepts they never cross, so the system of equations has no solution. Infinitely many solutions would require the lines to be identical, i.e. the same gradient and y-intercept."
     },
     {
       "id": "q-ma2-linjara-6",
@@ -100,7 +100,7 @@
         "A horizontal line"
       ],
       "answer": 3,
-      "explanation": "$k=0$ means the y-value is constant regardless of x, giving a horizontal line, e.g. $y=3$. A vertical line (option B) cannot even be written as $y=kx+m$ since its gradient is undefined."
+      "explanation": "$k=0$ means the y-value is constant regardless of x, giving a horizontal line, e.g. $y=3$. A vertical line cannot even be written as $y=kx+m$ since its gradient is undefined."
     },
     {
       "id": "q-ma2-linjara-7",
@@ -137,7 +137,7 @@
         "$1$"
       ],
       "answer": 0,
-      "explanation": "$k = \\dfrac{12-3}{4-1} = \\dfrac{9}{3} = 3$. Answer B ($9$) misses dividing by the change in x."
+      "explanation": "$k = \\dfrac{12-3}{4-1} = \\dfrac{9}{3} = 3$. Answering $9$ misses dividing by the change in x."
     },
     {
       "id": "q-ma2-linjara-10",

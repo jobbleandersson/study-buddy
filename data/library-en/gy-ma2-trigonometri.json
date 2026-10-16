@@ -25,7 +25,7 @@
         "$\\dfrac{\\text{hypotenuse}}{\\text{opposite side}}$"
       ],
       "answer": 0,
-      "explanation": "Sine is defined as the ratio of the opposite side to the hypotenuse: $\\sin(v) = \\dfrac{\\text{opposite}}{\\text{hypotenuse}}$. The option with the adjacent side over the hypotenuse (option B) is instead the definition of cosine."
+      "explanation": "Sine is defined as the ratio of the opposite side to the hypotenuse: $\\sin(v) = \\dfrac{\\text{opposite}}{\\text{hypotenuse}}$. The option with the adjacent side over the hypotenuse is instead the definition of cosine."
     },
     {
       "id": "q-ma2-trig-2",
@@ -40,7 +40,7 @@
         "$10$ cm"
       ],
       "answer": 1,
-      "explanation": "Opposite side $= 10 \\cdot \\sin(30°) = 10 \\cdot 0.5 = 5$ cm. Option A ($8.66$ cm) is obtained if you mistakenly use cosine instead of sine."
+      "explanation": "Opposite side $= 10 \\cdot \\sin(30°) = 10 \\cdot 0.5 = 5$ cm. The value $8.66$ cm is obtained if you mistakenly use cosine instead of sine."
     },
     {
       "id": "q-ma2-trig-3",
@@ -55,7 +55,7 @@
         "$6$ m"
       ],
       "answer": 2,
-      "explanation": "Height $= 6 \\cdot \\sin(60°) = 6 \\cdot 0.866 \\approx 5.2$ m. Option A ($3$ m) is obtained if you use cosine instead of sine, and option B is obtained if you incorrectly divide by $\\sin(60°)$ instead of multiplying."
+      "explanation": "Height $= 6 \\cdot \\sin(60°) = 6 \\cdot 0.866 \\approx 5.2$ m. The value $3$ m is obtained if you use cosine instead of sine, and $6.9$ m is obtained if you incorrectly divide by $\\sin(60°)$ instead of multiplying."
     },
     {
       "id": "q-ma2-trig-4",
@@ -70,7 +70,7 @@
         "$0.75$"
       ],
       "answer": 3,
-      "explanation": "$\\tan(v) = \\dfrac{\\text{opposite}}{\\text{adjacent}} = \\dfrac{6}{8} = 0.75$. Option A ($0.6$) is instead $\\sin(v) = \\frac{6}{10}$, and option B ($0.8$) is $\\cos(v) = \\frac{8}{10}$ — common mix-ups."
+      "explanation": "$\\tan(v) = \\dfrac{\\text{opposite}}{\\text{adjacent}} = \\dfrac{6}{8} = 0.75$. The value $0.6$ is instead $\\sin(v) = \\frac{6}{10}$, and $0.8$ is $\\cos(v) = \\frac{8}{10}$ — common mix-ups."
     },
     {
       "id": "q-ma2-trig-5",
@@ -85,7 +85,7 @@
         "$35°$"
       ],
       "answer": 0,
-      "explanation": "$\\tan(v) = \\dfrac{5}{12} \\approx 0.417$, so $v = \\tan^{-1}(0.417) \\approx 23°$. Option B ($67°$) is the other acute angle in the triangle (the complementary angle), not the one asked for."
+      "explanation": "$\\tan(v) = \\dfrac{5}{12} \\approx 0.417$, so $v = \\tan^{-1}(0.417) \\approx 23°$. The value $67°$ is the other acute angle in the triangle (the complementary angle), not the one asked for."
     },
     {
       "id": "q-ma2-trig-6",
@@ -137,7 +137,7 @@
         "$\\dfrac{\\text{hypotenuse}}{\\text{adjacent side}}$"
       ],
       "answer": 0,
-      "explanation": "Cosine is defined as the ratio of the adjacent side to the hypotenuse: $\\cos(v)=\\dfrac{\\text{adjacent}}{\\text{hypotenuse}}$. The option with the opposite side over the hypotenuse (answer B) is instead the definition of sine."
+      "explanation": "Cosine is defined as the ratio of the adjacent side to the hypotenuse: $\\cos(v)=\\dfrac{\\text{adjacent}}{\\text{hypotenuse}}$. The option with the opposite side over the hypotenuse is instead the definition of sine."
     },
     {
       "id": "q-ma2-trig-10",
@@ -152,7 +152,7 @@
         "$\\approx 6.93$ cm"
       ],
       "answer": 0,
-      "explanation": "Adjacent side $= 8\\cdot\\cos(45°) = 8\\cdot0.707 \\approx 5.66$ cm. Option C ($8$ cm) would mean the triangle has no angle at all, which doesn't match a 45° angle."
+      "explanation": "Adjacent side $= 8\\cdot\\cos(45°) = 8\\cdot0.707 \\approx 5.66$ cm. The value $8$ cm would mean the triangle has no angle at all, which doesn't match a 45° angle."
     },
     {
       "id": "q-ma2-trig-11",
@@ -182,7 +182,7 @@
         "$1.33$"
       ],
       "answer": 0,
-      "explanation": "$\\sin(v) = \\dfrac{\\text{opposite}}{\\text{hypotenuse}} = \\dfrac{9}{15} = 0.6$. Option B ($0.8$) is instead $\\cos(v) = \\frac{12}{15}$."
+      "explanation": "$\\sin(v) = \\dfrac{\\text{opposite}}{\\text{hypotenuse}} = \\dfrac{9}{15} = 0.6$. The value $0.8$ is instead $\\cos(v) = \\frac{12}{15}$."
     },
     {
       "id": "q-ma2-trig-13",
@@ -227,7 +227,7 @@
         "$\\approx 40$ m"
       ],
       "answer": 0,
-      "explanation": "The distance $= \\dfrac{40}{\\tan(20°)} \\approx \\dfrac{40}{0.364} \\approx 109.9$ m. Option B is obtained if you mistakenly use sine instead of tangent and calculate $\\frac{40}{\\sin(20°)}$."
+      "explanation": "The distance $= \\dfrac{40}{\\tan(20°)} \\approx \\dfrac{40}{0.364} \\approx 109.9$ m. The value $116.9$ m is obtained if you mistakenly use sine instead of tangent and calculate $\\frac{40}{\\sin(20°)}$."
     }
   ]
 }

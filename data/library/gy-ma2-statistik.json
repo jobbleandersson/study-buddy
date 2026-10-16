@@ -25,7 +25,7 @@
         "Sannolikheten att A eller B inträffar"
       ],
       "answer": 1,
-      "explanation": "$P(A\\mid B)$ utläses \"sannolikheten för A givet B\" och beräknas $P(A\\mid B) = \\dfrac{P(A \\text{ och } B)}{P(B)}$. Att kasta om ordningen (svar C) ger istället $P(B\\mid A)$, vilket i allmänhet är ett annat tal."
+      "explanation": "$P(A\\mid B)$ utläses \"sannolikheten för A givet B\" och beräknas $P(A\\mid B) = \\dfrac{P(A \\text{ och } B)}{P(B)}$. Att kasta om ordningen ger istället $P(B\\mid A)$, vilket i allmänhet är ett annat tal."
     },
     {
       "id": "q-ma2-statistik-2",
@@ -40,7 +40,7 @@
         "70 %"
       ],
       "answer": 0,
-      "explanation": "$P(\\text{fysik}\\mid\\text{matte}) = \\dfrac{P(\\text{matte och fysik})}{P(\\text{matte})} = \\dfrac{0{,}4}{0{,}7} \\approx 0{,}571 = 57\\ \\%$. Svar B ($28\\ \\%$) fås om man av misstag multiplicerar sannolikheterna istället för att dividera."
+      "explanation": "$P(\\text{fysik}\\mid\\text{matte}) = \\dfrac{P(\\text{matte och fysik})}{P(\\text{matte})} = \\dfrac{0{,}4}{0{,}7} \\approx 0{,}571 = 57\\ \\%$. Värdet $28\\ \\%$ fås om man av misstag multiplicerar sannolikheterna istället för att dividera."
     },
     {
       "id": "q-ma2-statistik-3",
@@ -55,7 +55,7 @@
         "$P(A\\mid B) = P(B)$"
       ],
       "answer": 0,
-      "explanation": "Oberoende innebär att B:s inträffande inte förändrar sannolikheten för A, det vill säga $P(A\\mid B) = P(A)$. Att $P(A \\text{ och } B) = 0$ (svar B) beskriver istället ömsesidigt uteslutande händelser, vilket är något annat."
+      "explanation": "Oberoende innebär att B:s inträffande inte förändrar sannolikheten för A, det vill säga $P(A\\mid B) = P(A)$. Att $P(A \\text{ och } B) = 0$ beskriver istället ömsesidigt uteslutande händelser, vilket är något annat."
     },
     {
       "id": "q-ma2-statistik-4",
@@ -70,7 +70,7 @@
         "Ja, eftersom båda sannolikheterna är mindre än 1"
       ],
       "answer": 2,
-      "explanation": "Testa oberoende-villkoret: $P(A)\\cdot P(B) = 0{,}3 \\cdot 0{,}5 = 0{,}15$, vilket stämmer med det givna $P(A \\text{ och } B) = 0{,}15$. Alltså är händelserna oberoende. Summan $P(A)+P(B)=1$ (svar A) är inte ett relevant villkor för oberoende."
+      "explanation": "Testa oberoende-villkoret: $P(A)\\cdot P(B) = 0{,}3 \\cdot 0{,}5 = 0{,}15$, vilket stämmer med det givna $P(A \\text{ och } B) = 0{,}15$. Alltså är händelserna oberoende. Summan $P(A)+P(B)=1$ är inte ett relevant villkor för oberoende."
     },
     {
       "id": "q-ma2-statistik-5",
@@ -85,7 +85,7 @@
         "5,5"
       ],
       "answer": 3,
-      "explanation": "Den nedre halvan (de fyra minsta värdena) är 2, 5, 6, 8. Medianen av dessa fyra är $\\frac{5+6}{2} = 5{,}5$, vilket är $Q_1$. Att bara välja det mittersta talet i gruppen (svar B) missar att man ska ta medelvärdet av de två mittersta värdena."
+      "explanation": "Den nedre halvan (de fyra minsta värdena) är 2, 5, 6, 8. Medianen av dessa fyra är $\\frac{5+6}{2} = 5{,}5$, vilket är $Q_1$. Att bara välja det mittersta talet i gruppen missar att man ska ta medelvärdet av de två mittersta värdena."
     },
     {
       "id": "q-ma2-statistik-6",
@@ -100,7 +100,7 @@
         "Typvärdet"
       ],
       "answer": 1,
-      "explanation": "Standardavvikelsen beräknas utifrån avståndet mellan varje enskilt värde och medelvärdet, så alla observationer påverkar måttet. Variationsbredden (svar A) använder bara det största och minsta värdet. Median och typvärde är lägesmått, inte spridningsmått."
+      "explanation": "Standardavvikelsen beräknas utifrån avståndet mellan varje enskilt värde och medelvärdet, så alla observationer påverkar måttet. Variationsbredden använder bara det största och minsta värdet. Median och typvärde är lägesmått, inte spridningsmått."
     },
     {
       "id": "q-ma2-statistik-7",
@@ -137,7 +137,7 @@
         "$14{,}4\\ \\%$"
       ],
       "answer": 0,
-      "explanation": "$P(B\\mid A) = \\dfrac{P(A \\text{ och } B)}{P(A)} = \\dfrac{0{,}24}{0{,}6} = 0{,}4 = 40\\ \\%$. Svar D fås om man i stället multiplicerar $0{,}6\\cdot0{,}24$, vilket inte är rätt metod för betingad sannolikhet."
+      "explanation": "$P(B\\mid A) = \\dfrac{P(A \\text{ och } B)}{P(A)} = \\dfrac{0{,}24}{0{,}6} = 0{,}4 = 40\\ \\%$. Värdet $14{,}4\\ \\%$ fås om man i stället multiplicerar $0{,}6\\cdot0{,}24$, vilket inte är rätt metod för betingad sannolikhet."
     },
     {
       "id": "q-ma2-statistik-10",
@@ -152,7 +152,7 @@
         "$1{,}6$"
       ],
       "answer": 0,
-      "explanation": "$P(A \\text{ och } B) = P(A)\\cdot P(B) = 0{,}4\\cdot0{,}25 = 0{,}10$. Svar B ($0{,}65$) adderar i stället sannolikheterna, vilket inte är rätt villkor för oberoende händelser."
+      "explanation": "$P(A \\text{ och } B) = P(A)\\cdot P(B) = 0{,}4\\cdot0{,}25 = 0{,}10$. Värdet $0{,}65$ fås genom att i stället addera sannolikheterna, vilket inte är rätt villkor för oberoende händelser."
     },
     {
       "id": "q-ma2-statistik-11",
@@ -212,7 +212,7 @@
         "$10\\ \\%$"
       ],
       "answer": 0,
-      "explanation": "$P(\\text{te}\\mid\\text{kaffe}) = \\dfrac{P(\\text{kaffe och te})}{P(\\text{kaffe})} = \\dfrac{0{,}2}{0{,}5} = 0{,}4 = 40\\ \\%$. Att bara svara $20\\ \\%$ (svar B) glömmer att dela med sannolikheten för villkoret."
+      "explanation": "$P(\\text{te}\\mid\\text{kaffe}) = \\dfrac{P(\\text{kaffe och te})}{P(\\text{kaffe})} = \\dfrac{0{,}2}{0{,}5} = 0{,}4 = 40\\ \\%$. Att bara svara $20\\ \\%$ glömmer att dela med sannolikheten för villkoret."
     },
     {
       "id": "q-ma2-statistik-15",

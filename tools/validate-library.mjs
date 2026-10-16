@@ -17,8 +17,11 @@
 import { readFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { pathToFileURL } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
+// The same guard the app uses to decide whether a question may be shuffled (js/lib/choices.js).
+const { choicesDependOnOrder, explanationNamesOptions } = await import(pathToFileURL(join(ROOT, "js/lib/choices.js")).href);
 const errors = [];
 const fail = (m) => errors.push(m);
 const targetArg = process.argv.find((a) => a.startsWith("--target="));
@@ -57,6 +60,9 @@ function load(path, tag) {
 }
 
 function checkQuestion(q, tag) {
+  if (q.kind === "mc" && !q.variant && !q.figure && !choicesDependOnOrder(q.choices) && explanationNamesOptions(q)) {
+    fail(`${tag}: the explanation names an option by letter or position, but the options are reshuffled every session - quote the option's text instead`);
+  }
   if (!q.id) fail(`${tag}: question without id`);
   if (!KINDS.has(q.kind)) fail(`${tag}: unknown kind "${q.kind}"`);
   if (!String(q.prompt || "").trim()) fail(`${tag}: empty prompt`);
