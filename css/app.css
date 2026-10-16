@@ -30,10 +30,12 @@ a { color: var(--brand-ink); }
 
 .tabular { font-variant-numeric: tabular-nums; }
 
+/* An outline, not a box-shadow: a component that sets its own box-shadow (the set cards, tiles, anything
+   with a shadow) used to override the ring and showed no focus at all. Components that draw their own
+   ring say so with outline: none; box-shadow: var(--ring) and still win by specificity. */
 :focus-visible {
-  outline: none;
-  box-shadow: var(--ring);
-  border-radius: var(--r-sm);
+  outline: 3px solid var(--focus-color, var(--brand));
+  outline-offset: 2px;
 }
 
 /* Elements with tabindex="-1" are only ever focused programmatically — we move
@@ -91,6 +93,17 @@ a.streakbadge:hover {
 
 /* ---------- app shell ---------- */
 #app { min-height: 100%; display: flex; flex-direction: column; }
+/* Long words and URLs wrap instead of pushing a page wider than the screen (a 33-letter Swedish compound in
+   a question, a pasted link in a set title). "anywhere" also lowers the min-content width, so flex and
+   grid items shrink to fit rather than growing around the word. It is applied to the places that show a
+   student's or a set's own text, not to the whole app: short UI labels (tabs, chips, buttons) keep
+   their one line. Add a new text-heavy container to this list. */
+.shell__main h1, .shell__main h2, .shell__main h3,
+.question, .choice, .feedback, .delta__prompt, .delta__answer, .delta__explain, .delta__topic,
+.psheet__title, .psheet__meta, .psheet__q, .psheet__stimulus, .psheet__choices, .psheet__akey,
+.classgrid__title, .classmiss__topic, .set-row, .set-list, .set-misses,
+.acard__title, .exam-set__title { overflow-wrap: break-word; overflow-wrap: anywhere; }   /* break-word first: Safari < 15.4 has no "anywhere" */
+:is(.question, .choice, .feedback, .delta__explain, .psheet__q, .psheet__stimulus) :is(table, th, td, pre, code, .katex) { overflow-wrap: normal; }
 .shell { flex: 1; display: flex; align-items: stretch; }
 .shell__main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
 
@@ -239,7 +252,7 @@ a.streakbadge:hover {
 /* The pressed state's box-shadow above outranks the global focus ring (higher
    specificity), so tabbing to the currently-active theme button showed no
    focus indicator at all — this outranks the pressed state in turn. */
-.sidebar__theme-btn[aria-pressed="true"]:focus-visible { box-shadow: var(--ring); }
+.sidebar__theme-btn[aria-pressed="true"]:focus-visible { outline: none; box-shadow: var(--ring); }
 
 /* No visible scrollbar on the sidebar. It still scrolls (wheel, trackpad,
    keyboard) when the nav outgrows a short screen — only the bar is hidden,
@@ -401,7 +414,7 @@ body.has-topmenu .sitechat__fab { display: none; }
 .iconbtn:hover { background: var(--surface-sunk); border-color: var(--line-strong); }
 /* Same cascade collision as .btn above: .iconbtn's own resting shadow otherwise
    silently beats the global focus ring on equal specificity + later source order. */
-.iconbtn:focus-visible { box-shadow: var(--ring); }
+.iconbtn:focus-visible { outline: none; box-shadow: var(--ring); }
 .iconbtn svg { stroke-width: 1.8; }
 
 /* Language toggle: the globe alone is ambiguous, so it carries the code it
@@ -446,7 +459,7 @@ body.has-topmenu .sitechat__fab { display: none; }
    :focus-visible rule (app.css:29) and comes later in the file, so it silently
    wins and a tabbed-to button shows no ring at all — this restores it by
    outranking both .btn and .btn--ghost's box-shadow on specificity alone. */
-.btn:focus-visible { box-shadow: var(--ring); }
+.btn:focus-visible { outline: none; box-shadow: var(--ring); }
 .btn--ghost { background: var(--surface); color: var(--ink); border: 1px solid var(--line-strong); box-shadow: 0 1px 2px rgba(16, 24, 40, .05); }
 .btn--ghost:hover { background: var(--surface-sunk); }
 .btn--ok { background: var(--ok); }
@@ -1162,6 +1175,7 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .acard__title {
   font-family: var(--font-display); font-weight: 600; font-size: 1.125rem; line-height: 1.3;   /* 18: two lines hold most titles */
   display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
+  -webkit-hyphens: auto; hyphens: auto;   /* a long compound breaks (with a hyphen where it can) instead of being cut off */
 }
 /* The card's top row: the subject (a dot in its colour, the name trimmed to one line) and the AI chip. */
 .acard__top { display: flex; align-items: center; gap: 8px; min-width: 0; min-height: 22px; padding-right: 28px; }
@@ -1272,7 +1286,7 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .reading__knob { position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; transition: transform var(--dur-fast); }
 .reading__toggle.is-on .reading__knob { transform: translateX(18px); }
 
-.session { display: grid; grid-template-columns: 1fr 380px; gap: var(--s-5); align-items: start; }
+.session { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: var(--s-5); align-items: start; }
 /* The empty track was 1.05:1 against the page — invisible until it had fill.
    The border gives the shape an edge without shouting. */
 .progressbar {
@@ -2265,6 +2279,7 @@ body.has-welcome { overflow: hidden; }
 .cmd__list { max-height: 320px; overflow-y: auto; }
 .cmd__row { width: 100%; display: flex; justify-content: space-between; gap: var(--s-3); align-items: center; padding: 10px var(--s-4); border: none; background: none; font: inherit; color: var(--ink); cursor: pointer; text-align: left; }
 .cmd__row.is-sel { background: var(--brand-tint); }
+.cmd__empty { padding: var(--s-4); color: var(--ink-soft); font-size: var(--fs-sm); overflow-wrap: anywhere; }
 .cmd__sub { font-size: 12px; color: var(--ink-faint); flex: none; }
 
 .nav-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s-3); margin-top: var(--s-5); }
@@ -2448,7 +2463,7 @@ body.has-welcome { overflow: hidden; }
 }
 .sitechat__composer:focus-within { border-color: var(--brand); box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 18%, transparent); }
 .sitechat__input { flex: 1; min-width: 0; font: inherit; font-size: var(--fs-sm); padding: 8px 0; border: 0; background: none; color: var(--ink); outline: none; }
-.sitechat__input:focus-visible { box-shadow: none; }
+.sitechat__input:focus-visible { outline: none; box-shadow: none; }
 .sitechat__send {
   flex: none; width: 36px; height: 36px; border-radius: var(--r-full); border: 0; display: grid; place-items: center;
   background: var(--brand); color: #fff; cursor: pointer; transition: opacity var(--dur-fast), transform var(--dur-fast);
@@ -3061,7 +3076,7 @@ body.route-chat .sitechat__panel { display: none; }
   font: inherit; font-size: 15px; color: var(--ink); font-variant-numeric: tabular-nums;
 }
 /* The row's border already shows where you're typing (.gcalc__row:focus-within): no second ring inside it. */
-.gcalc__input:focus-visible { box-shadow: none; }
+.gcalc__input:focus-visible { outline: none; box-shadow: none; }
 .gcalc__input::placeholder { color: var(--ink-faint); }
 .gcalc__row.is-hidden .gcalc__input { color: var(--ink-faint); }
 .gcalc__del {
@@ -3940,7 +3955,7 @@ kbd {
 
 /* ---------- responsive ---------- */
 @media (max-width: 860px) {
-  .session { grid-template-columns: 1fr; }
+  .session { grid-template-columns: minmax(0, 1fr); }
 
   /* Tutor becomes a slide-up sheet so a stuck student never has to scroll
      away from the question to reach help. */

@@ -383,6 +383,7 @@ export class TutorChat {
 
     this.abort = new AbortController();
     let acc = "";
+    let stopReason = null;
     try {
       const system = tutorSystem({
         assignment: this.assignment, question: this.question,
@@ -393,11 +394,13 @@ export class TutorChat {
         testMode: this.testMode,
         student: store.profile,
       });
-      for await (const chunk of tutorStream({ system, messages: msgs, signal: this.abort.signal })) {
+      for await (const chunk of tutorStream({ system, messages: msgs, signal: this.abort.signal, onStop: (r) => { stopReason = r; } })) {
         acc += chunk;
         bubble.innerHTML = markdown(acc);
         this._scroll();
       }
+      // An answer that hit its length limit is not a finished one: say so under it, as Solve does.
+      if (stopReason === "max_tokens" && acc.trim()) bubble.appendChild(el("p.msg__errnote", {}, t("tutor.truncated")));
       msgs.push({ role: "assistant", content: acc || "…" });
       if (gen !== (this._gen || 0)) return;
       opts.onReply?.(acc);

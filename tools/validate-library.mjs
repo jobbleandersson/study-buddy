@@ -10,7 +10,9 @@
 // answer in range; text/worked/flashcard have an answer; worked has steps;
 // every non-flashcard question explains itself (explanation or steps); every
 // question's topic is in its set's topics list (per-topic class stats and
-// mastery group by that list, so a missing one drops those questions from them).
+// mastery group by that list, so a missing one drops those questions from them);
+// the English files use a decimal point, not the Swedish decimal comma (2.5, $0.25$ - a comma
+// between digits is only fine as an English thousands separator: 2,500 and 1{,}000).
 
 import { readFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -29,6 +31,22 @@ const KINDS = new Set(["mc", "text", "cloze", "flashcard", "worked"]);
 // Case-sensitive on purpose: spelling questions offer options that differ only
 // in capitals ("jordgubbstårta" / "Jordgubbstårta", "F(b)" / "f(b)").
 const norm = (s) => String(s ?? "").trim().replace(/\s+/g, " ");
+
+// A decimal comma in English text or maths markup: a comma (or LaTeX {,}) after a leading 0, or with 1-2
+// digits after it. English thousands groups have exactly three digits after the comma and are not matched, so a
+// decimal like 3,142 (three decimals, non-zero lead) is indistinguishable from one and is NOT caught here; and a
+// coordinate pair or list written without a space, (2,3), is - write it with a space, (2, 3).
+const SV_DECIMAL = /(?<![d,.])(?:0(?:{,}|,)d+|[1-9]d*(?:{,}|,)d{1,2}(?!d))/g;
+function checkEnglishDecimals(doc, entryId) {
+  const hits = new Set();
+  const walk = (v) => {
+    if (typeof v === "string") for (const m of v.matchAll(SV_DECIMAL)) hits.add(m[0]);
+    else if (Array.isArray(v)) v.forEach(walk);
+    else if (v && typeof v === "object") Object.values(v).forEach(walk);
+  };
+  walk(doc);
+  if (hits.size) fail(`${entryId} (en): Swedish decimal comma in English text: ${[...hits].slice(0, 6).join("  ")} - write the decimal point (2.5, $0.25$)`);
+}
 
 const index = JSON.parse(readFileSync(join(ROOT, "data/library/index.json"), "utf8"));
 const allIds = new Map();
@@ -90,6 +108,7 @@ for (const entry of index.sets) {
   if (!en) continue;
   if (en.id !== entry.id) fail(`${entry.id} (en): doc.id is "${en.id}"`);
   checkTopics(en, " (en)");
+  checkEnglishDecimals(en, entry.id);
   const eq = en.questions || [];
   if (eq.map((q) => q.id).join("|") !== qs.map((q) => q.id).join("|")) {
     fail(`${entry.id}: sv and en question ids differ (sv ${qs.length}, en ${eq.length})`);

@@ -24,7 +24,7 @@
         "A half"
       ],
       "answer": 1,
-      "explanation": "1% is a hundredth, i.e. $\\frac{1}{100} = 0{,}01$. A tenth is $\\frac{1}{10}$, which is 10% - ten times as much."
+      "explanation": "1% is a hundredth, i.e. $\\frac{1}{100} = 0.01$. A tenth is $\\frac{1}{10}$, which is 10% - ten times as much."
     },
     {
       "id": "q-ma7-pro-2",
@@ -48,13 +48,13 @@
       "prompt": "How much is 10% of 250 kr?",
       "opener": "10% is a tenth - what happens if you divide by 10?",
       "choices": [
-        "$2{,}5$ kr",
+        "$2.5$ kr",
         "25 kr",
         "250 kr",
         "50 kr"
       ],
       "answer": 1,
-      "explanation": "You find 10% of a number by dividing by 10: $250 / 10 = 25$ kr. The answer $2{,}5$ kr is 1% of 250, i.e. ten times too little."
+      "explanation": "You find 10% of a number by dividing by 10: $250 / 10 = 25$ kr. The answer $2.5$ kr is 1% of 250, i.e. ten times too little."
     },
     {
       "id": "q-ma7-pro-4",
@@ -121,7 +121,7 @@
       "topic": "percentage",
       "prompt": "How do you calculate with percentages? List the most important rules.",
       "opener": "Three things: what percentage means, the proportion of a number, and what percentage something is.",
-      "answer": "Percentage = hundredths, 1% = $\\frac{1}{100}$ = $0{,}01$ · Proportion of a number: convert the percentage to a decimal number and multiply, 30% of 200 = $0{,}3 \\cdot 200 = 60$ · What percentage something is: the part divided by the whole, then times 100 · Quick tricks: 10% = divide by 10 · 25% = divide by 4 · 50% = divide by 2 · Increase: add the change in kronor · decrease: subtract it · always calculate the percentage on the original value."
+      "answer": "Percentage = hundredths, 1% = $\\frac{1}{100}$ = $0.01$ · Proportion of a number: convert the percentage to a decimal number and multiply, 30% of 200 = $0.3 \\cdot 200 = 60$ · What percentage something is: the part divided by the whole, then times 100 · Quick tricks: 10% = divide by 10 · 25% = divide by 4 · 50% = divide by 2 · Increase: add the change in kronor · decrease: subtract it · always calculate the percentage on the original value."
     },
     {
       "id": "q-ma7-pro-9",
@@ -193,10 +193,10 @@
         "4 kr",
         "40 kr",
         "400 kr",
-        "0,4 kr"
+        "0.4 kr"
       ],
       "answer": 1,
-      "explanation": "$4\\,000 / 100 = 40$ kr. Check: $4\\,000 \\cdot 0{,}01 = 40$ kr."
+      "explanation": "$4\\,000 / 100 = 40$ kr. Check: $4\\,000 \\cdot 0.01 = 40$ kr."
     },
     {
       "id": "q-ma7-pro-14",
@@ -206,7 +206,7 @@
       "opener": "Work out the increase in kronor first, then add it.",
       "answer": "920 kr",
       "steps": [
-        "The increase in kronor: $800 \\cdot 0{,}15 = 120$ kr.",
+        "The increase in kronor: $800 \\cdot 0.15 = 120$ kr.",
         "New price: $800 + 120 = 920$ kr."
       ]
     },
@@ -223,7 +223,7 @@
         "It can't be determined"
       ],
       "answer": 0,
-      "explanation": "8% of 500 is $500 \\cdot 0{,}08 = 40$. 40% of 90 is $90 \\cdot 0{,}4 = 36$. Since $40 > 36$, 8% of 500 is bigger."
+      "explanation": "8% of 500 is $500 \\cdot 0.08 = 40$. 40% of 90 is $90 \\cdot 0.4 = 36$. Since $40 > 36$, 8% of 500 is bigger."
     }
   ]
 }
