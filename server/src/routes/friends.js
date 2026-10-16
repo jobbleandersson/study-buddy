@@ -9,13 +9,12 @@ import { readDigest, displayNames } from "../state-digest.js";
 
 export const friends = Router();
 
-// A friend code is short-lived; while one is still unused and valid it is given out again rather than a new
-// row written (see codes.js).
-
 // Canonical, order-independent pair — the smaller id is always stored first,
 // so a friendship is one row regardless of which side queries it.
 function pair(a, b) { return a < b ? [a, b] : [b, a]; }
 
+// A friend code is short-lived; while one is still unused and valid it is given out again rather than a new
+// row written (see codes.js).
 friends.post("/friends/invite-code", requireAuth, (req, res) => {
   const issued = issueCode("friend", req.user.userId);
   if (!issued) return res.status(429).set("Retry-After", "600").json({ error: { message: TOO_MANY_MESSAGE, code: "too_many_codes" } });

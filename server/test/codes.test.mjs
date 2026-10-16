@@ -96,6 +96,22 @@ describe("how many new codes one account can make in an hour", () => {
   });
 });
 
+describe("how many new friend codes one account can make in an hour", () => {
+  let server;
+  before(async () => { server = await startServer({ CODES_PER_HOUR_PER_USER: "1" }); });
+  after(async () => { await server.stop(); });
+
+  test("the second new friend code is a 429", async () => {
+    const a = await account(server.baseUrl);
+    const id = userId(server);
+    assert.equal((await a.post("/api/friends/invite-code")).status, 200);
+    server.db.prepare("UPDATE friend_codes SET expires_at = ? WHERE user_id = ?").run(Date.now() - 1000, id);
+    const blocked = await a.post("/api/friends/invite-code");
+    assert.equal(blocked.status, 429);
+    assert.equal(blocked.json.error.code, "too_many_codes");
+  });
+});
+
 describe("the clean-up", () => {
   let server;
   before(async () => { server = await startServer({ SWEEP_EVERY_MS: "200" }); });

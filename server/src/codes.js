@@ -38,14 +38,14 @@ const perHour = () => {
 };
 
 /** The owner's code for this kind: their live one if they have it, else a new one.
- *  Returns { code, expiresAt, reused }, or null when the owner has asked for too many new ones. */
+ *  Returns { code, expiresAt }, or null when the owner has asked for too many new ones. */
 export function issueCode(kind, ownerId) {
   const { table, owner } = KINDS[kind];
   const now = Date.now();
   const live = db.prepare(
     `SELECT code, expires_at AS expiresAt FROM ${table} WHERE ${owner} = ? AND used_at IS NULL AND expires_at > ? ORDER BY expires_at DESC LIMIT 1`
   ).get(ownerId, now);
-  if (live) return { code: live.code, expiresAt: live.expiresAt, reused: true };
+  if (live) return { code: live.code, expiresAt: live.expiresAt };
 
   if (!consume({ name: `new-${kind}-code`, key: ownerId, max: perHour(), windowMs: 60 * 60 * 1000 })) return null;
 
@@ -54,7 +54,7 @@ export function issueCode(kind, ownerId) {
     const code = randomCode();
     try {
       insert.run(crypto.randomUUID(), ownerId, code, now + CODE_TTL_MS, now);
-      return { code, expiresAt: now + CODE_TTL_MS, reused: false };
+      return { code, expiresAt: now + CODE_TTL_MS };
     } catch (e) {
       if (!isUniqueViolation(e)) throw e;   // a clash with someone else's code: pick another
     }
