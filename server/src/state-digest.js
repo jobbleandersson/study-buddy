@@ -13,7 +13,7 @@
 import { db } from "./db.js";
 
 /** Bump when the shape below changes: older rows are then rebuilt from their state on next read. */
-export const DIGEST_VERSION = 2;
+export const DIGEST_VERSION = 3;
 
 // A profile picture (js/components/avatar-editor.js) travels inside each person's synced state. That
 // blob is whatever the client PUT, so before a picture goes out to a friend it is checked against the
@@ -45,37 +45,71 @@ export function maskEmail(email) {
 }
 
 const arr = (x) => (Array.isArray(x) ? x : []);
-const strings = (x) => arr(x).filter((d) => typeof d === "string");
+
+// The state is whatever the client sent, and these summaries are read on every leaderboard and class
+// view, so each part is cut down to what a person could really have done. (Without the cuts, one friend
+// whose state listed 700,000 study days made every friend's leaderboard cost 650 ms of CPU and show a
+// 375,027-day streak, and one attempt with 3,000,000 empty items claimed 3,000,000 answers.)
+const DAY_MS = 86_400_000;
+const MAX_ATTEMPTS = 5_000;          // the most recent attempts read
+const MAX_ITEMS_PER_ATTEMPT = 500;   // answers counted per attempt (a full Högskoleprov half is 80)
+const MAX_ANSWERS_PER_DAY = 1_000;   // answers counted per UTC day, however many attempts claim them
+const MAX_ATTEMPT_DAYS = 400;        // days of answer counts kept
+const MAX_ANSWERS = 20_000;          // distinct question ids kept (the whole library is under 5,000)
+const MAX_ID_CHARS = 80;
+const MAX_DAYS = 1_500;              // study days kept: over four years
+const DAY_RE = /^\d{4}-\d{2}-\d{2}$/;
+
+/** Real "YYYY-MM-DD" strings only, no later than the day after tomorrow in UTC (a student far east of
+ *  Sweden may already be on tomorrow), without repeats, the most recent MAX_DAYS of them. */
+function dayList(x) {
+  const limit = new Date(Date.now() + 2 * DAY_MS).toISOString().slice(0, 10);
+  const seen = new Set();
+  for (const d of arr(x)) {
+    if (typeof d === "string" && DAY_RE.test(d) && d <= limit) seen.add(d);
+    if (seen.size > MAX_DAYS * 4) break;   // a flood of days: stop collecting, the newest are kept below
+  }
+  return [...seen].sort().slice(-MAX_DAYS);
+}
 
 /**
  * The summary of one state (null or anything unreadable summarises as nothing done).
- *   attempts: [[finishedAt, answersGiven], ...]   for "questions answered this week"
- *   days, frozen: the study days and streak-freeze days, as the state wrote them
+ *   attempts: [[dayStartMs, answersGiven], ...]   for "questions answered this week", one entry per UTC day
+ *   days, frozen: the study days and streak-freeze days, valid dates only, most recent MAX_DAYS
  *   answers: { questionId: [at, 1|0] }            how each question was last answered (1 = first try right)
  */
 export function digestOf(blob) {
   const state = blob && typeof blob === "object" ? blob : null;
-  const attempts = [];
+  const perDay = new Map();   // UTC day start (ms) -> answers given that day
   const latest = new Map();   // a Map while building: a question id like "__proto__" must stay data
-  for (const attempt of arr(state?.attempts)) {
+  const latestAt = Date.now() + 2 * DAY_MS;   // an attempt dated further ahead than that did not happen yet
+  for (const attempt of arr(state?.attempts).slice(-MAX_ATTEMPTS)) {
     const at = Number(attempt?.finishedAt) || 0;
+    if (at > latestAt) continue;
     const items = arr(attempt?.items);
-    attempts.push([at, items.length]);
-    for (const item of items) {
+    const n = Math.min(items.length, MAX_ITEMS_PER_ATTEMPT);
+    const day = at > 0 ? Math.floor(at / DAY_MS) * DAY_MS : 0;
+    perDay.set(day, (perDay.get(day) || 0) + n);
+    for (let i = 0; i < n; i++) {
+      const item = items[i];
       const id = item?.questionId;
-      if (typeof id !== "string") continue;
+      if (typeof id !== "string" || id.length > MAX_ID_CHARS) continue;
       const ok = item.firstTry ?? !!item.correct;
       const prev = latest.get(id);
-      if (!prev || at >= prev[0]) latest.set(id, [at, ok ? 1 : 0]);
+      if (prev) { if (at >= prev[0]) latest.set(id, [at, ok ? 1 : 0]); }
+      else if (latest.size < MAX_ANSWERS) latest.set(id, [at, ok ? 1 : 0]);
     }
   }
+  // One entry per day with a ceiling on it, so no state can claim more answers than a person gives.
+  const attempts = [...perDay].sort((a, b) => a[0] - b[0]).slice(-MAX_ATTEMPT_DAYS)
+    .map(([day, count]) => [day, Math.min(count, MAX_ANSWERS_PER_DAY)]);
   return {
     v: DIGEST_VERSION,
     avatar: avatarFrom(state),
     name: nameFrom(state),
     attempts,
-    days: strings(state?.activity?.daysStudied),
-    frozen: strings(state?.activity?.frozenDays),
+    days: dayList(state?.activity?.daysStudied),
+    frozen: dayList(state?.activity?.frozenDays),
     answers: Object.fromEntries(latest),
   };
 }
@@ -100,6 +134,38 @@ export function readDigest(userId) {
   // Only if the state hasn't moved on meanwhile (a save carries its own summary).
   saveStmt.run(JSON.stringify(digest), userId, row.version);
   return digest;
+}
+
+/** Rebuild the stored summary of ONE state whose summary is missing, unreadable or from an older version:
+ *  the next one after `after` in user-id order. Returns that user's id, or null when none is left, so
+ *  a caller can walk the table once (a row that cannot be brought up to date is not asked for twice).
+ *  `database` is a parameter so it can be tried on a throw-away database. */
+export function backfillDigest(database = db, after = "") {
+  const row = database.prepare(`
+    SELECT user_id AS userId, version, blob FROM state_blobs
+    WHERE user_id > ? AND CASE WHEN digest IS NULL THEN 1 WHEN NOT json_valid(digest) THEN 1
+                               ELSE json_extract(digest, '$.v') IS NOT ? END
+    ORDER BY user_id LIMIT 1`).get(after, DIGEST_VERSION);
+  if (!row) return null;
+  let blob = null;
+  try { blob = JSON.parse(row.blob); } catch { /* unreadable: nothing done */ }
+  // Only if the state hasn't moved on meanwhile (a save carries its own summary).
+  database.prepare("UPDATE state_blobs SET digest = ? WHERE user_id = ? AND version = ?")
+    .run(JSON.stringify(digestOf(blob)), row.userId, row.version);
+  return row.userId;
+}
+
+/** After a deploy that changes the summary's shape every stored one is out of date, and rebuilding each on
+ *  the first request that reads it would parse up to 10 MB per student inside that request. Instead one
+ *  state is rebuilt every `everyMs`, starting a few seconds after the server is up. */
+export function startDigestBackfill({ everyMs = 250, startMs = Number(process.env.DIGEST_BACKFILL_START_MS) || 5000 } = {}) {
+  let after = "";
+  const tick = () => {
+    let next = null;
+    try { next = backfillDigest(db, after); } catch (e) { console.warn("[state-digest] backfill stopped:", e.message); }
+    if (next) { after = next; setTimeout(tick, everyMs).unref?.(); }
+  };
+  setTimeout(tick, startMs).unref?.();
 }
 
 const emailStmt = db.prepare("SELECT email FROM users WHERE id = ?");

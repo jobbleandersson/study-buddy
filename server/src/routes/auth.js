@@ -10,10 +10,12 @@ import {
   resendVerificationLimit, forgotPasswordLimits, verifyEmailIpLimit, resetPasswordIpLimit,
   twoFaVerifyLimits, twoFaPasswordLimit, setPasswordLimit, twoFaEmail, twoFaResendIpLimit, DAY_MS,
 } from "../middleware/authLimits.js";
-import { consume } from "../middleware/attemptLimit.js";
+import { consume, TOO_MANY_MESSAGE } from "../middleware/attemptLimit.js";
 import { isUniqueViolation } from "../errors.js";
 import { requireAuth } from "../middleware/requireAuth.js";
+import { mayMail } from "../mailLimits.js";
 import { emailEnabled, sendVerifyEmail, sendResetEmail, sendTwoFaEnabledEmail, sendTwoFaDisabledEmail, sendPasswordAddedEmail, sendTwoFaCodeEmail, sendWelcomeEmail } from "../email.js";
+import { hashPassword, comparePassword, answerIfBusy } from "../passwordHash.js";
 import { generateSecret, verifyTotp, otpauthUri } from "../totp.js";
 
 export const auth = Router();
@@ -187,7 +189,7 @@ auth.post("/auth/signup", signupHourly, signupDaily, asyncHandler(async (req, re
   if (db.prepare("SELECT id FROM users WHERE email = ?").get(email)) return emailTaken(res);
 
   const id = crypto.randomUUID();
-  const hash = await bcrypt.hash(password, 10);
+  const hash = await hashPassword(password);
   try {
     const now = Date.now();
     db.prepare("INSERT INTO users (id, email, password_hash, created_at, consent_at, terms_version, email_verify_required, password_set_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)")
@@ -201,7 +203,9 @@ auth.post("/auth/signup", signupHourly, signupDaily, asyncHandler(async (req, re
 
   createSession(res, id);
   let emailVerified = false;
-  if (emailEnabled()) sendVerifyEmail(email, issueVerifyToken(id));   // best-effort — see email.js
+  // Best-effort — see email.js. Past the per-address or per-requester allowance (mailLimits.js) no mail is
+  // sent, but the account exists and "send the link again" in Settings is there.
+  if (emailEnabled()) { if (mayMail("verify", email, req)) sendVerifyEmail(email, issueVerifyToken(id)); }
   else emailVerified = true;   // nothing to verify against when the feature is off; see routes/health.js
   res.json({ email, emailVerified });
 }));
@@ -213,7 +217,7 @@ auth.post("/auth/login", ...loginFailures, asyncHandler(async (req, res) => {
   const user = db.prepare(
     "SELECT id, password_hash, email_verified_at AS emailVerifiedAt, totp_enabled_at AS totpEnabledAt, twofa_method AS twofaMethod FROM users WHERE email = ?"
   ).get(email);
-  const ok = await bcrypt.compare(password, user ? user.password_hash : DUMMY_HASH);
+  const ok = await comparePassword(password, user ? user.password_hash : DUMMY_HASH);
   if (!user || !ok) {
     return res.status(401).json({ error: { message: "Wrong email or password." } });
   }
@@ -370,7 +374,7 @@ auth.post("/auth/google", googleSignInLimit, asyncHandler(async (req, res) => {
       // A random hash nobody knows: this account signs in with Google only. password_set_at stays
       // NULL below for a brand-new account (omitted from the INSERT) — passwordless from birth,
       // same as the unusable hash right here.
-      const unusableHash = await bcrypt.hash(crypto.randomBytes(32).toString("hex"), 10);
+      const unusableHash = await hashPassword(crypto.randomBytes(32).toString("hex"));
       try {
         // Either way the email is Google-verified right now — there's nothing for our own
         // verify-email flow to add, so it's marked confirmed immediately.
@@ -418,6 +422,7 @@ auth.post("/auth/google", googleSignInLimit, asyncHandler(async (req, res) => {
     if (created) sendWelcomeEmail(user.email).catch(() => {});
     res.json({ email: user.email, created, linked, emailVerified: true });
   } catch (e) {
+    if (answerIfBusy(e, res)) return;   // the password-hashing pool is full
     console.error("[study-buddy-server] /auth/google failed:", e);
     if (!res.headersSent) res.status(500).json({ error: { message: "Something went wrong." } });
   }
@@ -458,6 +463,9 @@ auth.post("/auth/verify-email/resend", requireAuth, resendVerificationLimit, asy
   if (user.emailVerifiedAt) return res.status(400).json({ error: { message: "That email is already verified.", code: "already_verified" } });
   // sendEmail never throws, it answers false - and "sent" is exactly what this button promises,
   // so a provider that refused the message has to show up as an error, not a quiet ok.
+  if (!mayMail("verify", user.email, req)) {
+    return res.status(429).set("Retry-After", "3600").json({ error: { message: TOO_MANY_MESSAGE, code: "too_many_mails" } });
+  }
   const sent = await sendVerifyEmail(user.email, issueVerifyToken(req.user.userId));
   if (!sent) return res.status(502).json({ error: { message: "Couldn't send the email. Try again shortly.", code: "email_send_failed" } });
   res.json({ ok: true });
@@ -508,7 +516,8 @@ auth.post("/auth/forgot-password", ...forgotPasswordLimits, asyncHandler(async (
     if (user && user.passwordSetAt) {
       const recent = db.prepare("SELECT 1 AS x FROM password_reset_tokens WHERE user_id = ? AND created_at > ?")
         .get(user.id, Date.now() - RESET_COOLDOWN_MS);
-      if (!recent) sendResetEmail(email, issueResetToken(user.id)).catch(() => {});
+      // Past the allowance nothing is sent and the reply is the same, so this reveals nothing about the address.
+      if (!recent && mayMail("reset", email, req)) sendResetEmail(email, issueResetToken(user.id)).catch(() => {});
     }
   }
   res.json({ ok: true });
@@ -525,7 +534,7 @@ auth.post("/auth/reset-password", resetPasswordIpLimit, asyncHandler(async (req,
     .get(token, Date.now());
   if (!row) return badToken(res);
 
-  const hash = await bcrypt.hash(password, 10);
+  const hash = await hashPassword(password);
   const now = Date.now();
   const user = db.transaction(() => {
     // Claim the link before anything else: the SELECT above and this write are separated by a bcrypt
@@ -591,7 +600,7 @@ auth.post("/auth/2fa/setup", requireAuth, twoFaPasswordLimit, asyncHandler(async
 
   if (!emailEnabled()) return res.status(501).json({ error: { message: "Email isn't set up on this server.", code: "email_not_configured" } });
   const password = String(req.body?.password || "").slice(0, 200);
-  if (!(await bcrypt.compare(password, user.password_hash))) return wrongPasswordRes(res);
+  if (!(await comparePassword(password, user.password_hash))) return wrongPasswordRes(res);
 
   const now = Date.now();
   const cooldownMs = twoFaEmail.cooldownSec * 1000;
@@ -645,7 +654,7 @@ auth.post("/auth/2fa/confirm", requireAuth, twoFaPasswordLimit, asyncHandler(asy
   const password = String(req.body?.password || "").slice(0, 200);
   const secret = String(req.body?.secret || "");
   if (!secret || !code) return badCodeRes(res);
-  if (!(await bcrypt.compare(password, user.password_hash))) return wrongPasswordRes(res);
+  if (!(await comparePassword(password, user.password_hash))) return wrongPasswordRes(res);
   const totp = verifyTotp(secret, code, { afterCounter: 0 });
   if (!totp.ok) return badCodeRes(res);
 
@@ -658,7 +667,7 @@ auth.post("/auth/2fa/confirm", requireAuth, twoFaPasswordLimit, asyncHandler(asy
 auth.post("/auth/2fa/disable", requireAuth, twoFaPasswordLimit, asyncHandler(async (req, res) => {
   const password = String(req.body?.password || "").slice(0, 200);
   const user = db.prepare("SELECT password_hash FROM users WHERE id = ?").get(req.user.userId);
-  if (!user || !(await bcrypt.compare(password, user.password_hash))) return wrongPasswordRes(res);
+  if (!user || !(await comparePassword(password, user.password_hash))) return wrongPasswordRes(res);
   const sid = req.cookies?.[COOKIE_NAME];
   db.transaction(() => {
     clearTwoFa(req.user.userId);
@@ -718,7 +727,7 @@ auth.post("/auth/set-password", requireAuth, setPasswordLimit, asyncHandler(asyn
     return res.status(403).json({ error: { message: "That Google account doesn't match this one.", code: "google_sub_mismatch" } });
   }
 
-  const hash = await bcrypt.hash(password, 10);
+  const hash = await hashPassword(password);
   const now = Date.now();
   db.prepare("UPDATE users SET password_hash = ?, password_set_at = ? WHERE id = ?").run(hash, now, req.user.userId);
   sendPasswordAddedEmail(req.user.email).catch(() => {});

@@ -3,27 +3,17 @@ import crypto from "node:crypto";
 import { db } from "../db.js";
 import { requireAuth } from "../middleware/requireAuth.js";
 import { codeGuessLimits } from "../middleware/authLimits.js";
+import { TOO_MANY_MESSAGE } from "../middleware/attemptLimit.js";
+import { issueCode } from "../codes.js";
 
 export const links = Router();
 
-const CODE_TTL_MS = 30 * 60 * 1000; // 30 minutes
-
-function randomCode() {
-  // Short, human-typeable: 6 uppercase alphanumerics, ambiguous chars dropped.
-  const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  let out = "";
-  for (let i = 0; i < 6; i++) out += alphabet[crypto.randomInt(alphabet.length)];
-  return out;
-}
-
-// A student generates a short-lived code for a parent/teacher to redeem.
+// A student generates a short-lived code for a parent/teacher to redeem. While one is still unused and
+// valid it is given out again rather than a new row written (see codes.js).
 links.post("/links/invite-code", requireAuth, (req, res) => {
-  const id = crypto.randomUUID();
-  const code = randomCode();
-  const now = Date.now();
-  db.prepare("INSERT INTO invite_codes (id, student_user_id, code, expires_at, created_at) VALUES (?, ?, ?, ?, ?)")
-    .run(id, req.user.userId, code, now + CODE_TTL_MS, now);
-  res.json({ code, expiresAt: now + CODE_TTL_MS });
+  const issued = issueCode("invite", req.user.userId);
+  if (!issued) return res.status(429).set("Retry-After", "600").json({ error: { message: TOO_MANY_MESSAGE, code: "too_many_codes" } });
+  res.json({ code: issued.code, expiresAt: issued.expiresAt });
 });
 
 // A parent/teacher redeems a student's code to create the link.

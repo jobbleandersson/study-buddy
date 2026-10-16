@@ -3,31 +3,22 @@ import crypto from "node:crypto";
 import { db } from "../db.js";
 import { requireAuth } from "../middleware/requireAuth.js";
 import { codeGuessLimits } from "../middleware/authLimits.js";
+import { TOO_MANY_MESSAGE } from "../middleware/attemptLimit.js";
+import { issueCode } from "../codes.js";
 import { readDigest, displayNames } from "../state-digest.js";
 
 export const friends = Router();
-
-const CODE_TTL_MS = 30 * 60 * 1000; // 30 minutes
-
-function randomCode() {
-  // Short, human-typeable: 6 uppercase alphanumerics, ambiguous chars dropped.
-  const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  let out = "";
-  for (let i = 0; i < 6; i++) out += alphabet[crypto.randomInt(alphabet.length)];
-  return out;
-}
 
 // Canonical, order-independent pair — the smaller id is always stored first,
 // so a friendship is one row regardless of which side queries it.
 function pair(a, b) { return a < b ? [a, b] : [b, a]; }
 
+// A friend code is short-lived; while one is still unused and valid it is given out again rather than a new
+// row written (see codes.js).
 friends.post("/friends/invite-code", requireAuth, (req, res) => {
-  const id = crypto.randomUUID();
-  const code = randomCode();
-  const now = Date.now();
-  db.prepare("INSERT INTO friend_codes (id, user_id, code, expires_at, created_at) VALUES (?, ?, ?, ?, ?)")
-    .run(id, req.user.userId, code, now + CODE_TTL_MS, now);
-  res.json({ code, expiresAt: now + CODE_TTL_MS });
+  const issued = issueCode("friend", req.user.userId);
+  if (!issued) return res.status(429).set("Retry-After", "600").json({ error: { message: TOO_MANY_MESSAGE, code: "too_many_codes" } });
+  res.json({ code: issued.code, expiresAt: issued.expiresAt });
 });
 
 friends.post("/friends/redeem", requireAuth, ...codeGuessLimits, (req, res) => {
@@ -90,7 +81,7 @@ friends.get("/friends/leaderboard", requireAuth, (req, res) => {
   const entries = userIds.map((userId) => {
     const digest = digests.get(userId);
     const questionsThisWeek = (digest?.attempts || [])
-      .filter(([at]) => at >= weekStart)
+      .filter(([at]) => at >= weekStart && at < weekStart + 7 * 86_400_000)
       .reduce((n, [, answered]) => n + answered, 0);
     return {
       userId,

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 182" role="img" aria-label="Tabell över kollektivtrafik i fyra städer 2025: invånare, resor per invånare och andel resor med buss.">
+  <style>
+    .ax{stroke:#6b7280;stroke-width:1;fill:none}
+    .grid{stroke:#c9ced8;stroke-width:1;stroke-dasharray:2 3}
+    .lab{fill:#6b7280;font:9px system-ui,sans-serif}
+    .val{fill:#3f4756;font:8px system-ui,sans-serif;text-anchor:middle}
+    .title{fill:#3f4756;font:bold 10px system-ui,sans-serif}
+    .g{stroke:#c9ced8;stroke-width:1}
+    .h{fill:#3f4756;font:bold 10px system-ui,sans-serif}
+    .c{fill:#3f4756;font:10px system-ui,sans-serif}
+    .n{fill:#6b7280;font:8.5px system-ui,sans-serif}
+    .r{text-anchor:end}
+    .s1{fill:#8aa0c8}.s2{fill:#e0a060}
+    .l1{stroke:#5b78b8;stroke-width:2;fill:none}.l2{stroke:#d08840;stroke-width:2;fill:none}
+    .d1{fill:#5b78b8}.d2{fill:#d08840}
+    .p1{fill:#6e93f6}.p2{fill:#e0a060}.p3{fill:#57b894}.p4{fill:#e5c453}.p5{fill:#a3a9b7}
+    .slice{stroke:#ffffff;stroke-width:1.5}
+    @media (prefers-color-scheme:dark){
+      .ax{stroke:#9aa3b4}.grid,.g{stroke:#3a4150}
+      .lab,.n{fill:#9aa3b4}.val,.title,.h,.c{fill:#c3c9d6}
+      .s1{fill:#6e93f6}.s2{fill:#e8a86a}
+      .l1{stroke:#7fa0ff}.l2{stroke:#f0a860}.d1{fill:#7fa0ff}.d2{fill:#f0a860}
+      .slice{stroke:#141821}
+    }
+  </style>
+  <text class="title" x="12" y="16">Kollektivtrafik i fyra städer, 2025</text>
+  <line class="g" x1="12" y1="26" x2="328" y2="26"/>
+  <text class="h" x="16" y="44">Stad</text>
+  <text class="h r" x="150" y="44">Invånare</text>
+  <text class="h r" x="240" y="44">Resor per inv.</text>
+  <text class="h r" x="326" y="44">Med buss (%)</text>
+  <line class="g" x1="12" y1="52" x2="328" y2="52"/>
+  <text class="c" x="16" y="70">Ås</text><text class="c r" x="150" y="70">80 000</text><text class="c r" x="240" y="70">110</text><text class="c r" x="326" y="70">60</text>
+  <text class="c" x="16" y="90">Bro</text><text class="c r" x="150" y="90">150 000</text><text class="c r" x="240" y="90">90</text><text class="c r" x="326" y="90">45</text>
+  <text class="c" x="16" y="110">Kil</text><text class="c r" x="150" y="110">40 000</text><text class="c r" x="240" y="110">150</text><text class="c r" x="326" y="110">70</text>
+  <text class="c" x="16" y="130">Ljung</text><text class="c r" x="150" y="130">120 000</text><text class="c r" x="240" y="130">70</text><text class="c r" x="326" y="130">80</text>
+  <line class="g" x1="12" y1="140" x2="328" y2="140"/>
+  <text class="n" x="12" y="158">Resor per inv.: genomsnittligt antal resor per invånare under året.</text>
+  <text class="n" x="12" y="172">Med buss: andel av stadens kollektivtrafikresor som gjordes med buss.</text>
+</svg>

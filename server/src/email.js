@@ -16,24 +16,29 @@ export function emailEnabled() {
 
 // Resend's free tier is 100 emails/day, and sign-in codes now ride on it: if unauthenticated
 // routes (forgot-password, signup verification) could burn the whole day's quota, every account
-// with email 2FA would be locked out of signing in. So the quota is tiered: `low` mail (signup
-// verification, the contact form — anyone can trigger them in bulk) stops at 40% of the daily
-// budget, ordinary mail (password resets) at 60%, and only `critical` mail (sign-in codes) may use
-// the rest. In-memory, per process, resets at UTC midnight and on restart — like every limiter
-// here. EMAIL_DAILY_BUDGET=0 switches it off.
+// with email 2FA would be locked out of signing in. So the quota is split by kind, and each kind
+// has its own share, so a flood of one cannot starve another: `low` mail (signup verification, the
+// contact form, the welcome mail — anyone can trigger them in bulk) may use 30% of the daily budget,
+// ordinary mail (password resets) 35%, and `critical` mail (sign-in codes) may use whatever is left
+// of the whole budget, at least 35%. (They used to share one counter, so 40 verification mails left
+// room for only 20 resets.) In-memory, per process, resets at UTC midnight and on restart — like
+// every limiter here. EMAIL_DAILY_BUDGET=0 switches it off. mailLimits.js limits who can be mailed.
 const DAILY_BUDGET = (() => {
   const n = Number(process.env.EMAIL_DAILY_BUDGET);
   return Number.isFinite(n) && n >= 0 && process.env.EMAIL_DAILY_BUDGET?.trim() ? n : 100;
 })();
 let budgetDay = "";
-let budgetUsed = 0;
+const used = { low: 0, ordinary: 0, critical: 0 };
+const SHARE = { low: 0.3, ordinary: 0.35 };   // of the daily budget; critical has no share of its own
 function takeBudget(critical, low) {
   if (!(DAILY_BUDGET > 0)) return true;
   const day = new Date().toISOString().slice(0, 10);
-  if (day !== budgetDay) { budgetDay = day; budgetUsed = 0; }
-  const ceiling = critical ? DAILY_BUDGET : Math.floor(DAILY_BUDGET * (low ? 0.4 : 0.6));
-  if (budgetUsed >= ceiling) { console.warn("[email] daily budget reached", { critical, budgetUsed }); return false; }
-  budgetUsed++;
+  if (day !== budgetDay) { budgetDay = day; used.low = used.ordinary = used.critical = 0; }
+  const kind = critical ? "critical" : low ? "low" : "ordinary";
+  const total = used.low + used.ordinary + used.critical;
+  const full = total >= DAILY_BUDGET || (kind !== "critical" && used[kind] >= Math.floor(DAILY_BUDGET * SHARE[kind]));
+  if (full) { console.warn("[email] daily budget reached", { kind, used: { ...used } }); return false; }
+  used[kind]++;
   return true;
 }
 

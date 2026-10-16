@@ -55,7 +55,7 @@ export const contactAllDaily = num("CONTACT_PER_DAY", 30);
 // class signing in with Google from one school network makes dozens of perfectly good calls a
 // minute, and a flat per-IP cap would lock the last ones out. Garbage floods still stop at the cap.
 export const googleSignInLimit = attemptLimit({
-  name: "google-signin", max: num("GOOGLE_SIGNIN_FAILS_PER_MIN_PER_IP", 30), windowMs: MIN, failureStatuses: [401, 403],
+  name: "google-signin", max: num("GOOGLE_SIGNIN_FAILS_PER_MIN_PER_IP", 30), windowMs: MIN, failureStatuses: [401, 403], reserve: false,
 });
 
 // Verification and password-reset. All three are reachable without an existing session (reset and
