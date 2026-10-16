@@ -1365,10 +1365,12 @@ store.init().then(() => {
   // Saving to the account is not going through (no signal, a restart, a session that ended, a state over
   // the size limit): the changes are safe on this device, and the student is told instead of left to assume.
   let failTimer = null;
+  let syncBanner = false;   // the one banner is shared with 'save failed' and 'conflict': only hide what this showed
   store.addEventListener("syncFailed", (e) => {
     const kind = e.detail?.kind;
     clearTimeout(failTimer);
     const show = () => {
+      syncBanner = true;
       if (kind === "toolarge") {
         showBanner(t("sync.tooLargeBanner"), {
           actionLabel: t("save.emergencyExport"), closeLabel: t("common.close"),
@@ -1383,12 +1385,13 @@ store.init().then(() => {
     // A dropped signal is common and mends itself: only say something if it lasts.
     if (kind === "toolarge") show(); else failTimer = setTimeout(() => { if (store.syncFailing) show(); }, 8000);
   });
-  store.addEventListener("syncRecovered", () => { clearTimeout(failTimer); hideBanner(); });
+  store.addEventListener("syncRecovered", () => { clearTimeout(failTimer); if (syncBanner) { syncBanner = false; hideBanner(); } });
   store.addEventListener("sessionEnded", () => {
     clearTimeout(failTimer);
+    syncBanner = true;
     showBanner(t("sync.signedOutBanner"), {
       actionLabel: t("login.signIn"), closeLabel: t("common.close"),
-      onAction: () => { location.hash = "#/login"; hideBanner(); },
+      onAction: () => { location.hash = "#/login"; syncBanner = false; hideBanner(); },
     });
   });
   store.addEventListener("streakFreezeUsed", (e) => {

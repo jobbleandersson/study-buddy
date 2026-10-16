@@ -67,6 +67,8 @@ const SYNC_DISCARD_KEY = "studybuddy.v1.syncdiscard";
 // Set while this device has changes the server hasn't accepted yet, so a reload knows whether its
 // copy can simply take the server's newer one or has to be merged into it.
 const SYNC_DIRTY_KEY = "studybuddy.v1.syncdirty";
+// Whose session ended on this device while it held unsaved changes (see _sessionEnded).
+const SESSION_LOST_KEY = "studybuddy.v1.sessionLostFor";
 
 // Changes that hadn't reached the server when their account signed out here: { [email]: { at, blob } }.
 // The device is cleared for the next person either way; these are merged back in the next time that
@@ -693,6 +695,9 @@ class Store extends EventTarget {
     const email = this.authEmail;
     clearTimeout(this._retryTimer);
     this._syncFailing = null;
+    // The changes stay here, but this device now belongs to whoever signs in next: remember whose they are,
+    // so that a different person signing in does not get them merged into their account (_pullOnLogin).
+    try { if (email) localStorage.setItem(SESSION_LOST_KEY, String(email).toLowerCase()); } catch {}
     this.authed = false;
     this.authEmail = null;
     this.dispatchEvent(new CustomEvent("sessionEnded", { detail: { email } }));
@@ -2182,6 +2187,15 @@ class Store extends EventTarget {
   }
 
   async _pullOnLogin() {
+    // A session that ended on this device left its owner's unsaved changes here. If a DIFFERENT person is
+    // signing in now, those changes are not theirs: set them aside under the owner's address (merged back
+    // when the owner signs in here again) and start from an empty device. The same person: merged as usual.
+    let lostFor = null;
+    try { lostFor = localStorage.getItem(SESSION_LOST_KEY); localStorage.removeItem(SESSION_LOST_KEY); } catch {}
+    if (lostFor && lostFor !== String(this.authEmail || "").toLowerCase()) {
+      this._putUnsynced(lostFor, this.state);
+      this._clearDevice();
+    }
     let res;
     try { res = await fetch(STATE_URL, { credentials: "include" }); }
     catch { return; } // offline — keep local state, next save() will retry the push once reachable
@@ -2238,7 +2252,7 @@ class Store extends EventTarget {
         method: "PUT", credentials: "include",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ version: this._syncVersion, blob: this.state }),
-        signal: withTimeout(45000),
+        signal: withTimeout(120000),   // a 10 MB state on a slow phone connection takes a while
       });
     } catch { this._pushFailed("offline"); return; } // offline/unreachable: retried on reconnect and on a timer
 
