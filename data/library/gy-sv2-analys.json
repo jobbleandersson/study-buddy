@@ -34,8 +34,8 @@
       "prompt": "Vad är skillnaden mellan ett motiv och en symbol i en litterär text?",
       "opener": "Ett handlar om vad som återkommer, det andra om vad något betyder utöver sig själv.",
       "choices": [
-        "Motiv är alltid konkreta föremål, symboler är alltid abstrakta känslor",
-        "Ett motiv är ett konkret element som återkommer i texten, medan en symbol står för något mer än sig själv",
+        "Motiv är alltid konkreta föremål, medan symboler alltid är abstrakta känslor utan koppling till texten",
+        "Ett motiv är ett konkret element som återkommer, medan en symbol står för något mer än sig själv",
         "Det finns ingen skillnad — orden är synonyma",
         "Symbol handlar om berättarperspektiv, motiv om komposition"
       ],
@@ -65,7 +65,7 @@
       "opener": "Tänk Tusen och en natt — en berättelse föder en annan.",
       "choices": [
         "En huvudhandling omger en eller flera inre berättelser",
-        "Handlingen berättas i strikt kronologisk ordning",
+        "Handlingen berättas i strikt kronologisk ordning från början till slut",
         "Berättelsen saknar en tydlig avslutning",
         "Läsaren möter flera jagberättare samtidigt"
       ],
@@ -81,7 +81,7 @@
       "choices": [
         "Personifikation",
         "In medias res",
-        "Opålitlig berättare",
+        "Opålitlig berättare, eftersom läsaren anar att berättaren ljuger",
         "Naturen som symbol för känslotillstånd"
       ],
       "answer": 3,
@@ -94,8 +94,8 @@
       "prompt": "En text om ett kaotiskt krig skrivs med korta, huggande meningar och plötsliga perspektivbyten. Vad är sambandet mellan form och innehåll här?",
       "opener": "Fråga dig varför författaren valt just den här stilen.",
       "choices": [
-        "Formen är slumpmässig och saknar koppling till innehållet",
-        "Den splittrade formen förstärker upplevelsen av kaos och oro som innehållet skildrar",
+        "Formen är slumpmässig och saknar helt koppling till innehållet eller författarens avsikt",
+        "Den splittrade formen förstärker upplevelsen av kaos som innehållet skildrar",
         "Formen visar att berättaren är allvetande",
         "Korta meningar betyder alltid att texten är en dikt"
       ],
@@ -176,10 +176,10 @@
       "prompt": "En dikt om ett stormigt hav skrivs med långa, svepande rader utan tydlig interpunktion. Vilket samband finns mellan form och innehåll?",
       "opener": "Fundera på vad den obrutna, flytande texten kan efterlikna.",
       "choices": [
-        "Den flytande, obrutna formen förstärker känslan av havets rörelse och kraft",
+        "Den flytande formen förstärker känslan av havets rörelse och kraft",
         "Formen har ingen koppling alls till innehållet",
         "Formen visar att dikten är skriven i sonettform",
-        "Avsaknaden av interpunktion betyder att dikten saknar mening"
+        "Avsaknaden av interpunktion betyder att dikten saknar mening och är ett misslyckande"
       ],
       "answer": 0,
       "explanation": "De långa, obrutna raderna utan tydlig interpunktion kan efterlikna havets ständiga, svepande rörelse, vilket är ett exempel på hur formen förstärker innehållet. En sonett har i stället en strikt, fast form med 14 rader, vilket inte stämmer med beskrivningen."
@@ -191,9 +191,9 @@
       "prompt": "Vad kännetecknar en personal berättare, till skillnad från en allvetande berättare?",
       "opener": "Tänk på hur mycket berättaren egentligen kan veta.",
       "choices": [
-        "Berättaren är bunden till en enda karaktärs perspektiv och vet bara vad den karaktären vet",
+        "Berättaren är bunden till en karaktärs perspektiv och vet bara vad karaktären vet",
         "Berättaren talar direkt till läsaren i jagform",
-        "Berättaren vet allt om alla karaktärer samtidigt",
+        "Berättaren vet allt om alla karaktärer och kan se in i deras tankar vid varje tidpunkt",
         "Berättaren finns inte i texten över huvud taget"
       ],
       "answer": 0,

@@ -18,8 +18,8 @@
       "prompt": "What is the most important function of a clear structure in a longer expository speech?",
       "opener": "What does the listener need, since they cannot flip back the way a reader can?",
       "choices": [
-        "To make the speech as long as possible",
-        "To help the listener follow along and stay with the reasoning throughout, since one cannot flip back in a spoken speech",
+        "To make the speech as long as possible, so the audience sees that the speaker knows a lot about the subject",
+        "To help the listener follow the reasoning throughout, since one cannot flip back in a spoken speech",
         "To impress the audience with advanced language",
         "To avoid having to prepare in advance"
       ],
@@ -33,8 +33,8 @@
       "prompt": "What is an effective way to help the audience keep up during a longer, complex speech?",
       "opener": "Consider what a good teacher or lecturer does between different parts of an argument.",
       "choices": [
-        "Using clear verbal signal words such as \"firstly\", \"on the other hand\", and short summaries between sections",
-        "Avoiding telling the audience in advance what the speech will be about",
+        "Using clear signal words such as \"firstly\" and \"on the other hand\", plus short summaries",
+        "Avoiding telling the audience in advance what the speech will be about, to keep up the suspense until the end",
         "Speaking as fast as possible to fit in all the content",
         "Never repeating or summarising anything"
       ],
@@ -50,8 +50,8 @@
       "choices": [
         "Evidence automatically makes the speech more entertaining to listen to",
         "Evidence is only required in written texts, not orally",
-        "Evidence strengthens the speech's credibility and shows that the conclusions rest on more than the speaker's personal opinion",
-        "Evidence is optional and does not affect how credible the speech is perceived to be"
+        "Evidence strengthens credibility and shows that the conclusions rest on more than the speaker's opinion",
+        "Evidence is optional and does not affect at all how credible the speech is perceived to be by the audience"
       ],
       "answer": 2,
       "explanation": "Concrete evidence (sources, statistics, examples) shows that the reasoning is built on more than the speaker's personal opinion, which strengthens ethos and makes the conclusions more credible to the audience. Evidence is needed just as much orally as in writing."
@@ -63,8 +63,8 @@
       "prompt": "How should a speaker handle a plausible counterargument in an expository speech?",
       "opener": "What happens to the speaker's credibility if an obvious counterargument is ignored entirely?",
       "choices": [
-        "By avoiding mentioning it entirely, so as not to weaken one's own reasoning",
-        "By clearly raising the counterargument, addressing it objectively, and explaining why one's own conclusion still holds",
+        "By avoiding mentioning it entirely, so as not to weaken one's own reasoning in front of the audience",
+        "By raising the counterargument, addressing it objectively and explaining why the conclusion still holds",
         "By dismissing anyone who might have the counterargument as uninformed",
         "By changing the subject as soon as the counterargument is mentioned"
       ],
@@ -78,10 +78,10 @@
       "prompt": "You are going to give a speech on a technical subject to an audience that is critically minded and has strong prior knowledge. What should you particularly keep in mind?",
       "opener": "A critical, knowledgeable audience is quick to spot gaps in an argument — what is needed to meet that?",
       "choices": [
-        "Simplifying so much that important nuances disappear",
+        "Simplifying the subject so much that important nuances disappear, so that everyone can follow the reasoning",
         "Avoiding source references to appear more confident",
         "Talking only about your own feelings about the topic",
-        "Preparing well-grounded evidence, being ready to address objections directly, and avoiding exaggerations that can easily be questioned"
+        "Having well-grounded evidence, being ready to address objections and avoiding exaggerations"
       ],
       "answer": 3,
       "explanation": "Facing a critical and knowledgeable audience, the speaker should have strongly substantiated evidence, be prepared to meet objections directly, and avoid exaggerations or unfounded claims that are easily seen through. Excessive simplification or a lack of sources undermines credibility with precisely this audience."
@@ -94,8 +94,8 @@
       "opener": "The content in substance should be the same — so what is it that gets adapted?",
       "choices": [
         "The speech's conclusion, which should be reversed depending on the audience",
-        "The degree of technical terminology, the examples used, and how much background is explained, while the underlying conclusion stays the same",
-        "Nothing, since a good speech should always be identical regardless of audience",
+        "Technical terminology, examples and the amount of background explained, while the conclusion stays the same",
+        "Nothing, since a good speech should always be identical regardless of which audience is listening",
         "Only the volume of the voice, everything else should be identical"
       ],
       "answer": 1,
@@ -191,10 +191,10 @@
       "prompt": "What is the difference between addressing a counterargument and simply mentioning that it exists?",
       "opener": "Think about whether the speaker actually explains why their own conclusion still holds.",
       "choices": [
-        "Addressing it means actively explaining why one's own position still holds, not just noting that others think differently",
+        "Addressing it means explaining why one's own position still holds, not just noting the counterargument",
         "There is no difference at all",
         "Addressing it means changing your opinion entirely",
-        "Mentioning a counterargument is always enough to strengthen credibility"
+        "Mentioning counterarguments is always enough to strengthen credibility, even if you don't address them at all"
       ],
       "answer": 0,
       "explanation": "Addressing a counterargument means actively explaining why your own position still holds despite the objection, which is more convincing than simply stating that others think differently without further explanation."
@@ -206,10 +206,10 @@
       "prompt": "Which of the following is a sign of good adaptation to an audience with mixed prior knowledge?",
       "opener": "Think about how to meet both those who already know a lot and those who do not.",
       "choices": [
-        "Briefly explaining key terms the first time they are used, without becoming overly obvious for those who already know them",
+        "Briefly explaining key terms the first time they are used, without becoming overly obvious",
         "Assuming everyone in the audience is already an expert",
         "Never explaining any terms at all",
-        "Only aiming the speech at the least knowledgeable person in the room"
+        "Only aiming the speech at the least knowledgeable person in the room and explaining everything in detail"
       ],
       "answer": 0,
       "explanation": "Briefly explaining key terms the first time they appear makes the speech accessible to those with less prior knowledge, without becoming tediously obvious for those who already understand. Only aiming at the least knowledgeable person, or assuming everyone is an expert, risks losing parts of the audience."
@@ -221,8 +221,8 @@
       "prompt": "What should a speaker do if they notice time is running out partway through a speech?",
       "opener": "Think about which part of the speech is most important for the listener to actually hear.",
       "choices": [
-        "Quickly prioritise reaching a clear summary and conclusion, even if it means cutting the middle section short",
-        "Continue at exactly the same pace and risk never reaching the conclusion",
+        "Prioritise reaching a clear summary and conclusion, even if the middle section is cut short",
+        "Continue at exactly the planned pace and risk never getting as far as the conclusion",
         "End the speech mid-sentence without warning",
         "Start the speech over from the beginning"
       ],

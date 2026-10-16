@@ -35,7 +35,7 @@
       "prompt": "Vad kännetecknar en primärkälla?",
       "opener": "Tänk på hur nära i tid källan står den händelse den handlar om.",
       "choices": [
-        "Att den är skriven av en professionell historiker",
+        "Att den är skriven av en professionell historiker som studerat tiden",
         "Att den finns på ett museum",
         "Att den kommer från den tid eller händelse den handlar om",
         "Att den alltid är helt sanningsenlig"
@@ -65,9 +65,9 @@
       "prompt": "Två tidningar berättar exakt likadant om en händelse, men det visar sig att den ena bara har skrivit av den andra. Vilket källkritiskt problem handlar det om?",
       "opener": "Att två källor säger samma sak stärker bara uppgiften om de är oberoende av varandra.",
       "choices": [
-        "Äkthetsproblem",
+        "Äkthetsproblem, att källan kan vara förfalskad",
         "Tidsproblem",
-        "Tendensproblem",
+        "Tendensproblem, att avsändaren vill påverka läsaren",
         "Beroendeproblem"
       ],
       "answer": 3,
@@ -80,8 +80,8 @@
       "prompt": "Vad menas med historiebruk?",
       "opener": "Ordet handlar om hur historia används i dag, inte om vad som faktiskt hände.",
       "choices": [
-        "Hur historia används i dag, till exempel i museer, filmer, politik, reklam och minnesdagar",
-        "Metoden att datera fynd med kol-14",
+        "Hur historia används i dag, t.ex. i museer, filmer, politik och reklam",
+        "Metoden att datera fynd med kol-14 och andra naturvetenskapliga tekniker",
         "Regler för hur arkiv ska bevara gamla dokument",
         "Läran om hur språk förändras över tid"
       ],
@@ -96,8 +96,8 @@
       "opener": "Tänk på både vad forskarna hittar och vilka frågor varje ny generation ställer.",
       "choices": [
         "Därför att historiker aldrig är överens om något",
-        "Därför att gamla källor slutar gälla efter hundra år",
-        "Därför att nya källor och metoder tillkommer och varje tid ställer nya frågor till det förflutna",
+        "Därför att gamla källor slutar gälla efter hundra år och måste bytas ut mot nyare",
+        "Därför att nya källor och metoder tillkommer och varje tid ställer nya frågor",
         "Därför att skolans läroplan bestämmer vad som hände"
       ],
       "answer": 2,
@@ -135,8 +135,8 @@
       "choices": [
         "Om källan är vinklad",
         "Hur lång tid som gått sedan händelsen",
-        "Om flera källor är oberoende av varandra",
-        "Om källan verkligen är vad den utger sig för att vara, och inte en förfalskning"
+        "Om flera källor är oberoende av varandra och bekräftar samma uppgifter",
+        "Om källan är vad den utger sig för att vara och inte en förfalskning"
       ],
       "answer": 3,
       "explanation": "Äkthetskriteriet prövar om en källa verkligen är det den påstås vara – till exempel ett äkta brev från rätt tid – och inte en förfalskning eller senare efterkonstruktion. Vinkling, tidsavstånd och beroende mellan källor är i stället tendens-, tids- och beroendekriterierna, tre andra källkritiska frågor."
@@ -163,10 +163,10 @@
       "prompt": "Vilket är ett exempel på kommersiellt historiebruk?",
       "opener": "Tänk på när det förflutna används för att sälja något.",
       "choices": [
-        "En historiker som publicerar en vetenskaplig artikel",
+        "En historiker som publicerar en vetenskaplig artikel i en facktidskrift om vikingatiden",
         "Ett arkiv som bevarar gamla dokument",
         "En källkritisk analys i skolan",
-        "Ett företag som använder en historisk person eller epok i sin reklam för att sälja en produkt"
+        "Ett företag som använder en historisk person eller epok i reklam för att sälja"
       ],
       "answer": 3,
       "explanation": "När ett företag använder till exempel en vikingatida bild eller en historisk person i sin marknadsföring för att sälja en vara är det ett exempel på kommersiellt historiebruk. En vetenskaplig artikel, ett arkivs bevarande av dokument och en skolövning i källkritik är i stället exempel på vetenskapligt eller pedagogiskt historiebruk."
@@ -180,8 +180,8 @@
       "choices": [
         "Att historiska fakta ändras varje år",
         "Att gamla källor förstörs automatiskt efter hundra år",
-        "Att historia fortfarande bara handlar om kungar och krig, precis som förr",
-        "Att kvinnors, barns och arbetares historia har fått betydligt mer plats i forskningen på senare tid"
+        "Att historia fortfarande bara handlar om kungar och krig, precis som förr i tiden",
+        "Att kvinnors, barns och arbetares historia fått mer plats i forskningen"
       ],
       "answer": 3,
       "explanation": "Ett tydligt exempel på förändrad historiesyn är att grupper som tidigare fick lite uppmärksamhet, som kvinnor, barn och vanliga arbetare, i dag studeras betydligt mer inom historieforskningen. Källorna i sig förstörs inte automatiskt och forskningen handlar numera om betydligt mer än bara kungar och krig."
@@ -210,8 +210,8 @@
       "choices": [
         "Eftersom källor bara är giltiga i exakt hundra år",
         "Eftersom det inte spelar någon roll alls",
-        "Eftersom äldre källor alltid är mer pålitliga än nyare",
-        "Eftersom minnet kan svikta och uppgifter kan förvrängas ju längre tid som gått"
+        "Eftersom äldre källor alltid är mer pålitliga än nyare och därför ska väljas först",
+        "Eftersom minnet kan svikta och uppgifter förvrängas ju längre tid som gått"
       ],
       "answer": 3,
       "explanation": "Ju längre tid som gått mellan en händelse och när någon skriver ner den, desto större är risken att minnet sviktar, att detaljer glöms bort eller att berättelsen färgas av senare händelser. Det handlar alltså inte om att källor har ett bäst-före-datum eller att äldre alltid skulle vara mer trovärdiga än nyare."
@@ -224,9 +224,9 @@
       "opener": "Tänk på vad som firas en gång om året och varför.",
       "choices": [
         "Genom att förbjuda all historieundervisning",
-        "Genom att bara undervisa om andra länders historia",
+        "Genom att bara undervisa om andra länders historia och aldrig nämna det egna landets förflutna",
         "Genom att radera alla historiska arkiv",
-        "Genom att fira nationaldagar och resa minnesmärken kopplade till viktiga historiska händelser"
+        "Genom att fira nationaldagar och resa minnesmärken över viktiga historiska händelser"
       ],
       "answer": 3,
       "explanation": "Nationaldagar, monument och minnesmärken som knyter an till viktiga historiska händelser är ett vanligt sätt för stater att bruka historien för att stärka en gemensam nationell identitet och känsla av tillhörighet. Att förbjuda historieundervisning, bara undervisa om andra länder eller radera arkiv skulle tvärtom göra det svårare att bygga en sådan identitet."

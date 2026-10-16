@@ -37,7 +37,7 @@
       "choices": [
         "Ett välorganiserat vägnät, en professionell armé och ett gemensamt rättssystem",
         "Att alla erövrade folk automatiskt fick rösträtt i senaten",
-        "Att riket saknade en fast armé och byggde enbart på handelsavtal",
+        "Att riket saknade en fast armé och i stället byggde på handelsavtal med grannfolken",
         "Att grekiska var det enda tillåtna språket i hela riket"
       ],
       "answer": 0,
@@ -51,9 +51,9 @@
       "opener": "Tänk på ett kejserligt beslut om religionsfrihet, och ett senare beslut som gick ännu längre.",
       "choices": [
         "Julius Caesars erövring av Gallien",
-        "Perserkrigen mellan Grekland och Persien",
+        "Perserkrigen mellan Grekland och Persien på 400-talet f.Kr., som stärkte de grekiska stadsstaterna",
         "Digerdöden på 1300-talet",
-        "Milanoediktet 313 och kejsar Theodosius beslut 380 att göra kristendomen till statsreligion"
+        "Milanoediktet 313 och Theodosius beslut 380 att göra kristendomen till statsreligion"
       ],
       "answer": 3,
       "explanation": "Genom Milanoediktet 313 blev kristendomen tillåten i romerska riket, och 380 gjorde kejsar Theodosius den till rikets officiella statsreligion. De andra alternativen hör till helt andra tider och sammanhang i antiken respektive medeltiden."
@@ -66,8 +66,8 @@
       "opener": "Tänk på både yttre hot och inre svagheter i riket.",
       "choices": [
         "Att romarna frivilligt gav bort makten till Egypten",
-        "En kombination av germanska folkvandringar, ekonomisk kris, politisk instabilitet och rikets delning i en västlig och östlig del",
-        "Att kristendomen förbjöds i hela riket",
+        "Folkvandringar, ekonomisk kris, politisk instabilitet och rikets delning",
+        "Att kristendomen förbjöds i hela riket och att de kristna då gjorde uppror mot kejsaren",
         "En enskild stor naturkatastrof i Rom"
       ],
       "answer": 1,
@@ -80,8 +80,8 @@
       "prompt": "Hur var makt och jord fördelade i det feodala samhällssystemet under medeltiden?",
       "opener": "Tänk på en kedja av löften om jord i utbyte mot militär tjänst.",
       "choices": [
-        "Kungen förlänade jord till adeln (länsherrar) mot löfte om militär tjänst, som i sin tur hade vasaller och livegna bönder under sig",
-        "Kungen ägde all jord och styrde direkt över varje enskild bonde utan mellanhänder",
+        "Kungen förlänade jord till adeln mot löfte om militär tjänst, och adeln hade vasaller och livegna under sig",
+        "Kungen ägde all jord och styrde direkt över varje enskild bonde utan mellanhänder, genom sina egna ämbetsmän",
         "All jord ägdes gemensamt av kyrkan och bönderna i lika delar",
         "Handelsmän i städerna styrde över både kungen och adeln"
       ],
@@ -148,8 +148,8 @@
       "prompt": "Vad innebar romanisering av erövrade provinser?",
       "opener": "Tänk på vad som hände med lokala seder när ett område blev en del av det romerska riket.",
       "choices": [
-        "Att lokal kultur, språk och samhällsstruktur gradvis påverkades av romersk förvaltning, lag och levnadssätt",
-        "Att alla erövrade folk tvingades konvertera till kristendomen",
+        "Att lokal kultur och språk gradvis påverkades av romersk förvaltning, lag och levnadssätt",
+        "Att alla erövrade folk tvingades konvertera till kristendomen och överge sina gamla gudar",
         "Att provinserna fick full självständighet från Rom",
         "Att endast handel tilläts mellan Rom och provinserna"
       ],
@@ -163,10 +163,10 @@
       "prompt": "Varför förföljdes kristna i det romerska riket under flera perioder före 313 e.Kr.?",
       "opener": "Tänk på vilken statlig kult de kristna vägrade delta i.",
       "choices": [
-        "Eftersom de vägrade delta i den statliga kejsarkulten, vilket sågs som politiskt illojalt",
+        "Eftersom de vägrade delta i kejsarkulten, vilket sågs som politiskt illojalt",
         "Eftersom kristendomen var förbjuden av judendomen",
         "Eftersom kristna krävde att bli romerska medborgare",
-        "Eftersom kristna vägrade betala skatt av religiösa skäl"
+        "Eftersom kristna vägrade betala skatt till staten av religiösa skäl och uppmanade andra göra detsamma"
       ],
       "answer": 0,
       "explanation": "Kristna vägrade delta i offer till den romerska statens gudar och kejsarkulten, vilket den romerska staten uppfattade som ett hot mot lojaliteten till riket. Detta ledde till periodvisa förföljelser fram till Milanoediktet 313, som gav religionsfrihet."
@@ -178,8 +178,8 @@
       "prompt": "Vilken roll spelade hunnerna i händelserna som ledde fram till västroms fall?",
       "opener": "Tänk på vilka folkgrupper hunnernas framryckning satte i rörelse.",
       "choices": [
-        "Hunnernas framryckning västerut pressade germanska folkgrupper att söka skydd innanför rikets gränser, vilket ökade trycket på Rom",
-        "Hunnerna erövrade och styrde västrom i femtio år",
+        "Hunnerna pressade germanska folk västerut, så att de sökte skydd innanför rikets gränser",
+        "Hunnerna erövrade och styrde hela västrom i femtio år innan riket föll av sig självt i inbördeskrig",
         "Hunnerna var romerska allierade som försvarade gränsen mot goterna",
         "Hunnerna hade ingen koppling till folkvandringarna"
       ],
@@ -193,8 +193,8 @@
       "prompt": "Vad var en typisk skyldighet en livegen bonde hade gentemot sin jordherre?",
       "opener": "Tänk på vad bonden gav i utbyte mot skydd och rätten att bruka jorden.",
       "choices": [
-        "Att arbeta en del av veckan på herrens mark samt lämna en del av sin egen skörd, i utbyte mot skydd och rätt att bruka jorden",
-        "Att betala skatt direkt till kungen utan mellanhänder",
+        "Att arbeta en del av veckan på herrens mark och lämna en del av sin skörd, i utbyte mot skydd",
+        "Att betala skatt direkt till kungen utan mellanhänder och sköta vägunderhållet åt staten i sin by",
         "Att tjänstgöra som riddare i herrens armé",
         "Att fritt kunna lämna godset när som helst"
       ],
@@ -208,8 +208,8 @@
       "prompt": "Vad var ett korståg, i grova drag?",
       "opener": "Tänk på kyrkans roll i att sanktionera militära expeditioner mot heliga platser.",
       "choices": [
-        "En militär expedition sanktionerad av kyrkan, ofta med syfte att erövra eller försvara heliga platser som Jerusalem",
-        "En fredlig pilgrimsfärd utan väpnade styrkor",
+        "En militär expedition sanktionerad av kyrkan, ofta för att erövra eller försvara heliga platser",
+        "En fredlig pilgrimsfärd utan väpnade styrkor till heliga platser i Mellanöstern, ledd av biskopar",
         "Ett handelsavtal mellan påven och muslimska härskare",
         "En kyrklig konferens om teologiska frågor"
       ],
