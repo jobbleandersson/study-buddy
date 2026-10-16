@@ -107,7 +107,7 @@
       "topic": "extreme points",
       "prompt": "Determine and classify the extreme points of $f(x) = x^3 - 3x^2$.",
       "opener": "Differentiate, find the roots of the derivative, and analyse the sign around them.",
-      "answer": "Local max at $(0.0)$ and local min at $(2,-4)$",
+      "answer": "Local max at $(0, 0)$ and local min at $(2,-4)$",
       "steps": [
         "Differentiate: $f'(x) = 3x^2 - 6x = 3x(x-2)$.",
         "Set $f'(x)=0$: $3x(x-2)=0 \\Rightarrow x=0$ or $x=2$.",
