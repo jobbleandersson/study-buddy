@@ -1362,6 +1362,35 @@ store.init().then(() => {
       toast(t("sync.conflict"));
     }
   });
+  // Saving to the account is not going through (no signal, a restart, a session that ended, a state over
+  // the size limit): the changes are safe on this device, and the student is told instead of left to assume.
+  let failTimer = null;
+  store.addEventListener("syncFailed", (e) => {
+    const kind = e.detail?.kind;
+    clearTimeout(failTimer);
+    const show = () => {
+      if (kind === "toolarge") {
+        showBanner(t("sync.tooLargeBanner"), {
+          actionLabel: t("save.emergencyExport"), closeLabel: t("common.close"),
+          onAction: () => {
+            downloadText(`pluggera-backup-${localDayKey()}.json`, store.exportJSON());
+            store.markBackedUp();
+            toast(t("set.backupDownloaded"));
+          },
+        });
+      } else showBanner(t("sync.failedBanner"), { closeLabel: t("common.close") });
+    };
+    // A dropped signal is common and mends itself: only say something if it lasts.
+    if (kind === "toolarge") show(); else failTimer = setTimeout(() => { if (store.syncFailing) show(); }, 8000);
+  });
+  store.addEventListener("syncRecovered", () => { clearTimeout(failTimer); hideBanner(); });
+  store.addEventListener("sessionEnded", () => {
+    clearTimeout(failTimer);
+    showBanner(t("sync.signedOutBanner"), {
+      actionLabel: t("login.signIn"), closeLabel: t("common.close"),
+      onAction: () => { location.hash = "#/login"; hideBanner(); },
+    });
+  });
   store.addEventListener("streakFreezeUsed", (e) => {
     toast(t("streak.freezeUsedToast", { n: e.detail.streak }));
   });

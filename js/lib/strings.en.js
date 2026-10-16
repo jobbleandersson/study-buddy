@@ -810,6 +810,9 @@ export default {
 
   "sync.conflict": "Synced from another device — some local changes here were replaced.",
   "sync.merged": "Merged in changes from another device.",
+  "sync.failedBanner": "Your changes aren't saved to your account yet. We'll keep trying.",
+  "sync.tooLargeBanner": "Your data is too large to save to your account. Download a backup and remove large sets you don't use.",
+  "sync.signedOutBanner": "You've been signed out. Your changes are still on this device but won't be saved to your account until you sign in again.",
   "sync.conflictBanner": "A newer version from another device replaced some unsynced changes on this one.",
   "sync.downloadReplaced": "Download what was replaced",
 
