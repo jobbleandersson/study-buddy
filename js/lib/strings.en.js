@@ -2688,6 +2688,7 @@ export default {
   "lp.navFaq": "FAQ",
   "lp.navLogin": "Log in",
   "lp.navStart": "Get started free",
+  "lp.navStartShort": "Get started",
   "lp.navAria": "Front page sections",
   "lp.eyebrow": "New: feedback on your own text with PluggEra AI",
   "lp.heroA": "Study smarter,",

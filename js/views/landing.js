@@ -80,7 +80,11 @@ export function header({ sections = false } = {}) {
       el("div.lp-head__actions", {}, [
         langSwitch(),
         store.authed || siteIsLocked() ? null : el("a.lp-head__login", { href: "#/login" }, t("lp.navLogin")),
-        el("button.btn.btn--sm.lp-head__cta", { type: "button", onclick: () => start() }, t("lp.navStart")),
+        // The long label ("Kom igång gratis") gives way to the short one on a phone, to leave room for "Logga in".
+        el("button.btn.btn--sm.lp-head__cta", { type: "button", onclick: () => start() }, [
+          el("span.lp-cta__long", {}, t("lp.navStart")),
+          el("span.lp-cta__short", {}, t("lp.navStartShort")),
+        ]),
       ].filter(Boolean)),
     ]),
   ]);
