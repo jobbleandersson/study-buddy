@@ -106,15 +106,15 @@
       "id": "q-en9-wc-7",
       "kind": "worked",
       "topic": "there their and they're",
-      "prompt": "Correct the five errors: \"There going to visit they're grandparents. Its a long drive, but there house has a big garden. Your always welcome their.\"",
-      "opener": "Fem ord ur samma familjer blandas ihop — testa varje ord genom att skriva ut den fulla frasen.",
+      "prompt": "Correct the six errors: \"There going to visit they're grandparents. Its a long drive, but there house has a big garden. Your always welcome their.\"",
+      "opener": "Sex ord ur samma familjer blandas ihop — testa varje ord genom att skriva ut den fulla frasen.",
       "answer": "They're going to visit their grandparents. It's a long drive, but their house has a big garden. You're always welcome there.",
       "steps": [
         "\"There going\" → \"They're going\". Testa: \"they are going\" fungerar — alltså \"they're\".",
         "\"they're grandparents\" → \"their grandparents\". Här är det ägande (vems mor-/farföräldrar) — \"their\".",
         "\"Its a long drive\" → \"It's a long drive\". Testa: \"it is a long drive\" fungerar — alltså \"it's\".",
         "\"there house\" → \"their house\". Ägande igen — vems hus, alltså \"their\".",
-        "\"Your always welcome their\" → \"You're always welcome there\". \"You are always welcome\" fungerar (you're), och sista ordet pekar ut en plats, inte ägande — \"there\"."
+        "\"Your always welcome their\" → \"You're always welcome there\" (två fel i samma sats). \"You are always welcome\" fungerar (you're), och sista ordet pekar ut en plats, inte ägande — \"there\"."
       ]
     },
     {

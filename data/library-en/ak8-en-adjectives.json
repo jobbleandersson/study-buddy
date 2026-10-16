@@ -203,14 +203,13 @@
       "id": "q-en8-adj-14",
       "kind": "worked",
       "topic": "comparison",
-      "prompt": "Correct the four errors: \"This is the baddest storm of the year. It is more worse than last week's storm, and the wind blows very strong today.\"",
+      "prompt": "Correct the three errors: \"This is the baddest storm of the year. It is more worse than last week's storm, and the wind blows very strong today.\"",
       "opener": "Look for an incorrect superlative form, double comparison, and an adjective that should be an adverb.",
       "answer": "This is the worst storm of the year. It is worse than last week's storm, and the wind blows very strongly today.",
       "steps": [
         "\"the baddest\" → \"the worst\". \"Bad\" is compared irregularly: bad – worse – worst, never with -est.",
         "\"more worse\" → \"worse\". \"Worse\" is already comparative, and you never combine \"more\" with an irregular comparative form.",
-        "\"blows very strong\" → \"blows very strongly\". The word describes how the wind blows, so the adverb strongly is needed.",
-        "Read through the sentence once more and check that the superlative is only used after \"the\", not together with \"than\"."
+        "\"blows very strong\" → \"blows very strongly\". The word describes how the wind blows, so the adverb strongly is needed."
       ]
     },
     {

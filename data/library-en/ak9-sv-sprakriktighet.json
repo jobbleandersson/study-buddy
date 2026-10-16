@@ -205,12 +205,13 @@
       "kind": "worked",
       "topic": "capital letters",
       "prompt": "Correct the sentence and explain each change: \"Vi Åkte till frankrike i somras och bodde nära eiffeltornet, det var fantastiskt kul.\"",
-      "opener": "Look for three capitalisation errors — one word has a capital it shouldn't have, and two words are missing one they should have.",
-      "answer": "Vi åkte till Frankrike i somras och bodde nära Eiffeltornet, det var fantastiskt kul.",
+      "opener": "Look for three capitalisation errors — one word has a capital it shouldn't have, and two words are missing one they should have. Also look at the comma in the middle of the sentence.",
+      "answer": "Vi åkte till Frankrike i somras och bodde nära Eiffeltornet. Det var fantastiskt kul.",
       "steps": [
         "\"Vi Åkte\" → \"Vi åkte\": only the first word of a sentence should be capitalised, not a verb in the middle of the sentence.",
         "\"frankrike\" → \"Frankrike\": country names are proper nouns and should always be capitalised, no matter where they appear in a sentence.",
-        "\"eiffeltornet\" → \"Eiffeltornet\": names of famous buildings and landmarks are proper nouns and are written with a capital letter."
+        "\"eiffeltornet\" → \"Eiffeltornet\": names of famous buildings and landmarks are proper nouns and are written with a capital letter.",
+        "\", det var fantastiskt kul\" → \". Det var fantastiskt kul.\": two complete main clauses may not be joined with just a comma (a comma splice). Split with a full stop or add a conjunction."
       ]
     },
     {

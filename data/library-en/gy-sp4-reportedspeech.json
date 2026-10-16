@@ -15,7 +15,7 @@
       "id": "q-sp4-reportedspeech-1",
       "kind": "mc",
       "topic": "reported speech",
-      "prompt": "Convert to reported speech: María dijo: \"Estoy cansada.\" → María dijo que ___.",
+      "prompt": "Convert to reported speech with the usual tense shift: María dijo: \"Estoy cansada.\" → María dijo que ___.",
       "opener": "When the reporting verb is in the past (dijo), the present shifts one step back: to the imperfect.",
       "choices": [
         "está cansada",
@@ -24,28 +24,28 @@
         "esté cansada"
       ],
       "answer": 1,
-      "explanation": "Since \"dijo\" (said) is in the past, the present (\"estoy\") shifts one step back to the imperfect: \"estaba cansada\". This is the basic pattern of estilo indirecto."
+      "explanation": "Since \"dijo\" (said) is in the past, the present (\"estoy\") shifts one step back to the imperfect: \"estaba cansada\". This is the basic pattern of estilo indirecto (if what was said is still true, the present can also stay, but that is not the basic rule asked for here)."
     },
     {
       "id": "q-sp4-reportedspeech-2",
       "kind": "mc",
       "topic": "tense shifts",
-      "prompt": "Convert to reported speech: Carlos dijo: \"Llegué tarde.\" → Carlos dijo que ___.",
+      "prompt": "Convert to reported speech with the usual tense shift: Carlos dijo: \"Llegué tarde.\" → Carlos dijo que ___.",
       "opener": "The preterite shifts back to the pluperfect in reported speech.",
       "choices": [
         "llegaba tarde",
-        "llegó tarde",
+        "llegaría tarde",
         "había llegado tarde",
         "llegara tarde"
       ],
       "answer": 2,
-      "explanation": "The preterite (\"llegué\") shifts one step back to the pluperfect: \"había llegado tarde\". The pattern: present→imperfect, preterite→pluperfect."
+      "explanation": "The preterite (\"llegué\") shifts one step back to the pluperfect: \"había llegado tarde\". The pattern: present→imperfect, preterite→pluperfect (in everyday speech the preterite can also stay as it is, but the basic rule is the pluperfect)."
     },
     {
       "id": "q-sp4-reportedspeech-3",
       "kind": "mc",
       "topic": "tense shifts",
-      "prompt": "Convert to reported speech: Ana dijo: \"Iré a la fiesta.\" → Ana dijo que ___.",
+      "prompt": "Convert to reported speech with the usual tense shift: Ana dijo: \"Iré a la fiesta.\" → Ana dijo que ___.",
       "opener": "The future shifts back to the conditional in reported speech.",
       "choices": [
         "iba a la fiesta",
@@ -54,7 +54,7 @@
         "iría a la fiesta"
       ],
       "answer": 3,
-      "explanation": "The future (\"iré\") shifts back to the conditional: \"iría a la fiesta\". This pattern applies to all future forms when the reporting verb is in the past."
+      "explanation": "The future (\"iré\") shifts back to the conditional: \"iría a la fiesta\". This pattern applies to all future forms when the reporting verb is in the past (if what was said still holds, the future can stay, but the basic rule is the conditional)."
     },
     {
       "id": "q-sp4-reportedspeech-4",
@@ -90,12 +90,12 @@
       "id": "q-sp4-reportedspeech-6",
       "kind": "mc",
       "topic": "reporting verbs",
-      "prompt": "Convert to reported speech: Laura preguntó: \"¿Vienes a la fiesta?\" → Laura preguntó ___.",
+      "prompt": "Convert to reported speech with the usual tense shift: Laura preguntó: \"¿Vienes a la fiesta?\" → Laura preguntó ___.",
       "opener": "Yes/no questions in reported speech are introduced with \"si\" (whether), and the word order becomes that of a statement, not a question.",
       "choices": [
         "si venía a la fiesta",
         "que vienes a la fiesta",
-        "si vienes a la fiesta",
+        "si venga a la fiesta",
         "cuándo venía a la fiesta"
       ],
       "answer": 0,
@@ -122,13 +122,13 @@
       "topic": "reported speech",
       "prompt": "What tense shifts and other changes happen in estilo indirecto?",
       "opener": "A pattern to memorize so you can move smoothly between direct and reported speech.",
-      "answer": "Tense shifts (when the reporting verb is in the past, e.g. dijo que): presente→imperfecto (estoy→estaba), pretérito→pluscuamperfecto (llegué→había llegado), futuro→condicional (iré→iría), imperativo→imperfecto de subjuntivo (estudiad→estudiáramos). Time/place expressions: hoy→aquel día, mañana→al día siguiente, ayer→el día anterior, aquí→allí, este→aquel. Questions: yes/no questions get \"si\" (preguntó si venía), wh-questions keep the question word (preguntó cuándo venía) — with no question mark and no inverted word order. Pronouns always adjust to the new perspective."
+      "answer": "Tense shifts (the basic rule when the reporting verb is in the past, e.g. dijo que; if what was said still holds, the tense can stay): presente→imperfecto (estoy→estaba), pretérito→pluscuamperfecto (llegué→había llegado), futuro→condicional (iré→iría), imperativo→imperfecto de subjuntivo (estudiad→estudiáramos). Time/place expressions: hoy→aquel día, mañana→al día siguiente, ayer→el día anterior, aquí→allí, este→aquel. Questions: yes/no questions get \"si\" (preguntó si venía), wh-questions keep the question word (preguntó cuándo venía) — with no question mark and no inverted word order. Pronouns always adjust to the new perspective."
     },
     {
       "id": "q-sp4-reportedspeech-9",
       "kind": "mc",
       "topic": "reported speech",
-      "prompt": "Convert to reported speech: Sofía dijo: \"Tengo hambre.\" → Sofía dijo que ___.",
+      "prompt": "Convert to reported speech with the usual tense shift: Sofía dijo: \"Tengo hambre.\" → Sofía dijo que ___.",
       "opener": "The present shifts one step back to the imperfect.",
       "choices": [
         "tenía hambre",
@@ -137,7 +137,7 @@
         "tendría hambre"
       ],
       "answer": 0,
-      "explanation": "The present (\"tengo\") shifts back to the imperfect: \"tenía hambre\"."
+      "explanation": "The present (\"tengo\") shifts back to the imperfect: \"tenía hambre\" (the basic rule)."
     },
     {
       "id": "q-sp4-reportedspeech-10",
@@ -193,7 +193,7 @@
       "choices": [
         "aquel",
         "este",
-        "ese",
+        "esto",
         "el"
       ],
       "answer": 0,

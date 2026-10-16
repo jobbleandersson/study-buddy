@@ -123,7 +123,7 @@
       "topic": "de and dem",
       "prompt": "What rules and tricks do you use for de/dem, incorrect word splitting, comma splices and commas with subordinate clauses?",
       "opener": "Four common traps — one memory rule for each.",
-      "answer": "De/dem · replace with vi/oss or they/them · if it becomes \"vi\"/\"they\" you write de, if it becomes \"oss\"/\"them\" you write dem · after a preposition (med, till, av, på, för) always dem · \"dom\" belongs to speech, not to the school assignment. Incorrect word splitting · if the words belong together as ONE thing they are written together (klassresa, cykelhjälm) · splitting the word changes the meaning. Comma splices · two main clauses may not be held together by just a comma · fix it with a full stop, semicolon or a conjunction (och, men, för, så). Comma with a subordinate clause · a subordinate clause before the main clause ends with a comma (\"När vi kom hem, åt vi\") · an inserted subordinate clause is framed by commas on both sides. Spoken language in writing · avoid utav, dom, typ, ba, asså."
+      "answer": "De/dem · replace with vi/oss (we/us) · if it becomes \"vi\" you write de, if it becomes \"oss\" you write dem · after a preposition (med, till, av, på, för) always dem · \"dom\" belongs to speech, not to the school assignment. Incorrect word splitting · if the words belong together as ONE thing they are written together (klassresa, cykelhjälm) · splitting the word changes the meaning. Comma splices · two main clauses may not be held together by just a comma · fix it with a full stop, semicolon or a conjunction (och, men, för, så). Comma with a subordinate clause · a subordinate clause before the main clause ends with a comma (\"När vi kom hem, åt vi\") · an inserted subordinate clause is framed by commas on both sides. Spoken language in writing · avoid utav, dom, typ, ba, asså."
     },
     {
       "id": "q-sv8-spr-9",
@@ -204,13 +204,13 @@
       "id": "q-sv8-spr-14",
       "kind": "worked",
       "topic": "de and dem",
-      "prompt": "Correct the sentence and explain every change: \"Dom som kom försent missade genomgången, dem andra fick anteckningar utav sin bänk kompis.\"",
+      "prompt": "Correct the sentence and explain every change: \"Dom som kom för sent missade genomgången, dem andra fick anteckningar utav sin bänk kompis.\"",
       "opener": "Look for the same four types of errors as before: dom in writing, de/dem errors, comma splices and incorrect word splitting.",
-      "answer": "De som kom försent missade genomgången. De andra fick anteckningar av sin bänkkompis.",
+      "answer": "De som kom för sent missade genomgången. De andra fick anteckningar av sin bänkkompis.",
       "steps": [
-        "\"Dom som kom försent\" → \"De som kom försent\". The word is a subject, and \"dom\" is spoken language that doesn't belong in a school assignment.",
+        "\"Dom som kom för sent\" → \"De som kom för sent\". The word is a subject, and \"dom\" is spoken language that doesn't belong in a school assignment.",
         "\"missade genomgången, dem andra fick\" → put a full stop after \"genomgången\". Two complete main clauses may not be joined together with just a comma (a comma splice).",
-        "\"dem andra\" → \"De andra\". It is they who got the notes, i.e. a subject — test with \"they\", not \"them\".",
+        "\"dem andra\" → \"De andra\". It is they who got the notes, i.e. a subject — test with \"vi\" (we), not \"oss\" (us).",
         "\"utav sin\" → \"av sin\". \"Utav\" is colloquial.",
         "\"bänk kompis\" → \"bänkkompis\". A compound word that should be written as one."
       ]
