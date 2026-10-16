@@ -2339,7 +2339,7 @@ export default {
   "graph.err.notNumber": "This doesn't come out as a number",
 
   /* ---- share card ---- */
-  "share.title": "Share it",
+  "share.title": "Share this card",
   "share.shareButton": "Share",
   "share.download": "Save image",
   "share.badgeTag": "Achievement unlocked",
