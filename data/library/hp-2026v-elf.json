@@ -12,13 +12,13 @@
         "body": "For decades, hospitals scheduled junior doctors for shifts that could stretch past twenty-four hours, on the theory that continuity of care outweighed the cost of fatigue. A tired doctor who knew the patient, the argument ran, was safer than a rested one who did not.\n\nStudies of error rates have undermined that logic. Interns working the traditional long shifts made substantially more serious mistakes than those on schedules capped at sixteen hours, and the extra hand-offs between shorter shifts — long feared as a source of dropped information — turned out to cause fewer problems than exhaustion did. Several countries now limit shift length by law.\n\nResistance has come partly from an unexpected direction: from senior doctors who trained under the old system and regard the long shift as a rite of passage, and from trainees themselves, some of whom worry that shorter hours will mean less experience by the end of their training." },
       "prompt": "What is the main idea of the text?",
       "choices": [
-        "Evidence on error rates has shifted medical opinion against very long shifts, though some resistance remains",
         "Junior doctors prefer long shifts because they build experience",
+        "Evidence on error rates has shifted medical opinion against very long shifts, though some resistance remains",
         "Hand-offs between shifts are the leading cause of medical error",
         "Continuity of care has been proven to matter more than fatigue"
       ],
-      "answer": 0,
-      "explanation": "The text traces the old rationale, the studies that undermined it, the resulting legal limits, and the remaining resistance. Option A captures that arc." },
+      "answer": 1,
+      "explanation": "The text traces the old rationale, the studies that undermined it, the resulting legal limits, and the remaining resistance. Option B captures that arc." },
     { "id": "q-hp-2026v-elf-02", "kind": "mc", "variant": "elf", "topic": "detail",
       "stimulus": { "id": "elf-text-1", "title": "Text 1 – The night shift",
         "body": "For decades, hospitals scheduled junior doctors for shifts that could stretch past twenty-four hours, on the theory that continuity of care outweighed the cost of fatigue. A tired doctor who knew the patient, the argument ran, was safer than a rested one who did not.\n\nStudies of error rates have undermined that logic. Interns working the traditional long shifts made substantially more serious mistakes than those on schedules capped at sixteen hours, and the extra hand-offs between shorter shifts — long feared as a source of dropped information — turned out to cause fewer problems than exhaustion did. Several countries now limit shift length by law.\n\nResistance has come partly from an unexpected direction: from senior doctors who trained under the old system and regard the long shift as a rite of passage, and from trainees themselves, some of whom worry that shorter hours will mean less experience by the end of their training." },
@@ -35,27 +35,27 @@
       "stimulus": { "id": "elf-text-1", "title": "Text 1 – The night shift",
         "body": "For decades, hospitals scheduled junior doctors for shifts that could stretch past twenty-four hours, on the theory that continuity of care outweighed the cost of fatigue. A tired doctor who knew the patient, the argument ran, was safer than a rested one who did not.\n\nStudies of error rates have undermined that logic. Interns working the traditional long shifts made substantially more serious mistakes than those on schedules capped at sixteen hours, and the extra hand-offs between shorter shifts — long feared as a source of dropped information — turned out to cause fewer problems than exhaustion did. Several countries now limit shift length by law.\n\nResistance has come partly from an unexpected direction: from senior doctors who trained under the old system and regard the long shift as a rite of passage, and from trainees themselves, some of whom worry that shorter hours will mean less experience by the end of their training." },
       "prompt": "The word \"unexpected\" in the last paragraph suggests that the writer assumes readers would expect resistance to come mainly from",
-      "choices": ["patients", "hospital managers or administrators", "the trainees and senior doctors themselves", "lawmakers"],
-      "answer": 1,
+      "choices": ["patients", "the trainees and senior doctors themselves", "hospital managers or administrators", "lawmakers"],
+      "answer": 2,
       "explanation": "If resistance from doctors is \"unexpected\", the expected source must be someone else — most naturally the managers who set schedules and budgets." },
     { "id": "q-hp-2026v-elf-04", "kind": "mc", "variant": "elf", "topic": "vocabulary in context",
       "stimulus": { "id": "elf-text-1", "title": "Text 1 – The night shift",
         "body": "For decades, hospitals scheduled junior doctors for shifts that could stretch past twenty-four hours, on the theory that continuity of care outweighed the cost of fatigue. A tired doctor who knew the patient, the argument ran, was safer than a rested one who did not.\n\nStudies of error rates have undermined that logic. Interns working the traditional long shifts made substantially more serious mistakes than those on schedules capped at sixteen hours, and the extra hand-offs between shorter shifts — long feared as a source of dropped information — turned out to cause fewer problems than exhaustion did. Several countries now limit shift length by law.\n\nResistance has come partly from an unexpected direction: from senior doctors who trained under the old system and regard the long shift as a rite of passage, and from trainees themselves, some of whom worry that shorter hours will mean less experience by the end of their training." },
       "prompt": "In this text, \"undermined\" is closest in meaning to",
-      "choices": ["confirmed", "weakened", "explained", "ignored"],
-      "answer": 1,
+      "choices": ["confirmed", "explained", "ignored", "weakened"],
+      "answer": 3,
       "explanation": "\"Studies ... have undermined that logic\" — the studies weakened the old argument." },
     { "id": "q-hp-2026v-elf-05", "kind": "mc", "variant": "elf", "topic": "main idea",
       "stimulus": { "id": "elf-text-2", "title": "Text 2 – The map that wasn't wrong",
         "body": "A famous diagram of the London Underground, drawn in 1931, threw away geography. Distances were evened out, the curving lines straightened, the central area enlarged relative to the suburbs. Passengers did not need to know how far apart the stations really were; they needed to know which line to take and where to change.\n\nThe transport authority hesitated for two years before printing it, fearing riders would reject a map that was, in a literal sense, inaccurate. Instead it became one of the most copied designs of the century, and cities around the world commissioned imitations.\n\nThe lesson often drawn from it — that clarity beats fidelity — is only half right. The diagram works precisely because riders are underground and cannot see the surface; a walker holding the same map would quickly get lost. A representation is not simply good or bad. It is good for something." },
       "prompt": "What is the main point of the text?",
       "choices": [
-        "The 1931 diagram was a mistake that happened to become popular",
         "A representation should be judged by how well it serves its particular use, not by accuracy alone",
+        "The 1931 diagram was a mistake that happened to become popular",
         "Clarity always matters more than accuracy in design",
         "Other cities should not have copied the London design"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "The final paragraph rejects the simple \"clarity beats fidelity\" reading and concludes that a representation \"is good for something\" — judged by fitness for purpose." },
     { "id": "q-hp-2026v-elf-06", "kind": "mc", "variant": "elf", "topic": "detail",
       "stimulus": { "id": "elf-text-2", "title": "Text 2 – The map that wasn't wrong",
@@ -63,11 +63,11 @@
       "prompt": "Why, according to the text, did the transport authority hesitate?",
       "choices": [
         "The design was too expensive to print",
-        "They feared riders would reject a map that was literally inaccurate",
         "Other cities had already published similar maps",
-        "The designer had not finished the suburban lines"
+        "The designer had not finished the suburban lines",
+        "They feared riders would reject a map that was literally inaccurate"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "\"fearing riders would reject a map that was, in a literal sense, inaccurate\"." },
     { "id": "q-hp-2026v-elf-07", "kind": "mc", "variant": "elf", "topic": "inference",
       "stimulus": { "id": "elf-text-2", "title": "Text 2 – The map that wasn't wrong",
@@ -93,13 +93,13 @@
         "body": "Most students treat a test as a measurement: something that happens after the learning is done. Research in cognitive psychology suggests that this gets the order partly wrong. When people try to recall information — answering questions, writing down what they remember from a page — they tend to remember it better weeks later than if they had spent the same time rereading it.\n\nThe finding surprises many learners, because rereading feels more productive. The text becomes familiar, and familiarity is easily mistaken for knowledge. Trying to recall, by contrast, feels slow and uncomfortable, especially when the answer will not come. Yet it is precisely that effort, researchers argue, that makes the memory last.\n\nNone of this means that grades should matter more. The benefit appears even when the quizzes do not count, and it may be strongest when nothing is at stake. What matters is the act of retrieving, not the score." },
       "prompt": "What is the main point of the text?",
       "choices": [
+        "Trying to recall what you have learned strengthens memory more than rereading",
         "Students should take more graded exams",
         "Rereading is the most effective way to prepare for a test",
-        "Trying to recall what you have learned strengthens memory more than rereading",
         "Familiar texts are easier to understand"
       ],
-      "answer": 2,
-      "explanation": "The text contrasts recalling with rereading and says recall leads to better memory weeks later. Option 1 is ruled out in the last paragraph; option 2 is the belief the text corrects." },
+      "answer": 0,
+      "explanation": "The text contrasts recalling with rereading and says recall leads to better memory weeks later. Option B is ruled out in the last paragraph; option C is the belief the text corrects." },
     { "id": "q-hp-2026v-elf-10", "kind": "mc", "variant": "elf", "topic": "inference",
       "stimulus": { "id": "elf-text-3", "title": "Text 3 – Testing as a way to learn",
         "body": "Most students treat a test as a measurement: something that happens after the learning is done. Research in cognitive psychology suggests that this gets the order partly wrong. When people try to recall information — answering questions, writing down what they remember from a page — they tend to remember it better weeks later than if they had spent the same time rereading it.\n\nThe finding surprises many learners, because rereading feels more productive. The text becomes familiar, and familiarity is easily mistaken for knowledge. Trying to recall, by contrast, feels slow and uncomfortable, especially when the answer will not come. Yet it is precisely that effort, researchers argue, that makes the memory last.\n\nNone of this means that grades should matter more. The benefit appears even when the quizzes do not count, and it may be strongest when nothing is at stake. What matters is the act of retrieving, not the score." },
@@ -107,46 +107,46 @@
       "choices": [
         "It takes less time than answering questions",
         "Teachers usually recommend it",
-        "It produces better results on later tests",
-        "The growing sense of familiarity feels like learning"
+        "The growing sense of familiarity feels like learning",
+        "It produces better results on later tests"
       ],
-      "answer": 3,
-      "explanation": "The second paragraph: rereading makes the text familiar, and \"familiarity is easily mistaken for knowledge\". Option 3 contradicts the research described." },
+      "answer": 2,
+      "explanation": "The second paragraph: rereading makes the text familiar, and \"familiarity is easily mistaken for knowledge\". Option D contradicts the research described." },
     { "id": "q-hp-2026v-elf-11", "kind": "mc", "variant": "elf", "topic": "main idea",
       "stimulus": { "id": "elf-text-4", "title": "Text 4 – The return of the repair shop",
         "body": "For decades, repairing a broken kettle or a pair of headphones made little economic sense. New products were cheap, labour was expensive, and many devices were glued shut in ways that made it hard to open them without causing further damage. Throwing things away became the rational choice, even for people who disliked doing it.\n\nThat calculation is starting to shift. Several countries have introduced rules requiring manufacturers to supply spare parts and repair information for a number of years after a product is sold. Volunteer-run \"repair cafés\", where people bring broken items and fix them together with more experienced helpers, have spread from a single event in Amsterdam to thousands of locations around the world.\n\nAdvocates are careful not to overstate their case. Repair will not make sense for every product, and an old fridge that uses far more electricity than a modern one may do more harm kept alive than replaced. Their argument is narrower: that the decision should be a real one, made by owners who have the information and parts they need, rather than one settled in advance by the way a product was designed." },
       "prompt": "What is the main point of the text?",
       "choices": [
-        "Repairing products is always better for the environment than replacing them.",
         "Changing rules and habits are making repair a realistic option again, though not always the right one.",
+        "Repairing products is always better for the environment than replacing them.",
         "Repair cafés were started mainly as a protest against manufacturers.",
         "Modern products are designed to be easier to repair than older ones."
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "The text explains why repair stopped making sense, what is changing that, and the advocates' \"narrower\" argument. The claim that repair is always better is exactly what they are careful not to make." },
     { "id": "q-hp-2026v-elf-12", "kind": "mc", "variant": "elf", "topic": "detail",
       "stimulus": { "id": "elf-text-4", "title": "Text 4 – The return of the repair shop",
         "body": "For decades, repairing a broken kettle or a pair of headphones made little economic sense. New products were cheap, labour was expensive, and many devices were glued shut in ways that made it hard to open them without causing further damage. Throwing things away became the rational choice, even for people who disliked doing it.\n\nThat calculation is starting to shift. Several countries have introduced rules requiring manufacturers to supply spare parts and repair information for a number of years after a product is sold. Volunteer-run \"repair cafés\", where people bring broken items and fix them together with more experienced helpers, have spread from a single event in Amsterdam to thousands of locations around the world.\n\nAdvocates are careful not to overstate their case. Repair will not make sense for every product, and an old fridge that uses far more electricity than a modern one may do more harm kept alive than replaced. Their argument is narrower: that the decision should be a real one, made by owners who have the information and parts they need, rather than one settled in advance by the way a product was designed." },
       "prompt": "According to the text, why did repairing small appliances long make little economic sense?",
       "choices": [
-        "New products were cheap compared with the cost of labour.",
         "Spare parts were banned in many countries.",
         "Repair cafés charged too much.",
+        "New products were cheap compared with the cost of labour.",
         "Most people were happy to throw things away."
       ],
-      "answer": 0,
+      "answer": 2,
       "explanation": "First paragraph: \"New products were cheap, labour was expensive\", and devices were hard to open. That people were happy to throw things away contradicts \"even for people who disliked doing it\"." },
     { "id": "q-hp-2026v-elf-13", "kind": "mc", "variant": "elf", "topic": "inference",
       "stimulus": { "id": "elf-text-4", "title": "Text 4 – The return of the repair shop",
         "body": "For decades, repairing a broken kettle or a pair of headphones made little economic sense. New products were cheap, labour was expensive, and many devices were glued shut in ways that made it hard to open them without causing further damage. Throwing things away became the rational choice, even for people who disliked doing it.\n\nThat calculation is starting to shift. Several countries have introduced rules requiring manufacturers to supply spare parts and repair information for a number of years after a product is sold. Volunteer-run \"repair cafés\", where people bring broken items and fix them together with more experienced helpers, have spread from a single event in Amsterdam to thousands of locations around the world.\n\nAdvocates are careful not to overstate their case. Repair will not make sense for every product, and an old fridge that uses far more electricity than a modern one may do more harm kept alive than replaced. Their argument is narrower: that the decision should be a real one, made by owners who have the information and parts they need, rather than one settled in advance by the way a product was designed." },
       "prompt": "What does the example of the old fridge show?",
       "choices": [
+        "Keeping a product running can sometimes be the worse choice.",
         "Old appliances are usually more reliable than new ones.",
         "Manufacturers make fridges hard to repair on purpose.",
-        "Repair cafés cannot fix large appliances.",
-        "Keeping a product running can sometimes be the worse choice."
+        "Repair cafés cannot fix large appliances."
       ],
-      "answer": 3,
+      "answer": 0,
       "explanation": "The fridge uses so much electricity that it \"may do more harm kept alive than replaced\" – an example of why repair does not make sense for every product." },
     { "id": "q-hp-2026v-elf-14", "kind": "mc", "variant": "elf", "topic": "detail",
       "stimulus": { "id": "elf-text-5", "title": "Text 5 – Deciding in a second language",
@@ -154,11 +154,11 @@
       "prompt": "What happened when participants made their choices in a foreign language?",
       "choices": [
         "They took fewer risks overall.",
-        "They were less influenced by how the options were worded.",
         "They made more mistakes in their calculations.",
-        "They refused to choose between the options."
+        "They refused to choose between the options.",
+        "They were less influenced by how the options were worded."
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "First paragraph: in their native language participants were \"strongly swayed by the wording; in the foreign language, much less so\"." },
     { "id": "q-hp-2026v-elf-15", "kind": "mc", "variant": "elf", "topic": "inference",
       "stimulus": { "id": "elf-text-5", "title": "Text 5 – Deciding in a second language",
@@ -177,12 +177,12 @@
         "body": "When people think through a problem in a language they learned later in life, they sometimes reach different conclusions than they would in their native tongue. In a series of experiments, researchers asked participants to choose between risky options described either in their first language or in a foreign one. The same outcome could be worded as \"200 of 600 people will be saved\" or as \"400 of 600 people will die\". In their native language, participants were strongly swayed by the wording; in the foreign language, much less so.\n\nOne explanation is distance. A second language tends to carry less emotional weight, since words learned in a classroom rarely come with the memories and feelings attached to words learned in childhood. With less emotion pulling at them, people may rely more on slow, deliberate reasoning.\n\nThe finding is easy to misread. It does not show that a foreign language makes people wiser in general: the same distance can make them less sensitive to moral considerations that ought to matter. Nor does it apply equally to everyone. The effect seems to shrink as people become more fluent and start to live parts of their lives in the new language." },
       "prompt": "Which statement would the author most likely agree with?",
       "choices": [
-        "The effect is probably weaker for people who use the second language in everyday life.",
         "Making important decisions in a foreign language is a reliable way to decide better.",
         "The effect is equally strong for everyone who speaks two languages.",
-        "Emotions always lead to worse decisions."
+        "Emotions always lead to worse decisions.",
+        "The effect is probably weaker for people who use the second language in everyday life."
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "Last paragraph: the effect \"seems to shrink as people become more fluent and start to live parts of their lives in the new language\". The text explicitly warns against reading it as a way to decide better in general." }
   ]
 }

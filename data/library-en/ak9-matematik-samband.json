@@ -90,7 +90,7 @@
       "id": "q-ma9-sam-6",
       "kind": "mc",
       "topic": "proportionality",
-      "prompt": "A car travels at 60 km/h. How far does it go in 2,5 hours?",
+      "prompt": "A car travels at 60 km/h. How far does it go in 2.5 hours?",
       "opener": "Distance is speed times time.",
       "choices": [
         "120 km",
@@ -99,7 +99,7 @@
         "180 km"
       ],
       "answer": 1,
-      "explanation": "$s = v \\cdot t = 60 \\cdot 2{,}5 = 150$ km."
+      "explanation": "$s = v \\cdot t = 60 \\cdot 2.5 = 150$ km."
     },
     {
       "id": "q-ma9-sam-7",
@@ -166,7 +166,7 @@
         "24"
       ],
       "answer": 2,
-      "explanation": "$k = \\frac{10}{4} = 2{,}5$. So $y = 2{,}5 \\cdot 6 = 15$ when $x = 6$."
+      "explanation": "$k = \\frac{10}{4} = 2.5$. So $y = 2.5 \\cdot 6 = 15$ when $x = 6$."
     },
     {
       "id": "q-ma9-sam-12",
@@ -217,7 +217,7 @@
       "prompt": "For the function $y = 4x - 5$: for which value of $x$ is $y = 11$?",
       "opener": "Substitute $y = 11$ into the formula and solve for $x$, the same way as an equation.",
       "choices": [
-        "1,5",
+        "1.5",
         "6",
         "9",
         "4"

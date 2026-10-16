@@ -52,29 +52,72 @@ export function wrappableEmail(text) {
 export function mount(root, ...nodes) { clear(root); append(root, nodes); return root; }
 
 let toastTimer;
+/** How long a toast stays: long enough to read it (about 60 ms a character after a second and a half),
+ *  never shorter than the base for its kind, never longer than ten seconds. */
+export function toastDuration(message, withAction = false) {
+  const base = withAction ? 6000 : 2600;
+  return Math.min(10000, Math.max(base, 1500 + String(message ?? "").length * 60));
+}
+
 /**
- * toast("Saved")                              — plain, 2.6s
- * toast("Deleted", { actionLabel: "Undo", onAction })  — with a button, 6s
+ * toast("Saved")                              — plain, about 2.6s or longer for a long text
+ * toast("Deleted", { actionLabel: "Undo", onAction })  — with a button, 6s or longer
+ * toast("Couldn't save", { alert: true })     — read out at once (an inner role="alert") instead of politely
+ *
+ * The toast is a polite live region, so a screen reader reads it out. It is created empty and filled a
+ * frame later: a region that appears with its text already in it is often not announced.
  */
-export function toast(message, opts) {
+let toastFrame = 0;
+let toastState = null;   // { message, withAction } of the toast on screen, for the timer
+function toastEl() {
   let t = document.querySelector(".toast");
-  if (!t) { t = el("div.toast"); document.body.appendChild(t); }
-  clear(t);
-  const dismiss = () => t.classList.remove("show");
-
-  if (opts?.actionLabel && typeof opts.onAction === "function") {
-    t.appendChild(el("span", {}, message));
-    t.appendChild(el("button.toast__action", {
-      type: "button",
-      onclick: () => { opts.onAction(); clearTimeout(toastTimer); dismiss(); },
-    }, opts.actionLabel));
-  } else {
-    t.textContent = message;
+  if (!t) {
+    t = el("div.toast", { role: "status", "aria-live": "polite", "aria-atomic": "true" });
+    // Stays up while the pointer or keyboard focus is on it (someone reading, or reaching for the button).
+    // addEventListener: focusin / focusout have no onfocusin / onfocusout properties.
+    const resume = () => { if (toastState && t.classList.contains("show")) armToast(t); };
+    t.addEventListener("mouseenter", () => clearTimeout(toastTimer));
+    t.addEventListener("focusin", () => clearTimeout(toastTimer));
+    t.addEventListener("mouseleave", resume);
+    t.addEventListener("focusout", resume);
+    document.body.appendChild(t);
   }
-
-  requestAnimationFrame(() => t.classList.add("show"));
+  return t;
+}
+function armToast(t) {
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(dismiss, opts?.actionLabel ? 6000 : 2600);
+  toastTimer = setTimeout(() => dismissToast(t), toastDuration(toastState?.message, toastState?.withAction));
+}
+function dismissToast(t) {
+  t.classList.remove("show");
+  // Faded out but still in the page: its button must not stay a Tab stop.
+  t.querySelectorAll("button").forEach((b) => { b.tabIndex = -1; });
+}
+export function toast(message, opts) {
+  const t = toastEl();
+  const withAction = !!(opts?.actionLabel && typeof opts.onAction === "function");
+  toastState = { message, withAction };
+  clearTimeout(toastTimer);
+  cancelAnimationFrame(toastFrame);   // two toasts in one frame: only the last one is drawn
+  t.classList.remove("show");
+  clear(t);
+  // Everything below waits for the frame: if the page is in a background tab the frame comes late, and a
+  // timer started before it could already have run out by the time the toast became visible.
+  toastFrame = requestAnimationFrame(() => {
+    if (withAction) {
+      t.appendChild(el("span", {}, message));
+      t.appendChild(el("button.toast__action", {
+        type: "button",
+        onclick: () => { opts.onAction(); clearTimeout(toastTimer); dismissToast(t); },
+      }, opts.actionLabel));
+    } else if (opts?.alert) {
+      t.appendChild(el("span", { role: "alert" }, message));
+    } else {
+      t.textContent = message;
+    }
+    t.classList.add("show");
+    armToast(t);
+  });
 }
 
 let banner = null;

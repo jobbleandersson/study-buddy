@@ -123,7 +123,7 @@
       "topic": "de och dem",
       "prompt": "Vilka regler och knep använder du för de/dem, särskrivning, satsradning och komma vid bisats?",
       "opener": "Fyra vanliga fällor — en minnesregel för varje.",
-      "answer": "De/dem · byt ut mot vi/oss eller they/them · blir det \"vi\"/\"they\" skriver du de, blir det \"oss\"/\"them\" skriver du dem · efter preposition (med, till, av, på, för) alltid dem · \"dom\" hör till talet, inte till skoluppgiften. Särskrivning · hör orden ihop till EN sak skrivs de ihop (klassresa, cykelhjälm) · särskrivning ändrar betydelsen. Satsradning · två huvudsatser får inte hållas ihop av bara komma · fixa med punkt, semikolon eller konjunktion (och, men, för, så). Komma vid bisats · bisats före huvudsats avslutas med komma (\"När vi kom hem, åt vi\") · inskjuten bisats ramas in av komma på båda sidor. Talspråk i skrift · undvik utav, dom, typ, ba, asså."
+      "answer": "De/dem · byt ut mot vi/oss · blir det \"vi\" skriver du de, blir det \"oss\" skriver du dem · efter preposition (med, till, av, på, för) alltid dem · \"dom\" hör till talet, inte till skoluppgiften. Särskrivning · hör orden ihop till EN sak skrivs de ihop (klassresa, cykelhjälm) · särskrivning ändrar betydelsen. Satsradning · två huvudsatser får inte hållas ihop av bara komma · fixa med punkt, semikolon eller konjunktion (och, men, för, så). Komma vid bisats · bisats före huvudsats avslutas med komma (\"När vi kom hem, åt vi\") · inskjuten bisats ramas in av komma på båda sidor. Talspråk i skrift · undvik utav, dom, typ, ba, asså."
     },
     {
       "id": "q-sv8-spr-9",
@@ -204,13 +204,13 @@
       "id": "q-sv8-spr-14",
       "kind": "worked",
       "topic": "de och dem",
-      "prompt": "Rätta meningen och förklara varje ändring: \"Dom som kom försent missade genomgången, dem andra fick anteckningar utav sin bänk kompis.\"",
+      "prompt": "Rätta meningen och förklara varje ändring: \"Dom som kom för sent missade genomgången, dem andra fick anteckningar utav sin bänk kompis.\"",
       "opener": "Leta efter samma fyra typer av fel som förut: dom i skrift, de/dem-fel, satsradning och särskrivning.",
-      "answer": "De som kom försent missade genomgången. De andra fick anteckningar av sin bänkkompis.",
+      "answer": "De som kom för sent missade genomgången. De andra fick anteckningar av sin bänkkompis.",
       "steps": [
-        "\"Dom som kom försent\" → \"De som kom försent\". Ordet är subjekt, och \"dom\" är talspråk som inte hör hemma i en skoluppgift.",
+        "\"Dom som kom för sent\" → \"De som kom för sent\". Ordet är subjekt, och \"dom\" är talspråk som inte hör hemma i en skoluppgift.",
         "\"missade genomgången, dem andra fick\" → sätt punkt efter \"genomgången\". Två fullständiga huvudsatser får inte bindas ihop med bara komma (satsradning).",
-        "\"dem andra\" → \"De andra\". Det är de som fick anteckningar, alltså subjekt — testa med \"they\", inte \"them\".",
+        "\"dem andra\" → \"De andra\". Det är de som fick anteckningar, alltså subjekt — testa med \"vi\", inte \"oss\".",
         "\"utav sin\" → \"av sin\". \"Utav\" är talspråkligt.",
         "\"bänk kompis\" → \"bänkkompis\". Sammansatt ord som ska skrivas ihop."
       ]

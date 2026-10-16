@@ -19,13 +19,13 @@
       "prompt": "Which decimal number is equal to $\\frac{3}{4}$?",
       "opener": "The fraction bar means division - what is 3 divided by 4?",
       "choices": [
-        "$0{,}34$",
-        "$0{,}75$",
-        "$0{,}25$",
-        "$3{,}4$"
+        "$0.34$",
+        "$0.75$",
+        "$0.25$",
+        "$3.4$"
       ],
       "answer": 1,
-      "explanation": "$\\frac{3}{4}$ means $3 / 4 = 0{,}75$. You get $0{,}34$ if you just put the digits 3 and 4 next to each other, but the fraction bar is a division."
+      "explanation": "$\\frac{3}{4}$ means $3 / 4 = 0.75$. You get $0.34$ if you just put the digits 3 and 4 next to each other, but the fraction bar is a division."
     },
     {
       "id": "q-ma7-bra-2",
@@ -55,7 +55,7 @@
         "$\\frac{1}{4}$"
       ],
       "answer": 1,
-      "explanation": "$\\frac{1}{2} = 0{,}5$, $\\frac{2}{5} = 0{,}4$, $\\frac{1}{3} \\approx 0{,}33$ and $\\frac{1}{4} = 0{,}25$. A larger denominator does not mean a larger fraction - the more pieces a cake is cut into, the smaller each piece becomes."
+      "explanation": "$\\frac{1}{2} = 0.5$, $\\frac{2}{5} = 0.4$, $\\frac{1}{3} \\approx 0.33$ and $\\frac{1}{4} = 0.25$. A larger denominator does not mean a larger fraction - the more pieces a cake is cut into, the smaller each piece becomes."
     },
     {
       "id": "q-ma7-bra-4",
@@ -122,7 +122,7 @@
       "topic": "fractions",
       "prompt": "How do you calculate with fractions, and how do you convert between fractions, decimal numbers and percentages?",
       "opener": "Think of three things: simplifying/scaling up, adding, and converting.",
-      "answer": "Simplify = divide the numerator and denominator by the same number · scale up = multiply both by the same number · the value of the fraction does not change in either case · Addition and subtraction require the same denominator: scale up first, then just add the numerators · Fraction to decimal number: divide the numerator by the denominator, $\\frac{3}{4} = 0{,}75$ · Decimal number to percentage: multiply by 100, $0{,}75 = 75$% · Good to know by heart: $\\frac{1}{2} = 0{,}5 = 50$%, $\\frac{1}{4} = 0{,}25 = 25$%, $\\frac{1}{5} = 0{,}2 = 20$%, $\\frac{1}{10} = 0{,}1 = 10$%."
+      "answer": "Simplify = divide the numerator and denominator by the same number · scale up = multiply both by the same number · the value of the fraction does not change in either case · Addition and subtraction require the same denominator: scale up first, then just add the numerators · Fraction to decimal number: divide the numerator by the denominator, $\\frac{3}{4} = 0.75$ · Decimal number to percentage: multiply by 100, $0.75 = 75$% · Good to know by heart: $\\frac{1}{2} = 0.5 = 50$%, $\\frac{1}{4} = 0.25 = 25$%, $\\frac{1}{5} = 0.2 = 20$%, $\\frac{1}{10} = 0.1 = 10$%."
     },
     {
       "id": "q-ma7-bra-9",
@@ -146,13 +146,13 @@
       "prompt": "Which decimal number is equal to $\\frac{7}{8}$?",
       "opener": "Work out $7$ divided by $8$.",
       "choices": [
-        "$0{,}78$",
-        "$0{,}875$",
-        "$0{,}7$",
-        "$0{,}88$"
+        "$0.78$",
+        "$0.875$",
+        "$0.7$",
+        "$0.88$"
       ],
       "answer": 1,
-      "explanation": "$\\frac{7}{8} = 7 / 8 = 0{,}875$. The answer $0{,}78$ comes from just putting the digits 7 and 8 next to each other without dividing."
+      "explanation": "$\\frac{7}{8} = 7 / 8 = 0.875$. The answer $0.78$ comes from just putting the digits 7 and 8 next to each other without dividing."
     },
     {
       "id": "q-ma7-bra-11",
@@ -173,16 +173,16 @@
       "id": "q-ma7-bra-12",
       "kind": "mc",
       "topic": "percentage form",
-      "prompt": "Write $0{,}6$ as a percentage.",
+      "prompt": "Write $0.6$ as a percentage.",
       "opener": "Multiply the decimal number by 100 to get a percentage.",
       "choices": [
         "6%",
         "16%",
         "60%",
-        "0,6%"
+        "0.6%"
       ],
       "answer": 2,
-      "explanation": "$0{,}6 \\cdot 100 = 60$, i.e. $60$%."
+      "explanation": "$0.6 \\cdot 100 = 60$, i.e. $60$%."
     },
     {
       "id": "q-ma7-bra-13",
@@ -197,7 +197,7 @@
         "$\\frac{2}{3}$"
       ],
       "answer": 2,
-      "explanation": "As decimals: $\\frac{3}{4} = 0{,}75$, $\\frac{5}{6} \\approx 0{,}833$, $\\frac{7}{12} \\approx 0{,}583$ and $\\frac{2}{3} \\approx 0{,}667$. The smallest is $\\frac{7}{12}$."
+      "explanation": "As decimals: $\\frac{3}{4} = 0.75$, $\\frac{5}{6} \\approx 0.833$, $\\frac{7}{12} \\approx 0.583$ and $\\frac{2}{3} \\approx 0.667$. The smallest is $\\frac{7}{12}$."
     },
     {
       "id": "q-ma7-bra-14",
@@ -220,13 +220,13 @@
       "prompt": "What percentage is $\\frac{3}{8}$?",
       "opener": "Work out the fraction as a decimal number first, then convert to a percentage.",
       "choices": [
-        "3,8%",
+        "3.8%",
         "25%",
-        "37,5%",
+        "37.5%",
         "40%"
       ],
       "answer": 2,
-      "explanation": "$\\frac{3}{8} = 0{,}375 = 37{,}5$%."
+      "explanation": "$\\frac{3}{8} = 0.375 = 37.5$%."
     }
   ]
 }

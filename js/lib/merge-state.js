@@ -6,13 +6,21 @@
  *  than its mark can't come back from another device in that time; after it, the mark is dropped. */
 const CLEARED_KEEP_MS = 30 * 86400000;
 
+/** How long a "deleted on a device" mark (state.deleted: id -> when) is kept, and the most marks kept.
+ *  A device that has been offline longer than this can bring a deleted item back. */
+const DELETED_KEEP_MS = 120 * 86400000;
+const DELETED_MAX = 1000;
+
 /**
  * Merge `local` into `server`, the server's copy winning where neither side says which is newer.
  * Both args are raw (pre-migrate); the caller migrates the result. Every field falls back to the
  * server's value when the local one is missing or malformed.
  *
  * What "newer" means, per part:
- *  - sets, tests: the copy with the later `updatedAt` (stamped by every edit in store.js)
+ *  - sets, tests: the copy with the later `updatedAt` (stamped by every edit in store.js); one deleted
+ *    on either side (`deleted`) stays gone unless it was edited or restored after that, and so do
+ *    rules and subjects
+ *  - profile: the side with the later `profileAt`
  *  - settings: the side with the later `settingsAt`
  *  - review schedule: per question, the record reviewed last (`reviewedAt`), so a miss on one
  *    device isn't undone by an older, longer streak of hits on the other
@@ -62,6 +70,34 @@ export function mergeStates(server, local, now = Date.now()) {
       if (!cur || (r.updatedAt || r.createdAt || 0) > (cur.updatedAt || cur.createdAt || 0)) byId.set(r.id, r);
     }
     s.rules = [...byId.values()].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
+  }
+
+  // deletions — a set, test, rule or subject deleted on either device is gone on both, unless it was
+  // edited or put back after that (its stamp is later than the mark). Without this a deletion was
+  // undone by the union above the next time the other device synced.
+  {
+    const marks = [];
+    for (const src of [o(s.deleted), o(l.deleted)]) {
+      for (const [id, ts] of Object.entries(src)) if (Number(ts) > 0 && now - Number(ts) < DELETED_KEEP_MS) marks.push([id, Number(ts)]);
+    }
+    const del = {};
+    for (const [id, ts] of marks) if (ts > (del[id] || 0)) del[id] = ts;
+    const kept = Object.entries(del).sort((a, b) => b[1] - a[1]).slice(0, DELETED_MAX);
+    s.deleted = Object.fromEntries(kept);
+    const itemStamp = (x) => Number(x?.updatedAt) || Number(x?.createdAt) || 0;
+    const alive = (x) => !(s.deleted[x.id] >= itemStamp(x));
+    s.assignments = s.assignments.filter(alive);
+    s.subjects = s.subjects.filter(alive);
+    s.rules = s.rules.filter(alive);
+    if (Array.isArray(s.exams)) {
+      const setIds = new Set(s.assignments.map((a) => a.id));
+      s.exams = s.exams.filter(alive).map((e) => {
+        // a test loses the sets that were deleted; one left with none is gone too
+        if (!Array.isArray(e.setIds)) return e;
+        const left = e.setIds.filter((id) => !s.deleted[id] || setIds.has(id));
+        return left.length === e.setIds.length ? e : { ...e, setIds: left };
+      }).filter((e) => !Array.isArray(e.setIds) || e.setIds.length > 0);
+    }
   }
 
   // tonight — union the evening checklists (a step done on either device stays
@@ -159,7 +195,12 @@ export function mergeStates(server, local, now = Date.now()) {
   s.achievements = ach;
 
   s.onboarded = !!(s.onboarded || l.onboarded);
-  s.profile = s.profile || l.profile || null;
+  // profile — the later edit wins (a rename on the second device to sync used to be lost); stamps
+  // missing on both sides keep the server's, falling back to the local one
+  if ((l.profileAt || 0) > (s.profileAt || 0) && l.profile && typeof l.profile === "object") {
+    s.profile = l.profile;
+    s.profileAt = l.profileAt;
+  } else s.profile = s.profile || l.profile || null;
   // profile picture — the later change wins, a removal included, so a picture
   // picked before signing in or on a device that was behind isn't dropped
   if ((l.avatarAt || 0) > (s.avatarAt || 0)) { s.avatar = l.avatar ?? null; s.avatarAt = l.avatarAt; }

@@ -115,10 +115,12 @@ export function shareCard({ emoji, headline, caption, tag, tone, filename = "plu
   canvas.width = SIZE;
   canvas.height = SIZE;
   draw(canvas.getContext("2d"), { emoji, headline: clamp(headline, 40), caption: clamp(caption, 70), tag, tone });
-  canvas.toBlob((blob) => { if (blob) openModal(blob, filename); }, "image/png");
+  // What the picture says, for a screen reader: its tag, headline and caption as drawn.
+  const alt = [tag, headline, caption].filter(Boolean).join(". ");
+  canvas.toBlob((blob) => { if (blob) openModal(blob, filename, alt); }, "image/png");
 }
 
-function openModal(blob, filename) {
+function openModal(blob, filename, alt = "") {
   const url = URL.createObjectURL(blob);
   const file = new File([blob], filename, { type: "image/png" });
   const canShareFile = !!(navigator.canShare && navigator.canShare({ files: [file] }));
@@ -146,7 +148,7 @@ function openModal(blob, filename) {
     el("div.modal__card.sharecard", {}, [
       el("button.iconbtn.sharecard__close", { type: "button", "aria-label": t("common.close"), onclick: closeAll }, [icon(ICONS.close, 16)]),
       el("h3", {}, t("share.title")),
-      el("img.sharecard__preview", { src: url, alt: "" }),
+      el("img.sharecard__preview", { src: url, alt }),
       el("div.sharecard__actions", {}, [shareBtn, downloadLink].filter(Boolean)),
     ]),
   ]);

@@ -31,7 +31,7 @@ import { findQuestion as findQuestionPure, dueQuestions as dueQuestionsPure } fr
 import { loadLibraryIndex, loadLibraryTranslations, englishFile } from "./lib/library-content.js";
 import { cleanRuleText, rulesForQuestion, RULE_MAX_COUNT } from "./lib/rules.js";
 import {
-  PROXY_HEALTH_URL, SITE_GATE_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_GOOGLE_URL, AUTH_SET_PASSWORD_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, ACCOUNT_URL,
+  PROXY_HEALTH_URL, SITE_GATE_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_GOOGLE_URL, AUTH_SET_PASSWORD_URL, AUTH_CHANGE_PASSWORD_URL, AUTH_LOGOUT_OTHERS_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, ACCOUNT_URL,
   RESEND_VERIFICATION_URL, VERIFY_EMAIL_URL, FORGOT_PASSWORD_URL, RESET_PASSWORD_URL, STATE_URL, USAGE_URL, BILLING_STATUS_URL,
   AUTH_2FA_VERIFY_URL, AUTH_2FA_RESEND_URL, AUTH_2FA_SETUP_URL, AUTH_2FA_CONFIRM_URL, AUTH_2FA_DISABLE_URL,
 } from "./config.js";
@@ -330,6 +330,16 @@ function markCleared(s, key) {
   for (const [k, ts] of Object.entries(marks)) if (now - ts > 30 * 86400000) delete marks[k];
   marks[key] = now;
   s.sessionsCleared = marks;
+}
+
+/** Remember that a set, test, rule or subject was deleted here, so the other devices' copies don't bring it
+ *  back when they sync (lib/merge-state.js). Putting it back stamps the item newer than this mark. */
+function markDeleted(s, id) {
+  const now = Date.now();
+  const marks = s.deleted && typeof s.deleted === "object" ? s.deleted : {};
+  for (const [k, ts] of Object.entries(marks)) if (now - ts > 120 * 86400000) delete marks[k];   // as in merge-state.js
+  marks[id] = now;
+  s.deleted = marks;
 }
 
 /** Forget evening checklists older than two weeks — they're only ever read on the day. */
@@ -856,7 +866,7 @@ class Store extends EventTarget {
   get profile() { return this.state.profile || null; }
 
   saveProfile(patch) {
-    this.update((s) => { s.profile = { ...(s.profile || {}), ...patch }; });
+    this.update((s) => { s.profile = { ...(s.profile || {}), ...patch }; s.profileAt = Date.now(); });
   }
 
   /** The profile picture: a small square image as a data: URL, kept in the
@@ -1251,14 +1261,14 @@ class Store extends EventTarget {
     const exams = this.state.exams.filter((e) => e.subjectId === id).map((e) => ({ ...e, setIds: [...e.setIds] }));
     const sets = this.state.assignments.filter((a) => a.subjectId === id).map((a) => this.deleteAssignment(a.id)).filter(Boolean);
     for (const e of exams) this.removeExam(e.id);
-    this.update((s) => { s.subjects = s.subjects.filter((x) => x.id !== id); });
+    this.update((s) => { s.subjects = s.subjects.filter((x) => x.id !== id); markDeleted(s, id); });
     return { subject: { ...subject }, exams, sets };
   }
 
   /** Puts back what removeSubject() removed: the subject, then its tests, then its sets. */
   restoreSubject(snapshot) {
     if (!snapshot?.subject) return;
-    this.update((s) => { if (!s.subjects.some((x) => x.id === snapshot.subject.id)) s.subjects.push(snapshot.subject); });
+    this.update((s) => { if (!s.subjects.some((x) => x.id === snapshot.subject.id)) s.subjects.push({ ...snapshot.subject, updatedAt: Date.now() }); });
     for (const e of snapshot.exams || []) this.restoreExam(e);
     for (const a of snapshot.sets || []) this.restoreAssignment(a);
   }
@@ -1377,6 +1387,7 @@ class Store extends EventTarget {
       const examIds = s.exams.filter((e) => e.setIds.includes(id)).map((e) => e.id);
       snapshot = { assignment: a, srs, examIds };
       s.assignments = s.assignments.filter((x) => x.id !== id);
+      markDeleted(s, id);
       for (const e of s.exams) e.setIds = e.setIds.filter((x) => x !== id);
       delete s.sessions[id];
       markCleared(s, id);
@@ -1391,7 +1402,7 @@ class Store extends EventTarget {
       if (s.assignments.some((x) => x.id === snapshot.assignment.id)) return;
       const examIds = snapshot.examIds || [];
       changeExams(s, () => {
-        s.assignments.unshift(snapshot.assignment);
+        s.assignments.unshift({ ...snapshot.assignment, updatedAt: Date.now() });
         for (const e of s.exams) {
           if (examIds.includes(e.id) && !e.setIds.includes(snapshot.assignment.id)) e.setIds.push(snapshot.assignment.id);
         }
@@ -1435,7 +1446,7 @@ class Store extends EventTarget {
   addExam({ subjectId, date, title = "", note = "", setIds = [] }) {
     const rec = this._examRecord({ id: uid(), subjectId, date, title, note, setIds, createdAt: Date.now(), updatedAt: Date.now() });
     if (!rec) return null;
-    this.update((s) => changeExams(s, () => { s.exams.push(rec); }));
+    this.update((s) => changeExams(s, () => { s.exams.push({ ...rec, updatedAt: Date.now() }); }));
     return rec;
   }
 
@@ -1453,7 +1464,7 @@ class Store extends EventTarget {
   removeExam(id) {
     const rec = this.getExam(id);
     if (!rec) return null;
-    this.update((s) => changeExams(s, () => { s.exams = s.exams.filter((e) => e.id !== id); }));
+    this.update((s) => { changeExams(s, () => { s.exams = s.exams.filter((e) => e.id !== id); }); markDeleted(s, id); });
     return rec;
   }
 
@@ -1589,7 +1600,7 @@ class Store extends EventTarget {
     let removed = null;
     this.update((s) => {
       const i = s.rules.findIndex((x) => x.id === id);
-      if (i >= 0) [removed] = s.rules.splice(i, 1);
+      if (i >= 0) { [removed] = s.rules.splice(i, 1); markDeleted(s, id); }
     });
     return removed;
   }
@@ -1598,7 +1609,7 @@ class Store extends EventTarget {
   restoreRule(rule) {
     if (!rule || this.state.rules.some((r) => r.id === rule.id)) return;
     this.update((s) => {
-      s.rules.push(rule);
+      s.rules.push({ ...rule, updatedAt: Date.now() });
       s.rules.sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
     });
   }
@@ -2117,6 +2128,26 @@ class Store extends EventTarget {
     if (!res.ok) throw authError(data, t("login.somethingWrong"));
     this.authPasswordless = false;
     this.emit();
+  }
+
+  /** Change the password of the signed-in account (the server signs every other device out). Throws with the
+   *  server's message, e.g. when the current password is wrong. */
+  async changePassword(currentPassword, newPassword) {
+    const res = await fetch(AUTH_CHANGE_PASSWORD_URL, {
+      method: "POST", credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ currentPassword, newPassword }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw authError(data, t("login.somethingWrong"));
+  }
+
+  /** Sign this account out everywhere except here. Resolves to how many other sessions were ended. */
+  async signOutOtherDevices() {
+    const res = await fetch(AUTH_LOGOUT_OTHERS_URL, { method: "POST", credentials: "include" });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw authError(data, t("login.somethingWrong"));
+    return Number(data.signedOut) || 0;
   }
 
   async logout() {

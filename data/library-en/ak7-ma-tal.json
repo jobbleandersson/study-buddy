@@ -188,16 +188,16 @@
       "id": "q-ma7-tal-13",
       "kind": "mc",
       "topic": "rounding",
-      "prompt": "Round $3{,}86$ to the nearest tenth.",
+      "prompt": "Round $3.86$ to the nearest tenth.",
       "opener": "Look at the hundredths digit to decide whether the tenth should round up or down.",
       "choices": [
-        "$3{,}8$",
-        "$3{,}9$",
-        "$4{,}0$",
-        "$3{,}86$"
+        "$3.8$",
+        "$3.9$",
+        "$4.0$",
+        "$3.86$"
       ],
       "answer": 1,
-      "explanation": "The hundredths digit is 6, so 5 or more, so the tenths digit 8 rounds up to 9: $3{,}9$."
+      "explanation": "The hundredths digit is 6, so 5 or more, so the tenths digit 8 rounds up to 9: $3.9$."
     },
     {
       "id": "q-ma7-tal-14",

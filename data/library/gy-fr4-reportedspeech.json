@@ -15,7 +15,7 @@
       "id": "q-fr4-rs-1",
       "kind": "mc",
       "topic": "reported speech",
-      "prompt": "Han sa: \"Je suis fatigué.\" Hur blir det i indirekt tal, inlett av \"Il a dit que...\"?",
+      "prompt": "Han sa: \"Je suis fatigué.\" Hur blir det i indirekt tal med tempusväxling (grundregeln), inlett av \"Il a dit que...\"?",
       "opener": "Presens i det direkta citatet blir vanligen imparfait i indirekt tal när huvudverbet står i dåtid.",
       "choices": [
         "Il a dit qu'il est fatigué.",
@@ -24,13 +24,13 @@
         "Il a dit qu'il a été fatigué."
       ],
       "answer": 1,
-      "explanation": "När det inledande verbet (\"il a dit\") står i passé composé/dåtid, backas citatets tempus ett steg: présent → imparfait. \"Je suis fatigué\" blir \"qu'il était fatigué\"."
+      "explanation": "När det inledande verbet (\"il a dit\") står i passé composé/dåtid, backas citatets tempus ett steg: présent → imparfait. \"Je suis fatigué\" blir \"qu'il était fatigué\" (gäller det som sades fortfarande kan présent stå kvar, men frågan gäller grundregeln)."
     },
     {
       "id": "q-fr4-rs-2",
       "kind": "mc",
       "topic": "tense shifts",
-      "prompt": "Hon sa: \"J'ai fini mes devoirs.\" Hur blir det i indirekt tal? \"Elle a dit que...\"",
+      "prompt": "Hon sa: \"J'ai fini mes devoirs.\" Hur blir det i indirekt tal med tempusväxling (grundregeln)? \"Elle a dit que...\"",
       "opener": "Passé composé i citatet backas också ett steg när huvudverbet står i dåtid.",
       "choices": [
         "elle a fini ses devoirs.",
@@ -45,7 +45,7 @@
       "id": "q-fr4-rs-3",
       "kind": "mc",
       "topic": "tense shifts",
-      "prompt": "Han sa: \"Je viendrai demain.\" Hur blir det i indirekt tal? \"Il a dit que...\"",
+      "prompt": "Han sa: \"Je viendrai demain.\" Hur blir det i indirekt tal med tempusväxling (grundregeln)? \"Il a dit que...\"",
       "opener": "Futur simple följer samma mönster som presens och passé composé — ett steg bakåt.",
       "choices": [
         "il viendra demain.",
@@ -123,7 +123,7 @@
       "topic": "tense shifts",
       "prompt": "Vilka tempus- och tidsuttrycksbyten gäller när man gör om direkt tal till indirekt tal efter ett huvudverb i dåtid?",
       "opener": "Ett steg bakåt i tempustrappan, plus bytta tids- och platsord.",
-      "answer": "Tempusbyten (ett steg bakåt): présent → imparfait · passé composé → plus-que-parfait · futur simple → conditionnel présent · futur proche (aller + infinitiv) → imparfait av aller + infinitiv. Imparfait och plus-que-parfait ändras inte, de är redan \"längst bak\". Tids-/platsuttryck: aujourd'hui → ce jour-là · demain → le lendemain · hier → la veille · maintenant → à ce moment-là · ici → là · ce week-end → ce week-end-là. Frågor: est-ce que/inversion → si · qu'est-ce que → ce que · qu'est-ce qui → ce qui. Personliga pronomen (je/tu/vous) anpassas alltid efter vem som nu talar om vem."
+      "answer": "Tempusbyten (grundregeln, ett steg bakåt; gäller det som sades fortfarande kan tempus stå kvar): présent → imparfait · passé composé → plus-que-parfait · futur simple → conditionnel présent · futur proche (aller + infinitiv) → imparfait av aller + infinitiv. Imparfait och plus-que-parfait ändras inte, de är redan \"längst bak\". Tids-/platsuttryck: aujourd'hui → ce jour-là · demain → le lendemain · hier → la veille · maintenant → à ce moment-là · ici → là · ce week-end → ce week-end-là. Frågor: est-ce que/inversion → si · qu'est-ce que → ce que · qu'est-ce qui → ce qui. Personliga pronomen (je/tu/vous) anpassas alltid efter vem som nu talar om vem."
     },
     {
       "id": "q-fr4-rs-9",
@@ -208,7 +208,7 @@
       "opener": "En imperativ i direkt tal blir \"de + infinitiv\" med verbet \"dire\" i indirekt tal.",
       "choices": [
         "Le professeur a dit de faire nos devoirs.",
-        "Le professeur a dit que nous fassions nos devoirs.",
+        "Le professeur a dit que nous faisions nos devoirs.",
         "Le professeur a dit nous faisons nos devoirs.",
         "Le professeur a dit nous ferions nos devoirs."
       ],
@@ -224,7 +224,7 @@
       "choices": [
         "là",
         "ici",
-        "là-bas",
+        "ailleurs",
         "partout"
       ],
       "answer": 0,

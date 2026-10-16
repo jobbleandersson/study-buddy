@@ -15,7 +15,7 @@
       "id": "q-fr4-rs-1",
       "kind": "mc",
       "topic": "reported speech",
-      "prompt": "He said: \"Je suis fatigué.\" How does this become reported speech, introduced by \"Il a dit que...\"?",
+      "prompt": "He said: \"Je suis fatigué.\" How does this become reported speech with the usual tense shift, introduced by \"Il a dit que...\"?",
       "opener": "The present tense in the direct quote usually becomes the imparfait in reported speech when the main verb is in the past.",
       "choices": [
         "Il a dit qu'il est fatigué.",
@@ -24,13 +24,13 @@
         "Il a dit qu'il a été fatigué."
       ],
       "answer": 1,
-      "explanation": "When the introducing verb (\"il a dit\") is in the passé composé/past, the tense in the quote shifts back one step: présent → imparfait. \"Je suis fatigué\" becomes \"qu'il était fatigué\"."
+      "explanation": "When the introducing verb (\"il a dit\") is in the passé composé/past, the tense in the quote shifts back one step: présent → imparfait. \"Je suis fatigué\" becomes \"qu'il était fatigué\" (if what was said still holds, the présent can stay, but the question asks for the basic rule)."
     },
     {
       "id": "q-fr4-rs-2",
       "kind": "mc",
       "topic": "tense shifts",
-      "prompt": "She said: \"J'ai fini mes devoirs.\" How does this become reported speech? \"Elle a dit que...\"",
+      "prompt": "She said: \"J'ai fini mes devoirs.\" How does this become reported speech with the usual tense shift? \"Elle a dit que...\"",
       "opener": "The passé composé in the quote also shifts back one step when the main verb is in the past.",
       "choices": [
         "elle a fini ses devoirs.",
@@ -45,7 +45,7 @@
       "id": "q-fr4-rs-3",
       "kind": "mc",
       "topic": "tense shifts",
-      "prompt": "He said: \"Je viendrai demain.\" How does this become reported speech? \"Il a dit que...\"",
+      "prompt": "He said: \"Je viendrai demain.\" How does this become reported speech with the usual tense shift? \"Il a dit que...\"",
       "opener": "The futur simple follows the same pattern as the present and the passé composé — one step back.",
       "choices": [
         "il viendra demain.",
@@ -123,7 +123,7 @@
       "topic": "tense shifts",
       "prompt": "Which tense and time-expression shifts apply when turning direct speech into reported speech after a main verb in the past?",
       "opener": "One step back on the tense ladder, plus swapped time and place words.",
-      "answer": "Tense shifts (one step back): présent → imparfait · passé composé → plus-que-parfait · futur simple → conditionnel présent · futur proche (aller + infinitive) → imparfait of aller + infinitive. Imparfait and plus-que-parfait don't change, since they're already \"as far back as they go\". Time/place expressions: aujourd'hui → ce jour-là · demain → le lendemain · hier → la veille · maintenant → à ce moment-là · ici → là · ce week-end → ce week-end-là. Questions: est-ce que/inversion → si · qu'est-ce que → ce que · qu'est-ce qui → ce qui. Personal pronouns (je/tu/vous) always adjust to reflect who is now talking about whom."
+      "answer": "Tense shifts (the basic rule, one step back; if what was said still holds, the tense can stay): présent → imparfait · passé composé → plus-que-parfait · futur simple → conditionnel présent · futur proche (aller + infinitive) → imparfait of aller + infinitive. Imparfait and plus-que-parfait don't change, since they're already \"as far back as they go\". Time/place expressions: aujourd'hui → ce jour-là · demain → le lendemain · hier → la veille · maintenant → à ce moment-là · ici → là · ce week-end → ce week-end-là. Questions: est-ce que/inversion → si · qu'est-ce que → ce que · qu'est-ce qui → ce qui. Personal pronouns (je/tu/vous) always adjust to reflect who is now talking about whom."
     },
     {
       "id": "q-fr4-rs-9",
@@ -208,7 +208,7 @@
       "opener": "An imperative in direct speech becomes \"de + infinitive\" with the verb \"dire\" in reported speech.",
       "choices": [
         "Le professeur a dit de faire nos devoirs.",
-        "Le professeur a dit que nous fassions nos devoirs.",
+        "Le professeur a dit que nous faisions nos devoirs.",
         "Le professeur a dit nous faisons nos devoirs.",
         "Le professeur a dit nous ferions nos devoirs."
       ],
@@ -224,7 +224,7 @@
       "choices": [
         "là",
         "ici",
-        "là-bas",
+        "ailleurs",
         "partout"
       ],
       "answer": 0,

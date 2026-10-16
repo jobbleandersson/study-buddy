@@ -15,7 +15,7 @@
       "id": "q-sp4-reportedspeech-1",
       "kind": "mc",
       "topic": "reported speech",
-      "prompt": "Omvandla till indirekt tal: María dijo: \"Estoy cansada.\" → María dijo que ___.",
+      "prompt": "Omvandla till indirekt tal med tempusväxling (grundregeln): María dijo: \"Estoy cansada.\" → María dijo que ___.",
       "opener": "När det inledande verbet står i dåtid (dijo) flyttas presens ett steg bakåt: till imperfekt.",
       "choices": [
         "está cansada",
@@ -24,28 +24,28 @@
         "esté cansada"
       ],
       "answer": 1,
-      "explanation": "Eftersom \"dijo\" (sa) står i dåtid, flyttas presens (\"estoy\") ett steg bakåt till imperfekt: \"estaba cansada\". Detta är grundmönstret i estilo indirecto."
+      "explanation": "Eftersom \"dijo\" (sa) står i dåtid, flyttas presens (\"estoy\") ett steg bakåt till imperfekt: \"estaba cansada\". Detta är grundmönstret i estilo indirecto (gäller det som sades fortfarande kan presens också stå kvar, men det är inte grundregeln som efterfrågas här)."
     },
     {
       "id": "q-sp4-reportedspeech-2",
       "kind": "mc",
       "topic": "tense shifts",
-      "prompt": "Omvandla till indirekt tal: Carlos dijo: \"Llegué tarde.\" → Carlos dijo que ___.",
+      "prompt": "Omvandla till indirekt tal med tempusväxling (grundregeln): Carlos dijo: \"Llegué tarde.\" → Carlos dijo que ___.",
       "opener": "Pretérito flyttas bakåt till pluskvamperfekt i indirekt tal.",
       "choices": [
         "llegaba tarde",
-        "llegó tarde",
+        "llegaría tarde",
         "había llegado tarde",
         "llegara tarde"
       ],
       "answer": 2,
-      "explanation": "Pretérito (\"llegué\") flyttas ett steg bakåt till pluskvamperfekt: \"había llegado tarde\". Mönstret: presens→imperfekt, pretérito→pluskvamperfekt."
+      "explanation": "Pretérito (\"llegué\") flyttas ett steg bakåt till pluskvamperfekt: \"había llegado tarde\". Mönstret: presens→imperfekt, pretérito→pluskvamperfekt (i vardagligt tal kan pretérito också stå kvar, men grundregeln är pluskvamperfekt)."
     },
     {
       "id": "q-sp4-reportedspeech-3",
       "kind": "mc",
       "topic": "tense shifts",
-      "prompt": "Omvandla till indirekt tal: Ana dijo: \"Iré a la fiesta.\" → Ana dijo que ___.",
+      "prompt": "Omvandla till indirekt tal med tempusväxling (grundregeln): Ana dijo: \"Iré a la fiesta.\" → Ana dijo que ___.",
       "opener": "Futurum flyttas bakåt till konditionalis i indirekt tal.",
       "choices": [
         "iba a la fiesta",
@@ -54,7 +54,7 @@
         "iría a la fiesta"
       ],
       "answer": 3,
-      "explanation": "Futurum (\"iré\") flyttas bakåt till konditionalis: \"iría a la fiesta\". Mönstret gäller alla futurumformer när det inledande verbet står i dåtid."
+      "explanation": "Futurum (\"iré\") flyttas bakåt till konditionalis: \"iría a la fiesta\". Mönstret gäller alla futurumformer när det inledande verbet står i dåtid (gäller det som sades fortfarande kan futurum stå kvar, men grundregeln är konditionalis)."
     },
     {
       "id": "q-sp4-reportedspeech-4",
@@ -90,12 +90,12 @@
       "id": "q-sp4-reportedspeech-6",
       "kind": "mc",
       "topic": "reporting verbs",
-      "prompt": "Omvandla till indirekt tal: Laura preguntó: \"¿Vienes a la fiesta?\" → Laura preguntó ___.",
+      "prompt": "Omvandla till indirekt tal med tempusväxling (grundregeln): Laura preguntó: \"¿Vienes a la fiesta?\" → Laura preguntó ___.",
       "opener": "Ja/nej-frågor i indirekt tal inleds med \"si\" (om), och ordföljden blir som i ett påstående, inte en fråga.",
       "choices": [
         "si venía a la fiesta",
         "que vienes a la fiesta",
-        "si vienes a la fiesta",
+        "si venga a la fiesta",
         "cuándo venía a la fiesta"
       ],
       "answer": 0,
@@ -122,13 +122,13 @@
       "topic": "reported speech",
       "prompt": "Vilka tempusväxlingar och andra förändringar sker i estilo indirecto?",
       "opener": "Ett schema att memorera för att smidigt växla mellan direkt och indirekt tal.",
-      "answer": "Tempusväxlingar (när det inledande verbet står i dåtid, t.ex. dijo que): presente→imperfecto (estoy→estaba), pretérito→pluscuamperfecto (llegué→había llegado), futuro→condicional (iré→iría), imperativo→imperfecto de subjuntivo (estudiad→estudiáramos). Tids-/platsuttryck: hoy→aquel día, mañana→al día siguiente, ayer→el día anterior, aquí→allí, este→aquel. Frågor: ja/nej-frågor får \"si\" (preguntó si venía), frågeordsfrågor behåller frågeordet (preguntó cuándo venía) — utan frågetecken och utan inverterad ordföljd. Pronomen anpassas alltid efter det nya perspektivet."
+      "answer": "Tempusväxlingar (grundregeln när det inledande verbet står i dåtid, t.ex. dijo que; gäller det som sades fortfarande kan tempus stå kvar): presente→imperfecto (estoy→estaba), pretérito→pluscuamperfecto (llegué→había llegado), futuro→condicional (iré→iría), imperativo→imperfecto de subjuntivo (estudiad→estudiáramos). Tids-/platsuttryck: hoy→aquel día, mañana→al día siguiente, ayer→el día anterior, aquí→allí, este→aquel. Frågor: ja/nej-frågor får \"si\" (preguntó si venía), frågeordsfrågor behåller frågeordet (preguntó cuándo venía) — utan frågetecken och utan inverterad ordföljd. Pronomen anpassas alltid efter det nya perspektivet."
     },
     {
       "id": "q-sp4-reportedspeech-9",
       "kind": "mc",
       "topic": "reported speech",
-      "prompt": "Omvandla till indirekt tal: Sofía dijo: \"Tengo hambre.\" → Sofía dijo que ___.",
+      "prompt": "Omvandla till indirekt tal med tempusväxling (grundregeln): Sofía dijo: \"Tengo hambre.\" → Sofía dijo que ___.",
       "opener": "Presens flyttas ett steg bakåt till imperfekt.",
       "choices": [
         "tenía hambre",
@@ -137,7 +137,7 @@
         "tendría hambre"
       ],
       "answer": 0,
-      "explanation": "Presens (\"tengo\") flyttas bakåt till imperfekt: \"tenía hambre\"."
+      "explanation": "Presens (\"tengo\") flyttas bakåt till imperfekt: \"tenía hambre\" (grundregeln)."
     },
     {
       "id": "q-sp4-reportedspeech-10",
@@ -193,7 +193,7 @@
       "choices": [
         "aquel",
         "este",
-        "ese",
+        "esto",
         "el"
       ],
       "answer": 0,

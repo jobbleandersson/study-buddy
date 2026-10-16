@@ -91,16 +91,16 @@
       "id": "q-ma7-geo-6",
       "kind": "mc",
       "topic": "unit conversion",
-      "prompt": "How many centimetres is $2{,}5$ metres?",
+      "prompt": "How many centimetres is $2.5$ metres?",
       "opener": "A metre is 100 cm - should the number get bigger or smaller?",
       "choices": [
         "25 cm",
         "250 cm",
         "2,500 cm",
-        "$0{,}025$ cm"
+        "$0.025$ cm"
       ],
       "answer": 1,
-      "explanation": "A metre is 100 cm, so $2{,}5 \\cdot 100 = 250$ cm. You get 25 cm if you only multiply by 10, i.e. move the decimal point one place instead of two."
+      "explanation": "A metre is 100 cm, so $2.5 \\cdot 100 = 250$ cm. You get 25 cm if you only multiply by 10, i.e. move the decimal point one place instead of two."
     },
     {
       "id": "q-ma7-geo-7",
@@ -177,12 +177,12 @@
       "opener": "A metre is 100 cm - move the decimal point the right number of places.",
       "choices": [
         "35 m",
-        "3,5 m",
-        "0,35 m",
+        "3.5 m",
+        "0.35 m",
         "350 m"
       ],
       "answer": 1,
-      "explanation": "$350 / 100 = 3{,}5$ m."
+      "explanation": "$350 / 100 = 3.5$ m."
     },
     {
       "id": "q-ma7-geo-13",
@@ -215,16 +215,16 @@
       "id": "q-ma7-geo-15",
       "kind": "mc",
       "topic": "unit conversion",
-      "prompt": "How many millimetres is $4{,}2$ cm?",
+      "prompt": "How many millimetres is $4.2$ cm?",
       "opener": "A centimetre is 10 mm.",
       "choices": [
-        "4,2 mm",
+        "4.2 mm",
         "24 mm",
         "42 mm",
         "420 mm"
       ],
       "answer": 2,
-      "explanation": "$4{,}2 \\cdot 10 = 42$ mm."
+      "explanation": "$4.2 \\cdot 10 = 42$ mm."
     }
   ]
 }
