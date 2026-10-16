@@ -2682,6 +2682,7 @@ export default {
   "lp.navFaq": "Frågor",
   "lp.navLogin": "Logga in",
   "lp.navStart": "Kom igång gratis",
+  "lp.navStartShort": "Kom igång",
   "lp.navAria": "Framsidans delar",
   "lp.eyebrow": "Nytt: feedback på din egen text med PluggEra AI",
   "lp.heroA": "Plugga smartare,",

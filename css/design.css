@@ -204,3 +204,11 @@ h1 { font-weight: 750; }
 .home-panel { border-radius: var(--r-lg); box-shadow: var(--shadow-card); }
 .home-panel__label > span:first-child { font-size: 15px; font-weight: 650; letter-spacing: -.01em; }
 .home-panel__label .linkbtn { font-size: 13.5px; font-weight: 600; }
+
+/* Very small phones (320px): the top bar needs 340px at its normal spacing, which made the whole page
+   scroll sideways. Tighter gaps and side padding are enough to fit it; the 44px buttons stay. */
+@media (max-width: 350px) {
+  .topbar__inner { gap: 4px; padding-left: var(--s-2); padding-right: var(--s-2); }
+  .topbar__actions { gap: 4px; }
+  .topbar__inner .langbtn { width: auto; padding: 0 8px; }
+}
