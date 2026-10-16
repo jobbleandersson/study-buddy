@@ -36,11 +36,11 @@
       "choices": [
         "$x = 4$ eller $x = -2$",
         "$x = 2$ eller $x = -4$",
-        "$x = -1 \\pm 3$",
+        "$x = -1 \\pm 9$",
         "$x = 8$ eller $x = -1$"
       ],
       "answer": 1,
-      "explanation": "$x = -1 \\pm \\sqrt{1 - (-8)} = -1 \\pm \\sqrt{9} = -1 \\pm 3$, alltså $x = 2$ eller $x = -4$. Alternativet $x = -1 \\pm 3$ visar bara mellansteget utan att räkna klart."
+      "explanation": "$x = -1 \\pm \\sqrt{1 - (-8)} = -1 \\pm \\sqrt{9} = -1 \\pm 3$, alltså $x = 2$ eller $x = -4$. Alternativet $x = -1 \\pm 9$ glömmer att ta kvadratroten ur $9$."
     },
     {
       "id": "q-ma2-andragrad-3",

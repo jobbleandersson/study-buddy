@@ -35,12 +35,12 @@
       "opener": "Ett handlar om vad som återkommer, det andra om vad något betyder utöver sig själv.",
       "choices": [
         "Motiv är alltid konkreta föremål, symboler är alltid abstrakta känslor",
-        "Motiv är återkommande teman eller inslag, medan en symbol står för något mer än sig själv",
+        "Ett motiv är ett konkret element som återkommer i texten, medan en symbol står för något mer än sig själv",
         "Det finns ingen skillnad — orden är synonyma",
         "Symbol handlar om berättarperspektiv, motiv om komposition"
       ],
       "answer": 1,
-      "explanation": "Motiv är ett återkommande inslag eller tema i en text (t.ex. döden, kärleken), medan en symbol är ett konkret föremål eller en företeelse som representerar något abstrakt (t.ex. en fågel som symboliserar frihet)."
+      "explanation": "Ett motiv är ett konkret, återkommande element i en text (t.ex. en fågel, ett fönster, en väg), medan en symbol är något som står för en abstrakt idé (t.ex. en fågel som symboliserar frihet). Det abstrakta temat (t.ex. döden, kärleken) bärs fram av motiven."
     },
     {
       "id": "q-sv2-analys-3",
@@ -158,16 +158,16 @@
       "id": "q-sv2-analys-11",
       "kind": "mc",
       "topic": "symbolik och motiv",
-      "prompt": "I en roman återkommer temat ensamhet gång på gång genom olika karaktärer och situationer, utan att vara knutet till ett enda konkret föremål. Är detta ett motiv eller en symbol?",
-      "opener": "Fråga dig om det handlar om ett återkommande tema eller om ett konkret föremål som representerar något annat.",
+      "prompt": "I en roman återkommer en trasig klocka i flera kapitel. Klockan nämns bara som ett föremål i miljön och står inte för något annat. Är detta ett motiv eller en symbol?",
+      "opener": "Fråga dig om det handlar om ett konkret element som återkommer, eller om något som står för något annat.",
       "choices": [
-        "Ett motiv, eftersom det är ett återkommande tema",
-        "En symbol, eftersom det representerar något konkret",
+        "Ett motiv, eftersom det är ett konkret element som återkommer",
+        "En symbol, eftersom det står för något mer än sig själv",
         "Varken motiv eller symbol",
         "Både motiv och symbol på exakt samma sätt"
       ],
       "answer": 0,
-      "explanation": "Ett återkommande abstrakt tema som ensamhet, utan koppling till ett specifikt föremål, räknas som ett motiv. En symbol är i stället ett konkret föremål eller en företeelse som representerar något abstrakt."
+      "explanation": "Ett konkret element som återkommer i texten är ett motiv. Det blir en symbol först när det står för något mer än sig själv, till exempel en abstrakt idé — här står klockan bara för sig själv."
     },
     {
       "id": "q-sv2-analys-12",

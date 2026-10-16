@@ -14,61 +14,61 @@
       "id": "q-de4-idi-1",
       "kind": "mc",
       "topic": "false friends",
-      "prompt": "Vad betyder tyskans \"das Gift\"?",
-      "opener": "Ett av de mest kända exemplen på en falsk vän mellan svenska och tyska — och farligt att blanda ihop.",
+      "prompt": "Vad betyder tyskans \"die Hose\"?",
+      "opener": "Ett klassiskt exempel på en falsk vän mellan svenska och tyska — och det handlar om kläder.",
       "choices": [
-        "gift (present)",
-        "gift (äktenskap)",
-        "gift (giftigt ämne)",
-        "gåva"
+        "strumpa",
+        "kjol",
+        "byxor",
+        "handske"
       ],
       "answer": 2,
-      "explanation": "\"Das Gift\" betyder gift/giftigt ämne (poison), INTE en gåva. \"Gåva/present\" heter \"das Geschenk\" på tyska, och \"gift\" (äktenskap) motsvaras av adjektivet \"verheiratet\". Detta är ett klassiskt exempel på en falsk vän som är viktig att komma ihåg."
+      "explanation": "\"Die Hose\" betyder byxor, INTE hosa/strumpa. Strumpa heter \"der Strumpf\" eller \"die Socke\" på tyska. Svenskans \"hosa\" och tyskans \"Hose\" har samma ursprung men har fått olika betydelse."
     },
     {
       "id": "q-de4-idi-2",
       "kind": "mc",
       "topic": "false friends",
-      "prompt": "Vad betyder tyskans \"der Rat\"?",
-      "opener": "Låter som ett svenskt djur, men betyder något helt annat.",
+      "prompt": "Vad betyder tyskans \"bekommen\"?",
+      "opener": "Ser ut som engelskans \"become\" — men betyder något annat.",
       "choices": [
-        "råtta",
-        "råd (rekommendation)",
-        "ratt (bil)",
-        "rät vinkel"
+        "bli",
+        "få",
+        "komma tillbaka",
+        "köpa"
       ],
       "answer": 1,
-      "explanation": "\"Der Rat\" betyder råd/rekommendation (advice), inte råtta. Råtta heter \"die Ratte\" på tyska — bara en bokstav skiljer stavningen, men betydelsen är helt annorlunda. \"Ratt\" (bilens) heter \"das Lenkrad\"."
+      "explanation": "\"Bekommen\" betyder få, INTE bli: \"Ich bekomme ein Eis\" = Jag får en glass. \"Bli\" heter \"werden\" på tyska. Ordet liknar engelskans \"become\" (bli), vilket gör det till en klassisk falsk vän."
     },
     {
       "id": "q-de4-idi-3",
       "kind": "mc",
       "topic": "false friends",
-      "prompt": "Vad betyder tyskans \"aktuell\"?",
-      "opener": "Ett vanligt fällfel för svensktalande som skriver tyska uppsatser.",
+      "prompt": "Vad betyder tyskans \"also\"?",
+      "opener": "Ser ut som engelskans \"also\" (också).",
       "choices": [
-        "faktisk, verklig",
-        "nuvarande, dagsaktuell",
-        "praktisk",
-        "framtida"
+        "också",
+        "alltså, så",
+        "ändå",
+        "alltid"
       ],
       "answer": 1,
-      "explanation": "\"Aktuell\" på tyska betyder \"nuvarande/dagsaktuell\" (current, topical) — precis som på svenska, faktiskt! Den vanliga fällan går åt andra hållet: svenskans \"faktisk/verklig\" motsvaras INTE av tyskans \"aktuell\", utan av \"tatsächlich\" eller \"eigentlich\". Många svensktalande blandar ändå ihop tyskans \"aktuell\" med engelskans \"actual\" (som betyder faktisk) och skriver fel på engelska istället — men på tyska stämmer faktiskt betydelsen med svenskan."
+      "explanation": "\"Also\" betyder alltså/så (\"Also, los geht's!\" = Nå, nu kör vi!), INTE också. \"Också\" heter \"auch\" på tyska. Ordet ser ut som engelskans \"also\" och är en klassisk falsk vän."
     },
     {
       "id": "q-de4-idi-4",
       "kind": "mc",
       "topic": "false friends",
-      "prompt": "Vad betyder tyskans \"der Chef\"?",
-      "opener": "Kan förväxlas med ett yrke inom matlagning.",
+      "prompt": "Vad betyder tyskans \"die Fahrt\"?",
+      "opener": "Låter som svenskans \"fart\" — men är en resa.",
       "choices": [
-        "kock",
-        "chef, arbetsledare",
-        "kemist",
-        "kollega"
+        "hastighet",
+        "resa, färd",
+        "fest",
+        "fångst"
       ],
       "answer": 1,
-      "explanation": "\"Der Chef\" betyder chef/arbetsledare (boss), precis som på svenska — INTE kock. Kock heter \"der Koch\" på tyska, vilket lätt förväxlas med \"Chef\" via engelskans \"chef\" (som faktiskt betyder kock på engelska). Var extra uppmärksam på denna trippelfälla mellan svenska, tyska och engelska."
+      "explanation": "\"Die Fahrt\" betyder resa/färd (\"eine Fahrt nach Berlin\"), INTE fart/hastighet. Hastighet heter \"die Geschwindigkeit\" eller \"das Tempo\" på tyska."
     },
     {
       "id": "q-de4-idi-5",
@@ -104,14 +104,14 @@
       "id": "q-de4-idi-7",
       "kind": "worked",
       "topic": "false friends",
-      "prompt": "Rätta felen i denna mening, som en svensktalande elev skrivit och som innehåller TVÅ falska vänner: \"Mein Chef hat mir ein Gift zum Geburtstag geschenkt.\" (Tänkt betydelse: Min chef gav mig en present till födelsedagen.)",
-      "opener": "Eleven har blandat ihop svenska \"gift\" (present) med ett tyskt ord som ser likadant ut men betyder något farligt. Kolla också om \"Chef\" verkligen stämmer här.",
-      "answer": "Mein Chef hat mir ein Geschenk zum Geburtstag geschenkt.",
+      "prompt": "Rätta felen i denna mening, som en svensktalande elev skrivit och som innehåller TVÅ falska vänner: \"Das Auto hatte eine hohe Fahrt, und mein Bruder will Pilot bekommen.\" (Tänkt betydelse: Bilen hade hög fart, och min bror vill bli pilot.)",
+      "opener": "Eleven har valt tyska ord som liknar svenskans \"fart\" och engelskans \"become\". Vilka två ord är fel?",
+      "answer": "Das Auto hatte eine hohe Geschwindigkeit, und mein Bruder will Pilot werden.",
       "steps": [
-        "\"Chef\" är faktiskt korrekt här om personen menar sin arbetsledare/chef — det är INTE en falsk vän i det här fallet, till skillnad från om man menat \"kock\" (som hade varit fel).",
-        "\"Ein Gift\" är däremot fel — det betyder ett giftigt ämne, inte en present. Ordet som ska stå där är \"ein Geschenk\" (en gåva/present).",
-        "Meningen blandar alltså ihop den svenska betydelsen av \"gift\" (skänk, present) med det tyska ordet som råkar se likadant ut men betyder \"poison\".",
-        "Korrekt mening: \"Mein Chef hat mir ein Geschenk zum Geburtstag geschenkt.\" (Min chef gav mig en present till födelsedagen.) Lägg märke till att verbet \"schenken\" (ge i present) också liknar \"Geschenk\" och \"Gift\" — tre ord som lätt blandas ihop men har helt olika innebörd."
+        "\"Eine hohe Fahrt\" är fel: \"die Fahrt\" betyder resa/färd, inte fart. Hastighet heter \"die Geschwindigkeit\".",
+        "\"Pilot bekommen\" är fel: \"bekommen\" betyder få, inte bli. \"Att bli\" heter \"werden\": \"Pilot werden\".",
+        "Eleven har översatt svenskans \"fart\" och \"bli\" ord för ord med tyska ord som liknar dem (Fahrt, bekommen) men betyder något annat.",
+        "Korrekt mening: \"Das Auto hatte eine hohe Geschwindigkeit, und mein Bruder will Pilot werden.\" (Bilen hade hög fart, och min bror vill bli pilot.)"
       ]
     },
     {
@@ -120,22 +120,22 @@
       "topic": "false friends",
       "prompt": "Vilka är de vanligaste svensk-tyska falska vännerna, och vilka idiom bör man kunna på den här nivån?",
       "opener": "En snabb genomgång av fällor och användbara uttryck.",
-      "answer": "Falska vänner: das Gift = gift/poison (INTE gåva → das Geschenk), der Rat = råd/advice (INTE råtta → die Ratte), der Chef = chef/boss (INTE kock → der Koch), aktuell = nuvarande/dagsaktuell (stämmer med svenskan, men blandas ofta ihop med engelskans \"actual\" = faktisk/tatsächlich), das Bekannte = den bekante/known person (inte bekant/kändis i betydelsen berömd → berühmt), die Kost = kost/föda (inte kost i betydelsen kostnad → die Kosten). Idiom: die Daumen drücken = hålla tummarna, ins Wasser fallen = bli inställt, den Nagel auf den Kopf treffen = träffa mitt i prick, unter vier Augen = mellan fyra ögon/privat, Schwein haben = ha tur, die Katze im Sack kaufen = köpa grisen i säcken."
+      "answer": "Falska vänner: die Hose = byxor (INTE hosa/strumpa → die Socke), bekommen = få (INTE bli → werden), also = alltså/så (INTE också → auch), die Fahrt = resa/färd (INTE fart → die Geschwindigkeit), das Kind = barn (INTE kind/kinn → die Wange), der Rock = kjol (INTE jacka/rock → der Mantel), der/die Bekannte = en bekant (INTE en kändis → berühmt). Idiom: die Daumen drücken = hålla tummarna, ins Wasser fallen = bli inställt, den Nagel auf den Kopf treffen = träffa mitt i prick, unter vier Augen = mellan fyra ögon/privat, Schwein haben = ha tur, die Katze im Sack kaufen = köpa grisen i säcken."
     },
     {
       "id": "q-de4-idi-9",
       "kind": "mc",
       "topic": "false friends",
-      "prompt": "Vad betyder tyskans \"die Kost\"?",
-      "opener": "Låter som ett svenskt ord för pengar man betalar, men betyder något annat.",
+      "prompt": "Vad betyder tyskans \"das Kind\"?",
+      "opener": "Stavas som ett svenskt ord för en del av ansiktet.",
       "choices": [
-        "kost/föda",
-        "kostnad",
-        "kust",
-        "konst"
+        "barn",
+        "kind (på ansiktet)",
+        "kusin",
+        "tonåring"
       ],
       "answer": 0,
-      "explanation": "\"Die Kost\" betyder kost/föda (mat), INTE kostnad. \"Kostnad\" heter \"die Kosten\" på tyska."
+      "explanation": "\"Das Kind\" betyder barn, INTE kind (kinn). Kinden heter \"die Wange\" på tyska."
     },
     {
       "id": "q-de4-idi-10",

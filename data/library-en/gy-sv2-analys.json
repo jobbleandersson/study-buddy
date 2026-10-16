@@ -35,12 +35,12 @@
       "opener": "One is about what recurs, the other about what something means beyond itself.",
       "choices": [
         "Motifs are always concrete objects, symbols are always abstract feelings",
-        "A motif is a recurring theme or element, while a symbol stands for something more than itself",
+        "A motif is a concrete element that recurs in the text, while a symbol stands for something more than itself",
         "There is no difference — the words are synonyms",
         "Symbol is about narrative perspective, motif about composition"
       ],
       "answer": 1,
-      "explanation": "A motif is a recurring element or theme in a text (e.g. death, love), while a symbol is a concrete object or phenomenon that represents something abstract (e.g. a bird symbolising freedom)."
+      "explanation": "A motif is a concrete, recurring element in a text (e.g. a bird, a window, a road), while a symbol is something that stands for an abstract idea (e.g. a bird symbolising freedom). The abstract theme (e.g. death, love) is carried by the motifs."
     },
     {
       "id": "q-sv2-analys-3",
@@ -158,16 +158,16 @@
       "id": "q-sv2-analys-11",
       "kind": "mc",
       "topic": "symbolism and motif",
-      "prompt": "In a novel, the theme of loneliness recurs again and again through different characters and situations, without being tied to a single concrete object. Is this a motif or a symbol?",
-      "opener": "Ask yourself whether this is about a recurring theme or a concrete object that represents something else.",
+      "prompt": "In a novel, a broken clock recurs over several chapters. The clock is only mentioned as an object in the setting and does not stand for anything else. Is this a motif or a symbol?",
+      "opener": "Ask yourself whether this is a concrete element that recurs, or something that stands for something else.",
       "choices": [
-        "A motif, since it is a recurring theme",
-        "A symbol, since it represents something concrete",
+        "A motif, since it is a concrete element that recurs",
+        "A symbol, since it stands for something more than itself",
         "Neither a motif nor a symbol",
         "Both a motif and a symbol in exactly the same way"
       ],
       "answer": 0,
-      "explanation": "A recurring abstract theme like loneliness, without being tied to a specific object, counts as a motif. A symbol is instead a concrete object or phenomenon that represents something abstract."
+      "explanation": "A concrete element that recurs in the text is a motif. It only becomes a symbol when it stands for something more than itself, for example an abstract idea — here the clock only stands for itself."
     },
     {
       "id": "q-sv2-analys-12",
