@@ -18,7 +18,7 @@
       "prompt": "Which word is most appropriate in a formal academic essay?",
       "opener": "Which word signals academic style rather than spoken language?",
       "choices": [
-        "a lot of",
+        "a whole lot of",
         "loads of",
         "considerable",
         "tons of"
@@ -66,7 +66,7 @@
         "big",
         "significant",
         "huge",
-        "major-ish"
+        "major-ish, sort of"
       ],
       "answer": 1,
       "explanation": "\"Significant\" is a precise academic word that often also signals statistical significance. \"Big\"/\"huge\" are vague and everyday, and \"major-ish\" is not standard English."
@@ -78,7 +78,7 @@
       "prompt": "Which sentence uses the most precise verb?",
       "opener": "Which verb shows that the text doesn't just mention something, but makes an argument?",
       "choices": [
-        "The report says that funding should increase.",
+        "The report says that funding should increase next year.",
         "The report argues that funding should increase.",
         "The report goes on about funding increasing.",
         "The report talks about funding increasing."
@@ -148,7 +148,7 @@
         "a substantial issue",
         "a mega problem",
         "a huge deal",
-        "a really big thing"
+        "a really big thing indeed"
       ],
       "answer": 0,
       "explanation": "\"A substantial issue\" is precise and formal. The other options are colloquial or overly informal expressions."
@@ -222,7 +222,7 @@
       "choices": [
         "For instance,",
         "Like,",
-        "You know,",
+        "You know what I mean,",
         "I mean,"
       ],
       "answer": 0,

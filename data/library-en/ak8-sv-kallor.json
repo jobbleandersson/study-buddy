@@ -22,7 +22,7 @@
         "Is the source what it claims to be?",
         "How old is the information?",
         "Does the sender want to sell something?",
-        "Does the same information appear elsewhere?"
+        "Does the same information appear in several other places as well?"
       ],
       "answer": 0,
       "explanation": "Authenticity answers whether the source really is what it claims to be, for example whether a government website is genuine or a copy. The question about age belongs to the time criterion, selling to bias, and comparisons to dependency."
@@ -34,7 +34,7 @@
       "prompt": "Which source is most credible if you want to find out how much sleep Swedes get on average?",
       "opener": "Ask who collected the information and what the sender gains from you believing it.",
       "choices": [
-        "A blog post where someone describes their own sleeping habits",
+        "A blog post where someone describes their own sleeping habits and what works for them",
         "A report from the Public Health Agency with a documented survey",
         "An advertising page for mattresses that quotes \"research\"",
         "A comment under a social media post"
@@ -67,7 +67,7 @@
         "You render the content in your own words, factually and without your own opinions",
         "You copy out the most important sentences word for word",
         "You write what you yourself think of the text",
-        "You reproduce everything in the original text, as long as the original"
+        "You reproduce everything in the original text, as long as the original, without shortening"
       ],
       "answer": 0,
       "explanation": "The summary renders the source's main content in your own words and in condensed form, without adding your own value judgements. Copying sentences word for word is quoting or, without a source citation, plagiarism."
@@ -82,7 +82,7 @@
         "Screen time before bedtime worsens sleep.",
         "I think screen time before bedtime worsens sleep.",
         "According to the Public Health Agency, screen time before bedtime worsens sleep.",
-        "It is well known that screen time before bedtime worsens sleep."
+        "It is well known that screen time before bedtime worsens sleep for most people."
       ],
       "answer": 2,
       "explanation": "\"According to the Public Health Agency\" is a reporting marker that places the information with a named source. Without a marker the claim sounds like your own, and \"it is well known that\" doesn't point to any source at all."
@@ -96,7 +96,7 @@
       "choices": [
         "Quoting a text with quotation marks and a source citation",
         "Copying text from a website without stating where it comes from",
-        "Summarising an article in your own words and stating the source",
+        "Summarising an article in your own words and stating the source in a note at the end of the assignment",
         "Using several sources in the same assignment"
       ],
       "answer": 1,
@@ -222,7 +222,7 @@
       "prompt": "Which of these does NOT count as plagiarism in a school assignment?",
       "opener": "Think about which option clearly shows where the information comes from.",
       "choices": [
-        "Copying several sentences from a webpage without stating the source",
+        "Copying several sentences from a webpage without stating the source at all",
         "Copying a paragraph word for word and pretending it's your own",
         "Quoting a sentence with quotation marks and stating where it comes from",
         "Submitting a friend's essay as your own"

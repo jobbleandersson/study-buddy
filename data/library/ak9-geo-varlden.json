@@ -35,7 +35,7 @@
       "opener": "Detta hav täcker ensamt ungefär en tredjedel av jordens yta och ligger mellan Asien och Amerika.",
       "choices": [
         "Atlanten",
-        "Indiska oceanen",
+        "Indiska oceanen, väster om Australien",
         "Ishavet",
         "Stilla havet (Pacifiska oceanen)"
       ],
@@ -49,7 +49,7 @@
       "prompt": "Vad används vanligen som ett grundläggande mått för att jämföra länders ekonomiska inkomstnivå?",
       "opener": "Måttet brukar dela landets totala ekonomi med antalet invånare.",
       "choices": [
-        "Landets yta i kvadratkilometer",
+        "Landets yta i kvadratkilometer och dess totala gränslängd",
         "BNP per capita (bruttonationalprodukt per invånare)",
         "Antalet världsarv i landet",
         "Landets huvudstads folkmängd"
@@ -67,7 +67,7 @@
         "Höginkomstländer har alltid större yta",
         "Höginkomstländer har oftast bättre tillgång till utbildning, sjukvård och infrastruktur",
         "Låginkomstländer har alltid fler invånare",
-        "Det finns inga mätbara skillnader mellan grupperna"
+        "Det finns inga mätbara skillnader mellan grupperna, bara i hur de beskrivs i internationell statistik"
       ],
       "answer": 1,
       "explanation": "Höginkomstländer har generellt mer resurser att investera i utbildning, sjukvård, vägar och annan infrastruktur, vilket bidrar till högre medellivslängd och levnadsstandard. Skillnaderna handlar dock inte om landets yta eller folkmängd, utan om ekonomisk utveckling och hur resurser fördelas och används."
@@ -164,7 +164,7 @@
       "choices": [
         "Hur jämnt inkomsterna är fördelade mellan invånarna i landet",
         "Landets totala ekonomiska produktion",
-        "En ungefärlig bild av ekonomisk levnadsstandard",
+        "En ungefärlig bild av ekonomisk levnadsstandard i landet som helhet",
         "Ett sätt att jämföra länder ekonomiskt"
       ],
       "answer": 0,
@@ -180,7 +180,7 @@
         "Internationella handelsorganisationer",
         "Militärallianser",
         "Kolonialmakter",
-        "Enskilda nationalstater"
+        "Enskilda nationalstater som ensamma sätter reglerna"
       ],
       "answer": 0,
       "explanation": "Internationella handelsorganisationer som WTO arbetar med att sätta gemensamma regler för handel mellan länder, till exempel kring tullar och handelstvister, för att underlätta världshandeln."
@@ -195,7 +195,7 @@
         "Kring vändkretsarna, ungefär 20-30 grader norr och söder om ekvatorn",
         "Enbart vid polerna",
         "Enbart vid ekvatorn",
-        "Öknar finns jämnt utspridda på alla breddgrader"
+        "Öknar finns jämnt utspridda på alla breddgrader över hela jorden, även vid polerna"
       ],
       "answer": 0,
       "explanation": "Många av världens stora ökenbälten, som Sahara och Arabiska öknen, ligger kring vändkretsarna där storskaliga luftcirkulationsmönster ger nedåtgående, torr luft som hämmar molnbildning och nederbörd."

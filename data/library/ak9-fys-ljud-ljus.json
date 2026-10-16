@@ -20,9 +20,9 @@
       "opener": "Tänk på vad som händer i luften när något vibrerar, till exempel en gitarrsträng.",
       "choices": [
         "Ljus som rör sig i vågor",
-        "Tryckvågor som sprids genom ett medium, till exempel luft, när något vibrerar",
+        "Tryckvågor som sprids genom ett medium när något vibrerar",
         "En elektrisk signal i luften",
-        "Ett tomrum som rör sig framåt"
+        "Ett tomrum som rör sig framåt genom luften i form av osynliga vågor"
       ],
       "answer": 1,
       "explanation": "Ljud uppstår när något vibrerar och sätter partiklarna i ett medium (t.ex. luft) i svängning, vilket skapar tryckvågor som sprider sig utåt och når örat. Ljud är inte ljus och behöver ett medium för att spridas."
@@ -35,9 +35,9 @@
       "opener": "Fundera på hur snabbt något vibrerar.",
       "choices": [
         "Ljudets hastighet",
-        "Frekvensen, det vill säga hur många svängningar per sekund ljudkällan gör",
+        "Frekvensen, alltså hur många svängningar per sekund ljudkällan gör",
         "Hur högt volymen är",
-        "Avståndet till lyssnaren"
+        "Avståndet till lyssnaren och hur långt ljudet hunnit färdas i luften"
       ],
       "answer": 1,
       "explanation": "Tonhöjden bestäms av frekvensen, mätt i hertz (Hz) — fler svängningar per sekund ger en högre ton, färre svängningar ger en lägre ton. Volymen styrs i stället av ljudvågens amplitud (svängningens storlek), inte av frekvensen."
@@ -80,8 +80,8 @@
       "opener": "Ljuset byter medium (luft till vatten) och ändrar då fart och riktning.",
       "choices": [
         "Sugröret är faktiskt böjt",
-        "Ljuset bryts (ändrar riktning) när det går från luft till vatten eftersom det ändrar fart i de olika medierna",
-        "Vattnet förstorar bilden jämnt över hela sugröret",
+        "Ljuset bryts (ändrar riktning) när det går från luft till vatten eftersom det ändrar fart",
+        "Vattnet förstorar bilden jämnt över hela sugröret och gör det kortare och tjockare i glaset",
         "Ögat kan inte uppfatta räta linjer under vatten"
       ],
       "answer": 1,
@@ -163,7 +163,7 @@
       "opener": "Den första planeten i ordningen från solen och utåt.",
       "choices": [
         "Merkurius",
-        "Venus",
+        "Venus, som lyser starkast",
         "Jorden",
         "Mars"
       ],
@@ -180,7 +180,7 @@
         "En himlakropp som kretsar runt en planet",
         "En liten stjärna",
         "En typ av komet",
-        "Ett annat namn för en planet"
+        "Ett annat namn för en planet som saknar egen bana"
       ],
       "answer": 0,
       "explanation": "En måne är en naturlig himlakropp som kretsar runt en planet, till skillnad från en planet som kretsar runt en stjärna. Jorden har en måne, men andra planeter kan ha flera eller inga."
@@ -222,7 +222,7 @@
       "opener": "Ljuset byter medium när det går från vatten till luft på väg till ditt öga.",
       "choices": [
         "Ljuset bryts när det går från vatten till luft, vilket förskjuter var botten verkar ligga",
-        "Vattnet förstorar botten optiskt utan att ljuset ändrar riktning",
+        "Vattnet förstorar botten optiskt utan att ljuset ändrar riktning, så att botten ser närmare ut",
         "Poolens botten är faktiskt målad högre upp än den är",
         "Ögat kan inte uppfatta djup i vatten alls"
       ],

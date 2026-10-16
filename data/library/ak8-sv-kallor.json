@@ -22,7 +22,7 @@
         "Är källan den den utger sig för att vara?",
         "Hur gammal är informationen?",
         "Vill avsändaren sälja något?",
-        "Finns samma uppgift på andra ställen?"
+        "Finns samma uppgift på flera andra ställen också?"
       ],
       "answer": 0,
       "explanation": "Äkthet svarar på om källan verkligen är den den påstår sig vara, till exempel om en myndighetssida är riktig eller en kopia. Frågan om åldern hör till tidskriteriet, försäljning till tendens och jämförelser till beroende."
@@ -34,7 +34,7 @@
       "prompt": "Vilken källa är mest trovärdig om du ska ta reda på hur mycket svenskar sover i snitt?",
       "opener": "Fråga vem som samlat in uppgiften och vad avsändaren tjänar på att du tror på den.",
       "choices": [
-        "Ett blogginlägg där någon berättar om sina sovvanor",
+        "Ett blogginlägg där någon berättar om sina sovvanor och vad som fungerar",
         "En rapport från Folkhälsomyndigheten med redovisad undersökning",
         "En reklamsida för madrasser som citerar \"forskning\"",
         "En kommentar under ett inlägg på sociala medier"
@@ -67,7 +67,7 @@
         "Man återger innehållet med egna ord, sakligt och utan egna åsikter",
         "Man skriver av de viktigaste meningarna ordagrant",
         "Man skriver vad man själv tycker om texten",
-        "Man återger allt i originaltexten, lika långt som förlagan"
+        "Man återger allt i originaltexten, lika långt som förlagan, utan att korta"
       ],
       "answer": 0,
       "explanation": "Referatet återger källans huvudinnehåll med egna ord och i komprimerad form, utan att du lägger till dina värderingar. Att skriva av meningar ordagrant är citat eller, utan källhänvisning, plagiat."
@@ -82,7 +82,7 @@
         "Skärmtid före läggdags försämrar sömnen.",
         "Jag tycker att skärmtid före läggdags försämrar sömnen.",
         "Enligt Folkhälsomyndigheten försämrar skärmtid före läggdags sömnen.",
-        "Det är känt att skärmtid före läggdags försämrar sömnen."
+        "Det är känt att skärmtid före läggdags försämrar sömnen för de flesta."
       ],
       "answer": 2,
       "explanation": "\"Enligt Folkhälsomyndigheten\" är en referatmarkör som placerar uppgiften hos en namngiven källa. Utan markör låter påståendet som ditt eget, och \"det är känt att\" pekar inte ut någon källa alls."
@@ -96,7 +96,7 @@
       "choices": [
         "Att citera en text med citattecken och källhänvisning",
         "Att kopiera text från en webbplats utan att ange varifrån den kommer",
-        "Att referera en artikel med egna ord och ange källan",
+        "Att referera en artikel med egna ord och ange källan i en not på slutet av uppgiften",
         "Att använda flera källor i samma uppgift"
       ],
       "answer": 1,
@@ -222,7 +222,7 @@
       "prompt": "Vad räknas INTE som plagiat i en skoluppgift?",
       "opener": "Tänk på vilket alternativ som tydligt visar var informationen kommer ifrån.",
       "choices": [
-        "Att kopiera flera meningar från en webbsida utan att ange källan",
+        "Att kopiera flera meningar från en webbsida utan att ange källan alls",
         "Att skriva av ett stycke ordagrant och låtsas att det är eget",
         "Att citera en mening med citattecken och ange varifrån den kommer",
         "Att lämna in en kompis uppsats som sin egen"
