@@ -120,3 +120,68 @@ describe("expr.fmtNumber", () => {
     assert.equal(fmtNumber(-0), "0");
   });
 });
+
+describe("expr: degrees mode is exact at multiples of 90", () => {
+  const deg = { degrees: true };
+  test("sin and cos at the quarter turns are exactly 0, 1 or -1", () => {
+    assert.equal(evaluate("cos(90)", deg), 0);
+    assert.equal(evaluate("sin(180)", deg), 0);
+    assert.equal(evaluate("sin(90)", deg), 1);
+    assert.equal(evaluate("cos(180)", deg), -1);
+    assert.equal(evaluate("sin(270)", deg), -1);
+    assert.equal(evaluate("cos(360)", deg), 1);
+    assert.equal(evaluate("sin(-90)", deg), -1);
+    assert.equal(evaluate("cos(-90)", deg), 0);
+    assert.equal(evaluate("sin(720)", deg), 0);
+  });
+  test("an angle that is a quarter turn up to floating-point error counts as one", () => {
+    assert.equal(evaluate("cos(1.1*90*(1/1.1))", deg), 0);
+    assert.equal(evaluate("sin(33*(90/33))", deg), 1);
+    assert.ok(Number.isNaN(evaluate("tan(1.1*90*(1/1.1))", deg)));
+  });
+  test("tan is 0 at 0 and 180 and undefined at 90 and 270", () => {
+    assert.equal(evaluate("tan(0)", deg), 0);
+    assert.equal(evaluate("tan(180)", deg), 0);
+    assert.ok(Number.isNaN(evaluate("tan(90)", deg)));
+    assert.ok(Number.isNaN(evaluate("tan(270)", deg)));
+  });
+  test("other angles still go through radians", () => {
+    assert.ok(Math.abs(evaluate("sin(30)", deg) - 0.5) < 1e-12);
+    assert.ok(Math.abs(evaluate("tan(45)", deg) - 1) < 1e-12);
+  });
+  test("in radians the noise at sin(pi) and cos(pi/2) is cleared, small angles are not", () => {
+    assert.equal(evaluate("sin(pi)"), 0);
+    assert.equal(evaluate("cos(pi/2)"), 0);
+    assert.equal(evaluate("sin(1e-10)"), Math.sin(1e-10));
+  });
+});
+
+describe("expr: a trailing decimal separator", () => {
+  test('"5," and "5." read as 5, also before an operator or a bracket', () => {
+    assert.equal(evaluate("5,"), 5);
+    assert.equal(evaluate("5."), 5);
+    assert.equal(evaluate("5,+3"), 8);
+    assert.equal(evaluate("(2.)*4"), 8);
+  });
+  test("a separator that is not at the end of a number is still an error", () => {
+    assert.throws(() => evaluate("5,x"));
+    assert.throws(() => evaluate("5.."));
+    assert.throws(() => evaluate("5,5,"));
+  });
+  test("a decimal separator inside a number and the 1.2.3 guard still work", () => {
+    assert.equal(evaluate("3,5"), 3.5);
+    assert.equal(evaluate(".5"), 0.5);
+    assert.throws(() => evaluate("1.2.3"));
+  });
+});
+
+describe("fmtNumber: twelve significant digits", () => {
+  test("float noise is trimmed and small numbers keep their digits", () => {
+    assert.equal(fmtNumber(0.1 + 0.2), "0,3");
+    assert.equal(fmtNumber(1234567.123456789), "1234567,12346");
+    assert.equal(fmtNumber(0.0000123456789), "0,0000123456789");
+  });
+  test("zero from an exact trig value prints as 0", () => {
+    assert.equal(fmtNumber(evaluate("cos(90)", { degrees: true })), "0");
+  });
+});

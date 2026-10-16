@@ -26,6 +26,20 @@ const FUNCS = {
 };
 const CONSTS = { pi: Math.PI, "π": Math.PI, e: Math.E, tau: 2 * Math.PI };
 const TRIG = new Set(["sin", "cos", "tan"]);
+
+/** sin / cos / tan of an angle in degrees. At a multiple of 90° the answer is exact (cos 90° is 0, not
+ *  6,1 · 10⁻¹⁷, the float noise of going through radians) and tan 90° is undefined, not 1,6 · 10¹⁶. */
+function trigDegrees(name, deg) {
+  // Within 1e-9 of a quarter turn counts: 1,1 · 90 · (1 / 1,1) is 90.00000000000001 in floating point.
+  const k = Math.round(deg / 90);
+  if (Math.abs(deg / 90 - k) < 1e-9) {
+    const q = ((k % 4) + 4) % 4;
+    if (name === "sin") return [0, 1, 0, -1][q];
+    if (name === "cos") return [1, 0, -1, 0][q];
+    return q % 2 === 0 ? 0 : NaN;
+  }
+  return FUNCS[name](deg * Math.PI / 180);
+}
 const INVTRIG = new Set(["asin", "acos", "atan"]);
 
 function tokenize(src) {
@@ -44,13 +58,16 @@ function tokenize(src) {
       let hasSep = !isDigit(c);
       let j = i + 1;
       while (j < s.length && (isDigit(s[j]) || (!hasSep && isSep(j)))) { if (!isDigit(s[j])) hasSep = true; j++; }
+      // "5," and "5." are how a number looks half-typed, or written by someone used to "5,0": a separator
+      // with no digit after it is part of the number when nothing but an operator, a bracket or the end follows.
+      if (!hasSep && (s[j] === "." || s[j] === ",") && (j + 1 >= s.length || "+-*/^)×·÷−".includes(s[j + 1]))) { hasSep = true; j++; }
       // "1.2.3" must not quietly become 1.2 · 0.3 through implicit multiplication.
       if (isSep(j)) throw new Error(t("calc.err.char", { c: s[j] }));
       if ((s[j] === "e" || s[j] === "E") && (isDigit(s[j + 1]) || ((s[j + 1] === "+" || s[j + 1] === "-") && isDigit(s[j + 2])))) {
         j += (s[j + 1] === "+" || s[j + 1] === "-") ? 2 : 1;
         while (j < s.length && isDigit(s[j])) j++;
       }
-      tokens.push({ t: "num", v: parseFloat(s.slice(i, j).replace(",", ".")) });
+      tokens.push({ t: "num", v: parseFloat(s.slice(i, j).replace(",", ".")) });   // "5." and "5," parse as 5
       i = j;
     } else if (isAlpha(c)) {
       let j = i + 1;
@@ -158,10 +175,12 @@ export function compile(src, { degrees = false, params = null, fns = null } = {}
         const fn = FUNCS[nm];
         if (!fn) throw new Error(t("calc.err.fn", { name: raw }));
         return (x, p) => {
-          let a = args[0](x, p);
-          if (degrees && TRIG.has(nm)) a = a * Math.PI / 180;
+          const a = args[0](x, p);
+          if (degrees && TRIG.has(nm)) return trigDegrees(nm, a);
           let r = fn(a);
           if (degrees && INVTRIG.has(nm)) r = r * 180 / Math.PI;
+          // In radians sin(π) and cos(π/2) come out around 10⁻¹⁶: float noise, not an answer.
+          else if ((nm === "sin" || nm === "cos") && Math.abs(r) < 1e-15 && Math.abs(a) > 1e-6) r = 0;
           return r;
         };
       }
@@ -210,5 +229,6 @@ export function fmtNumber(n) {
     const [mant, exp] = n.toExponential(6).split("e");
     return `${dec(mant.replace(/\.?0+$/, ""))} · 10${String(Number(exp)).replace(/[-\d]/g, (ch) => SUPERSCRIPT[ch])}`;
   }
-  return dec(String(Math.round(n * 1e10) / 1e10));
+  // Twelve significant digits: 0,1 + 0,2 shows 0,3, and a small number keeps its digits.
+  return dec(String(Number(n.toPrecision(12))));
 }
