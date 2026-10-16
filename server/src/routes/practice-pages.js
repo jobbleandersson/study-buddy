@@ -106,6 +106,66 @@ export function pickSamples(questions, n = SAMPLE_COUNT) {
   return picked;
 }
 
+/* ---------------- Högskoleprovet, loaded once ---------------- */
+
+// The eight delprov in the test's order: how many a real provpass has and the test's pace (PASS_COUNT
+// and SEC_PER_Q in js/lib/hp.js), and what the delprov asks for. Each gets /hogskoleprovet/<dp>.
+const HP_DELPROV = [
+  { dp: "ord", code: "ORD", name: "Ordförståelse", pass: 10, sec: 18,
+    about: "Du får ett ord och fem alternativ och väljer det som ligger närmast i betydelse. Orden kommer ofta från samhälle, vetenskap och kultur, och ett stort ordförråd byggs bäst med regelbunden repetition." },
+  { dp: "las", code: "LÄS", name: "Svensk läsförståelse", pass: 10, sec: 132,
+    about: "Du läser svenska sakprosatexter och svarar på frågor om huvudtanke, detaljer, slutsatser och ord i sammanhang. Svaret ska alltid gå att belägga i texten." },
+  { dp: "mek", code: "MEK", name: "Meningskomplettering", pass: 10, sec: 48,
+    about: "En mening har en eller två luckor, och du väljer de ord som passar bäst. Signalord som trots, men och eftersom visar ofta vilket svar som håller." },
+  { dp: "elf", code: "ELF", name: "Engelsk läsförståelse", pass: 10, sec: 132,
+    about: "Du läser engelska texter och svarar på frågor om innehållet. Frågorna liknar dem i LÄS, men texterna och alternativen är på engelska." },
+  { dp: "xyz", code: "XYZ", name: "Matematisk problemlösning", pass: 12, sec: 60,
+    about: "Matematiska problem inom aritmetik, algebra, geometri, funktioner, statistik och sannolikhet. Du har inga hjälpmedel, så det gäller att räkna smart." },
+  { dp: "kva", code: "KVA", name: "Kvantitativa jämförelser", pass: 10, sec: 60,
+    about: "Du jämför två kvantiteter och avgör om den ena är större, om de är lika stora eller om informationen inte räcker för att avgöra det. Svarsalternativen är alltid desamma." },
+  { dp: "nog", code: "NOG", name: "Kvantitativa resonemang", pass: 6, sec: 100,
+    about: "Du får en fråga och två påståenden och avgör om informationen räcker för att svara: med det ena, det andra, båda tillsammans eller inte ens då. Du behöver inte räkna ut svaret, bara avgöra om det går." },
+  { dp: "dtk", code: "DTK", name: "Diagram, tabeller och kartor", pass: 12, sec: 115,
+    about: "Du läser av och tolkar diagram, tabeller och kartor. Många frågor handlar om procent, förändringar och att hitta rätt uppgift bland mycket information." },
+];
+const HP_BY_DP = new Map(HP_DELPROV.map((d) => [d.dp, d]));
+
+let hp = null;
+
+function loadHp() {
+  if (hp) return hp;
+  const dir = findLibraryDir();
+  if (!dir || !fs.existsSync(path.join(dir, "hp-index.json"))) return { sets: new Map(), count: new Map(), dir };
+  const index = JSON.parse(fs.readFileSync(path.join(dir, "hp-index.json"), "utf8"));
+  const sets = new Map(HP_DELPROV.map((d) => [d.dp, []]));
+  const count = new Map(HP_DELPROV.map((d) => [d.dp, 0]));
+  for (const entry of index.sets) {
+    const dp = String(entry.subject || "").replace(/^hp-/, "");
+    if (!sets.has(dp)) continue;
+    sets.get(dp).push(entry);
+    count.set(dp, count.get(dp) + (entry.count || 0));
+  }
+  hp = { sets, count, dir };
+  return hp;
+}
+
+/** Three sample questions for a delprov, from its first set. A reading delprov takes them from one
+ *  text, which is shown once above them. -> { passage, questions } */
+function hpSamples(dp) {
+  const { sets, dir } = loadHp();
+  const first = sets.get(dp)?.[0];
+  if (!first) return { passage: null, questions: [] };
+  let doc;
+  try { doc = JSON.parse(fs.readFileSync(path.join(dir, path.basename(first.file)), "utf8")); } catch { return { passage: null, questions: [] }; }
+  const questions = (doc.questions || []).filter((q) => q.kind === "mc");
+  if (dp === "las" || dp === "elf") {
+    const stimulus = questions.find((q) => q.stimulus?.body)?.stimulus;
+    if (!stimulus) return { passage: null, questions: questions.slice(0, SAMPLE_COUNT) };
+    return { passage: stimulus, questions: questions.filter((q) => q.stimulus?.id === stimulus.id).slice(0, SAMPLE_COUNT) };
+  }
+  return { passage: null, questions: questions.slice(0, SAMPLE_COUNT) };
+}
+
 /* ---------------- HTML ---------------- */
 
 function kindCounts(questions) {
@@ -137,6 +197,34 @@ function questionHtml(q, i) {
     ${rich(q.prompt, "p")}
     ${body}
     <details class="ova-q__ans"><summary>Visa svar och förklaring</summary>${answer}</details>
+  </li>`;
+}
+
+/** One Högskoleprov question: what it builds on (the two quantities, the two statements, the figure),
+ *  then the question, the options and the answer behind a disclosure. */
+function hpQuestionHtml(q, i, all) {
+  let lead = "";
+  const s = q.stimulus || {};
+  if (Array.isArray(s.quantities)) {
+    lead = `<div class="ova-kva"><div><small>Kvantitet I</small>${rich(s.quantities[0])}</div><div><small>Kvantitet II</small>${rich(s.quantities[1])}</div></div>`
+      + (s.given ? `<p class="ova-given"><strong>Givet:</strong> ${rich(s.given)}</p>` : "");
+  }
+  if (Array.isArray(s.statements)) {
+    lead = `<ol class="ova-nog">${s.statements.map((t, k) => `<li><strong>(${k + 1})</strong> ${rich(t)}</li>`).join("")}</ol>`;
+  }
+  // A figure the question before already showed isn't drawn twice in a row.
+  if (q.figure?.src && all?.[i - 1]?.figure?.src === q.figure.src) {
+    lead = `<p class="ova-meta">Samma diagram som i fråga ${i}.</p>`;
+  } else if (q.figure?.src) {
+    lead = `<figure class="ova-fig"><img src="/data/library/figures/${esc(q.figure.src)}" alt="${esc(q.figure.alt || "")}" loading="lazy" /></figure>`;
+  }
+  return `<li class="ova-q">
+    <p class="ova-q__n">Fråga ${i + 1}</p>
+    ${Array.isArray(s.statements) ? rich(q.prompt, "p") + lead : lead + rich(q.prompt, "p")}
+    <ol class="ova-choices" type="A">${q.choices.map((c) => `<li>${rich(c)}</li>`).join("")}</ol>
+    <details class="ova-q__ans"><summary>Visa svar och förklaring</summary>
+      <p><strong>Rätt svar: ${"ABCDE"[q.answer] || ""}.</strong> ${rich(q.choices[q.answer])}</p>${q.explanation ? rich(q.explanation, "p") : ""}
+    </details>
   </li>`;
 }
 
@@ -192,6 +280,7 @@ function page({ title, description, canonical, crumbs, body, noindex = false }) 
     <span>PluggEra — gratis, utan reklam, byggt på den svenska läroplanen.</span>
     <nav aria-label="Sidfot">
       <a href="/ova">Alla övningar</a>
+      <a href="/hogskoleprovet">Högskoleprovet</a>
       <a href="/#/about">Om oss</a>
       <a href="/#/privacy">Integritetspolicy</a>
     </nav>
@@ -234,7 +323,7 @@ practicePages.use((req, res, next) => {
   // Lower-cased: Express matches routes case-insensitively, so /OVA and /Sitemap.xml reach them too.
   const p = req.path.toLowerCase();
   if (p === "/sitemap.xml") return res.status(404).end();
-  if (p === "/ova" || p.startsWith("/ova/")) return res.redirect(302, "/");
+  if (p === "/ova" || p.startsWith("/ova/") || p === "/hogskoleprovet" || p.startsWith("/hogskoleprovet/")) return res.redirect(302, "/");
   next();
 });
 
@@ -320,6 +409,74 @@ practicePages.get("/ova/:subject/:slug", (req, res) => {
   }));
 });
 
+// Högskoleprovet: one page for the whole test and one per delprov, at addresses a search for
+// "högskoleprovet NOG" can land on. The practice itself happens in the app (#/hp, #/hp/<dp>).
+const HP_NOTE = "Alla uppgifter är egenskrivna övningsuppgifter i provets format, inte officiella provfrågor.";
+
+practicePages.get(["/hogskoleprovet", "/hogskoleprovet/"], (req, res) => {
+  const { count } = loadHp();
+  const o = origin(req);
+  const total = [...count.values()].reduce((a, b) => a + b, 0);
+  const card = (d) => `<li><a class="ova-card" href="/hogskoleprovet/${d.dp}"><strong>${esc(d.code)} – ${esc(d.name)}</strong>
+    <span>${count.get(d.dp) || 0} övningsuppgifter</span></a></li>`;
+  send(res, page({
+    title: "Högskoleprovet – gratis övning på alla åtta delprov | PluggEra",
+    description: `${total} gratis övningsuppgifter till högskoleprovet med förklaringar: ORD, LÄS, MEK, ELF, XYZ, KVA, NOG och DTK. Öva i provformat och få en uppskattad normerad poäng.`,
+    canonical: `${o}/hogskoleprovet`,
+    crumbs: [["Högskoleprovet", `${o}/hogskoleprovet`]],
+    body: `<h1>Plugga till högskoleprovet</h1>
+      <p class="ova-lead">Öva på alla åtta delprov i provets format, med en förklaring till varje uppgift. Gör ett helt provpass
+      på 55 minuter och få en uppskattad normerad poäng. Gratis.</p>
+      <p><a class="ova-btn" href="/#/hp">Börja öva</a></p>
+      <h2>Verbal del</h2>
+      <ul class="ova-grid ova-grid--four">${HP_DELPROV.slice(0, 4).map(card).join("")}</ul>
+      <h2>Kvantitativ del</h2>
+      <ul class="ova-grid ova-grid--four">${HP_DELPROV.slice(4).map(card).join("")}</ul>
+      <h2>Så är provet uppbyggt</h2>
+      <p>Högskoleprovet har en verbal och en kvantitativ del. Fyra provpass räknas, två av varje slag, och varje pass har
+      40 uppgifter och 55 minuter. Resultatet ges som en normerad poäng mellan 0,00 och 2,00, för varje del och för hela provet.</p>
+      <aside class="ova-cta">
+        <h2>Öva som på riktigt</h2>
+        <p>I PluggEra kan du träna ett delprov i taget med lösningar direkt, eller göra ett provpass under provets villkor:
+        klocka, inga tips och rättning i slutet. Frågor du missar kommer tillbaka tills de sitter. ${HP_NOTE}</p>
+        <a class="ova-btn" href="/#/hp/prov">Gör ett provpass</a>
+      </aside>`,
+  }));
+});
+
+practicePages.get("/hogskoleprovet/:dp", (req, res) => {
+  const d = HP_BY_DP.get(String(req.params.dp).toLowerCase());
+  if (!d) return sendNotFound(req, res);
+  const { count } = loadHp();
+  const o = origin(req);
+  const n = count.get(d.dp) || 0;
+  const { passage, questions } = hpSamples(d.dp);
+  const lang = d.dp === "elf" ? ` lang="en"` : "";
+  const others = HP_DELPROV.filter((x) => x !== d);
+  send(res, page({
+    title: `${d.code} – ${d.name}: övningsuppgifter till högskoleprovet | PluggEra`,
+    description: `${d.about.split(". ")[0]}. ${n} gratis övningsuppgifter i ${d.code} med förklaringar. Se exempel och öva i provformat.`,
+    canonical: `${o}/hogskoleprovet/${d.dp}`,
+    crumbs: [["Högskoleprovet", `${o}/hogskoleprovet`], [`${d.code} – ${d.name}`, `${o}/hogskoleprovet/${d.dp}`]],
+    body: `<p class="ova-eyebrow">Högskoleprovet · ${d.dp === "ord" || d.dp === "las" || d.dp === "mek" || d.dp === "elf" ? "verbal del" : "kvantitativ del"}</p>
+      <h1>${esc(d.code)} – ${esc(d.name)}</h1>
+      <p class="ova-lead">${esc(d.about)}</p>
+      <p class="ova-meta">På provet: ${d.pass} uppgifter per provpass, ungefär ${d.sec} sekunder per uppgift. Hos oss: ${n} övningsuppgifter med förklaringar.</p>
+      <p><a class="ova-btn" href="/#/hp/${d.dp}">Öva på ${esc(d.code)} gratis</a></p>
+      <h2>Exempeluppgifter</h2>
+      ${passage ? `<article class="ova-passage"${lang}><h3>${esc(passage.title || "")}</h3>${String(passage.body || "").split(/\n{2,}/).map((p) => `<p>${esc(p)}</p>`).join("")}</article>` : ""}
+      <ol class="ova-qs"${lang}>${questions.map(hpQuestionHtml).join("")}</ol>
+      <aside class="ova-cta">
+        <h2>Fler uppgifter väntar i appen</h2>
+        <p>Välj hur många uppgifter du vill göra, träna med lösningar direkt eller på provets tid. Uppgifter du missar kommer
+        tillbaka tills de sitter. ${HP_NOTE}</p>
+        <a class="ova-btn" href="/#/hp/${d.dp}">Öva på ${esc(d.code)}</a>
+      </aside>
+      <h2>Fler delprov</h2>
+      <ul class="ova-list ova-list--compact">${others.map((x) => `<li><a href="/hogskoleprovet/${x.dp}">${esc(x.code)} – ${esc(x.name)}</a></li>`).join("")}</ul>`,
+  }));
+});
+
 practicePages.get("/robots.txt", (req, res) => {
   res.type("text/plain");
   // Private: crawlers may fetch pages but every response says noindex (see the X-Robots-Tag header
@@ -332,7 +489,8 @@ practicePages.get("/robots.txt", (req, res) => {
 practicePages.get("/sitemap.xml", (req, res) => {
   const { subjects, bySubject } = loadLibrary();
   const o = origin(req);
-  const urls = [`${o}/`, `${o}/ova`, ...subjects.map((s) => `${o}/ova/${s.id}`),
+  const urls = [`${o}/`, `${o}/ova`, `${o}/hogskoleprovet`, ...HP_DELPROV.map((d) => `${o}/hogskoleprovet/${d.dp}`),
+    ...subjects.map((s) => `${o}/ova/${s.id}`),
     ...[...bySubject.values()].flat().map((s) => `${o}${s.path}`)];
   res.type("application/xml").send(`<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

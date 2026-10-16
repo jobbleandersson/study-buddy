@@ -137,6 +137,11 @@ describe("site password (SITE_PASSWORD set)", () => {
     const ova = await fetch(`${server.baseUrl}/ova/ak9-matematik`, { redirect: "manual" });
     assert.equal(ova.status, 302);
     assert.equal(ova.headers.get("location"), "/");
+    for (const p of ["/hogskoleprovet", "/hogskoleprovet/nog"]) {
+      const res = await fetch(`${server.baseUrl}${p}`, { redirect: "manual" });
+      assert.equal(res.status, 302, p);
+      assert.equal(res.headers.get("location"), "/", p);
+    }
     assert.equal((await fetch(`${server.baseUrl}/sitemap.xml`)).status, 404);
   });
 

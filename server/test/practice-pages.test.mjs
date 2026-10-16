@@ -69,6 +69,32 @@ describe("public practice pages (indexing off, the default)", () => {
     assert.ok((body.match(/<loc>[^<]*\/ova\/[a-z0-9-]+\/[a-z0-9-]+<\/loc>/g) || []).length >= 300);
   });
 
+  test("/hogskoleprovet lists all eight delprov, and each delprov page shows three sample questions", async () => {
+    const hub = await get(server.baseUrl, "/hogskoleprovet");
+    assert.equal(hub.status, 200);
+    assert.match(hub.body, /<h1>Plugga till högskoleprovet<\/h1>/);
+    for (const dp of ["ord", "las", "mek", "elf", "xyz", "kva", "nog", "dtk"]) assert.match(hub.body, new RegExp(`href="/hogskoleprovet/${dp}"`), dp);
+    for (const dp of ["ord", "las", "mek", "elf", "xyz", "kva", "nog", "dtk"]) {
+      const { status, body } = await get(server.baseUrl, `/hogskoleprovet/${dp}`);
+      assert.equal(status, 200, dp);
+      assert.equal((body.match(/class="ova-q"/g) || []).length, 3, dp);
+      assert.match(body, new RegExp(`href="/#/hp/${dp}"`), dp);
+    }
+    // What each kind of question builds on comes with it.
+    assert.match((await get(server.baseUrl, "/hogskoleprovet/kva")).body, /class="ova-kva"/);
+    assert.match((await get(server.baseUrl, "/hogskoleprovet/nog")).body, /class="ova-nog"/);
+    assert.match((await get(server.baseUrl, "/hogskoleprovet/dtk")).body, /<img src="\/data\/library\/figures\/hp\//);
+    const las = (await get(server.baseUrl, "/hogskoleprovet/las")).body;
+    assert.equal((las.match(/class="ova-passage"/g) || []).length, 1);
+    assert.match((await get(server.baseUrl, "/hogskoleprovet/elf")).body, /<article class="ova-passage" lang="en">/);
+    const missing = await get(server.baseUrl, "/hogskoleprovet/abc");
+    assert.equal(missing.status, 404);
+    assert.match(missing.body, /<meta name="robots" content="noindex, nofollow"/);
+    const map = (await get(server.baseUrl, "/sitemap.xml")).body;
+    assert.match(map, /<loc>[^<]*\/hogskoleprovet<\/loc>/);
+    assert.match(map, /<loc>[^<]*\/hogskoleprovet\/nog<\/loc>/);
+  });
+
   // routes/share-pages.js (the page itself is checked in share-pages.test.mjs).
   test("/hp is the app with the Högskoleprovet preview; / keeps the front page's", async () => {
     for (const p of ["/hp", "/hp/", "/HP"]) {

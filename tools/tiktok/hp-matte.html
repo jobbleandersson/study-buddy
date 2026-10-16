@@ -1,0 +1,108 @@
+<!doctype html>
+<!-- "HP-matte": one 1080×1920 image for TikTok (or Reels/Shorts) from an XYZ, KVA or NOG set.
+     ?set=<file in data/library without .json>&i=<0-based question index>&frame=q|a&n=<series number>
+       q = the problem and its options, with the test's time per question as the hook;
+       a = the answer marked, with the explanation from the set.
+     render-hp-matte.mjs (next to this file) shoots the series; open this page in a browser at
+     1080×1920 to look at one. The shared look (colours, cards, safe area) is in slides.css. -->
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>HP-matte</title>
+<link rel="stylesheet" href="slides.css">
+<link rel="stylesheet" href="../../vendor/katex.min.css">
+<script src="../../vendor/katex.min.js"></script>
+<style>
+  .btn { padding: 22px 38px; font-size: 38px; }
+  .prob { padding: 34px 40px 38px; font-size: 50px; font-weight: 700; line-height: 1.32; text-wrap: pretty; }
+  .prob .katex { font-size: 1.04em; }
+  .prob .q { margin: 0; }
+  .opts .katex { font-size: 1em; }
+  .opt span { min-width: 0; }
+  .kva { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 22px; border: 4px solid var(--ink); border-radius: 22px; overflow: hidden; }
+  .kva > div { padding: 18px 22px 22px; font-size: 42px; font-weight: 650; line-height: 1.25; }
+  .kva > div + div { border-left: 4px solid var(--ink); }
+  .kva small { display: block; margin-bottom: 6px; font-size: 26px; font-weight: 800; letter-spacing: .06em; color: var(--on-paper); }
+  .given { margin: 18px 0 0; font-size: 38px; font-weight: 600; }
+  .given b { color: var(--on-paper); }
+  .nogst { display: grid; gap: 14px; margin: 22px 0 0; padding: 0; list-style: none; }
+  .nogst li { display: flex; gap: 16px; font-size: 42px; font-weight: 600; line-height: 1.28; }
+  .nogst li b { flex: none; color: var(--on-paper); }
+  .note .katex { font-size: 1em; }
+</style>
+</head>
+<body data-series="formula">
+<div class="frame" id="frame"></div>
+<script type="module">
+  const p = new URLSearchParams(location.search);
+  const set = p.get("set") || "hp-xyz-ovningsprov-03";
+  const i = Number(p.get("i") || 0);
+  const answer = p.get("frame") === "a";
+  const n = p.get("n") || i + 1;
+
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  // $…$ through KaTeX, *…* as emphasis, everything else escaped — the same marks the app's rich text uses.
+  // A formula keeps the punctuation right after it on its line (no lone "." starting the next one), and
+  // `small` sets fractions at text size, so a running explanation keeps an even line height.
+  const rich = (s, small = false) => String(s).split(/(\$[^$]+\$[.,;:!?)]?)/).map((part) => {
+    const m = part.match(/^\$([^$]+)\$([.,;:!?)]?)$/);
+    if (!m) return esc(part).replace(/\*(.+?)\*/g, "<em>$1</em>");
+    const tex = small ? m[1].replace(/\\dfrac/g, "\\frac") : m[1];
+    return `<span class="nobr">${katex.renderToString(tex, { throwOnError: false })}${esc(m[2])}</span>`;
+  }).join("");
+  const CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  const LINK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>';
+  const CLOCK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
+
+  const doc = await (await fetch(`../../data/library/${set}.json`)).json();
+  const q = doc.questions[i];
+  const v = q.variant;
+  const NAME = { xyz: "XYZ · Problemlösning", kva: "KVA · Kvantitativa jämförelser", nog: "NOG · Kvantitativa resonemang" };
+  const SEC = { xyz: 60, kva: 60, nog: 100 };   // the test's pace (SEC_PER_Q in js/lib/hp.js)
+  // The canonical KVA/NOG options are long; on a phone screen they read better as their short forms.
+  const SHORT = {
+    kva: ["I är större", "II är större", "I och II är lika stora", "Informationen är otillräcklig"],
+    nog: ["(1) ensam räcker", "(2) ensam räcker", "(1) och (2) tillsammans", "(1) och (2) räcker var för sig", "Inte ens tillsammans"],
+  };
+  const choices = SHORT[v] || q.choices;
+  const letters = "ABCDE";
+
+  let problem = `<p class="q">${rich(q.prompt)}</p>`;
+  if (v === "kva") {
+    const [I, II] = q.stimulus.quantities;
+    problem += `<div class="kva"><div><small>KVANTITET I</small>${rich(I)}</div><div><small>KVANTITET II</small>${rich(II)}</div></div>`
+      + (q.stimulus.given ? `<p class="given"><b>Givet:</b> ${rich(q.stimulus.given)}</p>` : "");
+  }
+  if (v === "nog") {
+    problem += `<ol class="nogst">${q.stimulus.statements.map((s, k) => `<li><b>(${k + 1})</b><span>${rich(s)}</span></li>`).join("")}</ol>`;
+  }
+
+  const options = choices.map((c, k) => {
+    const right = answer && k === q.answer;
+    return `<div class="opt${right ? " is-right" : ""}"><b>${right ? CHECK : letters[k]}</b><span>${rich(c)}</span></div>`;
+  }).join("");
+
+  document.getElementById("frame").innerHTML = `
+    <div class="top">
+      <div class="brand"><img src="../../assets/favicon.svg" alt=""><span>PluggEra</span></div>
+      <span class="series">HP-matte #${esc(n)}</span>
+    </div>
+    <div class="main${answer ? " is-answer" : ""}">
+      <p class="label">${answer ? "Svaret" : `${NAME[v]} · ${SEC[v]} sek`}</p>
+      ${answer ? "" : `<div class="card prob">${problem}</div>`}
+      <div class="card opts${v === "nog" || v === "kva" ? " opts--small" : ""}">${answer ? `<span class="verdict">Rätt svar: ${letters[q.answer]}</span>` : ""}${options}</div>
+      ${answer
+        ? `${q.explanation ? `<div class="card note"><h3>Därför</h3>${rich(q.explanation, true)}</div>` : ""}<span class="btn">${LINK}Öva fler på pluggera.se/hp</span>`
+        : `<p class="bubble">${CLOCK}<span>Klarar du den på ${SEC[v]} sekunder?</span></p>`}
+    </div>
+    <div class="foot"><span class="site">pluggera.se</span><span class="dots"><i${answer ? "" : ' class="on"'}></i><i${answer ? ' class="on"' : ""}></i></span></div>`;
+
+  // A long problem or explanation scales the slide down a little rather than run into TikTok's caption.
+  await document.fonts.ready;
+  const main = document.querySelector(".main");
+  let scale = 1;
+  while (main.scrollHeight > main.clientHeight + 2 && scale > 0.7) main.style.zoom = String((scale = Math.round((scale - 0.03) * 100) / 100));
+  document.body.dataset.ready = "1";
+</script>
+</body>
+</html>

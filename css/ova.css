@@ -41,6 +41,10 @@ h2 { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.25; ma
 
 .ova-level h2 { margin-top: var(--s-6); }
 .ova-grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+/* Four of a kind (a Högskoleprov half): four across, or two by two on a narrower screen, never three and one. */
+.ova-grid--four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 760px) { .ova-grid--four { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 420px) { .ova-grid--four { grid-template-columns: minmax(0, 1fr); } }
 .ova-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
 .ova-card {
   display: grid; gap: 4px; height: 100%; padding: var(--s-4); border-radius: var(--r-md, 14px);
@@ -73,3 +77,18 @@ h2 { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.25; ma
 .ova-foot__inner { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; }
 .ova-foot nav { display: flex; flex-wrap: wrap; gap: 16px; }
 .ova-foot a { color: var(--ink-soft); }
+
+/* Högskoleprovet (/hogskoleprovet/<dp>): the two KVA quantities, the NOG statements, a DTK figure and a
+   reading text shown once above its questions. */
+.ova-kva { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); margin: 0 0 var(--s-3); border: 1px solid var(--line-strong); border-radius: var(--r-md, 14px); overflow: hidden; }
+.ova-kva > div { padding: var(--s-3); overflow-wrap: anywhere; }
+.ova-kva > div + div { border-left: 1px solid var(--line-strong); }
+.ova-kva small { display: block; margin-bottom: 2px; font-size: var(--fs-sm); font-weight: 700; color: var(--brand-ink); text-transform: uppercase; letter-spacing: .05em; }
+.ova-q > .ova-given { margin-top: calc(-1 * var(--s-1)); color: var(--ink-soft); }
+.ova-nog { list-style: none; margin: 0 0 var(--s-3); padding: 0; display: grid; gap: 4px; }
+.ova-fig { margin: 0 0 var(--s-3); }
+.ova-fig img { display: block; width: 100%; max-width: 560px; height: auto; border: 1px solid var(--line); border-radius: var(--r-md, 14px); background: #fff; }
+.ova-passage { margin: 0 0 var(--s-4); padding: var(--s-5); border-radius: var(--r-lg); background: var(--surface); border: 1px solid var(--line); }
+.ova-passage h3 { margin: 0 0 var(--s-3); font-family: var(--font-display); font-size: 1.1rem; }
+.ova-passage p { margin: 0 0 var(--s-3); max-width: 65ch; }
+.ova-passage p:last-child { margin-bottom: 0; }
