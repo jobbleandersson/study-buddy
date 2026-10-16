@@ -18,8 +18,8 @@
       "prompt": "What does it mean to make a gender analysis of a work of fiction?",
       "opener": "What structures does this perspective focus on?",
       "choices": [
-        "Examining how gender roles, power and norms around gender are portrayed and possibly challenged in the text",
-        "Counting how many male and female characters appear",
+        "Examining how gender roles, power and norms around gender are portrayed or challenged in the text",
+        "Counting how many male and female characters appear and how much they speak",
         "Only studying the author's own gender and biography",
         "Determining whether the text is written for a male or a female audience"
       ],
@@ -33,8 +33,8 @@
       "prompt": "What characterises a historical (history-of-ideas) reading of a literary work?",
       "opener": "Which context outside the text itself is brought into focus?",
       "choices": [
-        "You disregard entirely when the work was written and read it as if it were written today",
-        "You interpret the work in light of the era, the ideas and the social conditions that prevailed when it was written",
+        "You disregard entirely when the work was written and read it as if written today, without any context",
+        "You interpret the work in light of the era, ideas and social conditions that prevailed then",
         "You analyse only sentence structure and word choice",
         "You only compare two different film adaptations of the work"
       ],
@@ -50,8 +50,8 @@
       "choices": [
         "The text's metre and rhyme scheme",
         "The graphic design of the cover",
-        "Unconscious drives, desires, conflicts and symbols in the characters or in the author's life",
-        "The book's sales figures at the time of publication"
+        "Unconscious drives, desires and conflicts in the characters or the author",
+        "The book's sales figures at the time of publication and how many editions were printed"
       ],
       "answer": 2,
       "explanation": "A psychoanalytic reading looks for unconscious drives, conflicts and symbolism — often using concepts drawn from, for example, Freud — in characters or in relation to the author. Formal or commercial aspects are not part of this perspective."
@@ -66,7 +66,7 @@
         "Focalisation is the same thing as narrative voice — the two concepts mean exactly the same thing",
         "Focalisation is only about which time period the story takes place in",
         "Focalisation only exists in first-person narratives",
-        "Focalisation refers to through whose consciousness and perception the events are conveyed, which can differ from who is narrating"
+        "Focalisation refers to through whose consciousness and perception the events are conveyed"
       ],
       "answer": 3,
       "explanation": "Focalisation concerns whose perspective and consciousness the reader sees the events through, while the narrative voice is the instance conveying the words — a third-person narrator can, for example, focalise through a single character. Focalisation occurs in both first-person and third-person narratives."
@@ -148,7 +148,7 @@
       "choices": [
         "Narrative time in relation to story time",
         "Focalisation",
-        "Gender perspective",
+        "Gender perspective on the narrator's and characters' roles",
         "History of ideas"
       ],
       "answer": 0,
@@ -191,10 +191,10 @@
       "prompt": "Why can it be relevant to examine how a work was received by critics when it was first published?",
       "opener": "Think about what a contemporary reception can reveal that a modern reading might miss.",
       "choices": [
-        "It can show how the work related to the norms of its own time and what was seen as controversial or groundbreaking then",
+        "It can show how the work related to the norms of its time and what was seen as controversial",
         "It is never relevant to a literary analysis",
         "It replaces the need to read the work yourself",
-        "The reception at the time of publication is always identical to today's view of the work"
+        "The reception at the time of publication is always identical to today's view of the work and its author"
       ],
       "answer": 0,
       "explanation": "The contemporary reception can show which parts of the work were seen as challenging, controversial or groundbreaking in its own time, offering a perspective that a purely present-day reading risks missing. Reception often changes over time and is therefore not identical to today's view."
@@ -222,7 +222,7 @@
       "opener": "Think about how new information can change the understanding of what has already been read.",
       "choices": [
         "Reconsider and reread earlier parts of the text in light of the new knowledge",
-        "Ignore the revelation entirely since it does not matter",
+        "Ignore the revelation entirely since it does not matter for the interpretation of the text",
         "Assume the whole book is invalid and stop reading",
         "Assume the narrator has now become fully reliable for the rest of the book"
       ],

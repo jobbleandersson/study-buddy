@@ -19,7 +19,7 @@
       "opener": "Leta efter den fråga som ställs i första meningen — resten av texten svarar på den.",
       "choices": [
         "Om sociala medier borde förbjudas för unga under sexton år",
-        "Hur man reglerar internetanvändning i skolan",
+        "Hur man reglerar internetanvändning i skolan och på fritidsgårdar",
         "Varför tonåringar är isolerade geografiskt",
         "Vilka appar som är populärast bland unga"
       ],
@@ -51,7 +51,7 @@
         "som kräver",
         "som stödjer",
         "som undgår/undkommer",
-        "som förbättrar"
+        "som förbättrar och stärker"
       ],
       "answer": 2,
       "explanation": "\"Échapper à\" betyder att undgå eller undkomma något. Appar som är \"moins régulées\" (mindre reglerade) och \"échappant à tout contrôle parental\" är appar som undkommer all föräldrakontroll — helt orimliga att övervaka."
@@ -66,7 +66,7 @@
         "För att visa att förbudet skulle vara olagligt",
         "För att ge ett konkret exempel på vilka som skulle förlora mest på ett förbud",
         "För att bevisa att sociala medier orsakar ångest",
-        "För att förklara varför appar är dåligt reglerade"
+        "För att förklara varför appar är dåligt reglerade och svåra att kontrollera för föräldrar"
       ],
       "answer": 1,
       "explanation": "Genom att peka ut en specifik, sårbar grupp gör texten motargumentet mer konkret och känslomässigt övertygande — det är inte bara \"unga i allmänhet\" som skulle drabbas, utan särskilt de som redan är isolerade eller marginaliserade."
@@ -78,7 +78,7 @@
       "prompt": "Läs texten igen.\n\nHur skulle du beskriva textens struktur?",
       "opener": "Titta på hur \"D'un côté\" och \"De l'autre\" används.",
       "choices": [
-        "Den presenterar bara ett perspektiv och argumenterar starkt för det",
+        "Den presenterar bara ett perspektiv och argumenterar starkt för det från början till slut",
         "Den berättar en personlig historia utan att ta ställning",
         "Den väger två motstående perspektiv mot varandra utan att tydligt ta ställning",
         "Den listar statistik utan någon argumentation alls"
@@ -146,7 +146,7 @@
       "opener": "Leta efter meningen som börjar med \"Ses partisans mettent en avant...\".",
       "choices": [
         "Bättre balans mellan arbete och privatliv samt minskad restid",
-        "Att det är billigare för de anställda",
+        "Att det är billigare för de anställda och sänker deras skatt varje månad",
         "Att det förbjuder möten helt",
         "Att kontoren stänger permanent"
       ],
@@ -161,7 +161,7 @@
       "opener": "\"Pervers\" här betyder inte samma sak som svenskans \"pervers\" i vardagligt tal — det handlar om en oväntad, negativ konsekvens.",
       "choices": [
         "En oönskad/negativ bieffekt",
-        "En positiv överraskning",
+        "En positiv överraskning för alla inblandade",
         "Ett lagligt problem",
         "En ekonomisk vinst"
       ],
@@ -208,7 +208,7 @@
         "En hybridmodell som kombinerar distansarbete och kontorsnärvaro",
         "Att helt avskaffa distansarbete",
         "Att helt avskaffa kontorsarbete",
-        "Att låta varje anställd bestämma helt fritt"
+        "Att låta varje anställd bestämma helt fritt hur och var hen arbetar"
       ],
       "answer": 0,
       "explanation": "Texten säger att många företag \"optent désormais pour un modèle hybride, combinant jours de télétravail et présence au bureau\"."

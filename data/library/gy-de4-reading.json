@@ -19,7 +19,7 @@
       "prompt": "Läs texten: \"Die Vier-Tage-Woche wird seit einigen Jahren in vielen Ländern diskutiert, doch die Meinungen gehen weit auseinander. Befürworter argumentieren, dass kürzere Arbeitszeiten nicht nur die psychische Gesundheit der Angestellten verbessern, sondern auch die Produktivität steigern können – wer ausgeruht ist, arbeitet konzentrierter. Pilotprojekte in Island und Großbritannien scheinen diese These zu bestätigen: Die Umsätze der teilnehmenden Unternehmen blieben stabil, während die Mitarbeiterzufriedenheit deutlich zunahm. Kritiker hingegen warnen vor voreiligen Schlüssen. Sie weisen darauf hin, dass sich die Ergebnisse nicht ohne Weiteres auf alle Branchen übertragen lassen, besonders nicht auf das Gesundheitswesen oder die Industrie, wo schon jetzt Personalmangel herrscht. Außerdem befürchten manche Ökonomen, dass Unternehmen die eingesparte Zeit lediglich durch höheren Druck an den verbleibenden vier Tagen kompensieren würden – ein Ergebnis, das den ursprünglichen Zweck der Reform ins Gegenteil verkehren würde. Ob sich die Vier-Tage-Woche langfristig durchsetzt, bleibt daher, trotz vielversprechender erster Ergebnisse, eine offene Frage.\"\n\nVad handlar texten huvudsakligen om?",
       "opener": "Leta efter meningen som väger samman båda sidorna av debatten.",
       "choices": [
-        "Historien bakom hur fyradagarsveckan uppfanns",
+        "Historien bakom hur fyradagarsveckan uppfanns och spreds i Europa under 1900-talet",
         "Huruvida fyradagarsveckan är en bra lösning, med argument både för och emot",
         "Hur en enskild anställd ansöker om kortare arbetstid",
         "En beskrivning av en anställds vardag på fyra arbetsdagar"
@@ -36,7 +36,7 @@
       "choices": [
         "Att den sänker företagens kostnader för lokaler",
         "Att den kan förbättra psykisk hälsa och samtidigt öka produktiviteten",
-        "Att den är enkel att införa i alla branscher direkt",
+        "Att den är enkel att införa i alla branscher direkt och utan förändringar",
         "Att den minskar personalbristen inom vården"
       ],
       "answer": 1,
@@ -49,7 +49,7 @@
       "prompt": "Samma text. Vad visade pilotprojekten i Island och Storbritannien enligt texten?",
       "opener": "Leta efter meningen med orden \"Umsätze\" och \"Mitarbeiterzufriedenheit\".",
       "choices": [
-        "Omsättningen sjönk kraftigt medan personalens nöjdhet minskade",
+        "Omsättningen sjönk kraftigt medan personalens nöjdhet minskade och sjukfrånvaron ökade",
         "Omsättningen förblev stabil samtidigt som personalens nöjdhet ökade tydligt",
         "Företagen tvingades gå i konkurs inom ett år",
         "Resultaten var för osäkra för att dra några slutsatser alls"
@@ -64,10 +64,10 @@
       "prompt": "Samma text. Vad är kritikernas (Kritiker) huvudsakliga invändning mot att generalisera resultaten?",
       "opener": "Ordet \"hingegen\" markerar att texten byter till motargumenten här.",
       "choices": [
-        "Att resultaten inte nödvändigtvis går att överföra till alla branscher, särskilt inte vård och industri",
+        "Att resultaten inte nödvändigtvis går att överföra till alla branscher",
         "Att pilotprojekten aldrig genomfördes i verkligheten",
         "Att de anställda själva inte ville delta i projekten",
-        "Att fyradagarsveckan redan är standard i de flesta europeiska länder"
+        "Att fyradagarsveckan redan är standard i de flesta europeiska länder och därför inte intressant"
       ],
       "answer": 0,
       "explanation": "Kritikerna varnar för \"voreilige Schlüsse\" och menar att resultaten \"sich nicht ohne Weiteres auf alle Branchen übertragen lassen\", särskilt inte på vård och industri där personalbrist redan råder."
@@ -94,9 +94,9 @@
       "prompt": "Samma text. Vilken slutsats drar texten till sist om fyradagarsveckans framtid?",
       "opener": "Läs den allra sista meningen noga — vad säger den, trots de positiva resultaten?",
       "choices": [
-        "Att den definitivt kommer att införas överallt inom några år",
+        "Att den definitivt kommer att införas överallt inom några år, enligt forskarna bakom studierna",
         "Att den redan har misslyckats totalt och överges",
-        "Att frågan om ett långsiktigt genomslag fortfarande är öppen, trots lovande första resultat",
+        "Att frågan om långsiktigt genomslag fortfarande är öppen, trots lovande resultat",
         "Att endast Island kommer att fortsätta använda modellen"
       ],
       "answer": 2,
@@ -131,9 +131,9 @@
       "prompt": "Läs texten: \"Der Fleischkonsum in Deutschland ist in den letzten zehn Jahren spürbar zurückgegangen, doch er bleibt im europäischen Vergleich weiterhin hoch. Befürworter einer pflanzlichen Ernährung argumentieren vor allem mit dem Klimaschutz: Die Produktion von Fleisch, insbesondere von Rindfleisch, verursacht deutlich mehr Treibhausgase als der Anbau von Gemüse oder Hülsenfrüchten. Auch der hohe Wasser- und Flächenverbrauch der Tierhaltung wird häufig als Argument angeführt. Vertreter der Landwirtschaft weisen hingegen darauf hin, dass viele Weideflächen in Deutschland für den Anbau von Getreide oder Gemüse gar nicht geeignet wären, sodass die Tierhaltung dort tatsächlich die einzige sinnvolle Nutzung der Flächen darstelle. Zudem betonen sie die wirtschaftliche Bedeutung der Landwirtschaft für ländliche Regionen, wo viele Arbeitsplätze direkt oder indirekt von der Fleischproduktion abhängen. Ernährungswissenschaftler wiederum weisen darauf hin, dass ein moderater Fleischkonsum gesundheitlich unproblematisch sei, ein sehr hoher Konsum jedoch mit einem erhöhten Risiko für Herz-Kreislauf-Erkrankungen in Verbindung gebracht werde. Eine einfache Antwort auf die Frage, wie viel Fleisch \\\"richtig\\\" ist, gibt es also nicht — die Debatte bewegt sich zwischen ökologischen, wirtschaftlichen und gesundheitlichen Argumenten.\"\n\nVad handlar texten huvudsakligen om?",
       "opener": "Leta efter de olika grupperna som nämns och deras respektive argument.",
       "choices": [
-        "Debatten om köttkonsumtion i Tyskland, med argument från flera olika perspektiv",
+        "Debatten om köttkonsumtion i Tyskland, med argument från flera perspektiv",
         "En instruktion för hur man blir vegetarian",
-        "En historia om det tyska jordbrukets utveckling",
+        "En historia om det tyska jordbrukets utveckling under de senaste hundra åren i Tyskland",
         "En kokbok med köttfria recept"
       ],
       "answer": 0,
@@ -147,7 +147,7 @@
       "opener": "Första halvan av texten nämner deras huvudargument.",
       "choices": [
         "Klimatskydd, eftersom köttproduktion orsakar mer växthusgaser",
-        "Att kött smakar sämre än grönsaker",
+        "Att kött smakar sämre än grönsaker och är svårare att laga hemma",
         "Att det är billigare att äta kött",
         "Att djurhållning kräver mindre vatten"
       ],

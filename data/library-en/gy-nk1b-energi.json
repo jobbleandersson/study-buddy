@@ -21,7 +21,7 @@
       "choices": [
         "Energy can neither be created nor destroyed, only converted between different forms",
         "Energy can be created but never disappear",
-        "Energy always decreases somewhat with each conversion without becoming something else",
+        "Energy always decreases somewhat with each conversion without becoming something else, and eventually disappears",
         "The total amount of energy in the universe keeps increasing"
       ],
       "answer": 0,
@@ -35,8 +35,8 @@
       "opener": "Follow the energy from the wind, via the rotor blades and generator, to the power outlet.",
       "choices": [
         "Chemical energy is converted directly into electrical energy",
-        "Kinetic energy in the air is converted via the rotor's motion into electrical energy in the generator",
-        "Radiant energy is converted directly into electrical energy",
+        "Kinetic energy in the air is converted via the rotor into electrical energy in the generator",
+        "Radiant energy is converted directly into electrical energy in the wind turbine's rotor blades",
         "Potential energy in the air is converted into heat energy"
       ],
       "answer": 1,
@@ -49,9 +49,9 @@
       "prompt": "What is the main difference between renewable and non-renewable energy sources?",
       "opener": "Think about the time perspective — how quickly the source is replenished compared with how quickly we use it.",
       "choices": [
-        "Renewable energy sources always give more energy per kilogram of fuel",
+        "Renewable energy sources always give more energy per kilogram of fuel than fossil fuels and nuclear fuel",
         "Non-renewable energy sources are always cleaner for the environment",
-        "Renewable energy sources are regenerated at roughly the same rate as they are consumed, while non-renewable ones (e.g. oil, coal and natural gas) take millions of years to form",
+        "Renewable sources are regenerated about as fast as they are consumed, non-renewable ones take millions of years",
         "Renewable energy sources can only be used in warm countries"
       ],
       "answer": 2,
@@ -66,8 +66,8 @@
       "choices": [
         "They generate large amounts of radioactive waste",
         "They emit as much carbon dioxide as coal power during operation",
-        "They cannot be combined at all with other electricity production in the same grid",
-        "Wind power gives uneven production depending on the weather, and hydropower can affect local ecosystems and migrating fish"
+        "They cannot be combined at all with other electricity production in the same grid or with energy storage in society",
+        "Wind power gives uneven production depending on the weather, and hydropower can affect ecosystems and fish"
       ],
       "answer": 3,
       "explanation": "Wind power's output varies with wind strength, requiring backup or storage, and hydropower dams can affect water flows, habitats and fish migration routes. Radioactive waste is instead an issue linked to nuclear power, not hydropower or wind power."
@@ -79,8 +79,8 @@
       "prompt": "What is the natural greenhouse effect, and why is it necessary for life on Earth?",
       "opener": "Think about how cold the Earth would be without the atmosphere's ability to retain heat.",
       "choices": [
-        "A phenomenon where the ozone layer leaks harmful UV radiation",
-        "The atmosphere's gases (including carbon dioxide and water vapour) capture heat radiation from the Earth and keep the planet warmer than it would otherwise be",
+        "A phenomenon where the ozone layer leaks harmful UV radiation and warms the Earth unnaturally",
+        "Gases in the atmosphere capture heat radiation from the Earth and keep the planet warmer",
         "The Earth's rotation, which creates the seasons",
         "The oceans' ability to store carbon dioxide in deep water"
       ],
@@ -132,10 +132,10 @@
       "prompt": "What is meant by the efficiency of an energy-converting facility, e.g. a power plant?",
       "opener": "Think about the fact that no energy conversion is completely loss-free.",
       "choices": [
-        "The share of the input energy that is converted into the intended, usable form of energy; the rest often becomes heat that spreads out",
+        "The share of input energy that becomes the intended, usable form of energy",
         "The total amount of energy the facility can store",
         "How many years the facility lasts before it must be replaced",
-        "A measure of how environmentally friendly the facility is, regardless of energy conversion"
+        "A measure of how environmentally friendly the facility is, regardless of energy conversion, emissions or waste"
       ],
       "answer": 0,
       "explanation": "Efficiency indicates how large a share of the input energy is converted into the intended, usable form of energy. The rest is often lost as heat that spreads into the surroundings, consistent with the principle of conservation of energy (energy doesn't disappear, but becomes less usable)."
@@ -150,7 +150,7 @@
         "Chemical energy is converted into kinetic energy (and heat)",
         "Kinetic energy is converted directly into chemical energy",
         "Radiant energy is converted into chemical energy",
-        "Potential energy is converted directly into electrical energy"
+        "Potential energy is converted directly into electrical energy in the spark plug"
       ],
       "answer": 0,
       "explanation": "Petrol's chemical energy is converted during combustion into kinetic energy that drives the car forward, plus a large amount of heat energy. It is therefore not kinetic energy or radiant energy that is the starting point."

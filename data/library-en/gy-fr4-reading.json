@@ -19,7 +19,7 @@
       "opener": "Look for the question posed in the first sentence — the rest of the text answers it.",
       "choices": [
         "Whether social media should be banned for under-sixteens",
-        "How to regulate internet use in schools",
+        "How to regulate internet use in schools and youth clubs",
         "Why teenagers are geographically isolated",
         "Which apps are most popular among young people"
       ],
@@ -51,7 +51,7 @@
         "which require",
         "which support",
         "which escape/evade",
-        "which improve"
+        "which improve and strengthen"
       ],
       "answer": 2,
       "explanation": "\"Échapper à\" means to escape or evade something. Apps that are \"moins régulées\" (less regulated) and \"échappant à tout contrôle parental\" are apps that evade all parental control — essentially impossible to monitor."
@@ -66,7 +66,7 @@
         "To show that the ban would be illegal",
         "To give a concrete example of who would lose the most from a ban",
         "To prove that social media causes anxiety",
-        "To explain why apps are poorly regulated"
+        "To explain why apps are poorly regulated and hard for parents to control"
       ],
       "answer": 1,
       "explanation": "By pointing to a specific, vulnerable group, the text makes the counterargument more concrete and emotionally convincing — it's not just \"young people in general\" who would be affected, but especially those who are already isolated or marginalized."
@@ -78,7 +78,7 @@
       "prompt": "Read the text again.\n\nHow would you describe the structure of the text?",
       "opener": "Look at how \"D'un côté\" and \"De l'autre\" are used.",
       "choices": [
-        "It presents only one perspective and argues strongly for it",
+        "It presents only one perspective and argues strongly for it from beginning to end",
         "It tells a personal story without taking a position",
         "It weighs two opposing perspectives against each other without clearly taking a side",
         "It lists statistics without any argumentation at all"
@@ -146,7 +146,7 @@
       "opener": "Look for the sentence starting with \"Ses partisans mettent en avant...\".",
       "choices": [
         "A better work-life balance and reduced commuting time",
-        "That it's cheaper for employees",
+        "That it's cheaper for employees and lowers their tax every month",
         "That it bans meetings entirely",
         "That offices are closing permanently"
       ],
@@ -161,7 +161,7 @@
       "opener": "\"Pervers\" here doesn't mean the same as the common English sense — it refers to an unexpected, negative consequence.",
       "choices": [
         "An unintended negative side effect",
-        "A positive surprise",
+        "A positive surprise for everyone involved",
         "A legal problem",
         "A financial gain"
       ],
@@ -208,7 +208,7 @@
         "A hybrid model combining remote work and office presence",
         "Abolishing remote work entirely",
         "Abolishing office work entirely",
-        "Letting each employee decide completely freely"
+        "Letting each employee decide completely freely how and where they work"
       ],
       "answer": 0,
       "explanation": "The text says many companies \"optent désormais pour un modèle hybride, combinant jours de télétravail et présence au bureau\"."

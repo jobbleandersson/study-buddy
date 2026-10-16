@@ -19,8 +19,8 @@
       "prompt": "Vad menas med en ekosystemtjänst?",
       "opener": "Tänk på sådant naturen gör åt oss gratis, utan att vi behöver bygga eller betala för det.",
       "choices": [
-        "En nytta som människan får av ekosystem, t.ex. pollinering, rent vatten eller virke",
-        "En tjänst där staten sköter om skog och mark åt privatpersoner",
+        "En nytta människan får av ekosystem, t.ex. pollinering eller rent vatten",
+        "En tjänst där staten sköter om skog och mark åt privatpersoner och företag",
         "Ett annat ord för naturreservat",
         "En avgift man betalar för att få vistas i naturen"
       ],
@@ -52,7 +52,7 @@
         "Enbart det totala antalet djur i ett område",
         "Hur många nationalparker ett land har",
         "Variationsrikedomen bland gener, arter och ekosystem",
-        "Mängden växter jämfört med djur i ett ekosystem"
+        "Mängden växter jämfört med djur i ett ekosystem eller en nationalpark"
       ],
       "answer": 2,
       "explanation": "Biologisk mångfald omfattar variation på tre nivåer: genetisk variation inom en art, mångfalden av arter och mångfalden av ekosystem. Det handlar alltså om mer än bara ett räknat antal djur."
@@ -80,7 +80,7 @@
       "opener": "Kvävgas i luften är i sig svår för växter att använda direkt — någon måste \"fixera\" den först.",
       "choices": [
         "Kvävefixerande bakterier, bland annat i rotknölar hos ärtväxter",
-        "Gröna växters blad genom fotosyntes",
+        "Gröna växters blad genom fotosyntes, via klyvöppningarna på bladets undersida",
         "Svampar som bryter ner döda djur",
         "Alger i sjöar och hav"
       ],
@@ -148,7 +148,7 @@
       "opener": "Tänk på nyttor som inte är fysiska produkter eller reglerande processer, utan handlar om upplevelser.",
       "choices": [
         "Rekreation och naturupplevelser i en skog eller ett naturreservat",
-        "Att en skog binder koldioxid",
+        "Att en skog binder koldioxid och därmed minskar växthuseffekten i atmosfären",
         "Att bin pollinerar fruktträd",
         "Att våtmarker renar vatten"
       ],
@@ -192,8 +192,8 @@
       "prompt": "Vilka är de huvudsakliga processerna som för in koldioxid i, respektive tar bort koldioxid från, atmosfären i kolets kretslopp?",
       "opener": "Tänk på vilka processer som frigör koldioxid, och vilken process som binder in den igen.",
       "choices": [
-        "Andning och förbränning tillför koldioxid, medan fotosyntes tar upp koldioxid",
-        "Fotosyntes tillför koldioxid, medan andning tar bort den",
+        "Andning och förbränning tillför koldioxid, medan fotosyntes tar upp den",
+        "Fotosyntes tillför koldioxid till atmosfären, medan andning tar bort den därifrån",
         "Enbart mänsklig aktivitet påverkar kolets kretslopp",
         "Kolets kretslopp innehåller ingen gasfas alls"
       ],
@@ -207,10 +207,10 @@
       "prompt": "Vad händer med kväve genom denitrifikation, den process som avslutar kvävets kretslopp i marken?",
       "opener": "Denitrifikation är på sätt och vis motsatsen till kvävefixering.",
       "choices": [
-        "Bakterier omvandlar nitrat tillbaka till kvävgas, som återgår till atmosfären",
+        "Bakterier omvandlar nitrat till kvävgas som återgår till luften",
         "Växter tar upp kvävgas direkt ur luften",
         "Kväve omvandlas till fosfor",
-        "Denitrifikation ökar mängden kväve tillgängligt för växter"
+        "Denitrifikation ökar mängden kväve som är tillgängligt för växter i marken"
       ],
       "answer": 0,
       "explanation": "Denitrifierande bakterier omvandlar nitrat i marken tillbaka till kvävgas, som återgår till atmosfären och sluter kvävets kretslopp. Detta står i kontrast till kvävefixering, som för in kvävgas i kretsloppet från början."
@@ -222,9 +222,9 @@
       "prompt": "Vilka är de tre delarna som hållbar utveckling brukar sägas vila på, och hur förhåller de sig till varandra?",
       "opener": "Tänk på om de tre delarna kan behandlas helt separat från varandra.",
       "choices": [
-        "Ekologisk, social och ekonomisk hållbarhet, som ofta beskrivs som ömsesidigt beroende av varandra snarare än fristående",
+        "Ekologisk, social och ekonomisk hållbarhet, som ofta beskrivs som ömsesidigt beroende",
         "Enbart ekonomisk tillväxt, miljöskydd är inte en del av begreppet",
-        "Enbart miljömässig hållbarhet, utan koppling till sociala eller ekonomiska frågor",
+        "Enbart miljömässig hållbarhet, utan koppling till sociala eller ekonomiska frågor i samhället",
         "Nationell, regional och global hållbarhet"
       ],
       "answer": 0,

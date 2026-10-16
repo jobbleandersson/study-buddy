@@ -19,7 +19,7 @@
       "prompt": "Read the text: \"Die Vier-Tage-Woche wird seit einigen Jahren in vielen Ländern diskutiert, doch die Meinungen gehen weit auseinander. Befürworter argumentieren, dass kürzere Arbeitszeiten nicht nur die psychische Gesundheit der Angestellten verbessern, sondern auch die Produktivität steigern können – wer ausgeruht ist, arbeitet konzentrierter. Pilotprojekte in Island und Großbritannien scheinen diese These zu bestätigen: Die Umsätze der teilnehmenden Unternehmen blieben stabil, während die Mitarbeiterzufriedenheit deutlich zunahm. Kritiker hingegen warnen vor voreiligen Schlüssen. Sie weisen darauf hin, dass sich die Ergebnisse nicht ohne Weiteres auf alle Branchen übertragen lassen, besonders nicht auf das Gesundheitswesen oder die Industrie, wo schon jetzt Personalmangel herrscht. Außerdem befürchten manche Ökonomen, dass Unternehmen die eingesparte Zeit lediglich durch höheren Druck an den verbleibenden vier Tagen kompensieren würden – ein Ergebnis, das den ursprünglichen Zweck der Reform ins Gegenteil verkehren würde. Ob sich die Vier-Tage-Woche langfristig durchsetzt, bleibt daher, trotz vielversprechender erster Ergebnisse, eine offene Frage.\"\n\nWhat is the text mainly about?",
       "opener": "Look for the sentence that weighs both sides of the debate together.",
       "choices": [
-        "The history of how the four-day work week was invented",
+        "The history of how the four-day work week was invented and spread across Europe in the 20th century",
         "Whether the four-day work week is a good solution, with arguments both for and against",
         "How an individual employee applies for shorter working hours",
         "A description of one employee's daily life on a four-day schedule"
@@ -36,7 +36,7 @@
       "choices": [
         "That it lowers companies' costs for office space",
         "That it can improve mental health while also increasing productivity",
-        "That it is easy to introduce in every industry immediately",
+        "That it is easy to introduce in every industry immediately and without changes",
         "That it reduces the staff shortage in healthcare"
       ],
       "answer": 1,
@@ -49,7 +49,7 @@
       "prompt": "Same text. What did the pilot projects in Iceland and the UK show, according to the text?",
       "opener": "Look for the sentence with the words \"Umsätze\" and \"Mitarbeiterzufriedenheit\".",
       "choices": [
-        "Revenue dropped sharply while employee satisfaction decreased",
+        "Revenue dropped sharply while employee satisfaction decreased and sick leave rose",
         "Revenue stayed stable while employee satisfaction increased significantly",
         "The companies were forced into bankruptcy within a year",
         "The results were too uncertain to draw any conclusions at all"
@@ -64,10 +64,10 @@
       "prompt": "Same text. What is the critics' (Kritiker) main objection to generalizing the results?",
       "opener": "The word \"hingegen\" marks where the text switches to the counter-arguments.",
       "choices": [
-        "That the results can't necessarily be transferred to every industry, especially not healthcare and manufacturing",
+        "That the results can't necessarily be transferred to every industry",
         "That the pilot projects were never actually carried out",
         "That the employees themselves didn't want to take part in the projects",
-        "That the four-day work week is already standard in most European countries"
+        "That the four-day work week is already standard in most European countries and therefore not interesting"
       ],
       "answer": 0,
       "explanation": "The critics warn against \"voreilige Schlüsse\" (hasty conclusions) and argue that the results \"sich nicht ohne Weiteres auf alle Branchen übertragen lassen\", especially not to healthcare and manufacturing, where a staff shortage already exists."
@@ -94,9 +94,9 @@
       "prompt": "Same text. What conclusion does the text ultimately draw about the future of the four-day work week?",
       "opener": "Read the very last sentence carefully — what does it say, despite the positive results?",
       "choices": [
-        "That it will definitely be introduced everywhere within a few years",
+        "That it will definitely be introduced everywhere within a few years, according to the researchers behind the studies",
         "That it has already failed completely and been abandoned",
-        "That the question of long-term success remains open, despite promising early results",
+        "That the question of long-term success remains open, despite promising results",
         "That only Iceland will continue using the model"
       ],
       "answer": 2,
@@ -131,9 +131,9 @@
       "prompt": "Read the text: \"Der Fleischkonsum in Deutschland ist in den letzten zehn Jahren spürbar zurückgegangen, doch er bleibt im europäischen Vergleich weiterhin hoch. Befürworter einer pflanzlichen Ernährung argumentieren vor allem mit dem Klimaschutz: Die Produktion von Fleisch, insbesondere von Rindfleisch, verursacht deutlich mehr Treibhausgase als der Anbau von Gemüse oder Hülsenfrüchten. Auch der hohe Wasser- und Flächenverbrauch der Tierhaltung wird häufig als Argument angeführt. Vertreter der Landwirtschaft weisen hingegen darauf hin, dass viele Weideflächen in Deutschland für den Anbau von Getreide oder Gemüse gar nicht geeignet wären, sodass die Tierhaltung dort tatsächlich die einzige sinnvolle Nutzung der Flächen darstelle. Zudem betonen sie die wirtschaftliche Bedeutung der Landwirtschaft für ländliche Regionen, wo viele Arbeitsplätze direkt oder indirekt von der Fleischproduktion abhängen. Ernährungswissenschaftler wiederum weisen darauf hin, dass ein moderater Fleischkonsum gesundheitlich unproblematisch sei, ein sehr hoher Konsum jedoch mit einem erhöhten Risiko für Herz-Kreislauf-Erkrankungen in Verbindung gebracht werde. Eine einfache Antwort auf die Frage, wie viel Fleisch \\\"richtig\\\" ist, gibt es also nicht — die Debatte bewegt sich zwischen ökologischen, wirtschaftlichen und gesundheitlichen Argumenten.\"\n\nWhat is the text mainly about?",
       "opener": "Look for the different groups mentioned and their respective arguments.",
       "choices": [
-        "The debate about meat consumption in Germany, with arguments from several different perspectives",
+        "The debate about meat consumption in Germany, with arguments from several perspectives",
         "Instructions on how to become a vegetarian",
-        "A history of the development of German agriculture",
+        "A history of the development of German agriculture over the past hundred years in Germany",
         "A cookbook with meat-free recipes"
       ],
       "answer": 0,
@@ -147,7 +147,7 @@
       "opener": "The first half of the text mentions their main argument.",
       "choices": [
         "Climate protection, since meat production causes more greenhouse gases",
-        "That meat tastes worse than vegetables",
+        "That meat tastes worse than vegetables and is harder to cook at home",
         "That it's cheaper to eat meat",
         "That livestock farming requires less water"
       ],

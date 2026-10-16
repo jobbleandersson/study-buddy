@@ -19,7 +19,7 @@
       "prompt": "Vilket av följande fungerar bäst som TES i en argumenterande text?",
       "opener": "En tes måste gå att hålla med om — eller inte hålla med om.",
       "choices": [
-        "Många elever använder mobiler i skolan.",
+        "Många elever använder mobiler i skolan varje dag.",
         "Sverige har 21 regioner.",
         "Mobiltelefoner bör förbjudas under lektionstid.",
         "Den här texten handlar om mobiler i skolan."
@@ -52,7 +52,7 @@
         "Innehållet återges med egna ord och med referatmarkörer",
         "Man lägger till sina egna åsikter löpande",
         "Man återger bara det man håller med om",
-        "Källans text återges ordagrant men utan citattecken"
+        "Källans text återges ordagrant men utan citattecken eller källa"
       ],
       "answer": 0,
       "explanation": "Ett referat sammanfattar källans innehåll med egna ord, sakligt och med referatmarkörer som \"enligt Andersson\" eller \"författaren menar att\". Ordagrann återgivning utan citattecken är plagiat."
@@ -66,7 +66,7 @@
       "choices": [
         "Mobiler stör undervisningen.",
         "Enligt Lindqvist (2023) stör mobiler undervisningen.",
-        "Alla vet att mobiler stör undervisningen.",
+        "Alla vet att mobiler stör undervisningen i skolan och på arbetsplatser",
         "Det är ju uppenbart att mobiler stör."
       ],
       "answer": 1,
@@ -94,7 +94,7 @@
       "prompt": "Varför bör en argumenterande text ta upp och bemöta motargument?",
       "opener": "Vad tänker en skeptisk läsare som redan har en invändning i huvudet?",
       "choices": [
-        "Det är ett formellt krav utan egentlig funktion",
+        "Det är ett formellt krav från läraren utan någon egentlig funktion",
         "Det gör texten längre",
         "Det försvagar den egna tesen",
         "Det stärker trovärdigheten och visar att du prövat frågan"
@@ -178,7 +178,7 @@
       "choices": [
         "Källan är oanvändbar för uppgiften, även om den i sig är pålitlig",
         "Källan bör alltid användas ändå",
-        "Trovärdighet och relevans är samma sak",
+        "Trovärdighet och relevans är samma sak, eftersom båda handlar om att källan stämmer",
         "Källan är per automatik opålitlig"
       ],
       "answer": 0,
@@ -191,7 +191,7 @@
       "prompt": "Vilken mening fungerar som TES i följande utdrag? \"Många menar att läxor är nödvändiga för lärandet. Men forskning visar blandade resultat. Skolan bör därför minska mängden läxor till förmån för mer lärarledd tid.\"",
       "opener": "Tesen är den ståndpunkt som resten av resonemanget leder fram till.",
       "choices": [
-        "Många menar att läxor är nödvändiga för lärandet.",
+        "Många menar att läxor är nödvändiga för lärandet och för elevernas ansvarstagande i skolan.",
         "Men forskning visar blandade resultat.",
         "Skolan bör därför minska mängden läxor till förmån för mer lärarledd tid.",
         "Ingen av meningarna är en tes."
@@ -223,7 +223,7 @@
         "Ja, allt ordagrant återgivet är plagiat",
         "Nej, ett korrekt markerat och källhänvisat citat är tillåtet",
         "Bara om texten är längre än en mening",
-        "Bara om källan är en bok, inte en artikel"
+        "Bara om källan är en bok, inte en artikel eller en webbsida på nätet"
       ],
       "answer": 1,
       "explanation": "Plagiat handlar om att låtsas att andras ord eller idéer är dina egna. Ett citat som tydligt markeras med citattecken och källa gör precis motsatsen — det är fullt tillåtet."
