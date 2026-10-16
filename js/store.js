@@ -7,6 +7,7 @@ import { getLang, t } from "./lib/i18n.js";
 import { serverMessage } from "./lib/server-errors.js";
 import { normalizeExam, examsFromMarkedSets, examSetDates, calendarEntries } from "./lib/exam.js";
 import { mergeStates, looksLikeBackup } from "./lib/merge-state.js";
+import { hasLocalWork } from "./lib/local-work.js";
 import { classifyPushStatus, nextRetryDelay } from "./lib/sync-status.js";
 
 /** An Error carrying the server's message (translated where known) and its machine-readable code. */
@@ -74,6 +75,15 @@ const SESSION_LOST_KEY = "studybuddy.v1.sessionLostFor";
 // The device is cleared for the next person either way; these are merged back in the next time that
 // same account signs in on this device.
 const UNSYNCED_KEY = "studybuddy.v1.unsynced";
+// An unsent copy is only kept this long: it is a whole account's data left on a device the account has signed out of.
+const UNSYNCED_MAX_AGE_MS = 3 * 24 * 60 * 60 * 1000;
+
+// Work done on this device before signing in to an account that already had data. It is not merged
+// unless the person says so (on a shared computer it may be somebody else's); kept here until they answer.
+const HELD_LOCAL_KEY = "studybuddy.v1.heldlocal";
+// Which account the data on this device came from (set while signed in, removed when the device is cleared),
+// so signing back in to the same account is not mistaken for someone else's work.
+const DEVICE_OWNER_KEY = "studybuddy.v1.deviceOwner";
 
 // Everything else this app keeps per person in localStorage, cleared with the study data on sign-out
 // so the next student on a shared computer can't open it: AI chats and saved answers
@@ -599,6 +609,7 @@ class Store extends EventTarget {
         if (data?.email && data.authed !== false) {
           this.authed = true;
           this.authEmail = data.email;
+          this._setDeviceOwner(data.email);
           this.authPasswordless = !!data.passwordless;
           this.authEmailVerified = !!data.emailVerified;
           this.totpEnabled = !!data.totpEnabled;
@@ -621,6 +632,14 @@ class Store extends EventTarget {
       await this.refreshUsage();
       await this.refreshBilling();
     }
+
+    // Set-aside changes older than UNSYNCED_MAX_AGE_MS are removed from the device, not just ignored.
+    try {
+      if (localStorage.getItem(UNSYNCED_KEY)) {
+        const live = this._readUnsynced();
+        if (Object.keys(live).length) localStorage.setItem(UNSYNCED_KEY, JSON.stringify(live)); else localStorage.removeItem(UNSYNCED_KEY);
+      }
+    } catch {}
 
     // Retry a save that could not go through as soon as the connection is back or the tab is shown again.
     if (typeof window !== "undefined" && !this._syncHooks) {
@@ -1862,6 +1881,7 @@ class Store extends EventTarget {
     this.totpEnabled = false;   // a brand-new account has no 2FA to have set up yet
     this.twofaMethod = null;
     this._setSyncVersion(0);
+    this._setDeviceOwner(data.email);
     await this._pushNow(); // this device's local data becomes the account's data
     await this.refreshUsage();
     this.emit();
@@ -2056,6 +2076,8 @@ class Store extends EventTarget {
     this.authPasswordless = passwordless;
   }
 
+  _setDeviceOwner(email) { try { if (email) localStorage.setItem(DEVICE_OWNER_KEY, String(email).toLowerCase()); } catch {} }
+
   /** Ask for a fresh verification link on the signed-in account. */
   async resendVerification() {
     const res = await fetch(RESEND_VERIFICATION_URL, {
@@ -2165,15 +2187,19 @@ class Store extends EventTarget {
     this.state.onboarded = true;
     this._setSyncVersion(0);
     this._setDirty(false);
-    for (const k of [SYNC_DISCARD_KEY, RECOVERY_KEY, ...PERSONAL_KEYS]) { try { localStorage.removeItem(k); } catch {} }
+    for (const k of [SYNC_DISCARD_KEY, RECOVERY_KEY, HELD_LOCAL_KEY, DEVICE_OWNER_KEY, ...PERSONAL_KEYS]) { try { localStorage.removeItem(k); } catch {} }
     this.save({ skipPush: true });
     // In-memory copies (the help chat's conversation, a generated set waiting in Skapa) go too.
     this.dispatchEvent(new CustomEvent("deviceCleared"));
   }
 
   _readUnsynced() {
-    try { const x = JSON.parse(localStorage.getItem(UNSYNCED_KEY) || "{}"); return x && typeof x === "object" ? x : {}; }
-    catch { return {}; }
+    try {
+      const x = JSON.parse(localStorage.getItem(UNSYNCED_KEY) || "{}");
+      if (!x || typeof x !== "object") return {};
+      for (const k of Object.keys(x)) if (!(Date.now() - (x[k]?.at || 0) < UNSYNCED_MAX_AGE_MS)) delete x[k];   // too old: gone
+      return x;
+    } catch { return {}; }
   }
   _putUnsynced(email, blob) {
     const all = this._readUnsynced();
@@ -2220,29 +2246,46 @@ class Store extends EventTarget {
   async _pullOnLogin() {
     // A session that ended on this device left its owner's unsaved changes here. If a DIFFERENT person is
     // signing in now, those changes are not theirs: set them aside under the owner's address (merged back
-    // when the owner signs in here again) and start from an empty device. The same person: merged as usual.
+    // when the owner signs in here again) and start from an empty device. The same person: theirs, merged as usual.
     let lostFor = null;
     try { lostFor = localStorage.getItem(SESSION_LOST_KEY); localStorage.removeItem(SESSION_LOST_KEY); } catch {}
-    if (lostFor && lostFor !== String(this.authEmail || "").toLowerCase()) {
+    const me = String(this.authEmail || "").toLowerCase();
+    let owner = null;
+    try { owner = localStorage.getItem(DEVICE_OWNER_KEY); } catch {}
+    let ownDevice = false;   // does the device's current state belong to this very account?
+    if (lostFor && lostFor !== me) {
       this._putUnsynced(lostFor, this.state);
       this._clearDevice();
-    }
+    } else ownDevice = lostFor === me || owner === me;
     let res;
     try { res = await fetch(STATE_URL, { credentials: "include" }); }
     catch { return; } // offline — keep local state, next save() will retry the push once reachable
     if (!res.ok) return;
     const { version, blob } = await res.json();
+    this._setDeviceOwner(me);   // from here on the data on this device is this account's
+    const deviceBefore = this.state;   // what the device held before this account's own set-aside changes
     const stashed = this._takeUnsynced(this.authEmail);
     if (stashed) {
       try { this.state = migrate(mergeStates(this.state, stashed)); } catch { /* keep what's here */ }
     }
     if (blob) {
-      // Work done on this device before signing in is merged in, never replaced; a copy of it is
-      // kept in case the merge has to be undone.
+      // Work done on this device before signing in is NOT added to the account on its own: on a shared
+      // computer it may be somebody else's. The account's data is adopted (plus the account's own
+      // set-aside changes), the device's work is held, and the person is asked (addHeldLocalWork).
+      // A copy of the device's state is kept in case the merge has to be undone.
       const localBefore = this.state;
       try { localStorage.setItem(SYNC_DISCARD_KEY, JSON.stringify({ at: Date.now(), blob: localBefore })); } catch {}
-      try { this.state = migrate(mergeStates(migrate(blob), localBefore)); }
-      catch (e) { console.warn("login merge failed — adopting the account's data:", e); this.state = migrate(blob); }
+      if (ownDevice) {
+        try { this.state = migrate(mergeStates(migrate(blob), localBefore)); }
+        catch (e) { console.warn("login merge failed — adopting the account's data:", e); this.state = migrate(blob); }
+      } else {
+        this.state = migrate(blob);
+        if (stashed) { try { this.state = migrate(mergeStates(this.state, stashed)); } catch {} }
+        if (hasLocalWork(deviceBefore)) {
+          try { localStorage.setItem(HELD_LOCAL_KEY, JSON.stringify({ at: Date.now(), blob: deviceBefore })); } catch {}
+          this.dispatchEvent(new CustomEvent("localWorkHeld"));
+        }
+      }
       this._setSyncVersion(version);
       this.save({ skipPush: true });
       // The language is a per-device choice but the sets came from another
@@ -2250,12 +2293,30 @@ class Store extends EventTarget {
       // language switch would. (Found on a live sign-in: an English UI over
       // Swedish library sets, and a tutor that answered half in each.)
       try { await Promise.all([this.syncDemoLanguage(), this.syncLibraryLanguage(), this.syncHpLanguage()]); } catch {}
-      await this._pushNow();   // the merged result becomes the account's data
+      await this._pushNow();   // the result becomes the account's data
     } else {
       // Existing account with nothing synced yet — seed it from this device.
       await this._pushNow();
     }
   }
+
+  /** Work the person did on this device before signing in, waiting for their answer (or null). */
+  get heldLocalWork() {
+    try { const raw = localStorage.getItem(HELD_LOCAL_KEY); return raw ? JSON.parse(raw) : null; } catch { return null; }
+  }
+  /** "Add it to my account": merge the held work in and save. */
+  async addHeldLocalWork() {
+    const held = this.heldLocalWork;
+    try { localStorage.removeItem(HELD_LOCAL_KEY); } catch {}
+    if (!held?.blob || !this.authed) return false;
+    try { this.state = migrate(mergeStates(this.state, held.blob)); } catch { return false; }
+    this.save({ skipPush: true });
+    this.emit();
+    await this._pushNow();
+    return true;
+  }
+  /** "No": the held work is dropped. */
+  dropHeldLocalWork() { try { localStorage.removeItem(HELD_LOCAL_KEY); } catch {} }
 
   _schedulePush() {
     clearTimeout(this._pushTimer);

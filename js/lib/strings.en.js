@@ -824,6 +824,9 @@ export default {
 
   "sync.conflict": "Synced from another device — some local changes here were replaced.",
   "sync.merged": "Merged in changes from another device.",
+  "sync.localWorkBanner": "You practised without an account on this device before signing in. Add that to your account?",
+  "sync.localWorkAdd": "Add it",
+  "sync.localWorkAdded": "Added to your account.",
   "sync.failedBanner": "Your changes aren't saved to your account yet. We'll keep trying.",
   "sync.tooLargeBanner": "Your data is too large to save to your account. Download a backup and remove large sets you don't use.",
   "sync.signedOutBanner": "You've been signed out. Your changes are still on this device but won't be saved to your account until you sign in again.",
