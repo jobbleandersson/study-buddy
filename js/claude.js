@@ -9,6 +9,7 @@ import { parseLooseJSON } from "./lib/loose-json.js";
 import { normalizeCheck } from "./lib/check.js";
 import { parseScript } from "./lib/podcast.js";
 import { shuffleMc } from "./lib/choices.js";
+import { resolveMcAnswer } from "./lib/mc-answer.js";
 import { REVIEW_SYSTEM, reviewItems, parseVerdicts, flaggedIndexes } from "./lib/review.js";
 import { CHECK_REVIEW_SYSTEM, reviewInput, parseReview, reviewAgrees, disagreementNote } from "./lib/check-review.js";
 import { newQuestionsOnly } from "./lib/exam.js";
@@ -242,13 +243,10 @@ function normalizeDoc(doc) {
     };
     if (out.kind === "mc") {
       out.choices = Array.isArray(q.choices) ? q.choices.map(txt) : [];
-      let answer = Number.isInteger(q.answerIndex) ? q.answerIndex
-        : Number.isInteger(q.answer) ? q.answer : 0;
-      // An index past the options (a model counting from 1, say): find the right one by its text if
-      // the answer was written out, otherwise the question can't be trusted and is dropped below.
-      if (!(answer >= 0 && answer < out.choices.length)) {
-        answer = typeof q.answer === "string" ? out.choices.findIndex((c) => c.trim() === q.answer.trim()) : -1;
-      }
+      // The index the prompt asked for, or the answer written as text, a letter or a quoted number
+      // (lib/mc-answer.js); an answer that cannot be read with confidence is -1 and the question is
+      // dropped below. It used to default to 0, which keyed the first option as correct.
+      const answer = resolveMcAnswer(q, out.choices);
       out.answer = answer;
       if (answer < 0) return out;
       // The model tends to write the correct option first, whatever the prompt says, so the order is
