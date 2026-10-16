@@ -2291,12 +2291,15 @@ body.has-welcome { overflow: hidden; }
   margin-top: var(--s-5); padding: var(--s-3) 0 calc(var(--s-3) + env(safe-area-inset-bottom, 0px));
   background: var(--canvas); border-top: 1px solid var(--line);
 }
+.editbar__actions { display: flex; gap: 10px; }
+/* A field scrolled into view (a tap on a question near the bottom) must land above the bar, not under it. */
+html:has(.editbar) { scroll-padding-bottom: 160px; }
 @media (max-width: 899px) { .editbar { bottom: calc(60px + env(safe-area-inset-bottom, 0px)); padding-bottom: var(--s-3); } }
 @media (min-width: 380px) and (max-width: 899px) {
   /* One row, not three, where the three buttons fit: the bar must not take a sixth of a phone screen.
      Narrower than that they wrap rather than run off the side. */
   .editbar { flex-wrap: nowrap; gap: 6px; }
-  .editbar > div { flex-wrap: nowrap; gap: 6px !important; }   /* beats the inline gap the markup sets */
+  .editbar__actions { flex-wrap: nowrap; gap: 6px; }
   .editbar .btn { padding-left: 8px; padding-right: 8px; white-space: nowrap; }
 }
 
