@@ -21,7 +21,7 @@
         "Straw man (distorting the opponent's position)",
         "Ad hominem (a personal attack instead of addressing the issue)",
         "Circular reasoning",
-        "False dichotomy"
+        "False dichotomy (offering only two alternatives when there are more)"
       ],
       "answer": 1,
       "explanation": "Ad hominem means attacking the person putting forward an argument instead of addressing the argument itself — here the position is dismissed simply because the person lacks a certain title, which says nothing about whether the position is correct."
@@ -34,8 +34,8 @@
       "opener": "Are there really only two possible outcomes here?",
       "choices": [
         "Straw man",
-        "Argument from authority",
-        "False dichotomy (presenting only two extremes as the only alternatives)",
+        "Argument from authority (citing an expert or authority instead of giving reasons)",
+        "False dichotomy (presenting only two options as the only possible ones)",
         "Ad hominem"
       ],
       "answer": 2,
@@ -48,10 +48,10 @@
       "prompt": "A debater says: \"My opponents apparently want us to close all schools entirely\" — even though the opponents actually only proposed fewer administrative meetings. What is this logical fallacy called?",
       "opener": "The position being addressed is heavily distorted compared with what was actually said.",
       "choices": [
-        "Straw man (distorting and exaggerating the opponent's position to make it easier to dismiss)",
+        "Straw man (distorting the opponent's position to make it easier to dismiss)",
         "Circular reasoning",
         "False dichotomy",
-        "Argument from authority"
+        "Argument from authority (citing an expert or authority instead of giving reasons)"
       ],
       "answer": 0,
       "explanation": "A straw man is created by distorting or exaggerating the opponent's actual position into something easier to dismiss, and then addressing the distorted version rather than the real argument."
@@ -132,7 +132,7 @@
       "opener": "The argument assumes a chain of ever-worse consequences without actually showing the chain is likely.",
       "choices": [
         "Slippery slope",
-        "Ad hominem",
+        "Ad hominem (an attack on the person instead of the issue)",
         "Circular reasoning",
         "Argument from authority"
       ],
@@ -148,7 +148,7 @@
       "choices": [
         "The post hoc fallacy",
         "Straw man",
-        "False dichotomy",
+        "False dichotomy (offering only two alternatives when there are more)",
         "Ad hominem"
       ],
       "answer": 0,
@@ -161,10 +161,10 @@
       "prompt": "What can undermine a speaker's ethos, even if the arguments themselves are correct?",
       "opener": "Think about what happens to the audience's trust if the speaker has previously proven unreliable.",
       "choices": [
-        "Having previously been caught deliberately spreading falsehoods on the very same issue",
+        "Having previously been caught deliberately spreading falsehoods on the same issue",
         "Having relevant education in the subject",
         "Referring to several independent sources",
-        "Addressing counterarguments objectively"
+        "Addressing counterarguments objectively and admitting what is unclear in one's own case"
       ],
       "answer": 0,
       "explanation": "If a speaker has previously been caught deliberately lying on the same issue, their credibility (ethos) is seriously damaged, even if the current argument happens to be correct. Relevant education, source references, and objectively addressing counterarguments instead strengthen ethos."
@@ -176,8 +176,8 @@
       "prompt": "A government text about new regulations is rewritten into an easy-to-read version for a broader audience. What should primarily change?",
       "opener": "Think about what should become easier to understand, and what should stay the same.",
       "choices": [
-        "Sentence length, word choice and the degree of technical language, while the factual content remains essentially the same",
-        "The actual regulations being described, so that they become less strict",
+        "Sentence length, word choice and the degree of technical language, while the content stays the same",
+        "The actual regulations being described, so that they become less strict and easier to understand",
         "Nothing needs to change at all",
         "Only the typeface in the printed version"
       ],
@@ -191,10 +191,10 @@
       "prompt": "\"If you care about children's safety, you must support this proposal.\" What is the problem with this reasoning?",
       "opener": "Consider whether this is really the only way to show that you care about children's safety.",
       "choices": [
-        "It is an emotional appeal that bypasses the actual issue by linking a highly charged premise to a specific conclusion without genuine logical connection",
+        "It is an emotional appeal: a charged premise is linked to a conclusion without a logical connection",
         "It is circular reasoning",
-        "It is a false dichotomy between exactly two alternatives",
-        "It is an argument from authority"
+        "It is a false dichotomy, where the reader is offered only two alternatives as the only options",
+        "It is an argument from authority, where an expert is used instead of objective reasons to support the proposal"
       ],
       "answer": 0,
       "explanation": "The reasoning exploits an emotionally charged premise (children's safety) to force through a specific conclusion, without actually showing that this particular proposal is the only way to protect children's safety. It is therefore primarily an emotional appeal that bypasses the actual issue, rather than circular reasoning or a clear-cut false dichotomy."
@@ -207,7 +207,7 @@
       "opener": "Think about what shows the writer has an honest, nuanced relationship to the topic.",
       "choices": [
         "Transparently stating sources and acknowledging the limitations of the underlying evidence",
-        "Avoiding mentioning any figures at all",
+        "Avoiding mentioning any figures at all so that the text seems more convincing",
         "Using as many superlatives as possible",
         "Never mentioning that others might hold a different view"
       ],

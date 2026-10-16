@@ -18,8 +18,8 @@
       "prompt": "Vad är den viktigaste funktionen hos en tydlig disposition i ett längre utredande anförande?",
       "opener": "Vad behöver lyssnaren, som inte kan bläddra tillbaka som en läsare kan?",
       "choices": [
-        "Att göra anförandet så långt som möjligt",
-        "Att hjälpa lyssnaren följa med och hänga kvar genom hela resonemanget, eftersom man inte kan bläddra tillbaka i ett talat anförande",
+        "Att göra anförandet så långt som möjligt, så att publiken uppfattar att talaren kan mycket om ämnet",
+        "Att hjälpa lyssnaren följa med genom hela resonemanget, eftersom man inte kan bläddra tillbaka",
         "Att imponera på publiken med avancerat språk",
         "Att undvika att behöva förbereda sig i förväg"
       ],
@@ -33,8 +33,8 @@
       "prompt": "Vilket är ett effektivt sätt att hjälpa publiken hänga med under ett längre, komplext anförande?",
       "opener": "Tänk på vad en bra lärare eller föreläsare gör mellan olika delar av ett resonemang.",
       "choices": [
-        "Att använda tydliga muntliga signalord som \"för det första\", \"å andra sidan\" och korta sammanfattningar mellan delarna",
-        "Att undvika att i förväg berätta vad anförandet ska handla om",
+        "Att använda tydliga signalord som \"för det första\" och \"å andra sidan\" samt korta sammanfattningar",
+        "Att undvika att i förväg berätta vad anförandet ska handla om, för att behålla spänningen till slutet",
         "Att prata så fort som möjligt för att hinna med allt innehåll",
         "Att aldrig upprepa eller sammanfatta någonting"
       ],
@@ -50,8 +50,8 @@
       "choices": [
         "Belägg gör anförandet automatiskt roligare att lyssna på",
         "Belägg krävs enbart i skriftliga texter, inte muntligt",
-        "Belägg stärker anförandets trovärdighet och visar att slutsatserna vilar på mer än talarens personliga tyckande",
-        "Belägg är valfritt och påverkar inte hur trovärdigt anförandet uppfattas"
+        "Belägg stärker trovärdigheten och visar att slutsatserna vilar på mer än talarens tyckande",
+        "Belägg är frivilligt och påverkar inte alls hur trovärdigt anförandet uppfattas av publiken"
       ],
       "answer": 2,
       "explanation": "Konkreta belägg (källor, statistik, exempel) visar att resonemanget bygger på mer än talarens personliga åsikt, vilket stärker ethos och gör slutsatserna mer trovärdiga för publiken. Belägg behövs lika mycket muntligt som skriftligt."
@@ -63,8 +63,8 @@
       "prompt": "Hur bör en talare hantera ett tänkbart motargument i ett utredande anförande?",
       "opener": "Vad händer med talarens trovärdighet om ett uppenbart motargument ignoreras helt?",
       "choices": [
-        "Genom att helt undvika att nämna det, för att inte försvaga sitt eget resonemang",
-        "Genom att lyfta fram motargumentet tydligt, bemöta det sakligt och förklara varför den egna slutsatsen ändå står sig",
+        "Genom att helt undvika att nämna det, för att inte försvaga sitt eget resonemang inför publiken",
+        "Genom att nämna motargumentet, bemöta det sakligt och förklara varför slutsatsen ändå håller",
         "Genom att avfärda den som skulle kunna ha motargumentet som okunnig",
         "Genom att byta ämne så fort motargumentet nämns"
       ],
@@ -78,10 +78,10 @@
       "prompt": "Du ska hålla ett anförande om ett tekniskt ämne för en publik som är kritiskt inställd och har god förkunskap. Vad bör du särskilt tänka på?",
       "opener": "En kritisk, kunnig publik är snabb att upptäcka luckor i argumentationen — vad krävs för att möta det?",
       "choices": [
-        "Att förenkla så mycket att viktiga nyanser försvinner",
+        "Att förenkla ämnet så mycket att viktiga nyanser försvinner, så att alla säkert hänger med i resonemanget",
         "Att undvika källhänvisningar för att verka mer självsäker",
         "Att prata enbart om egna känslor kring ämnet",
-        "Att förbereda välgrundade belägg, vara redo att bemöta invändningar direkt och undvika överdrifter som lätt kan ifrågasättas"
+        "Att ha välgrundade belägg, vara redo att bemöta invändningar och undvika överdrifter"
       ],
       "answer": 3,
       "explanation": "Inför en kritisk och kunnig publik bör talaren ha starkt underbyggda belägg, vara beredd att möta invändningar direkt och undvika överdrifter eller ogrundade påståenden som lätt genomskådas. Överdriven förenkling eller avsaknad av källor undergräver trovärdigheten hos just den här publiken."
@@ -94,8 +94,8 @@
       "opener": "Innehållet i sak ska vara detsamma — vad är det då som anpassas?",
       "choices": [
         "Anförandets slutsats, som bör vändas till motsatsen beroende på publik",
-        "Grad av fackterminologi, exempel som används och hur mycket bakgrund som förklaras, medan den grundläggande slutsatsen är densamma",
-        "Ingenting, eftersom ett bra anförande alltid ska vara identiskt oavsett publik",
+        "Fackterminologi, exempel och mängden bakgrund som förklaras, medan slutsatsen är densamma",
+        "Ingenting, eftersom ett bra anförande alltid ska vara identiskt oavsett vilken publik som lyssnar",
         "Enbart röststyrkan, allt annat ska vara identiskt"
       ],
       "answer": 1,
@@ -191,10 +191,10 @@
       "prompt": "Vad är skillnaden mellan att bemöta ett motargument och att bara nämna att det finns?",
       "opener": "Tänk på om talaren faktiskt förklarar varför den egna slutsatsen ändå håller.",
       "choices": [
-        "Att bemöta innebär att aktivt förklara varför den egna ståndpunkten ändå håller, inte bara konstatera att andra tycker annorlunda",
+        "Att bemöta är att förklara varför den egna ståndpunkten ändå håller, inte bara notera motargumentet",
         "Det finns ingen skillnad alls",
         "Att bemöta betyder att man byter åsikt helt",
-        "Att nämna motargument räcker alltid för att stärka trovärdigheten"
+        "Att nämna motargument räcker alltid för att stärka trovärdigheten, även om man inte bemöter dem alls"
       ],
       "answer": 0,
       "explanation": "Att bemöta ett motargument innebär att aktivt förklara varför den egna ståndpunkten ändå håller trots invändningen, vilket är mer övertygande än att bara konstatera att andra tycker annorlunda utan vidare förklaring."
@@ -206,10 +206,10 @@
       "prompt": "Vilket av följande är ett tecken på god anpassning till en publik med blandade förkunskaper?",
       "opener": "Tänk på hur man kan möta både de som redan kan mycket och de som inte gör det.",
       "choices": [
-        "Att förklara centrala begrepp kort första gången de används, utan att bli övertydlig för de som redan kan dem",
+        "Att kort förklara centrala begrepp första gången de används, utan att bli övertydlig",
         "Att anta att alla i publiken redan är experter",
         "Att aldrig förklara några begrepp alls",
-        "Att bara rikta anförandet till den mest okunniga personen i rummet"
+        "Att bara rikta anförandet till den mest okunniga personen i rummet och förklara allt i detalj"
       ],
       "answer": 0,
       "explanation": "Att kort förklara centrala begrepp första gången de dyker upp gör anförandet tillgängligt för dem med mindre förkunskap, utan att bli tjatigt tydligt för dem som redan förstår. Att bara rikta sig till den mest okunniga eller anta att alla är experter riskerar att förlora delar av publiken."
@@ -221,8 +221,8 @@
       "prompt": "Vad bör en talare göra om hen märker att tiden håller på att ta slut mitt i anförandet?",
       "opener": "Tänk på vilken del av anförandet som är viktigast att lyssnaren faktiskt får höra.",
       "choices": [
-        "Snabbt prioritera att hinna med en tydlig sammanfattning och slutsats, även om det innebär att korta ner mittendelen",
-        "Fortsätta i exakt samma tempo och riskera att aldrig nå fram till slutsatsen",
+        "Prioritera att hinna med en tydlig sammanfattning och slutsats, även om mittendelen kortas",
+        "Fortsätta i exakt samma tempo som planerat och riskera att aldrig hinna nå fram till slutsatsen",
         "Avsluta anförandet mitt i en mening utan förvarning",
         "Börja om anförandet från början"
       ],

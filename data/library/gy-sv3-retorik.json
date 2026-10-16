@@ -21,7 +21,7 @@
         "Halmgubbe (att förvränga motståndarens ståndpunkt)",
         "Ad hominem (personangrepp istället för att bemöta sakfrågan)",
         "Cirkelbevis",
-        "Falsk dikotomi"
+        "Falsk dikotomi (att bara erbjuda två alternativ när det finns fler)"
       ],
       "answer": 1,
       "explanation": "Ad hominem innebär att man angriper personen som framför ett argument istället för att bemöta själva argumentet — här avfärdas ståndpunkten enbart för att personen saknar viss titel, vilket inte säger något om sakfrågans riktighet."
@@ -34,8 +34,8 @@
       "opener": "Finns det verkligen bara två möjliga utfall här?",
       "choices": [
         "Halmgubbe",
-        "Auktoritetsargument",
-        "Falsk dikotomi (att bara framställa två ytterligheter som de enda alternativen)",
+        "Auktoritetsargument (att hänvisa till en expert eller auktoritet i stället för sakskäl)",
+        "Falsk dikotomi (att bara presentera två alternativ som de enda möjliga)",
         "Ad hominem"
       ],
       "answer": 2,
@@ -48,10 +48,10 @@
       "prompt": "En debattör säger: \"Mina motståndare vill visst att vi ska stänga alla skolor helt.\" — trots att motståndarna egentligen bara föreslagit färre administrativa möten. Vad kallas detta argumentationsfel?",
       "opener": "Ståndpunkten som bemöts är kraftigt förvrängd jämfört med vad som faktiskt sades.",
       "choices": [
-        "Halmgubbe (att förvränga och överdriva motståndarens ståndpunkt för att lättare kunna avfärda den)",
+        "Halmgubbe (att förvränga motståndarens ståndpunkt för att lättare avfärda den)",
         "Cirkelbevis",
         "Falsk dikotomi",
-        "Auktoritetsargument"
+        "Auktoritetsargument (att hänvisa till en expert eller auktoritet i stället för sakskäl)"
       ],
       "answer": 0,
       "explanation": "En halmgubbe skapas genom att förvränga eller överdriva motståndarens faktiska ståndpunkt till något lättare att avfärda, och sedan bemöta den förvrängda versionen istället för det verkliga argumentet."
@@ -132,7 +132,7 @@
       "opener": "Argumentet antar en kedja av allt värre följder utan att egentligen visa att kedjan är sannolik.",
       "choices": [
         "Det sluttande planet (slippery slope)",
-        "Ad hominem",
+        "Ad hominem (ett angrepp på personen i stället för sakfrågan)",
         "Cirkelbevis",
         "Auktoritetsargument"
       ],
@@ -148,7 +148,7 @@
       "choices": [
         "Post hoc-felslutet",
         "Halmgubbe",
-        "Falsk dikotomi",
+        "Falsk dikotomi (att bara erbjuda två alternativ när det finns fler)",
         "Ad hominem"
       ],
       "answer": 0,
@@ -161,10 +161,10 @@
       "prompt": "Vad kan undergräva en talares ethos, även om argumenten i sak är korrekta?",
       "opener": "Tänk på vad som händer med publikens förtroende om talaren tidigare visat sig opålitlig.",
       "choices": [
-        "Att tidigare ha blivit avslöjad med att medvetet fara med osanning i samma fråga",
+        "Att tidigare ha avslöjats med att medvetet sprida osanning i samma fråga",
         "Att ha relevant utbildning inom ämnet",
         "Att hänvisa till flera oberoende källor",
-        "Att bemöta motargument sakligt"
+        "Att bemöta motargument sakligt och erkänna det som är oklart i sin egen sak"
       ],
       "answer": 0,
       "explanation": "Om en talare tidigare avslöjats med att medvetet ljuga i samma fråga skadas trovärdigheten (ethos) allvarligt, även om det aktuella argumentet råkar vara korrekt. Relevant utbildning, källhänvisningar och sakligt bemötande av motargument stärker i stället ethos."
@@ -176,8 +176,8 @@
       "prompt": "En myndighetstext om nya regler skrivs om till en lättläst version för en bredare målgrupp. Vad bör i första hand förändras?",
       "opener": "Tänk på vad som ska bli lättare att förstå, och vad som ska förbli detsamma.",
       "choices": [
-        "Meningslängd, ordval och grad av fackspråk, medan sakinnehållet i grunden är detsamma",
-        "Själva reglerna som beskrivs, så att de blir mindre strikta",
+        "Meningslängd, ordval och grad av fackspråk, medan sakinnehållet är detsamma",
+        "Själva reglerna som beskrivs, så att de blir mindre strikta och lättare att förstå",
         "Ingenting behöver ändras alls",
         "Enbart typsnittet i den tryckta versionen"
       ],
@@ -191,10 +191,10 @@
       "prompt": "\"Om du bryr dig om barns säkerhet måste du stödja det här förslaget.\" Vilket problem finns i detta resonemang?",
       "opener": "Fundera på om det verkligen bara finns detta enda sätt att visa att man bryr sig om barns säkerhet.",
       "choices": [
-        "Det är ett känsloargument som kringgår sakfrågan genom att koppla en känsloladdad premiss till en specifik slutsats utan egentligt logiskt samband",
+        "Det är ett känsloargument: en känsloladdad premiss kopplas till en slutsats utan logiskt samband",
         "Det är ett cirkelbevis",
-        "Det är en falsk dikotomi mellan exakt två alternativ",
-        "Det är ett auktoritetsargument"
+        "Det är en falsk dikotomi, där läsaren bara erbjuds två alternativ som enda möjligheter",
+        "Det är ett auktoritetsargument, där en expert används i stället för sakliga skäl att stödja förslaget"
       ],
       "answer": 0,
       "explanation": "Resonemanget utnyttjar en känsloladdad premiss (barns säkerhet) för att pressa fram en specifik slutsats, utan att egentligen visa att just detta förslag är det enda sättet att värna barns säkerhet. Det är alltså primärt ett känsloargument som kringgår sakfrågan, inte ett cirkelbevis eller en tydlig falsk dikotomi."
@@ -207,7 +207,7 @@
       "opener": "Tänk på vad som visar att skribenten har en ärlig, nyanserad relation till ämnet.",
       "choices": [
         "Att transparent redovisa källor och erkänna undersökningens begränsningar",
-        "Att undvika att nämna några siffror alls",
+        "Att undvika att nämna några siffror alls för att texten ska verka mer övertygande",
         "Att använda så många superlativ som möjligt",
         "Att aldrig nämna att andra kan ha en annan uppfattning"
       ],
