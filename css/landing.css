@@ -44,7 +44,7 @@
   /* "Logga in" stays visible on a phone: someone coming back has no other way in from here. The button
      takes its short label and the bar its tighter spacing to make the room. */
   .lp-head__inner { gap: 8px; }
-  .lp-head__actions { gap: 6px; margin-left: auto; }
+  .lp-head__actions { gap: 6px; }
   .lp-head__login { padding: 7px 8px; white-space: nowrap; }
   .lp-cta__long { display: none; }
   .lp-cta__short { display: inline; }

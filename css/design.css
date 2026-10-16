@@ -210,5 +210,5 @@ h1 { font-weight: 750; }
 @media (max-width: 350px) {
   .topbar__inner { gap: 4px; padding-left: var(--s-2); padding-right: var(--s-2); }
   .topbar__actions { gap: 4px; }
-  .topbar__inner .langbtn { width: auto; padding: 0 8px; }
+  .topbar__inner .langbtn { padding: 0 8px; }
 }
