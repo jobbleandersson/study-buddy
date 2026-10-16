@@ -19,8 +19,8 @@
       "prompt": "Vad innebär Big Bang-teorin i korthet?",
       "opener": "Tänk på vad teorin säger om universums storlek och temperatur allra längst tillbaka i tiden, inte om en explosion i vanlig mening.",
       "choices": [
-        "Att en stjärna exploderade i ett redan existerande, oändligt stort universum",
-        "Att universum för cirka 13,8 miljarder år sedan expanderade från ett extremt hett och tätt tillstånd, och att det sedan dess fortsatt att expandera",
+        "Att en stjärna exploderade i ett redan existerande, oändligt stort universum för länge sedan och att resterna bildade alla galaxer",
+        "Att universum för cirka 13,8 miljarder år sedan expanderade från ett extremt hett och tätt tillstånd",
         "Att jorden bildades genom en enda stor kollision mellan planeter",
         "Att universum alltid har haft exakt samma storlek och temperatur"
       ],
@@ -50,8 +50,8 @@
       "opener": "Tänk på vad som pågår i stjärnans kärna som frigör enorma mängder energi.",
       "choices": [
         "Stjärnans rotation runt sin egen axel",
-        "Trycket och strålningen från fusionsreaktioner i kärnan, t.ex. när väte omvandlas till helium",
-        "Magnetfält från andra stjärnor i samma galax",
+        "Trycket och strålningen från fusionsreaktioner i kärnan, t.ex. när väte blir helium",
+        "Magnetfält från andra stjärnor i samma galax och från närliggande planeter och månar",
         "Stjärnans avstånd till närmaste planet"
       ],
       "answer": 1,
@@ -132,8 +132,8 @@
       "prompt": "Vad är mörk materia, såvitt forskare vet idag?",
       "opener": "Tänk på hur galaxer roterar snabbare än vad den synliga massan borde tillåta.",
       "choices": [
-        "En form av materia som inte avger eller reflekterar ljus men vars gravitationseffekter kan observeras, t.ex. i hur galaxer roterar",
-        "En synlig typ av materia som lyser starkt i universum",
+        "En form av materia som inte avger ljus men vars gravitationseffekter kan observeras",
+        "En synlig typ av materia som lyser starkt i universum och bildar stjärnor och galaxer",
         "Ett annat namn för svarta hål",
         "En teori som helt motbevisats av modern forskning"
       ],
@@ -147,10 +147,10 @@
       "prompt": "Vad innebär det att universums expansion enligt observationer verkar accelerera, snarare än bromsa in?",
       "opener": "Tänk på vilken okänd faktor forskare föreslår ligger bakom denna acceleration.",
       "choices": [
-        "Det tyder på förekomsten av en okänd kraft eller energiform, ofta kallad mörk energi, som driver på expansionen",
+        "Det tyder på en okänd energiform, ofta kallad mörk energi, som driver på expansionen",
         "Det betyder att Big Bang-teorin har motbevisats helt",
         "Det innebär att universum snart kommer att sluta expandera helt",
-        "Det har ingen koppling till observationer av avlägsna supernovor"
+        "Det har ingen koppling till observationer av avlägsna supernovor eller andra avlägsna galaxer i universum"
       ],
       "answer": 0,
       "explanation": "Observationer av avlägsna supernovor visade att universums expansion accelererar, vilket tyder på förekomsten av en okänd kraft eller energiform, ofta kallad mörk energi, som driver på expansionen."
@@ -162,8 +162,8 @@
       "prompt": "Vad händer när en stjärna med ungefär solens massa har förbrukat sitt vätebränsle i kärnan?",
       "opener": "Tänk på vad som händer när kärnfusionen i en solliknande stjärnas kärna tar slut på väte.",
       "choices": [
-        "Den expanderar till en röd jätte innan den så småningom lämnar kvar en vit dvärg",
-        "Den kollapsar omedelbart till ett svart hål",
+        "Den expanderar till en röd jätte och lämnar så småningom kvar en vit dvärg",
+        "Den kollapsar omedelbart till ett svart hål och försvinner helt ur synfältet",
         "Den exploderar alltid som en supernova",
         "Den förblir exakt oförändrad för alltid"
       ],
@@ -177,9 +177,9 @@
       "prompt": "Vad är skillnaden mellan en komet och en asteroid?",
       "opener": "Tänk på vad som händer när en av kropparna närmar sig solen och värms upp.",
       "choices": [
-        "Kometer består till stor del av is och damm och kan bilda en svans nära solen, medan asteroider huvudsakligen består av sten eller metall utan is",
+        "Kometer består mest av is och damm och kan få svans nära solen, asteroider av sten eller metall",
         "Kometer och asteroider är exakt samma sak med olika namn",
-        "Asteroider finns bara utanför solsystemet, kometer bara innanför",
+        "Asteroider finns bara utanför solsystemet och kometer bara innanför det, vilket är det som skiljer dem åt i astronomin",
         "Kometer kretsar aldrig kring solen"
       ],
       "answer": 0,
@@ -193,7 +193,7 @@
       "opener": "Tänk på vilka två stora planeter som ligger på var sin sida om denna region.",
       "choices": [
         "Mellan Mars och Jupiters banor",
-        "Mellan solen och Merkurius",
+        "Mellan solen och Merkurius, nära solens yta",
         "Utanför Neptunus bana",
         "Mellan jorden och månen"
       ],
@@ -222,8 +222,8 @@
       "prompt": "Vad är en supernova?",
       "opener": "Tänk på vad som händer när en mycket massiv stjärnas kärna kollapsar i slutet av dess liv.",
       "choices": [
-        "En kraftfull explosion som avslutar livet hos en massiv stjärna, och som under kort tid kan lysa starkare än en hel galax",
-        "En stjärna som just bildas ur en gasmoln",
+        "En kraftfull explosion som avslutar livet hos en massiv stjärna och kan lysa starkare än en galax",
+        "En stjärna som just bildas ur ett gasmoln och därför lyser starkare än alla andra stjärnor i galaxen",
         "Ett annat namn för en vit dvärg",
         "En stjärna som roterar extremt långsamt"
       ],

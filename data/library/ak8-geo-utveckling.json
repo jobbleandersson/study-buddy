@@ -36,7 +36,7 @@
       "opener": "FN:s mått försöker fånga mer av människors liv än bara pengar.",
       "choices": [
         "BNP per capita",
-        "Gini-koefficienten",
+        "Gini-koefficienten för inkomstfördelning",
         "Inflationstakten",
         "HDI, Human Development Index"
       ],
@@ -50,9 +50,9 @@
       "prompt": "Vad är typiskt för ett låginkomstland jämfört med ett höginkomstland?",
       "opener": "Tänk på hur många som arbetar i jordbruket, och på hälsan hos de allra yngsta.",
       "choices": [
-        "Högre barnadödlighet, kortare förväntad livslängd och att en större del av befolkningen arbetar i jordbruket",
+        "Högre barnadödlighet, kortare förväntad livslängd och fler som arbetar i jordbruket",
         "Låga födelsetal och en åldrande befolkning med många pensionärer",
-        "Att den största delen av arbetskraften jobbar inom tjänstesektorn",
+        "Att den största delen av arbetskraften jobbar inom tjänstesektorn och i högteknologisk industri",
         "Hög BNP per capita men mycket lågt HDI"
       ],
       "answer": 0,
@@ -65,9 +65,9 @@
       "prompt": "Vilken historisk faktor brukar nämnas som en viktig orsak till dagens klyftor mellan länder?",
       "opener": "Under flera hundra år styrdes stora delar av Afrika, Asien och Amerika av europeiska stater.",
       "choices": [
-        "Att låginkomstländerna ligger längre från polerna än rika länder",
+        "Att låginkomstländerna ligger längre från polerna än rika länder och har varmare klimat",
         "Att människor i låginkomstländer arbetar färre timmar per vecka",
-        "Kolonialismen, då europeiska stater styrde stora områden och förde ut råvaror därifrån",
+        "Kolonialismen, då europeiska stater styrde stora områden och förde ut råvaror",
         "Att höginkomstländerna har betydligt fler naturresurser i marken"
       ],
       "answer": 2,
@@ -81,9 +81,9 @@
       "opener": "Tänk på var din mobil är tillverkad och var bomullen i din tröja odlades.",
       "choices": [
         "Att alla länder i världen inför samma valuta och samma lagar",
-        "Att länder och människor knyts allt närmare varandra genom handel, transporter, kommunikation och kultur",
+        "Att länder och människor knyts allt närmare genom handel, transporter och kommunikation",
         "Att fler människor flyttar från städerna ut till landsbygden",
-        "Att länder stänger sina gränser för utländska varor för att skydda den egna industrin"
+        "Att länder stänger sina gränser för utländska varor för att skydda den egna industrin och sina jobb"
       ],
       "answer": 1,
       "explanation": "Globalisering innebär att varor, pengar, information, idéer och människor rör sig allt lättare över gränserna, så att en vara kan ha delar från många länder och monteras i ett tredje. Att stänga gränser för utländska varor är motsatsen och kallas protektionism, medan gemensam valuta bara finns inom vissa samarbeten som euroområdet."
@@ -150,7 +150,7 @@
       "choices": [
         "Landets totala BNP",
         "Antalet invånare i ett land",
-        "Landets yta i kvadratkilometer",
+        "Landets yta i kvadratkilometer och hur tätt befolkat det är per kvadratkilometer",
         "Hur jämnt eller ojämnt inkomsterna är fördelade inom ett land"
       ],
       "answer": 3,
@@ -163,10 +163,10 @@
       "prompt": "Vad kännetecknar ofta ett snabbt växande medelinkomstland, till exempel Kina eller Brasilien?",
       "opener": "Ekonomin liknar varken de allra fattigaste eller de allra rikaste länderna.",
       "choices": [
-        "Extremt låg BNP per capita och mycket hög barnadödlighet",
+        "Extremt låg BNP per capita och mycket hög barnadödlighet, som i de fattigaste länderna",
         "Ingen industri alls, enbart jordbruk",
         "Högst BNP per capita i hela världen",
-        "Snabb ekonomisk tillväxt och en växande medelklass, men fortfarande stora inkomstskillnader"
+        "Snabb ekonomisk tillväxt och en växande medelklass, men stora inkomstskillnader"
       ],
       "answer": 3,
       "explanation": "Medelinkomstländer som Kina och Brasilien har ofta haft snabb ekonomisk tillväxt och en växande medelklass, samtidigt som klyftorna mellan rika och fattiga inom landet ofta är stora. De har alltså varken den extremt låga BNP per capita som präglar de fattigaste länderna eller den absolut högsta BNP per capita i världen."
@@ -180,7 +180,7 @@
       "choices": [
         "Ett företag som bara säljer till en enda kund",
         "Ett företag som ägs av FN",
-        "Ett företag som bara får finnas i höginkomstländer",
+        "Ett företag som bara får finnas i höginkomstländer och som ägs av flera stater gemensamt",
         "Ett företag som bedriver verksamhet och produktion i flera olika länder"
       ],
       "answer": 3,
@@ -224,7 +224,7 @@
       "opener": "Motsatsen är att skydda den egna industrin med avgifter på importerade varor.",
       "choices": [
         "Att ett land bara handlar med sig självt",
-        "Att alla varor i världshandeln måste vara gratis",
+        "Att alla varor i världshandeln måste vara gratis för konsumenterna i alla länder",
         "Att handel bara får ske mellan grannländer",
         "Handel mellan länder utan tullar och andra handelshinder"
       ],

@@ -49,7 +49,7 @@
       "prompt": "Vad kännetecknar god källhantering i löpande text?",
       "opener": "Källan ska stödja ditt resonemang, inte ta över det.",
       "choices": [
-        "Källor vävs in naturligt i texten och anges tydligt, utan att bara staplas som en lista",
+        "Källor vävs in naturligt i texten och anges tydligt",
         "Man skriver om andras texter utan att ange varifrån informationen kommer",
         "Man citerar så mycket som möjligt ordagrant för att undvika eget skrivande",
         "Källor behöver bara anges i en bilaga, aldrig i texten"
@@ -66,8 +66,8 @@
       "choices": [
         "Inget problem, det räcker att ha läst artikeln",
         "Problemet är bara att meningen är för kort",
-        "Det räknas som plagiat eftersom källan varken citeras korrekt eller anges",
-        "Det är bara ett problem om artikeln är skriven på ett annat språk"
+        "Det räknas som plagiat eftersom källan varken citeras eller anges",
+        "Det är bara ett problem om artikeln är skriven på ett annat språk än svenska"
       ],
       "answer": 2,
       "explanation": "Att återge någon annans formuleringar nästan ordagrant utan citattecken och källhänvisning räknas som plagiat, oavsett om man läst källan noga. Text ska antingen omformuleras tydligt med egna ord och källhänvisning, eller citeras korrekt."
@@ -80,8 +80,8 @@
       "opener": "Vad händer med läsbarheten om allt är en enda lång textmassa?",
       "choices": [
         "Att göra texten längre",
-        "Att varje stycke ska föra fram en huvudtanke och skapa en logisk läsbar struktur",
-        "Att undvika att behöva skriva en sammanhängande slutsats",
+        "Att varje stycke ska föra fram en huvudtanke och skapa en logisk struktur",
+        "Att undvika att behöva skriva en sammanhängande slutsats i slutet av texten",
         "Styckeindelning har ingen betydelse för läsbarheten"
       ],
       "answer": 1,
@@ -94,10 +94,10 @@
       "prompt": "En argumenterande text bemöter aktivt de starkaste motargumenten innan den återupprepar sin tes. Vilket syfte fyller detta?",
       "opener": "Vad säger det om en skribent som vågar ta upp motargument?",
       "choices": [
-        "Det försvagar textens trovärdighet eftersom motargument aldrig ska nämnas",
+        "Det försvagar textens trovärdighet eftersom motargument aldrig ska nämnas i en text",
         "Det är bara ett sätt att göra texten längre utan egentligt syfte",
         "Motargument ska alltid placeras allra först i texten",
-        "Det stärker textens trovärdighet genom att visa att författaren känner till och kan bemöta invändningar"
+        "Det stärker trovärdigheten genom att visa att författaren kan bemöta invändningar"
       ],
       "answer": 3,
       "explanation": "Att bemöta motargument visar att skribenten är påläst och har övervägt olika perspektiv, vilket stärker textens trovärdighet och argumentationens styrka — snarare än att bara ignorera invändningar."
@@ -132,7 +132,7 @@
       "opener": "Namnet syftar direkt på vad listan innehåller.",
       "choices": [
         "Källförteckning (referenslista)",
-        "Innehållsförteckning",
+        "Innehållsförteckning i början av texten",
         "Sakregister",
         "Abstract"
       ],
@@ -146,8 +146,8 @@
       "prompt": "Vilket av följande är ett kännetecken för en bra frågeställning i en utredande text?",
       "opener": "En bra frågeställning ska gå att faktiskt besvara med det material man har.",
       "choices": [
-        "Den är tydligt avgränsad och går att undersöka utifrån tillgängligt material",
-        "Den är så bred att den omfattar hela mänsklighetens historia",
+        "Den är tydligt avgränsad och går att undersöka med tillgängligt material",
+        "Den är så bred att den omfattar hela mänsklighetens historia och alla dess kulturer",
         "Den kräver inget svar alls",
         "Den är formulerad som ett påstående, inte en fråga"
       ],
@@ -177,7 +177,7 @@
       "opener": "Tänk på hur snabbt viss information, till exempel statistik, kan bli inaktuell.",
       "choices": [
         "För att läsaren ska kunna bedöma hur aktuell informationen är",
-        "Det är aldrig viktigt att ange publiceringsår",
+        "Det är aldrig viktigt att ange publiceringsår för en källa i en text",
         "Enbart för att texten ska bli längre",
         "Publiceringsår behövs bara för skönlitteratur"
       ],
@@ -194,7 +194,7 @@
         "Tematisk mening (inledande mening)",
         "Slutkläm",
         "Sambandsord",
-        "Källhänvisning"
+        "Källhänvisning i slutet av stycket eller sidan"
       ],
       "answer": 0,
       "explanation": "Den tematiska meningen, ofta styckets första mening, presenterar styckets huvudtanke som resten av stycket sedan utvecklar. En slutkläm avslutar i stället hela texten, och sambandsord binder ihop meningar och stycken."

@@ -36,7 +36,7 @@
       "opener": "The UN's measure tries to capture more of people's lives than just money.",
       "choices": [
         "GDP per capita",
-        "The Gini coefficient",
+        "The Gini coefficient of income distribution",
         "The inflation rate",
         "HDI, the Human Development Index"
       ],
@@ -50,9 +50,9 @@
       "prompt": "What is typical of a low-income country compared with a high-income country?",
       "opener": "Think about how many people work in agriculture, and about the health of the very youngest.",
       "choices": [
-        "Higher child mortality, shorter life expectancy, and a larger share of the population working in agriculture",
+        "Higher child mortality, shorter life expectancy and more people working in agriculture",
         "Low birth rates and an ageing population with many pensioners",
-        "That most of the workforce works in the service sector",
+        "That most of the workforce works in the service sector and in high-technology industry",
         "High GDP per capita but very low HDI"
       ],
       "answer": 0,
@@ -65,9 +65,9 @@
       "prompt": "Which historical factor is often mentioned as an important cause of today's gaps between countries?",
       "opener": "For several hundred years, large parts of Africa, Asia and America were ruled by European states.",
       "choices": [
-        "That low-income countries are located further from the poles than rich countries",
+        "That low-income countries are located further from the poles than rich countries and have warmer climates",
         "That people in low-income countries work fewer hours per week",
-        "Colonialism, when European states ruled large areas and shipped raw materials out of them",
+        "Colonialism, when European states ruled large areas and shipped out raw materials",
         "That high-income countries have significantly more natural resources in the ground"
       ],
       "answer": 2,
@@ -81,9 +81,9 @@
       "opener": "Think about where your phone is manufactured and where the cotton in your jumper was grown.",
       "choices": [
         "That all countries in the world introduce the same currency and the same laws",
-        "That countries and people are increasingly linked together through trade, transport, communication and culture",
+        "That countries and people are increasingly linked through trade, transport and communication",
         "That more people move from the cities out to the countryside",
-        "That countries close their borders to foreign goods to protect their own industry"
+        "That countries close their borders to foreign goods to protect their own industry and jobs"
       ],
       "answer": 1,
       "explanation": "Globalisation means that goods, money, information, ideas and people move ever more easily across borders, so that a product can have parts from many countries and be assembled in a third. Closing borders to foreign goods is the opposite and is called protectionism, while a shared currency only exists within certain partnerships such as the eurozone."
@@ -150,7 +150,7 @@
       "choices": [
         "The country's total GDP",
         "The number of inhabitants in a country",
-        "The country's area in square kilometres",
+        "The country's area in square kilometres and how densely populated it is per square kilometre",
         "How evenly or unevenly income is distributed within a country"
       ],
       "answer": 3,
@@ -163,10 +163,10 @@
       "prompt": "What often characterises a fast-growing middle-income country, such as China or Brazil?",
       "opener": "The economy resembles neither the very poorest nor the very richest countries.",
       "choices": [
-        "Extremely low GDP per capita and very high child mortality",
+        "Extremely low GDP per capita and very high child mortality, as in the poorest countries",
         "No industry at all, only agriculture",
         "The highest GDP per capita in the entire world",
-        "Rapid economic growth and a growing middle class, but still large income gaps"
+        "Rapid economic growth and a growing middle class, but large income gaps"
       ],
       "answer": 3,
       "explanation": "Middle-income countries such as China and Brazil have often had rapid economic growth and a growing middle class, while the gaps between rich and poor within the country are often still large. So they have neither the extremely low GDP per capita that characterises the poorest countries nor the absolute highest GDP per capita in the world."
@@ -180,7 +180,7 @@
       "choices": [
         "A company that only sells to a single customer",
         "A company owned by the UN",
-        "A company that is only allowed to exist in high-income countries",
+        "A company that is only allowed to exist in high-income countries and is jointly owned by several states",
         "A company that operates and produces in several different countries"
       ],
       "answer": 3,
@@ -224,7 +224,7 @@
       "opener": "The opposite is protecting one's own industry with charges on imported goods.",
       "choices": [
         "That a country only trades with itself",
-        "That all goods in world trade must be free of charge",
+        "That all goods in world trade must be free of charge for consumers in all countries",
         "That trade is only allowed between neighbouring countries",
         "Trade between countries without tariffs and other trade barriers"
       ],

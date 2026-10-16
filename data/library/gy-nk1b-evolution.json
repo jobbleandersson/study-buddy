@@ -19,9 +19,9 @@
       "prompt": "Vad krävs för att naturligt urval ska kunna leda till evolution i en population?",
       "opener": "Tänk på tre saker: variation, ärftlighet och vad som avgör vem som får flest avkommor.",
       "choices": [
-        "Att det finns ärftlig variation mellan individer, och att vissa egenskaper ger bättre överlevnad eller fortplantning i den aktuella miljön",
+        "Att det finns ärftlig variation mellan individer, och att vissa egenskaper ger bättre överlevnad",
         "Att alla individer är exakt lika från början",
-        "Att individerna medvetet väljer att förändra sina egenskaper",
+        "Att individerna medvetet väljer att förändra sina egenskaper för att klara miljön bättre och för att kunna föra dem vidare",
         "Att miljön aldrig förändras"
       ],
       "answer": 0,
@@ -35,8 +35,8 @@
       "opener": "Tänk på vad som händer med genpoolerna i de två grupperna när de inte längre kan para sig med varandra.",
       "choices": [
         "Barriären har ingen betydelse för artbildning så länge klimatet är detsamma",
-        "De två populationerna utvecklas identiskt eftersom mutationer alltid sker i samma takt",
-        "De isolerade populationerna utsätts för olika urvalstryck och ansamlar olika mutationer, och kan med tiden bli så olika att de inte längre kan få fertil avkomma tillsammans",
+        "De två populationerna utvecklas identiskt eftersom mutationer alltid sker i samma takt och i samma riktning i alla miljöer",
+        "De isolerade populationerna får olika urvalstryck och mutationer och kan till slut inte få fertil avkomma",
         "Barriären gör att alla individer i båda grupperna dör ut inom en generation"
       ],
       "answer": 2,
@@ -50,9 +50,9 @@
       "opener": "Tänk på var i DNA-molekylen informationen för en viss egenskap finns lagrad.",
       "choices": [
         "En hel kromosom",
-        "En typ av cell som bara finns i könsorganen",
+        "En typ av cell som bara finns i könsorganen och som delar sig genom meios för att bilda ägg och spermier",
         "Ett annat ord för hela arvsmassan (genomet)",
-        "Ett avsnitt av DNA som innehåller information (en \"ritning\") för att bygga ett protein eller reglera en egenskap"
+        "Ett avsnitt av DNA som innehåller information för att bygga ett protein eller reglera en egenskap"
       ],
       "answer": 3,
       "explanation": "En gen är en sekvens av DNA som bär information för uppbyggnaden av ett protein eller för att reglera andra gener. Många gener tillsammans bildar en kromosom, och hela arvsmassan (genomet) består av alla gener och övrigt DNA i en organism."
@@ -94,8 +94,8 @@
       "prompt": "Vad innebär det, ur ett etiskt perspektiv, att genredigeringstekniker som CRISPR gör det möjligt att förändra arvsmassan hos framtida generationer om man redigerar könsceller eller embryon?",
       "opener": "Tänk på skillnaden mellan att redigera gener i en enskild patients kroppsceller, och att redigera gener som förs vidare till barn och barnbarn.",
       "choices": [
-        "Det innebär ingen skillnad jämfört med att behandla en sjukdom hos en vuxen patient",
-        "Förändringar i könsceller eller embryon kan föras vidare till kommande generationer, vilket väcker särskilt svåra etiska frågor om samtycke och långsiktiga konsekvenser",
+        "Det innebär ingen skillnad jämfört med att behandla en sjukdom hos en vuxen patient som samtycker",
+        "Förändringarna kan ärvas av kommande generationer, vilket väcker svåra etiska frågor",
         "Tekniken kan bara användas på växter, aldrig på människor",
         "Det är enbart en teknisk fråga utan etisk betydelse"
       ],
@@ -132,9 +132,9 @@
       "prompt": "Vad är konvergent evolution?",
       "opener": "Tänk på fenomenet att fiskar, delfiner och (utdöda) ichtyosaurier alla har en liknande, strömlinjeformad kroppsform trots att de inte är nära släkt.",
       "choices": [
-        "När obesläktade arter oberoende av varandra utvecklar liknande egenskaper eftersom de anpassat sig till liknande miljöer eller levnadssätt",
+        "När obesläktade arter oberoende utvecklar liknande egenskaper i liknande miljöer",
         "När två arter blir alltmer olika varandra över tid",
-        "När en art plötsligt förvandlas till en helt annan art inom en generation",
+        "När en art plötsligt förvandlas till en helt annan art inom en enda generation, utan mellanformer",
         "Ett annat ord för artbildning genom geografisk isolering"
       ],
       "answer": 0,
@@ -162,8 +162,8 @@
       "prompt": "Vad är funktionen hos mRNA i processen där en gen uttrycks till ett protein?",
       "opener": "Tänk på vägen informationen tar från DNA i cellkärnan till proteinbygget i cytoplasman.",
       "choices": [
-        "mRNA kopierar den genetiska informationen från DNA i cellkärnan och för den till ribosomerna, där proteinet byggs",
-        "mRNA lagrar den genetiska informationen permanent i cellen",
+        "mRNA kopierar genetisk information från DNA i cellkärnan och för den till ribosomerna",
+        "mRNA lagrar den genetiska informationen permanent i cellen och för den vidare till nästa generation",
         "mRNA bryter ner proteiner efter att de tillverkats",
         "mRNA finns enbart i bakterier, aldrig i människoceller"
       ],
@@ -207,8 +207,8 @@
       "prompt": "Vad är en genetiskt modifierad organism (GMO)?",
       "opener": "Tänk på vad som medvetet ändras i organismens arvsmassa, till skillnad från naturliga mutationer.",
       "choices": [
-        "En organism vars arvsmassa medvetet förändrats med hjälp av genteknik, t.ex. för att ge en gröda motståndskraft mot skadedjur",
-        "Ett annat ord för en art som uppstått genom naturligt urval",
+        "En organism vars arvsmassa medvetet förändrats med genteknik",
+        "Ett annat ord för en art som uppstått genom naturligt urval under miljontals år",
         "En organism som enbart kan existera i laboratoriemiljö",
         "Ett samlingsnamn för alla hybridarter i naturen"
       ],
@@ -222,10 +222,10 @@
       "prompt": "Vad är en kromosom?",
       "opener": "Tänk på hur en flera meter lång DNA-molekyl får plats i en mikroskopiskt liten cellkärna.",
       "choices": [
-        "En tätt hoppackad struktur av DNA och proteiner (histoner), som gör det möjligt att packa den långa DNA-molekylen i cellkärnan",
+        "En tätt hoppackad struktur av DNA och proteiner (histoner) som får plats i cellkärnan",
         "En typ av protein som bryter ner DNA",
         "Ett annat ord för en enskild gen",
-        "En struktur som enbart finns hos bakterier"
+        "En struktur som enbart finns hos bakterier och som innehåller deras enda gen och dess kopior"
       ],
       "answer": 0,
       "explanation": "En kromosom är DNA tätt packat tillsammans med proteiner (histoner), vilket gör det möjligt att rymma den mycket långa DNA-molekylen inuti den lilla cellkärnan. En kromosom innehåller många gener, den är alltså inte samma sak som en enskild gen."
