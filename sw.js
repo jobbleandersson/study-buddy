@@ -176,6 +176,7 @@ const APP_SHELL = [
   "./js/components/twofa-setup-dialog.js",
   "./js/components/password-confirm-dialog.js",
   "./js/components/set-password-dialog.js",
+  "./js/components/change-password-dialog.js",
   "./js/components/site-gate-dialog.js",
   "./js/components/due-dialog.js",
   "./js/components/exam-dialog.js",

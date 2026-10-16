@@ -108,6 +108,12 @@ export const twoFaPasswordLimit = attemptLimit({
   key: (req) => req.user?.userId, failureStatuses: [403],
 });
 
+// Changing the password from Settings: the current password has to be right, and only a wrong one counts.
+export const changePasswordLimit = attemptLimit({
+  name: "change-password-fail", max: num("CHANGE_PASSWORD_FAILS_PER_15MIN_PER_ACCOUNT", 5), windowMs: 15 * MIN,
+  key: (req) => req.user?.userId, failureStatuses: [403],
+});
+
 // Presenting a Google credential to add a password (/auth/set-password) — same failure statuses as
 // googleSignInLimit (a bad/mismatched credential is a 401 or 403, not a wrong password), but keyed
 // per account since a session is already required to reach this route at all.
