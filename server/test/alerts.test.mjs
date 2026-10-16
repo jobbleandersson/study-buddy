@@ -201,3 +201,17 @@ describe("a server error mails the owner, once", () => {
     assert.equal(fake.mailsTo(OWNER).length, before);
   });
 });
+
+describe("a visitor who hangs up is not a server error", () => {
+  test("isClientHangup recognises an aborted request and nothing else", async () => {
+    const { isClientHangup } = await import("../src/errors.js");
+    const aborted = Object.assign(new Error("Request aborted"), { code: "ECONNABORTED" });
+    assert.equal(isClientHangup(aborted), true);
+    assert.equal(isClientHangup(Object.assign(new Error("x"), { code: "ECONNRESET" })), true);
+    assert.equal(isClientHangup(Object.assign(new Error("x"), { code: "EPIPE" })), true);
+    assert.equal(isClientHangup(Object.assign(new Error("x"), { type: "request.aborted" })), true);
+    assert.equal(isClientHangup(new Error("Something broke")), false);
+    assert.equal(isClientHangup(Object.assign(new Error("x"), { code: "SQLITE_ERROR" })), false);
+    assert.equal(isClientHangup(null), false);
+  });
+});

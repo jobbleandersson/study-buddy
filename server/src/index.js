@@ -30,6 +30,7 @@ import { waitlist } from "./routes/waitlist.js";
 import { contact } from "./routes/contact.js";
 import { analytics } from "./routes/analytics.js";
 import { clientErrors } from "./routes/client-errors.js";
+import { isClientHangup } from "./errors.js";
 import { reportServerError, routeLabel } from "./alerts.js";
 import { startAiWatch } from "./ai-check.js";
 import { reviews } from "./routes/reviews.js";
@@ -269,6 +270,8 @@ app.use((err, req, res, next) => {
     if (req.originalUrl.startsWith("/api/")) return res.status(status).json({ error: { message, code: "bad_request" } });
     return res.status(status).send(message);
   }
+  // The visitor hung up mid-answer: not a server fault, so no stack trace and no mail.
+  if (isClientHangup(err)) return;
   console.error(`[study-buddy-server] error on ${req.method} ${req.originalUrl}:`, err);
   reportServerError({ where: routeLabel(req.method, req.path), err });   // mails ALERT_EMAIL, rate-limited (alerts.js)
   if (res.headersSent) return next(err);
