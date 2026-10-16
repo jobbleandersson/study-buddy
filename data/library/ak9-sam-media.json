@@ -19,8 +19,8 @@
       "prompt": "Vilken roll brukar medier (t.ex. nyhetsredaktioner) sägas ha i en demokrati, ibland kallad \"den tredje statsmakten\"?",
       "opener": "Tänk på vad medier gör som medborgare annars inte skulle ha lika lätt att göra själva.",
       "choices": [
-        "Att sköta rättskipningen i domstolarna",
-        "Att granska makthavare och sprida information så att medborgarna kan bilda sig en uppfattning",
+        "Att sköta rättskipningen i domstolarna och döma i tvister mellan privatpersoner",
+        "Att granska makthavare och sprida information till medborgarna",
         "Att stifta lagar tillsammans med riksdagen",
         "Att ersätta allmänna val"
       ],
@@ -49,9 +49,9 @@
       "prompt": "Vad skyddar tryckfrihetsförordningen, en av Sveriges grundlagar, framför allt?",
       "opener": "Namnet ger en ledtråd — det handlar om det tryckta ordet.",
       "choices": [
-        "Rätten att ge ut tryckta skrifter, t.ex. böcker och tidningar, utan förhandsgranskning från staten",
+        "Rätten att ge ut tryckta skrifter, t.ex. böcker och tidningar, utan förhandsgranskning",
         "Rätten att slippa betala skatt",
-        "Rätten att alltid få sina texter publicerade av vem som helst",
+        "Rätten att alltid få sina texter publicerade av vem som helst, oavsett innehåll eller kvalitet i tidningen",
         "Skyldigheten att alla tidningar ska tycka likadant"
       ],
       "answer": 0,
@@ -79,8 +79,8 @@
       "prompt": "Vad är skillnaden mellan desinformation och missinformation?",
       "opener": "Båda är felaktig information, men en av dem sprids med avsikt att vilseleda.",
       "choices": [
-        "Det finns ingen skillnad, orden betyder exakt samma sak",
-        "Desinformation sprids medvetet för att vilseleda, medan missinformation kan spridas av misstag utan avsikt att lura",
+        "Det finns ingen skillnad, orden betyder exakt samma sak och används lika i både forskning och nyhetsmedier",
+        "Desinformation sprids medvetet för att vilseleda, medan missinformation kan spridas av misstag",
         "Missinformation är alltid sann",
         "Desinformation förekommer bara i tryckta tidningar"
       ],
@@ -135,7 +135,7 @@
         "Saklighet och opartiskhet",
         "Propaganda",
         "Censur",
-        "Vinklad rapportering"
+        "Vinklad rapportering med tydlig avsändare"
       ],
       "answer": 0,
       "explanation": "Saklighet och opartiskhet är grundläggande journalistiska principer som innebär att sträva efter att korrekt återge fakta och visa flera perspektiv, i stället för att ensidigt driva en åsikt."
@@ -163,7 +163,7 @@
       "opener": "Tänk på om en enda källa kan ha fel, medveten eller omedveten vinkling.",
       "choices": [
         "Om flera oberoende källor rapporterar samma sak ökar sannolikheten att uppgiften stämmer",
-        "En enda källa är alltid mer trovärdig än flera",
+        "En enda källa är alltid mer trovärdig än flera, eftersom den inte kan motsäga sig själv i texten",
         "Det är aldrig nödvändigt att jämföra källor",
         "Fler källor gör alltid en uppgift falsk"
       ],
@@ -194,7 +194,7 @@
       "choices": [
         "Det minskar risken att en enskild aktör kontrollerar vilken information medborgarna får",
         "Det är bättre om bara staten äger alla medier",
-        "Mångfald av medier har ingen betydelse för demokratin",
+        "Mångfald av medier har ingen betydelse för demokratin eller för medborgarnas tillgång till information",
         "Ju färre medier, desto bättre demokrati"
       ],
       "answer": 0,
@@ -222,7 +222,7 @@
       "opener": "Finns det yttranden som är brottsliga trots grundlagsskyddet?",
       "choices": [
         "Nej, vissa yttranden, som hets mot folkgrupp, är brottsliga även i en demokrati",
-        "Ja, man får säga precis vad som helst utan konsekvenser",
+        "Ja, man får säga precis vad som helst om vem som helst utan några som helst konsekvenser",
         "Yttrandefrihet gäller bara för journalister",
         "Yttrandefrihet finns inte i Sverige"
       ],

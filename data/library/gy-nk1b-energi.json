@@ -21,7 +21,7 @@
       "choices": [
         "Energi kan varken skapas eller förstöras, bara omvandlas mellan olika former",
         "Energi kan skapas men aldrig försvinna",
-        "Energi minskar alltid något vid varje omvandling utan att bli något annat",
+        "Energi minskar alltid något vid varje omvandling utan att bli något annat, och försvinner till slut",
         "Total energimängd i universum ökar hela tiden"
       ],
       "answer": 0,
@@ -35,8 +35,8 @@
       "opener": "Följ energin från vinden, via rotorbladen och generatorn, till eluttaget.",
       "choices": [
         "Kemisk energi omvandlas direkt till elektrisk energi",
-        "Rörelseenergi i luften omvandlas via rotorns rörelse till elektrisk energi i generatorn",
-        "Strålningsenergi omvandlas direkt till elektrisk energi",
+        "Rörelseenergi i luften omvandlas via rotorn till elektrisk energi i generatorn",
+        "Strålningsenergi omvandlas direkt till elektrisk energi i vindkraftverkets rotorblad",
         "Lägesenergi i luften omvandlas till värmeenergi"
       ],
       "answer": 1,
@@ -49,9 +49,9 @@
       "prompt": "Vad är den huvudsakliga skillnaden mellan förnybara och icke-förnybara energikällor?",
       "opener": "Tänk på tidsperspektivet — hur snabbt källan fylls på jämfört med hur snabbt vi använder den.",
       "choices": [
-        "Förnybara energikällor ger alltid mer energi per kilogram bränsle",
+        "Förnybara energikällor ger alltid mer energi per kilogram bränsle än fossila bränslen och kärnbränsle",
         "Icke-förnybara energikällor är alltid renare för miljön",
-        "Förnybara energikällor nybildas i ungefär samma takt som de förbrukas, medan icke-förnybara (t.ex. olja, kol och naturgas) tar miljontals år att bildas",
+        "Förnybara källor nybildas ungefär lika snabbt som de förbrukas, icke-förnybara tar miljontals år",
         "Förnybara energikällor kan bara användas i varma länder"
       ],
       "answer": 2,
@@ -66,8 +66,8 @@
       "choices": [
         "De ger upphov till stora mängder radioaktivt avfall",
         "De släpper ut lika mycket koldioxid som kolkraft under drift",
-        "De kan inte alls kombineras med annan elproduktion i samma elnät",
-        "Vindkraft ger ojämn produktion beroende på väder, och vattenkraft kan påverka lokala ekosystem och vandrande fiskar"
+        "De kan inte alls kombineras med annan elproduktion i samma elnät eller med energilager i samhället",
+        "Vindkraft ger ojämn produktion beroende på väder, och vattenkraft kan påverka ekosystem och fisk"
       ],
       "answer": 3,
       "explanation": "Vindkraftens produktion varierar med vindstyrkan, vilket kräver komplement eller lagring, och vattenkraftsdammar kan påverka vattenflöden, livsmiljöer och fiskars vandringsvägar. Radioaktivt avfall är istället en fråga kopplad till kärnkraft, inte vatten- eller vindkraft."
@@ -79,8 +79,8 @@
       "prompt": "Vad är den naturliga växthuseffekten, och varför är den nödvändig för livet på jorden?",
       "opener": "Tänk på hur kall jorden skulle vara utan atmosfärens förmåga att hålla kvar värme.",
       "choices": [
-        "Ett fenomen där ozonlagret läcker ut skadlig UV-strålning",
-        "Atmosfärens gaser (bl.a. koldioxid och vattenånga) fångar upp värmestrålning från jorden och håller planeten varmare än den annars skulle vara",
+        "Ett fenomen där ozonlagret läcker ut skadlig UV-strålning och värmer upp jorden onaturligt",
+        "Gaser i atmosfären fångar upp värmestrålning från jorden och håller planeten varmare",
         "Jordens rotation som skapar årstider",
         "Havens förmåga att lagra koldioxid i djupvatten"
       ],
@@ -132,10 +132,10 @@
       "prompt": "Vad menas med verkningsgrad hos en energiomvandlande anläggning, t.ex. ett kraftverk?",
       "opener": "Tänk på att ingen energiomvandling är helt förlustfri.",
       "choices": [
-        "Andelen av den tillförda energin som omvandlas till den avsedda, användbara energiformen, resten blir ofta värme som sprids ut",
+        "Andelen av tillförd energi som blir den avsedda användbara energiformen",
         "Den totala mängden energi anläggningen kan lagra",
         "Hur många år anläggningen håller innan den måste bytas ut",
-        "Ett mått på hur miljövänlig anläggningen är, oavsett energiomvandling"
+        "Ett mått på hur miljövänlig anläggningen är, oavsett energiomvandling, utsläpp eller avfall"
       ],
       "answer": 0,
       "explanation": "Verkningsgraden anger hur stor andel av den tillförda energin som omvandlas till den avsedda, användbara energiformen. Resten går ofta förlorad som värme som sprids ut i omgivningen, i enlighet med energiprincipen (energin försvinner inte, men blir mindre användbar)."
@@ -150,7 +150,7 @@
         "Kemisk energi omvandlas till rörelseenergi (och värme)",
         "Rörelseenergi omvandlas direkt till kemisk energi",
         "Strålningsenergi omvandlas till kemisk energi",
-        "Lägesenergi omvandlas direkt till elektrisk energi"
+        "Lägesenergi omvandlas direkt till elektrisk energi i tändstiftet"
       ],
       "answer": 0,
       "explanation": "Bensinens kemiska energi omvandlas vid förbränningen till rörelseenergi som driver bilen framåt, samt en stor del värmeenergi. Det är alltså inte rörelseenergi eller strålningsenergi som är utgångspunkten."

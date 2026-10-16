@@ -19,7 +19,7 @@
       "prompt": "En elev ska hålla samma anförande om klimatförändringar för både sin klass och för yngre elever i årskurs 4. Vad bör främst anpassas mellan de två tillfällena?",
       "opener": "Vad vet en tioåring om klimatfrågan som en gymnasieelev redan kan?",
       "choices": [
-        "Ingenting, samma tal fungerar för alla mottagare",
+        "Ingenting, samma tal fungerar för alla mottagare oavsett ålder och förkunskaper",
         "Enbart talets längd, inte innehållet",
         "Ordval, exempel och detaljnivå utifrån mottagarens förkunskaper",
         "Talarens klädsel, men inget annat"
@@ -37,7 +37,7 @@
         "Att undvika ögonkontakt",
         "Att informera",
         "Att övertyga",
-        "Att underhålla"
+        "Att underhålla publiken med humor"
       ],
       "answer": 0,
       "explanation": "Ett anförande planeras vanligen utifrån syftet att informera, övertyga eller underhålla (ofta en kombination). Ögonkontakt är en presentationsteknisk fråga, inte ett syfte med talet."
@@ -64,7 +64,7 @@
       "prompt": "Vad menas med prosodi i muntlig framställning?",
       "opener": "Handlar om HUR något låter, inte vad som sägs.",
       "choices": [
-        "Textens skriftliga disposition",
+        "Textens skriftliga disposition och styckeindelning",
         "Röstens variation i tonhöjd, tempo och betoning",
         "Antalet stilfigurer i talet",
         "Publikens sammansättning"
@@ -79,9 +79,9 @@
       "prompt": "Vilken metod rekommenderas oftast för att hantera nervositet inför en muntlig presentation?",
       "opener": "Vad brukar faktiskt minska nervositeten mest — improvisation eller förberedelse?",
       "choices": [
-        "Att undvika all förberedelse för att verka spontan",
+        "Att undvika all förberedelse för att verka spontan och avslappnad inför publiken",
         "Att läsa hela talet innantill utan att titta upp",
-        "Grundlig förberedelse, andningsövningar och att öva framförandet i förväg",
+        "Grundlig förberedelse, andningsövningar och att öva framförandet",
         "Att tala så snabbt som möjligt för att bli klar"
       ],
       "answer": 2,
@@ -146,10 +146,10 @@
       "prompt": "Vad är syftet med att använda konkreta exempel och berättelser (anekdoter) i ett anförande?",
       "opener": "Tänk på vad som är lättare att minnas: en abstrakt princip eller en konkret berättelse.",
       "choices": [
-        "Att göra abstrakta idéer mer begripliga och engagerande för publiken",
+        "Att göra abstrakta idéer mer begripliga och engagerande",
         "Att förlänga talet utan egentligt syfte",
         "Att undvika att behöva ha en tydlig tes",
-        "Anekdoter används aldrig i seriösa anföranden"
+        "Anekdoter används aldrig i seriösa anföranden eller i formella sammanhang"
       ],
       "answer": 0,
       "explanation": "Konkreta exempel och anekdoter gör abstrakta idéer mer begripliga, minnesvärda och engagerande för publiken. De används flitigt även i seriösa och välrenommerade anföranden, inte bara för att fylla ut tiden."
@@ -193,7 +193,7 @@
       "choices": [
         "Graden av fackspråk och hur mycket bakgrund som förklaras",
         "Talarens röststyrka",
-        "Längden på varje enskild mening ska alltid vara identisk",
+        "Längden på varje enskild mening ska alltid vara identisk i båda versionerna",
         "Det finns ingen anledning att förändra något alls"
       ],
       "answer": 0,
@@ -207,7 +207,7 @@
       "opener": "Begreppet handlar om rösten som ett verktyg, inte om ordvalet i sig.",
       "choices": [
         "Röstvariation (en del av prosodin)",
-        "Ett skriftspråkligt hjälpmedel",
+        "Ett skriftspråkligt hjälpmedel vid korrekturläsning",
         "En stilfigur i texten",
         "En typ av källhantering"
       ],

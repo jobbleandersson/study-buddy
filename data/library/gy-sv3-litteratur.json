@@ -18,8 +18,8 @@
       "prompt": "Vad innebär det att göra en genusanalys av en skönlitterär text?",
       "opener": "Vilka strukturer riktar det här perspektivet in sig på?",
       "choices": [
-        "Att undersöka hur könsroller, makt och normer kring kön framställs och eventuellt utmanas i texten",
-        "Att räkna hur många manliga respektive kvinnliga karaktärer som förekommer",
+        "Att undersöka hur könsroller, makt och normer kring kön framställs eller utmanas i texten",
+        "Att räkna hur många manliga respektive kvinnliga karaktärer som förekommer och vad de säger",
         "Att enbart studera författarens eget kön och biografi",
         "Att avgöra om texten är skriven för en manlig eller kvinnlig publik"
       ],
@@ -33,8 +33,8 @@
       "prompt": "Vad kännetecknar en historisk (idéhistorisk) läsning av ett litterärt verk?",
       "opener": "Vilken kontext utanför själva texten flyttas i fokus?",
       "choices": [
-        "Man bortser helt från när verket skrevs och läser det som om det vore skrivet idag",
-        "Man tolkar verket i ljuset av den tid, de idéer och de samhällsförhållanden som rådde när det skrevs",
+        "Man bortser helt från när verket skrevs och läser det som om det vore skrivet idag, utan sammanhang",
+        "Man tolkar verket i ljuset av den tid, de idéer och de samhällsförhållanden som rådde då",
         "Man analyserar enbart meningsbyggnad och ordval",
         "Man jämför enbart två olika filmatiseringar av verket"
       ],
@@ -50,8 +50,8 @@
       "choices": [
         "Textens meter och rimschema",
         "Omslagets grafiska formgivning",
-        "Omedvetna drivkrafter, begär, konflikter och symboler hos karaktärerna eller i författarens liv",
-        "Bokens försäljningssiffror vid utgivningen"
+        "Omedvetna drivkrafter, begär och konflikter hos karaktärerna eller författaren",
+        "Bokens försäljningssiffror vid utgivningen och hur många upplagor som trycktes"
       ],
       "answer": 2,
       "explanation": "En psykoanalytisk läsning söker efter omedvetna drivkrafter, konflikter och symbolik — ofta med begrepp hämtade från t.ex. Freud — hos karaktärer eller i förhållande till författaren. Formmässiga eller kommersiella aspekter hör inte till detta perspektiv."
@@ -66,7 +66,7 @@
         "Fokalisering är samma sak som berättarröst — de två begreppen betyder identiskt samma sak",
         "Fokalisering handlar enbart om vilken tid berättelsen utspelar sig i",
         "Fokalisering finns bara i förstapersonsberättelser",
-        "Fokalisering avser genom vems medvetande och varseblivning händelserna förmedlas, vilket kan skilja sig från vem som berättar"
+        "Fokalisering avser genom vems medvetande och varseblivning händelserna förmedlas"
       ],
       "answer": 3,
       "explanation": "Fokalisering rör vems perspektiv och medvetande läsaren ser händelserna genom, medan berättarrösten är den instans som förmedlar orden — en berättare i tredje person kan t.ex. fokalisera genom en enskild karaktär. Fokalisering förekommer i både första- och tredjepersonsberättelser."
@@ -148,7 +148,7 @@
       "choices": [
         "Berättartid i relation till berättad tid",
         "Fokalisering",
-        "Genusperspektiv",
+        "Genusperspektiv på berättarens och karaktärernas roller",
         "Idéhistoria"
       ],
       "answer": 0,
@@ -191,10 +191,10 @@
       "prompt": "Varför kan det vara relevant att undersöka hur ett verk mottogs av kritiker när det först publicerades?",
       "opener": "Tänk på vad ett samtida mottagande kan avslöja som en modern läsning kanske missar.",
       "choices": [
-        "Det kan visa hur verket förhöll sig till sin samtids normer och vad som uppfattades som kontroversiellt eller nyskapande då",
+        "Det kan visa hur verket förhöll sig till sin samtids normer och vad som sågs som kontroversiellt",
         "Det är aldrig relevant för en litteraturanalys",
         "Det ersätter behovet av att läsa verket själv",
-        "Mottagandet vid utgivningen är alltid identiskt med dagens uppfattning om verket"
+        "Mottagandet vid utgivningen är alltid identiskt med dagens uppfattning om verket och dess författare"
       ],
       "answer": 0,
       "explanation": "Det samtida mottagandet kan visa vilka delar av verket som uppfattades som utmanande, kontroversiella eller nyskapande i sin tid, vilket ger perspektiv som en enbart nutida läsning riskerar att missa. Mottagandet förändras ofta över tid och är alltså inte identiskt med dagens uppfattning."
@@ -222,7 +222,7 @@
       "opener": "Tänk på hur ny information kan förändra förståelsen av det man redan läst.",
       "choices": [
         "Ompröva och läsa om tidigare delar av texten med den nya kunskapen i åtanke",
-        "Ignorera avslöjandet helt eftersom det inte spelar någon roll",
+        "Ignorera avslöjandet helt eftersom det inte spelar någon roll för tolkningen av texten",
         "Anta att hela boken är ogiltig och sluta läsa",
         "Anta att berättaren nu blivit fullt pålitlig resten av boken"
       ],
