@@ -364,6 +364,7 @@ export default {
   "challenge.tie": "Du och {name} fick lika",
   "challenge.lose": "{name} fick högre den här gången",
   "q.flashcardRecallPlaceholder": "Skriv vad du minns från kortets baksida…",
+  "q.selfMarkAsk": "Hur gick det jämfört med exempelsvaret?",
   "q.gradingFailed": "Kunde inte rätta det här automatiskt — här är exempelsvaret att jämföra med.",
   "q.rateAgain": "Igen",
   "q.rateHard": "Svårt",

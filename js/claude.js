@@ -291,8 +291,11 @@ export async function gradeAnswer({ question, studentAnswer }) {
     }],
   });
   const j = parseLooseJSON(raw);
+  // A reply that parses but has no true/false verdict (an array, an empty object, "correct": "maybe") is
+  // not a marking: throwing lets the caller treat it like an outage instead of recording a miss.
+  if (!j || typeof j.correct !== "boolean") throw new Error("the grader's reply had no verdict");
   return {
-    correct: !!j.correct,
+    correct: j.correct,
     feedback: j.feedback || t(j.correct ? "q.heuristicOk" : "q.heuristicMiss"),
     missedPoints: Array.isArray(j.missedPoints) ? j.missedPoints : [],
   };
