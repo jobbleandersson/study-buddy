@@ -37,6 +37,7 @@ import { practicePages } from "./routes/practice-pages.js";
 import { billing } from "./routes/billing.js";
 import { sharePages } from "./routes/share-pages.js";
 import { serviceWorker } from "./sw-build.js";
+import { HashBusyError, answerIfBusy } from "./passwordHash.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // The frontend (index.html, css/, js/, etc.) is the repo root — normally two
@@ -254,6 +255,9 @@ app.get("*", (req, res, next) => {
 // "Internal Server Error" with nothing to go on. The app reads API errors as
 // {error:{message}}, so /api gets that shape; everything else gets plain text.
 app.use((err, req, res, next) => {
+  // The password-hashing pool is full (a burst of logins or signups): say so, not "server error". Not
+  // logged or mailed - a flood would otherwise fill both - and a 503 costs the failure limiters nothing.
+  if (err instanceof HashBusyError && !res.headersSent) return answerIfBusy(err, res);
   // The client's fault, not ours: malformed JSON (400), a body over the size cap (413). Answer with
   // that status instead of a 500, and skip the stack trace, so anyone posting junk can't fill the
   // log with fake "server errors". Only express.json's own errors (they carry a `type`, e.g.

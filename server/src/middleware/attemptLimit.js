@@ -8,7 +8,10 @@
 //   default          every request counts (signup: each one makes an account)
 //   failureStatuses  only responses with one of these statuses count, so a
 //                    whole class logging in or joining from one school IP is
-//                    not punished for the attempts that work
+//                    not punished for the attempts that work. A request holds a
+//                    place from the moment it starts and gives it back if it
+//                    succeeds, so a burst of parallel guesses cannot all slip
+//                    past a limit that has not been reached yet
 //
 // The default key is the client's IP (see clientIp for where it comes from). An
 // IPv6 address is cut down to its /64: one connection can use billions of
@@ -87,8 +90,12 @@ export function consume({ name, key, max, windowMs }) {
 /**
  * name: bucket namespace (limiters with the same name share a count).
  * max: attempts allowed per window; 0 or less turns the limit off.
+ * failureStatuses: only responses with one of these statuses stay counted (see below).
+ * reserve: with failureStatuses, whether a request counts from the moment it starts (default) or only
+ *   once it has failed. Turn it off where a burst of perfectly good requests is normal and cheap
+ *   (Google sign-in for a class), not where each request is a guess.
  */
-export function attemptLimit({ name, max, windowMs, key = clientKey, failureStatuses = null }) {
+export function attemptLimit({ name, max, windowMs, key = clientKey, failureStatuses = null, reserve = true }) {
   return (req, res, next) => {
     const k = key(req);
     if (!(max > 0) || !k) return next();
@@ -112,13 +119,29 @@ export function attemptLimit({ name, max, windowMs, key = clientKey, failureStat
         b = { hits: [], windowMs };
         buckets.set(id, b);
       }
-      b.hits.push(Date.now());
+      const t = Date.now();
+      b.hits.push(t);
+      return t;
     };
 
-    // "close", not "finish": finish never fires when the client has already hung up,
-    // and a guess whose sender walks away is still a guess the server evaluated.
-    if (failureStatuses) res.on("close", () => { if (failureStatuses.includes(res.statusCode)) record(); });
-    else record();
+    // A limiter that only counts failures still reserves its place when the request STARTS, and gives
+    // it back when the request turns out to be fine. Counting only at the end let a burst of parallel
+    // guesses all pass the check before the first one had finished (300 parallel wrong passwords for
+    // one account were all evaluated against a limit of 10). In-flight requests now count, so
+    // everything past the limit gets its 429 at once.
+    // "close", not "finish": finish never fires when the client has already hung up, and a guess
+    // whose sender walks away is still a guess the server evaluated.
+    if (failureStatuses && !reserve) {
+      res.on("close", () => { if (failureStatuses.includes(res.statusCode)) record(); });
+    } else if (failureStatuses) {
+      const t = record();
+      res.on("close", () => {
+        if (failureStatuses.includes(res.statusCode)) return;
+        const hits = buckets.get(id)?.hits;
+        const at = hits ? hits.indexOf(t) : -1;
+        if (at >= 0) hits.splice(at, 1);
+      });
+    } else record();
     next();
   };
 }
