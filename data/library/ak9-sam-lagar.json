@@ -37,7 +37,7 @@
         "Barnkonventionen",
         "FN:s allmänna förklaring om de mänskliga rättigheterna",
         "Parisavtalet",
-        "EU:s stadga om grundläggande rättigheter"
+        "EU:s stadga om grundläggande rättigheter från år 2000 (Nice)"
       ],
       "answer": 1,
       "explanation": "FN:s allmänna förklaring om de mänskliga rättigheterna antogs 1948 och blev grunden för senare konventioner, bland annat barnkonventionen. Parisavtalet gäller klimat, och EU:s stadga är en senare, europeisk motsvarighet."
@@ -79,8 +79,8 @@
       "prompt": "Vad är huvuduppgiften för en försvarsadvokat i ett brottmål?",
       "opener": "Tänk på principen att alla, även misstänkta, har rätt till ett rättvist försvar.",
       "choices": [
-        "Att bevisa att den åtalade är skyldig",
-        "Att företräda och försvara den misstänktes rättigheter och intressen under rättegången",
+        "Att bevisa att den åtalade är skyldig och begära ett så hårt straff som möjligt",
+        "Att försvara den misstänktes rättigheter och intressen under rättegången",
         "Att döma i målet tillsammans med domaren",
         "Att åtala den misstänkte för fler brott"
       ],
@@ -133,7 +133,7 @@
       "opener": "Dessa rättigheter handlar om vad samhället ska ge tillgång till, inte bara om frihet från inblandning.",
       "choices": [
         "Ekonomiska och sociala rättigheter",
-        "Enbart politiska rättigheter",
+        "Enbart politiska rättigheter för vuxna",
         "Enbart medborgerliga rättigheter",
         "Rättigheter som bara gäller vuxna"
       ],
@@ -150,7 +150,7 @@
         "Oskyldighetspresumtionen",
         "Åtalsplikten",
         "Källskydd",
-        "Meddelarfrihet"
+        "Meddelarfrihet för tjänstemän"
       ],
       "answer": 0,
       "explanation": "Oskyldighetspresumtionen innebär att den misstänkte ska betraktas som oskyldig tills skulden bevisats i domstol — det är åklagaren som måste bevisa skuld, inte den misstänkte som måste bevisa sin oskuld."
@@ -192,8 +192,8 @@
       "prompt": "Vad är nämndemäns roll i en svensk tingsrätt?",
       "opener": "De har ingen juridisk examen, men sitter ändå med och dömer.",
       "choices": [
-        "Lekmän utan juridisk utbildning som dömer tillsammans med en lagfaren domare i vissa mål",
-        "Advokater som alltid företräder den åtalade",
+        "Lekmän utan juridisk utbildning som dömer tillsammans med en lagfaren domare",
+        "Advokater som alltid företräder den åtalade och dömer tillsammans med domaren i tingsrätten",
         "Poliser som utreder brottet",
         "Åklagare som väcker åtal"
       ],

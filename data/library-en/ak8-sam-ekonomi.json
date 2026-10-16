@@ -81,7 +81,7 @@
       "opener": "Think about what happens to demand, production and jobs when the economy slows down.",
       "choices": [
         "High demand, many new hires and a shortage of labour",
-        "Demand and production fall, businesses sell less and unemployment rises",
+        "Demand and production fall and unemployment rises",
         "That the state always raises taxes",
         "That all prices are completely unchanged for several years"
       ],
@@ -148,10 +148,10 @@
       "prompt": "What is a collective agreement?",
       "opener": "The agreement covers a whole group of employees, not just one individual.",
       "choices": [
-        "An agreement that only applies to a single employee",
+        "An agreement that only applies to a single employee and their employer during the probationary period",
         "A law the Riksdag passes about wages",
         "An agreement between two countries about trade",
-        "An agreement negotiated between a trade union and an employer about wages and other terms of employment"
+        "An agreement between a trade union and an employer about wages and conditions"
       ],
       "answer": 3,
       "explanation": "A collective agreement is an agreement a trade union negotiates with an employer or employer organisation, regulating wages, working hours and other terms for a whole group of employees. It is therefore not a law passed by the Riksdag, not an agreement between countries, and it covers more than a single employee."
@@ -178,10 +178,10 @@
       "prompt": "What can the Riksbank do to slow an overheated boom with high inflation?",
       "opener": "Think about what makes it more expensive versus cheaper to borrow money.",
       "choices": [
-        "Cut the interest rate to zero to boost consumption even more",
+        "Cut the interest rate to zero to boost consumption even more and push prices up",
         "Close all banks for a period",
         "Print more banknotes with no limit",
-        "Raise the policy rate to make borrowing more expensive and thereby dampen consumption"
+        "Raise the policy rate to make borrowing more expensive and dampen consumption"
       ],
       "answer": 3,
       "explanation": "By raising the policy rate, the Riksbank makes it more expensive to borrow money and more profitable to save, which usually dampens consumption and investment and thereby slows an overheated economy and high inflation. Cutting the rate to zero or printing unlimited banknotes would instead fuel inflation further."
@@ -195,7 +195,7 @@
       "choices": [
         "They set all the prices in shops",
         "They pay out all the wages in the country",
-        "They replace the Riksdag as lawmaker",
+        "They replace the Riksdag as lawmaker and set the interest rate on all goods in the country",
         "They channel savings from households into loans for businesses and other households"
       ],
       "answer": 3,

@@ -20,8 +20,8 @@
       "prompt": "What is the prosecutor's task in a criminal case?",
       "opener": "The prosecutor gets involved before the trial and makes an important decision.",
       "choices": [
-        "Sentencing the suspect to a punishment",
-        "Leading the preliminary investigation in more serious crimes and deciding whether to bring charges",
+        "Sentencing the suspect to a punishment after hearing the witnesses and the evidence",
+        "Leading the preliminary investigation in more serious crimes and deciding on charges",
         "Defending the suspect in court",
         "Carrying out the sentence after the verdict"
       ],
@@ -81,7 +81,7 @@
       "opener": "Prison is only one of several options in the Swedish ladder of sanctions.",
       "choices": [
         "Prison only",
-        "Corporal punishment or banishment",
+        "Corporal punishment or banishment for serious crimes and repeat offences",
         "Fines, a conditional sentence, probation and prison",
         "Community service only"
       ],
@@ -164,7 +164,7 @@
       "opener": "Think about what should happen to the convicted person after serving their sentence.",
       "choices": [
         "Always maximising suffering for the convicted person",
-        "Entirely replacing the need for police investigations",
+        "Entirely replacing the need for police investigations in difficult cases and serious crimes",
         "Making sure the crime is never mentioned again",
         "Giving the convicted person a chance to be rehabilitated into a life without crime"
       ],
@@ -223,7 +223,7 @@
       "prompt": "Which sanction is most often used for young offenders under 18 in Sweden, instead of prison?",
       "opener": "Swedish law tries to keep young people out of ordinary prisons as far as possible.",
       "choices": [
-        "Life imprisonment",
+        "Life imprisonment without parole",
         "The death penalty",
         "Deportation",
         "Youth care or youth service"

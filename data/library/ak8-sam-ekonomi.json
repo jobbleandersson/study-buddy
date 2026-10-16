@@ -81,7 +81,7 @@
       "opener": "Tänk på vad som händer med efterfrågan, produktion och jobb när ekonomin bromsar in.",
       "choices": [
         "Hög efterfrågan, många nyanställningar och brist på arbetskraft",
-        "Efterfrågan och produktion minskar, företagen säljer mindre och arbetslösheten stiger",
+        "Efterfrågan och produktion minskar och arbetslösheten stiger",
         "Att staten alltid höjer skatterna",
         "Att alla priser är helt oförändrade under flera år"
       ],
@@ -148,10 +148,10 @@
       "prompt": "Vad är ett kollektivavtal?",
       "opener": "Avtalet gäller en hel grupp anställda, inte bara en enskild person.",
       "choices": [
-        "Ett avtal som bara gäller en enskild anställd",
+        "Ett avtal som bara gäller en enskild anställd och hens arbetsgivare under provanställningen",
         "En lag som riksdagen beslutar om löner",
         "Ett avtal mellan två länder om handel",
-        "Ett avtal mellan fackförbund och arbetsgivare om löner och andra anställningsvillkor"
+        "Ett avtal mellan fackförbund och arbetsgivare om löner och villkor"
       ],
       "answer": 3,
       "explanation": "Ett kollektivavtal är ett avtal som ett fackförbund förhandlar fram med en arbetsgivare eller arbetsgivarorganisation, och som reglerar löner, arbetstider och andra villkor för en hel grupp anställda. Det är alltså inte en lag som riksdagen stiftar, inte ett avtal mellan länder, och det omfattar fler än en enskild anställd."
@@ -178,10 +178,10 @@
       "prompt": "Vad kan Riksbanken göra för att bromsa en överhettad högkonjunktur med hög inflation?",
       "opener": "Tänk på vad som gör det dyrare respektive billigare att låna pengar.",
       "choices": [
-        "Sänka räntan till noll för att öka konsumtionen ännu mer",
+        "Sänka räntan till noll för att öka konsumtionen ännu mer och driva upp priserna",
         "Stänga alla banker under en period",
         "Trycka mer sedlar utan någon begränsning",
-        "Höja styrräntan för att göra det dyrare att låna och därmed dämpa konsumtionen"
+        "Höja styrräntan för att göra det dyrare att låna och dämpa konsumtionen"
       ],
       "answer": 3,
       "explanation": "Genom att höja styrräntan gör Riksbanken det dyrare att låna pengar och mer lönsamt att spara, vilket brukar dämpa konsumtion och investeringar och därmed bromsa en överhettad ekonomi och hög inflation. Att sänka räntan till noll eller trycka obegränsat med sedlar skulle i stället elda på inflationen ytterligare."
@@ -195,7 +195,7 @@
       "choices": [
         "De bestämmer alla priser i butiker",
         "De betalar ut alla löner i landet",
-        "De ersätter riksdagen som lagstiftare",
+        "De ersätter riksdagen som lagstiftare och bestämmer räntan på alla varor i landet",
         "De förmedlar sparande från hushåll till lån för företag och andra hushåll"
       ],
       "answer": 3,

@@ -20,8 +20,8 @@
       "prompt": "Vad är åklagarens uppgift i ett brottmål?",
       "opener": "Åklagaren kommer in före rättegången och fattar ett viktigt beslut.",
       "choices": [
-        "Att döma den misstänkte till ett straff",
-        "Att leda förundersökningen vid allvarligare brott och besluta om åtal ska väckas",
+        "Att döma den misstänkte till ett straff efter att ha hört vittnena och bevisen",
+        "Att leda förundersökningen vid allvarligare brott och besluta om åtal",
         "Att försvara den misstänkte i rätten",
         "Att verkställa straffet efter domen"
       ],
@@ -81,7 +81,7 @@
       "opener": "Fängelse är bara ett av flera alternativ i den svenska påföljdstrappan.",
       "choices": [
         "Enbart fängelse",
-        "Kroppsstraff eller landsförvisning",
+        "Kroppsstraff eller landsförvisning för grova brott och återfall",
         "Böter, villkorlig dom, skyddstillsyn och fängelse",
         "Enbart samhällstjänst"
       ],
@@ -164,7 +164,7 @@
       "opener": "Tänk på vad som ska hända med den dömda personen efter avtjänat straff.",
       "choices": [
         "Att alltid maximera lidandet för den dömde",
-        "Att ersätta behovet av polisutredningar helt",
+        "Att ersätta behovet av polisutredningar helt och hållet i svåra fall och vid grova brott",
         "Att undvika att brottet någonsin nämns igen",
         "Att ge den dömde möjlighet att återanpassas till ett liv utan brott"
       ],
@@ -223,7 +223,7 @@
       "prompt": "Vilken påföljd används oftast för unga lagöverträdare under 18 år i Sverige, i stället för fängelse?",
       "opener": "Svensk rätt strävar efter att hålla unga borta från vanliga fängelser i möjligaste mån.",
       "choices": [
-        "Livstids fängelse",
+        "Livstids fängelse utan villkorlig frigivning",
         "Dödsstraff",
         "Landsförvisning",
         "Ungdomsvård eller ungdomstjänst"

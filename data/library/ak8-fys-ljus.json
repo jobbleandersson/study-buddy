@@ -50,8 +50,8 @@
       "prompt": "Vad säger reflektionslagen?",
       "opener": "Lagen jämför två vinklar, och båda mäts mot samma hjälplinje.",
       "choices": [
-        "Infallsvinkeln är lika stor som reflektionsvinkeln, båda mätta från normalen till ytan",
-        "Infallsvinkeln är alltid dubbelt så stor som reflektionsvinkeln",
+        "Infallsvinkeln är lika stor som reflektionsvinkeln, båda mätta från normalen",
+        "Infallsvinkeln är alltid dubbelt så stor som reflektionsvinkeln, mätt från ytan",
         "Reflektionsvinkeln är alltid 90°",
         "Ljuset reflekteras alltid rakt tillbaka samma väg det kom"
       ],
@@ -65,9 +65,9 @@
       "prompt": "Varför ser en sked ut att vara bruten där den sticker ner i ett glas vatten?",
       "opener": "Något händer med ljusets riktning precis vid vattenytan.",
       "choices": [
-        "Vattnet förstorar bara den nedre delen av skeden",
+        "Vattnet förstorar bara den nedre delen av skeden och flyttar den åt sidan så att den ser bruten ut",
         "Skeden böjs faktiskt av vattnets tryck",
-        "Ljuset byter hastighet när det går mellan vatten och luft och byter därför riktning, alltså bryts, i ytan",
+        "Ljuset byter hastighet mellan vatten och luft och byter därför riktning, alltså bryts, i ytan",
         "Vattnet reflekterar bort en del av skeden"
       ],
       "answer": 2,
@@ -96,9 +96,9 @@
       "opener": "Olika färger bryts olika mycket i glaset.",
       "choices": [
         "Ljuset försvinner helt inne i glaset",
-        "Ljuset delas upp i ett spektrum av färger, från rött till violett, eftersom färgerna bryts olika mycket",
+        "Ljuset delas upp i ett spektrum av färger, från rött till violett, eftersom färgerna bryts olika",
         "Ljuset blir starkare men behåller sin vita färg",
-        "Ljuset blir svart eftersom glaset absorberar alla färger"
+        "Ljuset blir svart eftersom glaset absorberar alla färger i ljuset och släpper ut inget ljus alls ur prismat"
       ],
       "answer": 1,
       "explanation": "Vitt ljus är en blandning av alla synliga färger, och eftersom violett bryts mest och rött minst sprids de åt olika håll i prismat och bildar ett spektrum. Samma sak händer i vattendropparna när en regnbåge uppstår. Glaset absorberar alltså inte färgerna, det böjer dem olika mycket."
@@ -194,7 +194,7 @@
       "choices": [
         "Den absorberar allt ljus utom rött, som den reflekterar",
         "Den skapar rött ljus själv",
-        "Den reflekterar alla färger lika mycket",
+        "Den reflekterar alla färger lika mycket och ser därför vit ut",
         "Den absorberar bara rött ljus"
       ],
       "answer": 0,
@@ -221,7 +221,7 @@
       "prompt": "Vad krävs för att både kärnskugga och halvskugga ska bildas bakom ett föremål?",
       "opener": "Tänk på om ljuskällan lyser från en enda punkt eller från en större yta.",
       "choices": [
-        "En punktformig ljuskälla",
+        "En punktformig ljuskälla nära föremålet",
         "En stor eller utsträckt ljuskälla",
         "Fullständigt mörker",
         "Ett genomskinligt föremål"
