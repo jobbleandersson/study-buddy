@@ -1224,7 +1224,7 @@ export default {
   "parent.signInLabel": "Sign in to connect accounts",
   "parent.loading": "Loading…",
   "parent.loadFail": "Couldn't load your connections. Check your connection and try again.",
-  "parent.inviteSub": "Let a parent or teacher follow your progress.",
+  "parent.inviteSub": "Let a parent or teacher follow your progress. They see the days you studied, how you are doing per subject and how many questions are due for review, not your sets, answers or notes.",
   "parent.inviteCodeLabel": "Invite code",
   "parent.inviteNew": "New code",
   "parent.codePlaceholder": "AB12CD",
