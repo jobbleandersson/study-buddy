@@ -1,0 +1,271 @@
+{
+  "id": "lib-hp-kva-ovningsprov-02",
+  "type": "test",
+  "subject": "KVA – Kvantitativa jämförelser",
+  "title": "KVA – övningsprov 2",
+  "sourceSummary": "Egenskrivna övningsuppgifter i Högskoleprovets KVA-format. Detta är inte ett officiellt utgivet prov.",
+  "topics": [
+    "kvantitativa jämförelser"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hp-kva2-01",
+      "kind": "mc",
+      "variant": "kva",
+      "topic": "kvantitativa jämförelser",
+      "prompt": "Jämför kvantiteterna I och II.",
+      "stimulus": {
+        "quantities": [
+          "$3^{4}$",
+          "$4^{3}$"
+        ]
+      },
+      "choices": [
+        "Kvantitet I är större",
+        "Kvantitet II är större",
+        "Kvantitet I och II är lika stora",
+        "Informationen är otillräcklig"
+      ],
+      "answer": 0,
+      "explanation": "$3^{4} = 81$ och $4^{3} = 64$. Kvantitet I är större."
+    },
+    {
+      "id": "q-hp-kva2-02",
+      "kind": "mc",
+      "variant": "kva",
+      "topic": "kvantitativa jämförelser",
+      "prompt": "Jämför kvantiteterna I och II.",
+      "stimulus": {
+        "quantities": [
+          "$\\dfrac{7}{8}$",
+          "$\\dfrac{8}{9}$"
+        ]
+      },
+      "choices": [
+        "Kvantitet I är större",
+        "Kvantitet II är större",
+        "Kvantitet I och II är lika stora",
+        "Informationen är otillräcklig"
+      ],
+      "answer": 1,
+      "explanation": "Jämför hur mycket som saknas till 1: $\\dfrac{7}{8}$ saknar $\\dfrac{1}{8}$ och $\\dfrac{8}{9}$ saknar $\\dfrac{1}{9}$, som är mindre. Alltså är $\\dfrac{8}{9}$ större. (Korsvis: $7 \\cdot 9 = 63 < 64 = 8 \\cdot 8$.)"
+    },
+    {
+      "id": "q-hp-kva2-03",
+      "kind": "mc",
+      "variant": "kva",
+      "topic": "kvantitativa jämförelser",
+      "prompt": "Jämför kvantiteterna I och II.",
+      "stimulus": {
+        "quantities": [
+          "$0{,}5^{2}$",
+          "$\\sqrt{0{,}0625}$"
+        ]
+      },
+      "choices": [
+        "Kvantitet I är större",
+        "Kvantitet II är större",
+        "Kvantitet I och II är lika stora",
+        "Informationen är otillräcklig"
+      ],
+      "answer": 2,
+      "explanation": "$0{,}5^{2} = 0{,}25$ och $\\sqrt{0{,}0625} = 0{,}25$, eftersom $0{,}25^{2} = 0{,}0625$. Kvantiteterna är lika stora."
+    },
+    {
+      "id": "q-hp-kva2-04",
+      "kind": "mc",
+      "variant": "kva",
+      "topic": "kvantitativa jämförelser",
+      "prompt": "Jämför kvantiteterna I och II.",
+      "stimulus": {
+        "quantities": [
+          "Antalet sätt att välja ut 2 personer bland 5",
+          "Antalet sätt att ställa 3 personer i en rad"
+        ]
+      },
+      "choices": [
+        "Kvantitet I är större",
+        "Kvantitet II är större",
+        "Kvantitet I och II är lika stora",
+        "Informationen är otillräcklig"
+      ],
+      "answer": 0,
+      "explanation": "Att välja 2 av 5, där ordningen inte spelar roll, kan göras på $\\dfrac{5 \\cdot 4}{2} = 10$ sätt. 3 personer kan ställas i rad på $3 \\cdot 2 \\cdot 1 = 6$ sätt. Kvantitet I är större."
+    },
+    {
+      "id": "q-hp-kva2-05",
+      "kind": "mc",
+      "variant": "kva",
+      "topic": "kvantitativa jämförelser",
+      "prompt": "Jämför kvantiteterna I och II.",
+      "stimulus": {
+        "quantities": [
+          "$x + \\dfrac{1}{x}$",
+          "$2$"
+        ],
+        "given": "$x > 0$"
+      },
+      "choices": [
+        "Kvantitet I är större",
+        "Kvantitet II är större",
+        "Kvantitet I och II är lika stora",
+        "Informationen är otillräcklig"
+      ],
+      "answer": 3,
+      "explanation": "För $x = 1$ är $x + \\dfrac{1}{x} = 2$, alltså lika stora. För $x = 2$ blir det $2{,}5$, alltså större. Eftersom utfallet beror på $x$ är informationen otillräcklig. (Kvantitet I blir aldrig mindre än 2, men den kan vara lika med 2.)"
+    },
+    {
+      "id": "q-hp-kva2-06",
+      "kind": "mc",
+      "variant": "kva",
+      "topic": "kvantitativa jämförelser",
+      "prompt": "Jämför kvantiteterna I och II.",
+      "stimulus": {
+        "quantities": [
+          "$p$",
+          "$25$"
+        ],
+        "given": "$p$ procent av $200$ är $50$"
+      },
+      "choices": [
+        "Kvantitet I är större",
+        "Kvantitet II är större",
+        "Kvantitet I och II är lika stora",
+        "Informationen är otillräcklig"
+      ],
+      "answer": 2,
+      "explanation": "$\\dfrac{50}{200} = 0{,}25$, alltså är $p = 25$. Kvantiteterna är lika stora."
+    },
+    {
+      "id": "q-hp-kva2-07",
+      "kind": "mc",
+      "variant": "kva",
+      "topic": "kvantitativa jämförelser",
+      "prompt": "Jämför kvantiteterna I och II.",
+      "stimulus": {
+        "quantities": [
+          "Arean av en triangel med basen $6$ och höjden $8$",
+          "Arean av en cirkel med radien $3$"
+        ]
+      },
+      "choices": [
+        "Kvantitet I är större",
+        "Kvantitet II är större",
+        "Kvantitet I och II är lika stora",
+        "Informationen är otillräcklig"
+      ],
+      "answer": 1,
+      "explanation": "Triangelns area är $\\dfrac{6 \\cdot 8}{2} = 24$. Cirkelns area är $\\pi \\cdot 3^{2} = 9\\pi$, och eftersom $\\pi > 3$ är $9\\pi > 27 > 24$. Kvantitet II är större."
+    },
+    {
+      "id": "q-hp-kva2-08",
+      "kind": "mc",
+      "variant": "kva",
+      "topic": "kvantitativa jämförelser",
+      "prompt": "Jämför kvantiteterna I och II.",
+      "stimulus": {
+        "quantities": [
+          "Rektangelns area",
+          "$25$"
+        ],
+        "given": "En rektangel har omkretsen $20$."
+      },
+      "choices": [
+        "Kvantitet I är större",
+        "Kvantitet II är större",
+        "Kvantitet I och II är lika stora",
+        "Informationen är otillräcklig"
+      ],
+      "answer": 3,
+      "explanation": "Två sidor har tillsammans längden 10. Är rektangeln en kvadrat med sidan 5 blir arean 25 – lika stora. Är sidorna 2 och 8 blir arean 16 – mindre. Arean kan aldrig bli större än 25, men eftersom den kan vara både lika med och mindre än 25 är informationen otillräcklig."
+    },
+    {
+      "id": "q-hp-kva2-09",
+      "kind": "mc",
+      "variant": "kva",
+      "topic": "kvantitativa jämförelser",
+      "prompt": "Jämför kvantiteterna I och II.",
+      "stimulus": {
+        "quantities": [
+          "$y$",
+          "$x$"
+        ],
+        "given": "$3x + 2y = 12$ och $x = 2$"
+      },
+      "choices": [
+        "Kvantitet I är större",
+        "Kvantitet II är större",
+        "Kvantitet I och II är lika stora",
+        "Informationen är otillräcklig"
+      ],
+      "answer": 0,
+      "explanation": "Sätt in $x = 2$: $6 + 2y = 12$, så $y = 3$. Kvantitet I (3) är större än kvantitet II (2)."
+    },
+    {
+      "id": "q-hp-kva2-10",
+      "kind": "mc",
+      "variant": "kva",
+      "topic": "kvantitativa jämförelser",
+      "prompt": "Jämför kvantiteterna I och II.",
+      "stimulus": {
+        "quantities": [
+          "$\\dfrac{n}{n + 1}$",
+          "$\\dfrac{n + 1}{n + 2}$"
+        ],
+        "given": "$n$ är ett heltal och $n > 1$"
+      },
+      "choices": [
+        "Kvantitet I är större",
+        "Kvantitet II är större",
+        "Kvantitet I och II är lika stora",
+        "Informationen är otillräcklig"
+      ],
+      "answer": 1,
+      "explanation": "Båda talen är lite mindre än 1. Det som saknas till 1 är $\\dfrac{1}{n + 1}$ respektive $\\dfrac{1}{n + 2}$, och det andra är mindre. Kvantitet II ligger alltså närmare 1 och är större, oavsett vilket $n$ det är."
+    },
+    {
+      "id": "q-hp-kva2-11",
+      "kind": "mc",
+      "variant": "kva",
+      "topic": "kvantitativa jämförelser",
+      "prompt": "Jämför kvantiteterna I och II.",
+      "stimulus": {
+        "quantities": [
+          "Medelvärdet av $x$, $x + 2$ och $x + 7$",
+          "$x + 3$"
+        ]
+      },
+      "choices": [
+        "Kvantitet I är större",
+        "Kvantitet II är större",
+        "Kvantitet I och II är lika stora",
+        "Informationen är otillräcklig"
+      ],
+      "answer": 2,
+      "explanation": "Summan av talen är $3x + 9$, så medelvärdet är $\\dfrac{3x + 9}{3} = x + 3$. Kvantiteterna är lika stora, oavsett $x$."
+    },
+    {
+      "id": "q-hp-kva2-12",
+      "kind": "mc",
+      "variant": "kva",
+      "topic": "kvantitativa jämförelser",
+      "prompt": "Jämför kvantiteterna I och II.",
+      "stimulus": {
+        "quantities": [
+          "$a + b$",
+          "$7$"
+        ],
+        "given": "$a$ och $b$ är positiva heltal och $ab = 12$"
+      },
+      "choices": [
+        "Kvantitet I är större",
+        "Kvantitet II är större",
+        "Kvantitet I och II är lika stora",
+        "Informationen är otillräcklig"
+      ],
+      "answer": 3,
+      "explanation": "Möjliga par är 1 och 12 (summa 13), 2 och 6 (summa 8) samt 3 och 4 (summa 7). Summan kan alltså vara både lika med och större än 7, så informationen är otillräcklig."
+    }
+  ]
+}

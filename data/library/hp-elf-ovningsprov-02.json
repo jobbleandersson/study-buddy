@@ -1,0 +1,416 @@
+{
+  "id": "lib-hp-elf-ovningsprov-02",
+  "type": "test",
+  "subject": "ELF – Engelsk läsförståelse",
+  "title": "ELF – övningsprov 2",
+  "sourceSummary": "Original practice items in the Högskoleprovet ELF format. This is not an officially released test.",
+  "topics": [
+    "main idea",
+    "detail",
+    "inference",
+    "vocabulary in context"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hp-elf2-01",
+      "kind": "mc",
+      "variant": "elf",
+      "topic": "main idea",
+      "stimulus": {
+        "id": "elf2-text-1",
+        "title": "Text 1 – Paths nobody planned",
+        "body": "Walk across almost any park or campus and you will find them: narrow strips of worn grass that cut a corner or link two buildings that the official paths do not connect. Planners call them desire lines, and for a long time they were treated as a nuisance. Fences went up, signs asked people to keep off the grass, and the worn strips were reseeded, only to reappear a few weeks later.\n\nSome designers have learned to see them differently. A desire line, they argue, is a free survey: thousands of people voting with their feet on where a path ought to go. Rather than guessing in advance, a few universities and parks have deliberately left new areas unpaved for a season, then laid paths along the routes that walkers had already chosen.\n\nThe approach has limits. People take the shortest route, which is not always the safest one, and a path worn across a slope can speed up erosion. A desire line tells you where people want to go; it does not tell you whether they should. Still, the shift in attitude is telling. Instead of asking how to make people follow the plan, these designers ask how the plan can follow people."
+      },
+      "prompt": "What is the main point of the text?",
+      "choices": [
+        "Fences and signs are the best way to protect the grass in parks",
+        "Planners should never lay paths before people have walked an area",
+        "Desire lines are mainly caused by careless walkers",
+        "Informal paths can show planners where paths are needed, although they should not always be followed"
+      ],
+      "answer": 3,
+      "explanation": "The text moves from treating desire lines as a nuisance to using them as information, and then adds the limits of that approach. Option B ignores those limits (\"never\"), and the text does not blame careless walkers."
+    },
+    {
+      "id": "q-hp-elf2-02",
+      "kind": "mc",
+      "variant": "elf",
+      "topic": "vocabulary in context",
+      "stimulus": {
+        "id": "elf2-text-1",
+        "title": "Text 1 – Paths nobody planned",
+        "body": "Walk across almost any park or campus and you will find them: narrow strips of worn grass that cut a corner or link two buildings that the official paths do not connect. Planners call them desire lines, and for a long time they were treated as a nuisance. Fences went up, signs asked people to keep off the grass, and the worn strips were reseeded, only to reappear a few weeks later.\n\nSome designers have learned to see them differently. A desire line, they argue, is a free survey: thousands of people voting with their feet on where a path ought to go. Rather than guessing in advance, a few universities and parks have deliberately left new areas unpaved for a season, then laid paths along the routes that walkers had already chosen.\n\nThe approach has limits. People take the shortest route, which is not always the safest one, and a path worn across a slope can speed up erosion. A desire line tells you where people want to go; it does not tell you whether they should. Still, the shift in attitude is telling. Instead of asking how to make people follow the plan, these designers ask how the plan can follow people."
+      },
+      "prompt": "In this text, a \"free survey\" refers to",
+      "choices": [
+        "an area of a park that has been left without paths",
+        "information about people's preferred routes that costs nothing to collect",
+        "a vote held among the students on a campus",
+        "a questionnaire that walkers can fill in if they wish"
+      ],
+      "answer": 1,
+      "explanation": "The colon explains the phrase: thousands of people \"voting with their feet\". The worn paths show where people want to walk, and nobody has to pay to collect that information. No actual questionnaire or vote is involved."
+    },
+    {
+      "id": "q-hp-elf2-03",
+      "kind": "mc",
+      "variant": "elf",
+      "topic": "detail",
+      "stimulus": {
+        "id": "elf2-text-1",
+        "title": "Text 1 – Paths nobody planned",
+        "body": "Walk across almost any park or campus and you will find them: narrow strips of worn grass that cut a corner or link two buildings that the official paths do not connect. Planners call them desire lines, and for a long time they were treated as a nuisance. Fences went up, signs asked people to keep off the grass, and the worn strips were reseeded, only to reappear a few weeks later.\n\nSome designers have learned to see them differently. A desire line, they argue, is a free survey: thousands of people voting with their feet on where a path ought to go. Rather than guessing in advance, a few universities and parks have deliberately left new areas unpaved for a season, then laid paths along the routes that walkers had already chosen.\n\nThe approach has limits. People take the shortest route, which is not always the safest one, and a path worn across a slope can speed up erosion. A desire line tells you where people want to go; it does not tell you whether they should. Still, the shift in attitude is telling. Instead of asking how to make people follow the plan, these designers ask how the plan can follow people."
+      },
+      "prompt": "According to the text, what is one problem with simply following desire lines?",
+      "choices": [
+        "The shortest route is not necessarily the safest one",
+        "Walkers keep changing their preferred routes",
+        "Desire lines disappear when the grass is reseeded",
+        "Paved paths cost more than worn grass to maintain"
+      ],
+      "answer": 0,
+      "explanation": "The third paragraph names two limits: the shortest route is not always the safest, and paths on slopes can speed up erosion. The text says reseeded strips reappear, not that they disappear."
+    },
+    {
+      "id": "q-hp-elf2-04",
+      "kind": "mc",
+      "variant": "elf",
+      "topic": "inference",
+      "stimulus": {
+        "id": "elf2-text-1",
+        "title": "Text 1 – Paths nobody planned",
+        "body": "Walk across almost any park or campus and you will find them: narrow strips of worn grass that cut a corner or link two buildings that the official paths do not connect. Planners call them desire lines, and for a long time they were treated as a nuisance. Fences went up, signs asked people to keep off the grass, and the worn strips were reseeded, only to reappear a few weeks later.\n\nSome designers have learned to see them differently. A desire line, they argue, is a free survey: thousands of people voting with their feet on where a path ought to go. Rather than guessing in advance, a few universities and parks have deliberately left new areas unpaved for a season, then laid paths along the routes that walkers had already chosen.\n\nThe approach has limits. People take the shortest route, which is not always the safest one, and a path worn across a slope can speed up erosion. A desire line tells you where people want to go; it does not tell you whether they should. Still, the shift in attitude is telling. Instead of asking how to make people follow the plan, these designers ask how the plan can follow people."
+      },
+      "prompt": "What does the last sentence suggest about the designers mentioned?",
+      "choices": [
+        "They consider older planning methods dishonest",
+        "They have reversed the traditional relationship between planners and the people who use a place",
+        "They believe walkers should design parks by themselves",
+        "They have stopped making plans altogether"
+      ],
+      "answer": 1,
+      "explanation": "Traditionally people were made to follow the plan; these designers let the plan follow people. They still make plans – they just base them on how people actually move."
+    },
+    {
+      "id": "q-hp-elf2-05",
+      "kind": "mc",
+      "variant": "elf",
+      "topic": "detail",
+      "stimulus": {
+        "id": "elf2-text-2",
+        "title": "Text 2 – Washing hands in Vienna",
+        "body": "In the 1840s, the Vienna General Hospital ran two maternity clinics side by side. In one, women were delivered by doctors and medical students; in the other, by midwives. Year after year, far more mothers died of childbed fever (an infection after giving birth) in the doctors' clinic, and the difference was large enough that some women begged to be admitted to the other one.\n\nIgnaz Semmelweis, a young doctor at the hospital, noticed that the doctors and medical students often came to the wards straight from performing autopsies. He suspected that they carried something from the bodies on their hands, and in 1847 he required everyone to wash in a solution of chlorinated lime before examining patients. Deaths in his clinic fell dramatically.\n\nYet many of his colleagues rejected the idea. Germ theory had not yet been established, so Semmelweis could not explain what, exactly, was being carried, and his conclusion implied that doctors themselves had been killing their patients. He also did little to win people over: he published his findings late and often answered criticism with anger.\n\nHe died in 1865, his work still largely ignored. Only in the following decades, as the role of microbes became clear, was he recognised as a pioneer. His story is often told as one of truth defeated by prejudice, but it is also a reminder that being right is rarely enough on its own."
+      },
+      "prompt": "What did Semmelweis suspect was causing the higher death rate in the doctors' clinic?",
+      "choices": [
+        "The doctors' clinic was more crowded than the other",
+        "The doctors used chlorinated lime in the wrong way",
+        "Doctors and students carried something from autopsies to the patients on their hands",
+        "The midwives were more experienced than the doctors"
+      ],
+      "answer": 2,
+      "explanation": "Semmelweis noticed that doctors and students came to the wards straight from autopsies and suspected they carried something from the bodies on their hands. Chlorinated lime was his solution, not the cause."
+    },
+    {
+      "id": "q-hp-elf2-06",
+      "kind": "mc",
+      "variant": "elf",
+      "topic": "detail",
+      "stimulus": {
+        "id": "elf2-text-2",
+        "title": "Text 2 – Washing hands in Vienna",
+        "body": "In the 1840s, the Vienna General Hospital ran two maternity clinics side by side. In one, women were delivered by doctors and medical students; in the other, by midwives. Year after year, far more mothers died of childbed fever (an infection after giving birth) in the doctors' clinic, and the difference was large enough that some women begged to be admitted to the other one.\n\nIgnaz Semmelweis, a young doctor at the hospital, noticed that the doctors and medical students often came to the wards straight from performing autopsies. He suspected that they carried something from the bodies on their hands, and in 1847 he required everyone to wash in a solution of chlorinated lime before examining patients. Deaths in his clinic fell dramatically.\n\nYet many of his colleagues rejected the idea. Germ theory had not yet been established, so Semmelweis could not explain what, exactly, was being carried, and his conclusion implied that doctors themselves had been killing their patients. He also did little to win people over: he published his findings late and often answered criticism with anger.\n\nHe died in 1865, his work still largely ignored. Only in the following decades, as the role of microbes became clear, was he recognised as a pioneer. His story is often told as one of truth defeated by prejudice, but it is also a reminder that being right is rarely enough on its own."
+      },
+      "prompt": "Which of the following is NOT given in the text as a reason why Semmelweis's idea was rejected?",
+      "choices": [
+        "His hand-washing method was too expensive for the hospital",
+        "He could not explain what was being carried on the hands",
+        "He often answered criticism with anger",
+        "His conclusion suggested that doctors had harmed their own patients"
+      ],
+      "answer": 0,
+      "explanation": "The third paragraph gives the missing explanation, the uncomfortable implication for doctors, and his angry, late response. Cost is never mentioned."
+    },
+    {
+      "id": "q-hp-elf2-07",
+      "kind": "mc",
+      "variant": "elf",
+      "topic": "vocabulary in context",
+      "stimulus": {
+        "id": "elf2-text-2",
+        "title": "Text 2 – Washing hands in Vienna",
+        "body": "In the 1840s, the Vienna General Hospital ran two maternity clinics side by side. In one, women were delivered by doctors and medical students; in the other, by midwives. Year after year, far more mothers died of childbed fever (an infection after giving birth) in the doctors' clinic, and the difference was large enough that some women begged to be admitted to the other one.\n\nIgnaz Semmelweis, a young doctor at the hospital, noticed that the doctors and medical students often came to the wards straight from performing autopsies. He suspected that they carried something from the bodies on their hands, and in 1847 he required everyone to wash in a solution of chlorinated lime before examining patients. Deaths in his clinic fell dramatically.\n\nYet many of his colleagues rejected the idea. Germ theory had not yet been established, so Semmelweis could not explain what, exactly, was being carried, and his conclusion implied that doctors themselves had been killing their patients. He also did little to win people over: he published his findings late and often answered criticism with anger.\n\nHe died in 1865, his work still largely ignored. Only in the following decades, as the role of microbes became clear, was he recognised as a pioneer. His story is often told as one of truth defeated by prejudice, but it is also a reminder that being right is rarely enough on its own."
+      },
+      "prompt": "In the last paragraph, \"pioneer\" is closest in meaning to",
+      "choices": [
+        "someone whose ideas are later proved wrong",
+        "someone who is among the first to develop a new idea",
+        "someone who works without being paid",
+        "someone who opposes those in authority"
+      ],
+      "answer": 1,
+      "explanation": "A pioneer is one of the first people to do or discover something. Semmelweis was recognised as one once the role of microbes became clear – that is, once his early idea was shown to be right."
+    },
+    {
+      "id": "q-hp-elf2-08",
+      "kind": "mc",
+      "variant": "elf",
+      "topic": "inference",
+      "stimulus": {
+        "id": "elf2-text-2",
+        "title": "Text 2 – Washing hands in Vienna",
+        "body": "In the 1840s, the Vienna General Hospital ran two maternity clinics side by side. In one, women were delivered by doctors and medical students; in the other, by midwives. Year after year, far more mothers died of childbed fever (an infection after giving birth) in the doctors' clinic, and the difference was large enough that some women begged to be admitted to the other one.\n\nIgnaz Semmelweis, a young doctor at the hospital, noticed that the doctors and medical students often came to the wards straight from performing autopsies. He suspected that they carried something from the bodies on their hands, and in 1847 he required everyone to wash in a solution of chlorinated lime before examining patients. Deaths in his clinic fell dramatically.\n\nYet many of his colleagues rejected the idea. Germ theory had not yet been established, so Semmelweis could not explain what, exactly, was being carried, and his conclusion implied that doctors themselves had been killing their patients. He also did little to win people over: he published his findings late and often answered criticism with anger.\n\nHe died in 1865, his work still largely ignored. Only in the following decades, as the role of microbes became clear, was he recognised as a pioneer. His story is often told as one of truth defeated by prejudice, but it is also a reminder that being right is rarely enough on its own."
+      },
+      "prompt": "What does the writer mean by saying that \"being right is rarely enough on its own\"?",
+      "choices": [
+        "Doctors in the 1840s refused to learn anything new",
+        "Semmelweis's conclusion was only partly correct",
+        "Scientific truth matters less than a good reputation",
+        "A correct idea also needs a clear explanation and persuasion to be accepted"
+      ],
+      "answer": 3,
+      "explanation": "Semmelweis was right, but he could not explain why, published late and met criticism with anger. The last sentence points out that a correct idea also has to be explained and argued for before people accept it."
+    },
+    {
+      "id": "q-hp-elf2-09",
+      "kind": "mc",
+      "variant": "elf",
+      "topic": "main idea",
+      "stimulus": {
+        "id": "elf2-text-3",
+        "title": "Text 3 – The rat tails of Hanoi",
+        "body": "In 1902, the French colonial authorities in Hanoi faced a growing problem. A modern sewer system had been built under the city, and it had turned out to be an ideal home for rats. With plague a real danger, the authorities hired rat catchers and, when that proved too slow, offered residents a small reward for every rat they killed. To avoid having to handle dead rats, officials asked only for the tail as proof.\n\nAt first the scheme appeared to work, as thousands of tails were handed in. Soon, however, officials began to notice rats without tails running through the streets. Some hunters had realised that a living rat could go on breeding and produce more tails in the future, so they simply cut off the tail and let the animal go. There were even reports of people raising rats for the reward. The programme was eventually abandoned.\n\nEconomists sometimes call such outcomes perverse incentives: rewards that encourage the very behaviour they were meant to stop. A similar story about a reward for dead cobras in colonial India is often repeated, though historians have found little evidence that it actually happened. The Hanoi case, by contrast, is documented in the colonial authorities' own records, and it remains a useful warning to anyone who designs a reward: people respond to what is measured, not to what was intended."
+      },
+      "prompt": "What is the main point of the text?",
+      "choices": [
+        "The story about cobras in India is better documented than the Hanoi case",
+        "Colonial authorities were unable to deal with disease",
+        "A reward can backfire if people can earn it without meeting the actual goal",
+        "Rats spread quickly in cities with modern sewers"
+      ],
+      "answer": 2,
+      "explanation": "The Hanoi story is used to illustrate perverse incentives: the reward was paid for tails, and people found ways to earn it that did not reduce the number of rats. The text says the cobra story is the less reliable one."
+    },
+    {
+      "id": "q-hp-elf2-10",
+      "kind": "mc",
+      "variant": "elf",
+      "topic": "detail",
+      "stimulus": {
+        "id": "elf2-text-3",
+        "title": "Text 3 – The rat tails of Hanoi",
+        "body": "In 1902, the French colonial authorities in Hanoi faced a growing problem. A modern sewer system had been built under the city, and it had turned out to be an ideal home for rats. With plague a real danger, the authorities hired rat catchers and, when that proved too slow, offered residents a small reward for every rat they killed. To avoid having to handle dead rats, officials asked only for the tail as proof.\n\nAt first the scheme appeared to work, as thousands of tails were handed in. Soon, however, officials began to notice rats without tails running through the streets. Some hunters had realised that a living rat could go on breeding and produce more tails in the future, so they simply cut off the tail and let the animal go. There were even reports of people raising rats for the reward. The programme was eventually abandoned.\n\nEconomists sometimes call such outcomes perverse incentives: rewards that encourage the very behaviour they were meant to stop. A similar story about a reward for dead cobras in colonial India is often repeated, though historians have found little evidence that it actually happened. The Hanoi case, by contrast, is documented in the colonial authorities' own records, and it remains a useful warning to anyone who designs a reward: people respond to what is measured, not to what was intended."
+      },
+      "prompt": "Why did officials ask only for the rats' tails?",
+      "choices": [
+        "Because the hunters wanted to keep the rest of the animal",
+        "So that they would not have to handle dead rats",
+        "Because the tails could be sold",
+        "Because the tails carried the plague"
+      ],
+      "answer": 1,
+      "explanation": "The text states the reason directly at the end of the first paragraph: to avoid having to handle dead rats."
+    },
+    {
+      "id": "q-hp-elf2-11",
+      "kind": "mc",
+      "variant": "elf",
+      "topic": "inference",
+      "stimulus": {
+        "id": "elf2-text-3",
+        "title": "Text 3 – The rat tails of Hanoi",
+        "body": "In 1902, the French colonial authorities in Hanoi faced a growing problem. A modern sewer system had been built under the city, and it had turned out to be an ideal home for rats. With plague a real danger, the authorities hired rat catchers and, when that proved too slow, offered residents a small reward for every rat they killed. To avoid having to handle dead rats, officials asked only for the tail as proof.\n\nAt first the scheme appeared to work, as thousands of tails were handed in. Soon, however, officials began to notice rats without tails running through the streets. Some hunters had realised that a living rat could go on breeding and produce more tails in the future, so they simply cut off the tail and let the animal go. There were even reports of people raising rats for the reward. The programme was eventually abandoned.\n\nEconomists sometimes call such outcomes perverse incentives: rewards that encourage the very behaviour they were meant to stop. A similar story about a reward for dead cobras in colonial India is often repeated, though historians have found little evidence that it actually happened. The Hanoi case, by contrast, is documented in the colonial authorities' own records, and it remains a useful warning to anyone who designs a reward: people respond to what is measured, not to what was intended."
+      },
+      "prompt": "Why did some hunters let rats go after cutting off their tails?",
+      "choices": [
+        "A living rat could produce more rats, and therefore more tails, later on",
+        "They felt sorry for the animals",
+        "They were not allowed to kill rats inside the city",
+        "They believed rats without tails could not spread plague"
+      ],
+      "answer": 0,
+      "explanation": "The hunters realised that a living rat could go on breeding, which meant more tails – and more rewards – in the future."
+    },
+    {
+      "id": "q-hp-elf2-12",
+      "kind": "mc",
+      "variant": "elf",
+      "topic": "inference",
+      "stimulus": {
+        "id": "elf2-text-3",
+        "title": "Text 3 – The rat tails of Hanoi",
+        "body": "In 1902, the French colonial authorities in Hanoi faced a growing problem. A modern sewer system had been built under the city, and it had turned out to be an ideal home for rats. With plague a real danger, the authorities hired rat catchers and, when that proved too slow, offered residents a small reward for every rat they killed. To avoid having to handle dead rats, officials asked only for the tail as proof.\n\nAt first the scheme appeared to work, as thousands of tails were handed in. Soon, however, officials began to notice rats without tails running through the streets. Some hunters had realised that a living rat could go on breeding and produce more tails in the future, so they simply cut off the tail and let the animal go. There were even reports of people raising rats for the reward. The programme was eventually abandoned.\n\nEconomists sometimes call such outcomes perverse incentives: rewards that encourage the very behaviour they were meant to stop. A similar story about a reward for dead cobras in colonial India is often repeated, though historians have found little evidence that it actually happened. The Hanoi case, by contrast, is documented in the colonial authorities' own records, and it remains a useful warning to anyone who designs a reward: people respond to what is measured, not to what was intended."
+      },
+      "prompt": "The phrase \"people respond to what is measured, not to what was intended\" means that people",
+      "choices": [
+        "prefer rewards that can be measured precisely",
+        "ignore rewards unless they are large",
+        "usually misunderstand the purpose of a reward",
+        "aim for whatever earns the reward, even if it does not serve the original purpose"
+      ],
+      "answer": 3,
+      "explanation": "In Hanoi the authorities measured tails but intended fewer rats. People delivered tails – the thing that was measured – while the number of rats was not reduced."
+    },
+    {
+      "id": "q-hp-elf2-13",
+      "kind": "mc",
+      "variant": "elf",
+      "topic": "main idea",
+      "stimulus": {
+        "id": "elf2-text-4",
+        "title": "Text 4 – Half asleep",
+        "body": "Sleep is a risky business for a wild animal. A sleeping creature cannot watch for predators, and an animal that lives in the water may not be able to breathe. Some species have found a remarkable solution: they let only half of the brain sleep at a time.\n\nDolphins are the best-known example. Recordings of their brain activity show that one hemisphere can enter deep sleep while the other stays awake, and that the two sides take turns. Meanwhile the animal keeps swimming slowly and surfaces to breathe, often with one eye open – the eye controlled by the waking half of the brain.\n\nBirds can do something similar. In one well-known study of ducks resting in a row, the birds at the ends of the row slept with one eye open far more often than those in the middle, and the open eye was usually turned away from the group, towards the side from which danger was most likely to come. The ducks, in other words, seemed to adjust how much of the brain to keep awake depending on how exposed they were.\n\nHumans cannot sleep like this, but researchers have found a faint echo of it. On the first night in an unfamiliar place, one half of the sleeper's brain tends to sleep less deeply than the other, which may help explain why people often sleep badly in a new hotel room."
+      },
+      "prompt": "What is the text mainly about?",
+      "choices": [
+        "Why dolphins need less sleep than other animals",
+        "How some animals can sleep with one half of the brain at a time",
+        "Why people sleep badly in hotels",
+        "How birds protect each other from predators"
+      ],
+      "answer": 1,
+      "explanation": "The first paragraph introduces half-brain sleep, and the following ones give examples: dolphins, ducks and a faint human version. Hotels and birds are parts of the text, not its main subject."
+    },
+    {
+      "id": "q-hp-elf2-14",
+      "kind": "mc",
+      "variant": "elf",
+      "topic": "detail",
+      "stimulus": {
+        "id": "elf2-text-4",
+        "title": "Text 4 – Half asleep",
+        "body": "Sleep is a risky business for a wild animal. A sleeping creature cannot watch for predators, and an animal that lives in the water may not be able to breathe. Some species have found a remarkable solution: they let only half of the brain sleep at a time.\n\nDolphins are the best-known example. Recordings of their brain activity show that one hemisphere can enter deep sleep while the other stays awake, and that the two sides take turns. Meanwhile the animal keeps swimming slowly and surfaces to breathe, often with one eye open – the eye controlled by the waking half of the brain.\n\nBirds can do something similar. In one well-known study of ducks resting in a row, the birds at the ends of the row slept with one eye open far more often than those in the middle, and the open eye was usually turned away from the group, towards the side from which danger was most likely to come. The ducks, in other words, seemed to adjust how much of the brain to keep awake depending on how exposed they were.\n\nHumans cannot sleep like this, but researchers have found a faint echo of it. On the first night in an unfamiliar place, one half of the sleeper's brain tends to sleep less deeply than the other, which may help explain why people often sleep badly in a new hotel room."
+      },
+      "prompt": "According to the text, which ducks slept with one eye open most often?",
+      "choices": [
+        "Those at the ends of the row",
+        "Those in the middle of the row",
+        "The youngest ducks in the group",
+        "Those resting closest to the water"
+      ],
+      "answer": 0,
+      "explanation": "The ducks at the ends of the row – the most exposed ones – slept with one eye open far more often than those in the middle."
+    },
+    {
+      "id": "q-hp-elf2-15",
+      "kind": "mc",
+      "variant": "elf",
+      "topic": "inference",
+      "stimulus": {
+        "id": "elf2-text-4",
+        "title": "Text 4 – Half asleep",
+        "body": "Sleep is a risky business for a wild animal. A sleeping creature cannot watch for predators, and an animal that lives in the water may not be able to breathe. Some species have found a remarkable solution: they let only half of the brain sleep at a time.\n\nDolphins are the best-known example. Recordings of their brain activity show that one hemisphere can enter deep sleep while the other stays awake, and that the two sides take turns. Meanwhile the animal keeps swimming slowly and surfaces to breathe, often with one eye open – the eye controlled by the waking half of the brain.\n\nBirds can do something similar. In one well-known study of ducks resting in a row, the birds at the ends of the row slept with one eye open far more often than those in the middle, and the open eye was usually turned away from the group, towards the side from which danger was most likely to come. The ducks, in other words, seemed to adjust how much of the brain to keep awake depending on how exposed they were.\n\nHumans cannot sleep like this, but researchers have found a faint echo of it. On the first night in an unfamiliar place, one half of the sleeper's brain tends to sleep less deeply than the other, which may help explain why people often sleep badly in a new hotel room."
+      },
+      "prompt": "What does the duck study suggest?",
+      "choices": [
+        "The birds kept more of the brain awake when they were more exposed to danger",
+        "Ducks need less sleep than dolphins",
+        "Only the birds at the ends of a row ever sleep",
+        "Ducks cannot see anything with the eye facing the group"
+      ],
+      "answer": 0,
+      "explanation": "The text draws the conclusion itself: the ducks \"seemed to adjust how much of the brain to keep awake depending on how exposed they were\"."
+    },
+    {
+      "id": "q-hp-elf2-16",
+      "kind": "mc",
+      "variant": "elf",
+      "topic": "vocabulary in context",
+      "stimulus": {
+        "id": "elf2-text-4",
+        "title": "Text 4 – Half asleep",
+        "body": "Sleep is a risky business for a wild animal. A sleeping creature cannot watch for predators, and an animal that lives in the water may not be able to breathe. Some species have found a remarkable solution: they let only half of the brain sleep at a time.\n\nDolphins are the best-known example. Recordings of their brain activity show that one hemisphere can enter deep sleep while the other stays awake, and that the two sides take turns. Meanwhile the animal keeps swimming slowly and surfaces to breathe, often with one eye open – the eye controlled by the waking half of the brain.\n\nBirds can do something similar. In one well-known study of ducks resting in a row, the birds at the ends of the row slept with one eye open far more often than those in the middle, and the open eye was usually turned away from the group, towards the side from which danger was most likely to come. The ducks, in other words, seemed to adjust how much of the brain to keep awake depending on how exposed they were.\n\nHumans cannot sleep like this, but researchers have found a faint echo of it. On the first night in an unfamiliar place, one half of the sleeper's brain tends to sleep less deeply than the other, which may help explain why people often sleep badly in a new hotel room."
+      },
+      "prompt": "In the last paragraph, \"a faint echo\" refers to",
+      "choices": [
+        "a sound that is heard during sleep",
+        "a habit that humans have learned from animals",
+        "a memory of an earlier night",
+        "a weak version of the same phenomenon"
+      ],
+      "answer": 3,
+      "explanation": "Humans cannot sleep with half the brain, but on a first night somewhere new one half sleeps less deeply than the other – a weak, partial version of the same thing. \"Echo\" is used figuratively, not about sound."
+    },
+    {
+      "id": "q-hp-elf2-17",
+      "kind": "mc",
+      "variant": "elf",
+      "topic": "detail",
+      "stimulus": {
+        "id": "elf2-text-5",
+        "title": "Text 5 – The lens that saved ships",
+        "body": "For most of history, a lighthouse was only as useful as the fire or lamp at its top, and most of that light was wasted. It spread in every direction, upwards into the sky and downwards onto the rocks, while only a small part reached the ships it was meant to warn.\n\nCurved mirrors helped, but the real breakthrough came in the 1820s from the French physicist Augustin Fresnel. A conventional lens large enough to gather a lighthouse's light would have been enormously thick and heavy, and much of the light would have been absorbed by the glass itself. Fresnel's insight was that the thick glass in the middle of a lens does almost nothing to focus the light; the work is done where the light passes through the lens's surfaces. He divided the curved surface into a series of concentric rings, each set at the correct angle, and placed them close together. The result did the work of a huge lens with a fraction of the glass.\n\nThe effect was dramatic. A light that had once been visible for a few miles could now be seen from more than twenty, and lighthouses along dangerous coasts were fitted with the new lenses within a few decades.\n\nThe same principle is still in use today, in places most people never notice: traffic lights, camera flashes and the thin plastic magnifiers sold as bookmarks all rely on Fresnel's rings."
+      },
+      "prompt": "According to the text, what was the main problem with early lighthouses?",
+      "choices": [
+        "They were often built in the wrong places",
+        "Their fires often went out in bad weather",
+        "Most of their light did not reach the ships",
+        "Their mirrors were too heavy to use"
+      ],
+      "answer": 2,
+      "explanation": "The first paragraph says most of the light was wasted: it went up into the sky and down onto the rocks, and only a small part reached the ships."
+    },
+    {
+      "id": "q-hp-elf2-18",
+      "kind": "mc",
+      "variant": "elf",
+      "topic": "detail",
+      "stimulus": {
+        "id": "elf2-text-5",
+        "title": "Text 5 – The lens that saved ships",
+        "body": "For most of history, a lighthouse was only as useful as the fire or lamp at its top, and most of that light was wasted. It spread in every direction, upwards into the sky and downwards onto the rocks, while only a small part reached the ships it was meant to warn.\n\nCurved mirrors helped, but the real breakthrough came in the 1820s from the French physicist Augustin Fresnel. A conventional lens large enough to gather a lighthouse's light would have been enormously thick and heavy, and much of the light would have been absorbed by the glass itself. Fresnel's insight was that the thick glass in the middle of a lens does almost nothing to focus the light; the work is done where the light passes through the lens's surfaces. He divided the curved surface into a series of concentric rings, each set at the correct angle, and placed them close together. The result did the work of a huge lens with a fraction of the glass.\n\nThe effect was dramatic. A light that had once been visible for a few miles could now be seen from more than twenty, and lighthouses along dangerous coasts were fitted with the new lenses within a few decades.\n\nThe same principle is still in use today, in places most people never notice: traffic lights, camera flashes and the thin plastic magnifiers sold as bookmarks all rely on Fresnel's rings."
+      },
+      "prompt": "Why would a conventional lens have been unsuitable for a lighthouse?",
+      "choices": [
+        "It would have spread the light in every direction",
+        "It could not be given a curved shape",
+        "It would have been too small to gather the light",
+        "It would have been very heavy and would have absorbed much of the light"
+      ],
+      "answer": 3,
+      "explanation": "A conventional lens big enough would have been enormously thick and heavy, and the glass would have absorbed much of the light."
+    },
+    {
+      "id": "q-hp-elf2-19",
+      "kind": "mc",
+      "variant": "elf",
+      "topic": "inference",
+      "stimulus": {
+        "id": "elf2-text-5",
+        "title": "Text 5 – The lens that saved ships",
+        "body": "For most of history, a lighthouse was only as useful as the fire or lamp at its top, and most of that light was wasted. It spread in every direction, upwards into the sky and downwards onto the rocks, while only a small part reached the ships it was meant to warn.\n\nCurved mirrors helped, but the real breakthrough came in the 1820s from the French physicist Augustin Fresnel. A conventional lens large enough to gather a lighthouse's light would have been enormously thick and heavy, and much of the light would have been absorbed by the glass itself. Fresnel's insight was that the thick glass in the middle of a lens does almost nothing to focus the light; the work is done where the light passes through the lens's surfaces. He divided the curved surface into a series of concentric rings, each set at the correct angle, and placed them close together. The result did the work of a huge lens with a fraction of the glass.\n\nThe effect was dramatic. A light that had once been visible for a few miles could now be seen from more than twenty, and lighthouses along dangerous coasts were fitted with the new lenses within a few decades.\n\nThe same principle is still in use today, in places most people never notice: traffic lights, camera flashes and the thin plastic magnifiers sold as bookmarks all rely on Fresnel's rings."
+      },
+      "prompt": "What was Fresnel's key insight?",
+      "choices": [
+        "Mirrors work better than lenses in lighthouses",
+        "Light travels further over water than over land",
+        "The thick glass inside a lens does little to focus the light",
+        "A lighthouse needs a brighter flame to be seen far away"
+      ],
+      "answer": 2,
+      "explanation": "Because the thick glass in the middle does almost nothing to focus the light, Fresnel could keep the curved surface – split into rings – and drop the glass behind it."
+    },
+    {
+      "id": "q-hp-elf2-20",
+      "kind": "mc",
+      "variant": "elf",
+      "topic": "inference",
+      "stimulus": {
+        "id": "elf2-text-5",
+        "title": "Text 5 – The lens that saved ships",
+        "body": "For most of history, a lighthouse was only as useful as the fire or lamp at its top, and most of that light was wasted. It spread in every direction, upwards into the sky and downwards onto the rocks, while only a small part reached the ships it was meant to warn.\n\nCurved mirrors helped, but the real breakthrough came in the 1820s from the French physicist Augustin Fresnel. A conventional lens large enough to gather a lighthouse's light would have been enormously thick and heavy, and much of the light would have been absorbed by the glass itself. Fresnel's insight was that the thick glass in the middle of a lens does almost nothing to focus the light; the work is done where the light passes through the lens's surfaces. He divided the curved surface into a series of concentric rings, each set at the correct angle, and placed them close together. The result did the work of a huge lens with a fraction of the glass.\n\nThe effect was dramatic. A light that had once been visible for a few miles could now be seen from more than twenty, and lighthouses along dangerous coasts were fitted with the new lenses within a few decades.\n\nThe same principle is still in use today, in places most people never notice: traffic lights, camera flashes and the thin plastic magnifiers sold as bookmarks all rely on Fresnel's rings."
+      },
+      "prompt": "What is the purpose of the final paragraph?",
+      "choices": [
+        "To argue that lighthouses are no longer needed",
+        "To describe the weaknesses of Fresnel's lens",
+        "To show that Fresnel's idea is still widely used",
+        "To explain how traffic lights were invented"
+      ],
+      "answer": 2,
+      "explanation": "The last paragraph lists modern, everyday uses of Fresnel's rings – traffic lights, camera flashes and bookmark magnifiers – to show that the idea is still in use."
+    }
+  ]
+}

@@ -22,9 +22,10 @@ state.put("/state", requireAuth, (req, res) => {
     return res.status(400).json({ error: { message: "version (integer) and blob (object) are required." } });
   }
 
-  const current = db.prepare("SELECT version, blob FROM state_blobs WHERE user_id = ?").get(req.user.userId);
-  const currentVersion = current?.version ?? 0;
+  // Only the version is needed to decide; the stored blob (up to 10 MB) is read only when it has to be sent back.
+  const currentVersion = db.prepare("SELECT version FROM state_blobs WHERE user_id = ?").get(req.user.userId)?.version ?? 0;
   if (version !== currentVersion) {
+    const current = db.prepare("SELECT blob FROM state_blobs WHERE user_id = ?").get(req.user.userId);
     return res.status(409).json({
       error: { message: "State was updated elsewhere." },
       version: currentVersion,

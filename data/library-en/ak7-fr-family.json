@@ -46,15 +46,15 @@
       "kind": "mc",
       "topic": "possessives",
       "prompt": "Choose the right word: \"___ mère s'appelle Rosa.\" (My mom's name is Rosa.)",
-      "opener": "\"Mère\" is feminine — but \"my\" has a special form before a vowel sound.",
+      "opener": "\"Mère\" is feminine and starts with a consonant sound.",
       "choices": [
         "Mon",
         "Ma",
         "Mes",
         "Ton"
       ],
-      "answer": 0,
-      "explanation": "In front of a word starting with a vowel sound (like \"mère\"), \"mon\" is used instead of \"ma\", even though the word is feminine — it's easier to pronounce. \"Mes\" is plural, \"ton\" is \"your\"."
+      "answer": 1,
+      "explanation": "\"Mère\" is feminine and starts with the consonant sound m, so it is \"ma mère\". \"Mon\" is only used before masculine words, or before feminine words that start with a vowel sound (mon amie, mon école). \"Mes\" is plural and \"ton\" means \"your\"."
     },
     {
       "id": "q-fr7-fam-4",
