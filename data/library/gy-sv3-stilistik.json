@@ -18,7 +18,7 @@
       "prompt": "Vilken mening är skriven på en tydligt FORMELL stilnivå?",
       "opener": "Titta på ordval och meningsbyggnad — är de vardagliga eller högtidliga?",
       "choices": [
-        "Grejen är typ att vi måste fixa det här snabbt.",
+        "Grejen är typ att vi måste fixa det här snabbt, annars blir det jättemycket bråk.",
         "Härmed meddelas att ärendet kommer att behandlas vid nästa sammanträde.",
         "Vi borde nog kolla på det där ganska snart, va?",
         "Kan vi typ ta det där sen liksom?"
@@ -33,7 +33,7 @@
       "prompt": "Vad är typiskt för en VARDAGLIG (talspråksnära) stilnivå i skrift?",
       "opener": "Tänk på hur man faktiskt pratar med kompisar, jämfört med hur man skriver ett myndighetsbrev.",
       "choices": [
-        "Långa, komplexa bisatser och passiv form",
+        "Långa, komplexa bisatser och passiv form genom hela texten, med många facktermer",
         "Utfyllnadsord (\"typ\", \"liksom\"), vardagliga ord och kortare, enklare meningar",
         "Enbart facktermer och latinska uttryck",
         "Total avsaknad av pronomen"
@@ -48,7 +48,7 @@
       "prompt": "En författare skriver \"Vinden viskade genom trädens grenar\" istället för \"Det blåste lätt\". Vilket stilistiskt grepp används för att skapa en mer litterär stil?",
       "opener": "Vad tillskrivs vinden här som egentligen är ett mänskligt drag?",
       "choices": [
-        "Konkretisering av ett abstrakt begrepp",
+        "Konkretisering av ett abstrakt begrepp genom en vardaglig jämförelse med föremål",
         "Passivisering av satsen",
         "Byte till talspråklig stilnivå",
         "Personifikation — vinden tillskrivs en mänsklig handling (att viska)"
@@ -78,8 +78,8 @@
       "prompt": "Vad är en SOCIOLEKT?",
       "opener": "Skilj detta från dialekt, som är knutet till geografi.",
       "choices": [
-        "En regional variant av språket kopplad till en viss ort eller landsdel",
-        "Ett språkbruk kopplat till en social grupp, t.ex. utifrån ålder, yrke eller samhällsklass",
+        "En regional variant av språket kopplad till en viss ort eller landsdel i Sverige eller Norden",
+        "Ett språkbruk kopplat till en social grupp, t.ex. utifrån ålder, yrke eller klass",
         "Ett annat ord för formellt skriftspråk",
         "Ett språk som talas i ett annat land"
       ],
@@ -146,7 +146,7 @@
       "opener": "Ordet \"som\" markerar en jämförelse mellan två olika saker.",
       "choices": [
         "Liknelse (jämförelse med hjälp av \"som\")",
-        "Metonymi",
+        "Metonymi (ersätter ett ord med ett närliggande)",
         "Eufemism",
         "Anafor"
       ],
@@ -161,7 +161,7 @@
       "opener": "Fundera på om det handlar om vilken grupp läkaren tillhör, eller om ett medvetet val beroende på situation.",
       "choices": [
         "Register, eftersom läkaren medvetet växlar stil beroende på situation och mottagare",
-        "Sociolekt, eftersom läkaren tillhör en yrkesgrupp",
+        "Sociolekt, eftersom läkaren tillhör en yrkesgrupp med eget språkbruk, facktermer och titlar",
         "Varken register eller sociolekt",
         "Både register och sociolekt på precis samma sätt"
       ],

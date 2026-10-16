@@ -51,8 +51,8 @@
       "opener": "Ett flerhundraårigt förhållande tog slut vid millennieskiftet.",
       "choices": [
         "Svenska kyrkan blev statskyrka och fick ansvar för folkbokföringen",
-        "Svenska kyrkan skildes från staten och blev ett trossamfund bland andra, även om den fortfarande regleras av en särskild lag",
-        "Alla kyrkor i Sverige stängdes och verksamheten flyttades till hemmen",
+        "Svenska kyrkan skildes från staten och blev ett trossamfund bland andra",
+        "Alla kyrkor i Sverige stängdes och verksamheten flyttades till hemmen och föreningslokaler",
         "Sverige införde katolicismen som ny statsreligion"
       ],
       "answer": 1,
@@ -80,10 +80,10 @@
       "prompt": "Vad är en fördom?",
       "opener": "Ordet innehåller \"för\" — något som kommer före.",
       "choices": [
-        "En slutsats man dragit efter att noggrant ha undersökt fakta",
+        "En slutsats man dragit efter att noggrant ha undersökt fakta och jämfört olika källor i lugn och ro",
         "En lag som skyddar minoriteter mot diskriminering",
         "Ett annat ord för religionsfrihet",
-        "En förutfattad uppfattning om en person eller grupp, som man har redan innan man vet något om dem"
+        "En förutfattad uppfattning om en person eller grupp, som man har innan man vet något om dem"
       ],
       "answer": 3,
       "explanation": "En fördom är en uppfattning man bildat sig i förväg, utan grund i kunskap eller egen erfarenhet. Fördomar kan leda till diskriminering och till hatbrott riktade mot exempelvis muslimer (islamofobi), judar (antisemitism) eller kristna, och de bygger ofta på generaliseringar där en hel grupp tillskrivs samma egenskaper. Kunskap, personliga möten och vanan att granska sina egna generaliseringar minskar fördomar. En fördom är alltså raka motsatsen till en välgrundad slutsats."
@@ -180,7 +180,7 @@
       "choices": [
         "Islamofobi",
         "Ateism",
-        "Agnosticism",
+        "Agnosticism och ateism",
         "Antisemitism"
       ],
       "answer": 3,
@@ -194,7 +194,7 @@
       "opener": "Tänk på vad som krävs för att stridande parter ska kunna närma sig varandra igen.",
       "choices": [
         "Att alltid finansiera väpnade grupper",
-        "Att vägra all kontakt med andra religioner",
+        "Att vägra all kontakt med andra religioner och trosriktningar",
         "Att aldrig delta i humanitärt hjälparbete",
         "Medling och försoningsprocesser mellan stridande parter"
       ],
@@ -210,7 +210,7 @@
       "choices": [
         "Ett av världens mest religiösa länder",
         "Ett land utan någon religionsfrihet",
-        "Ett land med en enda tillåten religion",
+        "Ett land med en enda tillåten religion enligt lag",
         "Ett av världens mest sekulariserade länder"
       ],
       "answer": 3,
@@ -224,9 +224,9 @@
       "opener": "Förändringen skedde några år innan kyrkan skildes helt från staten.",
       "choices": [
         "Det ligger fortfarande kvar hos Svenska kyrkan i dag",
-        "Det avskaffades helt och ingen för längre några register",
+        "Det avskaffades helt och ingen för längre några register över befolkningen i landet eller dess invånare",
         "Det flyttades till FN",
-        "Det flyttades till staten (Skatteverket) redan 1991, innan kyrkan skildes från staten år 2000"
+        "Det flyttades till staten (Skatteverket) redan 1991, innan kyrkan skildes från staten 2000"
       ],
       "answer": 3,
       "explanation": "Ansvaret för folkbokföringen flyttades från Svenska kyrkan till staten redan 1991, alltså några år innan kyrkan formellt skildes från staten den 1 januari 2000. Det stämmer alltså inte att ansvaret ligger kvar hos kyrkan, att det avskaffats helt, eller att det flyttats till FN."

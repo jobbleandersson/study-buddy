@@ -20,7 +20,7 @@
       "prompt": "What mainly distinguishes a short story from a novel?",
       "opener": "Don't just think about the number of pages, but about how many threads the story has room for.",
       "choices": [
-        "The short story is always true, the novel is made up",
+        "The short story is always true and based on real events, the novel is made up",
         "The short story has no narrator",
         "The short story is short and concentrated around few characters and one course of events",
         "The short story is always written in the present tense"
@@ -36,8 +36,8 @@
       "opener": "Ask what kind of world the story takes place in.",
       "choices": [
         "There is a rising tension curve",
-        "The story takes place in a made-up world with its own laws, often involving magic",
-        "There is a main character who solves a problem",
+        "The story takes place in a made-up world with its own laws",
+        "There is a main character who solves a problem or a mystery",
         "The story has a description of setting"
       ],
       "answer": 1,
@@ -53,7 +53,7 @@
         "First-person narrator",
         "Omniscient narrator (third person)",
         "Second-person perspective",
-        "Limited first-person narrator"
+        "Limited first-person narrator who only sees what Elias sees"
       ],
       "answer": 1,
       "explanation": "The narrator can see into both her thoughts and Elias's and stands outside the action — that's an omniscient third-person narrator. A first-person narrator would say \"I\" and could only report their own thoughts."
@@ -81,7 +81,7 @@
       "opener": "A simile uses a comparison word; a metaphor does not.",
       "choices": [
         "He ran like a lion across the pitch.",
-        "He was a lion on the football pitch.",
+        "He was a lion on the football pitch in the match.",
         "The wind whispered in the treetops.",
         "The pitch lay empty in the evening light."
       ],
@@ -166,7 +166,7 @@
         "A football competition",
         "An injured knee",
         "Not giving up despite setbacks",
-        "A boy who trains every day"
+        "A boy who trains every day before the competition"
       ],
       "answer": 2,
       "explanation": "The theme is the overarching idea — here, perseverance and not giving up despite setbacks. The competition and the knee injury are concrete motifs that serve as examples of the theme, not the theme itself."
@@ -181,7 +181,7 @@
         "Her voice was like honey.",
         "Her voice was honey to my ears.",
         "The clock ticked like a heartbeat.",
-        "The wind whispered through the treetops."
+        "The wind whispered through the treetops all night."
       ],
       "answer": 1,
       "explanation": "\"Her voice was honey\" compares without the comparison word \"like\" — that is a metaphor. The sentences with \"like\" (\"Her voice was like honey\" and \"The clock ticked like a heartbeat\") are similes, and \"the wind whispered\" is personification."
@@ -224,7 +224,7 @@
       "opener": "Ask what the main character spends the whole story doing.",
       "choices": [
         "The story revolves around a crime that must be investigated and solved",
-        "The story always takes place in a made-up world with magic",
+        "The story always takes place in a made-up world with magic and dragons",
         "The story is always about a love story",
         "The story always lacks a main character"
       ],

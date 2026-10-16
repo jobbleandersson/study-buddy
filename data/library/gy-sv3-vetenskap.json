@@ -20,7 +20,7 @@
       "choices": [
         "Att sammanfatta resultatet i korthet",
         "Att redovisa vilka källor som använts",
-        "Att presentera skribentens slutsats direkt",
+        "Att presentera skribentens slutsats direkt i början av texten för att fånga läsaren",
         "Att ange vilken fråga eller vilket problem texten ska undersöka"
       ],
       "answer": 3,
@@ -33,7 +33,7 @@
       "prompt": "Var i ett PM redovisar man HUR undersökningen genomförts, t.ex. vilka källor och metoder som använts?",
       "opener": "Tänk på vilken del som fungerar som en \"kokbok\" för läsaren.",
       "choices": [
-        "I inledningen",
+        "I inledningen i början av PM:et",
         "I diskussionen",
         "I metodavsnittet",
         "I resultatdelen"
@@ -50,8 +50,8 @@
       "choices": [
         "En ordagrann upprepning av resultatet",
         "Nya källor som inte nämnts tidigare i texten",
-        "Skribentens tolkning av resultatet, kopplat till syftet, samt eventuella felkällor",
-        "En kort sammanfattning av varje styckes innehåll"
+        "Skribentens tolkning av resultatet kopplat till syftet, samt felkällor",
+        "En kort sammanfattning av varje styckes innehåll i hela uppsatsen och bilagorna"
       ],
       "answer": 2,
       "explanation": "Diskussionen tolkar och värderar resultatet i relation till syftet och lyfter fram styrkor, svagheter och möjliga felkällor. Att bara upprepa resultatet eller sammanfatta stycken tillför inget nytt."
@@ -64,7 +64,7 @@
       "opener": "Vem eller vad står i fokus — skribentens känsla eller undersökningens resultat?",
       "choices": [
         "Resultatet visar att andelen ökade med 12 procentenheter mellan 2015 och 2023.",
-        "Jag tycker verkligen att resultatet är superintressant och lite chockerande.",
+        "Jag tycker verkligen att resultatet är superintressant och lite chockerande för mig.",
         "Alla vet ju att det här är ett stort problem i skolan.",
         "Det känns rimligt att anta att fler kommer hålla med om detta."
       ],
@@ -148,7 +148,7 @@
       "choices": [
         "En saklig redovisning av vad undersökningen visat, utan tolkning",
         "Skribentens personliga åsikter om ämnet",
-        "En lista över alla tänkbara framtida forskningsfrågor",
+        "En lista över alla tänkbara framtida forskningsfrågor och förslag till nya studier",
         "En kort sammanfattning av inledningen"
       ],
       "answer": 0,
@@ -177,7 +177,7 @@
       "opener": "Tänk på vad som skiljer ett underbyggt påstående från ett löst antagande.",
       "choices": [
         "Att påståenden backas upp med hänvisningar till trovärdiga källor",
-        "Att texten bara får innehålla en enda källa",
+        "Att texten bara får innehålla en enda källa som skribenten litar på fullt ut",
         "Att texten skrivs utan någon inledning",
         "Att skribenten aldrig får använda siffror"
       ],

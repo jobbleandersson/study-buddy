@@ -37,7 +37,7 @@
         "To conclude the essay",
         "To introduce the paragraph's main idea",
         "To quote another author",
-        "To list every source used"
+        "To list every source used in the whole essay"
       ],
       "answer": 1,
       "explanation": "En \"topic sentence\" inleder stycket och presenterar dess huvudidé, som resten av stycket sedan utvecklar och belägger. Den avslutar varken stycket eller hela uppsatsen."
@@ -95,9 +95,9 @@
       "opener": "En formell avslutning sammanfattar argumentet utan vardagligt språk.",
       "choices": [
         "So yeah, that's basically it.",
-        "In conclusion, the evidence strongly suggests that stricter regulations are necessary.",
+        "In conclusion, the evidence suggests that stricter regulations are necessary.",
         "Anyway, moving on to my next point...",
-        "I guess uniforms could be good or bad, who knows."
+        "I guess uniforms could be good or bad, who knows, it all depends on the person, really."
       ],
       "answer": 1,
       "explanation": "En formell slutsats sammanfattar argumentet tydligt, ofta med en fras som \"in conclusion\", och undviker vardagligt eller osäkert språk som \"so yeah\" eller \"who knows\"."
@@ -161,10 +161,10 @@
       "prompt": "Identify the cohesion problem: \"Emma emailed her manager and told her the report was late.\"",
       "opener": "Två kvinnliga referenter gör pronomenet \"her\" dubbeltydigt.",
       "choices": [
-        "The pronoun \"her\" is ambiguous — it could refer to either Emma or the manager.",
+        "The pronoun \"her\" is ambiguous — it could mean Emma or the manager.",
         "There is no problem in this sentence.",
         "The verb tense is incorrect.",
-        "The sentence has no cohesion issues at all."
+        "The sentence has no cohesion issues at all and reads clearly to everyone"
       ],
       "answer": 0,
       "explanation": "Pronomenet \"her\" kan syfta på antingen Emma eller chefen, vilket gör meningen tvetydig — ett vanligt cohesion-problem som löses genom att skriva ut namnet igen."
@@ -176,9 +176,9 @@
       "prompt": "What is the purpose of a \"concluding sentence\" at the end of a body paragraph?",
       "opener": "Tänk på vad som binder ihop ett stycke med nästa.",
       "choices": [
-        "To wrap up the paragraph's point and smoothly transition to the next idea",
+        "To wrap up the paragraph's point and lead into the next idea",
         "To introduce a completely new topic",
-        "To repeat the thesis statement word for word",
+        "To repeat the thesis statement word for word at the end of every paragraph",
         "To list the sources used in the paragraph"
       ],
       "answer": 0,
@@ -209,7 +209,7 @@
         "Consequently",
         "Similarly",
         "For example",
-        "In contrast"
+        "In contrast, however"
       ],
       "answer": 0,
       "explanation": "\"Consequently\" visar att den andra meningen är en konsekvens av den första — resultaten var oklara, och DÄRFÖR upprepade forskarna experimentet. \"Similarly\", \"for example\" och \"in contrast\" passar inte den logiska relationen."
@@ -224,7 +224,7 @@
         "It contains an unrelated sentence that breaks the paragraph's unity",
         "It has too many topic sentences",
         "It uses no supporting evidence at all",
-        "It is grammatically incorrect throughout"
+        "It is grammatically incorrect throughout the whole paragraph and needs rewriting"
       ],
       "answer": 0,
       "explanation": "Meningen om Paris huvudstad har inget att göra med de andra meningarna om hundar, vilket bryter styckets enhet (unity). Ett bra stycke håller sig till en enda huvudidé."
