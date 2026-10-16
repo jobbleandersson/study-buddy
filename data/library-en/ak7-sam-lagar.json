@@ -50,8 +50,8 @@
       "prompt": "What is the police's task once a crime has been committed?",
       "opener": "The police find out what happened — but who decides the question of guilt?",
       "choices": [
-        "To investigate the crime and arrest suspects, but not to decide whether someone is guilty",
-        "To sentence the suspect to prison",
+        "To investigate the crime and arrest suspects, but not to decide the question of guilt",
+        "To sentence the suspect to prison after hearing the witnesses and the evidence",
         "To write new laws against the crime",
         "To decide how long the punishment should be"
       ],
@@ -65,10 +65,10 @@
       "prompt": "What does a court do in a criminal case?",
       "opener": "The court comes last in the chain, after the police and the prosecutor.",
       "choices": [
-        "Investigates the crime and questions witnesses at the crime scene",
+        "Investigates the crime and questions witnesses at the crime scene together with the forensic technicians",
         "Decides whether new laws should be introduced",
         "Chooses which police officers should work on the case",
-        "Examines the evidence, decides whether the accused is guilty, and if so rules on the punishment"
+        "Examines the evidence, decides whether the accused is guilty and determines the punishment"
       ],
       "answer": 3,
       "explanation": "The court holds a trial, examines the evidence and decides whether the accused is guilty — and if so, decides what punishment should follow. Investigating the crime is the police's task, and passing laws is parliament's."
@@ -179,9 +179,9 @@
       "opener": "Think about who takes over responsibility when the court cannot sentence the child.",
       "choices": [
         "The child is always sentenced to prison",
-        "The child cannot be sentenced to a punishment by a court, but social services can get involved",
+        "The child cannot be sentenced to a punishment, but social services can get involved",
         "Nothing at all is done",
-        "The child pays a fine directly to the police on the spot"
+        "The child pays a fine directly to the police on the spot and gets a formal warning"
       ],
       "answer": 1,
       "explanation": "Children under 15 are not criminally responsible and therefore cannot be sentenced to a punishment by a court. The police can still investigate what happened, and social services often get involved to help the child and put suitable measures in place."
@@ -225,7 +225,7 @@
       "choices": [
         "That everyone knows in advance what is allowed and what leads to punishment",
         "That the laws change every day without warning",
-        "That only certain people are allowed to know what the law says",
+        "That only certain people are allowed to know what the law says about their rights and obligations",
         "That laws are never written down"
       ],
       "answer": 0,

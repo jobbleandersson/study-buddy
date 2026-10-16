@@ -50,8 +50,8 @@
       "prompt": "Vad är polisens uppgift när ett brott har begåtts?",
       "opener": "Polisen tar reda på vad som hänt — men vem är det som avgör skuldfrågan?",
       "choices": [
-        "Att utreda brottet och gripa misstänkta, men inte att avgöra om någon är skyldig",
-        "Att döma den misstänkte till fängelse",
+        "Att utreda brottet och gripa misstänkta, men inte avgöra skuldfrågan",
+        "Att döma den misstänkte till fängelse efter att ha hört vittnena och bevisen",
         "Att skriva nya lagar mot brottet",
         "Att bestämma hur långt straffet ska bli"
       ],
@@ -65,10 +65,10 @@
       "prompt": "Vad gör en domstol i ett brottmål?",
       "opener": "Domstolen kommer sist i kedjan, efter polis och åklagare.",
       "choices": [
-        "Utreder brottet och förhör vittnen på brottsplatsen",
+        "Utreder brottet och förhör vittnen på brottsplatsen tillsammans med teknikerna",
         "Beslutar om nya lagar ska införas",
         "Väljer vilka poliser som ska arbeta med fallet",
-        "Prövar bevisen, avgör om den åtalade är skyldig och beslutar i så fall om straff"
+        "Prövar bevisen, avgör om den åtalade är skyldig och bestämmer straffet"
       ],
       "answer": 3,
       "explanation": "Domstolen håller rättegång, prövar bevisen och avgör om den åtalade är skyldig — och beslutar i så fall vilket straff som ska följa. Att utreda brottet är polisens uppgift, och att stifta lagar är riksdagens."
@@ -179,9 +179,9 @@
       "opener": "Tänk på vem som tar över ansvaret när domstolen inte kan döma barnet.",
       "choices": [
         "Barnet döms alltid till fängelse",
-        "Barnet kan inte dömas till straff av en domstol, men socialtjänsten kan kopplas in",
+        "Barnet kan inte dömas till straff, men socialtjänsten kan kopplas in",
         "Inget alls görs",
-        "Barnet betalar böter direkt till polisen på plats"
+        "Barnet betalar böter direkt till polisen på plats och får en anmärkning"
       ],
       "answer": 1,
       "explanation": "Barn under 15 år är inte straffmyndiga och kan därför inte dömas till straff av en domstol. Polisen kan ändå utreda vad som hänt, och socialtjänsten kopplas ofta in för att hjälpa barnet och sätta in lämpliga åtgärder."
@@ -225,7 +225,7 @@
       "choices": [
         "Att man i förväg vet vad som är tillåtet och vad som leder till straff",
         "Att lagarna ändras varje dag utan förvarning",
-        "Att bara vissa personer får veta vad lagen säger",
+        "Att bara vissa personer får veta vad lagen säger om deras rättigheter och skyldigheter",
         "Att lagar aldrig skrivs ner"
       ],
       "answer": 0,
