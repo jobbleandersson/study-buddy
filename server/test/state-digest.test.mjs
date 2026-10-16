@@ -27,19 +27,20 @@ async function putState(c, blob) {
   assert.equal((await c.put("/api/state", { version: cur.json.version, blob })).status, 200);
 }
 const utcDay = (offset = 0) => new Date(Date.now() + offset * 86_400_000).toISOString().slice(0, 10);
+const DAY = 86_400_000;
 
 describe("digestOf", () => {
   test("keeps each question's latest answer, the attempts' sizes and the study days, and nothing else", () => {
     const d = digestOf({
       secret: "never copied", chats: ["private"],
       attempts: [
-        { finishedAt: 100, items: [{ questionId: "a", firstTry: false }, { questionId: "b", correct: true }] },
-        { finishedAt: 200, items: [{ questionId: "a", firstTry: true }] },
+        { finishedAt: 3 * DAY + 100, items: [{ questionId: "a", firstTry: false }, { questionId: "b", correct: true }] },
+        { finishedAt: 4 * DAY + 200, items: [{ questionId: "a", firstTry: true }] },
       ],
       activity: { daysStudied: ["2026-10-01", 5, "2026-10-02"], frozenDays: ["2026-10-03"] },
     });
-    assert.deepEqual(d.answers, { a: [200, 1], b: [100, 1] });   // a: the later answer wins; b: no firstTry, falls back to correct
-    assert.deepEqual(d.attempts, [[100, 2], [200, 1]]);
+    assert.deepEqual(d.answers, { a: [4 * DAY + 200, 1], b: [3 * DAY + 100, 1] });   // a: the later answer wins; b: no firstTry, falls back to correct
+    assert.deepEqual(d.attempts, [[3 * DAY, 2], [4 * DAY, 1]]);   // answers given per UTC day
     assert.deepEqual(d.days, ["2026-10-01", "2026-10-02"]);
     assert.deepEqual(d.frozen, ["2026-10-03"]);
     assert.equal(JSON.stringify(d).includes("private"), false);

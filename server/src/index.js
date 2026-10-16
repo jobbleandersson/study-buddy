@@ -11,6 +11,10 @@ import { staticCacheControl } from "./static-cache.js";
 import "./db.js"; // creates tables on first run
 import { startSweeper } from "./sweep.js";
 import { requireGate, gate } from "./gate.js";
+import { requireAuth } from "./middleware/requireAuth.js";
+import { stateSaveLimit } from "./middleware/stateLimits.js";
+import { assertShallow } from "./json-depth.js";
+import { startDigestBackfill } from "./state-digest.js";
 import { health } from "./routes/health.js";
 import { messages } from "./routes/messages.js";
 import { auth } from "./routes/auth.js";
@@ -159,6 +163,11 @@ app.use(cookieParser());
 // Private site (see gate.js): before the body parsers, so a visitor without the password cannot make the
 // server read a 10MB JSON body either. Open (a no-op) when SITE_PASSWORD is unset.
 app.use("/api", requireGate);
+// Saving the study state is the costliest thing a signed-in student can ask for (up to 10 MB read, parsed,
+// stored and summarised on the one thread everyone shares), so one account's saves are limited here,
+// BEFORE the body is read (middleware/stateLimits.js). requireAuth runs again inside the route; it is a
+// single lookup.
+app.put("/api/state", requireAuth, stateSaveLimit);
 // Only these carry whole documents: a tutor message with photos (material.js caps an image at 5MB,
 // base64 inflates that ~33%), a full study-state sync, a set a parent assigns. Everything else is
 // a few fields, so it gets a small cap — an anonymous request to, say, the waitlist can't make the
@@ -167,7 +176,10 @@ const LARGE_JSON_ROUTES = /^\/api\/(messages|state|assigned)\/?$/i;   // routing
 // Stripe's webhook is the exception: its signature covers the exact bytes it sent, so that one path
 // keeps its body raw (express.raw marks the request as parsed, so the JSON parsers below skip it).
 app.use("/api/stripe/webhook", express.raw({ type: "application/json", limit: "1mb" }));
-const jsonLarge = express.json({ limit: "10mb" });
+// A saved state or an assigned set is refused when it nests deeper than any real one (json-depth.js),
+// checked on the raw bytes so a hostile body never reaches the JSON.stringify that stores it.
+const STORED_JSON_PATH = /^\/api\/(state|assigned)\/?$/i;
+const jsonLarge = express.json({ limit: "10mb", verify: (req, res, buf) => { if (STORED_JSON_PATH.test(req.path)) assertShallow(req, res, buf); } });
 const jsonSmall = express.json({ limit: "100kb" });
 app.use((req, res, next) => (LARGE_JSON_ROUTES.test(req.path) ? jsonLarge : jsonSmall)(req, res, next));
 
@@ -279,6 +291,7 @@ process.on("unhandledRejection", (reason) => {
 
 try {
   startSweeper(); // prune expired sessions + used/old codes, hourly
+  startDigestBackfill(); // bring stored state summaries up to date in the background (state-digest.js)
 } catch (e) {
   console.error("[study-buddy-server] sweeper failed to start:", e);
 }

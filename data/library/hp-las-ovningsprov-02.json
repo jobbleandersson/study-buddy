@@ -1,0 +1,416 @@
+{
+  "id": "lib-hp-las-ovningsprov-02",
+  "type": "test",
+  "subject": "LÄS – Svensk läsförståelse",
+  "title": "LÄS – övningsprov 2",
+  "sourceSummary": "Egenskrivna övningstexter i Högskoleprovets LÄS-format. Detta är inte ett officiellt utgivet prov.",
+  "topics": [
+    "huvudtanke",
+    "detaljförståelse",
+    "slutsats",
+    "ord i sammanhang"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hp-las2-01",
+      "kind": "mc",
+      "variant": "las",
+      "topic": "huvudtanke",
+      "stimulus": {
+        "id": "las2-text-1",
+        "title": "Text 1 – Lånorden berättar historia",
+        "body": "Svenskan har i alla tider lånat ord från de språk som dess talare haft mest kontakt med, och lånorden fungerar därför nästan som årsringar i ett träd. Under senmedeltiden, när de tyska Hansastäderna dominerade handeln runt Östersjön, kom ett stort antal ord från lågtyskan. Många av dem är i dag så vardagliga att få tänker på att de en gång var främmande: betala, frukost och språk hör hit.\n\nUnder 1700- och 1800-talen var det franskan som gav status. Den svenska överklassen tog efter det franska hovet, och ord som byrå, trottoar och paraply letade sig in i språket. Stavningen försvenskades efter hand, och snart syntes det inte längre varifrån orden kom.\n\nI dag är engelskan den viktigaste givaren. Det oroar en del, som menar att svenskan håller på att trängas undan. Historien ger dock skäl till ett visst lugn. Språket har tidigare tagit emot betydligt större mängder lånord utan att förlora sin grammatiska kärna, och de flesta inlånade ord anpassas med tiden till svenskt uttal och svensk böjning. Det som avgör ett språks framtid är snarare om det fortsätter att användas inom alla områden av samhällslivet – i skolan, i forskningen och i arbetslivet."
+      },
+      "prompt": "Vilken är textens huvudtanke?",
+      "choices": [
+        "Svenskan bör skyddas mot nya lånord från engelskan",
+        "Lånord speglar språkets kontakter genom historien och är i sig inget hot mot svenskan",
+        "Engelskan påverkar svenskan mer än något annat språk någonsin har gjort",
+        "Franskan har haft störst betydelse för det svenska ordförrådet"
+      ],
+      "answer": 1,
+      "explanation": "Texten följer lånorden genom tre epoker och avslutar med att historien \"ger skäl till ett visst lugn\": svenskan har klarat större mängder lånord förut. Att engelskan påverkar mer än något annat språk motsägs av att språket \"tidigare tagit emot betydligt större mängder lånord\", och texten säger aldrig att svenskan bör skyddas eller att franskan varit viktigast."
+    },
+    {
+      "id": "q-hp-las2-02",
+      "kind": "mc",
+      "variant": "las",
+      "topic": "detaljförståelse",
+      "stimulus": {
+        "id": "las2-text-1",
+        "title": "Text 1 – Lånorden berättar historia",
+        "body": "Svenskan har i alla tider lånat ord från de språk som dess talare haft mest kontakt med, och lånorden fungerar därför nästan som årsringar i ett träd. Under senmedeltiden, när de tyska Hansastäderna dominerade handeln runt Östersjön, kom ett stort antal ord från lågtyskan. Många av dem är i dag så vardagliga att få tänker på att de en gång var främmande: betala, frukost och språk hör hit.\n\nUnder 1700- och 1800-talen var det franskan som gav status. Den svenska överklassen tog efter det franska hovet, och ord som byrå, trottoar och paraply letade sig in i språket. Stavningen försvenskades efter hand, och snart syntes det inte längre varifrån orden kom.\n\nI dag är engelskan den viktigaste givaren. Det oroar en del, som menar att svenskan håller på att trängas undan. Historien ger dock skäl till ett visst lugn. Språket har tidigare tagit emot betydligt större mängder lånord utan att förlora sin grammatiska kärna, och de flesta inlånade ord anpassas med tiden till svenskt uttal och svensk böjning. Det som avgör ett språks framtid är snarare om det fortsätter att användas inom alla områden av samhällslivet – i skolan, i forskningen och i arbetslivet."
+      },
+      "prompt": "Varför kom många lågtyska ord in i svenskan under senmedeltiden?",
+      "choices": [
+        "De tyska Hansastäderna dominerade handeln runt Östersjön",
+        "Svenskan saknade ord för många vardagliga saker",
+        "Den svenska överklassen tog efter tyska seder",
+        "Lågtyska ord var lättare att försvenska än franska"
+      ],
+      "answer": 0,
+      "explanation": "Texten knyter de lågtyska lånen till att Hansastäderna dominerade handeln runt Östersjön. Att överklassen tog efter ett annat land gäller franskan på 1700-talet, inte lågtyskan."
+    },
+    {
+      "id": "q-hp-las2-03",
+      "kind": "mc",
+      "variant": "las",
+      "topic": "ord i sammanhang",
+      "stimulus": {
+        "id": "las2-text-1",
+        "title": "Text 1 – Lånorden berättar historia",
+        "body": "Svenskan har i alla tider lånat ord från de språk som dess talare haft mest kontakt med, och lånorden fungerar därför nästan som årsringar i ett träd. Under senmedeltiden, när de tyska Hansastäderna dominerade handeln runt Östersjön, kom ett stort antal ord från lågtyskan. Många av dem är i dag så vardagliga att få tänker på att de en gång var främmande: betala, frukost och språk hör hit.\n\nUnder 1700- och 1800-talen var det franskan som gav status. Den svenska överklassen tog efter det franska hovet, och ord som byrå, trottoar och paraply letade sig in i språket. Stavningen försvenskades efter hand, och snart syntes det inte längre varifrån orden kom.\n\nI dag är engelskan den viktigaste givaren. Det oroar en del, som menar att svenskan håller på att trängas undan. Historien ger dock skäl till ett visst lugn. Språket har tidigare tagit emot betydligt större mängder lånord utan att förlora sin grammatiska kärna, och de flesta inlånade ord anpassas med tiden till svenskt uttal och svensk böjning. Det som avgör ett språks framtid är snarare om det fortsätter att användas inom alla områden av samhällslivet – i skolan, i forskningen och i arbetslivet."
+      },
+      "prompt": "Vad menas med att lånorden fungerar \"nästan som årsringar i ett träd\"?",
+      "choices": [
+        "De visar i vilken ordning olika språk har påverkat svenskan",
+        "De försvinner ur språket efter en viss tid",
+        "De gör språket starkare för varje år som går",
+        "De blir fler i samma takt varje år"
+      ],
+      "answer": 0,
+      "explanation": "Årsringar avslöjar ett träds historia, lager för lager. På samma sätt visar lånorden vilka språk svenskan haft kontakt med under olika perioder – lågtyskan, sedan franskan och nu engelskan."
+    },
+    {
+      "id": "q-hp-las2-04",
+      "kind": "mc",
+      "variant": "las",
+      "topic": "slutsats",
+      "stimulus": {
+        "id": "las2-text-1",
+        "title": "Text 1 – Lånorden berättar historia",
+        "body": "Svenskan har i alla tider lånat ord från de språk som dess talare haft mest kontakt med, och lånorden fungerar därför nästan som årsringar i ett träd. Under senmedeltiden, när de tyska Hansastäderna dominerade handeln runt Östersjön, kom ett stort antal ord från lågtyskan. Många av dem är i dag så vardagliga att få tänker på att de en gång var främmande: betala, frukost och språk hör hit.\n\nUnder 1700- och 1800-talen var det franskan som gav status. Den svenska överklassen tog efter det franska hovet, och ord som byrå, trottoar och paraply letade sig in i språket. Stavningen försvenskades efter hand, och snart syntes det inte längre varifrån orden kom.\n\nI dag är engelskan den viktigaste givaren. Det oroar en del, som menar att svenskan håller på att trängas undan. Historien ger dock skäl till ett visst lugn. Språket har tidigare tagit emot betydligt större mängder lånord utan att förlora sin grammatiska kärna, och de flesta inlånade ord anpassas med tiden till svenskt uttal och svensk böjning. Det som avgör ett språks framtid är snarare om det fortsätter att användas inom alla områden av samhällslivet – i skolan, i forskningen och i arbetslivet."
+      },
+      "prompt": "Vad är det enligt författaren som avgör ett språks framtid?",
+      "choices": [
+        "Om antalet engelska lånord kan begränsas",
+        "Om lånorden får behålla sitt ursprungliga uttal",
+        "Om språket tar in ord från många olika språk",
+        "Om språket fortsätter att användas inom samhällets alla områden"
+      ],
+      "answer": 3,
+      "explanation": "Det står i sista meningen: det avgörande är \"snarare\" om språket används inom alla områden av samhällslivet – inte hur många lånord det tar emot."
+    },
+    {
+      "id": "q-hp-las2-05",
+      "kind": "mc",
+      "variant": "las",
+      "topic": "detaljförståelse",
+      "stimulus": {
+        "id": "las2-text-2",
+        "title": "Text 2 – Glömskans kurva",
+        "body": "I slutet av 1800-talet genomförde den tyske psykologen Hermann Ebbinghaus en serie experiment på sig själv. Han lärde sig långa listor med meningslösa stavelser – kombinationer som dax och bup, valda just för att de saknade betydelse och därför inte kunde kopplas till något han redan visste. Sedan mätte han hur mycket som fanns kvar efter olika lång tid.\n\nResultatet blev den så kallade glömskekurvan. Det mesta försvann redan under de första timmarna och dygnen, och därefter planade kurvan ut: det som fanns kvar efter en vecka glömdes betydligt långsammare.\n\nEbbinghaus upptäckte också något mer hoppfullt. Varje gång han repeterade en lista tog det mindre tid att lära in den igen, och repetitioner som spreds ut över flera dagar gav bättre resultat än lika många på en gång. Senare forskning tyder dessutom på att minnet inte bara bevaras av repetition utan förstärks av den – särskilt om repetitionen kommer när man håller på att glömma, inte medan allt fortfarande sitter.\n\nDen insikten ligger bakom det som i dag kallas spridd repetition. I stället för att plugga intensivt kvällen före ett prov sprids samma studietid ut över flera tillfällen med växande mellanrum. Det känns ofta mindre effektivt, eftersom man under varje pass möter det man nästan har glömt. Men just den ansträngningen verkar vara det som gör att kunskapen stannar kvar."
+      },
+      "prompt": "Varför använde Ebbinghaus meningslösa stavelser?",
+      "choices": [
+        "De glöms snabbare än riktiga ord",
+        "Han ville undersöka hur nya ord uppstår",
+        "De var lättare att lära sig än riktiga ord",
+        "De gick inte att koppla till något han redan kunde"
+      ],
+      "answer": 3,
+      "explanation": "Stavelserna valdes för att de saknade betydelse och därför inte kunde kopplas till något han redan visste. På så sätt mätte han minnet för helt ny information."
+    },
+    {
+      "id": "q-hp-las2-06",
+      "kind": "mc",
+      "variant": "las",
+      "topic": "detaljförståelse",
+      "stimulus": {
+        "id": "las2-text-2",
+        "title": "Text 2 – Glömskans kurva",
+        "body": "I slutet av 1800-talet genomförde den tyske psykologen Hermann Ebbinghaus en serie experiment på sig själv. Han lärde sig långa listor med meningslösa stavelser – kombinationer som dax och bup, valda just för att de saknade betydelse och därför inte kunde kopplas till något han redan visste. Sedan mätte han hur mycket som fanns kvar efter olika lång tid.\n\nResultatet blev den så kallade glömskekurvan. Det mesta försvann redan under de första timmarna och dygnen, och därefter planade kurvan ut: det som fanns kvar efter en vecka glömdes betydligt långsammare.\n\nEbbinghaus upptäckte också något mer hoppfullt. Varje gång han repeterade en lista tog det mindre tid att lära in den igen, och repetitioner som spreds ut över flera dagar gav bättre resultat än lika många på en gång. Senare forskning tyder dessutom på att minnet inte bara bevaras av repetition utan förstärks av den – särskilt om repetitionen kommer när man håller på att glömma, inte medan allt fortfarande sitter.\n\nDen insikten ligger bakom det som i dag kallas spridd repetition. I stället för att plugga intensivt kvällen före ett prov sprids samma studietid ut över flera tillfällen med växande mellanrum. Det känns ofta mindre effektivt, eftersom man under varje pass möter det man nästan har glömt. Men just den ansträngningen verkar vara det som gör att kunskapen stannar kvar."
+      },
+      "prompt": "Hur beskriver texten glömskekurvan?",
+      "choices": [
+        "Det mesta glöms först efter ungefär en vecka",
+        "Glömskan sker i jämn takt över tid",
+        "Glömskan går fortare ju längre tiden går",
+        "Glömskan går snabbast i början och avtar sedan"
+      ],
+      "answer": 3,
+      "explanation": "Det mesta försvann under de första timmarna och dygnen, och sedan planade kurvan ut – det som fanns kvar efter en vecka glömdes betydligt långsammare."
+    },
+    {
+      "id": "q-hp-las2-07",
+      "kind": "mc",
+      "variant": "las",
+      "topic": "slutsats",
+      "stimulus": {
+        "id": "las2-text-2",
+        "title": "Text 2 – Glömskans kurva",
+        "body": "I slutet av 1800-talet genomförde den tyske psykologen Hermann Ebbinghaus en serie experiment på sig själv. Han lärde sig långa listor med meningslösa stavelser – kombinationer som dax och bup, valda just för att de saknade betydelse och därför inte kunde kopplas till något han redan visste. Sedan mätte han hur mycket som fanns kvar efter olika lång tid.\n\nResultatet blev den så kallade glömskekurvan. Det mesta försvann redan under de första timmarna och dygnen, och därefter planade kurvan ut: det som fanns kvar efter en vecka glömdes betydligt långsammare.\n\nEbbinghaus upptäckte också något mer hoppfullt. Varje gång han repeterade en lista tog det mindre tid att lära in den igen, och repetitioner som spreds ut över flera dagar gav bättre resultat än lika många på en gång. Senare forskning tyder dessutom på att minnet inte bara bevaras av repetition utan förstärks av den – särskilt om repetitionen kommer när man håller på att glömma, inte medan allt fortfarande sitter.\n\nDen insikten ligger bakom det som i dag kallas spridd repetition. I stället för att plugga intensivt kvällen före ett prov sprids samma studietid ut över flera tillfällen med växande mellanrum. Det känns ofta mindre effektivt, eftersom man under varje pass möter det man nästan har glömt. Men just den ansträngningen verkar vara det som gör att kunskapen stannar kvar."
+      },
+      "prompt": "När är det enligt texten bäst att repetera?",
+      "choices": [
+        "Intensivt kvällen före ett prov",
+        "När man håller på att glömma det man har lärt sig",
+        "Medan allt fortfarande sitter i minnet",
+        "Med lika långa mellanrum under hela studietiden"
+      ],
+      "answer": 1,
+      "explanation": "Enligt texten tyder forskningen på att minnet förstärks särskilt när repetitionen kommer \"när man håller på att glömma, inte medan allt fortfarande sitter\". Mellanrummen ska dessutom vara växande, inte lika långa."
+    },
+    {
+      "id": "q-hp-las2-08",
+      "kind": "mc",
+      "variant": "las",
+      "topic": "slutsats",
+      "stimulus": {
+        "id": "las2-text-2",
+        "title": "Text 2 – Glömskans kurva",
+        "body": "I slutet av 1800-talet genomförde den tyske psykologen Hermann Ebbinghaus en serie experiment på sig själv. Han lärde sig långa listor med meningslösa stavelser – kombinationer som dax och bup, valda just för att de saknade betydelse och därför inte kunde kopplas till något han redan visste. Sedan mätte han hur mycket som fanns kvar efter olika lång tid.\n\nResultatet blev den så kallade glömskekurvan. Det mesta försvann redan under de första timmarna och dygnen, och därefter planade kurvan ut: det som fanns kvar efter en vecka glömdes betydligt långsammare.\n\nEbbinghaus upptäckte också något mer hoppfullt. Varje gång han repeterade en lista tog det mindre tid att lära in den igen, och repetitioner som spreds ut över flera dagar gav bättre resultat än lika många på en gång. Senare forskning tyder dessutom på att minnet inte bara bevaras av repetition utan förstärks av den – särskilt om repetitionen kommer när man håller på att glömma, inte medan allt fortfarande sitter.\n\nDen insikten ligger bakom det som i dag kallas spridd repetition. I stället för att plugga intensivt kvällen före ett prov sprids samma studietid ut över flera tillfällen med växande mellanrum. Det känns ofta mindre effektivt, eftersom man under varje pass möter det man nästan har glömt. Men just den ansträngningen verkar vara det som gör att kunskapen stannar kvar."
+      },
+      "prompt": "Vad vill författaren säga med att spridd repetition \"känns ofta mindre effektivt\"?",
+      "choices": [
+        "Att det som gör metoden obekväm är just det som gör att den fungerar",
+        "Att metoden kräver mer studietid totalt",
+        "Att metoden bara fungerar för meningslösa stavelser",
+        "Att metoden ger sämre resultat än att plugga intensivt"
+      ],
+      "answer": 0,
+      "explanation": "Det känns ineffektivt eftersom man hela tiden möter sådant man nästan glömt – men \"just den ansträngningen\" är det som gör att kunskapen stannar. Metoden kräver inte mer tid: samma studietid sprids bara ut."
+    },
+    {
+      "id": "q-hp-las2-09",
+      "kind": "mc",
+      "variant": "las",
+      "topic": "huvudtanke",
+      "stimulus": {
+        "id": "las2-text-3",
+        "title": "Text 3 – Det första talet",
+        "body": "Föreställ dig att du ska gissa hur mycket en begagnad bil är värd, men att någon precis har nämnt ett belopp – kanske i förbigående, kanske helt slumpmässigt. Mycket tyder på att det beloppet kommer att påverka din gissning, även om du vet att det saknar betydelse.\n\nFenomenet kallas förankring och beskrevs på 1970-talet av psykologerna Amos Tversky och Daniel Kahneman. I ett av deras försök fick deltagarna först se ett tal som de trodde var slumpmässigt framtaget och sedan uppskatta en okänd storhet. De som hade sett ett högt tal gav i genomsnitt klart högre uppskattningar än de som hade sett ett lågt.\n\nFörklaringen tycks vara att vi utgår från det första talet vi möter och sedan justerar – men justerar för lite. Effekten har sedan dess visats i många sammanhang, från förhandlingar om löner till domares bedömningar av hur långa straff som är rimliga.\n\nDet betyder inte att vi är hjälplösa. Den som känner till effekten kan medvetet ta fram egna jämförelsetal innan en förhandling börjar, eller fråga sig vad den själv hade gissat om det första talet aldrig hade nämnts. Helt försvinner effekten sällan, men den går att försvaga."
+      },
+      "prompt": "Vad handlar texten främst om?",
+      "choices": [
+        "Varför domare dömer olika hårt",
+        "Hur ett tal vi möter först kan styra våra bedömningar, och hur effekten kan försvagas",
+        "Hur man förhandlar fram en högre lön",
+        "Varför människor har svårt att räkna med stora tal"
+      ],
+      "answer": 1,
+      "explanation": "Hela texten handlar om förankring: vad den är, hur den visades, varför den uppstår och hur man kan försvaga den. Löneförhandlingar och domare nämns bara som exempel."
+    },
+    {
+      "id": "q-hp-las2-10",
+      "kind": "mc",
+      "variant": "las",
+      "topic": "detaljförståelse",
+      "stimulus": {
+        "id": "las2-text-3",
+        "title": "Text 3 – Det första talet",
+        "body": "Föreställ dig att du ska gissa hur mycket en begagnad bil är värd, men att någon precis har nämnt ett belopp – kanske i förbigående, kanske helt slumpmässigt. Mycket tyder på att det beloppet kommer att påverka din gissning, även om du vet att det saknar betydelse.\n\nFenomenet kallas förankring och beskrevs på 1970-talet av psykologerna Amos Tversky och Daniel Kahneman. I ett av deras försök fick deltagarna först se ett tal som de trodde var slumpmässigt framtaget och sedan uppskatta en okänd storhet. De som hade sett ett högt tal gav i genomsnitt klart högre uppskattningar än de som hade sett ett lågt.\n\nFörklaringen tycks vara att vi utgår från det första talet vi möter och sedan justerar – men justerar för lite. Effekten har sedan dess visats i många sammanhang, från förhandlingar om löner till domares bedömningar av hur långa straff som är rimliga.\n\nDet betyder inte att vi är hjälplösa. Den som känner till effekten kan medvetet ta fram egna jämförelsetal innan en förhandling börjar, eller fråga sig vad den själv hade gissat om det första talet aldrig hade nämnts. Helt försvinner effekten sällan, men den går att försvaga."
+      },
+      "prompt": "Hur förklarar texten att förankring uppstår?",
+      "choices": [
+        "Vi har svårt att uppskatta stora belopp",
+        "Vi litar mer på andras tal än på våra egna",
+        "Vi utgår från det första talet och justerar sedan för lite",
+        "Vi tror att det första talet är det rätta svaret"
+      ],
+      "answer": 2,
+      "explanation": "Förklaringen står i tredje stycket: vi utgår från det första talet och justerar, men för lite. Effekten uppstår enligt texten \"även om du vet att det saknar betydelse\" – vi behöver alltså inte tro att talet är rätt."
+    },
+    {
+      "id": "q-hp-las2-11",
+      "kind": "mc",
+      "variant": "las",
+      "topic": "ord i sammanhang",
+      "stimulus": {
+        "id": "las2-text-3",
+        "title": "Text 3 – Det första talet",
+        "body": "Föreställ dig att du ska gissa hur mycket en begagnad bil är värd, men att någon precis har nämnt ett belopp – kanske i förbigående, kanske helt slumpmässigt. Mycket tyder på att det beloppet kommer att påverka din gissning, även om du vet att det saknar betydelse.\n\nFenomenet kallas förankring och beskrevs på 1970-talet av psykologerna Amos Tversky och Daniel Kahneman. I ett av deras försök fick deltagarna först se ett tal som de trodde var slumpmässigt framtaget och sedan uppskatta en okänd storhet. De som hade sett ett högt tal gav i genomsnitt klart högre uppskattningar än de som hade sett ett lågt.\n\nFörklaringen tycks vara att vi utgår från det första talet vi möter och sedan justerar – men justerar för lite. Effekten har sedan dess visats i många sammanhang, från förhandlingar om löner till domares bedömningar av hur långa straff som är rimliga.\n\nDet betyder inte att vi är hjälplösa. Den som känner till effekten kan medvetet ta fram egna jämförelsetal innan en förhandling börjar, eller fråga sig vad den själv hade gissat om det första talet aldrig hade nämnts. Helt försvinner effekten sällan, men den går att försvaga."
+      },
+      "prompt": "Vad betyder det att beloppet nämns \"i förbigående\"?",
+      "choices": [
+        "Att det nämns helt kort, utan att vara huvudsaken",
+        "Att det nämns flera gånger",
+        "Att det nämns av någon som går förbi",
+        "Att det nämns för att vilseleda"
+      ],
+      "answer": 0,
+      "explanation": "Att säga något *i förbigående* är att nämna det kort och utan eftertryck, medan man egentligen talar om något annat. Uttrycket har inget med att gå förbi att göra."
+    },
+    {
+      "id": "q-hp-las2-12",
+      "kind": "mc",
+      "variant": "las",
+      "topic": "slutsats",
+      "stimulus": {
+        "id": "las2-text-3",
+        "title": "Text 3 – Det första talet",
+        "body": "Föreställ dig att du ska gissa hur mycket en begagnad bil är värd, men att någon precis har nämnt ett belopp – kanske i förbigående, kanske helt slumpmässigt. Mycket tyder på att det beloppet kommer att påverka din gissning, även om du vet att det saknar betydelse.\n\nFenomenet kallas förankring och beskrevs på 1970-talet av psykologerna Amos Tversky och Daniel Kahneman. I ett av deras försök fick deltagarna först se ett tal som de trodde var slumpmässigt framtaget och sedan uppskatta en okänd storhet. De som hade sett ett högt tal gav i genomsnitt klart högre uppskattningar än de som hade sett ett lågt.\n\nFörklaringen tycks vara att vi utgår från det första talet vi möter och sedan justerar – men justerar för lite. Effekten har sedan dess visats i många sammanhang, från förhandlingar om löner till domares bedömningar av hur långa straff som är rimliga.\n\nDet betyder inte att vi är hjälplösa. Den som känner till effekten kan medvetet ta fram egna jämförelsetal innan en förhandling börjar, eller fråga sig vad den själv hade gissat om det första talet aldrig hade nämnts. Helt försvinner effekten sällan, men den går att försvaga."
+      },
+      "prompt": "Vilket påstående stöds bäst av textens sista stycke?",
+      "choices": [
+        "Förankring går inte att göra något åt",
+        "Den som känner till förankring kan minska effekten men sällan ta bort den helt",
+        "Den som känner till förankring påverkas inte av den",
+        "Egna jämförelsetal gör förhandlingar onödigt långa"
+      ],
+      "answer": 1,
+      "explanation": "Sista stycket ger två motmedel och slutar med att effekten \"sällan\" försvinner helt men \"går att försvaga\". Det utesluter både att kunskap gör en immun och att inget går att göra."
+    },
+    {
+      "id": "q-hp-las2-13",
+      "kind": "mc",
+      "variant": "las",
+      "topic": "huvudtanke",
+      "stimulus": {
+        "id": "las2-text-4",
+        "title": "Text 4 – Vargarna i Yellowstone",
+        "body": "År 1995 släpptes de första vargarna ut i nationalparken Yellowstone i USA, sedan arten varit borta från området i ungefär sjuttio år. Det som hände därefter har blivit ett av ekologins mest berättade exempel.\n\nEnligt den vanliga berättelsen höll vargarna inte bara nere antalet hjortar utan förändrade också deras beteende. Hjortarna undvek öppna dalgångar där de lätt kunde överraskas, och därmed fick videna och asparna längs vattendragen en chans att växa upp igen. Med träden kom bävrarna tillbaka, och bävrarnas dammar skapade nya miljöer för fisk och fåglar. Vargarna beskrevs som en nyckelart vars återkomst satte i gång en kedja av förändringar i hela ekosystemet.\n\nSenare forskning har gjort bilden mer komplicerad. Under samma period ökade även antalet björnar och pumor, människor jagade hjortar utanför parken, och flera torra år påverkade växtligheten. Hur stor del av förändringen som beror på vargarna är därför svårt att avgöra, och på en del platser har videna inte återhämtat sig alls.\n\nDet betyder inte att vargarna saknat betydelse. Men exemplet visar hur en tydlig och tilltalande berättelse kan spridas snabbare än de förbehåll som forskningen själv brukar göra."
+      },
+      "prompt": "Vilken är textens huvudtanke?",
+      "choices": [
+        "Bilden av vargarnas effekt i Yellowstone är osäkrare än den ofta framställs",
+        "Björnar och pumor har varit viktigare än vargarna för Yellowstone",
+        "Vargarna räddade Yellowstones ekosystem",
+        "Vargarna har inte haft någon betydelse för Yellowstones ekosystem"
+      ],
+      "answer": 0,
+      "explanation": "Texten återger den populära berättelsen och visar sedan att senare forskning gjort bilden \"mer komplicerad\". Den säger uttryckligen att vargarna inte saknat betydelse, men inte heller att de ensamma räddade ekosystemet."
+    },
+    {
+      "id": "q-hp-las2-14",
+      "kind": "mc",
+      "variant": "las",
+      "topic": "detaljförståelse",
+      "stimulus": {
+        "id": "las2-text-4",
+        "title": "Text 4 – Vargarna i Yellowstone",
+        "body": "År 1995 släpptes de första vargarna ut i nationalparken Yellowstone i USA, sedan arten varit borta från området i ungefär sjuttio år. Det som hände därefter har blivit ett av ekologins mest berättade exempel.\n\nEnligt den vanliga berättelsen höll vargarna inte bara nere antalet hjortar utan förändrade också deras beteende. Hjortarna undvek öppna dalgångar där de lätt kunde överraskas, och därmed fick videna och asparna längs vattendragen en chans att växa upp igen. Med träden kom bävrarna tillbaka, och bävrarnas dammar skapade nya miljöer för fisk och fåglar. Vargarna beskrevs som en nyckelart vars återkomst satte i gång en kedja av förändringar i hela ekosystemet.\n\nSenare forskning har gjort bilden mer komplicerad. Under samma period ökade även antalet björnar och pumor, människor jagade hjortar utanför parken, och flera torra år påverkade växtligheten. Hur stor del av förändringen som beror på vargarna är därför svårt att avgöra, och på en del platser har videna inte återhämtat sig alls.\n\nDet betyder inte att vargarna saknat betydelse. Men exemplet visar hur en tydlig och tilltalande berättelse kan spridas snabbare än de förbehåll som forskningen själv brukar göra."
+      },
+      "prompt": "Enligt den vanliga berättelsen fick videna och asparna växa upp igen eftersom",
+      "choices": [
+        "människor slutade jaga hjortar i parken",
+        "bävrarnas dammar gav träden mer vatten",
+        "flera torra år gynnade träden",
+        "hjortarna undvek de öppna dalgångarna"
+      ],
+      "answer": 3,
+      "explanation": "I berättelsen kommer träden tillbaka därför att hjortarna undvek dalgångarna. Bävrarna kom först efter träden (\"Med träden kom bävrarna tillbaka\"), så orsak och verkan är omvända i det alternativet."
+    },
+    {
+      "id": "q-hp-las2-15",
+      "kind": "mc",
+      "variant": "las",
+      "topic": "detaljförståelse",
+      "stimulus": {
+        "id": "las2-text-4",
+        "title": "Text 4 – Vargarna i Yellowstone",
+        "body": "År 1995 släpptes de första vargarna ut i nationalparken Yellowstone i USA, sedan arten varit borta från området i ungefär sjuttio år. Det som hände därefter har blivit ett av ekologins mest berättade exempel.\n\nEnligt den vanliga berättelsen höll vargarna inte bara nere antalet hjortar utan förändrade också deras beteende. Hjortarna undvek öppna dalgångar där de lätt kunde överraskas, och därmed fick videna och asparna längs vattendragen en chans att växa upp igen. Med träden kom bävrarna tillbaka, och bävrarnas dammar skapade nya miljöer för fisk och fåglar. Vargarna beskrevs som en nyckelart vars återkomst satte i gång en kedja av förändringar i hela ekosystemet.\n\nSenare forskning har gjort bilden mer komplicerad. Under samma period ökade även antalet björnar och pumor, människor jagade hjortar utanför parken, och flera torra år påverkade växtligheten. Hur stor del av förändringen som beror på vargarna är därför svårt att avgöra, och på en del platser har videna inte återhämtat sig alls.\n\nDet betyder inte att vargarna saknat betydelse. Men exemplet visar hur en tydlig och tilltalande berättelse kan spridas snabbare än de förbehåll som forskningen själv brukar göra."
+      },
+      "prompt": "Vilket av följande nämns INTE i texten som en möjlig förklaring till förändringarna i Yellowstone?",
+      "choices": [
+        "Att antalet björnar och pumor ökade",
+        "Att vargarna jagade bävrar",
+        "Att människor jagade hjortar utanför parken",
+        "Att flera år var torra"
+      ],
+      "answer": 1,
+      "explanation": "Björnar och pumor, jakt utanför parken och torra år räknas alla upp i tredje stycket. Att vargarna skulle ha jagat bävrar står ingenstans."
+    },
+    {
+      "id": "q-hp-las2-16",
+      "kind": "mc",
+      "variant": "las",
+      "topic": "slutsats",
+      "stimulus": {
+        "id": "las2-text-4",
+        "title": "Text 4 – Vargarna i Yellowstone",
+        "body": "År 1995 släpptes de första vargarna ut i nationalparken Yellowstone i USA, sedan arten varit borta från området i ungefär sjuttio år. Det som hände därefter har blivit ett av ekologins mest berättade exempel.\n\nEnligt den vanliga berättelsen höll vargarna inte bara nere antalet hjortar utan förändrade också deras beteende. Hjortarna undvek öppna dalgångar där de lätt kunde överraskas, och därmed fick videna och asparna längs vattendragen en chans att växa upp igen. Med träden kom bävrarna tillbaka, och bävrarnas dammar skapade nya miljöer för fisk och fåglar. Vargarna beskrevs som en nyckelart vars återkomst satte i gång en kedja av förändringar i hela ekosystemet.\n\nSenare forskning har gjort bilden mer komplicerad. Under samma period ökade även antalet björnar och pumor, människor jagade hjortar utanför parken, och flera torra år påverkade växtligheten. Hur stor del av förändringen som beror på vargarna är därför svårt att avgöra, och på en del platser har videna inte återhämtat sig alls.\n\nDet betyder inte att vargarna saknat betydelse. Men exemplet visar hur en tydlig och tilltalande berättelse kan spridas snabbare än de förbehåll som forskningen själv brukar göra."
+      },
+      "prompt": "Vad vill författaren främst visa med textens sista mening?",
+      "choices": [
+        "Att forskare medvetet överdriver sina resultat",
+        "Att forskningen om Yellowstone saknar värde",
+        "Att vargar är en populär art bland allmänheten",
+        "Att förenklade berättelser om forskning ofta sprids mer än forskarnas egna förbehåll"
+      ],
+      "answer": 3,
+      "explanation": "Sista meningen handlar om hur en tilltalande berättelse sprids snabbare än forskningens förbehåll. Det är forskarna själva som brukar göra förbehållen – de anklagas inte för att överdriva."
+    },
+    {
+      "id": "q-hp-las2-17",
+      "kind": "mc",
+      "variant": "las",
+      "topic": "detaljförståelse",
+      "stimulus": {
+        "id": "las2-text-5",
+        "title": "Text 5 – Lådan som krympte världen",
+        "body": "Fram till mitten av 1900-talet lastades fartyg ungefär som de hade lastats i hundratals år. Säckar, lådor och tunnor bars ombord en och en av hamnarbetare, och ett fartyg kunde ligga i hamn i över en vecka innan det var lossat och lastat igen. Det var inte ovanligt att lastningen kostade mer än själva sjöresan.\n\nDen amerikanske åkeriägaren Malcolm McLean såg att det mesta av tiden gick åt till att flytta varor mellan olika transportmedel. Hans idé var enkel: i stället för att lasta om varorna skulle man flytta hela lådan. År 1956 avgick ett ombyggt tankfartyg med femtioåtta stora metallcontainrar från New Jersey.\n\nDet tog ändå mer än ett decennium innan idén slog igenom. Hamnar behövde nya kranar, fartyg måste byggas om och, framför allt, alla måste enas om samma mått. Först när containrarna hade standardiserats kunde en låda lyftas från ett fartyg direkt upp på en lastbil eller ett tåg i ett annat land.\n\nEffekterna blev desto större. Kostnaden för att frakta varor över haven sjönk kraftigt, vilket gjorde det lönsamt att tillverka saker långt från dem som köper dem. Samtidigt försvann en stor del av arbetet i hamnarna, och många gamla hamnkvarter i städernas centrum ersattes av nya, större anläggningar utanför."
+      },
+      "prompt": "Vad var enligt texten det största problemet med det äldre sättet att lasta fartyg?",
+      "choices": [
+        "Fartygen var för små för långa resor",
+        "Varorna skadades ofta under sjöresan",
+        "Det tog lång tid och kostade mycket att flytta varorna mellan land och fartyg",
+        "Det fanns för få hamnarbetare"
+      ],
+      "answer": 2,
+      "explanation": "Första stycket betonar tiden (över en vecka i hamn) och kostnaden (lastningen kunde kosta mer än sjöresan). Skador, fartygens storlek och brist på arbetare nämns inte."
+    },
+    {
+      "id": "q-hp-las2-18",
+      "kind": "mc",
+      "variant": "las",
+      "topic": "detaljförståelse",
+      "stimulus": {
+        "id": "las2-text-5",
+        "title": "Text 5 – Lådan som krympte världen",
+        "body": "Fram till mitten av 1900-talet lastades fartyg ungefär som de hade lastats i hundratals år. Säckar, lådor och tunnor bars ombord en och en av hamnarbetare, och ett fartyg kunde ligga i hamn i över en vecka innan det var lossat och lastat igen. Det var inte ovanligt att lastningen kostade mer än själva sjöresan.\n\nDen amerikanske åkeriägaren Malcolm McLean såg att det mesta av tiden gick åt till att flytta varor mellan olika transportmedel. Hans idé var enkel: i stället för att lasta om varorna skulle man flytta hela lådan. År 1956 avgick ett ombyggt tankfartyg med femtioåtta stora metallcontainrar från New Jersey.\n\nDet tog ändå mer än ett decennium innan idén slog igenom. Hamnar behövde nya kranar, fartyg måste byggas om och, framför allt, alla måste enas om samma mått. Först när containrarna hade standardiserats kunde en låda lyftas från ett fartyg direkt upp på en lastbil eller ett tåg i ett annat land.\n\nEffekterna blev desto större. Kostnaden för att frakta varor över haven sjönk kraftigt, vilket gjorde det lönsamt att tillverka saker långt från dem som köper dem. Samtidigt försvann en stor del av arbetet i hamnarna, och många gamla hamnkvarter i städernas centrum ersattes av nya, större anläggningar utanför."
+      },
+      "prompt": "Varför dröjde det enligt texten innan containern slog igenom?",
+      "choices": [
+        "Containrarna var för dyra att tillverka",
+        "Hamnarbetarna protesterade mot tekniken",
+        "Det krävdes nya kranar, ombyggda fartyg och gemensamma mått",
+        "McLeans första resa misslyckades"
+      ],
+      "answer": 2,
+      "explanation": "Tredje stycket räknar upp vad som krävdes: nya kranar, ombyggda fartyg och – framför allt – gemensamma mått. Inget av de andra alternativen nämns."
+    },
+    {
+      "id": "q-hp-las2-19",
+      "kind": "mc",
+      "variant": "las",
+      "topic": "ord i sammanhang",
+      "stimulus": {
+        "id": "las2-text-5",
+        "title": "Text 5 – Lådan som krympte världen",
+        "body": "Fram till mitten av 1900-talet lastades fartyg ungefär som de hade lastats i hundratals år. Säckar, lådor och tunnor bars ombord en och en av hamnarbetare, och ett fartyg kunde ligga i hamn i över en vecka innan det var lossat och lastat igen. Det var inte ovanligt att lastningen kostade mer än själva sjöresan.\n\nDen amerikanske åkeriägaren Malcolm McLean såg att det mesta av tiden gick åt till att flytta varor mellan olika transportmedel. Hans idé var enkel: i stället för att lasta om varorna skulle man flytta hela lådan. År 1956 avgick ett ombyggt tankfartyg med femtioåtta stora metallcontainrar från New Jersey.\n\nDet tog ändå mer än ett decennium innan idén slog igenom. Hamnar behövde nya kranar, fartyg måste byggas om och, framför allt, alla måste enas om samma mått. Först när containrarna hade standardiserats kunde en låda lyftas från ett fartyg direkt upp på en lastbil eller ett tåg i ett annat land.\n\nEffekterna blev desto större. Kostnaden för att frakta varor över haven sjönk kraftigt, vilket gjorde det lönsamt att tillverka saker långt från dem som köper dem. Samtidigt försvann en stor del av arbetet i hamnarna, och många gamla hamnkvarter i städernas centrum ersattes av nya, större anläggningar utanför."
+      },
+      "prompt": "Vad betyder det att idén \"slog igenom\"?",
+      "choices": [
+        "Att den visade sig vara felaktig",
+        "Att den blev för dyr att genomföra",
+        "Att den fick allmän spridning",
+        "Att den förbättrades tekniskt"
+      ],
+      "answer": 2,
+      "explanation": "Att något *slår igenom* betyder att det får stor spridning och blir allmänt accepterat. Här: det tog över tio år innan containern började användas överallt."
+    },
+    {
+      "id": "q-hp-las2-20",
+      "kind": "mc",
+      "variant": "las",
+      "topic": "slutsats",
+      "stimulus": {
+        "id": "las2-text-5",
+        "title": "Text 5 – Lådan som krympte världen",
+        "body": "Fram till mitten av 1900-talet lastades fartyg ungefär som de hade lastats i hundratals år. Säckar, lådor och tunnor bars ombord en och en av hamnarbetare, och ett fartyg kunde ligga i hamn i över en vecka innan det var lossat och lastat igen. Det var inte ovanligt att lastningen kostade mer än själva sjöresan.\n\nDen amerikanske åkeriägaren Malcolm McLean såg att det mesta av tiden gick åt till att flytta varor mellan olika transportmedel. Hans idé var enkel: i stället för att lasta om varorna skulle man flytta hela lådan. År 1956 avgick ett ombyggt tankfartyg med femtioåtta stora metallcontainrar från New Jersey.\n\nDet tog ändå mer än ett decennium innan idén slog igenom. Hamnar behövde nya kranar, fartyg måste byggas om och, framför allt, alla måste enas om samma mått. Först när containrarna hade standardiserats kunde en låda lyftas från ett fartyg direkt upp på en lastbil eller ett tåg i ett annat land.\n\nEffekterna blev desto större. Kostnaden för att frakta varor över haven sjönk kraftigt, vilket gjorde det lönsamt att tillverka saker långt från dem som köper dem. Samtidigt försvann en stor del av arbetet i hamnarna, och många gamla hamnkvarter i städernas centrum ersattes av nya, större anläggningar utanför."
+      },
+      "prompt": "Vad framgår av texten om containerns följder?",
+      "choices": [
+        "Den skapade fler arbeten i hamnarna",
+        "Den löste transportproblemen direkt efter den första resan",
+        "Den gjorde det lönsamt att tillverka varor långt från köparna men minskade arbetet i hamnarna",
+        "Den gjorde själva sjöresorna mycket snabbare"
+      ],
+      "answer": 2,
+      "explanation": "Sista stycket nämner båda följderna: billigare frakt gjorde det lönsamt att tillverka långt från köparna, och samtidigt försvann mycket av arbetet i hamnarna. Tidsvinsten låg i lastningen, inte i sjöresan, och genombrottet dröjde över ett decennium."
+    }
+  ]
+}

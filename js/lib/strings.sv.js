@@ -2613,6 +2613,7 @@ export default {
   "hp.topicsTitle": "Per ämne",
   "hp.reveal.captionTest": "Uppskattning mot normeringstabellen för {test} — inte ett officiellt resultat.",
   "hp.reveal.delprovCaption": "Mycket grov uppskattning för hela provet utifrån ett delprov.",
+  "hp.reveal.ownQuestions": "Frågorna är egenskrivna och kan vara lättare eller svårare än på det riktiga provet, så ditt riktiga resultat kan bli ett annat.",
   "hp.reveal.firstTime": "Din första omgång med Högskoleprovet.",
   "hp.reveal.upFrom": "Upp från ditt bästa på {n}",
   "hp.reveal.matchesBest": "Samma som ditt bästa hittills.",

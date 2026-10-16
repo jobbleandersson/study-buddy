@@ -371,6 +371,9 @@ function hpReveal(attempt) {
       : null,
     el("p.gradereveal__compare" + (compareClass ? `.${compareClass}` : ""), {}, compare),
     el("p.gradereveal__caption", {}, caption),
+    // The norm tables come from real tests but the questions are our own, so their difficulty can
+    // differ from the real test's – say so under the number.
+    el("p.gradereveal__caption.gradereveal__caption--note", {}, t("hp.reveal.ownQuestions")),
   ].filter(Boolean));
 }
 
