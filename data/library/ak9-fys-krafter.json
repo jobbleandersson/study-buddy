@@ -20,10 +20,10 @@
       "prompt": "Vad säger Newtons första lag (tröghetslagen)?",
       "opener": "Tänk på vad som krävs för att ändra en rörelse, inte för att hålla den igång.",
       "choices": [
-        "Ett föremål fortsätter i vila eller rör sig med konstant hastighet om ingen kraft påverkar det",
+        "Ett föremål förblir i vila eller rör sig likformigt om ingen kraft verkar",
         "Kraft är massa gånger acceleration",
         "Varje kraft har en motkraft av samma storlek",
-        "Tyngre föremål faller alltid fortare än lättare"
+        "Tyngre föremål faller alltid fortare än lättare, även i vakuum och utan luft"
       ],
       "answer": 0,
       "explanation": "Tröghetslagen säger att ett föremål behåller sitt rörelsetillstånd (vila eller rätlinjig, jämn rörelse) om ingen resulterande kraft verkar på det. Att kraft är massa gånger acceleration är Newtons andra lag och att varje kraft har en motkraft är Newtons tredje lag — de beskriver andra saker."
@@ -50,7 +50,7 @@
       "prompt": "Varför är det lättare att dra en låda över is än över asfalt?",
       "opener": "Friktion beror på hur ytorna som gnids mot varandra är beskaffade.",
       "choices": [
-        "Is har mindre massa än asfalt",
+        "Is har mindre massa än asfalt och väger därför mindre per kubikmeter",
         "Friktionskraften mellan lådan och underlaget är mindre på is",
         "Tyngdkraften är svagare på is",
         "Lådan väger mindre på is"
