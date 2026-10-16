@@ -3763,14 +3763,18 @@ summary.gcalc__label:focus-visible { outline: none; box-shadow: var(--ring); bor
 .roadmap li::before { content: "🔜"; }
 
 .toast {
-  position: fixed; left: 50%; bottom: var(--s-5); transform: translateX(-50%) translateY(20px);
+  position: fixed; left: 50%; bottom: calc(var(--s-5) + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%) translateY(20px);
   /* Fixed dark pill regardless of theme — var(--ink) flips to near-white in
      dark mode, which left the hardcoded white text unreadable against it. */
-  background: #2B2B3A; color: #fff; padding: var(--s-3) var(--s-5); border-radius: var(--r-full);
+  background: #2B2B3A; color: #fff; padding: var(--s-3) var(--s-5); border-radius: var(--r-lg);
   font-weight: 600; font-size: var(--fs-sm); box-shadow: var(--shadow-2);
+  /* A long message wraps inside the screen instead of running off it as one stretched oval. */
+  width: max-content; max-width: min(560px, calc(100vw - 2 * var(--s-4))); text-align: center; overflow-wrap: anywhere;
   opacity: 0; pointer-events: none; transition: opacity var(--dur-mid), transform var(--dur-mid) var(--ease-spring);
   z-index: 50;
 }
+/* On a phone the tab bar sits at the bottom edge (about 56px); the toast rides above it, not over it. */
+@media (max-width: 899px) { .toast { bottom: calc(68px + var(--s-2) + env(safe-area-inset-bottom, 0px)); } }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 .toast:has(.toast__action) { display: flex; align-items: center; gap: var(--s-3); }
 .toast:has(.toast__action).show { pointer-events: auto; }

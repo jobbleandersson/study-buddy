@@ -2333,7 +2333,7 @@ export default {
   "graph.err.notNumber": "Det här blir inget tal",
 
   /* ---- delningskort ---- */
-  "share.title": "Dela den",
+  "share.title": "Dela kortet",
   "share.shareButton": "Dela",
   "share.download": "Spara bild",
   "share.badgeTag": "Utmärkelse upplåst",

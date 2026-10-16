@@ -52,29 +52,52 @@ export function wrappableEmail(text) {
 export function mount(root, ...nodes) { clear(root); append(root, nodes); return root; }
 
 let toastTimer;
+/** How long a toast stays: long enough to read it (about 60 ms a character after a second and a half),
+ *  never shorter than the base for its kind, never longer than ten seconds. */
+export function toastDuration(message, withAction = false) {
+  const base = withAction ? 6000 : 2600;
+  return Math.min(10000, Math.max(base, 1500 + String(message ?? "").length * 60));
+}
+
 /**
- * toast("Saved")                              — plain, 2.6s
- * toast("Deleted", { actionLabel: "Undo", onAction })  — with a button, 6s
+ * toast("Saved")                              — plain, about 2.6s or longer for a long text
+ * toast("Deleted", { actionLabel: "Undo", onAction })  — with a button, 6s or longer
+ * toast("Couldn't save", { alert: true })     — read out at once (role="alert") instead of politely
+ *
+ * The toast is a live region, so a screen reader reads it out. It is created empty and filled a frame
+ * later: a region that appears with its text already in it is often not announced.
  */
 export function toast(message, opts) {
   let t = document.querySelector(".toast");
   if (!t) { t = el("div.toast"); document.body.appendChild(t); }
+  t.setAttribute("role", opts?.alert ? "alert" : "status");
+  t.setAttribute("aria-live", opts?.alert ? "assertive" : "polite");
+  t.setAttribute("aria-atomic", "true");
   clear(t);
+  const withAction = !!(opts?.actionLabel && typeof opts.onAction === "function");
   const dismiss = () => t.classList.remove("show");
+  const arm = () => { clearTimeout(toastTimer); toastTimer = setTimeout(dismiss, toastDuration(message, withAction)); };
 
-  if (opts?.actionLabel && typeof opts.onAction === "function") {
-    t.appendChild(el("span", {}, message));
-    t.appendChild(el("button.toast__action", {
-      type: "button",
-      onclick: () => { opts.onAction(); clearTimeout(toastTimer); dismiss(); },
-    }, opts.actionLabel));
-  } else {
-    t.textContent = message;
-  }
-
-  requestAnimationFrame(() => t.classList.add("show"));
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(dismiss, opts?.actionLabel ? 6000 : 2600);
+  t.classList.remove("show");
+  // Everything below waits for the frame: if the page is in a background tab the frame comes late, and a
+  // timer started before it could already have run out by the time the toast became visible.
+  requestAnimationFrame(() => {
+    if (withAction) {
+      t.appendChild(el("span", {}, message));
+      t.appendChild(el("button.toast__action", {
+        type: "button",
+        onclick: () => { opts.onAction(); clearTimeout(toastTimer); dismiss(); },
+      }, opts.actionLabel));
+    } else {
+      t.textContent = message;
+    }
+    t.classList.add("show");
+    arm();
+  });
+  // Stays up while the pointer or keyboard focus is on it (someone reading, or reaching for the button).
+  t.onmouseenter = t.onfocusin = () => clearTimeout(toastTimer);
+  t.onmouseleave = t.onfocusout = () => { if (t.classList.contains("show")) arm(); };
 }
 
 let banner = null;
