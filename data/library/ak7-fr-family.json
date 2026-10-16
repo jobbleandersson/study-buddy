@@ -46,15 +46,15 @@
       "kind": "mc",
       "topic": "possessives",
       "prompt": "Välj rätt ord: \"___ mère s'appelle Rosa.\" (Min mamma heter Rosa.)",
-      "opener": "\"Mère\" är femininum — men \"min\" har en särskild form före vokalljud.",
+      "opener": "\"Mère\" är femininum och börjar på ett konsonantljud.",
       "choices": [
         "Mon",
         "Ma",
         "Mes",
         "Ton"
       ],
-      "answer": 0,
-      "explanation": "Framför ett ord som börjar med vokalljud (som \"mère\") används \"mon\" i stället för \"ma\", även om ordet är feminint — det är lättare att uttala. \"Mes\" är plural, \"ton\" är \"din\"."
+      "answer": 1,
+      "explanation": "\"Mère\" är feminint och börjar på konsonantljudet m, så det heter \"ma mère\". \"Mon\" används bara före maskulina ord, eller före feminina ord som börjar på vokalljud (mon amie, mon école). \"Mes\" är plural och \"ton\" betyder \"din\"."
     },
     {
       "id": "q-fr7-fam-4",
