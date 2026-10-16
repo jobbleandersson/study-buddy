@@ -38,7 +38,7 @@
         "Den är basisk",
         "Den är sur och innehåller gott om vätejoner (H+)",
         "Den är neutral",
-        "Den innehåller gott om hydroxidjoner (OH−)"
+        "Den innehåller gott om hydroxidjoner (OH−) och är därför basisk"
       ],
       "answer": 1,
       "explanation": "pH 3 ligger under 7, alltså är lösningen sur och innehåller ett överskott av vätejoner (H+). Ett överskott av hydroxidjoner (OH−) hör till basiska lösningar med pH över 7, och neutralt är pH 7."
@@ -166,7 +166,7 @@
         "Natriumvätekarbonat",
         "Saltsyra",
         "Ättiksyra",
-        "Svavelsyra"
+        "Svavelsyra (batterisyra)"
       ],
       "answer": 0,
       "explanation": "Natriumvätekarbonat, bikarbonat, är en svag bas som bland annat används vid bakning. De övriga tre alternativen är alla syror."
@@ -178,7 +178,7 @@
       "prompt": "Svavelsyra (H2SO4) neutraliseras med kaliumhydroxid (KOH). Vilken typ av ämnen bildas?",
       "opener": "Neutralisation ger alltid samma två typer av produkter.",
       "choices": [
-        "Bara vatten",
+        "Bara vatten och koldioxid",
         "Ett salt och vatten",
         "Två syror",
         "Koldioxid och syre"
@@ -226,7 +226,7 @@
         "Den ändrar lösningens pH",
         "Den byter färg beroende på lösningens pH",
         "Den neutraliserar syran i lösningen",
-        "Den gör lösningen elektriskt ledande"
+        "Den gör lösningen elektriskt ledande utan att ändra färg"
       ],
       "answer": 1,
       "explanation": "En indikator som BTB byter färg beroende på lösningens pH, vilket gör det möjligt att avläsa om lösningen är sur, neutral eller basisk. Den ändrar inte själv lösningens pH eller neutraliserar syran."

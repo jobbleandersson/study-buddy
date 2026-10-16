@@ -51,7 +51,7 @@
       "opener": "I en seriekoppling måste strömmen ta sig igenom båda resistorerna efter varandra.",
       "choices": [
         "Den blir summan, 7 Ω — alltså större än var och en av resistorerna",
-        "Den blir 1 Ω, alltså skillnaden mellan resistorerna",
+        "Den blir 1 Ω, alltså skillnaden mellan resistorerna i kretsen och därmed mindre",
         "Den blir 12 Ω, alltså produkten av resistorerna",
         "Den blir mindre än 3 Ω"
       ],
@@ -95,10 +95,10 @@
       "prompt": "Vilken uppgift har en säkring (propp) i en elinstallation?",
       "opener": "Tänk på vad som skulle hända med ledningarna om alldeles för mycket ström flöt genom dem.",
       "choices": [
-        "Den ökar spänningen i kretsen så att apparaterna fungerar bättre",
+        "Den ökar spänningen i kretsen så att apparaterna fungerar bättre och snabbare än annars",
         "Den mäter hur mycket el du använder",
         "Den gör att strömmen alltid går åt samma håll",
-        "Den bryter strömmen om strömstyrkan blir för hög, så att ledningarna inte överhettas och börjar brinna"
+        "Den bryter strömmen om strömstyrkan blir för hög, så att ledningarna inte överhettas"
       ],
       "answer": 3,
       "explanation": "En säkring är en avsiktlig svag punkt som löser ut och bryter kretsen när strömmen blir farligt hög, till exempel vid kortslutning eller överbelastning. Den mäter inte elförbrukningen — det gör elmätaren — och den påverkar inte spänningen."
@@ -133,7 +133,7 @@
       "prompt": "I vilken enhet mäts strömstyrka?",
       "opener": "Fundera på vilken storhet som beskriver hur mycket laddning som passerar per sekund.",
       "choices": [
-        "Volt (V)",
+        "Volt (V), spänningens enhet",
         "Ampere (A)",
         "Ohm (Ω)",
         "Watt (W)"
@@ -224,9 +224,9 @@
       "opener": "Tänk på vad som händer med de andra lamporna om en lampa går sönder.",
       "choices": [
         "Det sparar koppartråd",
-        "Om en lampa går sönder slocknar inte de andra, och alla lampor får samma spänning",
+        "Om en lampa går sönder slocknar inte de andra, och alla får samma spänning",
         "Lamporna lyser starkare i serie",
-        "Det är billigare men fungerar sämre"
+        "Det är billigare men fungerar sämre eftersom alla lampor blir svagare och mörkare"
       ],
       "answer": 1,
       "explanation": "I en parallellkoppling har varje lampa en egen gren, så ett avbrott i en gren påverkar inte de andra, och alla lampor får dessutom hela batterispänningen. I en seriekoppling skulle i stället alla lampor slockna om en enda går sönder."

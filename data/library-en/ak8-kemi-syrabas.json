@@ -38,7 +38,7 @@
         "It is basic",
         "It is acidic and contains plenty of hydrogen ions (H+)",
         "It is neutral",
-        "It contains plenty of hydroxide ions (OH−)"
+        "It contains plenty of hydroxide ions (OH−) and is therefore basic"
       ],
       "answer": 1,
       "explanation": "pH 3 is below 7, so the solution is acidic and contains an excess of hydrogen ions (H+). An excess of hydroxide ions (OH−) belongs to basic solutions with pH above 7, and neutral is pH 7."
@@ -166,7 +166,7 @@
         "Sodium bicarbonate",
         "Hydrochloric acid",
         "Acetic acid",
-        "Sulfuric acid"
+        "Sulfuric acid (battery acid)"
       ],
       "answer": 0,
       "explanation": "Sodium bicarbonate is a weak base used in baking, among other things. The other three options are all acids."
@@ -178,7 +178,7 @@
       "prompt": "Sulfuric acid (H2SO4) is neutralised with potassium hydroxide (KOH). What type of substances form?",
       "opener": "Neutralisation always produces the same two types of products.",
       "choices": [
-        "Just water",
+        "Just water and carbon dioxide",
         "A salt and water",
         "Two acids",
         "Carbon dioxide and oxygen"
@@ -226,7 +226,7 @@
         "It changes the solution's pH",
         "It changes colour depending on the solution's pH",
         "It neutralises the acid in the solution",
-        "It makes the solution electrically conductive"
+        "It makes the solution electrically conductive without changing colour"
       ],
       "answer": 1,
       "explanation": "An indicator like BTB changes colour depending on the solution's pH, making it possible to read off whether the solution is acidic, neutral or basic. It doesn't itself change the solution's pH or neutralise the acid."

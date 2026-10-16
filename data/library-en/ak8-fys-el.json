@@ -51,7 +51,7 @@
       "opener": "In a series circuit, the current must pass through both resistors one after the other.",
       "choices": [
         "It becomes the sum, 7 Ω — that is, greater than either of the resistors",
-        "It becomes 1 Ω, that is, the difference between the resistors",
+        "It becomes 1 Ω, that is, the difference between the resistors in the circuit and thus smaller",
         "It becomes 12 Ω, that is, the product of the resistors",
         "It becomes less than 3 Ω"
       ],
@@ -95,10 +95,10 @@
       "prompt": "What is the job of a fuse in an electrical installation?",
       "opener": "Think about what would happen to the wires if far too much current flowed through them.",
       "choices": [
-        "It increases the voltage in the circuit so the appliances work better",
+        "It increases the voltage in the circuit so the appliances work better and faster than usual",
         "It measures how much electricity you use",
         "It makes sure the current always flows in the same direction",
-        "It cuts the current if the current strength becomes too high, so the wires don't overheat and catch fire"
+        "It cuts the current if the current strength becomes too high, so the wires don't overheat"
       ],
       "answer": 3,
       "explanation": "A fuse is a deliberate weak point that trips and breaks the circuit when the current becomes dangerously high, for example during a short circuit or an overload. It doesn't measure electricity consumption — the electricity meter does that — and it doesn't affect the voltage."
@@ -133,7 +133,7 @@
       "prompt": "What unit is current measured in?",
       "opener": "Think about which quantity describes how much charge passes per second.",
       "choices": [
-        "Volt (V)",
+        "Volt (V), the unit of voltage",
         "Ampere (A)",
         "Ohm (Ω)",
         "Watt (W)"
@@ -224,9 +224,9 @@
       "opener": "Think about what happens to the other lamps if one lamp breaks.",
       "choices": [
         "It saves copper wire",
-        "If one lamp breaks, the others don't go out, and all the lamps get the same voltage",
+        "If one lamp breaks, the others don't go out, and all of them get the same voltage",
         "The lamps shine brighter in series",
-        "It's cheaper but works worse"
+        "It's cheaper but works worse because all the lamps become weaker and dimmer"
       ],
       "answer": 1,
       "explanation": "In a parallel circuit, each lamp has its own branch, so a break in one branch doesn't affect the others, and every lamp also gets the full battery voltage. In a series circuit, all the lamps would instead go out if just one breaks."

@@ -50,7 +50,7 @@
       "prompt": "Vilken faktor har allra störst betydelse för hur varmt det är på en plats?",
       "opener": "Tänk på i vilken vinkel solens strålar träffar marken.",
       "choices": [
-        "Hur många människor som bor där",
+        "Hur många människor som bor där och i närområdet",
         "Breddgraden, alltså avståndet till ekvatorn",
         "Vilken tidszon platsen ligger i",
         "Hur stort landet är"
@@ -148,7 +148,7 @@
       "prompt": "I vilken klimatzon ligger Sverige?",
       "opener": "Zonen ligger mellan tropikerna och polartrakterna och har fyra tydliga årstider.",
       "choices": [
-        "Tropiskt klimat",
+        "Tropiskt klimat med regnskog",
         "Tempererat klimat",
         "Polart klimat",
         "Ökenklimat"
@@ -166,7 +166,7 @@
         "Det gör ingen skillnad",
         "Temperaturen sjunker ungefär 0,6 grader per 100 meters höjdökning",
         "Temperaturen stiger med höjden",
-        "Det påverkar bara nederbörden, inte temperaturen"
+        "Det påverkar bara nederbörden, inte temperaturen, och bara på sommaren"
       ],
       "answer": 1,
       "explanation": "Temperaturen sjunker ungefär 0,6 grader för varje 100 meter man stiger i höjd, vilket är varför höga berg kan ha snö även när det är varmt i dalen. Höjden påverkar alltså tydligt temperaturen, inte bara nederbörden."
@@ -179,7 +179,7 @@
       "opener": "Området ligger i tropikerna, nära södra USA.",
       "choices": [
         "Mexikanska golfen",
-        "Norska havet",
+        "Norska havet utanför Norge",
         "Ishavet",
         "Medelhavet"
       ],
