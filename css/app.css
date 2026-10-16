@@ -30,10 +30,12 @@ a { color: var(--brand-ink); }
 
 .tabular { font-variant-numeric: tabular-nums; }
 
+/* An outline, not a box-shadow: a component that sets its own box-shadow (the set cards, tiles, anything
+   with a shadow) used to override the ring and showed no focus at all. Components that draw their own
+   ring say so with outline: none; box-shadow: var(--ring) and still win by specificity. */
 :focus-visible {
-  outline: none;
-  box-shadow: var(--ring);
-  border-radius: var(--r-sm);
+  outline: 3px solid var(--focus-color, var(--brand));
+  outline-offset: 2px;
 }
 
 /* Elements with tabindex="-1" are only ever focused programmatically — we move
@@ -2265,6 +2267,7 @@ body.has-welcome { overflow: hidden; }
 .cmd__list { max-height: 320px; overflow-y: auto; }
 .cmd__row { width: 100%; display: flex; justify-content: space-between; gap: var(--s-3); align-items: center; padding: 10px var(--s-4); border: none; background: none; font: inherit; color: var(--ink); cursor: pointer; text-align: left; }
 .cmd__row.is-sel { background: var(--brand-tint); }
+.cmd__empty { padding: var(--s-4); color: var(--ink-soft); font-size: var(--fs-sm); overflow-wrap: anywhere; }
 .cmd__sub { font-size: 12px; color: var(--ink-faint); flex: none; }
 
 .nav-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s-3); margin-top: var(--s-5); }
@@ -2448,7 +2451,7 @@ body.has-welcome { overflow: hidden; }
 }
 .sitechat__composer:focus-within { border-color: var(--brand); box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 18%, transparent); }
 .sitechat__input { flex: 1; min-width: 0; font: inherit; font-size: var(--fs-sm); padding: 8px 0; border: 0; background: none; color: var(--ink); outline: none; }
-.sitechat__input:focus-visible { box-shadow: none; }
+.sitechat__input:focus-visible { outline: none; box-shadow: none; }
 .sitechat__send {
   flex: none; width: 36px; height: 36px; border-radius: var(--r-full); border: 0; display: grid; place-items: center;
   background: var(--brand); color: #fff; cursor: pointer; transition: opacity var(--dur-fast), transform var(--dur-fast);
@@ -3061,7 +3064,7 @@ body.route-chat .sitechat__panel { display: none; }
   font: inherit; font-size: 15px; color: var(--ink); font-variant-numeric: tabular-nums;
 }
 /* The row's border already shows where you're typing (.gcalc__row:focus-within): no second ring inside it. */
-.gcalc__input:focus-visible { box-shadow: none; }
+.gcalc__input:focus-visible { outline: none; box-shadow: none; }
 .gcalc__input::placeholder { color: var(--ink-faint); }
 .gcalc__row.is-hidden .gcalc__input { color: var(--ink-faint); }
 .gcalc__del {

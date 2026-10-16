@@ -43,6 +43,7 @@ const APP_SHELL = [
   "./js/prompts.js",
   "./js/material.js",
   "./js/lib/dom.js",
+  "./js/lib/modal-a11y.js",
   "./js/lib/a11y.js",
   "./js/lib/activity.js",
   "./js/lib/theme.js",

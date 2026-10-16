@@ -7,6 +7,7 @@ import { t, getLang, setLang, LANGS } from "../lib/i18n.js";
 import { getTheme, setTheme } from "../lib/theme.js";
 
 let overlay = null;
+const MAX_ROWS = 30;
 
 function actions() {
   const other = LANGS.find(([c]) => c !== getLang());
@@ -45,14 +46,17 @@ export function openPalette() {
     ...actions().map((a) => ({ ...a, sub: t("cmd.action") })),
   ];
   let filtered = rows, sel = 0;
+  // Only this many rows are drawn; the arrow keys, the highlight and Enter must stay within them.
+  const shown = () => Math.min(filtered.length, MAX_ROWS);
 
-  const list = el("div.cmd__list");
+  const list = el("div.cmd__list", { id: "cmd-list", role: "listbox", "aria-label": t("cmd.placeholder") });
   const input = el("input.cmd__input", {
     type: "text", placeholder: t("cmd.placeholder"), "aria-label": t("cmd.placeholder"),
+    role: "combobox", "aria-expanded": "true", "aria-controls": "cmd-list", "aria-autocomplete": "list",
     autocomplete: "off", spellcheck: "false",
     oninput: () => { paint(input.value.trim()); },
     onkeydown: (e) => {
-      if (e.key === "ArrowDown") { e.preventDefault(); sel = Math.min(sel + 1, filtered.length - 1); highlight(); }
+      if (e.key === "ArrowDown") { e.preventDefault(); sel = Math.max(0, Math.min(sel + 1, shown() - 1)); highlight(); }
       else if (e.key === "ArrowUp") { e.preventDefault(); sel = Math.max(sel - 1, 0); highlight(); }
       else if (e.key === "Enter") { e.preventDefault(); pick(sel); }
       else if (e.key === "Escape") { close(); }
@@ -63,17 +67,29 @@ export function openPalette() {
     filtered = q ? rows.filter((r) => matches(q, r.label) || matches(q, r.sub)) : rows;
     sel = 0;
     clear(list);
-    filtered.slice(0, 30).forEach((r, i) => {
+    if (!filtered.length) {
+      // Say so, instead of an empty box that looks broken; role=status makes a screen reader read it.
+      list.appendChild(el("div.cmd__empty", { role: "status" }, t("cmd.empty", { q })));
+      input.removeAttribute("aria-activedescendant");
+      return;
+    }
+    filtered.slice(0, MAX_ROWS).forEach((r, i) => {
       list.appendChild(el("button.cmd__row", {
-        type: "button", onclick: () => pick(i),
-        onmousemove: () => { sel = i; highlight(); },
+        type: "button", id: "cmd-row-" + i, role: "option", tabindex: "-1", "aria-selected": "false",
+        onclick: () => pick(i),
+        onmousemove: () => { if (sel !== i) { sel = i; highlight(); } },
       }, [el("span", {}, r.label), el("span.cmd__sub", {}, r.sub)]));
     });
     highlight();
   }
   function highlight() {
-    [...list.children].forEach((c, i) => c.classList.toggle("is-sel", i === sel));
-    list.children[sel]?.scrollIntoView({ block: "nearest" });
+    [...list.children].forEach((c, i) => {
+      c.classList.toggle("is-sel", i === sel);
+      if (c.getAttribute("role") === "option") c.setAttribute("aria-selected", i === sel ? "true" : "false");
+    });
+    const cur = list.children[sel];
+    if (cur && cur.id) input.setAttribute("aria-activedescendant", cur.id);
+    cur?.scrollIntoView({ block: "nearest" });
   }
   function pick(i) {
     const r = filtered[i];
