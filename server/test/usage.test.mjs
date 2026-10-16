@@ -134,3 +134,36 @@ describe("usage.currentPeriod / currentDay", () => {
     assert.equal(usage.dayResetsAt(d), Date.UTC(2026, 0, 16));
   });
 });
+
+describe("usage: requests in flight count against the monthly allowance", () => {
+  test("a second request started alongside the first is refused once the first would use the rest", () => {
+    const userId = makeUser();
+    assert.equal(usage.checkBudget(userId, 100).ok, true);
+    const first = usage.reserveUserTokens(userId, 60);   // admitted under the limit
+    assert.equal(usage.checkBudget(userId, 100).ok, true, "60 of 100 held: one more still fits");
+    const second = usage.reserveUserTokens(userId, 60);
+    assert.equal(usage.checkBudget(userId, 100).ok, false, "120 held: the next request is refused");
+    assert.equal(usage.checkBudget(userId, 100).used, 0, "`used` is still what is booked");
+    first(); second();
+    assert.equal(usage.checkBudget(userId, 100).ok, true, "released: room again");
+  });
+
+  test("releasing twice does not give back more than was held", () => {
+    const userId = makeUser();
+    const a = usage.reserveUserTokens(userId, 70);
+    const b = usage.reserveUserTokens(userId, 70);
+    a(); a();
+    assert.equal(usage.checkBudget(userId, 100).ok, true, "70 still held by b: 70 < 100");
+    usage.reserveUserTokens(userId, 40);
+    assert.equal(usage.checkBudget(userId, 100).ok, false, "b and the new one: 110");
+    b();
+  });
+});
+
+describe("usage: one account's share of the daily cap", () => {
+  test("is 10% by default: $0.01 cap here, so 1,000 micro-dollars", () => {
+    const userId = makeUser();
+    assert.equal(usage.checkUserDailyShare(userId, 1_000), true);
+    assert.equal(usage.checkUserDailyShare(userId, 1_001), false);
+  });
+});

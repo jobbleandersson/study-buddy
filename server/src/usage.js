@@ -136,11 +136,30 @@ export function isBudgetExempt(userId) {
   return list.includes(String(row.email).toLowerCase());
 }
 
+// Tokens of requests that are running now. The monthly meter is only booked when a request finishes, so
+// without this three requests started together all see the same "used" and can each add a whole answer
+// (a 5,000-token allowance was overshot to 15,900 by three parallel requests). Held per account in memory,
+// like the in-flight dollars below.
+const tokensInFlight = new Map();
+/** Hold a request's worst-case tokens against the account's monthly allowance while it runs; returns the release. */
+export function reserveUserTokens(userId, tokens) {
+  tokensInFlight.set(userId, (tokensInFlight.get(userId) || 0) + tokens);
+  let released = false;
+  return () => {
+    if (released) return;
+    released = true;
+    const n = (tokensInFlight.get(userId) || 0) - tokens;
+    if (n > 0) tokensInFlight.set(userId, n); else tokensInFlight.delete(userId);
+  };
+}
+
 /** { ok, used, limit, resetsAt } — call before forwarding a request. `limit` is the account's own
- *  ceiling (billing.js budgetFor: the Plus one for a subscriber), the free one by default. */
+ *  ceiling (billing.js budgetFor: the Plus one for a subscriber), the free one by default. `used` is what
+ *  is booked; requests still running count toward `ok` (one request that starts under the limit may still
+ *  finish over it, but a second one started alongside it is refused). */
 export function checkBudget(userId, limit = MONTHLY_TOKEN_BUDGET) {
   const used = readUsage(userId).totalTokens;
-  return { ok: used < limit, used, limit, resetsAt: periodResetsAt() };
+  return { ok: used + (tokensInFlight.get(userId) || 0) < limit, used, limit, resetsAt: periodResetsAt() };
 }
 
 // ---------- the account-wide daily dollar cap ----------
@@ -223,11 +242,14 @@ export function checkDailyCap(extraMicro = 0) {
 
 // ---------- one person's share of the daily cap ----------
 // Most of the day's cap one account may use (spent + in flight), so a single account — a fresh one,
-// say — can't switch AI off for everyone. AI_USER_DAILY_SHARE=0 turns it off.
+// say — can't switch AI off for everyone. AI_USER_DAILY_SHARE=0 turns it off. The default is 10%
+// ($0.50 of a $5 cap): at the old 25% four new accounts asking for long answers from the dearest model
+// could use the whole day's cap in seconds, and ten now have to. Ordinary use stays far below it (a
+// tutor message costs a fraction of a cent, a set about two cents).
 const USER_SHARE = (() => {
   const raw = process.env.AI_USER_DAILY_SHARE;
   const n = Number(raw);
-  return raw != null && raw.trim() !== "" && Number.isFinite(n) && n >= 0 ? n : 0.25;
+  return raw != null && raw.trim() !== "" && Number.isFinite(n) && n >= 0 ? n : 0.1;
 })();
 const userDay = { day: "", spent: new Map(), inflight: new Map() };
 function rollUserDay() {
