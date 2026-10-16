@@ -2,6 +2,7 @@
 // in APP_SHELL. Run from the repo root:
 //   node tools/validate-library.mjs            structure + sv/en parity
 //   node tools/validate-library.mjs --target=15  also list sets below 15 questions
+//   node tools/validate-library.mjs --update-length-baseline  lock in an improved answer-length ratio (see below)
 //
 // Checks: index count matches the file, doc id matches the index, every set
 // has an English file with the same question ids in the same order, the same
@@ -12,7 +13,7 @@
 // question's topic is in its set's topics list (per-topic class stats and
 // mastery group by that list, so a missing one drops those questions from them).
 
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
@@ -26,6 +27,23 @@ const KINDS = new Set(["mc", "text", "cloze", "flashcard", "worked"]);
 // Case-sensitive on purpose: spelling questions offer options that differ only
 // in capitals ("jordgubbstårta" / "Jordgubbstårta", "F(b)" / "f(b)").
 const norm = (s) => String(s ?? "").trim().replace(/\s+/g, " ");
+
+// How many multiple-choice questions (3+ options) have the correct option as the single longest one.
+const LENGTH_BASELINE_FILE = join(ROOT, "tools/answer-length-baseline.json");
+const NEW_SET_MAX_LONGEST_SHARE = 0.35;
+const lengthBaseline = existsSync(LENGTH_BASELINE_FILE) ? JSON.parse(readFileSync(LENGTH_BASELINE_FILE, "utf8")) : {};
+const lengthNow = {};
+function longestKeyCount(doc) {
+  let mc = 0, longest = 0;
+  for (const q of doc.questions || []) {
+    if (q.kind !== "mc" || !Array.isArray(q.choices) || q.choices.length < 3 || !Number.isInteger(q.answer)) continue;
+    mc++;
+    const len = q.choices.map((c) => String(c).trim().length);
+    const max = Math.max(...len);
+    if (len[q.answer] === max && len.filter((n) => n === max).length === 1) longest++;
+  }
+  return { mc, longest };
+}
 
 const index = JSON.parse(readFileSync(join(ROOT, "data/library/index.json"), "utf8"));
 const allIds = new Map();
@@ -80,6 +98,7 @@ for (const entry of index.sets) {
     checkQuestion(q, tag);
   }
   checkTopics(sv, "");
+  lengthNow[entry.id] = longestKeyCount(sv);
 
   if (!en) continue;
   if (en.id !== entry.id) fail(`${entry.id} (en): doc.id is "${en.id}"`);
@@ -99,6 +118,26 @@ for (const entry of index.sets) {
       if ((e.choices?.length || 0) !== (s.choices?.length || 0)) fail(`${tag}: ${e.choices?.length} choices but sv has ${s.choices?.length}`);
     }
   });
+}
+
+// The ratchet: a set may not have a higher share of 'longest option is the key' than its baseline.
+const update = process.argv.includes("--update-length-baseline");
+const nextBaseline = { ...lengthBaseline };
+for (const [id, now] of Object.entries(lengthNow)) {
+  if (now.mc < 8) continue;   // too few questions to say anything
+  const base = lengthBaseline[id];
+  if (update) {   // a deliberate act: lock in an improvement, or record a new set as it is; a baseline never goes up
+    if (!base || now.longest / now.mc < base.longest / base.mc) nextBaseline[id] = now;
+    continue;
+  }
+  const allowed = base ? Math.ceil((base.longest / base.mc) * now.mc - 1e-9) : Math.floor(NEW_SET_MAX_LONGEST_SHARE * now.mc);
+  if (now.longest > allowed) {
+    fail(`${id}: the correct option is the single longest in ${now.longest} of ${now.mc} questions (${Math.round((100 * now.longest) / now.mc)} %), ${base ? `baseline ${Math.round((100 * base.longest) / base.mc)} %` : `a new set may have at most ${Math.round(NEW_SET_MAX_LONGEST_SHARE * 100)} %`} - lengthen the distractors or shorten the key (node tools/validate-library.mjs --update-length-baseline records an improvement)`);
+  }
+}
+if (update) {
+  writeFileSync(LENGTH_BASELINE_FILE, JSON.stringify(Object.fromEntries(Object.entries(nextBaseline).sort(([a], [b]) => (a < b ? -1 : 1))), null, 1) + "\n");
+  console.log("answer-length baseline updated");
 }
 
 if (target) {
