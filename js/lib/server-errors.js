@@ -72,6 +72,7 @@ const KNOWN = {
   "Email isn't set up on this server.": "srv.err.emailOff",
   "Couldn't send the email. Try again shortly.": "srv.err.emailSendFailed",
   "Too many attempts. Try again in a few minutes.": "srv.err.tooManyAttempts",
+  "The server is busy right now. Try again in a moment.": "srv.err.hashBusy",
   "Two-factor authentication is already on.": "srv.err.twofaAlreadyOn",
   "This account isn't linked to Google.": "srv.err.noGoogleAccount",
   "This account already has a password.": "srv.err.passwordAlreadySet",

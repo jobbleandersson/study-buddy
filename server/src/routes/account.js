@@ -1,5 +1,5 @@
 import { Router } from "express";
-import bcrypt from "bcryptjs";
+import { comparePassword } from "../passwordHash.js";
 import { db } from "../db.js";
 import { COOKIE_NAME } from "../constants.js";
 import { requireAuth } from "../middleware/requireAuth.js";
@@ -41,7 +41,7 @@ account.delete("/account", requireAuth, deleteFailures, asyncHandler(async (req,
     }
   } else {
     const password = String(req.body?.password || "").slice(0, 200);
-    if (!(await bcrypt.compare(password, user.password_hash))) {
+    if (!(await comparePassword(password, user.password_hash))) {
       return res.status(403).json({ error: { message: "That password is wrong.", code: "confirm_mismatch" } });
     }
   }

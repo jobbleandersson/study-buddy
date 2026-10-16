@@ -1009,6 +1009,7 @@ export default {
   "srv.err.joinOwnClass": "You can't join your own class.",
   "srv.err.classFull": "This class is full.",
   "srv.err.tooManyAttempts": "Too many attempts. Try again in a few minutes.",
+  "srv.err.hashBusy": "The server is busy right now. Try again in a moment.",
   "srv.err.classLimit": "You can have up to 20 classes.",
   "srv.err.pickSet": "Pick a set from the library.",
   "srv.err.badDate": "That date isn't valid.",
