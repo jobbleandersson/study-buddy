@@ -24,8 +24,8 @@ describe("per requester and per address", () => {
     fake = await startFakeResend();
     server = await startServer({
       RESEND_API_KEY: "dummy-test-key", RESEND_API_URL: fake.url,
-      MAIL_VERIFY_PER_DAY_PER_IP: "3", MAIL_VERIFY_PER_DAY_PER_ADDRESS: "2",
-      MAIL_RESET_PER_DAY_PER_IP: "2", MAIL_RESET_PER_DAY_PER_ADDRESS: "2",
+      MAIL_VERIFY_PER_DAY_PER_IP: "3", MAIL_VERIFY_PER_HOUR_PER_ADDRESS: "2",
+      MAIL_RESET_PER_DAY_PER_IP: "2", MAIL_RESET_PER_HOUR_PER_ADDRESS: "2",
     });
   });
   after(async () => { await server.stop(); await fake.stop(); });
@@ -63,13 +63,44 @@ describe("per requester and per address", () => {
   });
 });
 
+describe("the recipient's allowance", () => {
+  let fake, server;
+  before(async () => {
+    fake = await startFakeResend();
+    server = await startServer({ RESEND_API_KEY: "dummy-test-key", RESEND_API_URL: fake.url, FLY_APP_NAME: "test", MAIL_VERIFY_PER_HOUR_PER_ADDRESS: "1", MAIL_RESET_PER_HOUR_PER_ADDRESS: "1", MAIL_RESET_PER_DAY_PER_IP: "2" });
+  });
+  after(async () => { await server.stop(); await fake.stop(); });
+
+  test("'send the link again' is a 429 once the address has had its mail this hour", async () => {
+    const { c } = await signup(server.baseUrl);   // the signup mail is that address's one
+    const again = await c.post("/api/auth/verify-email/resend");
+    assert.equal(again.status, 429);
+    assert.equal(again.json.error.code, "too_many_mails");
+  });
+
+  test("a requester that is over its limit does not use up the victim's allowance", async () => {
+    const victim = await signup(server.baseUrl); victim.c.clearCookie();
+    const others = [];
+    for (let i = 0; i < 2; i++) { const o = await signup(server.baseUrl); o.c.clearCookie(); others.push(o); }
+    const ask = async (addr, ip) => {
+      server.db.prepare("DELETE FROM password_reset_tokens").run();   // skip the 2-minute wait between mails to one address
+      await fetch(server.baseUrl + "/api/auth/forgot-password", { method: "POST", headers: { "content-type": "application/json", "fly-client-ip": ip }, body: JSON.stringify({ email: addr }) });
+    };
+    await ask(others[0].addr, "10.0.0.1"); await ask(others[1].addr, "10.0.0.1");   // requester A's 2 resets are spent
+    for (let i = 0; i < 5; i++) await ask(victim.addr, "10.0.0.1");                  // refused for A: must not count against the victim
+    await ask(victim.addr, "10.0.0.2");                                              // requester B, within its limit
+    await settle();
+    assert.equal(count(fake, RESET, victim.addr), 1, "the victim's allowance was not used by the refused requests");
+  });
+});
+
 describe("a flood of one kind of mail does not starve another", () => {
   let fake, server;
   before(async () => {
     fake = await startFakeResend();
     server = await startServer({
       RESEND_API_KEY: "dummy-test-key", RESEND_API_URL: fake.url, EMAIL_DAILY_BUDGET: "20",
-      MAIL_VERIFY_PER_DAY_PER_IP: "0", MAIL_VERIFY_PER_DAY_PER_ADDRESS: "0", MAIL_RESET_PER_DAY_PER_IP: "0", MAIL_RESET_PER_DAY_PER_ADDRESS: "0",
+      MAIL_VERIFY_PER_DAY_PER_IP: "0", MAIL_VERIFY_PER_HOUR_PER_ADDRESS: "0", MAIL_RESET_PER_DAY_PER_IP: "0", MAIL_RESET_PER_HOUR_PER_ADDRESS: "0",
     });
   });
   after(async () => { await server.stop(); await fake.stop(); });
