@@ -137,7 +137,7 @@
         "$(2, -5)$"
       ],
       "answer": 0,
-      "explanation": "$(x+5)^2 = (x-(-5))^2$, så $a=-5$ och $b=-2$, vilket ger vertex $(-5,-2)$. Att glömma teckenbytet inuti parentesen (svar B) är ett vanligt misstag."
+      "explanation": "$(x+5)^2 = (x-(-5))^2$, så $a=-5$ och $b=-2$, vilket ger vertex $(-5,-2)$. Att glömma teckenbytet inuti parentesen, alltså $(5, -2)$, är ett vanligt misstag."
     },
     {
       "id": "q-ma2-funktioner-10",
@@ -152,7 +152,7 @@
         "$x = -8$"
       ],
       "answer": 0,
-      "explanation": "Symmetrilinjen är $x = -\\frac{p}{2} = -\\frac{8}{2} = -4$. Att svara $x=4$ (svar B) missar minustecknet i formeln."
+      "explanation": "Symmetrilinjen är $x = -\\frac{p}{2} = -\\frac{8}{2} = -4$. Att svara $x=4$ missar minustecknet i formeln."
     },
     {
       "id": "q-ma2-funktioner-11",
@@ -227,7 +227,7 @@
         "$x = 6$"
       ],
       "answer": 0,
-      "explanation": "Symmetrilinjen är $x = \\frac{12}{2\\cdot3} = \\frac{12}{6} = 2$. Att glömma att dela med $2a$ (och bara dela med $a$) hade felaktigt gett svar B, $x=4$."
+      "explanation": "Symmetrilinjen är $x = \\frac{12}{2\\cdot3} = \\frac{12}{6} = 2$. Att glömma att dela med $2a$ (och bara dela med $a$) hade felaktigt gett $x=4$."
     }
   ]
 }

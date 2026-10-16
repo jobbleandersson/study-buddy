@@ -99,7 +99,7 @@
         "$x = \\lg(20) \\cdot \\lg(5)$"
       ],
       "answer": 0,
-      "explanation": "Ta $\\lg$ av båda leden: $\\lg(5^x) = \\lg(20)$, vilket ger $x \\cdot \\lg(5) = \\lg(20)$. Lös ut $x$: $x = \\dfrac{\\lg(20)}{\\lg(5)} \\approx 1{,}86$. Att subtrahera logaritmerna (svar B) hade motsvarat en division inuti logaritmen, inte en lösning för $x$ i exponenten."
+      "explanation": "Ta $\\lg$ av båda leden: $\\lg(5^x) = \\lg(20)$, vilket ger $x \\cdot \\lg(5) = \\lg(20)$. Lös ut $x$: $x = \\dfrac{\\lg(20)}{\\lg(5)} \\approx 1{,}86$. Att subtrahera logaritmerna hade motsvarat en division inuti logaritmen, inte en lösning för $x$ i exponenten."
     },
     {
       "id": "q-ma2-exponential-7",
@@ -151,7 +151,7 @@
         "$1{,}8$"
       ],
       "answer": 0,
-      "explanation": "En ökning med 8 % ger förändringsfaktorn $1+0{,}08=1{,}08$. Svar C ($0{,}92$) är i stället förändringsfaktorn vid en minskning med 8 %."
+      "explanation": "En ökning med 8 % ger förändringsfaktorn $1+0{,}08=1{,}08$. Värdet $0{,}92$ är i stället förändringsfaktorn vid en minskning med 8 %."
     },
     {
       "id": "q-ma2-exponential-11",
@@ -211,7 +211,7 @@
         "$x = \\lg(50) \\cdot \\lg(7)$"
       ],
       "answer": 0,
-      "explanation": "Ta $\\lg$ av båda leden: $x\\cdot\\lg(7)=\\lg(50)$, vilket ger $x=\\dfrac{\\lg(50)}{\\lg(7)}\\approx2{,}01$. Att bara dela 50 med 7 (svar C) ignorerar att $x$ står i exponenten."
+      "explanation": "Ta $\\lg$ av båda leden: $x\\cdot\\lg(7)=\\lg(50)$, vilket ger $x=\\dfrac{\\lg(50)}{\\lg(7)}\\approx2{,}01$. Att bara dela 50 med 7 ignorerar att $x$ står i exponenten."
     },
     {
       "id": "q-ma2-exponential-15",
@@ -226,7 +226,7 @@
         "$\\dfrac{\\lg(a)}{3}$"
       ],
       "answer": 0,
-      "explanation": "Logaritmlagen för potenser: $\\lg(a^n) = n\\lg(a)$, så $\\lg(a^3) = 3\\lg(a)$. Att skriva $\\lg(a)^3$ (svar B) blandar ihop att upphöja logaritmen i sig med att upphöja argumentet."
+      "explanation": "Logaritmlagen för potenser: $\\lg(a^n) = n\\lg(a)$, så $\\lg(a^3) = 3\\lg(a)$. Att skriva $\\lg(a)^3$ blandar ihop att upphöja logaritmen i sig med att upphöja argumentet."
     }
   ]
 }

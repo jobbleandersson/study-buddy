@@ -99,7 +99,7 @@
         "$x = \\lg(20) \\cdot \\lg(5)$"
       ],
       "answer": 0,
-      "explanation": "Take $\\lg$ of both sides: $\\lg(5^x) = \\lg(20)$, which gives $x \\cdot \\lg(5) = \\lg(20)$. Solve for $x$: $x = \\dfrac{\\lg(20)}{\\lg(5)} \\approx 1.86$. Subtracting the logarithms (answer B) would correspond to a division inside the logarithm, not a solution for $x$ in the exponent."
+      "explanation": "Take $\\lg$ of both sides: $\\lg(5^x) = \\lg(20)$, which gives $x \\cdot \\lg(5) = \\lg(20)$. Solve for $x$: $x = \\dfrac{\\lg(20)}{\\lg(5)} \\approx 1.86$. Subtracting the logarithms would correspond to a division inside the logarithm, not a solution for $x$ in the exponent."
     },
     {
       "id": "q-ma2-exponential-7",
@@ -151,7 +151,7 @@
         "$1.8$"
       ],
       "answer": 0,
-      "explanation": "An increase of 8% gives the change factor $1+0.08=1.08$. Option C ($0.92$) is instead the change factor for a decrease of 8%."
+      "explanation": "An increase of 8% gives the change factor $1+0.08=1.08$. The value $0.92$ is instead the change factor for a decrease of 8%."
     },
     {
       "id": "q-ma2-exponential-11",
@@ -211,7 +211,7 @@
         "$x = \\lg(50) \\cdot \\lg(7)$"
       ],
       "answer": 0,
-      "explanation": "Take $\\lg$ of both sides: $x\\cdot\\lg(7)=\\lg(50)$, giving $x=\\dfrac{\\lg(50)}{\\lg(7)}\\approx2.01$. Simply dividing 50 by 7 (option C) ignores that $x$ is in the exponent."
+      "explanation": "Take $\\lg$ of both sides: $x\\cdot\\lg(7)=\\lg(50)$, giving $x=\\dfrac{\\lg(50)}{\\lg(7)}\\approx2.01$. Simply dividing 50 by 7 ignores that $x$ is in the exponent."
     },
     {
       "id": "q-ma2-exponential-15",
@@ -226,7 +226,7 @@
         "$\\dfrac{\\lg(a)}{3}$"
       ],
       "answer": 0,
-      "explanation": "The power rule for logarithms: $\\lg(a^n) = n\\lg(a)$, so $\\lg(a^3) = 3\\lg(a)$. Writing $\\lg(a)^3$ (option B) confuses raising the logarithm itself to a power with raising the argument."
+      "explanation": "The power rule for logarithms: $\\lg(a^n) = n\\lg(a)$, so $\\lg(a^3) = 3\\lg(a)$. Writing $\\lg(a)^3$ confuses raising the logarithm itself to a power with raising the argument."
     }
   ]
 }
