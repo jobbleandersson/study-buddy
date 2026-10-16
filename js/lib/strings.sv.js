@@ -1222,7 +1222,7 @@ export default {
   "parent.signInLabel": "Logga in för att koppla konton",
   "parent.loading": "Hämtar…",
   "parent.loadFail": "Det gick inte att hämta dina kopplingar. Kontrollera anslutningen och försök igen.",
-  "parent.inviteSub": "Låt en förälder eller lärare följa dina framsteg.",
+  "parent.inviteSub": "Låt en förälder eller lärare följa dina framsteg. De ser dagar du pluggat, hur det går per ämne och hur många frågor som väntar på repetition, inte dina set, svar eller anteckningar.",
   "parent.inviteCodeLabel": "Inbjudningskod",
   "parent.inviteNew": "Ny kod",
   "parent.codePlaceholder": "AB12CD",
