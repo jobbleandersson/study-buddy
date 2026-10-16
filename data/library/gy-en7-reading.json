@@ -22,7 +22,7 @@
         "The bypass has been an unqualified success.",
         "Traffic flow has improved dramatically.",
         "The council may be avoiding uncomfortable questions about the bypass's local costs.",
-        "Environmental groups oppose the bypass."
+        "Environmental groups and local residents have always strongly opposed the bypass altogether."
       ],
       "answer": 2,
       "explanation": "Genom att ställa kommunens tystnad om butiksnedläggningarna mot det faktum att tre butiker stängt, antyder texten indirekt att kommunen undviker obekväma frågor. Texten säger aldrig detta rakt ut, men sammanställningen av fakta bär argumentet."
@@ -34,8 +34,8 @@
       "prompt": "Read the text and answer.\n\n\"A recent study found that towns with more cafés per capita also have higher average incomes. Some commentators have concluded that opening cafés boosts local wealth. Researchers behind the study, however, note that wealthier towns simply attract more café businesses in the first place, and caution against drawing causal conclusions from the data.\"\n\nWhat is the main flaw in the commentators' conclusion?",
       "opener": "Forskarna själva varnar för en specifik logisk felslutning — vilken?",
       "choices": [
-        "They assumed causation from a correlation that may run in the opposite direction.",
-        "They ignored the sample size of the study.",
+        "They assumed causation from a correlation that could run the other way.",
+        "They ignored the sample size of the study and how the participants were chosen.",
         "They misunderstood what 'per capita' means.",
         "They confused income with wealth."
       ],
@@ -79,8 +79,8 @@
       "prompt": "Read the text and answer.\n\n\"Universal basic income (UBI) has been trialled in several countries. Advocates argue it reduces poverty and gives people freedom to retrain or start businesses. Critics counter that it is prohibitively expensive at scale and may reduce the incentive to work. Early trial results are mixed: poverty indicators improve, but long-term employment effects remain unclear due to short trial periods.\"\n\nWhich summary most accurately reflects the text?",
       "opener": "En bra sammanfattning väger BÅDA sidor och de osäkerheter texten faktiskt nämner.",
       "choices": [
-        "UBI trials prove that basic income has no drawbacks.",
-        "UBI reduces poverty short-term, but its cost and long-term employment effects remain disputed.",
+        "UBI trials prove that basic income has no drawbacks and should be introduced everywhere at once.",
+        "UBI reduces poverty short-term, but cost and long-term employment effects remain disputed.",
         "UBI is too expensive and should be abandoned.",
         "Critics have been proven wrong by trial data."
       ],
@@ -94,10 +94,10 @@
       "prompt": "Read the text and answer.\n\n\"The company's annual report devotes four pages to its new recycling initiative and a single sentence to a 12% drop in full-time staff. Both changes occurred in the same fiscal year.\"\n\nWhat can the reader reasonably infer about the report's purpose?",
       "opener": "Jämför hur mycket utrymme varje nyhet får — vad säger det om vad företaget vill att du ska lägga märke till?",
       "choices": [
-        "The report proves the company only cares about the environment.",
+        "The report proves the company only cares about the environment and not about its staff or profits.",
         "The staff reduction was unrelated to the recycling programme.",
         "The report is purely factual with no persuasive intent.",
-        "The company wants to highlight the recycling initiative while downplaying the staff reduction."
+        "The company wants to highlight the recycling programme while downplaying the staff reduction."
       ],
       "answer": 3,
       "explanation": "Den ojämna fördelningen av utrymme (fyra sidor mot en mening) är ett sätt att styra läsarens uppmärksamhet bort från en obekväm nyhet — ett vanligt retoriskt grepp i årsredovisningar. Påståendet att rapporten bevisar att företaget bara bryr sig om miljön säger för mycket; texten visar inte att företaget \"bara\" bryr sig om miljön."
@@ -131,10 +131,10 @@
       "prompt": "Read the text and answer.\n\n\"The press release celebrates a 'restructuring for future growth.' It does not mention that 200 employees lost their jobs in the process.\"\n\nWhat does the omission suggest?",
       "opener": "Vad avslöjar det pressmeddelandet INTE nämner, jämfört med vad som faktiskt hände?",
       "choices": [
-        "The company is likely trying to present the layoffs in a more positive light by omitting them.",
+        "The company is likely trying to present the layoffs more positively by omitting them.",
         "The layoffs were not significant enough to mention.",
         "The press release is entirely objective and complete.",
-        "Future growth is guaranteed as a result of the restructuring."
+        "Future growth is guaranteed as a result of the restructuring and the new owners' plans."
       ],
       "answer": 0,
       "explanation": "Genom att fira \"omstrukturering för framtida tillväxt\" utan att nämna att 200 personer förlorade jobbet, försöker företaget sannolikt framställa uppsägningarna i en mer positiv dager genom att utelämna dem."
@@ -162,7 +162,7 @@
       "opener": "Orden är överdrivet positiva om något som uppenbarligen var ineffektivt — ett tecken på sarkasm.",
       "choices": [
         "Sarcastic criticism of how the meeting's time was used",
-        "Genuine praise for the meeting's efficiency",
+        "Genuine praise for the meeting's efficiency and its clear outcomes",
         "A neutral description of the meeting's agenda",
         "Confusion about what the meeting covered"
       ],
@@ -176,9 +176,9 @@
       "prompt": "Read the text and answer.\n\n\"Proponents of a four-day school week cite improved teacher retention and student well-being. Opponents point to childcare difficulties for working parents and mixed academic results. Some districts report gains in math scores but declines in reading scores.\"\n\nWhich summary best reflects this text?",
       "opener": "En bra sammanfattning väger in BÅDA sidorna och nyansen i resultaten (matte vs. läsning).",
       "choices": [
-        "The four-day school week has both benefits and drawbacks, with academic effects that vary by subject.",
+        "The four-day school week has both benefits and drawbacks, with effects that vary by subject.",
         "The four-day school week is an unqualified success for all students.",
-        "The four-day school week should be abandoned immediately due to poor results.",
+        "The four-day school week should be abandoned immediately due to poor results in every subject and district.",
         "Only teachers benefit from the four-day school week."
       ],
       "answer": 0,
@@ -191,9 +191,9 @@
       "prompt": "Read the text and answer.\n\n\"The advertisement shows only young, visibly fit people using the fitness app, despite the company's claim that it is 'designed for everyone.'\"\n\nWhat does this juxtaposition imply?",
       "opener": "Jämför vad annonsen VISAR med vad företaget PÅSTÅR.",
       "choices": [
-        "There may be a gap between the company's stated inclusivity and how it actually markets the product.",
+        "There may be a gap between the company's stated inclusivity and how it markets the product.",
         "The app is exclusively designed for elderly users.",
-        "The advertisement is factually inaccurate about the app's features.",
+        "The advertisement is factually inaccurate about the app's features, price and the age range of its target users.",
         "Fitness apps are generally ineffective."
       ],
       "answer": 0,

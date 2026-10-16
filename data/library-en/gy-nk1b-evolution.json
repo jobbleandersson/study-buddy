@@ -19,9 +19,9 @@
       "prompt": "What is required for natural selection to be able to lead to evolution in a population?",
       "opener": "Think about three things: variation, heritability, and what determines who has the most offspring.",
       "choices": [
-        "That there is heritable variation between individuals, and that certain traits give better survival or reproduction in the current environment",
+        "That there is heritable variation between individuals, and that some traits give better survival",
         "That all individuals are exactly alike from the start",
-        "That individuals consciously choose to change their traits",
+        "That individuals consciously choose to change their traits to cope better with the environment and to pass them on",
         "That the environment never changes"
       ],
       "answer": 0,
@@ -35,8 +35,8 @@
       "opener": "Think about what happens to the gene pools in the two groups when they can no longer mate with each other.",
       "choices": [
         "The barrier has no significance for speciation as long as the climate is the same",
-        "The two populations develop identically because mutations always occur at the same rate",
-        "The isolated populations are exposed to different selection pressures and accumulate different mutations, and over time may become so different that they can no longer produce fertile offspring together",
+        "The two populations develop identically because mutations always occur at the same rate and in the same direction in every environment",
+        "The isolated populations get different selection pressures and mutations and may eventually no longer produce fertile offspring",
         "The barrier causes all individuals in both groups to die out within one generation"
       ],
       "answer": 2,
@@ -50,9 +50,9 @@
       "opener": "Think about where in the DNA molecule the information for a particular trait is stored.",
       "choices": [
         "An entire chromosome",
-        "A type of cell found only in the reproductive organs",
+        "A type of cell found only in the reproductive organs and which divides by meiosis to form eggs and sperm",
         "Another word for the entire genome",
-        "A segment of DNA that contains information (a \"blueprint\") for building a protein or regulating a trait"
+        "A segment of DNA that contains information for building a protein or regulating a trait"
       ],
       "answer": 3,
       "explanation": "A gene is a sequence of DNA that carries information for building a protein or for regulating other genes. Many genes together form a chromosome, and the entire genome consists of all the genes and other DNA in an organism."
@@ -94,8 +94,8 @@
       "prompt": "From an ethical perspective, what does it mean that gene-editing techniques such as CRISPR make it possible to change the genome of future generations if germ cells or embryos are edited?",
       "opener": "Think about the difference between editing genes in an individual patient's body cells, and editing genes that are passed on to children and grandchildren.",
       "choices": [
-        "It makes no difference compared with treating a disease in an adult patient",
-        "Changes in germ cells or embryos can be passed on to future generations, which raises particularly difficult ethical questions about consent and long-term consequences",
+        "It makes no difference compared with treating a disease in an adult patient who consents",
+        "The changes can be inherited by future generations, which raises difficult ethical questions",
         "The technique can only be used on plants, never on humans",
         "It is purely a technical question with no ethical significance"
       ],
@@ -132,9 +132,9 @@
       "prompt": "What is convergent evolution?",
       "opener": "Think about how fish, dolphins and (extinct) ichthyosaurs all have a similar, streamlined body shape despite not being closely related.",
       "choices": [
-        "When unrelated species independently evolve similar traits because they have adapted to similar environments or ways of life",
+        "When unrelated species independently evolve similar traits in similar environments",
         "When two species become increasingly different from each other over time",
-        "When a species suddenly transforms into a completely different species within one generation",
+        "When a species suddenly transforms into a completely different species within a single generation, without intermediate forms",
         "Another word for speciation through geographical isolation"
       ],
       "answer": 0,
@@ -162,8 +162,8 @@
       "prompt": "What is the function of mRNA in the process by which a gene is expressed as a protein?",
       "opener": "Think about the path the information takes from DNA in the nucleus to protein-building in the cytoplasm.",
       "choices": [
-        "mRNA copies the genetic information from DNA in the nucleus and carries it to the ribosomes, where the protein is built",
-        "mRNA permanently stores the genetic information in the cell",
+        "mRNA copies genetic information from DNA in the nucleus and carries it to the ribosomes",
+        "mRNA permanently stores the genetic information in the cell and passes it on to the next generation",
         "mRNA breaks down proteins after they have been made",
         "mRNA exists only in bacteria, never in human cells"
       ],
@@ -207,8 +207,8 @@
       "prompt": "What is a genetically modified organism (GMO)?",
       "opener": "Think about what is deliberately changed in the organism's genome, as opposed to natural mutations.",
       "choices": [
-        "An organism whose genome has been deliberately altered using genetic engineering, e.g. to give a crop resistance to pests",
-        "Another word for a species that arose through natural selection",
+        "An organism whose genome has been deliberately altered using genetic engineering",
+        "Another word for a species that arose through natural selection over millions of years",
         "An organism that can only exist in a laboratory environment",
         "A collective term for all hybrid species in nature"
       ],
@@ -222,10 +222,10 @@
       "prompt": "What is a chromosome?",
       "opener": "Think about how a DNA molecule several metres long fits inside a microscopically small nucleus.",
       "choices": [
-        "A tightly packed structure of DNA and proteins (histones), which makes it possible to pack the long DNA molecule into the nucleus",
+        "A tightly packed structure of DNA and proteins (histones) that fits in the nucleus",
         "A type of protein that breaks down DNA",
         "Another word for a single gene",
-        "A structure found only in bacteria"
+        "A structure found only in bacteria that contains their single gene and its copies"
       ],
       "answer": 0,
       "explanation": "A chromosome is DNA tightly packed together with proteins (histones), which makes it possible to fit the very long DNA molecule inside the small nucleus. A chromosome contains many genes, so it is not the same thing as a single gene."

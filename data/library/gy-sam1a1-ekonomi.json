@@ -19,7 +19,7 @@
       "prompt": "Vad kännetecknar en marknadsekonomi?",
       "opener": "Vad är det som avgör priser och produktion - en central plan eller köpare och säljare?",
       "choices": [
-        "Staten bestämmer alla priser och produktionsmål centralt",
+        "Staten bestämmer alla priser och produktionsmål centralt för hela landet i femårsplaner",
         "Det finns ingen privat äganderätt alls",
         "Utbud och efterfrågan styr priser och produktion, och privat äganderätt är central",
         "All produktion sker uteslutande i statliga företag"
@@ -49,7 +49,7 @@
       "prompt": "Vad kännetecknar en lågkonjunktur i konjunkturcykeln?",
       "opener": "Fundera på vad som händer med efterfrågan, produktion och arbetslöshet när ekonomin bromsar in.",
       "choices": [
-        "Hög efterfrågan, stigande produktion och sjunkande arbetslöshet",
+        "Hög efterfrågan, stigande produktion och sjunkande arbetslöshet i hela ekonomin",
         "Minskad efterfrågan, lägre produktion och ofta stigande arbetslöshet",
         "Att BNP alltid blir exakt noll",
         "Att inflationen helt försvinner för gott"
@@ -64,7 +64,7 @@
       "prompt": "Vad kallas arbetslöshet som uppstår för att arbetstagares kompetens inte längre matchar de jobb som efterfrågas, till exempel vid stora teknikskiften?",
       "opener": "Det handlar om en varaktig obalans mellan de kunskaper som finns och de som efterfrågas - inte om konjunkturens svängningar.",
       "choices": [
-        "Konjunkturarbetslöshet",
+        "Konjunkturarbetslöshet (lågkonjunktur)",
         "Säsongsarbetslöshet",
         "Friktionsarbetslöshet",
         "Strukturell arbetslöshet"
@@ -79,10 +79,10 @@
       "prompt": "Vad innebär inflation?",
       "opener": "Tänk på vad som händer med priserna generellt, och därmed med pengarnas köpkraft.",
       "choices": [
-        "Den allmänna prisnivån i ekonomin stiger, vilket gör att pengar minskar i värde",
+        "Den allmänna prisnivån stiger, vilket gör att pengar minskar i värde",
         "Priserna sjunker generellt i hela ekonomin",
         "Styrräntan blir alltid noll procent",
-        "Arbetslösheten ökar automatiskt och alltid"
+        "Arbetslösheten ökar automatiskt och alltid, oavsett vad som händer med priserna"
       ],
       "answer": 0,
       "explanation": "Inflation innebär att den allmänna prisnivån stiger över tid, vilket gör att samma summa pengar köper mindre än tidigare - pengarnas köpkraft minskar. Motsatsen, att priserna sjunker generellt, kallas deflation."
@@ -96,8 +96,8 @@
       "choices": [
         "Att sätta priser på livsmedel direkt",
         "Att bestämma nivån på bolagsskatten",
-        "Styrräntan, som påverkar hur dyrt eller billigt det är att låna och spara pengar",
-        "Att trycka obegränsat med nya sedlar varje månad"
+        "Styrräntan, som påverkar hur dyrt eller billigt det är att låna och spara",
+        "Att trycka obegränsat med nya sedlar varje månad för att betala statens skulder"
       ],
       "answer": 2,
       "explanation": "Riksbanken bedriver penningpolitik främst genom att justera styrräntan, vilket påverkar bankernas ränta till hushåll och företag och därmed hur mycket som lånas, sparas och konsumeras - ett sätt att styra mot inflationsmålet."
@@ -162,9 +162,9 @@
       "prompt": "Vad menas med finanspolitik som ett verktyg för att motverka en lågkonjunktur?",
       "opener": "Tänk på vilket verktyg staten (inte Riksbanken) förfogar över.",
       "choices": [
-        "Att staten ökar sina utgifter eller sänker skatter för att stimulera efterfrågan i ekonomin",
+        "Att staten ökar sina utgifter eller sänker skatter för att stimulera efterfrågan",
         "Att Riksbanken sänker styrräntan",
-        "Att staten fryser alla priser i hela ekonomin",
+        "Att staten fryser alla priser och löner i hela ekonomin för att stoppa lågkonjunkturen",
         "Att staten förbjuder import av varor"
       ],
       "answer": 0,
@@ -195,7 +195,7 @@
         "2 procents årlig prisökning, mätt med konsumentprisindex",
         "0 procents inflation exakt varje år",
         "10 procents inflation varje år",
-        "Riksbanken har inget uttalat inflationsmål"
+        "Riksbanken har inget uttalat inflationsmål utan bestämmer från år till år"
       ],
       "answer": 0,
       "explanation": "Riksbankens inflationsmål är 2 procents årlig ökning av den allmänna prisnivån. Målet ger en riktlinje för penningpolitiken och hjälper hushåll och företag att planera sin ekonomi utifrån en förväntad, måttlig prisökning."
@@ -207,9 +207,9 @@
       "prompt": "Hur påverkar en höjd styrränta vanligtvis hushållens konsumtion?",
       "opener": "Tänk på vad som händer med lånekostnader och sparande när räntan stiger.",
       "choices": [
-        "Den gör det dyrare att låna och mer lönsamt att spara, vilket tenderar att dämpa konsumtionen",
+        "Den gör det dyrare att låna och mer lönsamt att spara, vilket dämpar konsumtionen",
         "Den gör det automatiskt billigare att låna pengar",
-        "Den har ingen påverkan alls på hushållens ekonomi",
+        "Den har ingen påverkan alls på hushållens ekonomi eller på företagens investeringar och anställningar",
         "Den innebär att alla lån blir räntefria"
       ],
       "answer": 0,

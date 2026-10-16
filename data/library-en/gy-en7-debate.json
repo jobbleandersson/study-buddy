@@ -20,7 +20,7 @@
       "opener": "Questions that don't expect an answer, but are meant to make the listener think.",
       "choices": [
         "Rhetorical question",
-        "Concession",
+        "Concession to the audience",
         "Hedging",
         "Statistic"
       ],
@@ -35,7 +35,7 @@
       "opener": "Which sentence repeats the same structure several times to strengthen the effect?",
       "choices": [
         "We need change. We need it now. We need it for our future.",
-        "Some people believe that change is necessary.",
+        "Some people believe that change is necessary, though others are not so sure.",
         "It could be argued that change is overdue.",
         "According to recent data, 60% support change."
       ],
@@ -51,7 +51,7 @@
       "choices": [
         "Providing evidence and citing sources.",
         "Using fear and exaggeration to bypass the audience's reasoning.",
-        "Acknowledging the opposing view before responding to it.",
+        "Acknowledging the opposing view fairly before responding to it with evidence.",
         "Using a rhetorical question to introduce a topic."
       ],
       "answer": 1,
@@ -65,7 +65,7 @@
       "opener": "Which sentence claims, without evidence, that a small change inevitably leads to disaster?",
       "choices": [
         "Studies show that the policy reduced costs by 12%.",
-        "Opponents argue the policy is too expensive; however, long-term savings outweigh the initial cost.",
+        "Opponents argue the policy is too expensive; however, long-term savings clearly outweigh the initial cost.",
         "If we allow this small change, soon everything will fall apart and society as we know it will collapse.",
         "It could be argued that further research is needed before a final decision."
       ],
@@ -94,7 +94,7 @@
       "prompt": "Which sentence uses hedging language appropriately in an academic argument?",
       "opener": "Hedging is used to express caution and avoid overly strong claims — which sentence does that?",
       "choices": [
-        "This definitely proves that social media causes anxiety.",
+        "This definitely proves that social media causes anxiety in every single user of any age.",
         "It could be argued that social media contributes to anxiety in some individuals.",
         "Everybody knows social media causes anxiety.",
         "Social media obviously ruins mental health."
@@ -148,7 +148,7 @@
       "choices": [
         "How much longer can we afford to ignore this crisis?",
         "The crisis began in 2019.",
-        "Some experts believe the crisis is overstated.",
+        "Some experts believe the crisis is overstated, although many others disagree.",
         "According to the report, costs have doubled."
       ],
       "answer": 0,
@@ -176,8 +176,8 @@
       "prompt": "Which sentence is an example of a manipulative false dilemma?",
       "opener": "A false dilemma presents only two extremes as if there were no middle ground.",
       "choices": [
-        "Either we ban the product entirely, or we accept that thousands will be harmed — there is no middle ground.",
-        "The evidence on this product's safety is mixed and requires further study.",
+        "Either we ban the product entirely, or thousands will be harmed — there is no middle ground.",
+        "The evidence on this product's safety is mixed and requires further study before any decision.",
         "Some risks exist, but they can be managed with proper regulation.",
         "The product has both benefits and drawbacks worth weighing."
       ],
@@ -222,7 +222,7 @@
       "opener": "Three items in a row give a sentence rhythm and a sense of completeness.",
       "choices": [
         "It creates rhythm and makes the point feel complete and memorable.",
-        "It weakens the argument by repeating the same idea.",
+        "It weakens the argument by repeating the same idea three times in a row.",
         "It is used only in written, not spoken, English.",
         "It signals that the speaker is hedging."
       ],

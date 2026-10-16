@@ -49,7 +49,7 @@
       "prompt": "What characterises good source handling in running text?",
       "opener": "The source should support your reasoning, not take it over.",
       "choices": [
-        "Sources are woven naturally into the text and clearly indicated, rather than just stacked up as a list",
+        "Sources are woven naturally into the text and clearly indicated",
         "You rewrite other people's texts without stating where the information comes from",
         "You quote as much as possible word for word to avoid writing yourself",
         "Sources only need to be stated in an appendix, never in the text"
@@ -66,8 +66,8 @@
       "choices": [
         "No problem, it's enough to have read the article",
         "The only problem is that the sentence is too short",
-        "It counts as plagiarism since the source is neither quoted correctly nor cited",
-        "It's only a problem if the article is written in another language"
+        "It counts as plagiarism since the source is neither quoted nor cited",
+        "It's only a problem if the article is written in a language other than Swedish"
       ],
       "answer": 2,
       "explanation": "Reproducing someone else's phrasing almost word for word without quotation marks and a source reference counts as plagiarism, regardless of how carefully you have read the source. Text should either be clearly reworded in your own words with a source reference, or quoted correctly."
@@ -80,8 +80,8 @@
       "opener": "What happens to readability if everything is one single long block of text?",
       "choices": [
         "To make the text longer",
-        "So that each paragraph conveys one main idea and creates a logical, readable structure",
-        "To avoid having to write a coherent conclusion",
+        "So that each paragraph conveys one main idea and creates a logical structure",
+        "To avoid having to write a coherent conclusion at the end of the text",
         "Paragraphing has no bearing on readability"
       ],
       "answer": 1,
@@ -94,10 +94,10 @@
       "prompt": "An argumentative text actively addresses the strongest counterarguments before restating its thesis. What purpose does this serve?",
       "opener": "What does it say about a writer who dares to raise counterarguments?",
       "choices": [
-        "It weakens the text's credibility since counterarguments should never be mentioned",
+        "It weakens the text's credibility since counterarguments should never be mentioned in a text",
         "It is just a way of making the text longer with no real purpose",
         "Counterarguments should always be placed right at the very start of the text",
-        "It strengthens the text's credibility by showing that the author is aware of, and can address, objections"
+        "It strengthens credibility by showing that the author can address objections"
       ],
       "answer": 3,
       "explanation": "Addressing counterarguments shows that the writer is well informed and has considered different perspectives, which strengthens the text's credibility and the force of the argument — rather than simply ignoring objections."
@@ -132,7 +132,7 @@
       "opener": "The name refers directly to what the list contains.",
       "choices": [
         "Bibliography (reference list)",
-        "Table of contents",
+        "Table of contents at the start of the text",
         "Index",
         "Abstract"
       ],
@@ -146,8 +146,8 @@
       "prompt": "Which of the following is a characteristic of a good research question in an expository text?",
       "opener": "A good research question should actually be answerable with the material you have.",
       "choices": [
-        "It is clearly defined and can be investigated using the available material",
-        "It is so broad that it covers the whole of human history",
+        "It is clearly defined and can be investigated with the available material",
+        "It is so broad that it covers the whole of human history and all its cultures",
         "It requires no answer at all",
         "It is phrased as a statement, not a question"
       ],
@@ -177,7 +177,7 @@
       "opener": "Consider how quickly certain information, such as statistics, can become outdated.",
       "choices": [
         "So the reader can judge how up to date the information is",
-        "It is never important to state the publication year",
+        "It is never important to state the publication year of a source in a text",
         "Only to make the text longer",
         "A publication year is only needed for fiction"
       ],
@@ -194,7 +194,7 @@
         "Topic sentence",
         "Closing statement",
         "Linking word",
-        "Source reference"
+        "Source reference at the end of the paragraph or page"
       ],
       "answer": 0,
       "explanation": "The topic sentence, often the paragraph's first sentence, presents the paragraph's main idea, which the rest of the paragraph then develops. A closing statement instead concludes the whole text, and linking words connect sentences and paragraphs."

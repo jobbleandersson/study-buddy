@@ -19,8 +19,8 @@
       "prompt": "Vad innebär äkthetskriteriet inom källkritik?",
       "opener": "Tänk på om källan verkligen är vad den utger sig för att vara.",
       "choices": [
-        "Källan är vad den utger sig för att vara – inte förfalskad eller ett senare tillägg",
-        "Källan ligger nära i tid till händelsen den skildrar",
+        "Källan är vad den utger sig för att vara, inte förfalskad",
+        "Källan ligger nära i tid till händelsen den skildrar och bygger på egna iakttagelser",
         "Källan är oberoende av andra källor",
         "Källan är skriven utan någon partiskhet"
       ],
@@ -51,8 +51,8 @@
       "choices": [
         "Att källan är skriven nära händelsen i tiden",
         "Att källan är fri från förfalskning",
-        "Att man undersöker om källan är en självständig förstahandsuppgift eller om den bygger på (är beroende av) en annan källa",
-        "Att källan har ett tydligt syfte att övertyga läsaren"
+        "Att man undersöker om källan är självständig eller beroende av en annan källa",
+        "Att källan har ett tydligt syfte att övertyga läsaren om en politisk åsikt eller ett köp"
       ],
       "answer": 2,
       "explanation": "Beroendekriteriet innebär att man undersöker om en källa är självständig eller om den i själva verket bygger på – är beroende av – en annan, tidigare källa. Två källor som verkar bekräfta varandra kan i själva verket vara samma uppgift återberättad, vilket gör dem mindre värda som oberoende bevis. De andra svaren beskriver tids-, äkthets- och tendenskriteriet."
@@ -64,10 +64,10 @@
       "prompt": "Vad menas med tendenskriteriet vid källkritisk granskning?",
       "opener": "Tänk på om upphovspersonen kan ha haft ett intresse av att framställa något på ett visst sätt.",
       "choices": [
-        "Att avgöra om källan är förstahands- eller andrahandsuppgift",
+        "Att avgöra om källan är förstahands- eller andrahandsuppgift och vilket språk den är skriven på",
         "Att avgöra hur gammal källan är",
         "Att avgöra om källan är förfalskad",
-        "Att undersöka om upphovspersonen hade ett politiskt, ekonomiskt eller personligt intresse som kan ha färgat framställningen"
+        "Att undersöka om upphovspersonen hade ett intresse som kan ha färgat framställningen"
       ],
       "answer": 3,
       "explanation": "Tendenskriteriet handlar om att bedöma om upphovspersonen hade ett intresse – politiskt, ekonomiskt, personligt eller annat – som kan ha gjort att källan medvetet eller omedvetet vinklats. En propagandaaffisch eller ett tal av en part i en konflikt har till exempel ofta en tydlig tendens. De andra alternativen rör beroende-, tids- och äkthetskriteriet."
@@ -80,9 +80,9 @@
       "opener": "Tänk på källans närhet till själva händelsen.",
       "choices": [
         "En primärkälla är alltid skriven av en historiker långt senare",
-        "En primärkälla kommer direkt från eller nära den tid och det sammanhang som skildras, medan en sekundärkälla bygger på och tolkar redan existerande källor",
+        "En primärkälla kommer från den tid som skildras, en sekundärkälla tolkar andra källor",
         "En sekundärkälla är alltid mer tillförlitlig eftersom den är nyare",
-        "Det finns ingen egentlig skillnad, begreppen används synonymt inom historievetenskapen"
+        "Det finns ingen egentlig skillnad, begreppen används synonymt inom historievetenskapen och i skolan"
       ],
       "answer": 1,
       "explanation": "En primärkälla är en förstahandskälla som kommer direkt från eller ligger nära den tid och det sammanhang den skildrar, till exempel ett brev, ett fotografi eller ett riksdagsprotokoll. En sekundärkälla, som en historiebok eller en artikel, bygger istället på och tolkar redan existerande källor. Sekundärkällor är inte automatiskt mer tillförlitliga bara för att de är nyare – de kan innehålla feltolkningar av primärmaterialet."
@@ -96,8 +96,8 @@
       "choices": [
         "Den vetenskapliga metod historiker använder för att datera källor",
         "Ett annat ord för historieskrivning i skolböcker",
-        "Hur historia används och görs relevant i nutiden – till exempel politiskt, kommersiellt eller för att skapa identitet och gemenskap",
-        "Historikers gemensamma uppfattning om vad som verkligen hände förr"
+        "Hur historia används i nutiden, t.ex. politiskt, kommersiellt eller för att skapa identitet",
+        "Historikers gemensamma uppfattning om vad som verkligen hände förr, enligt det aktuella forskningsläget"
       ],
       "answer": 2,
       "explanation": "Historiebruk syftar på hur människor, organisationer och stater aktivt använder historia i nutiden för olika syften – politiskt (för att legitimera makt eller en nation), kommersiellt (till exempel i reklam eller turism) eller identitetsskapande (för att bygga gemenskap kring ett ursprung eller en tradition). Det handlar alltså inte om själva den historievetenskapliga metoden, utan om hur historia förvaltas och nyttjas."
@@ -132,9 +132,9 @@
       "prompt": "Om två oberoende ögonvittnen ger samstämmiga skildringar av samma händelse, vad kan det stärka?",
       "opener": "Tänk på vad det innebär att flera oberoende källor pekar åt samma håll.",
       "choices": [
-        "Trovärdigheten hos skildringen, eftersom oberoende, samstämmiga källor är ett starkt källkritiskt stöd",
+        "Trovärdigheten hos skildringen, eftersom oberoende och samstämmiga källor är ett starkt stöd",
         "Att källorna automatiskt är förfalskade",
-        "Att båda källorna måste vara sekundärkällor",
+        "Att båda källorna måste vara sekundärkällor eftersom de beskriver exakt samma händelse på samma sätt",
         "Att händelsen inte alls ägde rum"
       ],
       "answer": 0,
@@ -163,7 +163,7 @@
       "opener": "Tänk på vilket av alternativen som kommer direkt från personer som själva levde under händelsen.",
       "choices": [
         "En samtida krönika skriven av någon som själv upplevde pestens framfart",
-        "En modern historikers sammanfattande bok om medeltiden, utgiven 2020",
+        "En modern historikers sammanfattande bok om medeltiden, utgiven 2020 av ett stort förlag",
         "En dokumentärfilm om medeltida sjukdomar från 2015",
         "En skolbok som sammanfattar forskningsläget"
       ],
@@ -207,8 +207,8 @@
       "prompt": "Vilket är ett exempel på existentiellt historiebruk — historia använd för att hantera trauma eller skapa mening kring svåra minnen?",
       "opener": "Tänk på vilket av alternativen som handlar om att bearbeta egna, personliga upplevelser.",
       "choices": [
-        "Överlevande från ett krig som delar sina minnen för att bearbeta och förstå sina upplevelser",
-        "En reklamkampanj som använder historiska bilder för att sälja en produkt",
+        "Överlevande från ett krig som delar sina minnen för att bearbeta sina upplevelser",
+        "En reklamkampanj som använder historiska bilder för att sälja en produkt till turister",
         "En lärobok som redogör för orsakerna till ett krig",
         "Ett rent kronologiskt uppslagsverk över historiska händelser"
       ],
