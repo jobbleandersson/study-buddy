@@ -20,7 +20,7 @@
       "prompt": "What is an expense?",
       "opener": "Think about which way the money moves — in or out?",
       "choices": [
-        "Money that comes in to you, for example wages or an allowance",
+        "Money that comes in to you, for example wages, an allowance or birthday money",
         "Money you have left in your account at the end of the month",
         "Money you have put into a savings account",
         "Money you pay out for something, for example a bus pass or a phone plan"
@@ -36,7 +36,7 @@
       "opener": "A budget is made in advance, not afterwards.",
       "choices": [
         "A plan for the income and expenses you expect over a certain period",
-        "A list of everything you already bought last year",
+        "A list of everything you already bought last year and what it cost in the shops",
         "A loan you take out from the bank",
         "Another word for your entire savings account"
       ],
@@ -66,8 +66,8 @@
       "opener": "It's the price of a service — being allowed to borrow someone else's money.",
       "choices": [
         "A discount you get when you borrow money",
-        "The cost of borrowing money — extra money you pay on top of the loan amount itself",
-        "A fee the bank pays you when you take out a loan",
+        "The cost of borrowing money — extra money on top of the loan amount",
+        "A fee the bank pays you when you borrow money from it every month",
         "Another word for how many months the loan lasts"
       ],
       "answer": 1,
@@ -98,7 +98,7 @@
         "That you can never return anything you've ordered",
         "That the shop can cancel your order whenever it likes",
         "That you usually have 14 days to change your mind and return the item",
-        "That you can only exchange the item for another one at the same shop"
+        "That you can only exchange the item for another one at the same shop within a week and not get your money back"
       ],
       "answer": 2,
       "explanation": "For purchases online or by phone, you usually have a legal right of withdrawal of 14 days counted from when you received the item, and you don't need to give a reason. Certain goods are exempt, for example custom-made products and downloaded digital media — but the right of withdrawal is not the same thing as the voluntary exchange policy that shops can offer in a physical store."
@@ -148,10 +148,10 @@
       "prompt": "What is the advantage of saving money in a savings account compared to keeping it as cash at home?",
       "opener": "Think about both safety and whether the money can grow in value.",
       "choices": [
-        "The money grows through interest and is safer against things like theft or fire",
+        "The money grows through interest and is safer against theft or fire",
         "There is no advantage at all",
         "Cash at home always earns more interest",
-        "The bank automatically takes the money if you save it there"
+        "The bank automatically takes the money if you save it there, to cover its costs"
       ],
       "answer": 0,
       "explanation": "Money in a savings account is protected by the bank against things like theft and fire, and the bank also pays interest so the money grows a little over time. Cash at home earns no interest at all and is more exposed if something were to happen at home."
@@ -178,10 +178,10 @@
       "prompt": "What is the right to complain (reklamationsrätt)?",
       "opener": "Unlike the right of withdrawal, the item must actually be faulty, not just something you changed your mind about.",
       "choices": [
-        "The right to complain, within a certain time, normally 3 years, about an item that was already faulty at the time of purchase",
+        "The right to complain, normally within 3 years, about an item that was already faulty at purchase",
         "The right to always change your mind about an item for no reason",
         "The right to never have to pay for an item",
-        "The right to complain about an item after an unlimited time with no receipt"
+        "The right to complain about an item after an unlimited time with no receipt or proof of purchase of any kind"
       ],
       "answer": 0,
       "explanation": "The right to complain gives you the right to complain about an item that is faulty, normally within three years of purchase, and the seller should then repair it, exchange it, or refund your money. This differs from the right of withdrawal, which applies even if the item is completely fault-free but you've simply changed your mind."

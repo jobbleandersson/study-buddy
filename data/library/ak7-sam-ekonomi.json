@@ -20,7 +20,7 @@
       "prompt": "Vad är en utgift?",
       "opener": "Tänk på vilken väg pengarna rör sig — in eller ut?",
       "choices": [
-        "Pengar som kommer in till dig, till exempel lön eller månadspeng",
+        "Pengar som kommer in till dig, till exempel lön, månadspeng eller födelsedagspengar",
         "Pengar du har kvar på kontot vid månadens slut",
         "Pengar du har satt in på ett sparkonto",
         "Pengar du betalar ut för något, till exempel busskort eller mobilabonnemang"
@@ -36,7 +36,7 @@
       "opener": "En budget görs i förväg, inte efteråt.",
       "choices": [
         "En plan över vilka inkomster och utgifter man räknar med under en viss tid",
-        "En lista över allt man redan har köpt förra året",
+        "En lista över allt man redan har köpt förra året och vad det kostade i butikerna",
         "Ett lån man tar från banken",
         "Ett annat ord för hela sitt sparkonto"
       ],
@@ -66,8 +66,8 @@
       "opener": "Det är priset för en tjänst — att få låna någon annans pengar.",
       "choices": [
         "En rabatt man får när man lånar pengar",
-        "Kostnaden för att låna pengar — extra pengar du betalar utöver själva lånesumman",
-        "En avgift som banken betalar till dig när du lånar",
+        "Kostnaden för att låna pengar — extra pengar utöver lånesumman",
+        "En avgift som banken betalar till dig när du lånar pengar av den varje månad",
         "Ett annat ord för hur många månader lånet varar"
       ],
       "answer": 1,
@@ -98,7 +98,7 @@
         "Att du aldrig får lämna tillbaka något du beställt",
         "Att butiken får ångra din order när som helst",
         "Att du oftast har 14 dagar på dig att ändra dig och lämna tillbaka varan",
-        "Att du bara kan byta varan mot en annan i samma butik"
+        "Att du bara kan byta varan mot en annan i samma butik inom en vecka och inte få pengarna tillbaka"
       ],
       "answer": 2,
       "explanation": "Vid köp på nätet eller per telefon har du enligt lag oftast 14 dagars ångerrätt räknat från att du fått varan, och du behöver inte ange något skäl. Vissa varor är undantagna, till exempel specialtillverkade produkter och nedladdad digital media — men ångerrätten är inte samma sak som den frivilliga bytesrätt som butiker kan erbjuda i en fysisk affär."
@@ -148,10 +148,10 @@
       "prompt": "Vad är fördelen med att spara pengar på ett sparkonto jämfört med att förvara dem som kontanter hemma?",
       "opener": "Tänk på både säkerhet och om pengarna kan öka i värde.",
       "choices": [
-        "Pengarna växer genom ränta och är säkrare mot till exempel stöld eller brand",
+        "Pengarna växer genom ränta och är säkrare mot stöld eller brand",
         "Det finns ingen fördel alls",
         "Kontanter hemma ger alltid mer ränta",
-        "Banken tar automatiskt pengarna om man sparar där"
+        "Banken tar automatiskt pengarna om man sparar där, för att täcka sina kostnader"
       ],
       "answer": 0,
       "explanation": "Pengar på ett sparkonto skyddas av banken mot till exempel stöld och brand, och banken betalar dessutom ränta så att pengarna växer något över tid. Kontanter hemma ger ingen ränta alls och är mer utsatta om något skulle hända i hemmet."
@@ -178,10 +178,10 @@
       "prompt": "Vad är reklamationsrätt?",
       "opener": "Skillnaden mot ångerrätten är att varan måste vara felaktig, inte att man bara ångrat sig.",
       "choices": [
-        "Rätten att inom en viss tid, normalt 3 år, klaga på en vara som var felaktig redan vid köpet",
+        "Rätten att inom normalt 3 år klaga på en vara som var felaktig redan vid köpet",
         "Rätten att alltid byta åsikt om en vara utan anledning",
         "Rätten att aldrig behöva betala för en vara",
-        "Rätten att reklamera en vara efter obegränsad tid utan kvitto"
+        "Rätten att reklamera en vara efter obegränsad tid utan kvitto eller köpbevis av något slag"
       ],
       "answer": 0,
       "explanation": "Reklamationsrätten ger dig rätt att klaga på en vara som är felaktig, i normalfallet inom tre år från köpet, och säljaren ska då reparera, byta eller ge pengarna tillbaka. Det skiljer sig från ångerrätten, som gäller även om varan är helt felfri men du ändå ångrar dig."

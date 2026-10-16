@@ -20,7 +20,7 @@
       "prompt": "Vad skiljer främst en novell från en roman?",
       "opener": "Tänk inte bara på antalet sidor, utan på hur många trådar berättelsen hinner ha.",
       "choices": [
-        "Novellen är alltid sann, romanen är påhittad",
+        "Novellen är alltid sann och bygger på verkliga händelser, romanen är påhittad",
         "Novellen saknar berättare",
         "Novellen är kort och koncentrerad kring få personer och ett händelseförlopp",
         "Novellen skrivs alltid i presens"
@@ -36,8 +36,8 @@
       "opener": "Fråga vilken sorts värld berättelsen utspelar sig i.",
       "choices": [
         "Det finns en spänningskurva",
-        "Berättelsen utspelar sig i en påhittad värld med egna lagar, ofta med magi",
-        "Det finns en huvudperson som löser ett problem",
+        "Berättelsen utspelar sig i en påhittad värld med egna lagar",
+        "Det finns en huvudperson som löser ett problem eller ett mysterium",
         "Berättelsen har en miljöbeskrivning"
       ],
       "answer": 1,
@@ -53,7 +53,7 @@
         "Jagberättare",
         "Allvetande berättare (tredje person)",
         "Du-perspektiv",
-        "Begränsad jagberättare"
+        "Begränsad jagberättare, som bara ser det Elias ser"
       ],
       "answer": 1,
       "explanation": "Berättaren kan se in i både hennes och Elias tankar och står utanför handlingen — det är en allvetande berättare i tredje person. En jagberättare skulle säga \"jag\" och bara kunna redovisa sina egna tankar."
@@ -81,7 +81,7 @@
       "opener": "Liknelsen använder ett jämförelseord, metaforen gör det inte.",
       "choices": [
         "Han sprang som ett lejon över planen.",
-        "Han var ett lejon på fotbollsplanen.",
+        "Han var ett lejon på fotbollsplanen i matchen.",
         "Vinden viskade i trädkronorna.",
         "Planen låg tom i kvällsljuset."
       ],
@@ -166,7 +166,7 @@
         "En fotbollstävling",
         "Ett skadat knä",
         "Att inte ge upp trots motgångar",
-        "En pojke som tränar varje dag"
+        "En pojke som tränar varje dag inför tävlingen"
       ],
       "answer": 2,
       "explanation": "Temat är den övergripande idén — här uthållighet och att inte ge upp trots motgångar. Tävlingen och knäskadan är konkreta motiv som fungerar som exempel på temat, inte temat självt."
@@ -181,7 +181,7 @@
         "Hennes röst var som honung.",
         "Hennes röst var honung i mina öron.",
         "Klockan tickade som ett hjärta.",
-        "Vinden viskade genom trädkronorna."
+        "Vinden viskade genom trädkronorna hela natten."
       ],
       "answer": 1,
       "explanation": "\"Hennes röst var honung\" jämför utan jämförelseordet \"som\" — det är en metafor. Meningarna med \"som\" (\"Hennes röst var som honung\" och \"Klockan tickade som ett hjärta\") är liknelser, och \"vinden viskade\" är personifikation."
@@ -224,7 +224,7 @@
       "opener": "Fråga vad huvudpersonen ägnar sig åt genom hela berättelsen.",
       "choices": [
         "Berättelsen kretsar kring ett brott som ska utredas och lösas",
-        "Berättelsen utspelar sig alltid i en påhittad värld med magi",
+        "Berättelsen utspelar sig alltid i en påhittad värld med magi och drakar",
         "Berättelsen handlar alltid om en kärlekshistoria",
         "Berättelsen saknar alltid en huvudperson"
       ],

@@ -37,7 +37,7 @@
         "To conclude the essay",
         "To introduce the paragraph's main idea",
         "To quote another author",
-        "To list every source used"
+        "To list every source used in the whole essay"
       ],
       "answer": 1,
       "explanation": "A \"topic sentence\" opens the paragraph and presents its main idea, which the rest of the paragraph then develops and supports. It does not conclude either the paragraph or the whole essay."
@@ -95,9 +95,9 @@
       "opener": "A formal conclusion summarises the argument without using everyday language.",
       "choices": [
         "So yeah, that's basically it.",
-        "In conclusion, the evidence strongly suggests that stricter regulations are necessary.",
+        "In conclusion, the evidence suggests that stricter regulations are necessary.",
         "Anyway, moving on to my next point...",
-        "I guess uniforms could be good or bad, who knows."
+        "I guess uniforms could be good or bad, who knows, it all depends on the person, really."
       ],
       "answer": 1,
       "explanation": "A formal conclusion clearly summarises the argument, often with a phrase like \"in conclusion\", and avoids casual or uncertain language such as \"so yeah\" or \"who knows\"."
@@ -161,10 +161,10 @@
       "prompt": "Identify the cohesion problem: \"Emma emailed her manager and told her the report was late.\"",
       "opener": "Two female referents make the pronoun \"her\" ambiguous.",
       "choices": [
-        "The pronoun \"her\" is ambiguous — it could refer to either Emma or the manager.",
+        "The pronoun \"her\" is ambiguous — it could mean Emma or the manager.",
         "There is no problem in this sentence.",
         "The verb tense is incorrect.",
-        "The sentence has no cohesion issues at all."
+        "The sentence has no cohesion issues at all and reads clearly to everyone"
       ],
       "answer": 0,
       "explanation": "The pronoun \"her\" could refer to either Emma or the manager, making the sentence ambiguous — a common cohesion problem that is solved by repeating the name."
@@ -176,9 +176,9 @@
       "prompt": "What is the purpose of a \"concluding sentence\" at the end of a body paragraph?",
       "opener": "Think about what ties one paragraph to the next.",
       "choices": [
-        "To wrap up the paragraph's point and smoothly transition to the next idea",
+        "To wrap up the paragraph's point and lead into the next idea",
         "To introduce a completely new topic",
-        "To repeat the thesis statement word for word",
+        "To repeat the thesis statement word for word at the end of every paragraph",
         "To list the sources used in the paragraph"
       ],
       "answer": 0,
@@ -209,7 +209,7 @@
         "Consequently",
         "Similarly",
         "For example",
-        "In contrast"
+        "In contrast, however"
       ],
       "answer": 0,
       "explanation": "\"Consequently\" shows that the second sentence is a result of the first — the results were inconclusive, and CONSEQUENTLY the researchers repeated the experiment. \"Similarly\", \"for example\", and \"in contrast\" don't fit the logical relationship."
@@ -224,7 +224,7 @@
         "It contains an unrelated sentence that breaks the paragraph's unity",
         "It has too many topic sentences",
         "It uses no supporting evidence at all",
-        "It is grammatically incorrect throughout"
+        "It is grammatically incorrect throughout the whole paragraph and needs rewriting"
       ],
       "answer": 0,
       "explanation": "The sentence about Paris being the capital has nothing to do with the other sentences about dogs, which breaks the paragraph's unity. A good paragraph sticks to a single main idea."

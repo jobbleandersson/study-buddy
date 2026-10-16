@@ -18,7 +18,7 @@
       "prompt": "Vad är en tes i en argumenterande text?",
       "opener": "Tesen är det du vill att läsaren ska hålla med om när texten är slut.",
       "choices": [
-        "En fråga som texten utreder utan att svara på",
+        "En fråga som texten utreder utan att någonsin svara på den",
         "En sammanfattning av vad andra tycker",
         "Skribentens åsikt, formulerad som ett tydligt påstående",
         "Det starkaste faktaargumentet i texten"
@@ -36,7 +36,7 @@
         "Gratis busskort är en bra idé.",
         "Elever som bor långt bort kommer i tid oftare om resan är gratis.",
         "Många kommuner har busskort.",
-        "Jag tycker verkligen att det borde införas."
+        "Jag tycker verkligen att det borde införas i alla kommuner redan i höst."
       ],
       "answer": 1,
       "explanation": "Alternativet ger ett skäl med en följd: gratis resa leder till fler elever i tid. \"Gratis busskort är en bra idé\" är bara tesen omformulerad, och \"jag tycker verkligen\" är en åsikt utan skäl."
@@ -48,7 +48,7 @@
       "prompt": "Vilket av påståendena är ett sakskäl snarare än ett känsloargument?",
       "opener": "Sakskäl går att kontrollera eller resonera kring, känsloargument vädjar till hur läsaren känner sig.",
       "choices": [
-        "Tänk på alla ledsna elever som sitter ensamma!",
+        "Tänk på alla ledsna elever som sitter ensamma på rasterna och som ingen bryr sig om!",
         "Det är hjärtlöst att inte bry sig om ungdomar.",
         "Skolor med rastvärdar rapporterar färre konflikter på skolgården.",
         "Vem vill leva i ett kallt samhälle?"
@@ -64,9 +64,9 @@
       "opener": "Tänk på hur du själv reagerar på någon som bara ser en sida av en fråga.",
       "choices": [
         "För att fylla ut texten så att den blir längre",
-        "För att låta läsaren välja vilken sida som är rätt",
+        "För att låta läsaren välja vilken sida som är rätt, utan att själv ta ställning i frågan alls",
         "För att byta åsikt i slutet av texten",
-        "För att visa att man känner till invändningarna och kan bemöta dem — det gör texten mer trovärdig"
+        "För att visa att man känner till invändningarna och kan bemöta dem – det ger trovärdighet"
       ],
       "answer": 3,
       "explanation": "Genom att ta upp och bemöta motargument visar skribenten att hen tänkt igenom frågan, vilket stärker trovärdigheten. Meningen är inte att lämna frågan öppen — efter bemötandet ska tesen stå kvar starkare än förut."
@@ -94,7 +94,7 @@
       "opener": "Tänk på att läsaren måste veta vad du tycker innan hen kan följa varför.",
       "choices": [
         "Rubrik – inledning med tes – argument – bemött motargument – avslutning med uppmaning",
-        "Argument – tes – rubrik – avslutning",
+        "Argument – tes – rubrik – avslutning – bemött motargument – ny rubrik – uppmaning – inledning",
         "Inledning – motargument – avslutning – tes",
         "Rubrik – slutsats – rubrik igen – argument"
       ],
@@ -133,7 +133,7 @@
       "choices": [
         "Vegetarisk mat är bra.",
         "Minskad köttkonsumtion en dag i veckan sänker skolans klimatpåverkan.",
-        "Många skolor har redan vegetariska dagar.",
+        "Många skolor har redan vegetariska dagar varje vecka runt om i hela landet",
         "Jag gillar verkligen grönsaker."
       ],
       "answer": 1,
@@ -149,7 +149,7 @@
         "Tänk på alla djur som lider!",
         "Det är fruktansvärt att äta kött.",
         "Forskning visar att minskad köttkonsumtion sänker utsläppen av växthusgaser.",
-        "Ingen med gott samvete äter kött varje dag."
+        "Ingen med gott samvete äter kött varje dag, eftersom det skadar både djur och miljö"
       ],
       "answer": 2,
       "explanation": "Påståendet om forskning bygger på undersökningar som går att kontrollera — det är ett sakskäl. De övriga vädjar till medkänsla och skam, vilket kan förstärka en text men inte bevisar något."

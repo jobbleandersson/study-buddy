@@ -20,7 +20,7 @@
       "choices": [
         "To briefly summarise the result",
         "To state which sources were used",
-        "To present the writer's conclusion directly",
+        "To present the writer's conclusion directly at the start of the text to catch the reader",
         "To state which question or problem the text is going to examine"
       ],
       "answer": 3,
@@ -33,7 +33,7 @@
       "prompt": "Where in a PM report do you state HOW the investigation was carried out, e.g. which sources and methods were used?",
       "opener": "Consider which section functions as a \"recipe\" for the reader.",
       "choices": [
-        "In the introduction",
+        "In the introduction at the start of the memo",
         "In the discussion",
         "In the method section",
         "In the results section"
@@ -50,8 +50,8 @@
       "choices": [
         "A word-for-word repetition of the results",
         "New sources not mentioned earlier in the text",
-        "The writer's interpretation of the results, linked to the purpose, along with any possible sources of error",
-        "A short summary of the content of each paragraph"
+        "The writer's interpretation of the results, linked to the purpose, along with sources of error",
+        "A short summary of the content of each paragraph in the whole essay and the appendices"
       ],
       "answer": 2,
       "explanation": "The discussion interprets and evaluates the results in relation to the purpose and highlights strengths, weaknesses and possible sources of error. Simply repeating the results or summarising paragraphs adds nothing new."
@@ -64,7 +64,7 @@
       "opener": "What is the focus on — the writer's feelings or the investigation's results?",
       "choices": [
         "The results show that the share increased by 12 percentage points between 2015 and 2023.",
-        "I really think the result is super interesting and a little shocking.",
+        "I really think the result is super interesting and a little shocking to me.",
         "Everyone knows this is a big problem in schools.",
         "It feels reasonable to assume that more people will agree with this."
       ],
@@ -148,7 +148,7 @@
       "choices": [
         "A factual account of what the study found, without interpretation",
         "The writer's personal opinions on the topic",
-        "A list of every conceivable future research question",
+        "A list of every conceivable future research question and proposals for new studies",
         "A brief summary of the introduction"
       ],
       "answer": 0,
@@ -177,7 +177,7 @@
       "opener": "Think about what separates a substantiated claim from a loose assumption.",
       "choices": [
         "That claims are backed up with references to credible sources",
-        "That the text may only contain a single source",
+        "That the text may only contain a single source that the writer trusts fully",
         "That the text is written without any introduction",
         "That the writer may never use numbers"
       ],
