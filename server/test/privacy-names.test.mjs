@@ -1,7 +1,7 @@
 import { test, describe, before, after } from "node:test";
 import assert from "node:assert/strict";
 import { startServer, makeClient } from "./harness.mjs";
-import { nameFrom, maskEmail, digestOf } from "../src/state-digest.js";
+import { nameFrom, maskEmail, digestOf, DIGEST_VERSION } from "../src/state-digest.js";
 import { sanitizeBody } from "../src/routes/messages.js";
 import { withSafetyRules, SAFETY_RULES } from "../src/ai-safety.js";
 
@@ -166,7 +166,7 @@ describe("the name and mask helpers", () => {
   test("digestOf records the name, and an old digest version is rebuilt", () => {
     assert.equal(digestOf({ profile: { name: "Mia" } }).name, "Mia");
     assert.equal(digestOf({}).name, null);
-    assert.equal(digestOf({}).v, 2);
+    assert.equal(digestOf({}).v, DIGEST_VERSION);
   });
 });
 
