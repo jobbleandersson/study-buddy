@@ -1,0 +1,249 @@
+{
+  "id": "lib-hp-xyz-ovningsprov-03",
+  "type": "test",
+  "subject": "XYZ – Matematisk problemlösning",
+  "title": "XYZ – övningsprov 3",
+  "sourceSummary": "Egenskrivna övningsuppgifter i Högskoleprovets XYZ-format. Detta är inte ett officiellt utgivet prov.",
+  "topics": [
+    "algebra",
+    "andelar",
+    "aritmetik",
+    "funktioner",
+    "geometri",
+    "hastighet",
+    "kombinatorik",
+    "sannolikhet",
+    "statistik"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hp-xyz3-01",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "aritmetik",
+      "prompt": "Vad är $\\dfrac{3}{4} - \\dfrac{2}{3}$?",
+      "choices": [
+        "$\\dfrac{1}{12}$",
+        "$\\dfrac{1}{7}$",
+        "$\\dfrac{5}{12}$",
+        "$1$"
+      ],
+      "answer": 0,
+      "explanation": "Gör liknämnigt med nämnaren 12: $\\dfrac{9}{12} - \\dfrac{8}{12} = \\dfrac{1}{12}$. Svaret $1$ får man om man felaktigt drar täljare från täljare och nämnare från nämnare.",
+      "steps": [
+        "Den minsta gemensamma nämnaren för 4 och 3 är 12.",
+        "$\\dfrac{3}{4} = \\dfrac{9}{12}$ och $\\dfrac{2}{3} = \\dfrac{8}{12}$."
+      ]
+    },
+    {
+      "id": "q-hp-xyz3-02",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "andelar",
+      "prompt": "Hur många procent av 72 är 18?",
+      "choices": [
+        "4 %",
+        "18 %",
+        "25 %",
+        "40 %"
+      ],
+      "answer": 2,
+      "explanation": "Andelen är delen delat med det hela: $\\dfrac{18}{72} = \\dfrac{1}{4} = 0{,}25$, alltså 25 %. Svaret 4 % kommer av att man räknar $\\dfrac{72}{18} = 4$ – åt fel håll.",
+      "steps": [
+        "Andelen är delen delat med det hela: $\\dfrac{18}{72}$.",
+        "Förkorta med 18: $\\dfrac{1}{4} = 0{,}25$."
+      ]
+    },
+    {
+      "id": "q-hp-xyz3-03",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "algebra",
+      "prompt": "Om $\\dfrac{x}{3} + 2 = 7$, vad är $x$?",
+      "choices": [
+        "$5$",
+        "$9$",
+        "$15$",
+        "$27$"
+      ],
+      "answer": 2,
+      "explanation": "Dra bort 2 från båda leden: $\\dfrac{x}{3} = 5$. Multiplicera båda leden med 3: $x = 15$. Svaret 27 får man om man lägger till 2 i stället för att dra bort det.",
+      "steps": [
+        "Börja med att få bråket ensamt: dra bort 2 från båda leden.",
+        "$\\dfrac{x}{3} = 5$ – multiplicera med 3."
+      ]
+    },
+    {
+      "id": "q-hp-xyz3-04",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "funktioner",
+      "prompt": "Om $f(x) = 3x - 2$, för vilket värde på $x$ är $f(x) = 13$?",
+      "choices": [
+        "$\\dfrac{11}{3}$",
+        "$5$",
+        "$13$",
+        "$37$"
+      ],
+      "answer": 1,
+      "explanation": "Sätt $3x - 2 = 13$. Då är $3x = 15$ och $x = 5$. Svaret 37 är $f(13)$, alltså funktionens värde när $x = 13$ – det är fel fråga.",
+      "steps": [
+        "Ställ upp ekvationen $3x - 2 = 13$.",
+        "Lägg till 2 i båda leden och dela med 3."
+      ]
+    },
+    {
+      "id": "q-hp-xyz3-05",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "kombinatorik",
+      "prompt": "På hur många olika sätt kan fyra personer ställa sig i en kö?",
+      "choices": [
+        "8",
+        "12",
+        "16",
+        "24"
+      ],
+      "answer": 3,
+      "explanation": "Den första platsen i kön kan tas av 4 personer, den andra av de 3 som är kvar, den tredje av 2 och den sista av 1: $4 \\cdot 3 \\cdot 2 \\cdot 1 = 24$.",
+      "steps": [
+        "Hur många kan stå först? Hur många är kvar till plats två?",
+        "Multiplicera: $4 \\cdot 3 \\cdot 2 \\cdot 1$."
+      ]
+    },
+    {
+      "id": "q-hp-xyz3-06",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "geometri",
+      "prompt": "En kvadrat har diagonalen $6\\sqrt{2}$ cm. Vad är kvadratens area?",
+      "choices": [
+        "$12\\ \\text{cm}^2$",
+        "$18\\ \\text{cm}^2$",
+        "$24\\ \\text{cm}^2$",
+        "$36\\ \\text{cm}^2$"
+      ],
+      "answer": 3,
+      "explanation": "I en kvadrat med sidan $s$ är diagonalen $s\\sqrt{2}$ (Pythagoras sats), så sidan är 6 cm och arean $6^2 = 36\\ \\text{cm}^2$. Ett annat sätt: arean är halva diagonalen i kvadrat, $\\dfrac{(6\\sqrt{2})^2}{2} = \\dfrac{72}{2} = 36$.",
+      "steps": [
+        "Diagonalen i en kvadrat med sidan $s$ är $s\\sqrt{2}$.",
+        "Sidan är alltså 6 cm."
+      ]
+    },
+    {
+      "id": "q-hp-xyz3-07",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "statistik",
+      "prompt": "Talen 3, 5, 7, 9 och $x$ har medianen 6. Vad är $x$?",
+      "choices": [
+        "$6$",
+        "$7$",
+        "$8$",
+        "$9$"
+      ],
+      "answer": 0,
+      "explanation": "Med fem tal är medianen det mittersta talet när de står i storleksordning. Talet 6 finns inte bland 3, 5, 7 och 9, så det måste vara $x$ som hamnar i mitten: 3, 5, 6, 7, 9. Alltså är $x = 6$.",
+      "steps": [
+        "Medianen av fem tal är det tredje talet i storleksordning.",
+        "Medianen 6 finns inte bland de kända talen – vilket tal måste då stå i mitten?"
+      ]
+    },
+    {
+      "id": "q-hp-xyz3-08",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "algebra",
+      "prompt": "Om $2^{x} = 32$, vad är $2^{x - 2}$?",
+      "choices": [
+        "$3$",
+        "$8$",
+        "$16$",
+        "$30$"
+      ],
+      "answer": 1,
+      "explanation": "$2^{x - 2} = \\dfrac{2^{x}}{2^{2}} = \\dfrac{32}{4} = 8$. Man behöver inte ens räkna ut $x$ (som är 5). Svaret 30 får man om man drar bort 2 från 32 i stället för från exponenten.",
+      "steps": [
+        "Skriv om med potenslagarna: $2^{x - 2} = \\dfrac{2^{x}}{2^{2}}$.",
+        "Sätt in $2^{x} = 32$."
+      ]
+    },
+    {
+      "id": "q-hp-xyz3-09",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "geometri",
+      "prompt": "Vinklarna i en triangel förhåller sig som $2 : 3 : 4$. Hur stor är den största vinkeln?",
+      "choices": [
+        "$40^\\circ$",
+        "$60^\\circ$",
+        "$75^\\circ$",
+        "$80^\\circ$"
+      ],
+      "answer": 3,
+      "explanation": "Vinkelsumman $180^\\circ$ fördelas på $2 + 3 + 4 = 9$ lika delar, så en del är $20^\\circ$. Den största vinkeln är $4 \\cdot 20^\\circ = 80^\\circ$.",
+      "steps": [
+        "Vinkelsumman i en triangel är $180^\\circ$.",
+        "Hur många delar finns det totalt? $2 + 3 + 4 = 9$."
+      ]
+    },
+    {
+      "id": "q-hp-xyz3-10",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "sannolikhet",
+      "prompt": "Två vanliga tärningar kastas. Hur stor är sannolikheten att summan blir 9?",
+      "choices": [
+        "$\\dfrac{1}{12}$",
+        "$\\dfrac{1}{9}$",
+        "$\\dfrac{1}{6}$",
+        "$\\dfrac{2}{9}$"
+      ],
+      "answer": 1,
+      "explanation": "Det finns $6 \\cdot 6 = 36$ lika sannolika utfall. Summan 9 fås på fyra sätt: 3 + 6, 4 + 5, 5 + 4 och 6 + 3. Sannolikheten är $\\dfrac{4}{36} = \\dfrac{1}{9}$.",
+      "steps": [
+        "Hur många utfall finns det? Varje tärning har 6 sidor.",
+        "Räkna upp alla par som ger summan 9 – ordningen spelar roll."
+      ]
+    },
+    {
+      "id": "q-hp-xyz3-11",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "algebra",
+      "prompt": "Om $x + \\dfrac{1}{x} = 4$, vad är $x^2 + \\dfrac{1}{x^2}$?",
+      "choices": [
+        "$8$",
+        "$12$",
+        "$14$",
+        "$16$"
+      ],
+      "answer": 2,
+      "explanation": "Kvadrera båda leden: $\\left(x + \\dfrac{1}{x}\\right)^2 = x^2 + 2 + \\dfrac{1}{x^2} = 16$. Alltså är $x^2 + \\dfrac{1}{x^2} = 16 - 2 = 14$. Fällan är att svara 16 och glömma mittentermen $2 \\cdot x \\cdot \\dfrac{1}{x} = 2$.",
+      "steps": [
+        "Kvadrera $x + \\dfrac{1}{x}$ med kvadreringsregeln.",
+        "Mittentermen är $2 \\cdot x \\cdot \\dfrac{1}{x} = 2$."
+      ]
+    },
+    {
+      "id": "q-hp-xyz3-12",
+      "kind": "mc",
+      "variant": "xyz",
+      "topic": "hastighet",
+      "prompt": "Ett tåg kör 120 km i hastigheten 80 km/h och därefter 120 km i hastigheten 120 km/h. Vilken är tågets medelhastighet för hela sträckan?",
+      "choices": [
+        "96 km/h",
+        "100 km/h",
+        "104 km/h",
+        "110 km/h"
+      ],
+      "answer": 0,
+      "explanation": "Medelhastighet är hela sträckan delat med hela tiden. Första delen tar $\\dfrac{120}{80} = 1{,}5$ h och andra delen $\\dfrac{120}{120} = 1$ h. Hela sträckan, 240 km, tar alltså 2,5 h: $\\dfrac{240}{2{,}5} = 96$ km/h. Fällan är att ta medelvärdet av hastigheterna (100 km/h) – tåget kör ju längre tid i den lägre hastigheten.",
+      "steps": [
+        "Räkna ut tiden för varje del för sig: tid = sträcka / hastighet.",
+        "Medelhastighet = hela sträckan / hela tiden."
+      ]
+    }
+  ]
+}
