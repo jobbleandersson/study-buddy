@@ -33,7 +33,7 @@
       "prompt": "Vad betyder franskans \"actuellement\"?",
       "opener": "Ett klassiskt fällexempel — ordet liknar svenskans \"aktuellt\" men betyder något annat.",
       "choices": [
-        "Aktuellt, relevant just nu",
+        "Aktuellt, på tapeten",
         "Faktiskt, i själva verket",
         "För närvarande, just nu",
         "Verkligen, på riktigt"
@@ -105,7 +105,7 @@
       "id": "q-fr4-idiom-7",
       "kind": "worked",
       "topic": "false friends",
-      "prompt": "Rätta felen i denna text, skriven av en elev som blandat ihop falska vänner: \"Actuellement, je lis un roman très intéressant, mais mon frère est très sensible aux critiques quand je lui en parle.\"",
+      "prompt": "Granska denna text, skriven av en elev som misstänks ha blandat ihop falska vänner. Rätta det som är fel — eller förklara varför meningen är korrekt: \"Actuellement, je lis un roman très intéressant, mais mon frère est très sensible aux critiques quand je lui en parle.\"",
       "opener": "Läs meningen och fråga dig om varje understruket-liknande ord verkligen betyder det eleven trodde.",
       "answer": "Meningen är redan korrekt — \"actuellement\" och \"sensible\" används här med sina rätta franska betydelser.",
       "steps": [
@@ -121,7 +121,7 @@
       "topic": "false friends",
       "prompt": "Vilka är de vanligaste franska-svenska falska vännerna att se upp med, och vad betyder de egentligen?",
       "opener": "En lista att repetera inför läsförståelse och skrivuppgifter.",
-      "answer": "actuellement = för närvarande (INTE aktuellt → d'actualité) · librairie = bokhandel (INTE bibliotek → bibliothèque) · sensible = känslig (INTE förnuftig → raisonnable/sensé) · demander = fråga/be om (INTE kräva → exiger) · attendre = vänta (INTE vänta på uppmärksamhet/delta → assister à) · assister à = närvara vid (INTE assistera → aider) · une chance = en tur/möjlighet (kan betyda tur, inte bara chans i betydelsen risk) · rester = stanna kvar (INTE resa → voyager) · un préservatif = kondom (INTE konserveringsmedel → un conservateur). Idiom att kunna: poser un lapin (ställa upp någon), avoir le cafard (vara nere), Ça marche ! (det funkar/okej!)."
+      "answer": "actuellement = för närvarande (INTE aktuellt → d'actualité) · librairie = bokhandel (INTE bibliotek → bibliothèque) · sensible = känslig (INTE förnuftig → raisonnable/sensé) · demander = fråga/be om (INTE kräva → exiger) · attendre = vänta (INTE närvara vid → assister à) · assister à = närvara vid (INTE assistera → aider) · rester = stanna kvar (INTE resa → voyager) · un préservatif = kondom (INTE konserveringsmedel → un conservateur). Idiom att kunna: poser un lapin (ställa upp någon), avoir le cafard (vara nere), Ça marche ! (det funkar/okej!)."
     },
     {
       "id": "q-fr4-idiom-9",
@@ -205,13 +205,13 @@
       "prompt": "Vad betyder uttrycket \"avoir un chat dans la gorge\"?",
       "opener": "Bokstavligen \"ha en katt i halsen\".",
       "choices": [
-        "Vara hes/ha en klump i halsen",
+        "Vara hes (ha en groda i halsen)",
         "Vara rädd för katter",
         "Ha ätit för mycket",
         "Vara mycket glad"
       ],
       "answer": 0,
-      "explanation": "\"Avoir un chat dans la gorge\" betyder att vara hes eller ha en klump i halsen, t.ex. när man har svårt att prata."
+      "explanation": "\"Avoir un chat dans la gorge\" betyder att vara hes — ungefär svenskans \"ha en groda i halsen\". Det är inte \"ha en klump i halsen\", som på svenska betyder att vara rörd."
     },
     {
       "id": "q-fr4-idiom-15",

@@ -134,10 +134,10 @@
         "18,8 cm",
         "37,7 cm",
         "75,4 cm",
-        "113,1 cm²"
+        "113,1 cm"
       ],
       "answer": 1,
-      "explanation": "$O = 2\\pi r = 2\\pi \\cdot 6 = 12\\pi \\approx 37{,}7$ cm. Svaret 113,1 cm² är istället arean ($\\pi r^2$), inte omkretsen."
+      "explanation": "$O = 2\\pi r = 2\\pi \\cdot 6 = 12\\pi \\approx 37{,}7$ cm. Svaret 113,1 cm är arean ($\\pi r^2 \\approx 113{,}1$ cm²) med fel enhet, inte omkretsen."
     },
     {
       "id": "q-ma8-geo-10",
@@ -146,13 +146,13 @@
       "prompt": "En cirkel har diametern 14 cm. Vad är arean, avrundat till en decimal?",
       "opener": "Kom ihåg att arean räknas med radien, inte diametern — så halvera först.",
       "choices": [
-        "44,0 cm",
-        "22,0 cm",
+        "44,0 cm²",
+        "22,0 cm²",
         "153,9 cm²",
         "307,9 cm²"
       ],
       "answer": 2,
-      "explanation": "Radien är $14 / 2 = 7$ cm. $A = \\pi r^2 = \\pi \\cdot 7^2 = 49\\pi \\approx 153{,}9$ cm². Svaret 44,0 cm är omkretsen ($\\pi d$), inte arean, och 307,9 cm² får man om man använder diametern i stället för radien i areaformeln."
+      "explanation": "Radien är $14 / 2 = 7$ cm. $A = \\pi r^2 = \\pi \\cdot 7^2 = 49\\pi \\approx 153{,}9$ cm². Svaret 44,0 cm² bygger på omkretsen ($\\pi d \\approx 44{,}0$ cm), inte på arean, och 307,9 cm² får man om man använder diametern i stället för radien i areaformeln."
     },
     {
       "id": "q-ma8-geo-11",
