@@ -90,14 +90,16 @@ classes.get("/classes", requireAuth, (req, res) => {
   `).all(req.user.userId);
 
   const member = db.prepare(`
-    SELECT c.id, c.name, u.email AS teacherEmail, m.joined_at AS joinedAt
+    SELECT c.id, c.name, c.teacher_user_id AS teacherId, m.joined_at AS joinedAt
     FROM class_members m
     JOIN classes c ON c.id = m.class_id
-    JOIN users u ON u.id = c.teacher_user_id
     WHERE m.student_user_id = ? ORDER BY m.joined_at DESC
   `).all(req.user.userId);
 
-  res.json({ teaching, member });
+  // The teacher is shown by the first name on their profile, or a shortened address (j•••@skola.se) when they have
+  // none, as in friends and class results: never the whole address of a person a joiner only knows by a code.
+  const names = displayNames(member.map((m) => m.teacherId));
+  res.json({ teaching, member: member.map(({ teacherId, ...m }) => ({ ...m, teacherName: names.get(teacherId) || "" })) });
 });
 
 // One class, for its teacher: who's in it and what's been assigned.
@@ -161,6 +163,23 @@ classes.get("/classes/:id/results", requireAuth, (req, res) => {
   });
 
   res.json({ assignments });
+});
+
+// A new code for a class (the old one stops working at once): for a code that was shared too widely or kept too long.
+// Students already in the class stay in it.
+classes.post("/classes/:id/new-code", requireAuth, (req, res) => {
+  const cls = teacherClass(req, res);
+  if (!cls) return;
+  for (let attempt = 0; attempt < 6; attempt++) {
+    const code = randomCode();
+    try {
+      db.prepare("UPDATE classes SET code = ? WHERE id = ?").run(code, cls.id);
+      return res.json({ code });
+    } catch (e) {
+      if (!isUniqueViolation(e)) throw e;   // a code clash: pick another
+    }
+  }
+  fail(res, 500, "Couldn't make a new code. Try again.");
 });
 
 classes.delete("/classes/:id", requireAuth, (req, res) => {
