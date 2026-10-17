@@ -465,7 +465,9 @@ function mc({ question, tutor, testMode, onDone, askConfidence, revealAfter = 2,
       el("span", { html: renderRich(c) }),
     ]));
 
-  const checkBtn = el("button.btn.btn--sm", { type: "button", disabled: true, hidden: revisable, onclick: check }, t("q.check"));
+  // .q-primary marks a question's main button (here and in the other kinds below): on a phone the study
+  // session hides it and its bottom bar shows the same label and presses it (views/session.js).
+  const checkBtn = el("button.btn.btn--sm.q-primary", { type: "button", disabled: true, hidden: revisable, onclick: check }, t("q.check"));
   const feedback = el("div", {});
   // Four short options sit two by two, as on a test page, instead of a long column of one-word rows.
   const shortChoices = question.choices.length === 4
@@ -616,7 +618,7 @@ function text({ question, tutor, live, testMode, onDone, askConfidence, targetLa
   const result = { correct: false, hintsUsed: 0 };
   const ta = el("textarea.answerbox", { placeholder: t("q.typeAnswer"), "aria-label": t("q.yourAnswer") });
   const keypad = keypadFor(ta, question, targetLang);
-  const checkBtn = el("button.btn.btn--sm", { type: "button", onclick: check },
+  const checkBtn = el("button.btn.btn--sm.q-primary", { type: "button", onclick: check },
     t(testMode ? "q.submit" : "q.check"));
   const feedback = el("div", {});
   const selfRate = el("div", {});
@@ -804,7 +806,7 @@ function cloze({ question, tutor, live, testMode, onDone, askConfidence }) {
     }
   }
 
-  const checkBtn = el("button.btn.btn--sm", { type: "button", onclick: check },
+  const checkBtn = el("button.btn.btn--sm.q-primary", { type: "button", onclick: check },
     t(testMode ? "q.submit" : "q.check"));
   const feedback = el("div", {});
   let done = false;
@@ -898,7 +900,7 @@ function flashcard({ question, tutor, live, testMode, onDone }) {
   // through the same live/heuristic path text() already uses.
   if (testMode) {
     const ta = el("textarea.answerbox", { placeholder: t("q.flashcardRecallPlaceholder"), "aria-label": t("q.yourAnswer") });
-    const submitBtn = el("button.btn.btn--sm", { type: "button", onclick: submit }, t("q.submit"));
+    const submitBtn = el("button.btn.btn--sm.q-primary", { type: "button", onclick: submit }, t("q.submit"));
     const feedback = el("div", {});
 
     async function submit() {
@@ -1034,7 +1036,7 @@ function worked({ question, tutor, live, testMode, onDone, targetLang }) {
   const revealBtn = steps.length && !testMode
     ? el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: revealStep }, t("q.showStep"))
     : null;
-  const doneBtn = el("button.btn.btn--sm", { type: "button", onclick: finish },
+  const doneBtn = el("button.btn.btn--sm.q-primary", { type: "button", onclick: finish },
     t(testMode ? "q.submit" : "q.doneShowAnswer"));
   const feedback = el("div", {});
   const selfRate = el("div", {});

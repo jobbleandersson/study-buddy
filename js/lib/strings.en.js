@@ -184,6 +184,7 @@ export default {
   "session.annFlagged": "Question flagged.",
   "session.annUnflagged": "Flag removed.",
   "session.exit": "Exit",
+  "session.moreOptions": "More options",
   "session.reviewSoFar": "Review answered",
   "session.reviewGotIt": "Got it",
   "session.reviewMissed": "Missed",

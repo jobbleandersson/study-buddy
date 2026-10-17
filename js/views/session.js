@@ -23,7 +23,7 @@ import { TutorChat } from "../components/tutor-chat.js";
 import { homeButton } from "../components/nav.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { openReadingControls } from "../components/reading-controls.js";
-import { closePopover } from "../lib/popover.js";
+import { openPopover, closePopover } from "../lib/popover.js";
 import { review } from "../lib/srs.js";
 import { weakSpotQuestions, masteryByTopic, firstTryCorrect } from "../lib/mastery.js";
 import { ruleQuestionIds } from "../lib/rules.js";
@@ -577,7 +577,7 @@ function runSession(config) {
   const stage = el("div.session__stage");
   // A pen to draw on top of the question with (HP runs), like scribbling in the test booklet.
   const scratch = scratchPad(stage);
-  const nextBtn = el("button.btn", { type: "button", disabled: true, onclick: next }, t("session.next"));
+  const nextBtn = el("button.btn.nextbtn", { type: "button", disabled: true, onclick: next }, t("session.next"));
   const skipBtn = el("button.btn.btn--ghost", { type: "button", onclick: skip }, t("session.skip"));
   const exitBtn = el("button.btn.btn--ghost", { type: "button", onclick: exit }, t("session.exit"));
   // Exam mode only: reads like the paper test it simulates - any question in any order, a flag to come
@@ -674,6 +674,11 @@ function runSession(config) {
       plural(left, "session.progLeftOne", "session.progLeftMany"),
     ].filter(Boolean).join(" · ");
 
+    // The phone bar: the question you're on (an exam's fixed numbering, else the next one to answer).
+    const total = state.order.length;
+    mFill.style.width = `${Math.max(3, (done / total) * 100)}%`;
+    mCount.textContent = `${isExam ? state.cursor + 1 : Math.min(done + 1, total)}/${total}`;
+
     const showDots = state.order.length <= 30;
     dots.hidden = !showDots;
     bar.hidden = showDots;
@@ -769,6 +774,66 @@ function runSession(config) {
     : null;
   let examTick = null, examAutoSubmitted = false;
 
+  /* ----- phones: one slim bar instead of the app's top bar and this header -----
+     Leave, how far along, the clock on a timed run and a menu with the header's tools. The fixed bottom
+     bar's main button (mPrimary) shows and presses whatever the current step's main button is: the
+     question's own "Check" / "Hand in" / "Start" (.q-primary, which CSS hides on a phone), else "Next".
+     CSS shows all of this below 900px only, and not in commute mode, which has its own screen. */
+  const mFill = el("span.mtop__fill");
+  const mCount = el("span.mtop__n");
+  const mTimeText = el("span");
+  const mTime = el("span.mtop__time", { hidden: !timed }, [icon(ICONS.clock, 14), mTimeText]);
+  const mExit = el("button.mtop__btn", { type: "button", "aria-label": t("session.exit"), onclick: () => exit() }, [icon(ICONS.close, 22)]);
+  const moreBtn = el("button.mtop__btn", {
+    type: "button", "aria-haspopup": "menu", "aria-label": t("session.moreOptions"), title: t("session.moreOptions"),
+    onclick: () => openMoreMenu(),
+  }, [icon(ICONS.dots, 22)]);
+  const mTitle = el("p.mtop__title");
+  const mPrimary = el("button.btn.mprimary", {
+    type: "button", onclick: () => { const src = primarySource(); if (!src.disabled) src.click(); },
+  });
+  function showClock(text) { examTimeText.textContent = text; mTimeText.textContent = text; }
+  function primarySource() {
+    const own = stage.querySelector(".q-primary");
+    return own && !own.hidden ? own : nextBtn;
+  }
+  function syncPrimary() {
+    const src = primarySource();
+    mPrimary.replaceChildren(...[...src.childNodes].map((n) => n.cloneNode(true)));
+    mPrimary.disabled = src.disabled;
+    mPrimary.hidden = src.hidden;
+  }
+  const primaryWatch = new MutationObserver(syncPrimary);
+  primaryWatch.observe(stage, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ["disabled", "hidden"] });
+  primaryWatch.observe(nextBtn, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ["disabled", "hidden"] });
+  // iPhone keeps a fixed bar at the bottom of the page behind the keyboard: lift it above while typing.
+  const vv = window.visualViewport;
+  function liftBar() {
+    const kb = vv ? Math.max(0, Math.round(window.innerHeight - vv.height - vv.offsetTop)) : 0;
+    document.documentElement.style.setProperty("--kb-lift", `${kb}px`);
+  }
+  vv?.addEventListener("resize", liftBar);
+  vv?.addEventListener("scroll", liftBar);
+
+  function openMoreMenu() {
+    if (document.querySelector(".popover")) { closePopover(); return; }   // the same button closes it
+    const item = (ic, label, run) => el("button.toolfly__item", {
+      type: "button", role: "menuitem", onclick: () => { closePopover(); run(); },
+    }, [el("span.toolfly__icon", {}, icon(ic, 17)), el("span", {}, label)]);
+    const started = !stage.querySelector(".hp-intro, .resume");
+    const menu = openPopover(moreBtn, [
+      item(ICONS.contrast, t("read.title"), () => openReadingControls(moreBtn)),
+      busBtn ? item(ICONS.headphones, t("bus.start"), () => { location.hash = busBtn.getAttribute("href"); }) : null,
+      graphBtn ? item(ICONS.curve, t("graph.open"), () => graphBtn.click()) : null,
+      !reviewBtn.hidden ? item(ICONS.back, t("session.reviewSoFar"), openReviewSoFar) : null,
+      isExam && started ? item(ICONS.layers, t("session.overview"), openOverview) : null,
+      isExam && started ? item(ICONS.check, t("session.handIn"), handIn) : null,
+      pomoMin ? el("p.toolfly__title", { role: "presentation" }, `${t("session.pomoTitle")} · ${pomoEl.textContent}`) : null,
+    ].filter(Boolean), { align: "right", width: 250, fixed: true, label: t("session.moreOptions") });
+    menu.classList.add("popover--flyout");
+    menu.querySelector("button")?.focus();
+  }
+
   function fmtClock(ms) {
     const total = Math.max(0, Math.round(ms / 1000));
     return `${Math.floor(total / 60)}:${String(total % 60).padStart(2, "0")}`;
@@ -800,6 +865,8 @@ function runSession(config) {
     }
     floatTimeText.textContent = examTimeText.textContent;
     floatTimer.classList.toggle("examtimer--warn", examTimer.classList.contains("examtimer--warn"));
+    mTimeText.textContent = examTimeText.textContent;
+    mTime.classList.toggle("is-warn", examTimer.classList.contains("examtimer--warn"));
   }
   function startExam() {
     if (!timed || examTick) return;
@@ -1320,7 +1387,7 @@ function runSession(config) {
     const pace = sec % 60 === 0 ? t("hp.introMinutes", { n: sec / 60 })
       : sec > 60 ? t("hp.introPaceMin", { m: Math.floor(sec / 60), s: sec % 60 }) : t("hp.introPaceSec", { s: sec });
     // The clock shows the whole time until the run starts.
-    if (config.timeLimitMin) examTimeText.textContent = fmtClock(config.timeLimitMin * 60000);
+    if (config.timeLimitMin) showClock(fmtClock(config.timeLimitMin * 60000));
     stage.appendChild(el("div.panel.hp-intro", {}, [
       el("p.hp-intro__code", {}, t(`hp.delprov.${dp}`)),
       el("h3", {}, t(`hp.name.${dp}`)),
@@ -1335,12 +1402,13 @@ function runSession(config) {
       ].filter(Boolean)),
       introStartBtn(),
     ]));
+    paintProgress();   // the phone bar's "n/N" before the first question
   }
 
   /** A run across several delprov (the quick prognosis, a provpass): what's in it, the time and the
    *  marking, before the clock starts. Each delprov's own instruction shows where its questions begin. */
   function showMixedIntro() {
-    if (config.timeLimitMin) examTimeText.textContent = fmtClock(config.timeLimitMin * 60000);
+    if (config.timeLimitMin) showClock(fmtClock(config.timeLimitMin * 60000));
     const counts = new Map();
     for (const id of state.order) {
       const dp = delprovOf(id);
@@ -1360,6 +1428,7 @@ function runSession(config) {
       el("p.note.hp-intro__tip", {}, [icon(ICONS.spark, 15), " ", t("hp.introGuess")]),
       introStartBtn(),
     ]));
+    paintProgress();   // the phone bar's "n/N" before the first question
   }
 
   /** A question's delprov: its own `variant`, else the set it lives in (as hpQuestionIndex reads it). */
@@ -1369,7 +1438,7 @@ function runSession(config) {
   }
 
   function introStartBtn() {
-    return el("button.btn", {
+    return el("button.btn.q-primary", {
       type: "button",
       onclick: () => {
         // The clock starts now, not when the page opened.
@@ -1582,6 +1651,10 @@ function runSession(config) {
   function onLangSession() {
     const title = headTitle();
     headH2.textContent = title;
+    mTitle.textContent = title;
+    mExit.setAttribute("aria-label", t("session.exit"));
+    moreBtn.setAttribute("aria-label", t("session.moreOptions"));
+    moreBtn.title = t("session.moreOptions");
     document.title = `${title} · PluggEra`;   // render() skips this on the chrome-only path
     badgeEl.textContent = badgeLabel(config);
     if (examCtxEl) examCtxEl.firstChild.textContent = contextLine(ctxExam);
@@ -1624,7 +1697,10 @@ function runSession(config) {
     }, [icon(ICONS.curve, 18)]);
   })();
 
-  const node = el("div" + (config.bus ? ".session--bus" : ""), {}, [
+  mTitle.textContent = headTitle();
+  const node = el("div.sessionview" + (config.bus ? ".session--bus" : ".sessionview--bar"), {}, [
+    config.bus ? null : el("div.mtop", {}, [mExit, el("span.mtop__track", { "aria-hidden": "true" }, [mFill]), mCount, mTime, moreBtn]),
+    config.bus ? null : mTitle,
     homeButton({ confirm: () => hasProgress() }),
     el("div.session__head", {}, [
       headH2,
@@ -1652,7 +1728,7 @@ function runSession(config) {
         hintFab,
         el("div.nav-row", {}, [
           el("div", { style: { display: "flex", gap: "8px", flexWrap: "wrap" } }, [exitBtn, reviewBtn, overviewBtn, flagBtn]),
-          el("div", { style: { display: "flex", gap: "10px" } }, [prevBtn, skipBtn, nextBtn]),
+          el("div", { style: { display: "flex", gap: "10px" } }, [prevBtn, skipBtn, nextBtn, mPrimary]),
         ]),
       ]),
       tutor.el,
@@ -1660,6 +1736,7 @@ function runSession(config) {
     timed ? floatTimer : null,
   ].filter(Boolean));
   floatWatch?.observe(examTimer);
+  syncPrimary();
 
   return {
     title: config.title,
@@ -1667,6 +1744,10 @@ function runSession(config) {
     cleanup: () => {
       ended = true;
       floatWatch?.disconnect();
+      primaryWatch.disconnect();
+      vv?.removeEventListener("resize", liftBar);
+      vv?.removeEventListener("scroll", liftBar);
+      document.documentElement.style.removeProperty("--kb-lift");
       scratch.reset();
       setSessionActive(false);
       document.removeEventListener("keydown", onKeyDown);

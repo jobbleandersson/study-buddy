@@ -199,6 +199,7 @@ export default {
   "session.annFlagged": "Frågan markerad.",
   "session.annUnflagged": "Markeringen borttagen.",
   "session.exit": "Lämna",
+  "session.moreOptions": "Fler val",
   "session.reviewSoFar": "Se besvarade",
   "session.reviewGotIt": "Rätt",
   "session.reviewMissed": "Fel",

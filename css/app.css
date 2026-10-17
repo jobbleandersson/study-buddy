@@ -6323,3 +6323,77 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .hp-calibbox__row b { color: var(--ink); font-weight: 700; }
 .hp-calibbox__bar.hp-calib__bar { display: block; width: 100%; background: var(--line-strong); }
 .hp-calibbox__hint { margin: 0; font-size: 12.5px; color: var(--ink-soft); line-height: 1.45; }
+
+/* ---------- study session on phones: full screen, one bar on top, the main button pinned ----------
+   Below the sidebar breakpoint a session drops the app's top bar, "← Home", the title row and the dot row
+   for one slim bar: ✕ (leave), progress "n/N", the clock on a timed run, and ⋯ (the header's tools). The
+   step's main button ("Check", "Start", "Next") sits in a bar fixed at the bottom, where a thumb is, and
+   the answer options stack in one column. session.js builds the pieces (.sessionview--bar, .mtop, .mprimary, .q-primary);
+   commute mode has its own screen and keeps none of this. Desktop is untouched. */
+.mtop, .mtop__title, .mprimary { display: none; }
+button.toolfly__item { border: 0; background: transparent; font: inherit; font-size: var(--fs-sm); width: 100%; text-align: left; cursor: pointer; }
+@media (max-width: 899.98px) {
+  body:has(.sessionview--bar) :is(.topbar, .examtimer--float) { display: none !important; }
+  body:has(.sessionview--bar) .content { padding-top: 0; padding-bottom: calc(104px + env(safe-area-inset-bottom)); }
+  .sessionview--bar > :is(.homebtn, .session__head, .progressbar, .progress-dots, .progress-label) { display: none !important; }
+
+  .mtop {
+    position: sticky; top: 0; z-index: 25;
+    display: grid; grid-template-columns: 44px minmax(0, 1fr) auto auto 44px; align-items: center; gap: 10px;
+    margin-inline: -6px; padding: calc(env(safe-area-inset-top) + 8px) 0 8px;
+    background: color-mix(in srgb, var(--canvas) 92%, transparent); backdrop-filter: blur(12px);
+  }
+  .mtop__btn {
+    width: 44px; height: 44px; display: grid; place-items: center; padding: 0;
+    border: 0; border-radius: 12px; background: transparent; color: var(--ink); cursor: pointer;
+  }
+  .mtop__btn:active { background: var(--surface-sunk); }
+  .mtop__btn:focus-visible { outline: none; box-shadow: var(--ring); }
+  .mtop__track { position: relative; height: 8px; border-radius: var(--r-full); overflow: hidden; background: color-mix(in srgb, var(--ink) 10%, var(--surface)); }
+  .mtop__fill { position: absolute; inset: 0 auto 0 0; border-radius: inherit; background: linear-gradient(90deg, var(--c-sky), var(--brand)); transition: width var(--dur-slow) var(--ease-out); }
+  .mtop__n { min-width: 2.6em; text-align: right; font-size: 14px; font-weight: 700; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  .mtop__time { display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; border-radius: var(--r-full); background: var(--surface-sunk); font-size: 14px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .mtop__time.is-warn { background: var(--retry-tint); color: var(--retry-ink); }
+  .mtop__time[hidden] { display: none; }
+  .mtop__title {
+    display: block; margin: 0 0 var(--s-4); font-size: 13px; font-weight: 600; color: var(--ink-faint);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+
+  /* The bottom bar: Skip (and an exam's Previous / flag) beside the main button. Leave is the ✕ above;
+     answers so far and an exam's question map are in the ⋯ menu. */
+  .sessionview--bar .session .nav-row {
+    position: fixed; left: 0; right: 0; bottom: var(--kb-lift, 0px); z-index: 30; margin: 0;
+    flex-direction: row; flex-wrap: nowrap; align-items: center; gap: 10px;
+    padding: 10px 16px calc(env(safe-area-inset-bottom) + 10px);
+    background: color-mix(in srgb, var(--canvas) 94%, transparent); backdrop-filter: blur(12px);
+    border-top: 1px solid var(--line);
+  }
+  .sessionview--bar .nav-row > div:first-child > :not(.flagbtn) { display: none !important; }
+  .sessionview--bar .nav-row > div:first-child:not(:has(> .flagbtn:not([hidden]))) { display: none; }
+  .sessionview--bar .nav-row > div:first-child { flex: none; width: auto; }
+  .sessionview--bar .nav-row .flagbtn { min-width: 50px; min-height: 50px; padding: 0; justify-content: center; border-radius: 14px; }
+  .sessionview--bar .nav-row .flagbtn > span { display: none; }
+  .sessionview--bar .nav-row > div:last-child { flex: 1; width: auto; flex-wrap: nowrap; }
+  .sessionview--bar .nav-row > div:last-child > .btn { min-height: 52px; border-radius: 14px; font-size: 1rem; justify-content: center; }
+  .sessionview--bar .nav-row > div:last-child > .btn--ghost { flex: 0 0 auto; padding-inline: 18px; }
+  .sessionview--bar .nav-row .nextbtn { display: none !important; }
+  .sessionview--bar .nav-row .mprimary { display: inline-flex !important; flex: 1 1 auto; gap: 8px; }
+  .sessionview--bar .nav-row .mprimary[hidden] { display: none !important; }
+  .sessionview--bar .q-primary { display: none !important; }
+  /* "Continue where you left off" brings its own two buttons. */
+  .sessionview--bar:has(.resume) .nav-row { display: none !important; }
+
+  /* Answer options: one full-width row each, easy to hit with a thumb. */
+  .sessionview--bar .choices--grid { grid-template-columns: minmax(0, 1fr); }
+  .sessionview--bar .choice { min-height: 56px; }
+
+  button.toolfly__item { min-height: 44px; }
+}
+@media (max-width: 899.98px) {
+  /* Nothing to flag before an HP run has started. */
+  .sessionview--bar:has(.hp-intro) .nav-row .flagbtn { display: none !important; }
+  /* An exam's fixed "exam conditions" banner is read on the intro; once the run is going it would sit
+     over every question on a small screen. (A test's banner with its on/off switch stays.) */
+  .sessionview--bar:not(:has(.hp-intro)) > .testbar:not(:has(button)) { display: none; }
+}
