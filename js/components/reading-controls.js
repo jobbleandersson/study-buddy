@@ -40,7 +40,7 @@ export function openReadingControls(anchor) {
     sizeRow.replaceChildren(
       el("span.reading__k", {}, t("read.textSize")),
       el("div.reading__seg", { role: "group", "aria-label": t("read.textSize") },
-        [["s", "11px"], ["m", "14px"], ["l", "17px"]].map(([v, fs]) => {
+        [["s", "11px"], ["m", "14px"], ["l", "19px"]].map(([v, fs]) => {
           const on = cur === v;
           return el("button" + (on ? ".is-on" : ""), {
             type: "button", "aria-pressed": String(on),

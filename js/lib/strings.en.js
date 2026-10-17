@@ -1669,7 +1669,7 @@ export default {
   "set.font": "Typeface",
   "set.fontSystem": "Default",
   "set.fontHyperlegible": "Hyperlegible",
-  "set.textSize": "Text size",
+  "set.textSize": "Question text size",
   "set.textSizeS": "Small",
   "set.textSizeM": "Medium",
   "set.textSizeL": "Large",
