@@ -623,6 +623,11 @@ export default {
 
   /* ---- question editor ---- */
   "ed.none": "Inga frågor än — lägg till en nedan.",
+  "ed.collapse": "Fäll ihop fråga {n}",
+  "ed.expand": "Visa fråga {n}",
+  "ed.collapseAll": "Fäll ihop alla",
+  "ed.expandAll": "Visa alla",
+  "ed.emptyPrompt": "(tom fråga)",
   "ed.qBadge": "F{n}",
   "ed.qTextAria": "Text för fråga {n}",
   "ed.question": "Fråga",

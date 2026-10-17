@@ -2,7 +2,7 @@
 // generated) and the Edit screen (changing a set you already saved), so the two
 // can't drift apart.
 //
-//   const editor = questionEditor(doc);
+//   const editor = questionEditor(doc, { onChange, collapseAfter });   // collapseAfter: open with every question folded when there are more
 //   editor.el          -> the list node
 //   editor.addQuestion()
 //   editor.commit()    -> drops blank questions, returns the cleaned list
@@ -21,8 +21,12 @@ function kinds() { return [
 
 const blankCount = (s) => parseCloze(s).filter((p) => p.blank).length;
 
-export function questionEditor(doc, { onChange } = {}) {
+export function questionEditor(doc, { onChange, collapseAfter = Infinity } = {}) {
   const list = el("div");
+  // Questions folded to one line. Keyed by the question object, so a repaint (a move, a delete) keeps them as they were.
+  // A long set made the editor thousands of pixels tall; folding lets you reach the one you want and the Save bar.
+  const collapsed = new WeakSet();
+  if (doc.questions.length > collapseAfter) doc.questions.forEach((q) => collapsed.add(q));
 
   function changed() { onChange?.(doc.questions.length); }
 
@@ -31,6 +35,15 @@ export function questionEditor(doc, { onChange } = {}) {
     if (!doc.questions.length) {
       list.appendChild(el("p.note", { style: { padding: "16px 0" } },
         t("ed.none")));
+    }
+    if (doc.questions.length >= 3) {
+      const all = doc.questions.every((q) => collapsed.has(q));
+      list.appendChild(el("div.qedit__bar", {}, [
+        el("button.btn.btn--ghost.btn--sm", {
+          type: "button",
+          onclick: () => { doc.questions.forEach((q) => (all ? collapsed.delete(q) : collapsed.add(q))); paint(); },
+        }, t(all ? "ed.expandAll" : "ed.collapseAll")),
+      ]));
     }
     doc.questions.forEach((q, i) => list.appendChild(questionBlock(q, i)));
     changed();
@@ -45,6 +58,25 @@ export function questionEditor(doc, { onChange } = {}) {
 
   function questionBlock(q, idx) {
     const wrap = el("div.qedit", { dataset: { i: String(idx) } });
+    if (collapsed.has(q)) {
+      // One line: open it, see what it asks, delete it.
+      const summary = String(q.prompt || "").replace(/\s+/g, " ").trim();
+      wrap.classList.add("is-collapsed");
+      wrap.appendChild(el("div.qedit__row.qedit__folded", {}, [
+        el("button.qedit__toggle", {
+          type: "button", "aria-expanded": "false", "aria-label": t("ed.expand", { n: idx + 1 }),
+          onclick: () => { collapsed.delete(q); paint(); },
+        }, "▸"),
+        el("span.badge", {}, t("ed.qBadge", { n: idx + 1 })),
+        el("span.qedit__summary" + (summary ? "" : ".is-empty"), { title: summary }, summary || t("ed.emptyPrompt")),
+        el("button.iconbtn.iconbtn--sm", {
+          type: "button", "aria-label": t("ed.deleteQuestion", { n: idx + 1 }), title: t("ed.deleteQuestionTitle"),
+          style: { color: "var(--retry-ink)" },
+          onclick: () => { doc.questions.splice(idx, 1); paint(); },
+        }, [icon(ICONS.trash, 15)]),
+      ]));
+      return wrap;
+    }
     // Only the grip starts a drag — leaving text selection inside the fields alone.
     const grip = el("span.qedit__grip", {
       draggable: "true", title: t("ed.dragReorder"), "aria-hidden": "true",
@@ -154,6 +186,10 @@ export function questionEditor(doc, { onChange } = {}) {
     });
 
     wrap.appendChild(el("div.qedit__row.qedit__head", {}, [
+      el("button.qedit__toggle", {
+        type: "button", "aria-expanded": "true", "aria-label": t("ed.collapse", { n: idx + 1 }),
+        onclick: () => { collapsed.add(q); paint(); },
+      }, "▾"),
       grip,
       el("span.badge", {}, t("ed.qBadge", { n: idx + 1 })),
       kindSel,
