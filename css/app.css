@@ -402,6 +402,14 @@ body.has-topmenu .sitechat__fab { display: none; }
 }
 .homebtn svg { flex: none; }
 .psheet__bar .homebtn { margin-bottom: 0; }
+/* Phones: the tab bar already leads home, so "← Home" is a quiet text link rather than a bordered pill
+   (still 44px tall to tap, see the phone block further down), and it sits closer to the title. :root
+   lifts it over design.css's .homebtn border. */
+@media (max-width: 899.98px) {
+  :root .homebtn { border-color: transparent; background: transparent; padding-inline: 2px 10px; margin-left: -2px; }
+  :root .homebtn:not(.psheet__bar .homebtn) { margin-bottom: var(--s-1); }
+  :root .homebtn:hover { border-color: transparent; }
+}
 
 .iconbtn {
   display: inline-flex; align-items: center; justify-content: center; flex: none;
@@ -1256,6 +1264,8 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
   gap: var(--s-4); margin-bottom: var(--s-2); flex-wrap: wrap;
 }
 .session__headright { display: flex; align-items: center; gap: var(--s-2); }
+/* Phones: when the controls wrap under a long title, keep them close to it, not a full gap away. */
+@media (max-width: 899.98px) { .session__head { row-gap: var(--s-1); } }
 /* The shortcuts button is the only affordance for the keyboard layer, so it
    stays visible at every width rather than hiding on small screens. */
 .shortcutsbtn, .readingbtn { width: 36px; height: 36px; flex: none; }
