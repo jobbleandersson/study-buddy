@@ -97,8 +97,12 @@
   --font-display: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
   --font-body:    "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
 }
-:root[data-textsize="s"] body { font-size: 13px; }
-:root[data-textsize="l"] body { font-size: 19px; }
+/* The text-size setting scales the whole interface: rem sizes follow the root size, the px sizes in the
+   stylesheets are written as calc(Npx * var(--fs-scale, 1)). Medium is exactly what it was before. */
+:root { --fs-scale: 1; }
+:root[data-textsize="s"] { --fs-scale: 0.88; }
+:root[data-textsize="l"] { --fs-scale: 1.2; }
+html { font-size: calc(100% * var(--fs-scale)); }   /* a percentage, so the browser's own text-size setting still counts */
 
 /* ---------------------------------------------------------------
    Warm paper — a light-family reading theme (parchment ground,

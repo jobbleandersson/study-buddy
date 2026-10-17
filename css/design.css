@@ -90,15 +90,15 @@ h1 { font-weight: 750; }
   .sidebar__brand img { width: 28px; height: 28px; }
   .sidebar__link {
     min-height: 36px; max-height: 40px; padding: 0 10px; gap: 11px;
-    border-radius: 8px; font-size: 14px; font-weight: 500; color: var(--ink-soft);
+    border-radius: 8px; font-size: calc(14px * var(--fs-scale, 1)); font-weight: 500; color: var(--ink-soft);
   }
   .sidebar__link svg { width: 18px; height: 18px; stroke-width: 1.8; color: var(--ink-faint); }
   .sidebar__link:hover svg { color: var(--ink-soft); }
   .sidebar__link.is-active { background: var(--brand-tint); color: var(--brand-ink); font-weight: 600; }
   .sidebar__link.is-active svg { color: var(--brand); }
   /* Section labels read like quiet headings, not shouted caps. */
-  .sidebar__group { margin: 16px 10px 4px; font-size: 12px; letter-spacing: 0; font-weight: 500; text-transform: none; }
-  .sidebar__acc { min-height: 36px; padding: 0 10px; border-radius: 8px; font-weight: 500; font-size: 14px; }
+  .sidebar__group { margin: 16px 10px 4px; font-size: calc(12px * var(--fs-scale, 1)); letter-spacing: 0; font-weight: 500; text-transform: none; }
+  .sidebar__acc { min-height: 36px; padding: 0 10px; border-radius: 8px; font-weight: 500; font-size: calc(14px * var(--fs-scale, 1)); }
   .sidebar__acc svg:first-child { stroke-width: 1.8; color: var(--ink-faint); }
   .sidebar__acc-count { border-radius: 6px; }
   .sidebar__div { margin: 10px 10px; }
@@ -139,7 +139,7 @@ h1 { font-weight: 750; }
   .topsearch svg { flex: none; stroke-width: 1.8; }
   .topsearch__input {
     flex: 1; min-width: 0; border: 0; outline: 0; background: transparent;
-    font: inherit; font-size: 14px; color: var(--ink);
+    font: inherit; font-size: calc(14px * var(--fs-scale, 1)); color: var(--ink);
   }
   /* The wrapper's :focus-within above already shows focus (border + background) —
      without this, the input itself also picks up the global :focus-visible outline
@@ -163,9 +163,9 @@ h1 { font-weight: 750; }
   .topsearch__row svg { flex: none; color: var(--ink-faint); }
   .topsearch__row.is-sel { background: var(--brand-tint); }
   .topsearch__row-text { display: flex; flex-direction: column; min-width: 0; }
-  .topsearch__row-text strong { font-size: 14px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .topsearch__row-text small { font-size: 12px; color: var(--ink-faint); }
-  .topsearch__empty { padding: 10px; font-size: 13px; color: var(--ink-faint); }
+  .topsearch__row-text strong { font-size: calc(14px * var(--fs-scale, 1)); font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .topsearch__row-text small { font-size: calc(12px * var(--fs-scale, 1)); color: var(--ink-faint); }
+  .topsearch__empty { padding: 10px; font-size: calc(13px * var(--fs-scale, 1)); color: var(--ink-faint); }
 }
 
 /* ---------- mobile shell ---------- */
@@ -175,18 +175,18 @@ h1 { font-weight: 750; }
   .topbar { background: var(--canvas); backdrop-filter: none; }
   .tabbar { background: var(--canvas); backdrop-filter: none; }
   .brand { font-weight: 750; letter-spacing: -.02em; }
-  .tabbar__item span { font-size: 11px; font-weight: 550; }
+  .tabbar__item span { font-size: calc(11px * var(--fs-scale, 1)); font-weight: 550; }
   .tabbar__item svg { stroke-width: 1.8; }
 }
 
 /* ---------- in-app footer: one quiet line ---------- */
 .sitefooter {
-  padding-top: 18px; gap: 6px 18px; font-size: 13px;
+  padding-top: 18px; gap: 6px 18px; font-size: calc(13px * var(--fs-scale, 1));
   justify-content: flex-start;
 }
 .sitefooter__links { gap: 4px 18px; }
 .sitefooter__links a { color: var(--ink-faint); }
-.sitefooter__copy { width: auto; order: 0; margin-left: auto; font-size: 13px; }
+.sitefooter__copy { width: auto; order: 0; margin-left: auto; font-size: calc(13px * var(--fs-scale, 1)); }
 @media (max-width: 620px) { .sitefooter__copy { margin-left: 0; width: 100%; } }
 
 /* The language button carries a flag and a code, so it keeps its own width. */
@@ -198,12 +198,12 @@ h1 { font-weight: 750; }
   gap: 16px 24px; margin-bottom: 28px;
 }
 .home__title { min-width: 0; }
-.home__date { margin: 0 0 6px; font-size: 13px; font-weight: 600; color: var(--ink-faint); letter-spacing: .01em; }
+.home__date { margin: 0 0 6px; font-size: calc(13px * var(--fs-scale, 1)); font-weight: 600; color: var(--ink-faint); letter-spacing: .01em; }
 
 /* Panel headings on the home page read as section titles, not bold body text. */
 .home-panel { border-radius: var(--r-lg); box-shadow: var(--shadow-card); }
-.home-panel__label > span:first-child { font-size: 15px; font-weight: 650; letter-spacing: -.01em; }
-.home-panel__label .linkbtn { font-size: 13.5px; font-weight: 600; }
+.home-panel__label > span:first-child { font-size: calc(15px * var(--fs-scale, 1)); font-weight: 650; letter-spacing: -.01em; }
+.home-panel__label .linkbtn { font-size: calc(13.5px * var(--fs-scale, 1)); font-weight: 600; }
 
 /* Very small phones (320px): the top bar needs 340px at its normal spacing, which made the whole page
    scroll sideways. Tighter gaps and side padding are enough to fit it; the 44px buttons stay. */
