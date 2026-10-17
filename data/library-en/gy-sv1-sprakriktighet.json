@@ -216,8 +216,8 @@
       "id": "q-sv1-spr-15",
       "kind": "mc",
       "topic": "de and dem",
-      "prompt": "Choose the correct word: \"Ingen var lika förvånad som ___.\"",
-      "opener": "Picture the full sentence: \"...som de var förvånade.\" Which form does that require?",
+      "prompt": "Choose the correct word in formal writing: \"___ som kom sist fick ingen medalj.\"",
+      "opener": "Picture the full sentence: \"...de fick ingen medalj.\" Which form does that require?",
       "choices": [
         "de",
         "dem",
@@ -225,7 +225,7 @@
         "den"
       ],
       "answer": 0,
-      "explanation": "The sentence is a shortened form of \"...som de var förvånade\", where \"de\" is the subject of the implied \"var\". In formal written Swedish, the subject form \"de\" is therefore used even after \"som\" in comparisons like this."
+      "explanation": "\"De som kom sist\" is the subject of the clause — \"de fick ingen medalj\" — and the subject form in writing is \"de\". The object form \"dem\" is used as an object instead: \"jag gav medaljen till dem\". \"Dom\" belongs to spoken language."
     }
   ]
 }

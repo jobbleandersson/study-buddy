@@ -77,7 +77,7 @@
       "id": "q-en6-passive-5",
       "kind": "mc",
       "topic": "reported statements",
-      "prompt": "Report this statement: \"I am tired,\" she said.",
+      "prompt": "Report this statement with the usual backshift: \"I am tired,\" she said.",
       "opener": "Tempus flyttas ofta ett steg bakåt (backshift) när det inledande verbet står i preteritum.",
       "choices": [
         "She said she is tired.",
@@ -92,7 +92,7 @@
       "id": "q-en6-passive-6",
       "kind": "mc",
       "topic": "reported questions",
-      "prompt": "Report this question: \"Where do you live?\" he asked.",
+      "prompt": "Report this question with the usual backshift: \"Where do you live?\" he asked.",
       "opener": "I indirekta frågor blir ordföljden som i ett vanligt påstående — ingen hjälpverb-inversion och inget frågetecken.",
       "choices": [
         "He asked where do I live.",
@@ -159,7 +159,7 @@
       "id": "q-en6-passive-11",
       "kind": "mc",
       "topic": "reported statements",
-      "prompt": "Report this statement: \"We have finished the project,\" they said.",
+      "prompt": "Report this statement with the usual backshift: \"We have finished the project,\" they said.",
       "opener": "Present perfect i direkt tal backshiftas till past perfect i reported speech.",
       "choices": [
         "They said they had finished the project.",
@@ -193,12 +193,12 @@
       "opener": "Negativa uppmaningar i reported speech: var placeras \"not\" i förhållande till \"to\"?",
       "choices": [
         "The guide told the tourists not to touch that.",
-        "The guide told the tourists to not touch that.",
+        "The guide told the tourists not touching that.",
         "The guide told the tourists don't touch that.",
         "The guide told to the tourists not touch that."
       ],
       "answer": 0,
-      "explanation": "Negativa uppmaningar i reported speech bildas med \"not\" + infinitiv med \"to\": \"told them not to touch\". Att placera \"not\" efter \"to\" eller utelämna \"to\" blir fel."
+      "explanation": "Negativa uppmaningar i reported speech bildas med \"not\" + infinitiv med \"to\": \"told them not to touch\". Att använda -ing-form eller utelämna \"to\" blir fel."
     },
     {
       "id": "q-en6-passive-14",

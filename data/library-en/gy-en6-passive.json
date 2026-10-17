@@ -77,7 +77,7 @@
       "id": "q-en6-passive-5",
       "kind": "mc",
       "topic": "reported statements",
-      "prompt": "Report this statement: \"I am tired,\" she said.",
+      "prompt": "Report this statement with the usual backshift: \"I am tired,\" she said.",
       "opener": "The tense is often shifted one step back (backshift) when the reporting verb is in the past tense.",
       "choices": [
         "She said she is tired.",
@@ -92,7 +92,7 @@
       "id": "q-en6-passive-6",
       "kind": "mc",
       "topic": "reported questions",
-      "prompt": "Report this question: \"Where do you live?\" he asked.",
+      "prompt": "Report this question with the usual backshift: \"Where do you live?\" he asked.",
       "opener": "In indirect questions, the word order becomes like an ordinary statement — no auxiliary-verb inversion and no question mark.",
       "choices": [
         "He asked where do I live.",
@@ -159,7 +159,7 @@
       "id": "q-en6-passive-11",
       "kind": "mc",
       "topic": "reported statements",
-      "prompt": "Report this statement: \"We have finished the project,\" they said.",
+      "prompt": "Report this statement with the usual backshift: \"We have finished the project,\" they said.",
       "opener": "Present perfect in direct speech is backshifted to past perfect in reported speech.",
       "choices": [
         "They said they had finished the project.",
@@ -193,12 +193,12 @@
       "opener": "Negative commands in reported speech: where does \"not\" go in relation to \"to\"?",
       "choices": [
         "The guide told the tourists not to touch that.",
-        "The guide told the tourists to not touch that.",
+        "The guide told the tourists not touching that.",
         "The guide told the tourists don't touch that.",
         "The guide told to the tourists not touch that."
       ],
       "answer": 0,
-      "explanation": "Negative reported commands are formed with \"not\" + infinitive with \"to\": \"told them not to touch\". Placing \"not\" after \"to\" or omitting \"to\" is incorrect."
+      "explanation": "Negative reported commands are formed with \"not\" + infinitive with \"to\": \"told them not to touch\". Using the -ing form or omitting \"to\" is incorrect."
     },
     {
       "id": "q-en6-passive-14",
