@@ -1689,7 +1689,7 @@ export default {
   "set.font": "Typsnitt",
   "set.fontSystem": "Standard",
   "set.fontHyperlegible": "Hyperlegible",
-  "set.textSize": "Textstorlek i frågor",
+  "set.textSize": "Textstorlek",
   "set.textSizeS": "Liten",
   "set.textSizeM": "Mellan",
   "set.textSizeL": "Stor",
