@@ -54,6 +54,7 @@ export function renderEdit(assignmentId, qs) {
 
   const countNote = el("p.note");
   const editor = questionEditor(draft, {
+    collapseAfter: 6,   // a long set opens folded: one line per question, the Save bar in reach
     onChange: (n) => { countNote.textContent = plural(n, "common.questionOne", "common.questionMany"); },
   });
 

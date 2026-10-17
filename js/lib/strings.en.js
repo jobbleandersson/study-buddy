@@ -608,6 +608,11 @@ export default {
 
   /* ---- question editor ---- */
   "ed.none": "No questions yet — add one below.",
+  "ed.collapse": "Fold question {n}",
+  "ed.expand": "Show question {n}",
+  "ed.collapseAll": "Fold all",
+  "ed.expandAll": "Show all",
+  "ed.emptyPrompt": "(empty question)",
   "ed.qBadge": "Q{n}",
   "ed.qTextAria": "Question {n} text",
   "ed.question": "Question",
