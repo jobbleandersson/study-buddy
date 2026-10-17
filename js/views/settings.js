@@ -21,6 +21,7 @@ import { twofaSetupDialog } from "../components/twofa-setup-dialog.js";
 import { passwordConfirmDialog } from "../components/password-confirm-dialog.js";
 import { setPasswordDialog } from "../components/set-password-dialog.js";
 import { changePasswordDialog } from "../components/change-password-dialog.js";
+import { changeEmailDialog } from "../components/change-email-dialog.js";
 import { openWelcomeQuiz } from "../components/onboarding.js";
 import { playFanfare } from "../lib/sound.js";
 import { offlineSupported, isLibraryCached, cacheLibraryOffline } from "../lib/offline.js";
@@ -533,6 +534,12 @@ export function renderSettings() {
               type: "button",
               onclick: async () => { if (await changePasswordDialog()) toast(t("pwchange.done")); },
             }, t("pwchange.title")))
+          : null,
+        !store.authPasswordless && store.emailConfigured
+          ? row(t("set.emailLabel"), t("set.emailNote"), el("button.btn.btn--ghost.btn--sm", {
+              type: "button",
+              onclick: async () => { if (await changeEmailDialog()) toast(t("emailchange.sent")); },
+            }, t("emailchange.title")))
           : null,
         row(t("set.signOutOthersLabel"), t("set.signOutOthersNote"), el("button.btn.btn--ghost.btn--sm", {
           type: "button",

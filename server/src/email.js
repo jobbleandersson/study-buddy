@@ -170,6 +170,41 @@ export function sendTwoFaCodeEmail(to, code, purpose) {
   });
 }
 
+export function sendEmailChangeConfirmEmail(to, token) {
+  const url = `${PUBLIC_URL}/#/new-email?token=${token}`;
+  return sendEmail({
+    to, low: true, subject: "Confirm your new email for PluggEra",
+    html: layout(`
+      <p>Someone asked to use this address to sign in to a PluggEra account. Tap the button below to confirm it is yours. Until you do, nothing changes.</p>
+      <p><a href="${url}" style="display:inline-block;background:#2C5CD6;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-weight:600">Confirm new email</a></p>
+      <p style="font-size:13px;color:#6B7386">Or paste this link into your browser: ${url}</p>
+      <p style="font-size:13px;color:#6B7386">This link works for 1 hour. Confirming signs the account out on every other device.</p>
+    `),
+  });
+}
+
+// To the OLD address when a change is asked for, and again when it happens: the person who owns the
+// account finds out even if it was not them.
+export function sendEmailChangeRequestedEmail(to, newEmail) {
+  return sendEmail({
+    to, subject: "A new email address was requested for your PluggEra account",
+    html: layout(`
+      <p>Someone, signed in with your password, asked to change this PluggEra account's email address to <b>${escapeHtml(newEmail)}</b>. Nothing changes until that address is confirmed.</p>
+      <p style="font-size:13px;color:#6B7386">If this wasn't you, use "Forgot password" on the sign-in page to set a new password: that also cancels the request.</p>
+    `),
+  });
+}
+
+export function sendEmailChangedEmail(to, newEmail) {
+  return sendEmail({
+    to, subject: "Your PluggEra email address was changed",
+    html: layout(`
+      <p>The email address of this PluggEra account was just changed to <b>${escapeHtml(newEmail)}</b>, and every other device was signed out. Sign in with the new address from now on.</p>
+      <p style="font-size:13px;color:#6B7386">If this wasn't you, write to us from this address as soon as you can.</p>
+    `),
+  });
+}
+
 export function sendPasswordChangedEmail(to) {
   return sendEmail({
     to, subject: "Your PluggEra password was changed",

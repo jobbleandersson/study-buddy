@@ -8,14 +8,14 @@ import { asyncHandler } from "../middleware/asyncHandler.js";
 import {
   signupHourly, signupDaily, loginFailures, googleSignInLimit,
   resendVerificationLimit, forgotPasswordLimits, verifyEmailIpLimit, resetPasswordIpLimit,
-  twoFaVerifyLimits, twoFaPasswordLimit, setPasswordLimit, changePasswordLimit, twoFaEmail, twoFaResendIpLimit, DAY_MS,
+  twoFaVerifyLimits, twoFaPasswordLimit, setPasswordLimit, changePasswordLimit, changeEmailLimit, twoFaEmail, twoFaResendIpLimit, DAY_MS,
 } from "../middleware/authLimits.js";
 import { consume, TOO_MANY_MESSAGE } from "../middleware/attemptLimit.js";
 import { isUniqueViolation } from "../errors.js";
 import { requireAuth } from "../middleware/requireAuth.js";
 import { isPlausibleEmail } from "../emailCheck.js";
 import { mayMail } from "../mailLimits.js";
-import { emailEnabled, sendVerifyEmail, sendResetEmail, sendTwoFaEnabledEmail, sendTwoFaDisabledEmail, sendPasswordAddedEmail, sendPasswordChangedEmail, sendUseGoogleEmail, sendGoogleLinkedEmail, sendTwoFaCodeEmail, sendWelcomeEmail } from "../email.js";
+import { emailEnabled, sendVerifyEmail, sendResetEmail, sendTwoFaEnabledEmail, sendTwoFaDisabledEmail, sendPasswordAddedEmail, sendPasswordChangedEmail, sendEmailChangeConfirmEmail, sendEmailChangeRequestedEmail, sendEmailChangedEmail, sendUseGoogleEmail, sendGoogleLinkedEmail, sendTwoFaCodeEmail, sendWelcomeEmail } from "../email.js";
 import { hashPassword, comparePassword, answerIfBusy } from "../passwordHash.js";
 import { generateSecret, verifyTotp, otpauthUri } from "../totp.js";
 
@@ -547,6 +547,7 @@ auth.post("/auth/reset-password", resetPasswordIpLimit, asyncHandler(async (req,
     const claimed = db.prepare("UPDATE password_reset_tokens SET used_at = ? WHERE id = ? AND used_at IS NULL").run(now, row.id);
     if (claimed.changes === 0) return null;
     retireResetTokens(row.userId, now);   // any other link mailed for this account dies with this one
+    db.prepare("DELETE FROM email_change_tokens WHERE user_id = ?").run(row.userId);   // so does a pending change of address: a reset is how the owner takes the account back
     const before = db.prepare("SELECT email, email_verified_at AS emailVerifiedAt, email_verify_required AS verifyRequired, totp_enabled_at AS totpEnabledAt, twofa_method AS twofaMethod FROM users WHERE id = ?").get(row.userId);
     // See revokeTies: this hands the account to whoever owns the inbox. A second factor set up on an
     // account whose address was never proven belongs to whoever made it, not to the inbox's owner —
@@ -760,6 +761,7 @@ auth.post("/auth/change-password", requireAuth, changePasswordLimit, asyncHandle
       db.prepare("UPDATE users SET password_hash = ?, password_set_at = ? WHERE id = ?").run(hash, now, req.user.userId);
       db.prepare("DELETE FROM sessions WHERE user_id = ? AND id != ?").run(req.user.userId, sid || "");
       retireResetTokens(req.user.userId, now);
+      db.prepare("DELETE FROM email_change_tokens WHERE user_id = ?").run(req.user.userId);   // a pending change of address dies with the old password
     })();
   } catch (e) {
     if (answerIfBusy(e, res)) return;   // the password-hashing pool is full
@@ -776,3 +778,73 @@ auth.post("/auth/logout-others", requireAuth, (req, res) => {
   const r = db.prepare("DELETE FROM sessions WHERE user_id = ? AND id != ?").run(req.user.userId, sid || "");
   res.json({ ok: true, signedOut: r.changes });
 });
+
+// Change the address you sign in with. Three safeguards: the password must be right now (a stolen
+// session alone cannot move the account to someone else's inbox), the new address must prove it is
+// readable (a link mailed to it, good for an hour), and the OLD address is told twice, when it is asked
+// for and when it happens. The reply is the same whether or not the new address already has an account,
+// so this cannot be used to look addresses up (it does mail nothing in that case). A Google-only
+// account's address belongs to its Google login and is not changed here.
+const EMAIL_CHANGE_TTL_MS = 60 * 60 * 1000;
+auth.post("/auth/change-email", requireAuth, changeEmailLimit, asyncHandler(async (req, res) => {
+  if (!emailEnabled()) return res.status(501).json({ error: { message: "Email isn't set up on this server.", code: "email_not_configured" } });
+  const password = String(req.body?.password || "").slice(0, 200);
+  const newEmail = String(req.body?.newEmail || "").trim().toLowerCase();
+  if (!isPlausibleEmail(newEmail)) return res.status(400).json({ error: { message: "Enter a valid email." } });
+  const user = db.prepare("SELECT email, password_hash AS hash, password_set_at AS setAt FROM users WHERE id = ?").get(req.user.userId);
+  if (!user?.setAt) return res.status(400).json({ error: { message: "This account signs in with Google; its email can't be changed here.", code: "google_account" } });
+  if (newEmail === user.email) return res.status(400).json({ error: { message: "That is already your email.", code: "same_email" } });
+  try {
+    if (!(await comparePassword(password, user.hash))) return wrongPasswordRes(res);
+  } catch (e) {
+    if (answerIfBusy(e, res)) return;   // the password-hashing pool is full
+    throw e;
+  }
+  const taken = db.prepare("SELECT 1 AS x FROM users WHERE email = ?").get(newEmail);
+  if (!taken && mayMail("verify", newEmail, req)) {
+    const token = crypto.randomBytes(32).toString("hex");
+    const now = Date.now();
+    db.transaction(() => {
+      db.prepare("DELETE FROM email_change_tokens WHERE user_id = ?").run(req.user.userId);   // a new request replaces the old one
+      db.prepare("INSERT INTO email_change_tokens (id, user_id, new_email, token, expires_at, created_at) VALUES (?, ?, ?, ?, ?, ?)")
+        .run(crypto.randomUUID(), req.user.userId, newEmail, token, now + EMAIL_CHANGE_TTL_MS, now);
+    })();
+    sendEmailChangeConfirmEmail(newEmail, token).catch(() => {});
+    sendEmailChangeRequestedEmail(user.email, newEmail).catch(() => {});
+  }
+  res.json({ ok: true });
+}));
+
+// The link mailed to the new address. The token is the credential for "this inbox is readable"; the
+// password was checked when the change was asked for. The account keeps its data; every session but the
+// one making this request (if it is the account's own) ends, and so do outstanding reset and verify links.
+auth.post("/auth/confirm-email-change", verifyEmailIpLimit, asyncHandler(async (req, res) => {
+  const token = String(req.body?.token || "");
+  if (!token) return badToken(res);
+  const row = db.prepare("SELECT id, user_id AS userId, new_email AS newEmail FROM email_change_tokens WHERE token = ? AND used_at IS NULL AND expires_at > ?")
+    .get(token, Date.now());
+  if (!row) return badToken(res);
+  const now = Date.now();
+  const sid = req.cookies?.[COOKIE_NAME] || "";
+  let result;
+  try {
+    result = db.transaction(() => {
+      const claimed = db.prepare("UPDATE email_change_tokens SET used_at = ? WHERE id = ? AND used_at IS NULL").run(now, row.id);
+      if (claimed.changes === 0) return null;
+      const old = db.prepare("SELECT email FROM users WHERE id = ?").get(row.userId)?.email;
+      db.prepare("UPDATE users SET email = ?, email_verified_at = ? WHERE id = ?").run(row.newEmail, now, row.userId);   // UNIQUE: the address may have been taken meanwhile
+      const mine = !!sid && !!db.prepare("SELECT 1 AS x FROM sessions WHERE id = ? AND user_id = ?").get(sid, row.userId);
+      db.prepare("DELETE FROM sessions WHERE user_id = ? AND id != ?").run(row.userId, mine ? sid : "");
+      retireResetTokens(row.userId, now);
+      db.prepare("UPDATE email_verify_tokens SET used_at = ? WHERE user_id = ? AND used_at IS NULL").run(now, row.userId);
+      db.prepare("DELETE FROM email_change_tokens WHERE user_id = ? AND id != ?").run(row.userId, row.id);
+      return { old, mine };
+    })();
+  } catch (e) {
+    if (isUniqueViolation(e)) return badToken(res);
+    throw e;
+  }
+  if (!result) return badToken(res);
+  if (result.old) sendEmailChangedEmail(result.old, row.newEmail).catch(() => {});
+  res.json({ ok: true, email: row.newEmail, signedIn: result.mine });
+}));
