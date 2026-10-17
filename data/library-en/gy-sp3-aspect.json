@@ -128,7 +128,7 @@
       "id": "q-sp3-aspect-9",
       "kind": "mc",
       "topic": "preterite vs imperfect",
-      "prompt": "Choose the correct pair: \"Ayer, cuando yo ___ (salir) de casa, ___ (empezar) a llover.\"",
+      "prompt": "Choose the correct pair (both events are completed and follow one another): \"Ayer, en cuanto yo ___ (salir) de casa, ___ (empezar) a llover.\"",
       "opener": "Here, both actions are single, bounded events happening one after another — not a background being interrupted.",
       "choices": [
         "salí / empezó",
@@ -137,7 +137,7 @@
         "salía / empezó"
       ],
       "answer": 0,
-      "explanation": "Both verbs describe punctual, completed events in sequence (I left, then it started raining), not an ongoing background being interrupted — hence the preterite for both: \"salí\" and \"empezó\"."
+      "explanation": "With \"en cuanto\" (as soon as) the events follow each other directly as completed events (I left, then it started raining) — hence the preterite for both: \"salí\" and \"empezó\". (With \"cuando\" and an ongoing background, \"salía\" would have been possible.)"
     },
     {
       "id": "q-sp3-aspect-10",

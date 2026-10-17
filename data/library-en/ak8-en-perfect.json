@@ -65,12 +65,12 @@
       "opener": "\"Yet\" belongs in questions and negative sentences — and goes at the end.",
       "choices": [
         "Have you finished your project yet?",
-        "Have you yet finished your project?",
+        "Have you finished yet your project?",
         "Did you have finished your project yet?",
         "You have finished your project yet?"
       ],
       "answer": 0,
-      "explanation": "In questions, \"have\" comes before the subject and \"yet\" comes last: \"Have you finished your project yet?\" \"Yet\" can't go in the middle of the sentence — words like already and just go there instead."
+      "explanation": "In questions, \"have\" comes before the subject and \"yet\" comes last: \"Have you finished your project yet?\" \"Yet\" normally comes at the end of the question (not before the object) — words like already and just go in the middle instead."
     },
     {
       "id": "q-en8-per-5",
@@ -146,7 +146,7 @@
       "prompt": "Choose the correct form: \"I ___ this book twice already.\"",
       "opener": "\"Already\" signals a recent event with no specific point in time — which tense fits?",
       "choices": [
-        "read",
+        "am reading",
         "have read",
         "has read",
         "was reading"

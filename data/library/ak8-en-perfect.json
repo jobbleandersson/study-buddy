@@ -65,12 +65,12 @@
       "opener": "\"Yet\" hör hemma i frågor och nekande satser — och hamnar sist.",
       "choices": [
         "Have you finished your project yet?",
-        "Have you yet finished your project?",
+        "Have you finished yet your project?",
         "Did you have finished your project yet?",
         "You have finished your project yet?"
       ],
       "answer": 0,
-      "explanation": "I frågor står \"have\" före subjektet och \"yet\" sist: \"Have you finished your project yet?\" \"Yet\" kan inte stå mitt i satsen — där placeras i stället ord som already och just."
+      "explanation": "I frågor står \"have\" före subjektet och \"yet\" sist: \"Have you finished your project yet?\" \"Yet\" står normalt sist i frågan (inte före objektet) — ord som already och just placeras i stället i mitten."
     },
     {
       "id": "q-en8-per-5",
@@ -146,7 +146,7 @@
       "prompt": "Choose the correct form: \"I ___ this book twice already.\"",
       "opener": "\"Already\" signalerar en färsk händelse utan bestämd tidpunkt — vilket tempus passar?",
       "choices": [
-        "read",
+        "am reading",
         "have read",
         "has read",
         "was reading"
