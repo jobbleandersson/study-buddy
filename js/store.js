@@ -31,7 +31,7 @@ import { findQuestion as findQuestionPure, dueQuestions as dueQuestionsPure } fr
 import { loadLibraryIndex, loadLibraryTranslations, englishFile } from "./lib/library-content.js";
 import { cleanRuleText, rulesForQuestion, RULE_MAX_COUNT } from "./lib/rules.js";
 import {
-  PROXY_HEALTH_URL, SITE_GATE_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_GOOGLE_URL, AUTH_SET_PASSWORD_URL, AUTH_CHANGE_PASSWORD_URL, AUTH_LOGOUT_OTHERS_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, ACCOUNT_URL,
+  PROXY_HEALTH_URL, SITE_GATE_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_GOOGLE_URL, AUTH_SET_PASSWORD_URL, AUTH_CHANGE_PASSWORD_URL, AUTH_CHANGE_EMAIL_URL, AUTH_CONFIRM_EMAIL_CHANGE_URL, AUTH_LOGOUT_OTHERS_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, ACCOUNT_URL,
   RESEND_VERIFICATION_URL, VERIFY_EMAIL_URL, FORGOT_PASSWORD_URL, RESET_PASSWORD_URL, STATE_URL, USAGE_URL, BILLING_STATUS_URL,
   AUTH_2FA_VERIFY_URL, AUTH_2FA_RESEND_URL, AUTH_2FA_SETUP_URL, AUTH_2FA_CONFIRM_URL, AUTH_2FA_DISABLE_URL,
 } from "./config.js";
@@ -2140,6 +2140,37 @@ class Store extends EventTarget {
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) throw authError(data, t("login.somethingWrong"));
+  }
+
+  /** Ask to change the sign-in address: the server mails a link to the NEW address and changes nothing
+   *  until it is opened. Throws with the server's message (e.g. a wrong password). */
+  async changeEmail(password, newEmail) {
+    const res = await fetch(AUTH_CHANGE_EMAIL_URL, {
+      method: "POST", credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ password, newEmail }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw authError(data, t("login.somethingWrong"));
+  }
+
+  /** The link from the mail to the new address. The server ends every other session; if this browser
+   *  is signed in to that account it keeps its own and just learns the new address. */
+  async confirmEmailChange(token) {
+    const res = await fetch(AUTH_CONFIRM_EMAIL_CHANGE_URL, {
+      method: "POST", credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ token }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw authError(data, t("emailchange.failed"));
+    if (this.authed && data.signedIn && data.email) {
+      this.authEmail = data.email;
+      this._setDeviceOwner(data.email);
+      this.authEmailVerified = true;
+      this.emit();
+    }
+    return { email: data.email || null };
   }
 
   /** Sign this account out everywhere except here. Resolves to how many other sessions were ended. */

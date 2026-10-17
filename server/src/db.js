@@ -228,6 +228,18 @@ db.exec(`
   -- Deliberately its own table, not email_verify_tokens with a "kind" column: a verify token and a
   -- reset token must never be redeemable in each other's endpoint, and a shared table makes that a
   -- WHERE clause someone can forget rather than a table someone can't.
+  -- A pending change of the sign-in address (routes/auth.js /auth/change-email). Its own table for the
+  -- same reason as password_reset_tokens: this token must not be redeemable anywhere else.
+  CREATE TABLE IF NOT EXISTS email_change_tokens (
+    id TEXT PRIMARY KEY,
+    user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    new_email TEXT NOT NULL,
+    token TEXT UNIQUE NOT NULL,
+    expires_at INTEGER NOT NULL,
+    used_at INTEGER,
+    created_at INTEGER NOT NULL
+  );
+
   CREATE TABLE IF NOT EXISTS password_reset_tokens (
     id TEXT PRIMARY KEY,
     user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
