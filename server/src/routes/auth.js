@@ -13,6 +13,7 @@ import {
 import { consume, TOO_MANY_MESSAGE } from "../middleware/attemptLimit.js";
 import { isUniqueViolation } from "../errors.js";
 import { requireAuth } from "../middleware/requireAuth.js";
+import { SESSION_TTL_MS, cookieOpts, renewSession } from "../session.js";
 import { isPlausibleEmail } from "../emailCheck.js";
 import { mayMail } from "../mailLimits.js";
 import { emailEnabled, sendVerifyEmail, sendResetEmail, sendTwoFaEnabledEmail, sendTwoFaDisabledEmail, sendPasswordAddedEmail, sendPasswordChangedEmail, sendEmailChangeConfirmEmail, sendEmailChangeRequestedEmail, sendEmailChangedEmail, sendUseGoogleEmail, sendGoogleLinkedEmail, sendTwoFaCodeEmail, sendWelcomeEmail } from "../email.js";
@@ -25,17 +26,6 @@ export const auth = Router();
 // "wrong password" - otherwise response time reveals which emails have accounts.
 const DUMMY_HASH = bcrypt.hashSync("studify-no-such-account", 10);
 
-const SESSION_TTL_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
-
-function cookieOpts() {
-  return {
-    httpOnly: true,
-    sameSite: "lax",
-    secure: process.env.COOKIE_SECURE === "true",
-    maxAge: SESSION_TTL_MS,
-    path: "/",
-  };
-}
 
 function createSession(res, userId) {
   const id = crypto.randomUUID();
@@ -443,10 +433,11 @@ auth.post("/auth/logout", (req, res) => {
 auth.get("/auth/me", (req, res) => {
   const sid = req.cookies?.[COOKIE_NAME];
   const row = sid && db.prepare(
-    `SELECT users.email AS email, users.google_sub AS googleSub, users.password_set_at AS passwordSetAt, users.email_verified_at AS emailVerifiedAt, users.totp_enabled_at AS totpEnabledAt, users.twofa_method AS twofaMethod
+    `SELECT sessions.expires_at AS sessionEnds, sessions.created_at AS sessionStarted, users.email AS email, users.google_sub AS googleSub, users.password_set_at AS passwordSetAt, users.email_verified_at AS emailVerifiedAt, users.totp_enabled_at AS totpEnabledAt, users.twofa_method AS twofaMethod
      FROM sessions JOIN users ON users.id = sessions.user_id
      WHERE sessions.id = ? AND sessions.expires_at > ?`
   ).get(sid, Date.now());
+  if (row) renewSession(res, sid, row.sessionEnds, row.sessionStarted);
   // passwordless: Google-linked with no password ever added, so there's no local sign-in step to
   // type — account deletion asks for the Google email instead, and 2FA has nothing to protect.
   // A hybrid account (linked to Google *and* has since added a password) is not passwordless.
