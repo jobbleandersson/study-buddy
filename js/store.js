@@ -2,6 +2,7 @@
 // future cloud/account backend can replace persistence without touching views.
 
 import { uid } from "./lib/dom.js";
+import { deepClone } from "./lib/clone.js";
 import { localDayKey, currentStreak, addDays, studiedToday, questionsAnsweredToday } from "./lib/activity.js";
 import { getLang, t } from "./lib/i18n.js";
 import { serverMessage } from "./lib/server-errors.js";
@@ -1215,6 +1216,7 @@ class Store extends EventTarget {
       name: p.name,
       solid: `var(--c-${p.name})`,
       ink: `var(--c-${p.name}-ink)`,
+      text: `var(--c-${p.name}-text)`,
       tint: `var(--c-${p.name}-tint)`,
       hex: p,           // literal values, for anywhere that needs a real colour
     };
@@ -1360,11 +1362,11 @@ class Store extends EventTarget {
     const a = this.getAssignment(id);
     if (!a) return null;
     const copy = {
-      ...structuredClone(a),
+      ...deepClone(a),
       id: uid(),
       title: nextCopyTitle(a.title, this.state.assignments.map((x) => x.title)),
       createdAt: Date.now(),
-      questions: a.questions.map((q) => ({ ...structuredClone(q), id: uid() })),
+      questions: a.questions.map((q) => ({ ...deepClone(q), id: uid() })),
     };
     delete copy._sampleLang;   // a copy is the student's own, in its current language
     delete copy._libLang;

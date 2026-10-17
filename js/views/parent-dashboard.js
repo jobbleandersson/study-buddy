@@ -220,6 +220,14 @@ export function renderParentHub() {
   refreshLinks();
   paintAssigned();
   paintInvite();
+  // The list changes from other tabs and devices (a link made, a student who unlinked): look again when this tab
+  // comes back into view, and stop once the screen has been left.
+  const onBack = () => {
+    if (!document.getElementById("app")?.contains(node)) { document.removeEventListener("visibilitychange", onBack); window.removeEventListener("focus", onBack); return; }
+    if (document.visibilityState === "visible") refreshLinks();
+  };
+  document.addEventListener("visibilitychange", onBack);
+  window.addEventListener("focus", onBack);
 
   const node = el("div.settings.settings--narrow", {}, [
     homeButton({ grid: true }),

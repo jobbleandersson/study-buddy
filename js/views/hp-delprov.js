@@ -49,7 +49,7 @@ export async function renderHpDelprov(dp, qs) {
   // One index of the HP questions per paint (see hpQuestionIndex); set at the top of paint().
   let idx = hpQuestionIndex();
 
-  const root = el("div.hp-dp", { style: { "--c": partOf(dp) === "kvant" ? "var(--c-tangerine)" : "var(--brand)" } });
+  const root = el("div.hp-dp", { style: { "--c": partOf(dp) === "kvant" ? "var(--c-tangerine)" : "var(--brand)", "--c-ink": partOf(dp) === "kvant" ? "var(--c-tangerine-ink)" : "var(--brand-ink)" } });
   let tab = ["historik", "analys"].includes(qs?.get?.("tab")) ? qs.get("tab") : "ova";
   let topic = "", status = "", shown = LIST_STEP;
   const body = el("div.hp-dp__body");

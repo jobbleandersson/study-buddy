@@ -1163,8 +1163,11 @@ async function render({ chromeOnly = false, softRefresh = false } = {}) {
     document.body.classList.remove("no-chrome");
     mount(app, shell(el("div.empty", {}, [
       el("h2", {}, t("common.somethingWrong")),
-      el("p", {}, String(e?.message || e)),
-      el("a.btn.btn--ghost", { href: "#/", style: { marginTop: "16px" } }, t("common.backToMenu")),
+      el("p", {}, t("common.loadFailedBody")),
+      el("div", { style: { display: "flex", gap: "8px", justifyContent: "center", flexWrap: "wrap", marginTop: "16px" } }, [
+        el("button.btn", { type: "button", onclick: () => render() }, t("common.retry")),
+        el("a.btn.btn--ghost", { href: "#/" }, t("common.backToMenu")),
+      ]),
     ])));
     announce(t("common.somethingWrongShort"));
     // A tab open across a deploy loads new view code next to its old, already-
