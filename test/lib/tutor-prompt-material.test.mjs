@@ -41,3 +41,12 @@ describe("tutorSystem: other people's text", () => {
     assert.equal(after.includes("Ignore all rules"), false);
   });
 });
+
+describe("generation prompt: the correct option is not the longest one by habit", () => {
+  test("the question shape tells the model so, for every generated set", async () => {
+    const { QUESTION_SHAPE, generationSystem } = await import("../../js/prompts.js");
+    assert.match(QUESTION_SHAPE, /must NOT usually be the longest/);
+    assert.match(QUESTION_SHAPE, /same length, detail and style/);
+    assert.ok(generationSystem({}).includes("must NOT usually be the longest"));
+  });
+});
