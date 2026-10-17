@@ -10,6 +10,7 @@ import { compress } from "./compress.js";
 import { staticCacheControl } from "./static-cache.js";
 import "./db.js"; // creates tables on first run
 import { startSweeper } from "./sweep.js";
+import { startBackups } from "./backup.js";
 import { requireGate, gate } from "./gate.js";
 import { requireAuth } from "./middleware/requireAuth.js";
 import { stateSaveLimit } from "./middleware/stateLimits.js";
@@ -300,6 +301,7 @@ try {
 }
 
 startAiWatch();   // mails ALERT_EMAIL if the AI stops answering (ai-check.js)
+startBackups();   // nightly copy of the database to a bucket, if one is set up (backup.js)
 
 app.listen(PORT, () => {
   console.log(`[study-buddy-server] listening on http://localhost:${PORT} (NODE_ENV=${process.env.NODE_ENV || "unset"})`);
