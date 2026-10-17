@@ -7,8 +7,8 @@ import { startServer, makeClient, startFakeResend } from "./harness.mjs";
 // nobody gets a reset), nor mail strangers over and over.
 
 const email = () => `ef-${Date.now()}-${Math.random().toString(36).slice(2)}@example.com`;
-const VERIFY = "Confirm your email for PluggEra";
-const RESET = "Reset your PluggEra password";
+const VERIFY = "Bekräfta din e-post för PluggEra · Confirm your email for PluggEra";
+const RESET = "Återställ ditt lösenord på PluggEra · Reset your PluggEra password";
 const settle = () => new Promise((r) => setTimeout(r, 400));   // mail is sent after the response
 const count = (fake, subject, to) => fake.mails.filter((m) => m.subject === subject && (!to || m.to === to)).length;
 async function signup(baseUrl, addr = email()) {

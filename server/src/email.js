@@ -72,7 +72,7 @@ export async function sendEmail({ to, subject, html, critical = false, low = fal
 // to the console instead of an undefined-looking link.
 const PUBLIC_URL = (process.env.PUBLIC_URL || "http://localhost:8787").replace(/\/+$/, "");
 
-function layout(bodyHtml, footer = "If you didn't request this, you can ignore this email.") {
+function layout(bodyHtml, footer = "Om du inte bad om det här kan du bortse från mejlet. · If you didn't request this, you can ignore this email.") {
   return `<div style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:480px;margin:0 auto;color:#191D28">
     <h1 style="font-size:20px;margin:0 0 16px">PluggEra</h1>
     ${bodyHtml}
@@ -106,29 +106,40 @@ export function sendWelcomeEmail(to) {
   });
 }
 
+// The mails below go to students and parents, and the server does not know whose language to use (a reset or a
+// code is asked for before anyone is signed in), so each one is Swedish first with English under it, as the
+// welcome mail is. Subjects carry both too. Links and codes appear once, above the text.
+const both = (sv, en) => `${sv}<hr style="border:0;border-top:1px solid #E3E6EE;margin:20px 0"><div lang="en" style="color:#3A4152">${en}</div>`;
+const subj = (sv, en) => `${sv} · ${en}`;
+const FOOT = "Om du inte bad om det här kan du bortse från mejlet. · If you didn't request this, you can ignore this email.";
+const button = (href, label) => `<p><a href="${href}" style="display:inline-block;background:#2C5CD6;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-weight:600">${label}</a></p>`;
+const small = (html) => `<p style="font-size:13px;color:#6B7386">${html}</p>`;
+
 export function sendVerifyEmail(to, token) {
   const url = `${PUBLIC_URL}/#/verify?token=${token}`;
   return sendEmail({
-    to, low: true, subject: "Confirm your email for PluggEra",
+    to, low: true, subject: subj("Bekräfta din e-post för PluggEra", "Confirm your email for PluggEra"),
     html: layout(`
-      <p>Tap the button below to confirm this is your email address.</p>
-      <p><a href="${url}" style="display:inline-block;background:#2C5CD6;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-weight:600">Confirm email</a></p>
-      <p style="font-size:13px;color:#6B7386">Or paste this link into your browser: ${url}</p>
-      <p style="font-size:13px;color:#6B7386">This link works for 24 hours.</p>
-    `),
+      ${button(url, "Bekräfta e-post · Confirm email")}
+      ${small(url)}
+      ${both(
+        `<p>Tryck på knappen för att bekräfta att det här är din e-postadress.</p>${small("Länken fungerar i 24 timmar.")}`,
+        `<p>Tap the button to confirm this is your email address.</p>${small("This link works for 24 hours.")}`)}
+    `, FOOT),
   });
 }
 
 export function sendResetEmail(to, token) {
   const url = `${PUBLIC_URL}/#/reset?token=${token}`;
   return sendEmail({
-    to, subject: "Reset your PluggEra password",
+    to, subject: subj("Återställ ditt lösenord på PluggEra", "Reset your PluggEra password"),
     html: layout(`
-      <p>Someone asked to reset the password for this PluggEra account. Tap the button below to set a new one.</p>
-      <p><a href="${url}" style="display:inline-block;background:#2C5CD6;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-weight:600">Reset password</a></p>
-      <p style="font-size:13px;color:#6B7386">Or paste this link into your browser: ${url}</p>
-      <p style="font-size:13px;color:#6B7386">This link works for 1 hour. Your current password still works until you use it.</p>
-    `),
+      ${button(url, "Återställ lösenord · Reset password")}
+      ${small(url)}
+      ${both(
+        `<p>Någon bad om att få lösenordet till det här PluggEra-kontot återställt. Tryck på knappen för att välja ett nytt.</p>${small("Länken fungerar i 1 timme. Ditt nuvarande lösenord gäller tills du använder den.")}`,
+        `<p>Someone asked to reset the password for this PluggEra account. Tap the button to set a new one.</p>${small("This link works for 1 hour. Your current password still works until you use it.")}`)}
+    `, FOOT),
   });
 }
 
@@ -136,114 +147,111 @@ export function sendResetEmail(to, token) {
 // the account owner finds out even if it wasn't them (a stolen session cookie, say).
 export function sendTwoFaEnabledEmail(to) {
   return sendEmail({
-    to, subject: "Two-factor authentication turned on",
-    html: layout(`
-      <p>Two-factor authentication was just turned on for this PluggEra account. From now on, signing in needs a code from your authenticator app as well as your password.</p>
-      <p style="font-size:13px;color:#6B7386">If this wasn't you, sign in and turn it off again from Settings, then change your password.</p>
-    `),
+    to, subject: subj("Tvåstegsverifiering påslagen", "Two-factor authentication turned on"),
+    html: layout(both(
+      `<p>Tvåstegsverifiering slogs just på för det här PluggEra-kontot. Från nu behöver du en kod från din autentiseringsapp utöver lösenordet för att logga in.</p>${small("Om det inte var du: logga in, stäng av det under Inställningar och byt lösenord.")}`,
+      `<p>Two-factor authentication was just turned on for this PluggEra account. From now on, signing in needs a code from your authenticator app as well as your password.</p>${small("If this wasn't you, sign in and turn it off again from Settings, then change your password.")}`), FOOT),
   });
 }
 
 export function sendTwoFaDisabledEmail(to) {
   return sendEmail({
-    to, subject: "Two-factor authentication turned off",
-    html: layout(`
-      <p>Two-factor authentication was just turned off for this PluggEra account. Signing in now only needs your password.</p>
-      <p style="font-size:13px;color:#6B7386">If this wasn't you, sign in, turn it back on from Settings, and change your password.</p>
-    `),
+    to, subject: subj("Tvåstegsverifiering avstängd", "Two-factor authentication turned off"),
+    html: layout(both(
+      `<p>Tvåstegsverifiering stängdes just av för det här PluggEra-kontot. Nu räcker lösenordet för att logga in.</p>${small("Om det inte var du: logga in, slå på det igen under Inställningar och byt lösenord.")}`,
+      `<p>Two-factor authentication was just turned off for this PluggEra account. Signing in now only needs your password.</p>${small("If this wasn't you, sign in, turn it back on from Settings, and change your password.")}`), FOOT),
   });
 }
 
 // The sign-in / enrolment code. The code is deliberately NOT in the subject: subjects show on lock
 // screens and in notification previews. `critical` lets it use the quota reserve (see takeBudget).
 export function sendTwoFaCodeEmail(to, code, purpose) {
-  const what = purpose === "enroll" ? "turn on two-factor authentication" : "sign in";
+  const enroll = purpose === "enroll";
   return sendEmail({
     // Only sign-in codes may use the reserve: turning 2FA on can wait, and an account that turns
     // it on over and over must not be able to spend the codes everyone else needs to sign in.
-    to, critical: purpose !== "enroll", subject: "Your PluggEra verification code",
+    to, critical: !enroll, subject: subj("Din verifieringskod för PluggEra", "Your PluggEra verification code"),
     html: layout(`
-      <p>Your code to ${what}:</p>
+      <p>${enroll ? "Din kod för att slå på tvåstegsverifiering · Your code to turn on two-factor authentication" : "Din kod för att logga in · Your code to sign in"}:</p>
       <p style="font-size:30px;letter-spacing:6px;font-weight:700;margin:12px 0">${code}</p>
-      <p style="font-size:13px;color:#6B7386">It works for 10 minutes. If you didn't just try to ${what}, someone may have your password — change it, and don't share this code with anyone.</p>
-    `),
+      ${both(
+        small("Koden fungerar i 10 minuter. Om det inte var du som försökte kan någon ha ditt lösenord: byt det, och dela inte koden med någon."),
+        small("It works for 10 minutes. If you didn't just try this, someone may have your password: change it, and don't share this code with anyone."))}
+    `, FOOT),
   });
 }
 
 export function sendEmailChangeConfirmEmail(to, token) {
   const url = `${PUBLIC_URL}/#/new-email?token=${token}`;
   return sendEmail({
-    to, low: true, subject: "Confirm your new email for PluggEra",
+    to, low: true, subject: subj("Bekräfta din nya e-post för PluggEra", "Confirm your new email for PluggEra"),
     html: layout(`
-      <p>Someone asked to use this address to sign in to a PluggEra account. Tap the button below to confirm it is yours. Until you do, nothing changes.</p>
-      <p><a href="${url}" style="display:inline-block;background:#2C5CD6;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-weight:600">Confirm new email</a></p>
-      <p style="font-size:13px;color:#6B7386">Or paste this link into your browser: ${url}</p>
-      <p style="font-size:13px;color:#6B7386">This link works for 1 hour. Confirming signs the account out on every other device.</p>
-    `),
+      ${button(url, "Bekräfta ny e-post · Confirm new email")}
+      ${small(url)}
+      ${both(
+        `<p>Någon bad om att få använda den här adressen för att logga in på ett PluggEra-konto. Tryck på knappen för att bekräfta att den är din. Tills du gör det ändras ingenting.</p>${small("Länken fungerar i 1 timme. När du bekräftar loggas kontot ut på alla andra enheter.")}`,
+        `<p>Someone asked to use this address to sign in to a PluggEra account. Tap the button to confirm it is yours. Until you do, nothing changes.</p>${small("This link works for 1 hour. Confirming signs the account out on every other device.")}`)}
+    `, FOOT),
   });
 }
 
 // To the OLD address when a change is asked for, and again when it happens: the person who owns the
 // account finds out even if it was not them.
 export function sendEmailChangeRequestedEmail(to, newEmail) {
+  const a = escapeHtml(newEmail);
   return sendEmail({
-    to, subject: "A new email address was requested for your PluggEra account",
-    html: layout(`
-      <p>Someone, signed in with your password, asked to change this PluggEra account's email address to <b>${escapeHtml(newEmail)}</b>. Nothing changes until that address is confirmed.</p>
-      <p style="font-size:13px;color:#6B7386">If this wasn't you, use "Forgot password" on the sign-in page to set a new password: that also cancels the request.</p>
-    `),
+    to, subject: subj("En ny e-postadress har begärts för ditt PluggEra-konto", "A new email address was requested for your PluggEra account"),
+    html: layout(both(
+      `<p>Någon som var inloggad med ditt lösenord bad om att byta e-postadress för det här PluggEra-kontot till <b>${a}</b>. Ingenting ändras förrän den adressen har bekräftats.</p>${small("Om det inte var du: använd ”Glömt lösenord” på inloggningssidan och välj ett nytt lösenord. Då avbryts begäran också.")}`,
+      `<p>Someone, signed in with your password, asked to change this PluggEra account's email address to <b>${a}</b>. Nothing changes until that address is confirmed.</p>${small("If this wasn't you, use ‘Forgot password’ on the sign-in page to set a new password: that also cancels the request.")}`), FOOT),
   });
 }
 
 export function sendEmailChangedEmail(to, newEmail) {
+  const a = escapeHtml(newEmail);
   return sendEmail({
-    to, subject: "Your PluggEra email address was changed",
-    html: layout(`
-      <p>The email address of this PluggEra account was just changed to <b>${escapeHtml(newEmail)}</b>, and every other device was signed out. Sign in with the new address from now on.</p>
-      <p style="font-size:13px;color:#6B7386">If this wasn't you, write to us from this address as soon as you can.</p>
-    `),
+    to, subject: subj("Din e-postadress på PluggEra har ändrats", "Your PluggEra email address was changed"),
+    html: layout(both(
+      `<p>E-postadressen för det här PluggEra-kontot ändrades just till <b>${a}</b>, och alla andra enheter loggades ut. Logga in med den nya adressen framöver.</p>${small("Om det inte var du: skriv till oss från den här adressen så snart du kan.")}`,
+      `<p>The email address of this PluggEra account was just changed to <b>${a}</b>, and every other device was signed out. Sign in with the new address from now on.</p>${small("If this wasn't you, write to us from this address as soon as you can.")}`), FOOT),
   });
 }
 
 export function sendPasswordChangedEmail(to) {
   return sendEmail({
-    to, subject: "Your PluggEra password was changed",
-    html: layout(`
-      <p>The password for this PluggEra account was just changed, and every other device was signed out.</p>
-      <p style="font-size:13px;color:#6B7386">If this wasn't you, use "Forgot password" on the sign-in page to set a new one.</p>
-    `),
+    to, subject: subj("Ditt lösenord på PluggEra har ändrats", "Your PluggEra password was changed"),
+    html: layout(both(
+      `<p>Lösenordet för det här PluggEra-kontot ändrades just, och alla andra enheter loggades ut.</p>${small("Om det inte var du: använd ”Glömt lösenord” på inloggningssidan och välj ett nytt.")}`,
+      `<p>The password for this PluggEra account was just changed, and every other device was signed out.</p>${small("If this wasn't you, use ‘Forgot password’ on the sign-in page to set a new one.")}`), FOOT),
   });
 }
 
 // Someone asked to reset the password of an address whose account signs in with Google and has no password.
 export function sendUseGoogleEmail(to) {
   return sendEmail({
-    to, low: true, subject: "Sign in to PluggEra with Google",
-    html: layout(`
-      <p>Someone asked to reset the password for this address. The PluggEra account for it signs in with Google and has no password to reset: choose "Sign in with Google" on the sign-in page.</p>
-      <p style="font-size:13px;color:#6B7386">Want a password as well? Sign in with Google, open Settings and choose to add one. If this wasn't you, you can ignore this email.</p>
-    `),
+    to, low: true, subject: subj("Logga in på PluggEra med Google", "Sign in to PluggEra with Google"),
+    html: layout(both(
+      `<p>Någon bad om att få lösenordet för den här adressen återställt. PluggEra-kontot för den loggar in med Google och har inget lösenord att återställa: välj ”Logga in med Google” på inloggningssidan.</p>${small("Vill du ha ett lösenord också? Logga in med Google, öppna Inställningar och lägg till ett. Om det inte var du kan du bortse från det här mejlet.")}`,
+      `<p>Someone asked to reset the password for this address. The PluggEra account for it signs in with Google and has no password to reset: choose ‘Sign in with Google’ on the sign-in page.</p>${small("Want a password as well? Sign in with Google, open Settings and choose to add one. If this wasn't you, you can ignore this email.")}`), FOOT),
   });
 }
 
 // An existing password account was linked to Google: the password was turned off.
 export function sendGoogleLinkedEmail(to) {
   return sendEmail({
-    to, low: true, subject: "Your PluggEra account now signs in with Google",
-    html: layout(`
-      <p>This PluggEra account was just linked to a Google sign-in. Its old password no longer works and every device was signed out: sign in with Google from now on.</p>
-      <p style="font-size:13px;color:#6B7386">Want a password as well? Sign in with Google, open Settings and choose to add one. If this wasn't you, sign in with Google to check your account.</p>
-    `),
+    to, low: true, subject: subj("Ditt PluggEra-konto loggar nu in med Google", "Your PluggEra account now signs in with Google"),
+    html: layout(both(
+      `<p>Det här PluggEra-kontot kopplades just till en Google-inloggning. Det gamla lösenordet fungerar inte längre och alla enheter loggades ut: logga in med Google framöver.</p>${small("Vill du ha ett lösenord också? Logga in med Google, öppna Inställningar och lägg till ett. Om det inte var du: logga in med Google och kontrollera ditt konto.")}`,
+      `<p>This PluggEra account was just linked to a Google sign-in. Its old password no longer works and every device was signed out: sign in with Google from now on.</p>${small("Want a password as well? Sign in with Google, open Settings and choose to add one. If this wasn't you, sign in with Google to check your account.")}`), FOOT),
   });
 }
 
 export function sendPasswordAddedEmail(to) {
   return sendEmail({
-    to, subject: "A password was added to your PluggEra account",
-    html: layout(`
-      <p>A password was just added to this PluggEra account, confirmed through your Google sign-in. From now on you can sign in either with Google or with your email and this password.</p>
-      <p style="font-size:13px;color:#6B7386">If this wasn't you, sign in with Google to check your account — whoever did this would need your Google sign-in to do it again.</p>
-    `),
+    to, subject: subj("Ett lösenord lades till på ditt PluggEra-konto", "A password was added to your PluggEra account"),
+    html: layout(both(
+      `<p>Ett lösenord lades just till på det här PluggEra-kontot, bekräftat via din Google-inloggning. Framöver kan du logga in med Google eller med e-post och det här lösenordet.</p>${small("Om det inte var du: logga in med Google och kontrollera ditt konto. Den som gjorde det skulle behöva din Google-inloggning för att göra om det.")}`,
+      `<p>A password was just added to this PluggEra account, confirmed through your Google sign-in. From now on you can sign in either with Google or with your email and this password.</p>${small("If this wasn't you, sign in with Google to check your account: whoever did this would need your Google sign-in to do it again.")}`), FOOT),
   });
 }
 
