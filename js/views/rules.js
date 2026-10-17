@@ -126,7 +126,7 @@ export function renderRules() {
 
   function groupEl(g) {
     const color = store.subjectColor(g.subjectId);
-    return el("section.rules-group", { style: { "--subject": color.solid, "--subject-ink": color.ink, "--subject-tint": color.tint } }, [
+    return el("section.rules-group", { style: { "--subject": color.solid, "--subject-ink": color.ink, "--subject-text": color.text, "--subject-tint": color.tint } }, [
       el("h2.rules-group__head", {}, [
         el("span.rules-group__dot", { "aria-hidden": "true" }),
         el("span", {}, g.name || t("rules.noSubject")),

@@ -306,7 +306,7 @@ export function renderExamPrep(param, qs) {
     const coverEl = el("div.exam-cover" + (covered ? "" : ".is-short"), {}, [
       el("div.exam-cover__bar", { "aria-hidden": "true" }, Array.from({ length: cov.total }, (_, k) => el("i" + (k < cov.planned ? ".on" : "")))),
       el("p.exam-cover__text", {}, covered
-        ? (perDay > 1 ? t("exam.coverAllPerDay", { n: cov.total, per: Math.min(perDay, MAX_SETS_PER_DAY) }) : t("exam.coverAll", { n: cov.total }))
+        ? (cov.total === 1 ? t("exam.coverAllOne") : perDay > 1 ? t("exam.coverAllPerDay", { n: cov.total, per: Math.min(perDay, MAX_SETS_PER_DAY) }) : t("exam.coverAll", { n: cov.total }))
         : t("exam.coverSome", { planned: cov.planned, total: cov.total })),
     ]);
 

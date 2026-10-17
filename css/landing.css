@@ -391,3 +391,7 @@
   .lp-trustgrid li, .lp-trustgrid li:nth-child(n) { border-right: 0; border-bottom: 1px solid var(--line); }
   .lp-trustgrid li:last-child { border-bottom: 0; }
 }
+
+/* The eyebrow is --brand blue, 4.0:1 on the dark ground: the lighter blue clears 4.5:1 there. */
+:root[data-theme="dark"] .lp-eyebrow-text { color: var(--brand-bright); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme]) .lp-eyebrow-text { color: var(--brand-bright); } }

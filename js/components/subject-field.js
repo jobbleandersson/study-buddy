@@ -11,7 +11,7 @@
 
 import { el, toast } from "../lib/dom.js";
 import { store } from "../store.js";
-import { t } from "../lib/i18n.js";
+import { t, plural } from "../lib/i18n.js";
 import { isHpSetId } from "../lib/hp.js";
 import { confirmDialog } from "./confirm-dialog.js";
 
@@ -81,7 +81,7 @@ export function subjectField({ value = "", onChange } = {}) {
     const sets = store.assignments.filter((a) => a.subjectId === subject.id).length;
     const ok = await confirmDialog({
       message: sets
-        ? `${t("subj.removeAsk", { name: subject.name })}\n\n${t("subj.removeWarn", { n: sets })}`
+        ? `${t("subj.removeAsk", { name: subject.name })}\n\n${plural(sets, "subj.removeWarnOne", "subj.removeWarn")}`
         : t("subj.removeAsk", { name: subject.name }),
       confirmLabel: t("subj.removeConfirm"), danger: true,
     });

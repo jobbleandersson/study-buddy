@@ -44,7 +44,10 @@
   --c-tangerine:   #F0913C;  --c-tangerine-ink: #9C5E27;  --c-tangerine-tint: #FDEEDD;
   --c-berry:       #E4588A;  --c-berry-ink:     #B0446A;  --c-berry-tint:     #FCE7EF;
   /* Lightened toward cyan so the "sky" subject stays distinct from the blue brand. */
-  --c-sky:         #3AA4E6;  --c-sky-ink:       #2076A8;  --c-sky-tint:       #E4F1FB;
+  --c-sky:         #3AA4E6;  --c-sky-ink:       #1B6A9A;  --c-sky-tint:       #E4F1FB;
+  /* Text on a subject's tint: the ink in the light themes, the solid colour in the dark one (the dark -ink values
+     are fills that carry white text and are too dark to read as text on the dark tints). */
+  --c-grape-text: var(--c-grape-ink); --c-ocean-text: var(--c-ocean-ink); --c-leaf-text: var(--c-leaf-ink); --c-tangerine-text: var(--c-tangerine-ink); --c-berry-text: var(--c-berry-ink); --c-sky-text: var(--c-sky-ink);
 
   /* --- achievement tiers --- */
   --ach-bronze:    #B5793B;  --ach-bronze-ink:  #8A5A28;  --ach-bronze-tint:  #F6ECE0;
@@ -117,7 +120,7 @@ html { font-size: calc(100% * var(--fs-scale)); }   /* a percentage, so the brow
   --surface-sunk:  #E9DCBE;
   --ink:           #3A3020;
   --ink-soft:      #5C4F38;
-  --ink-faint:     #6E6046;   /* ~4.7:1 on --canvas */
+  --ink-faint:     #625540;   /* 5.9:1 on --canvas, 5.3:1 on --surface-sunk */
   --line:          #E2D4B2;
   --line-strong:   #C8B588;
 
@@ -194,6 +197,7 @@ html { font-size: calc(100% * var(--fs-scale)); }   /* a percentage, so the brow
   /* Text on those tints that clears 4.5:1 (the -ink values above are for fills with white text). */
   --c-tangerine-text: #F5A65C;  --c-berry-text: #F07BA6;
   --c-sky:         #63C0F0;  --c-sky-ink:       #3D97C7;  --c-sky-tint:       #123240;
+  --c-grape-text: var(--c-grape); --c-ocean-text: var(--c-ocean); --c-leaf-text: var(--c-leaf); --c-tangerine-text: var(--c-tangerine); --c-berry-text: var(--c-berry); --c-sky-text: var(--c-sky);
 
   --ach-bronze:    #C08A4E;  --ach-bronze-ink:  #E0B486;  --ach-bronze-tint:  #33261A;
   --ach-silver:    #A7AEBC;  --ach-silver-ink:  #C7CDD8;  --ach-silver-tint:  #2A2E36;
@@ -248,6 +252,7 @@ html { font-size: calc(100% * var(--fs-scale)); }   /* a percentage, so the brow
     --c-berry:       #F07BA6;  --c-berry-ink:     #C55074;  --c-berry-tint:     #3B1E2B;
     --c-tangerine-text: #F5A65C;  --c-berry-text: #F07BA6;
     --c-sky:         #63C0F0;  --c-sky-ink:       #3D97C7;  --c-sky-tint:       #123240;
+  --c-grape-text: var(--c-grape); --c-ocean-text: var(--c-ocean); --c-leaf-text: var(--c-leaf); --c-tangerine-text: var(--c-tangerine); --c-berry-text: var(--c-berry); --c-sky-text: var(--c-sky);
 
     --ach-bronze:    #C08A4E;  --ach-bronze-ink:  #E0B486;  --ach-bronze-tint:  #33261A;
     --ach-silver:    #A7AEBC;  --ach-silver-ink:  #C7CDD8;  --ach-silver-tint:  #2A2E36;

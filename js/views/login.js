@@ -256,7 +256,12 @@ export function renderLogin(qs) {
     }
 
     const password = passInput.value;
-    if (!email || !password) return;
+    if (!email || !password) {
+      errorNote.textContent = t(!email ? "login.needEmail" : "login.needPassword");
+      errorNote.hidden = false;
+      (!email ? emailInput : passInput).focus();
+      return;
+    }
     if (mode === "signup") {
       if (password !== confirmInput.value) {
         errorNote.textContent = t("login.passwordMismatch");
