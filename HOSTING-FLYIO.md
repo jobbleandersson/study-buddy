@@ -234,6 +234,27 @@ Nobody needs to touch anything else for a normal change. `fly.toml` and the
 `Dockerfile` only need edits if the app's actual setup changes (a new env
 var, a bigger machine).
 
+## Backups
+
+Fly keeps volume snapshots for 5 days (same provider, same volume). On top of that the server writes a gzipped copy of the whole database to a bucket every night (`server/src/backup.js`), from 03:00 UTC, and keeps 30 days of them (the newest 7 are never pruned). It is off until the bucket exists.
+
+**Turn it on (once).** Creating the bucket sets the secrets the server reads (`BUCKET_NAME`, `AWS_ENDPOINT_URL_S3`, `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`) and restarts the app:
+
+```bash
+fly storage create -a studybuddy-jobble -n studybuddy-backups     # Tigris; free up to 5 GB
+fly logs -a studybuddy-jobble | grep "[backup]"                  # "[backup] on: nightly from 3:00 UTC ..."
+```
+
+Name another bucket service instead (Backblaze B2 and others speak the same S3 protocol) by setting those five names yourself. A failed backup sends the usual error mail ("nightly backup"). A compressed copy over 150 MB is not uploaded (the uploader holds it in memory, and the machine has 512 MB): the mail says so, and the uploader needs streaming before then.
+
+**Restore drill (do it once, before you need it).**
+
+1. Download the copy you want from the bucket, e.g. `fly storage dashboard` (or any S3 tool) -> `studybuddy-db/2026-10-18.sqlite3.gz`.
+2. `gunzip 2026-10-18.sqlite3.gz`, then check it opens: `sqlite3 2026-10-18.sqlite3 "select count(*) from users"`.
+3. To restore for real: stop writes (`fly scale count 0`), copy the file over `/data/studybuddy.sqlite3` with `fly ssh sftp` after removing the `-wal` and `-shm` files next to it, `fly scale count 1`, check `/api/health` and sign in.
+
+The copy holds everything the database holds (emails, password hashes, study states): treat the bucket as private, and the privacy text says it exists.
+
 ## Rolling back a bad deploy
 
 ```bash
