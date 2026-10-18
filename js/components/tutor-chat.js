@@ -7,7 +7,7 @@ import { announce } from "../lib/a11y.js";
 import { markdown } from "../lib/markdown.js";
 import { mascot, setMood } from "./mascot.js";
 import { store } from "../store.js";
-import { tutorSystem, fallbackOpeners } from "../prompts.js";
+import { tutorSystemBlocks, fallbackOpeners } from "../prompts.js";
 import { passageContext } from "../lib/passages.js";
 import { t, getLang } from "../lib/i18n.js";
 import { tutorStream, ClaudeError } from "../claude.js";
@@ -385,7 +385,7 @@ export class TutorChat {
     let acc = "";
     let stopReason = null;
     try {
-      const system = tutorSystem({
+      const system = tutorSystemBlocks({
         assignment: this.assignment, question: this.question,
         // A virtual set (review, weak spots, a national mix) is shuffled, so look the text up in the set the question came from.
         passage: passageContext(store.findQuestion(this.question.id)?.assignment || this.assignment, this.question),
