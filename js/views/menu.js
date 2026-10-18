@@ -230,7 +230,7 @@ export function renderMenu(mode) {
 
     return el("div.acard" + (ai ? ".acard--ai" : ""), {
       role: "button", tabindex: "0",
-      style: { "--subject": color.solid, "--subject-ink": color.ink, "--subject-tint": color.tint },
+      style: { "--subject": color.solid, "--subject-ink": color.ink, "--subject-text": color.text, "--subject-tint": color.tint },
       "aria-label": t(open ? "menu.cardAriaOpen" : "menu.cardAria",
         { title: a.title, subject: subjectName, count: a.questions.length }),
       onclick: () => { location.hash = resume?.hash || `#/session/${a.id}`; },

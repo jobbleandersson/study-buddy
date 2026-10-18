@@ -271,8 +271,10 @@ export function graphCalculator() {
     draw();
   }
 
+  let placedLabels = [];   // the labels drawn so far this frame (see labelAt)
   function draw() {
     if (!canvas.isConnected) return;
+    placedLabels = [];
     W = canvas.clientWidth; H = canvas.clientHeight;
     if (!W || !H) return;
     if (!model) rebuild();
@@ -406,7 +408,11 @@ export function graphCalculator() {
     const w = g.measureText(text).width + 8;
     let lx = X + 8, ly = Y - 22;
     if (lx + w > W - 4) lx = X - 8 - w;
+    if (lx < 4) lx = 4;
     if (ly < 4) ly = Y + 8;
+    // a label that would sit on one already drawn this frame is left out (the point stays; tapping it names it)
+    if (placedLabels.some((r) => lx < r.x + r.w && lx + w > r.x && ly < r.y + 17 && ly + 17 > r.y)) return;
+    placedLabels.push({ x: lx, y: ly, w });
     g.fillStyle = surface; g.globalAlpha = 0.9; g.fillRect(lx, ly, w, 17); g.globalAlpha = 1;
     g.fillStyle = ink; g.fillText(text, lx + 4, ly + 12.5);
   }

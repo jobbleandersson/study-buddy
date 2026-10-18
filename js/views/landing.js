@@ -219,7 +219,7 @@ function libraryArt() {
       // global --ink token for anything nested inside this <li>, which reads
       // fine here but silently breaks the moment something else needs the
       // real text color inside one of these pills.
-      return el("li", { style: { "--subj-tint": `var(--c-${hue}-tint)`, "--subj-ink": `var(--c-${hue}-ink)` } }, name);
+      return el("li", { style: { "--subj-tint": `var(--c-${hue}-tint)`, "--subj-ink": `var(--c-${hue}-text)` } }, name);
     })),
     el("ul.lp-levels", {}, t("lp.levels").split("|").map((l) => el("li", {}, l))),
   ]);
@@ -379,7 +379,7 @@ function subjects() {
     ]),
     el("ul.lp-subjgrid", {}, names.map((name, i) => {
       const hue = HUES[i % HUES.length];
-      return el("li", { style: { "--subj-tint": `var(--c-${hue}-tint)`, "--subj-ink": `var(--c-${hue}-ink)` } }, [
+      return el("li", { style: { "--subj-tint": `var(--c-${hue}-tint)`, "--subj-ink": `var(--c-${hue}-text)` } }, [
         el("span.lp-subjgrid__ic", { "aria-hidden": "true" }, [icon(SUBJECT_ICONS[i] || ICONS.book, 18)]),
         el("span", {}, name),
       ]);

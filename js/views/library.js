@@ -165,6 +165,7 @@ export async function renderLibrary(qs = null) {
             const m = subjectMark(subjName(s));
             m.style.setProperty("--subject-tint", c.tint);
             m.style.setProperty("--subject-ink", c.ink);
+            m.style.setProperty("--subject-text", c.text);
             return m;
           })),
         ]);
@@ -209,7 +210,7 @@ export async function renderLibrary(qs = null) {
         const nSets = index.sets.filter((s) => s.subject === subject.id).length;
         return el("button.source-opt.source-opt--subject", {
           type: "button", onclick: () => { state.subject = subject.id; paint(); },
-          style: { "--subject": color.solid, "--subject-ink": color.ink, "--subject-tint": color.tint },
+          style: { "--subject": color.solid, "--subject-ink": color.ink, "--subject-text": color.text, "--subject-tint": color.tint },
         }, [
           subjectMark(subjName(subject)),
           el("span.subjtext", {}, [
@@ -257,7 +258,7 @@ export async function renderLibrary(qs = null) {
         for (const s of missing) {
           try { if (await importSet(s)) added++; } catch { /* skip the ones that fail */ }
         }
-        toast(added ? t("lib.addedN", { n: added }) : t("lib.allThere"));
+        toast(added ? plural(added, "lib.addedOne", "lib.addedN") : t("lib.allThere"));
         paint();
       },
     }, [icon(ICONS.plus, 16), t("lib.addAll", { n: missing.length })]);

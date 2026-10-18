@@ -34,6 +34,18 @@ let activePassage = null;
 // Whether the student left the text open. Kept across questions, so hiding it once keeps it hidden.
 let passageOpen = true;
 
+/** A button label that follows a language switch made mid-session (views/session.js fires sb:langsession):
+ *  the question's buttons are built once, so without this "Rätta svaret" stayed Swedish after switching.
+ *  Only a label that is still the one it was given is replaced, so a busy label ("Rättar …") is left alone. */
+function followLanguage(btn, label) {
+  let last = btn.textContent;
+  const on = () => {
+    if (!btn.isConnected) { window.removeEventListener("sb:langsession", on); return; }
+    if (btn.textContent === last) { last = label(); btn.textContent = last; }
+  };
+  window.addEventListener("sb:langsession", on);
+}
+
 export function renderQuestion(opts) {
   const rules = ruleHooks(opts);
   if (rules) opts = rules.opts;
@@ -468,6 +480,7 @@ function mc({ question, tutor, testMode, onDone, askConfidence, revealAfter = 2,
   // .q-primary marks a question's main button (here and in the other kinds below): on a phone the study
   // session hides it and its bottom bar shows the same label and presses it (views/session.js).
   const checkBtn = el("button.btn.btn--sm.q-primary", { type: "button", disabled: true, hidden: revisable, onclick: check }, t("q.check"));
+  followLanguage(checkBtn, () => t("q.check"));
   const feedback = el("div", {});
   // Four short options sit two by two, as on a test page, instead of a long column of one-word rows.
   const shortChoices = question.choices.length === 4
@@ -620,6 +633,7 @@ function text({ question, tutor, live, testMode, onDone, askConfidence, targetLa
   const keypad = keypadFor(ta, question, targetLang);
   const checkBtn = el("button.btn.btn--sm.q-primary", { type: "button", onclick: check },
     t(testMode ? "q.submit" : "q.check"));
+  followLanguage(checkBtn, () => t(testMode ? "q.submit" : "q.check"));
   const feedback = el("div", {});
   const selfRate = el("div", {});
   let tries = 0;   // practice: a miss can be tried once more before the model answer is shown
@@ -808,6 +822,7 @@ function cloze({ question, tutor, live, testMode, onDone, askConfidence }) {
 
   const checkBtn = el("button.btn.btn--sm.q-primary", { type: "button", onclick: check },
     t(testMode ? "q.submit" : "q.check"));
+  followLanguage(checkBtn, () => t(testMode ? "q.submit" : "q.check"));
   const feedback = el("div", {});
   let done = false;
 

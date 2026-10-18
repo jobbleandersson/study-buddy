@@ -142,7 +142,7 @@ export function renderCalendarPage() {
         el("a.plan-cal__chip" + (a.kind === "test" ? ".is-test" : ""), {
           href: a.href,
           title: `${a.title}${a.kind === "test" ? " · " + t("common.test") : ""}`,
-          style: { "--subject": color.solid, "--subject-ink": color.ink, "--subject-tint": color.tint },
+          style: { "--subject": color.solid, "--subject-ink": color.ink, "--subject-text": color.text, "--subject-tint": color.tint },
         }, [
           el("span.plan-cal__chip-dot"),
           el("span.plan-cal__chip-t", {}, chipLabel(a)),

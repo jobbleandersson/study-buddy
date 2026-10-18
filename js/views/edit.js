@@ -4,6 +4,7 @@
 import { store } from "../store.js";
 import { el, icon, ICONS, toast, uid } from "../lib/dom.js";
 import { questionEditor } from "../components/question-editor.js";
+import { deepClone } from "../lib/clone.js";
 import { generateAssignment, ClaudeError } from "../claude.js";
 import { t, plural } from "../lib/i18n.js";
 import { localDayKey } from "../lib/activity.js";
@@ -24,7 +25,7 @@ export function renderEdit(assignmentId, qs) {
   }
 
   // Work on a copy so Cancel really cancels.
-  const draft = structuredClone(original);
+  const draft = deepClone(original);
   const subjectName = store.subjects.find((s) => s.id === original.subjectId)?.name || t("common.general");
   // A deadline already in the past stays editable — don't clamp to today here,
   // only when creating.

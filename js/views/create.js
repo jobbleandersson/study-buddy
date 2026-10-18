@@ -182,7 +182,7 @@ export function renderCreate(prefill) {
       }
     }
     stopBtn.remove();
-    toast(made ? t("create.splitDone", { n: made }) : t("create.genFailed"));
+    toast(made ? plural(made, "create.splitDoneOne", "create.splitDone") : t("create.genFailed"));
     if (made && !stopped && root.isConnected && location.hash.startsWith("#/create")) location.hash = "#/";
   }
 

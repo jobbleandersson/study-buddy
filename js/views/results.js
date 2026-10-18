@@ -123,13 +123,14 @@ export function renderResults(attemptId) {
     hpNextRow(attempt),
 
     deltaEntries.length ? el("div", { style: { marginTop: "24px", textAlign: "left" } }, [
-      el("h3", { style: { marginBottom: "8px" } }, t("results.topicMastery")),
+      el("h3", { style: { marginBottom: "4px" } }, t("results.topicMastery")),
+      el("p.note", { style: { margin: "0 0 8px" } }, t("results.topicMasteryNote")),
       el("div.delta-list", {}, deltaEntries.map(([topic, d]) => {
         const change = Math.round((d.after - d.before) * 100);
         return el("div.delta", {}, [
           el("span.delta__topic", {}, sentenceCase(topic)),
           el("span.delta__bar", {}, [el("i", { style: { width: "0%" }, dataset: { w: Math.round(d.after * 100) } })]),
-          el("span", { class: "delta__n " + (change > 0 ? "up" : change < 0 ? "down" : ""), }, change > 0 ? `+${change}` : `${change}`),
+          el("span", { class: "delta__n " + (change > 0 ? "up" : change < 0 ? "down" : ""), title: t("results.deltaTitle", { n: change > 0 ? `+${change}` : `${change}`, now: Math.round(d.after * 100) }) }, change > 0 ? `+${change}` : `${change}`),
         ]);
       })),
     ]) : null,
@@ -137,7 +138,7 @@ export function renderResults(attemptId) {
     wrongEntries.length ? el("div", { style: { marginTop: "8px", textAlign: "left" } }, [
       el("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", flexWrap: "wrap", marginBottom: "8px" } }, [
         el("h3", {}, t("results.worthLook")),
-        el("a.btn.btn--sm", { href: `#/practice/${attempt.id}` }, [icon(ICONS.spark, 16),
+        el("a.btn.btn--sm", { href: `#/practice/${attempt.id}` }, [icon(ICONS.arrow, 16),
           wrongEntries.length === 1 ? t("results.practiseTheseOne") : t("results.practiseTheseMany", { n: wrongEntries.length })]),
       ]),
       attempt.wasTest && !attempt.tutorHints ? el("p.note", { style: { marginBottom: "8px" } },
@@ -486,7 +487,7 @@ function reviewCta(attempt) {
   const hp = !!attempt?.hp || /[?&]hp=1(&|$)/.test(attempt?.retryHash || "");
   const dueNow = store.dueQuestions().filter((d) => !hp || isHpSetId(d.assignment.id)).length;
   return dueNow
-    ? el("a.btn.btn--sm", { href: hp ? "#/review?hp=1" : "#/review" }, [icon(ICONS.spark, 16), t("results.srsReviewNow", { n: dueNow })])
+    ? el("a.btn.btn--sm", { href: hp ? "#/review?hp=1" : "#/review" }, [icon(ICONS.arrow, 16), t("results.srsReviewNow", { n: dueNow })])
     : el("p.note", {}, t("results.srsComeBack"));
 }
 
