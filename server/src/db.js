@@ -19,6 +19,13 @@ db.pragma("journal_mode = WAL");
 // the schema's own cascades real, as a backstop for the next table someone adds and forgets there.
 db.pragma("foreign_keys = ON");
 
+// Two processes starting at the same moment on one database file (tests, or a deploy that overlaps the old machine) can both
+// find a column missing and both try to add it: the second ALTER fails with "duplicate column name" and the server never
+// starts. The column being there is the goal, so that one error is not an error.
+function alter(sql) {
+  try { db.exec(sql); } catch (e) { if (!/duplicate column name/i.test(String(e?.message))) throw e; }
+}
+
 db.exec(`
   CREATE TABLE IF NOT EXISTS users (
     id TEXT PRIMARY KEY,
@@ -325,7 +332,7 @@ db.exec(`
 // holds accounts. SQLite can't add a UNIQUE column in place, so uniqueness is a
 // separate partial index (many users have no Google account, i.e. NULL).
 if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === "google_sub")) {
-  db.exec("ALTER TABLE users ADD COLUMN google_sub TEXT");
+  alter("ALTER TABLE users ADD COLUMN google_sub TEXT");
 }
 db.exec("CREATE UNIQUE INDEX IF NOT EXISTS users_google_sub ON users(google_sub) WHERE google_sub IS NOT NULL");
 
@@ -333,21 +340,21 @@ db.exec("CREATE UNIQUE INDEX IF NOT EXISTS users_google_sub ON users(google_sub)
 // terms that was — evidence of consent. NULL for accounts made before the checkbox existed.
 for (const [col, type] of [["consent_at", "INTEGER"], ["terms_version", "TEXT"]]) {
   if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === col)) {
-    db.exec(`ALTER TABLE users ADD COLUMN ${col} ${type}`);
+    alter(`ALTER TABLE users ADD COLUMN ${col} ${type}`);
   }
 }
 
 // NULL = not verified. Set the moment a token is confirmed (routes/auth.js), or immediately for a
 // Google-authenticated account — Google has already checked the address, there's nothing to add.
 if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === "email_verified_at")) {
-  db.exec("ALTER TABLE users ADD COLUMN email_verified_at INTEGER");
+  alter("ALTER TABLE users ADD COLUMN email_verified_at INTEGER");
 }
 
 // 1 = made while email verification was live (RESEND_API_KEY set), so an address still unconfirmed is
 // a signal worth acting on; NULL = made when nobody could confirm anything (every account so far),
 // where "unverified" says nothing about who registered it. Read by routes/auth.js (revokeTies).
 if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === "email_verify_required")) {
-  db.exec("ALTER TABLE users ADD COLUMN email_verify_required INTEGER");
+  alter("ALTER TABLE users ADD COLUMN email_verify_required INTEGER");
 }
 
 // Two-factor auth. totp_secret is base32, NULL until enabled; totp_enabled_at NULL = off.
@@ -355,7 +362,7 @@ if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === "email_
 // before it stops the same code (or one guessed a step early) being replayed inside its own window.
 for (const [col, type] of [["totp_secret", "TEXT"], ["totp_enabled_at", "INTEGER"], ["totp_last_counter", "INTEGER"]]) {
   if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === col)) {
-    db.exec(`ALTER TABLE users ADD COLUMN ${col} ${type}`);
+    alter(`ALTER TABLE users ADD COLUMN ${col} ${type}`);
   }
 }
 
@@ -365,7 +372,7 @@ for (const [col, type] of [["totp_secret", "TEXT"], ["totp_enabled_at", "INTEGER
 // totp_secret is NULL, 'totp' => it is set. A row with totp_enabled_at set and this NULL predates
 // the column and is TOTP (backfilled below; routes/auth.js's twoFaMethod() also treats it so).
 if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === "twofa_method")) {
-  db.exec("ALTER TABLE users ADD COLUMN twofa_method TEXT");
+  alter("ALTER TABLE users ADD COLUMN twofa_method TEXT");
 }
 db.exec("UPDATE users SET twofa_method = 'totp' WHERE totp_enabled_at IS NOT NULL AND twofa_method IS NULL");
 
@@ -377,7 +384,7 @@ for (const [col, def] of [
   ["last_sent_at", "INTEGER"], ["purpose", "TEXT NOT NULL DEFAULT 'login'"],
 ]) {
   if (!db.prepare("PRAGMA table_info(twofa_challenges)").all().some((c) => c.name === col)) {
-    db.exec(`ALTER TABLE twofa_challenges ADD COLUMN ${col} ${def}`);
+    alter(`ALTER TABLE twofa_challenges ADD COLUMN ${col} ${def}`);
   }
 }
 
@@ -390,26 +397,26 @@ for (const [col, def] of [
 // column; every pre-existing pure-Google row has google_sub set and this NULL, reading as
 // passwordless exactly as before. See routes/auth.js.
 if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === "password_set_at")) {
-  db.exec("ALTER TABLE users ADD COLUMN password_set_at INTEGER");
+  alter("ALTER TABLE users ADD COLUMN password_set_at INTEGER");
 }
 
 // When Stripe created the newest webhook event applied to a subscription row (ms). Stripe does not
 // promise to deliver events in order, so billing.js drops one older than this instead of letting a
 // late "updated" undo a newer "deleted". NULL = nothing with a time on it yet (rows from before this).
 if (!db.prepare("PRAGMA table_info(subscriptions)").all().some((c) => c.name === "last_event_at")) {
-  db.exec("ALTER TABLE subscriptions ADD COLUMN last_event_at INTEGER");
+  alter("ALTER TABLE subscriptions ADD COLUMN last_event_at INTEGER");
 }
 
 // The Stripe Checkout session an account last started (billing.js). Before starting another, the server asks
 // Stripe whether that one was already paid, so a second click while the first payment's webhook is still on
 // its way can't buy the plan twice. Cleared once the checkout.session.completed event has been applied.
 if (!db.prepare("PRAGMA table_info(subscriptions)").all().some((c) => c.name === "last_checkout_session")) {
-  db.exec("ALTER TABLE subscriptions ADD COLUMN last_checkout_session TEXT");
+  alter("ALTER TABLE subscriptions ADD COLUMN last_checkout_session TEXT");
 }
 
 // A small summary of each state (state-digest.js), written when the state is saved, so the class results
 // and the friends leaderboard don't parse everyone's whole 10 MB state on every request. NULL on rows
 // saved before this existed: their summary is built on first read.
 if (!db.prepare("PRAGMA table_info(state_blobs)").all().some((c) => c.name === "digest")) {
-  db.exec("ALTER TABLE state_blobs ADD COLUMN digest TEXT");
+  alter("ALTER TABLE state_blobs ADD COLUMN digest TEXT");
 }
