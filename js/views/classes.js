@@ -162,7 +162,7 @@ export async function renderClasses(qs) {
         },
       }, t("classes.leave"));
       return el("div.set-group", {}, [
-        row(c.name, t("classes.teacher", { email: c.teacherEmail }), leave, { lead: avatar(c.name, { square: true }) }),
+        row(c.name, t("classes.teacher", { name: c.teacherName }), leave, { lead: avatar(c.name, { square: true }) }),
         items.length
           ? el("div.set-sublist", {}, items.map(assignmentRow))
           : el("p.set-sublist__empty", {}, t("classes.noAssignments")),
@@ -356,6 +356,11 @@ export async function renderClassDetail(id) {
     });
     const show = el("button.btn.btn--sm", { type: "button", onclick: () => openClassShareSlide({ name: cls.name, code: cls.code }) },
       [icon(ICONS.presentation, 15), t("classes.wizardShareCta")]);
+    const fresh = el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: async () => {
+      if (!(await confirmDialog({ message: t("classes.newCodeConfirm"), confirmLabel: t("classes.newCode") }))) return;
+      try { cls.code = (await api(`${classUrl(cls.id)}/new-code`, { method: "POST" })).code; toast(t("classes.newCodeDone")); paint(); }
+      catch (e) { toast(e.message); }
+    } }, [icon(ICONS.refresh || ICONS.copy, 15), t("classes.newCode")]);
     root.append(
       el("a.btn.btn--ghost.btn--sm.set-back", { href: "#/classes" }, [icon(ICONS.back, 16), t("classes.back")]),
       pageHead(cls.name, [
@@ -365,7 +370,7 @@ export async function renderClassDetail(id) {
       card(ICONS.users, t("classes.code"), t("classes.codeSub"), [
         el("div.set-bigcode", {}, [
           el("span.set-bigcode__code", { "aria-label": `${t("classes.code")}: ${cls.code.split("").join(" ")}` }, cls.code),
-          el("div.set-row__ctl", {}, [copy, show]),
+          el("div.set-row__ctl", {}, [copy, show, fresh]),
         ]),
       ]),
       wizard.el,
