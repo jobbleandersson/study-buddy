@@ -6431,3 +6431,65 @@ button.toolfly__item { border: 0; background: transparent; font: inherit; font-s
   .sessionview .session .nav-row { margin-top: auto; position: sticky; bottom: 0; z-index: 3; padding-block: var(--s-3); background: var(--canvas); border-top: 1px solid var(--line); }
   .sessionview .tutor { top: var(--s-4); height: calc(100dvh - 300px); max-height: none; }
 }
+
+/* ---------- home and Studera on phones ----------
+   The home page leads with one thing to do (.home-continue, built in menu.js: a run left part-way, the
+   questions due for review, or the set studied last). The five shortcuts stay as they are. "Dina set"
+   is a preview of the first four on the page itself rather than a card inside a card, and every set
+   card is a compact row: the mastery ring first, then subject, title and count.
+   Search and filters stay on Studera. Tablets and desktop are untouched. */
+.home-continue, .home-panel__all { display: none; }
+@media (max-width: 620px) {
+  .home__head { margin-bottom: var(--s-4); }
+
+  .home-continue {
+    display: grid; gap: 6px; margin-bottom: var(--s-4); padding: 16px 16px 14px;
+    border-radius: 20px; text-decoration: none; color: var(--ink);
+    background: linear-gradient(135deg, color-mix(in oklab, var(--subject, var(--brand)) 13%, var(--surface)), var(--surface) 62%);
+    border: 1px solid color-mix(in oklab, var(--subject, var(--brand)) 30%, var(--line));
+    box-shadow: var(--shadow-card);
+  }
+  .home-continue:active { transform: scale(.99); }
+  .home-continue__eyebrow {
+    display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700;
+    letter-spacing: .06em; text-transform: uppercase; color: var(--subject-ink, var(--brand-ink));
+  }
+  .home-continue__title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; line-height: 1.25; text-wrap: balance; }
+  .home-continue__meta { font-size: var(--fs-sm); color: var(--ink-soft); }
+  .home-continue__bar { height: 6px; margin-top: 4px; border-radius: var(--r-full); background: color-mix(in srgb, var(--ink) 9%, var(--surface)); overflow: hidden; }
+  .home-continue__bar i { display: block; height: 100%; border-radius: inherit; background: var(--subject, var(--brand)); }
+  .home-continue__cta { margin-top: 8px; min-height: 48px; justify-content: center; gap: 8px; border-radius: 14px; font-size: 1rem; }
+
+  /* "Dina set": a section on the page, not a card around cards. */
+  .home-panel--sets { background: transparent; border: 0; box-shadow: none; padding: 0; }
+  .home-panel--sets .home-panel__label { margin-bottom: var(--s-2); }
+  .home-panel--sets .home-panel__all { display: inline; }
+  .home-panel--sets :is(.librarybar .search, .filtertoggle, .filterdrawer, .acard--new, .acard--extra) { display: none !important; }
+  .home-panel--sets .librarybar { margin-bottom: var(--s-3); }
+
+  /* Set cards as rows: ring (or a start chip) | subject, title, count | ⋮ */
+  .grid { gap: 10px; }
+  .grid > .acard:not(.acard--new) {
+    display: grid; grid-template-columns: 46px minmax(0, 1fr) 36px;
+    grid-template-areas: "lead top menu" "lead title menu" "lead meta menu";
+    column-gap: 14px; row-gap: 1px; align-items: center;
+    min-height: 0; padding: 12px 6px 12px 14px; border-radius: 16px;
+  }
+  .grid > .acard::before { display: none; }
+  .grid > .acard .acard__top { grid-area: top; padding-right: 0; min-height: 0; }
+  .grid > .acard .acard__title { grid-area: title; font-size: 1rem; line-height: 1.3; }
+  .grid > .acard :is(.acard__foot, .acard__meta) { display: contents; }
+  .grid > .acard .acard__meta > span:first-child { grid-area: meta; font-size: 13px; color: var(--ink-faint); }
+  .grid > .acard .acard__meta > :last-child { grid-area: lead; justify-self: center; }
+  .grid > .acard .ring { width: 46px; height: 46px; }
+  .grid > .acard .acard__meta > :last-child:not(.ring) {
+    width: 46px; height: 46px; display: grid; place-items: center; border-radius: var(--r-full);
+    background: color-mix(in oklab, var(--subject, var(--brand)) 14%, var(--surface));
+  }
+  .grid > .acard :is(.acard__status, .acard__progress) { grid-column: 2 / 4; margin-top: 4px; }
+  .grid > .acard .acard__menu { grid-area: menu; position: static; width: 36px; height: 36px; opacity: 1; align-self: center; }
+
+  /* Studera: the title and a compact "+ New" on one line. */
+  .study-page .planner-page__head .btn { min-height: 40px; padding: 0 14px; border-radius: var(--r-full); }
+  .study-page__sub { margin: 2px 0 14px; }
+}

@@ -33,6 +33,8 @@ let subjectFilter = "all";
 let sortBy = "recent";
 let query = "";
 let filtersOpen = false;
+// How many sets the home page previews on a phone before "See all" (the rest are on Studera).
+const HOME_PREVIEW = 4;
 
 export function renderMenu(mode) {
   const topicMastery = masteryByTopic(store.attempts);
@@ -135,7 +137,13 @@ export function renderMenu(mode) {
     clear(grid);
     // First run: the empty state below already offers it. The Studera page has it as a button in its header.
     if (store.assignments.length && mode !== "study") grid.appendChild(newCard());
-    for (const a of items) grid.appendChild(card(a, topicMastery));
+    // On a phone the home page shows the first four as a preview and links on to Studera (CSS hides the
+    // rest); while searching it shows every hit.
+    items.forEach((a, i) => {
+      const c = card(a, topicMastery);
+      if (mode !== "study" && i >= HOME_PREVIEW && !query.trim()) c.classList.add("acard--extra");
+      grid.appendChild(c);
+    });
 
     // A search that misses in this tab but hits in the other is a dead end
     // unless we say so — the set the student wants is one click away.
@@ -420,8 +428,13 @@ export function renderMenu(mode) {
 
   // "Dina set" — one panel holding everything about browsing the library:
   // tabs, search, the Filter drawer, and the card grid.
+  const setCount = store.assignments.length;
   const setsPanel = el("section.home-panel.home-panel--sets", {}, [
-    el("div.home-panel__label", {}, [el("span", {}, t("menu.panelSets"))]),
+    el("div.home-panel__label", {}, [
+      el("span", {}, t("menu.panelSets")),
+      // Phones (CSS): the panel is a preview of the first few, so it says where the rest are.
+      setCount > HOME_PREVIEW ? el("a.linkbtn.home-panel__all", { href: "#/study" }, t("menu.seeAllSets", { n: setCount })) : null,
+    ].filter(Boolean)),
     ...libraryUI,
   ]);
 
@@ -439,7 +452,7 @@ export function renderMenu(mode) {
   const layout = el(rail ? "div.home-layout" : "div.home-layout.home-layout--solo", {}, [
     // The rail starts level with the greeting, up in the corner, rather than
     // under a full-width head.
-    el("div.home-main", {}, [greetingBlock, nextTestCard(), tonightCard(), dailySlot(), homeTiles(), homeStarter(), ad, setsPanel].filter(Boolean)),
+    el("div.home-main", {}, [greetingBlock, continueCard(), nextTestCard(), tonightCard(), dailySlot(), homeTiles(), homeStarter(), ad, setsPanel].filter(Boolean)),
     rail,
   ].filter(Boolean));
 
@@ -842,6 +855,49 @@ function greeting() {
   const hello = t(h < 12 ? "menu.morning" : h < 18 ? "menu.afternoon" : "menu.evening");
   const name = store.profile?.name;   // from the welcome quiz — see components/onboarding.js
   return name ? `${hello}, ${name}` : hello;
+}
+
+/** The one thing to do next, first on the home page of a phone (CSS keeps it to phones): a run left
+ *  part-way, else the questions due for review, else the set studied last. Nothing on a first visit. */
+function continueCard() {
+  let run = null;
+  for (const a of store.assignments) {
+    const r = resumeFor(a);
+    if (r && (!run || (r.session.savedAt || 0) > (run.r.session.savedAt || 0))) run = { a, r };
+  }
+  let kind, a = null, href, title, meta, pct = null;
+  if (run) {
+    ({ a } = run);
+    kind = "resume"; href = run.r.hash; title = a.title;
+    meta = t("menu.answeredOf", { n: run.r.answered, total: a.questions.length });
+    pct = Math.min(100, Math.round((run.r.answered / Math.max(1, a.questions.length)) * 100));
+  } else {
+    const due = store.isQuiet() ? 0 : store.dueQuestions().length;
+    if (due) {
+      kind = "due"; href = "#/review"; title = plural(due, "menu.contDueOne", "menu.contDueMany");
+      meta = t("menu.contDueSub");
+    } else {
+      const last = [...store.attempts].sort((x, y) => (y.finishedAt || 0) - (x.finishedAt || 0))
+        .find((x) => store.getAssignment(x.assignmentId));
+      if (!last) return null;
+      a = store.getAssignment(last.assignmentId);
+      kind = "again"; href = `#/session/${a.id}`; title = a.title;
+      meta = t("menu.contLastScore", { pct: last.scorePct ?? 0 });
+    }
+  }
+  const color = a ? store.subjectColor(a.subjectId) : null;
+  const subject = a ? store.subjects.find((s) => s.id === a.subjectId)?.name : null;
+  const eyebrow = { resume: "menu.contResume", due: "menu.contDue", again: "menu.contAgain" }[kind];
+  const cta = { resume: "session.continue", due: "menu.contReview", again: "exam.planStart" }[kind];
+  return el("a.home-continue.home-continue--" + kind, {
+    href, style: color ? { "--subject": color.solid, "--subject-ink": color.ink } : {},
+  }, [
+    el("span.home-continue__eyebrow", {}, [icon(kind === "due" ? ICONS.layers : ICONS.play, 13), t(eyebrow)]),
+    el("strong.home-continue__title", {}, title),
+    el("span.home-continue__meta", {}, subject ? `${subject} · ${meta}` : meta),
+    pct != null ? el("span.home-continue__bar", { "aria-hidden": "true" }, [el("i", { style: { width: `${Math.max(4, pct)}%` } })]) : null,
+    el("span.btn.home-continue__cta", {}, [t(cta), icon(ICONS.arrow, 16)]),
+  ].filter(Boolean));
 }
 
 /** The top of the home page: the greeting, small, over one question. */
