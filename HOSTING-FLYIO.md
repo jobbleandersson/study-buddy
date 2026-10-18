@@ -234,6 +234,15 @@ Nobody needs to touch anything else for a normal change. `fly.toml` and the
 `Dockerfile` only need edits if the app's actual setup changes (a new env
 var, a bigger machine).
 
+## Stripe webhook (only when billing is switched on)
+
+Billing is off until the Stripe secrets are set. When it is switched on, create the webhook endpoint at
+`https://pluggera.se/api/stripe/webhook` with **Snapshot** payloads (the default, not "Thin"): the server reads
+the object from `event.data.object`. A thin endpoint sends only an id, so every event would be dropped as
+unknown; the log then says `has no data.object - is the Stripe endpoint set to Snapshot`. The events used are
+`checkout.session.completed`, `customer.subscription.created/updated/deleted`, `charge.refunded` and
+`charge.dispute.created`.
+
 ## Backups
 
 Fly keeps volume snapshots for 5 days (same provider, same volume). On top of that the server writes a gzipped copy of the whole database to a bucket every night (`server/src/backup.js`), from 03:00 UTC, and keeps 30 days of them (the newest 7 are never pruned). It is off until the bucket exists.

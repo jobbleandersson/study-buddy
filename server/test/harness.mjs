@@ -163,6 +163,10 @@ async function startOnce(env) {
     db,
     dir,
     logLines,
+    /** Sends a signal to the server process (a graceful-shutdown test sends SIGTERM). */
+    signal: (sig) => child.kill(sig),
+    /** Resolves with { code, signal } when the server process exits. */
+    exited,
     async stop() {
       if (stopped) return;
       stopped = true;

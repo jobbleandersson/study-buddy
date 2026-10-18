@@ -7,6 +7,12 @@
 app = "studybuddy-jobble"
 primary_region = "ams"   # Amsterdam — closest major Fly region to Sweden
 
+# A deploy stops the old machine with SIGINT and waits this long before SIGKILL. The server (server/src/index.js)
+# uses the time to let running requests finish: streamed AI answers and state saves are cut otherwise. Its own
+# SHUTDOWN_GRACE_MS (25 s) stays below this so the server gets to exit by itself.
+kill_signal = "SIGTERM"
+kill_timeout = "30s"
+
 [build]
   dockerfile = "Dockerfile"
 

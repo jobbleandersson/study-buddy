@@ -5,7 +5,9 @@ import { db } from "../db.js";
 export function requireActiveLink(getStudentUserId) {
   return (req, res, next) => {
     const studentUserId = getStudentUserId(req);
-    if (!studentUserId) return res.status(400).json({ error: { message: "studentUserId is required." } });
+    // A body value can be anything JSON allows; an object or array would make the SQLite bind throw (a 500
+    // and an owner alert), so only a string gets as far as the query.
+    if (!studentUserId || typeof studentUserId !== "string") return res.status(400).json({ error: { message: "studentUserId is required." } });
 
     const link = db.prepare(
       "SELECT id FROM links WHERE parent_user_id = ? AND student_user_id = ? AND status = 'active'"
