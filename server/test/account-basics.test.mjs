@@ -155,3 +155,31 @@ describe("forgot password for an address that signs in with Google", () => {
     assert.equal(server.db.prepare("SELECT COUNT(*) AS n FROM password_reset_tokens").get().n, 0);
   });
 });
+
+describe("mails are Swedish first with English under it", () => {
+  let server, fake;
+  before(async () => {
+    fake = await startFakeResend();
+    server = await startServer({ RESEND_API_KEY: "dummy-test-key", RESEND_API_URL: fake.url });
+  });
+  after(async () => { await server.stop(); await fake.stop(); });
+
+  test("the verification mail and the password-changed mail carry both languages, in the subject and the body", async () => {
+    const addr = email();
+    const c = makeClient(server.baseUrl);
+    await c.post("/api/auth/signup", { email: addr, password: "oldpassword1", consent: true });
+    await c.post("/api/auth/change-password", { currentPassword: "oldpassword1", newPassword: "brandnewpw2" });
+    await new Promise((r) => setTimeout(r, 400));
+    const verify = fake.mailsTo(addr).find((m) => /Confirm your email/.test(m.subject));
+    const changed = fake.mailsTo(addr).find((m) => /password was changed/i.test(m.subject));
+    for (const m of [verify, changed]) {
+      assert.ok(m, "the mail was sent");
+      assert.match(m.subject, / · /);
+      assert.match(m.html, /lang="en"/);
+      assert.match(m.html, /Om du inte bad om det här/);
+    }
+    assert.match(verify.subject, /^Bekräfta din e-post/);
+    assert.match(changed.subject, /^Ditt lösenord på PluggEra har ändrats/);
+    assert.match(verify.html, /#\/verify\?token=[0-9a-f]{64}/);
+  });
+});

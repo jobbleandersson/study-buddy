@@ -71,8 +71,14 @@ function codeMatches(challengeId, code, hash) {
   const b = Buffer.from(hash, "hex");
   return a.length === b.length && crypto.timingSafeEqual(a, b);
 }
+// Three different limits on emailed codes, three different answers: one message for all of them left a student not knowing
+// whether to wait a minute, sign in again, or give up for the day.
 const tooManyCodes = (res, extra = {}) =>
-  res.status(429).json({ error: { message: "Too many attempts. Try again in a few minutes.", code: "twofa_cooldown", ...extra } });
+  res.status(429).json({ error: { message: "Wait a moment before asking for another code.", code: "twofa_cooldown", ...extra } });
+const resendLimit = (res) =>
+  res.status(429).json({ error: { message: "No more codes can be sent for this sign-in. Go back and sign in again.", code: "twofa_resend_limit" } });
+const dailyLimit = (res) =>
+  res.status(429).json({ error: { message: "Too many codes have been sent to this account today. Try again tomorrow, or reset your password to sign in.", code: "twofa_daily_limit" } });
 
 // A sign-in (or enrolment) challenge whose code goes out by email. Never hard-fails on a send
 // problem: the challenge is returned either way with `emailSent`, so a provider outage or a spent
@@ -300,8 +306,8 @@ auth.post("/auth/2fa/resend", twoFaResendIpLimit, asyncHandler(async (req, res) 
   const cooldownMs = twoFaEmail.cooldownSec * 1000;
   const wait = challenge.lastSentAt && cooldownMs > 0 ? challenge.lastSentAt + cooldownMs - Date.now() : 0;
   if (wait > 0) return tooManyCodes(res, { cooldownSec: Math.ceil(wait / 1000) });
-  if (twoFaEmail.resends > 0 && challenge.resends >= twoFaEmail.resends) return tooManyCodes(res);
-  if (!consume({ name: "twofa-email-day", key: challenge.userId, max: twoFaEmail.sendsPerDay, windowMs: DAY_MS })) return tooManyCodes(res);
+  if (twoFaEmail.resends > 0 && challenge.resends >= twoFaEmail.resends) return resendLimit(res);
+  if (!consume({ name: "twofa-email-day", key: challenge.userId, max: twoFaEmail.sendsPerDay, windowMs: DAY_MS })) return dailyLimit(res);
 
   const code = newCode();
   if (!(await sendTwoFaCodeEmail(user.email, code, "login"))) {
@@ -606,7 +612,7 @@ auth.post("/auth/2fa/setup", requireAuth, twoFaPasswordLimit, asyncHandler(async
       .get(req.user.userId, now - cooldownMs);
     if (recent) return tooManyCodes(res, { cooldownSec: Math.ceil((recent.lastSentAt + cooldownMs - now) / 1000) });
   }
-  if (!consume({ name: "twofa-email-day", key: req.user.userId, max: twoFaEmail.sendsPerDay, windowMs: DAY_MS })) return tooManyCodes(res);
+  if (!consume({ name: "twofa-email-day", key: req.user.userId, max: twoFaEmail.sendsPerDay, windowMs: DAY_MS })) return dailyLimit(res);
 
   db.prepare("DELETE FROM twofa_challenges WHERE user_id = ? AND purpose = 'enroll'").run(req.user.userId);   // only one outstanding at a time
   const id = crypto.randomBytes(32).toString("hex");

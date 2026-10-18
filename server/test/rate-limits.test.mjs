@@ -253,6 +253,11 @@ describe("email 2FA rate limiting", () => {
     assert.equal(capped.status, 200);
     assert.equal(capped.json.twoFactorRequired, true);
     assert.equal(capped.json.emailSent, false);
+    // asking again says why, and that it is the day's limit, not a wait of a minute
+    const again = await client.post("/api/auth/2fa/resend", { challenge: capped.json.challenge });
+    assert.equal(again.status, 429);
+    assert.equal(again.json.error.code, "twofa_daily_limit");
+    assert.match(again.json.error.message, /tomorrow|reset your password/);
   });
 
   test("the resend route is limited per IP", async () => {
