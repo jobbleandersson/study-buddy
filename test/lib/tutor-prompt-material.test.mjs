@@ -50,3 +50,53 @@ describe("generation prompt: the correct option is not the longest one by habit"
     assert.ok(generationSystem({}).includes("must NOT usually be the longest"));
   });
 });
+
+describe("tutor prompt as cacheable blocks", () => {
+  const a = { assignment: { title: "A", type: "assignment" }, question: { id: "q1", kind: "mc", prompt: "P1", choices: ["x", "y"], answer: 0 } };
+  const b = { assignment: { title: "B", type: "test" }, question: { id: "q2", kind: "text", prompt: "P2", answer: "z" }, history: [{ topic: "t", correct: false }] };
+
+  test("joined, the blocks are exactly the single prompt", async () => {
+    const { tutorSystem, tutorSystemBlocks } = await import("../../js/prompts.js");
+    for (const args of [a, b, { ...a, testMode: true }]) {
+      assert.equal(tutorSystemBlocks(args).map((x) => x.text).join(""), tutorSystem(args));
+    }
+  });
+  test("the rules block carries the cache mark and does not change with the question", async () => {
+    const { tutorSystemBlocks } = await import("../../js/prompts.js");
+    const [r1, c1] = tutorSystemBlocks(a), [r2, c2] = tutorSystemBlocks(b);
+    assert.deepEqual(r1.cache_control, { type: "ephemeral" });
+    assert.equal(r1.text, r2.text, "the same prefix for every question");
+    assert.equal(c1.cache_control, undefined);
+    assert.notEqual(c1.text, c2.text, "the question part differs");
+    assert.ok(c1.text.includes("P1") && !r1.text.includes("P1"));
+    assert.ok(r1.text.length > 6000, "long enough to be worth caching");
+  });
+  test("a test's hint rules are part of the rules block, not the question part", async () => {
+    const { tutorSystemBlocks } = await import("../../js/prompts.js");
+    const [r] = tutorSystemBlocks({ ...a, testMode: true });
+    assert.match(r.text, /GRADED TEST/);
+  });
+});
+
+describe("generation language and debate rules", () => {
+  test("in Swedish the material's language decides; in English nothing is added", async () => {
+    const { generationLangInstruction, generationSystem } = await import("../../js/prompts.js");
+    localStorage.setItem("studybuddy.lang", "sv");
+    assert.match(generationLangInstruction(), /language of the material the student gave you/);
+    assert.match(generationSystem({}), /if it is in Swedish, or there is no material, write in Swedish/);
+    assert.equal(/Write everything you produce in Swedish/.test(generationSystem({})), false, "no longer forced to Swedish");
+    localStorage.setItem("studybuddy.lang", "en");
+    assert.equal(generationLangInstruction(), "");
+    localStorage.setItem("studybuddy.lang", "sv");
+  });
+  test("debate mode refuses hateful, violent and self-harm positions", async () => {
+    const { readFileSync } = await import("node:fs");
+    const src = readFileSync(new URL("../../js/lib/study-modes.js", import.meta.url), "utf8");
+    assert.match(src, /never argue for a position that attacks people for who they are/);
+    assert.match(src, /praises or encourages violence, or that urges self-harm/);
+  });
+  test("the tone rule names Swedish filler openers too", async () => {
+    const { tutorSystem } = await import("../../js/prompts.js");
+    assert.match(tutorSystem({ assignment: { title: "A", type: "assignment" }, question: { id: "q", kind: "text", prompt: "p", answer: "a" } }), /Bra fråga!/);
+  });
+});
