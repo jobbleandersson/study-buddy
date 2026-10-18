@@ -134,10 +134,10 @@
         "18.8 cm",
         "37.7 cm",
         "75.4 cm",
-        "113.1 cm²"
+        "113.1 cm"
       ],
       "answer": 1,
-      "explanation": "$O = 2\\pi r = 2\\pi \\cdot 6 = 12\\pi \\approx 37.7$ cm. The answer 113.1 cm² is instead the area ($\\pi r^2$), not the circumference."
+      "explanation": "$O = 2\\pi r = 2\\pi \\cdot 6 = 12\\pi \\approx 37.7$ cm. The answer 113.1 cm is the area ($\\pi r^2 \\approx 113.1$ cm²) with the wrong unit, not the circumference."
     },
     {
       "id": "q-ma8-geo-10",
@@ -146,13 +146,13 @@
       "prompt": "A circle has diameter 14 cm. What is the area, rounded to one decimal place?",
       "opener": "Remember that area is calculated with the radius, not the diameter - so halve it first.",
       "choices": [
-        "44.0 cm",
-        "22.0 cm",
+        "44.0 cm²",
+        "22.0 cm²",
         "153.9 cm²",
         "307.9 cm²"
       ],
       "answer": 2,
-      "explanation": "The radius is $14 / 2 = 7$ cm. $A = \\pi r^2 = \\pi \\cdot 7^2 = 49\\pi \\approx 153.9$ cm². The answer 44.0 cm is the circumference ($\\pi d$), not the area, and 307.9 cm² is what you get if you use the diameter instead of the radius in the area formula."
+      "explanation": "The radius is $14 / 2 = 7$ cm. $A = \\pi r^2 = \\pi \\cdot 7^2 = 49\\pi \\approx 153.9$ cm². The answer 44.0 cm² is built on the circumference ($\\pi d \\approx 44.0$ cm), not on the area, and 307.9 cm² is what you get if you use the diameter instead of the radius in the area formula."
     },
     {
       "id": "q-ma8-geo-11",

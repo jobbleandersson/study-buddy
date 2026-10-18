@@ -122,7 +122,7 @@
       "topic": "potenslagar",
       "prompt": "Vilka potenslagar, regler för grundpotensform och prefix behöver du kunna?",
       "opener": "Tre block att minnas: lagarna, formen och prefixen.",
-      "answer": "$a^n$ betyder att basen $a$ multipliceras med sig själv $n$ gånger · $a^m \\cdot a^n = a^{m+n}$ (samma bas: addera exponenterna) · $\\frac{a^m}{a^n} = a^{m-n}$ (samma bas: subtrahera exponenterna) · $a^0 = 1$ för alla $a \\neq 0$ · $a^{-n} = \\frac{1}{a^n}$, så negativ exponent ger ett tal mindre än 1 · Grundpotensform: $a \\cdot 10^n$ där $1 \\leq a < 10$ och $n$ är ett heltal · Stora tal ger positiv exponent, små tal ger negativ · Exponenten $=$ antalet steg decimaltecknet flyttas · Prefix: kilo $= 10^3$ · mega $= 10^6$ · milli $= 10^{-3}$."
+      "answer": "$a^n$ betyder att basen $a$ multipliceras med sig själv $n$ gånger · $a^m \\cdot a^n = a^{m+n}$ (samma bas: addera exponenterna) · $\\frac{a^m}{a^n} = a^{m-n}$ (samma bas: subtrahera exponenterna) · $a^0 = 1$ för alla $a \\neq 0$ · $a^{-n} = \\frac{1}{a^n}$, så för $a > 1$ ger en negativ exponent ett tal mindre än 1 · Grundpotensform: $a \\cdot 10^n$ där $1 \\leq a < 10$ och $n$ är ett heltal · Stora tal ger positiv exponent, små tal ger negativ · Exponenten $=$ antalet steg decimaltecknet flyttas · Prefix: kilo $= 10^3$ · mega $= 10^6$ · milli $= 10^{-3}$."
     },
     {
       "id": "q-ma8-pot-9",
