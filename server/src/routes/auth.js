@@ -132,6 +132,9 @@ function issueResetToken(userId) {
     .run(crypto.randomUUID(), userId, token, now + RESET_TTL_MS, now);
   return token;
 }
+// A reset mail that never went out leaves its token row behind, and the row is what the forgot-password
+// cooldown reads: drop it, so a failed send does not lock the person out of asking again for two minutes.
+const dropResetToken = (token) => db.prepare("DELETE FROM password_reset_tokens WHERE token = ? AND used_at IS NULL").run(token);
 const badToken = (res) => res.status(400).json({ error: { message: "That link is invalid or has expired.", code: "bad_token" } });
 
 // Used up every reset link still floating around for an account, so a second, older email can't be
@@ -513,7 +516,10 @@ auth.post("/auth/forgot-password", ...forgotPasswordLimits, asyncHandler(async (
       const recent = db.prepare("SELECT 1 AS x FROM password_reset_tokens WHERE user_id = ? AND created_at > ?")
         .get(user.id, Date.now() - RESET_COOLDOWN_MS);
       // Past the allowance nothing is sent and the reply is the same, so this reveals nothing about the address.
-      if (!recent && mayMail("reset", email, req)) sendResetEmail(email, issueResetToken(user.id)).catch(() => {});
+      if (!recent && mayMail("reset", email, req)) {
+        const token = issueResetToken(user.id);   // written before the send, so two asks at once still send one mail
+        sendResetEmail(email, token).then((sent) => { if (!sent) dropResetToken(token); }, () => dropResetToken(token));
+      }
     }
   }
   res.json({ ok: true });

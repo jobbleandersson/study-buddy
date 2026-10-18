@@ -88,6 +88,18 @@ billing.post("/stripe/webhook", async (req, res) => {
   let event;
   try { event = JSON.parse(req.body.toString("utf8")); }
   catch { return res.status(400).json({ error: { message: "Bad JSON.", code: "bad_request" } }); }
+  // Signed, but not an event object (a bare null, number or list): nothing to apply, and a 4xx or 5xx would
+  // only make Stripe resend it for days. Answer 200 so it stops.
+  if (!event || typeof event !== "object" || Array.isArray(event)) {
+    console.warn("[billing] webhook body is not an event object - ignored");
+    return res.json({ received: true });
+  }
+  // The events this app acts on carry the object in data.object. An endpoint set up as "thin" sends only an
+  // id, so the event would be silently dropped as unknown: say so in the log, where the cause can be found.
+  if (typeof event.type === "string" && /^(checkout\.session|customer\.subscription|charge)\./.test(event.type)
+      && !(event.data?.object && typeof event.data.object === "object")) {
+    console.warn(`[billing] ${event.type} has no data.object - is the Stripe endpoint set to Snapshot (not Thin) payloads?`);
+  }
   try {
     // A full refund ends the plan. Stop the billing at Stripe FIRST: if that fails the event is not recorded
     // as handled and we answer 500, so Stripe sends it again - recording it first would turn the retry into a

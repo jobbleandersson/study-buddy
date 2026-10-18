@@ -1,5 +1,7 @@
-// GET /api/health/ai: does the AI really answer, and if not, why. A fake Anthropic stands in for the
-// real one (ANTHROPIC_CHECK_URL, honoured only under NODE_ENV=test).
+// GET /api/health/ai: does the AI really answer. The public answer is ok + when it was checked; WHY it failed
+// (checkAi's reason) goes to the owner in the alert mail, not to whoever asks, so the reasons are tested on
+// checkAi itself further down. A fake Anthropic stands in for the real one (ANTHROPIC_CHECK_URL, honoured
+// only under NODE_ENV=test).
 import { test, describe, before, after } from "node:test";
 import assert from "node:assert/strict";
 import http from "node:http";
@@ -27,12 +29,13 @@ const health = async (server) => {
 };
 
 describe("GET /api/health/ai", () => {
-  test("no key: 503 no_key, without calling anyone", async () => {
+  test("no key: 503, without calling anyone", async () => {
     const server = await startServer({ ANTHROPIC_API_KEY: "" });
     try {
       const { status, json } = await health(server);
       assert.equal(status, 503);
-      assert.equal(json.reason, "no_key");
+      assert.equal(json.ok, false);
+      assert.equal("reason" in json, false, "the reason is not public");
     } finally { await server.stop(); }
   });
 
@@ -43,7 +46,7 @@ describe("GET /api/health/ai", () => {
       const a = await health(server);
       assert.equal(a.status, 200);
       assert.equal(a.json.ok, true);
-      assert.equal(a.json.reason, null);
+      assert.deepEqual(Object.keys(a.json).sort(), ["checkedAt", "ok"]);
       await health(server);
       assert.equal(fake.seen.length, 1, "the second poll comes from the cache");
       assert.equal(fake.seen[0].key, "test-key");
@@ -51,8 +54,8 @@ describe("GET /api/health/ai", () => {
     } finally { await server.stop(); await fake.stop(); }
   });
 
-  test("a rejected key and an empty account each say why", async () => {
-    for (const [status, body, reason] of [
+  test("a rejected key and an empty account are each a 503", async () => {
+    for (const [status, body, label] of [
       [401, { type: "error", error: { type: "authentication_error", message: "invalid x-api-key" } }, "key_rejected"],
       [400, { type: "error", error: { type: "invalid_request_error", message: "Your credit balance is too low" } }, "no_credit"],
       [529, { type: "error", error: { type: "overloaded_error", message: "Overloaded" } }, "upstream_error"],
@@ -61,8 +64,8 @@ describe("GET /api/health/ai", () => {
       const server = await startServer({ ANTHROPIC_API_KEY: "test-key", ANTHROPIC_CHECK_URL: fake.url });
       try {
         const r = await health(server);
-        assert.equal(r.status, 503, reason);
-        assert.equal(r.json.reason, reason);
+        assert.equal(r.status, 503, label);
+        assert.equal("reason" in r.json, false, label);
       } finally { await server.stop(); await fake.stop(); }
     }
   });
@@ -73,7 +76,7 @@ describe("GET /api/health/ai", () => {
     try {
       const r = await health(server);
       assert.equal(r.status, 200);
-      assert.equal(r.json.reason, "rate_limited");
+      assert.equal(r.json.ok, true);
     } finally { await server.stop(); await fake.stop(); }
   });
 
@@ -81,8 +84,36 @@ describe("GET /api/health/ai", () => {
     const server = await startServer({ ANTHROPIC_API_KEY: "", SITE_PASSWORD: "hemligt-lösen" });
     try {
       const r = await health(server);
-      assert.equal(r.status, 503);
-      assert.equal(r.json.reason, "no_key", "the gate let it through");
+      assert.equal(r.status, 503, "the gate let it through (503 is the AI check, not the gate's 403)");
+      assert.equal(r.json.ok, false);
     } finally { await server.stop(); }
+  });
+});
+
+describe("checkAi's reasons, which the owner's alert mail carries", () => {
+  test("each failure is told apart", async () => {
+    let status = 200, body = {};
+    const srv = http.createServer((req, res) => { req.resume(); req.on("end", () => { res.statusCode = status; res.setHeader("content-type", "application/json"); res.end(JSON.stringify(body)); }); });
+    await new Promise((r) => srv.listen(0, "127.0.0.1", r));
+    process.env.NODE_ENV = "test";
+    process.env.ANTHROPIC_CHECK_URL = `http://127.0.0.1:${srv.address().port}/v1/messages`;
+    const { checkAi } = await import("../src/ai-check.js");
+    try {
+      process.env.ANTHROPIC_API_KEY = "";
+      assert.equal((await checkAi({ fresh: true })).reason, "no_key");
+      process.env.ANTHROPIC_API_KEY = "test-key";
+      for (const [s, b, reason, ok] of [
+        [200, { type: "message" }, null, true],
+        [401, { error: { type: "authentication_error" } }, "key_rejected", false],
+        [400, { error: { message: "Your credit balance is too low" } }, "no_credit", false],
+        [429, { error: { type: "rate_limit_error" } }, "rate_limited", true],
+        [529, { error: { type: "overloaded_error" } }, "upstream_error", false],
+      ]) {
+        status = s; body = b;
+        const r = await checkAi({ fresh: true });
+        assert.equal(r.reason, reason, String(s));
+        assert.equal(r.ok, ok, String(s));
+      }
+    } finally { await new Promise((r) => srv.close(r)); srv.closeAllConnections?.(); }
   });
 });

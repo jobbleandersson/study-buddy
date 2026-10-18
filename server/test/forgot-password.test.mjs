@@ -1,7 +1,7 @@
 import { test, describe, before, after } from "node:test";
 import assert from "node:assert/strict";
 import crypto from "node:crypto";
-import { startServer, makeClient } from "./harness.mjs";
+import { startServer, makeClient, startFakeResend } from "./harness.mjs";
 
 const uniqueEmail = () => `forgot-${Date.now()}-${Math.random().toString(36).slice(2)}@example.com`;
 
@@ -11,10 +11,51 @@ function resetTokenCount(db, email) {
   ).get(email).n;
 }
 
+async function waitFor(fn, ms = 4000) {
+  const end = Date.now() + ms;
+  while (Date.now() < end) { if (fn()) return true; await new Promise((r) => setTimeout(r, 50)); }
+  return false;
+}
+
 describe("POST /api/auth/forgot-password - email ON", () => {
-  let server, client;
-  before(async () => { server = await startServer({ RESEND_API_KEY: "dummy-test-key" }); client = makeClient(server.baseUrl); });
-  after(async () => { await server.stop(); });
+  let server, client, fake;
+  before(async () => {
+    fake = await startFakeResend();   // a stand-in for Resend: the mail goes out (or fails) for real, nowhere else
+    server = await startServer({ RESEND_API_KEY: "dummy-test-key", RESEND_API_URL: fake.url });
+    client = makeClient(server.baseUrl);
+  });
+  after(async () => { await server.stop(); await fake.stop(); });
+
+  test("a mail that could not be sent starts no cooldown: the unsent token is dropped and the next ask sends one (B-52)", async () => {
+    const email = uniqueEmail();
+    await client.post("/api/auth/signup", { email, password: "correctpw1", consent: true });
+    client.clearCookie();
+
+    fake.failing = true;
+    try {
+      assert.equal((await client.post("/api/auth/forgot-password", { email })).status, 200, "the reply is the same either way");
+      assert.ok(await waitFor(() => resetTokenCount(server.db, email) === 0), "the token of the failed send was dropped");
+    } finally { fake.failing = false; }
+
+    const sentBefore = fake.mailsTo(email).length;
+    await client.post("/api/auth/forgot-password", { email });
+    assert.ok(await waitFor(() => fake.mailsTo(email).length > sentBefore), "asking again right away sends the mail");
+    assert.equal(resetTokenCount(server.db, email), 1);
+  });
+
+  test("after a mail that did go out, the cooldown holds: a second ask sends nothing", async () => {
+    const email = uniqueEmail();
+    await client.post("/api/auth/signup", { email, password: "correctpw1", consent: true });
+    client.clearCookie();
+
+    await client.post("/api/auth/forgot-password", { email });
+    assert.ok(await waitFor(() => fake.mailsTo(email).some((m) => /reset|återställ|lösenord/i.test(m.subject || ""))), "the reset mail arrived");
+    const sent = fake.mailsTo(email).length;
+    await client.post("/api/auth/forgot-password", { email });
+    await new Promise((r) => setTimeout(r, 300));
+    assert.equal(fake.mailsTo(email).length, sent);
+    assert.equal(resetTokenCount(server.db, email), 1);
+  });
 
   test("an unknown email gets the same {ok:true} as a real one, and issues no token", async () => {
     const email = uniqueEmail();

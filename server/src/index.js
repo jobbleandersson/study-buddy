@@ -8,7 +8,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import { compress } from "./compress.js";
 import { staticCacheControl } from "./static-cache.js";
-import "./db.js"; // creates tables on first run
+import { db } from "./db.js"; // creates tables on first run
 import { startSweeper } from "./sweep.js";
 import { startBackups } from "./backup.js";
 import { requireGate, gate } from "./gate.js";
@@ -102,6 +102,9 @@ const app = express();
 // clientIp() in middleware/attemptLimit.js, which reads Fly-Client-IP.
 // Harmless locally (there is no proxy, so nothing is forwarded).
 app.set("trust proxy", 1);
+// Express announces itself ("X-Powered-By: Express") by default; nothing needs that, and it tells a scanner
+// which framework to try exploits for.
+app.disable("x-powered-by");
 
 // Security headers on every response, including the ones above (a 401 from the password gate
 // deserves them too). Hand-written rather than a dependency like helmet, so each choice below is
@@ -113,6 +116,10 @@ app.use((req, res, next) => {
   // pages, so the app shell, JSON and images can't be listed either.
   if (process.env.PUBLIC_INDEXING !== "true") res.setHeader("X-Robots-Tag", "noindex, nofollow");
   res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+  // Browser features the app never uses are switched off. The microphone stays on for this origin: the
+  // tutor's voice input (SpeechRecognition) needs it. Clipboard, share and speech output are not
+  // covered by this header.
+  res.setHeader("Permissions-Policy", "camera=(), geolocation=(), payment=(), usb=(), interest-cohort=(), microphone=(self)");
   // Only meaningful once the connection really is HTTPS — same signal the session cookie's
   // `secure` flag already uses, just above.
   if (process.env.COOKIE_SECURE === "true") {
@@ -162,6 +169,10 @@ if (CANONICAL_HOST) {
 if (ALLOWED_ORIGIN) app.use(cors({ origin: ALLOWED_ORIGIN, credentials: true })); // only needed if the frontend is ever hosted separately from this server
 app.use(compress);   // gzip/brotli for text responses; see compress.js
 app.use(cookieParser());
+// Private JSON must not sit in a shared or browser cache (a signed-in student's state, a parent's view of a
+// child, a class list). Every /api answer is no-store unless its route says otherwise with its own header
+// (res.set later in the chain replaces this one).
+app.use("/api", (req, res, next) => { res.setHeader("Cache-Control", "no-store"); next(); });
 // Private site (see gate.js): before the body parsers, so a visitor without the password cannot make the
 // server read a 10MB JSON body either. Open (a no-op) when SITE_PASSWORD is unset.
 app.use("/api", requireGate);
@@ -303,6 +314,32 @@ try {
 startAiWatch();   // mails ALERT_EMAIL if the AI stops answering (ai-check.js)
 startBackups();   // nightly copy of the database to a bucket, if one is set up (backup.js)
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`[study-buddy-server] listening on http://localhost:${PORT} (NODE_ENV=${process.env.NODE_ENV || "unset"})`);
 });
+
+// Graceful shutdown. A deploy (or Fly moving the machine) sends SIGTERM/SIGINT and, after kill_timeout in
+// fly.toml, SIGKILL. Without a handler the process died at once and cut every streamed AI answer and every
+// state save in flight. Now: stop taking new connections, let the running requests finish, close the
+// database so its write-ahead log is merged, and only force the exit when SHUTDOWN_GRACE_MS runs out
+// (kept below kill_timeout, so this code gets the last word and not SIGKILL).
+let shuttingDown = false;
+function shutdown(signal) {
+  if (shuttingDown) return;
+  shuttingDown = true;
+  const graceMs = Number(process.env.SHUTDOWN_GRACE_MS) > 0 ? Number(process.env.SHUTDOWN_GRACE_MS) : 25_000;
+  console.log(`[study-buddy-server] ${signal} received - finishing running requests (up to ${graceMs} ms) before exit`);
+  const force = setTimeout(() => {
+    console.error("[study-buddy-server] shutdown grace ran out - exiting with requests still open");
+    process.exit(1);
+  }, graceMs);
+  force.unref();
+  server.close(() => {
+    try { db.close(); } catch (e) { console.error("[study-buddy-server] closing the database failed:", e); }
+    console.log("[study-buddy-server] shut down cleanly");
+    process.exit(0);
+  });
+  server.closeIdleConnections?.();   // keep-alive sockets with nothing running would hold close() open
+}
+process.on("SIGTERM", () => shutdown("SIGTERM"));
+process.on("SIGINT", () => shutdown("SIGINT"));

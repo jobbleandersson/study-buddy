@@ -100,9 +100,15 @@ const periodEndMs = (sub) => {
   return Number.isFinite(Number(s)) && s != null ? Number(s) * 1000 : null;
 };
 
+// A signed event is still JSON from outside: any field can be the wrong type, and an object or array handed
+// to a SQLite bind throws, which would answer 500 and have Stripe resend the same event for days. Ids are
+// strings or they are nothing; an event body or data.object that is not an object is treated as empty.
+const str = (v) => (typeof v === "string" && v ? v : null);
+const plain = (v) => (v && typeof v === "object" && !Array.isArray(v) ? v : null);
+
 function userIdFor({ metadataUserId, customerId }) {
-  if (metadataUserId && userByIdStmt.get(metadataUserId)) return metadataUserId;
-  if (customerId) return userByCustomerStmt.get(customerId)?.id || null;
+  if (str(metadataUserId) && userByIdStmt.get(metadataUserId)) return metadataUserId;
+  if (str(customerId)) return userByCustomerStmt.get(customerId)?.id || null;
   return null;
 }
 
@@ -152,7 +158,7 @@ function planEndTarget(event, charge) {
  *  A partial refund (goodwill, a billing mistake) does not: the person still has the plan they paid for. */
 export function refundCancelTarget(event) {
   if (event?.type !== "charge.refunded") return null;
-  const charge = event.data?.object || {};
+  const charge = plain(event.data?.object) || {};
   const full = charge.refunded === true || (Number(charge.amount) > 0 && Number(charge.amount_refunded) >= Number(charge.amount));
   return full ? planEndTarget(event, charge) : null;
 }
@@ -171,16 +177,17 @@ export function disputeCancelTarget(event, charge) {
  *  use, or an account that no longer exists), or "updated". Never throws for an unfamiliar event -
  *  Stripe sends many kinds and a 4xx would make it retry them for days. */
 export const applyEvent = db.transaction((event, charge = null) => {
-  if (!event?.id || !event?.type) return "ignored";
+  if (!str(event?.id) || !str(event?.type)) return "ignored";
   if (seenStmt.run(event.id, Date.now()).changes === 0) return "duplicate";
-  const obj = event.data?.object || {};
+  const obj = plain(event.data?.object) || {};
 
   if (event.type === "checkout.session.completed") {
     if (obj.mode !== "subscription") return "ignored";
     const userId = userIdFor({ metadataUserId: obj.client_reference_id, customerId: obj.customer });
     if (!userId) return "ignored";
     const existing = subscriptionOf(userId);
-    if (isStale(existing, event, obj.subscription, false)) return "stale";
+    const subscriptionId = str(obj.subscription);
+    if (isStale(existing, event, subscriptionId, false)) return "stale";
     // The subscription events carry the real status; this one just links the account to the Stripe
     // customer and subscription, so they can find it. Never downgrades a status already received for
     // THIS subscription; a different one (a returning customer's new plan) starts from scratch rather
@@ -188,14 +195,14 @@ export const applyEvent = db.transaction((event, charge = null) => {
     // event does not move last_event_at (at: null): otherwise the real subscription event Stripe created
     // a second earlier, if it arrives after this one, would be dropped as stale and leave a paying
     // customer on "incomplete".
-    const sameSub = !!existing?.subscriptionId && existing.subscriptionId === obj.subscription;
+    const sameSub = !!existing?.subscriptionId && existing.subscriptionId === subscriptionId;
     upsertStmt.run({
-      userId, customerId: obj.customer || null, subscriptionId: obj.subscription || null,
+      userId, customerId: str(obj.customer), subscriptionId,
       status: (sameSub && existing.status) || (!existing?.subscriptionId && existing?.status) || "incomplete",
       periodEnd: null, cancel: sameSub && existing?.cancelAtPeriodEnd ? 1 : 0, now: Date.now(), at: null,
     });
     // This checkout is done and linked: it no longer needs asking Stripe about (checkoutBlocker below).
-    clearCheckoutStmt.run(userId, obj.id || null);
+    clearCheckoutStmt.run(userId, str(obj.id));
     return "updated";
   }
 
@@ -203,10 +210,10 @@ export const applyEvent = db.transaction((event, charge = null) => {
     const userId = userIdFor({ metadataUserId: obj.metadata?.user_id, customerId: obj.customer });
     if (!userId) return "ignored";
     const deleted = event.type === "customer.subscription.deleted";
-    if (isStale(subscriptionOf(userId), event, obj.id, deleted)) return "stale";
+    if (isStale(subscriptionOf(userId), event, str(obj.id), deleted)) return "stale";
     upsertStmt.run({
-      userId, customerId: obj.customer || null, subscriptionId: obj.id || null,
-      status: deleted ? "canceled" : String(obj.status || "incomplete"),
+      userId, customerId: str(obj.customer), subscriptionId: str(obj.id),
+      status: deleted ? "canceled" : (str(obj.status) || "incomplete"),
       periodEnd: periodEndMs(obj), cancel: obj.cancel_at_period_end ? 1 : 0, now: Date.now(), at: eventAt(event),
     });
     return "updated";

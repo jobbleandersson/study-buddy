@@ -143,6 +143,34 @@ describe("with a test key", () => {
   });
 
   describe("the webhook", () => {
+    test("a signed event with fields of the wrong type is answered 200 (not 500, which Stripe would resend for days) and changes nothing", async () => {
+      const odd = await signUp(server, "odd-types@example.se");
+      const hostile = [
+        null, 5, "text", [1],
+        { id: { a: 1 }, type: "customer.subscription.created", data: { object: {} } },
+        { id: "evt_h1", type: ["x"] },
+        { id: "evt_h2", type: "customer.subscription.updated", data: "nope" },
+        { id: "evt_h3", type: "customer.subscription.updated", data: { object: "nope" } },
+        { id: "evt_h4", type: "customer.subscription.updated", data: { object: { id: {}, customer: {}, status: {}, metadata: { user_id: {} } } } },
+        { id: "evt_h5", type: "checkout.session.completed", data: { object: { mode: "subscription", client_reference_id: [odd.id], customer: { x: 1 }, subscription: [], id: {} } } },
+        { id: "evt_h6", type: "charge.refunded", data: { object: { customer: {}, refunded: true, amount: {}, created: {} } } },
+        { id: "evt_h7", type: "charge.dispute.created", data: { object: { charge: {} } } },
+        { id: "evt_h8", type: "customer.subscription.updated", created: {}, data: { object: { metadata: { user_id: odd.id }, id: ["x"], customer: "cus_odd", status: ["active"] } } },
+      ];
+      for (const ev of hostile) {
+        const r = await sendEvent(server, ev);
+        assert.equal(r.status, 200, JSON.stringify(ev));
+      }
+      assert.equal(server.db.prepare("SELECT COUNT(*) AS n FROM subscriptions WHERE user_id = ?").get(regular.id).n, 0, "nobody else was touched");
+      assert.equal((await odd.client.get("/api/billing/status")).json.plus, false, "an event of unknown shape never grants Plus");
+    });
+
+    test("a thin payload (no data.object) is answered 200 and the log says why nothing happened", async () => {
+      const r = await sendEvent(server, { id: "evt_thin_1", type: "customer.subscription.created" });
+      assert.equal(r.status, 200);
+      assert.match(server.logLines.join(""), /customer.subscription.created has no data.object/);
+    });
+
     test("an unsigned, wrongly signed or stale request is refused and changes nothing", async () => {
       const ev = subEvent("customer.subscription.created", regular.id);
       assert.equal((await sendEvent(server, ev, { header: "" })).status, 400);

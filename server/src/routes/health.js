@@ -41,15 +41,16 @@ health.get("/health", (req, res) => {
   });
 });
 
-// Whether the AI really answers (ai-check.js), for an uptime monitor: 200 when it does, 503 with the
-// reason when it doesn't. Cached for 10 minutes, so polling it costs at most one tiny request per 10 min.
-// Open while the site is locked (gate.js) and says nothing but ok/reason.
+// Whether the AI really answers (ai-check.js), for an uptime monitor: 200 when it does, 503 when it doesn't.
+// Cached for 10 minutes, so polling it costs at most one tiny request per 10 min. Open while the site is
+// locked (gate.js), so it says only ok and when it was checked - why it failed (a rejected key, an empty
+// account) is for the owner, who gets it in the alert mail, not for whoever asks.
 health.get("/health/ai", async (req, res) => {
   res.set("Cache-Control", "no-store");
   try {
     const r = await checkAi();
-    res.status(r.ok ? 200 : 503).json({ ok: r.ok, reason: r.reason, checkedAt: new Date(r.checkedAt).toISOString() });
+    res.status(r.ok ? 200 : 503).json({ ok: r.ok, checkedAt: new Date(r.checkedAt).toISOString() });
   } catch {
-    res.status(503).json({ ok: false, reason: "check_failed" });
+    res.status(503).json({ ok: false });
   }
 });
