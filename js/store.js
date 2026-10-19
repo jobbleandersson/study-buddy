@@ -1180,7 +1180,7 @@ class Store extends EventTarget {
     // Local write is always synchronous and unconditional — this is just the
     // additive, debounced background half. Every existing save()/update()
     // call site keeps working exactly as before, authed or not.
-    if (!skipPush && this.authed) { this._setDirty(true); this._schedulePush(); }
+    if (!skipPush && this.authed) { this._editSeq = (this._editSeq || 0) + 1; this._setDirty(true); this._schedulePush(); }
   }
 
   emit() {
@@ -2371,6 +2371,9 @@ class Store extends EventTarget {
 
   async _pushOnce(_retry = 0) {
     if (_retry === 0) this._lastPushOk = false;
+    // Which edit this push carries. A change made while it is on its way is not in it, so the success
+    // below may only clear the dirty mark if no edit came after this one.
+    const seq = this._editSeq || 0;
     let res;
     try {
       res = await fetch(STATE_URL, {
@@ -2426,9 +2429,9 @@ class Store extends EventTarget {
       this._setSyncVersion(data.version);
       this._lastPushOk = true;
       this._pushSucceeded();
-      // The server has everything now. The discard copy from an earlier conflict is kept (until the
+      // The server has everything this push carried. The discard copy from an earlier conflict is kept (until the
       // next one, or sign-out) so a merge that went wrong can still be undone from the backup banner.
-      if (!this._pushAgain) this._setDirty(false);
+      if (!this._pushAgain && (this._editSeq || 0) === seq) this._setDirty(false);
     }
   }
 
