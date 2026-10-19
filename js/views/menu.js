@@ -23,6 +23,7 @@ import { testsTomorrow } from "../lib/tonight.js";
 import { dailySlot } from "../components/daily-card.js";
 import { houseAd } from "../components/house-ad.js";
 import { installBanner } from "../components/install-app.js";
+import { hasSummary, openSummary } from "../components/set-summary.js";
 import { tonightPlan } from "./tonight.js";
 import { shareSet } from "../lib/share-set.js";
 import { loadScript, scriptKey } from "../lib/podcast.js";
@@ -304,6 +305,7 @@ export function renderMenu(mode) {
   function openCardMenu(anchor, a) {
     closeCardMenu();
     const menu = el("div.cardmenu", { role: "menu" }, [
+      hasSummary(a) && item(ICONS.fileText, t("summary.read"), () => openSummary(a, { startHref: `#/session/${a.id}` })),
       item(ICONS.pencil, t("menu.itemRename"), () => rename(a)),
       item(ICONS.chart, t("menu.itemEdit"), () => { location.hash = `#/edit/${a.id}`; }),
       item(ICONS.clock, t("menu.itemExam"), () => { location.hash = `#/session/${a.id}?exam=1`; }),

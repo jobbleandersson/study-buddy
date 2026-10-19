@@ -23,6 +23,7 @@ import { TutorChat } from "../components/tutor-chat.js";
 import { homeButton } from "../components/nav.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { openReadingControls } from "../components/reading-controls.js";
+import { hasSummary, openSummary } from "../components/set-summary.js";
 import { openPopover, closePopover } from "../lib/popover.js";
 import { review } from "../lib/srs.js";
 import { weakSpotQuestions, masteryByTopic, firstTryCorrect } from "../lib/mastery.js";
@@ -822,6 +823,7 @@ function runSession(config) {
     }, [el("span.toolfly__icon", {}, icon(ic, 17)), el("span", {}, label)]);
     const started = !stage.querySelector(".hp-intro, .resume");
     const menu = openPopover(moreBtn, [
+      summaryBtn ? item(ICONS.fileText, t("summary.read"), () => openSummary(summarySet)) : null,
       item(ICONS.contrast, t("read.title"), () => openReadingControls(moreBtn)),
       busBtn ? item(ICONS.headphones, t("bus.start"), () => { location.hash = busBtn.getAttribute("href"); }) : null,
       graphBtn ? item(ICONS.curve, t("graph.open"), () => graphBtn.click()) : null,
@@ -1697,6 +1699,17 @@ function runSession(config) {
     }, [icon(ICONS.curve, 18)]);
   })();
 
+  // The set's summary, to look back at while practising. Not in an exam, where it would be a crib sheet.
+  const summarySet = (() => {
+    if (config.hp || config.bus || isExam) return null;
+    const set = store.getAssignment(config.assignmentId);
+    return hasSummary(set) ? set : null;
+  })();
+  const summaryBtn = summarySet ? el("button.iconbtn.summarybtn", {
+    type: "button", "aria-label": t("summary.read"), title: t("summary.read"),
+    onclick: () => openSummary(summarySet),
+  }, [icon(ICONS.fileText, 18)]) : null;
+
   mTitle.textContent = headTitle();
   const node = el("div.sessionview" + (config.bus ? ".session--bus" : ".sessionview--bar"), {}, [
     config.bus ? null : el("div.mtop", {}, [mExit, el("span.mtop__track", { "aria-hidden": "true" }, [mFill]), mCount, mTime, moreBtn]),
@@ -1709,6 +1722,7 @@ function runSession(config) {
         handInBtn,
         pomoEl,
         badgeEl,
+        summaryBtn,
         busBtn,
         graphBtn,
         readingBtn,

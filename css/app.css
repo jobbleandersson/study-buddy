@@ -6566,3 +6566,18 @@ button.topmenu__item { border: 0; background: transparent; font-family: inherit;
   .libview .libcard__foot > div > .btn--ghost { flex: 1 1 0; justify-content: center; min-width: 0; white-space: nowrap; }
   .libview .libcard__foot > div > .iconbtn { flex: none; width: 44px; height: 44px; }
 }
+
+/* "Om det här": a set's summary, from its card menu or inside a session. */
+.summarydlg__card { max-width: 560px; display: grid; gap: var(--s-3); max-height: calc(100dvh - 32px); overflow-y: auto; }
+.summarydlg__card h3 { margin: 0; text-wrap: balance; }
+.summarydlg__eyebrow { margin: 0; display: inline-flex; align-items: center; gap: 6px; color: var(--ink-soft); font-size: var(--fs-sm); font-weight: 600; }
+.summarydlg__body { line-height: 1.6; }
+.summarydlg__body > :first-child { margin-top: 0; }
+.summarydlg__body > :last-child { margin-bottom: 0; }
+.summarydlg__actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; margin-top: var(--s-2); }
+.set-summary h3 { margin: 0 0 var(--s-2); }
+@media (max-width: 620px) {
+  .summarydlg__actions { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .summarydlg__actions .btn { justify-content: center; min-height: 48px; }
+  .summarydlg__actions .btn:not(.btn--ghost) { order: -1; }
+}

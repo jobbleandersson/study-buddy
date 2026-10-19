@@ -623,6 +623,8 @@ export default {
   "create.saved": "Saved!",
   "create.dueDate": "Due date (optional)",
   "create.summaryLabel": "About this set",
+  "summary.read": "Read the summary",
+  "summary.start": "Start studying",
 
   /* ---- edit ---- */
   "edit.title": "Edit set",

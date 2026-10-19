@@ -638,6 +638,8 @@ export default {
   "create.saved": "Sparat!",
   "create.dueDate": "Deadline (valfritt)",
   "create.summaryLabel": "Om det här",
+  "summary.read": "Läs sammanfattningen",
+  "summary.start": "Börja plugga",
 
   /* ---- edit ---- */
   "edit.title": "Redigera set",
