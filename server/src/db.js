@@ -417,6 +417,11 @@ if (!db.prepare("PRAGMA table_info(subscriptions)").all().some((c) => c.name ===
 // A small summary of each state (state-digest.js), written when the state is saved, so the class results
 // and the friends leaderboard don't parse everyone's whole 10 MB state on every request. NULL on rows
 // saved before this existed: their summary is built on first read.
+// What an account's AI has cost this month, in micro-dollars (the monthly limit is in kronor and is checked against this;
+// the token counts stay for statistics). Rows from before this column count as 0.
+if (!db.prepare("PRAGMA table_info(ai_usage)").all().some((c) => c.name === "cost_micro")) {
+  alter("ALTER TABLE ai_usage ADD COLUMN cost_micro INTEGER NOT NULL DEFAULT 0");
+}
 if (!db.prepare("PRAGMA table_info(state_blobs)").all().some((c) => c.name === "digest")) {
   alter("ALTER TABLE state_blobs ADD COLUMN digest TEXT");
 }

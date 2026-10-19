@@ -57,6 +57,7 @@ const APP_SHELL = [
   "./js/lib/choices.js",
   "./js/lib/sync-status.js",
   "./js/lib/clone.js",
+  "./js/lib/ai-price.js",
   "./js/lib/local-work.js",
   "./js/lib/mc-answer.js",
   "./js/lib/review.js",

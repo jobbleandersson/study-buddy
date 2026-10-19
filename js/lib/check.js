@@ -79,12 +79,13 @@ export function normalizeCheck(raw) {
 
 /**
  * "About 1 in n of this month's allowance": what one check cost, as a share of
- * the whole budget, rounded so it reads as an estimate. null when either
- * number is missing (signed out, or an unmetered server).
+ * the whole budget, rounded so it reads as an estimate. Both numbers are in kronor
+ * (the monthly limit is). null when either number is missing (signed out, or an
+ * unmetered server).
  */
-export function budgetShare(tokens, limit) {
-  if (!(tokens > 0) || !(limit > 0)) return null;
-  const n = limit / tokens;
+export function budgetShare(kr, limit) {
+  if (!(kr > 0) || !(limit > 0)) return null;
+  const n = limit / kr;
   if (n < 2) return 1;
   return n >= 25 ? Math.round(n / 5) * 5 : Math.round(n);
 }

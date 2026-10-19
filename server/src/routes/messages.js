@@ -6,7 +6,7 @@ import { withSafetyRules } from "../ai-safety.js";
 import { takeToken, RATE_PER_MIN } from "../middleware/rateLimit.js";
 import {
   recordUsage, checkBudget, isBudgetExempt, checkDailyCap, reserveSpend, worstCaseMicro, readUsage, currentPeriod, periodResetsAt,
-  checkUserDailyShare, reserveUserSpend, reserveUserTokens,
+  checkUserDailyShare, reserveUserSpend, reserveUserBudget,
   MAX_OUTPUT_TOKENS, ALLOWED_MODELS,
 } from "../usage.js";
 
@@ -163,7 +163,6 @@ messages.post("/messages", ...guards, asyncHandler(async (req, res) => {
   // worst case, alongside everything already spent or in flight.
   const inputEstimate = estimateInputTokens(body);
   const worstMicro = worstCaseMicro(body.model, { maxTokens: body.max_tokens, inputTokens: inputEstimate });
-  const worstTokens = inputEstimate + body.max_tokens;
   const cap = checkDailyCap(worstMicro);
   if (!cap.ok) {
     log({ userId, model: body.model, status: 503, err: "daily_cap" });
@@ -186,7 +185,7 @@ messages.post("/messages", ...guards, asyncHandler(async (req, res) => {
     if (!budget.ok) {
       return res.status(402).json({
         error: { message: "You've reached this month's AI limit.", code: "quota_exceeded" },
-        used: budget.used, limit: budget.limit, resetsAt: budget.resetsAt,
+        used: budget.used, limit: budget.limit, unit: "kr", resetsAt: budget.resetsAt,
       });
     }
   }
@@ -203,14 +202,14 @@ messages.post("/messages", ...guards, asyncHandler(async (req, res) => {
   res.on("close", () => clearTimeout(timer));
   const release = reserveSpend(worstMicro);
   const releaseUser = userId ? reserveUserSpend(userId, worstMicro) : () => {};
-  const releaseTokens = userId ? reserveUserTokens(userId, worstTokens) : () => {};
+  const releaseBudget = userId ? reserveUserBudget(userId, worstMicro) : () => {};
   if (userId) inflightByUser.set(userId, (inflightByUser.get(userId) || 0) + 1);
   try {
     await forward({ res, userId, body, apiKey, started, signal: ac.signal });
   } finally {
     release();
     releaseUser();
-    releaseTokens();
+    releaseBudget();
     if (userId) {
       const n = (inflightByUser.get(userId) || 1) - 1;
       if (n > 0) inflightByUser.set(userId, n); else inflightByUser.delete(userId);
@@ -313,8 +312,11 @@ messages.get("/usage", requireAuth, (req, res) => {
   const u = readUsage(req.user.userId);
   res.json({
     period: currentPeriod(),
-    used: u.totalTokens,
+    // In kronor: what this account's AI has cost this month, and the limit it is checked against.
+    used: Math.round(u.costKr * 1000) / 1000,
     limit: budgetFor(req.user.userId),
+    unit: "kr",
+    tokens: u.totalTokens,
     plus: isPlus(req.user.userId),
     requests: u.requests,
     resetsAt: periodResetsAt(),

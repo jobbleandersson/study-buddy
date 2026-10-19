@@ -701,6 +701,7 @@ export default {
   "set.aiPillOut": "Used up",
   "set.aiMonthLabel": "AI help this month",
   "set.aiUsedPct": "You've used {pct}% of this month's AI help.",
+  "set.aiUsedKr": "You've used {pct}% of this month's AI help ({used} of {limit} kr).",
   "set.aiRefills": "It refills on {date}.",
   "set.aiOutLabel": "This month's AI help is used up",
   "set.aiOutNote": "It refills on {date}. Ready-made sets and your own work as usual.",
