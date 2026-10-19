@@ -10,25 +10,25 @@
 
 import { db } from "./db.js";
 
-/** Default ceiling for a free account: 200,000 tokens (input + output) a month —
- *  a few AI-made sets plus some tutor chat, and at most a few kronor of API spend
- *  even if all of it is set generation. (The old default, 2M, was sized so a heavy
- *  student never hit it, but one account could run up $3-$20 with it.) Tokens are
- *  a blunt meter: Sonnet output costs ten times Haiku input, so the daily dollar
- *  cap below is the real limit. A generation is roughly 9k tokens, a tutor session
- *  ~19k, grading ~1k. */
-export const MONTHLY_TOKEN_BUDGET =
-  Number(process.env.AI_MONTHLY_TOKEN_BUDGET) > 0
-    ? Number(process.env.AI_MONTHLY_TOKEN_BUDGET)
-    : 200_000;
+/** Kronor per US dollar, for turning what Claude costs (priced in dollars) into the kronor the monthly limits are
+ *  written in. Set AI_KR_PER_USD to follow the exchange rate; 10 is close to the October 2026 rate. */
+export const KR_PER_USD = Number(process.env.AI_KR_PER_USD) > 0 ? Number(process.env.AI_KR_PER_USD) : 10;
 
-/** Monthly ceiling for an account on the paid plan (PluggEra Plus, see billing.js): ten times the free
- *  one by default. Still just a token count, so the server-wide daily dollar cap below remains the real
- *  backstop. */
-export const PLUS_TOKEN_BUDGET =
-  Number(process.env.AI_PLUS_TOKEN_BUDGET) > 0
-    ? Number(process.env.AI_PLUS_TOKEN_BUDGET)
-    : 2_000_000;
+const krFromEnv = (name, fallback) => (Number(process.env[name]) > 0 ? Number(process.env[name]) : fallback);
+
+/** What a free account's AI may cost in a month, in kronor: 2 kr. A tutor answer costs about half an öre and a
+ *  generated set about ten öre, so 2 kr is roughly 40 sets or 400 tutor answers on Haiku, or two Högskoleprov
+ *  batches on Sonnet. The limit is on money, not tokens: a Sonnet token costs 20 to 50 times a Haiku token, so a
+ *  token count let the same allowance cost 4 cents or $1.20 depending on the model. */
+export const MONTHLY_BUDGET_KR = krFromEnv("AI_FREE_BUDGET_KR", 2);
+
+/** The same for an account on the paid plan (PluggEra Plus, see billing.js): 30 kr, so that even a user who spends all
+ *  of it leaves something of a 45 kr payment. The server-wide daily dollar cap below remains the backstop. */
+export const PLUS_BUDGET_KR = krFromEnv("AI_PLUS_BUDGET_KR", 30);
+
+/** Micro-dollars -> kronor. */
+export const microToKr = (micro) => (micro / 1_000_000) * KR_PER_USD;
+const krToMicro = (kr) => (kr / KR_PER_USD) * 1_000_000;
 
 /** Hard cap on output tokens per request, whatever the client asks for.
  *  16k covers the largest legitimate use (generateAssignment). */
@@ -88,34 +88,37 @@ export function periodResetsAt(d = new Date()) {
 }
 
 const readStmt = db.prepare(
-  "SELECT input_tokens, output_tokens, request_count FROM ai_usage WHERE user_id = ? AND period = ?"
+  "SELECT input_tokens, output_tokens, request_count, cost_micro FROM ai_usage WHERE user_id = ? AND period = ?"
 );
 
-/** { inputTokens, outputTokens, totalTokens, requests } for this user this month. */
+/** { inputTokens, outputTokens, totalTokens, requests, costMicro, costKr } for this user this month. */
 export function readUsage(userId, period = currentPeriod()) {
   const row = readStmt.get(userId, period);
   const input = row?.input_tokens ?? 0;
   const output = row?.output_tokens ?? 0;
-  return { inputTokens: input, outputTokens: output, totalTokens: input + output, requests: row?.request_count ?? 0 };
+  const costMicro = row?.cost_micro ?? 0;
+  return { inputTokens: input, outputTokens: output, totalTokens: input + output, requests: row?.request_count ?? 0, costMicro, costKr: microToKr(costMicro) };
 }
 
 const upsertStmt = db.prepare(`
-  INSERT INTO ai_usage (user_id, period, input_tokens, output_tokens, request_count, updated_at)
-  VALUES (@userId, @period, @input, @output, 1, @now)
+  INSERT INTO ai_usage (user_id, period, input_tokens, output_tokens, request_count, cost_micro, updated_at)
+  VALUES (@userId, @period, @input, @output, 1, @cost, @now)
   ON CONFLICT(user_id, period) DO UPDATE SET
     input_tokens  = input_tokens  + @input,
     output_tokens = output_tokens + @output,
     request_count = request_count + 1,
+    cost_micro    = cost_micro    + @cost,
     updated_at    = @now
 `);
 
 /** Add one request's spend. Tolerant of missing/partial usage data (a stream
  *  that dropped, say) — a 0/0 row still counts the request. */
-export function addUsage(userId, { inputTokens = 0, outputTokens = 0 } = {}) {
+export function addUsage(userId, { inputTokens = 0, outputTokens = 0, costMicro = 0 } = {}) {
   upsertStmt.run({
     userId, period: currentPeriod(),
     input: Math.max(0, Math.round(inputTokens) || 0),
     output: Math.max(0, Math.round(outputTokens) || 0),
+    cost: Math.max(0, Math.round(costMicro) || 0),
     now: Date.now(),
   });
 }
@@ -136,30 +139,30 @@ export function isBudgetExempt(userId) {
   return list.includes(String(row.email).toLowerCase());
 }
 
-// Tokens of requests that are running now. The monthly meter is only booked when a request finishes, so
-// without this three requests started together all see the same "used" and can each add a whole answer
-// (a 5,000-token allowance was overshot to 15,900 by three parallel requests). Held per account in memory,
-// like the in-flight dollars below.
-const tokensInFlight = new Map();
-/** Hold a request's worst-case tokens against the account's monthly allowance while it runs; returns the release. */
-export function reserveUserTokens(userId, tokens) {
-  tokensInFlight.set(userId, (tokensInFlight.get(userId) || 0) + tokens);
+// What the requests that are running now could cost at most, per account. The monthly meter is only booked when a
+// request finishes, so without this three requests started together all see the same "used" and can each add a
+// whole answer. Held in memory, like the in-flight dollars below.
+const microInFlight = new Map();
+/** Hold a request's worst-case cost against the account's monthly limit while it runs; returns the release. */
+export function reserveUserBudget(userId, micro) {
+  microInFlight.set(userId, (microInFlight.get(userId) || 0) + micro);
   let released = false;
   return () => {
     if (released) return;
     released = true;
-    const n = (tokensInFlight.get(userId) || 0) - tokens;
-    if (n > 0) tokensInFlight.set(userId, n); else tokensInFlight.delete(userId);
+    const n = (microInFlight.get(userId) || 0) - micro;
+    if (n > 0) microInFlight.set(userId, n); else microInFlight.delete(userId);
   };
 }
 
-/** { ok, used, limit, resetsAt } — call before forwarding a request. `limit` is the account's own
- *  ceiling (billing.js budgetFor: the Plus one for a subscriber), the free one by default. `used` is what
- *  is booked; requests still running count toward `ok` (one request that starts under the limit may still
- *  finish over it, but a second one started alongside it is refused). */
-export function checkBudget(userId, limit = MONTHLY_TOKEN_BUDGET) {
-  const used = readUsage(userId).totalTokens;
-  return { ok: used + (tokensInFlight.get(userId) || 0) < limit, used, limit, resetsAt: periodResetsAt() };
+/** { ok, used, limit, resetsAt } in kronor — call before forwarding a request. `limit` is the account's own limit
+ *  (billing.js budgetFor: the Plus one for a subscriber), the free one by default. `used` is what is booked; requests
+ *  still running count toward `ok` at their worst case (one request that starts under the limit may still finish over
+ *  it, but a second one started alongside it is refused). */
+export function checkBudget(userId, limitKr = MONTHLY_BUDGET_KR) {
+  const used = readUsage(userId).costKr;
+  const held = microToKr(microInFlight.get(userId) || 0);
+  return { ok: used + held < limitKr, used: Math.round(used * 1000) / 1000, limit: limitKr, resetsAt: periodResetsAt() };
 }
 
 // ---------- the account-wide daily dollar cap ----------
@@ -325,7 +328,7 @@ export function recordUsage({ userId, model, usage }) {
   // the account it belonged to is gone.
   if (userId) {
     try {
-      addUsage(userId, { inputTokens: input, outputTokens: usage.output });
+      addUsage(userId, { inputTokens: input, outputTokens: usage.output, costMicro });
     } catch (e) {
       if (!/FOREIGN KEY/i.test(String(e?.message)) && e?.code !== "SQLITE_CONSTRAINT_FOREIGNKEY") throw e;
     }

@@ -327,6 +327,8 @@ export function renderSettings() {
     }
 
     const usage = store.aiUsage;
+    // kronor, one decimal while small (0,4 of 2), none once it is a whole figure (30)
+    const krText = (v) => (v >= 10 ? Math.round(v) : Math.round(v * 10) / 10).toLocaleString(getLang() === "sv" ? "sv-SE" : "en-GB");
     const pct = usage?.limit ? Math.min(100, Math.round((usage.used / usage.limit) * 100)) : null;
     const verbCtl = seg(t("set.replyLength"), [
       ["concise", short(t("set.verbConcise"))],
@@ -350,7 +352,7 @@ export function renderSettings() {
       row(t("set.aiOnLabel"), t("set.aiOnNote"), statusPill(true, t("set.aiPillOn"))),
       planRow(),
       pct != null ? row(t("set.aiMonthLabel"), [
-        t("set.aiUsedPct", { pct }),
+        t("set.aiUsedKr", { pct, used: krText(usage.used), limit: krText(usage.limit) }),
         usage.resetsAt ? " " + t("set.aiRefills", { date: fmtResetDate(usage.resetsAt) }) : "",
       ].join(""), [
         el("div.set-usage", { role: "img", "aria-label": t("set.aiUsedPct", { pct }) }, [el("i", { style: { width: `${pct}%` } })]),

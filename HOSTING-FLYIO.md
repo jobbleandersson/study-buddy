@@ -264,6 +264,20 @@ Name another bucket service instead (Backblaze B2 and others speak the same S3 p
 
 The copy holds everything the database holds (emails, password hashes, study states): treat the bucket as private, and the privacy text says it exists.
 
+## AI limits per account
+
+Each account has a monthly AI limit in **kronor**, checked against what its requests actually cost (the price per model, from `server/src/usage.js`), not against a token count. Free: 2 kr. Plus: 30 kr. The settings, with their defaults (set with `fly secrets set` or in the `[env]` part of `fly.toml`; none of them is a secret):
+
+| Setting | Default | What it does |
+|---|---|---|
+| `AI_FREE_BUDGET_KR` | 2 | Monthly limit of a free account, in kr |
+| `AI_PLUS_BUDGET_KR` | 30 | Monthly limit of a Plus account, in kr |
+| `AI_KR_PER_USD` | 10 | Exchange rate used to turn Claude's dollar prices into kronor |
+| `AI_DAILY_SPEND_CAP_USD` | 5 | Most the whole server may spend in a UTC day, in dollars (raise it as users grow) |
+| `AI_USER_DAILY_SHARE` | 0.10 | One account's share of that daily cap |
+
+A tutor answer costs about half an öre, a generated set about ten öre and a Högskoleprov batch (Sonnet) about 90 öre, so 2 kr is roughly 40 sets or 400 tutor answers on Haiku, or two Högskoleprov batches. The month starts at zero when this was introduced: what was used before it is not counted.
+
 ## Rolling back a bad deploy
 
 ```bash

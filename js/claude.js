@@ -1,6 +1,7 @@
 // Claude API client — calls the local backend proxy (server/), which holds
 // the actual Claude API key. The browser never sees it.
 
+import { costKr } from "./lib/ai-price.js";
 import { store } from "./store.js";
 import { generationSystem, gradingSystem, workedGradingSystem, clozeGradingSystem, checkWorkSystem, podcastSystem } from "./prompts.js";
 import { t } from "./lib/i18n.js";
@@ -382,9 +383,9 @@ const tokensOf = (u) => (u ? (u.input_tokens || 0) + (u.output_tokens || 0) : 0)
  */
 export async function checkWorking({ image = null, problem = "", workingText = "", model = null, review = null }) {
   const useModel = model || modelFor("check");
-  const meter = { tokens: 0, usage: { input_tokens: 0, output_tokens: 0 } };
+  const meter = { tokens: 0, kr: 0, usage: { input_tokens: 0, output_tokens: 0 } };
   const first = await checkOnce({ image, problem, workingText, model: useModel, meter });
-  const withMeter = (r, extra = {}) => ({ ...r, tokens: meter.tokens, usage: meter.usage, ...extra });
+  const withMeter = (r, extra = {}) => ({ ...r, tokens: meter.tokens, kr: meter.kr, usage: meter.usage, ...extra });
 
   if (!(review ?? useModel === MODELS.checkReview) || first.status !== "checked" || !first.lines.length) return withMeter(first);
 
@@ -428,7 +429,7 @@ async function checkOnce({ image, problem, workingText, model, meter, note = "",
   };
 
   const reply = await callRaw(body);
-  addUsage(meter, reply.usage);
+  addUsage(meter, reply.usage, model);
   let json;
   try {
     json = parseLooseJSON(reply.text);
@@ -440,7 +441,7 @@ async function checkOnce({ image, problem, workingText, model, meter, note = "",
       output_config: undefined,
       messages: [{ role: "user", content: [{ type: "text", text: `Return this as ONLY a valid JSON object in the shape described in your instructions — no other text:\n\n${reply.text.slice(0, 6000)}` }] }],
     });
-    addUsage(meter, repair.usage);
+    addUsage(meter, repair.usage, model);
     try { json = parseLooseJSON(repair.text); }
     catch { throw new ClaudeError(t("check.err.parse")); }
   }
@@ -459,12 +460,13 @@ async function reviewCheck({ image, problem, workingText, result, meter }) {
     system: CHECK_REVIEW_SYSTEM,
     messages: [{ role: "user", content }],
   });
-  addUsage(meter, reply.usage);
+  addUsage(meter, reply.usage, modelFor("checkReview"));
   return parseReview(reply.text, result.lines.length);
 }
 
-function addUsage(meter, usage) {
+function addUsage(meter, usage, model) {
   meter.tokens += tokensOf(usage);
+  meter.kr += costKr(model, usage);
   meter.usage.input_tokens += usage?.input_tokens || 0;
   meter.usage.output_tokens += usage?.output_tokens || 0;
 }

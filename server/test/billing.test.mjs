@@ -83,9 +83,10 @@ async function signUp(server, email) {
   assert.equal(r.status, 200, `signup ${email}`);
   return { client, email, id: server.db.prepare("SELECT id FROM users WHERE email = ?").get(email).id };
 }
-const spend = (server, userId, tokens) => server.db.prepare(
-  "INSERT INTO ai_usage (user_id, period, input_tokens, output_tokens, request_count, updated_at) VALUES (?, ?, ?, 0, 1, ?)"
-).run(userId, PERIOD, tokens, Date.now());
+// `kr`: what the account's AI has cost this month, in kronor (10 kr is one dollar: AI_KR_PER_USD).
+const spend = (server, userId, kr) => server.db.prepare(
+  "INSERT INTO ai_usage (user_id, period, input_tokens, output_tokens, request_count, cost_micro, updated_at) VALUES (?, ?, 0, 0, 1, ?, ?)"
+).run(userId, PERIOD, Math.round(kr / 10 * 1e6), Date.now());
 
 describe("Plus is off until Stripe is configured", () => {
   let server, user;
@@ -114,7 +115,7 @@ describe("with a test key", () => {
     server = await startServer({
       ANTHROPIC_API_KEY: "dummy",
       STRIPE_SECRET_KEY: "sk_test_abc", STRIPE_PRICE_ID: "price_test_99", STRIPE_WEBHOOK_SECRET: SECRET, STRIPE_API_BASE: stripe.url,
-      AI_MONTHLY_TOKEN_BUDGET: "1000", AI_PLUS_TOKEN_BUDGET: "5000",
+      AI_FREE_BUDGET_KR: "1", AI_PLUS_BUDGET_KR: "5",
       AI_BUDGET_EXEMPT_EMAILS: "owner@example.se",
     });
     owner = await signUp(server, "owner@example.se");
@@ -180,7 +181,7 @@ describe("with a test key", () => {
     });
 
     test("a signed subscription event makes the account Plus: higher ceiling, shown on /usage and /billing/status", async () => {
-      spend(server, regular.id, 3000);       // over the free 1,000, under the Plus 5,000
+      spend(server, regular.id, 3);       // over the free 1 kr, under the Plus 5 kr
       assert.equal((await regular.client.post("/api/messages", BODY)).status, 402);
 
       const r = await sendEvent(server, subEvent("customer.subscription.created", regular.id));
@@ -188,7 +189,7 @@ describe("with a test key", () => {
 
       const usage = await regular.client.get("/api/usage");
       assert.equal(usage.json.plus, true);
-      assert.equal(usage.json.limit, 5000);
+      assert.equal(usage.json.limit, 5);
       assert.notEqual((await regular.client.post("/api/messages", BODY)).status, 402, "Plus gets past the free ceiling");
       const st = (await regular.client.get("/api/billing/status")).json;
       assert.equal(st.plus, true);
@@ -200,7 +201,7 @@ describe("with a test key", () => {
     test("Plus still has a ceiling of its own", async () => {
       const heavy = await signUp(server, "heavy@example.se");
       await sendEvent(server, subEvent("customer.subscription.created", heavy.id, { id: "sub_h", customer: "cus_h" }));
-      spend(server, heavy.id, 6000);
+      spend(server, heavy.id, 6);
       assert.equal((await heavy.client.post("/api/messages", BODY)).status, 402);
     });
 
@@ -220,7 +221,7 @@ describe("with a test key", () => {
       await sendEvent(server, subEvent("customer.subscription.deleted", regular.id, { status: "canceled" }));
       const st = (await regular.client.get("/api/billing/status")).json;
       assert.equal(st.plus, false);
-      assert.equal((await regular.client.get("/api/usage")).json.limit, 1000);
+      assert.equal((await regular.client.get("/api/usage")).json.limit, 1);
       assert.equal((await regular.client.post("/api/messages", BODY)).status, 402);
     });
 
@@ -337,7 +338,7 @@ describe("with a test key", () => {
       assert.equal((await sendEvent(server, refundEvent("cus_rf"))).status, 200);
       assert.equal(cancelled("sub_rf"), true);
       assert.equal(await isPlus(u), false);
-      assert.equal((await u.client.get("/api/usage")).json.limit, 1000);
+      assert.equal((await u.client.get("/api/usage")).json.limit, 1);
     });
 
     test("a refund counted by amount (no refunded flag) is a full refund too", async () => {

@@ -716,6 +716,7 @@ export default {
   "set.aiPillOut": "Slut",
   "set.aiMonthLabel": "AI-hjälp denna månad",
   "set.aiUsedPct": "Du har använt {pct} % av månadens AI-hjälp.",
+  "set.aiUsedKr": "Du har använt {pct} % av månadens AI-hjälp ({used} av {limit} kr).",
   "set.aiRefills": "Den fylls på {date}.",
   "set.aiOutLabel": "Månadens AI-hjälp är slut",
   "set.aiOutNote": "Den fylls på {date}. Färdiga set och dina egna fungerar som vanligt.",

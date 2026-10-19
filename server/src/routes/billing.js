@@ -6,7 +6,7 @@ import {
   billingEnabled, isTestMode, canCheckout, isPlus, subscriptionOf, verifyStripeSignature, applyEvent, refundCancelTarget, disputeCancelTarget, getCharge, cancelSubscriptionNow,
   createCheckoutSession, createPortalSession, checkoutBlocker,
 } from "../billing.js";
-import { PLUS_TOKEN_BUDGET } from "../usage.js";
+import { PLUS_BUDGET_KR, MONTHLY_BUDGET_KR } from "../usage.js";
 
 export const billing = Router();
 
@@ -37,7 +37,8 @@ billing.get("/billing/status", requireAuth, (req, res) => {
     plus: isPlus(userId),
     renewsAt: sub?.periodEnd || null,
     cancelsAtPeriodEnd: !!sub?.cancelAtPeriodEnd,
-    plusTokens: PLUS_TOKEN_BUDGET,
+    plusBudgetKr: PLUS_BUDGET_KR,
+    freeBudgetKr: MONTHLY_BUDGET_KR,
     // True once there is a Stripe customer to open the management page for (also after a cancellation,
     // so the receipts are still reachable).
     hasCustomer: !!sub?.customerId,

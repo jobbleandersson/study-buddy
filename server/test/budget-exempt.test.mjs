@@ -18,8 +18,8 @@ async function signUp(server, email) {
 
 function spendOver(server, userId) {
   server.db.prepare(
-    "INSERT INTO ai_usage (user_id, period, input_tokens, output_tokens, request_count, updated_at) VALUES (?, ?, ?, ?, ?, ?)"
-  ).run(userId, PERIOD, 5000, 5000, 3, Date.now());   // 10,000 tokens against a 1,000 ceiling
+    "INSERT INTO ai_usage (user_id, period, input_tokens, output_tokens, request_count, cost_micro, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?)"
+  ).run(userId, PERIOD, 5000, 5000, 3, 5_000_000, Date.now());   // 50 kr (AI_KR_PER_USD is 10) against a 1 kr limit
 }
 
 describe("per-account monthly budget and the exempt list", () => {
@@ -27,7 +27,7 @@ describe("per-account monthly budget and the exempt list", () => {
   before(async () => {
     server = await startServer({
       ANTHROPIC_API_KEY: "dummy-test-key",
-      AI_MONTHLY_TOKEN_BUDGET: "1000",
+      AI_FREE_BUDGET_KR: "1",
       AI_BUDGET_EXEMPT_EMAILS: " Owner@Example.se , tester@example.se ",   // case and spaces must not matter
     });
     owner = await signUp(server, "owner@example.se");
@@ -41,7 +41,8 @@ describe("per-account monthly budget and the exempt list", () => {
     const r = await regular.client.post("/api/messages", BODY);
     assert.equal(r.status, 402);
     assert.equal(r.json.error.code, "quota_exceeded");
-    assert.equal(r.json.limit, 1000);
+    assert.equal(r.json.limit, 1);
+    assert.equal(r.json.unit, "kr");
   });
 
   test("an exempt account is not stopped by the monthly ceiling (whatever upstream then answers)", async () => {
@@ -65,7 +66,7 @@ describe("per-account monthly budget and the exempt list", () => {
 describe("nobody is exempt unless listed", () => {
   let server, user;
   before(async () => {
-    server = await startServer({ ANTHROPIC_API_KEY: "dummy-test-key", AI_MONTHLY_TOKEN_BUDGET: "1000" });   // no AI_BUDGET_EXEMPT_EMAILS
+    server = await startServer({ ANTHROPIC_API_KEY: "dummy-test-key", AI_FREE_BUDGET_KR: "1" });   // no AI_BUDGET_EXEMPT_EMAILS
     user = await signUp(server, "someone@example.se");
     spendOver(server, user.id);
   });

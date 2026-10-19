@@ -93,9 +93,12 @@ describe("usage.checkBudget", () => {
 
   test("flips to not-ok once usage reaches the monthly ceiling", () => {
     const userId = makeUser();
-    usage.recordUsage({ userId, model: "claude-sonnet-5", usage: { input: usage.MONTHLY_TOKEN_BUDGET, output: 0, cacheWrite: 0, cacheRead: 0 } });
+    // 200,000 Sonnet input tokens cost $0.40, which is 4 kr against a 2 kr limit
+    usage.recordUsage({ userId, model: "claude-sonnet-5", usage: { input: 200_000, output: 0, cacheWrite: 0, cacheRead: 0 } });
     const out = usage.checkBudget(userId);
     assert.equal(out.ok, false);
+    assert.equal(out.limit, usage.MONTHLY_BUDGET_KR);
+    assert.ok(out.used > usage.MONTHLY_BUDGET_KR);
   });
 });
 
@@ -135,28 +138,59 @@ describe("usage.currentPeriod / currentDay", () => {
   });
 });
 
-describe("usage: requests in flight count against the monthly allowance", () => {
+describe("usage: requests in flight count against the monthly limit", () => {
+  // The limit here is 10 kr = $1 = 1,000,000 micro-dollars.
   test("a second request started alongside the first is refused once the first would use the rest", () => {
     const userId = makeUser();
-    assert.equal(usage.checkBudget(userId, 100).ok, true);
-    const first = usage.reserveUserTokens(userId, 60);   // admitted under the limit
-    assert.equal(usage.checkBudget(userId, 100).ok, true, "60 of 100 held: one more still fits");
-    const second = usage.reserveUserTokens(userId, 60);
-    assert.equal(usage.checkBudget(userId, 100).ok, false, "120 held: the next request is refused");
-    assert.equal(usage.checkBudget(userId, 100).used, 0, "`used` is still what is booked");
+    assert.equal(usage.checkBudget(userId, 10).ok, true);
+    const first = usage.reserveUserBudget(userId, 600_000);   // 6 kr, admitted under the limit
+    assert.equal(usage.checkBudget(userId, 10).ok, true, "6 of 10 kr held: one more still fits");
+    const second = usage.reserveUserBudget(userId, 600_000);
+    assert.equal(usage.checkBudget(userId, 10).ok, false, "12 kr held: the next request is refused");
+    assert.equal(usage.checkBudget(userId, 10).used, 0, "`used` is still what is booked");
     first(); second();
-    assert.equal(usage.checkBudget(userId, 100).ok, true, "released: room again");
+    assert.equal(usage.checkBudget(userId, 10).ok, true, "released: room again");
   });
 
   test("releasing twice does not give back more than was held", () => {
     const userId = makeUser();
-    const a = usage.reserveUserTokens(userId, 70);
-    const b = usage.reserveUserTokens(userId, 70);
+    const a = usage.reserveUserBudget(userId, 700_000);
+    const b = usage.reserveUserBudget(userId, 700_000);
     a(); a();
-    assert.equal(usage.checkBudget(userId, 100).ok, true, "70 still held by b: 70 < 100");
-    usage.reserveUserTokens(userId, 40);
-    assert.equal(usage.checkBudget(userId, 100).ok, false, "b and the new one: 110");
+    assert.equal(usage.checkBudget(userId, 10).ok, true, "7 kr still held by b: 7 < 10");
+    usage.reserveUserBudget(userId, 400_000);
+    assert.equal(usage.checkBudget(userId, 10).ok, false, "b and the new one: 11 kr");
     b();
+  });
+});
+
+describe("usage: the limit is in kronor, not tokens", () => {
+  test("the cost is booked next to the tokens and read back in kronor", () => {
+    const userId = makeUser();
+    // $2 per million Sonnet input tokens and $10 output: 100,000 in + 10,000 out = $0.30 = 3 kr
+    usage.recordUsage({ userId, model: "claude-sonnet-5", usage: { input: 100_000, output: 10_000, cacheWrite: 0, cacheRead: 0 } });
+    const read = usage.readUsage(userId);
+    assert.equal(read.costMicro, 300_000);
+    assert.ok(Math.abs(read.costKr - 3) < 1e-9);
+    assert.equal(read.totalTokens, 110_000);
+    assert.equal(usage.checkBudget(userId).used, 3);
+  });
+
+  test("the same number of tokens uses far less of the limit on the cheap model", () => {
+    const cheap = makeUser(), dear = makeUser();
+    const u = { input: 50_000, output: 50_000, cacheWrite: 0, cacheRead: 0 };
+    usage.recordUsage({ userId: cheap, model: "claude-haiku-5-5", usage: u });
+    usage.recordUsage({ userId: dear, model: "claude-sonnet-5", usage: u });
+    assert.equal(usage.readUsage(cheap).totalTokens, usage.readUsage(dear).totalTokens);
+    assert.equal(usage.checkBudget(cheap).ok, true, "100,000 Haiku tokens cost about 0.3 kr");
+    assert.equal(usage.checkBudget(dear).ok, false, "100,000 Sonnet tokens cost 6 kr: over the free 2 kr");
+  });
+
+  test("the limits are 2 kr free and 30 kr for Plus, and microToKr uses AI_KR_PER_USD", () => {
+    assert.equal(usage.MONTHLY_BUDGET_KR, 2);
+    assert.equal(usage.PLUS_BUDGET_KR, 30);
+    assert.equal(usage.KR_PER_USD, 10);
+    assert.equal(usage.microToKr(1_000_000), 10);
   });
 });
 

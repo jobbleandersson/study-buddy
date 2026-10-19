@@ -12,7 +12,7 @@
 
 import crypto from "node:crypto";
 import { db } from "./db.js";
-import { isBudgetExempt, PLUS_TOKEN_BUDGET, MONTHLY_TOKEN_BUDGET } from "./usage.js";
+import { isBudgetExempt, PLUS_BUDGET_KR, MONTHLY_BUDGET_KR } from "./usage.js";
 
 const secretKey = () => process.env.STRIPE_SECRET_KEY || "";
 const apiBase = () => (process.env.STRIPE_API_BASE || "https://api.stripe.com").replace(/\/+$/, "");
@@ -355,4 +355,5 @@ export async function cancelSubscriptionNow(subscriptionId) {
 }
 
 /** The monthly token ceiling for this account: the Plus one for a subscriber, the free one otherwise. */
-export const budgetFor = (userId) => (isPlus(userId) ? PLUS_TOKEN_BUDGET : MONTHLY_TOKEN_BUDGET);
+/** The account's monthly AI limit, in kronor. */
+export const budgetFor = (userId) => (isPlus(userId) ? PLUS_BUDGET_KR : MONTHLY_BUDGET_KR);

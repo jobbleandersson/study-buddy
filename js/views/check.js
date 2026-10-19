@@ -141,7 +141,7 @@ export function renderCheck() {
         : { image: st.image, problem: st.problem });
       // What this cost, as a share of the month's allowance — worked out before
       // the usage numbers are refreshed, which resets them while it fetches.
-      st.result = { ...res, share: budgetShare(res.tokens, store.aiUsage?.limit) };
+      st.result = { ...res, share: budgetShare(res.kr, store.aiUsage?.limit) };
       st.hintsShown = 1; st.solution = false; st.editing = false;
       st.phase = "result";
       store.refreshUsage?.();          // the allowance moved — keep the numbers in Settings honest
