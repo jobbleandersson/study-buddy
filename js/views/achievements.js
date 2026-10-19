@@ -31,7 +31,7 @@ export function renderAchievements() {
   const trackGroups = [...byTrack.values()].map((defs) => {
     const firstLocked = defs.findIndex((d) => !(d.id in unlocked));
     return el("section.panel.achgroup", {}, [
-      el("h3.achgroup__title", {}, [
+      el("h3.achgroup__title", { "aria-level": "2" }, [
         el("span.achgroup__ic", { "aria-hidden": "true" }, icon(ICONS[defs[0].icon] || ICONS.award, 18)),
         t(defs[0].nameKey),
       ]),
@@ -54,7 +54,7 @@ export function renderAchievements() {
   ]) : null;
 
   const milestoneGroup = MILESTONES.length ? el("section.panel.achgroup", {}, [
-    el("h3.achgroup__title", {}, [el("span.achgroup__ic", { "aria-hidden": "true" }, icon(ICONS.trophy, 18)), t("ach.milestonesTitle")]),
+    el("h3.achgroup__title", { "aria-level": "2" }, [el("span.achgroup__ic", { "aria-hidden": "true" }, icon(ICONS.trophy, 18)), t("ach.milestonesTitle")]),
     el("div.achrow", {}, MILESTONES.map((def) => badge(def, metrics, unlocked))),
   ]) : null;
 

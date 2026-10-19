@@ -23,7 +23,7 @@ function page(titleKey, body) {
 
 function section(headingKey, ...paragraphKeys) {
   return el("section.panel", {}, [
-    el("h3", { style: { marginBottom: "8px" } }, t(headingKey)),
+    el("h3", { "aria-level": "2", style: { marginBottom: "8px" } }, t(headingKey)),
     ...paragraphKeys.map((k) => el("p", { style: { marginTop: "8px" } }, t(k))),
   ]);
 }
@@ -52,14 +52,14 @@ export function renderAbout() {
     el("p.note", { style: { marginBottom: "4px" } }, t("about.heroLead")),
     section("about.missionTitle", "about.missionBody"),
     el("section.panel", {}, [
-      el("h3", { style: { marginBottom: "8px" } }, t("about.levelsTitle")),
+      el("h3", { "aria-level": "2", style: { marginBottom: "8px" } }, t("about.levelsTitle")),
       el("p", { style: { margin: "8px 0 12px" } }, t("about.levelsBody")),
       el("div", { style: { display: "flex", flexWrap: "wrap", gap: "8px" } },
         levels.map((label) => el("span.badge", {}, label))),
     ]),
     section("about.backgroundTitle", "about.backgroundBody"),
     el("section.panel", {}, [
-      el("h3", { style: { marginBottom: "8px" } }, t("about.contactTitle")),
+      el("h3", { "aria-level": "2", style: { marginBottom: "8px" } }, t("about.contactTitle")),
       el("p", { style: { marginTop: "8px" } }, t("about.contactBody")),
       el("a.btn.btn--ghost", { href: FEEDBACK_MAIL, style: { marginTop: "12px" } }, t("about.contactLink")),
     ]),
@@ -108,7 +108,7 @@ export function renderPrivacy() {
     section("privacy.cookiesTitle", "privacy.cookiesBody"),
     section("privacy.minorsTitle", "privacy.minorsBody"),
     el("section.panel", {}, [
-      el("h3", { style: { marginBottom: "8px" } }, t("privacy.rightsTitle")),
+      el("h3", { "aria-level": "2", style: { marginBottom: "8px" } }, t("privacy.rightsTitle")),
       el("p", { style: { marginTop: "8px" } }, t("privacy.rightsBody")),
       el("a.btn.btn--ghost", { href: "#/settings", style: { marginTop: "12px" } }, t("privacy.rightsLink")),
     ]),

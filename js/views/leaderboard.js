@@ -75,7 +75,7 @@ export function renderLeaderboard() {
 
     clear(invitePanel);
     invitePanel.append(
-      el("h3", { style: { marginBottom: "8px" } }, t("leaderboard.inviteHeading")),
+      el("h3", { "aria-level": "2", style: { marginBottom: "8px" } }, t("leaderboard.inviteHeading")),
       status, codeDisplay, genBtn,
       el("div", { style: { marginTop: "16px" } }, [
         el("label.field", { style: { marginBottom: "8px" } }, [el("span", {}, t("leaderboard.haveCode")), input]),
@@ -86,7 +86,7 @@ export function renderLeaderboard() {
 
   async function paintBoard() {
     clear(boardPanel);
-    boardPanel.append(el("h3", { style: { marginBottom: "4px" } }, t("leaderboard.boardHeading")));
+    boardPanel.append(el("h3", { "aria-level": "2", style: { marginBottom: "4px" } }, t("leaderboard.boardHeading")));
     boardPanel.append(el("p.note", { style: { marginBottom: "12px" } }, t("leaderboard.boardSubtitle")));
 
     let data;

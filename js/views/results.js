@@ -155,7 +155,7 @@ export function renderResults(attemptId) {
         const answerHtml = correctAnswerLine(q);
         const promptText = q.kind === "cloze" ? clozeToUnderscores(q.prompt) : q.prompt;
         return el("div.delta.delta--review", {}, [
-          el("span.delta__prompt", { html: renderRich(promptText.length > 90 ? promptText.slice(0, 90) + "…" : promptText) }),
+          el("span.delta__prompt", { title: promptText.length > 200 ? promptText : "", html: renderRich(promptText.length > 200 ? promptText.slice(0, 200).replace(/\s+\S*$/, "") + "…" : promptText) }),   // 200 characters, cut at a word: the card used to stop mid-question at 90
           answerHtml ? el("p.delta__answer", {}, [el("strong", {}, t("results.correctAnswerLabel")), " ", el("span", { html: answerHtml })]) : null,
           q.explanation ? el("p.delta__explain", { html: renderRich(q.explanation) }) : null,
         ].filter(Boolean));
