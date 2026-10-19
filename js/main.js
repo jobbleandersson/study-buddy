@@ -15,6 +15,7 @@ import { isSessionActive } from "./lib/session-active.js";
 import { mountUpgradePrompt } from "./components/upgrade-prompt.js";
 import { aiTile } from "./components/ai-mark.js";
 import { initInstall, installMenuItem } from "./components/install-app.js";
+import { mountHomeBackdrop } from "./components/home-backdrop.js";
 import { loadLibraryIndex } from "./lib/library-content.js";
 import { playFanfare } from "./lib/sound.js";
 import { mountModalA11y } from "./lib/modal-a11y.js";
@@ -27,6 +28,7 @@ window.__sbStarted = true;
 installErrorReporting(ERRORS_URL);
 // Early too: the browser offers its install prompt once, shortly after the page loads.
 initInstall();
+mountHomeBackdrop();
 
 // pluggera.se/hp and the like are this same page with that screen's own preview image and title
 // (server/src/routes/share-pages.js, for a TikTok bio or a message). Open the screen they stand for,
@@ -1139,6 +1141,8 @@ async function render({ chromeOnly = false, softRefresh = false } = {}) {
     // app-help chat there too (it lives on <body>, outside the shell).
     document.body.classList.toggle("route-immersive", immersiveRoute());
     document.body.classList.toggle("route-chat", chatRoute());
+    // The living background (components/home-backdrop.js) belongs to the signed-in home page only.
+    document.body.classList.toggle("route-home", !bare && currentPath() === "/");
     // A soft refresh stays on the same screen (same scroll position, same
     // reason the fab was or wasn't tucked away) — only a real navigation
     // should clear a scroll-hidden fab from whatever route came before it.

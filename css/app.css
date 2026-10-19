@@ -666,25 +666,51 @@ body.has-topmenu .sitechat__fab { display: none; }
   display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
   gap: var(--s-3); margin-bottom: var(--s-5);
 }
-/* Each tile is a card in the page's own colour with a faint tint of its hue
-   (--tile, set per tile in menu.js), a neon edge with a soft glow, and the
-   icon on a chip of the full colour. */
+/* Each tile is a plain card with a hairline edge; its hue (--tile, set per tile in menu.js) lives only in
+   the icon, on a pale chip of the same hue. Calm by design: the colour tells the tiles apart without
+   competing with the content for attention. With a mouse, a faint light in the tile's hue follows the
+   pointer (--mx/--my, set in menu.js), the edge takes the hue and an arrow slides in: the tile answers
+   the hand without ever shouting. */
 .home-tile {
+  --tile-ink: color-mix(in oklab, var(--tile) 78%, var(--ink));
+  position: relative; overflow: hidden;
   display: grid; gap: 14px; align-content: start; min-height: 148px; padding: 18px 16px;
   border-radius: var(--r-lg); color: var(--ink); text-decoration: none;
-  background: color-mix(in oklab, var(--tile) 9%, var(--surface));
-  border: 1.5px solid var(--tile);
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--tile) 25%, transparent), 0 0 18px -4px color-mix(in srgb, var(--tile) 55%, transparent);
-  transition: box-shadow var(--dur-fast), transform var(--dur-fast);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--ink) 5%, transparent);
+  transition: border-color var(--dur-fast), box-shadow var(--dur-fast), transform var(--dur-fast);
+}
+.home-tile::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity var(--dur-fast);
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 0%), color-mix(in srgb, var(--tile) 10%, transparent), transparent 70%);
+}
+.home-tile > * { position: relative; }
+.home-tile__go {
+  position: absolute; top: 16px; right: 14px; color: var(--tile-ink);
+  opacity: 0; transform: translateX(-6px); transition: opacity var(--dur-fast), transform var(--dur-fast);
 }
 .home-tile:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--tile) 45%, transparent), 0 0 26px -2px color-mix(in srgb, var(--tile) 70%, transparent);
+  transform: translateY(-1px);
+  border-color: color-mix(in oklab, var(--tile) 40%, var(--line));
+  box-shadow: 0 8px 22px -14px color-mix(in srgb, var(--ink) 35%, transparent);
+}
+@media (hover: hover) and (pointer: fine) {
+  .home-tile:hover::before { opacity: 1; }
+  .home-tile:hover .home-tile__go, .home-tile:focus-visible .home-tile__go { opacity: 1; transform: none; }
 }
 .home-tile:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
 .home-tile__ic {
   width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center;
-  background: var(--tile); color: #fff; box-shadow: 0 0 12px -2px color-mix(in srgb, var(--tile) 70%, transparent);
+  color: var(--tile-ink);
+  background: linear-gradient(160deg, color-mix(in oklab, var(--tile) 7%, var(--surface)), color-mix(in oklab, var(--tile) 17%, var(--surface)));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--tile) 16%, transparent);
+}
+:root[data-theme="dark"] .home-tile { --tile-ink: color-mix(in oklab, var(--tile) 70%, #fff); }
+:root[data-theme="dark"] .home-tile__ic { background: linear-gradient(160deg, color-mix(in oklab, var(--tile) 12%, var(--surface)), color-mix(in oklab, var(--tile) 24%, var(--surface))); }
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="system"] .home-tile { --tile-ink: color-mix(in oklab, var(--tile) 70%, #fff); }
+  :root[data-theme="system"] .home-tile__ic { background: linear-gradient(160deg, color-mix(in oklab, var(--tile) 12%, var(--surface)), color-mix(in oklab, var(--tile) 24%, var(--surface))); }
 }
 .home-tile b { display: block; font-size: calc(15px * var(--fs-scale, 1)); font-weight: 700; color: var(--ink); }
 .home-tile small { display: block; margin-top: 4px; font-size: calc(13px * var(--fs-scale, 1)); line-height: 1.4; color: var(--ink-soft); }
@@ -699,7 +725,7 @@ body.has-topmenu .sitechat__fab { display: none; }
   /* Every banner variant points at one of the tiles right above it. */
   .home-main .house-ad { display: none; }
 }
-@media (prefers-reduced-motion: reduce) { .home-tile:hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .home-tile:hover { transform: none; } .home-tile__go { transition: none; } }
 
 /* The badge closest to unlocking (js/components/ach-next.js), on the home page
    and the Progress page's trophy card — its icon on a chip in the tier's metal
@@ -6581,3 +6607,84 @@ button.topmenu__item { border: 0; background: transparent; font-family: inherit;
   .summarydlg__actions .btn { justify-content: center; min-height: 48px; }
   .summarydlg__actions .btn:not(.btn--ghost) { order: -1; }
 }
+
+/* ---- The home page's background (components/home-backdrop.js) ----
+   An aura at the top of the page, nothing below it: two soft lights side by side behind the greeting, in
+   a pair of hues that follows the time of day (data-daypart, like the greeting), greyed down so they tint
+   rather than colour. Over them a faint dot grid and a fine paper grain: the grain makes the page feel
+   printed rather than painted, and it dithers the gradients so they never show bands. Everything fades
+   out before the content below the shortcuts. The lights drift a little, very slowly, in opposite
+   directions; nothing moves for anyone who has asked for less motion. */
+.homebg {
+  display: none;
+  --hb-a: #3D6FE6; --hb-b: #0FA3C2;
+  --hb-strength: 0.27; --hb-grain: 0.05;
+  --hb-dot: color-mix(in srgb, var(--ink) 12%, transparent);
+}
+.homebg[data-daypart="morning"] { --hb-a: #F08A3C; --hb-b: #E8679A; }
+.homebg[data-daypart="day"]     { --hb-a: #3D6FE6; --hb-b: #12A5B8; }
+.homebg[data-daypart="evening"] { --hb-a: #7650FF; --hb-b: #C25BC9; }
+.homebg[data-daypart="night"]   { --hb-a: #3F51C4; --hb-b: #5B3FB0; --hb-strength: 0.15; }
+body.route-home { background: transparent; }
+body.route-home .homebg {
+  display: block; position: absolute; inset: 0 0 auto 0; height: 620px; z-index: -1; overflow: hidden; pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent);
+  mask-image: linear-gradient(to bottom, #000 45%, transparent);
+}
+.homebg__light {
+  position: absolute; top: -260px; width: 760px; height: 560px; border-radius: 50%;
+  opacity: var(--hb-strength);
+  will-change: transform;
+}
+.homebg__light--a {
+  left: calc(50% - 640px);
+  background: radial-gradient(closest-side, color-mix(in oklab, var(--hb-a) 60%, #8B93A7), transparent);
+  animation: homebg-drift-a 38s ease-in-out infinite alternate;
+}
+.homebg__light--b {
+  left: calc(50% - 60px);
+  background: radial-gradient(closest-side, color-mix(in oklab, var(--hb-b) 60%, #8B93A7), transparent);
+  animation: homebg-drift-b 46s ease-in-out infinite alternate;
+}
+@keyframes homebg-drift-a { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(60px, 24px, 0); } }
+@keyframes homebg-drift-b { from { transform: translate3d(0, 10px, 0); } to { transform: translate3d(-70px, -8px, 0); } }
+/* A dot every 22px, like a bullet-journal page, under the greeting only. */
+.homebg__grid {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, var(--hb-dot) 1px, transparent 1.4px);
+  background-size: 22px 22px; background-position: 11px 11px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 80% at 40% 0%, #000 0%, transparent 70%);
+  mask-image: radial-gradient(ellipse 70% 80% at 40% 0%, #000 0%, transparent 70%);
+}
+.homebg__grain {
+  position: absolute; inset: 0; opacity: var(--hb-grain); mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+:root[data-theme="dark"] .homebg { --hb-strength: 0.24; --hb-grain: 0.06; --hb-dot: color-mix(in srgb, var(--ink) 9%, transparent); }
+:root[data-theme="dark"] .homebg[data-daypart="night"] { --hb-strength: 0.18; }
+:root[data-theme="dark"] .homebg__grain { mix-blend-mode: screen; }
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="system"] .homebg { --hb-strength: 0.24; --hb-grain: 0.06; --hb-dot: color-mix(in srgb, var(--ink) 9%, transparent); }
+  :root[data-theme="system"] .homebg[data-daypart="night"] { --hb-strength: 0.18; }
+  :root[data-theme="system"] .homebg__grain { mix-blend-mode: screen; }
+}
+:root[data-theme="paper"] .homebg { --hb-strength: 0.1; --hb-grain: 0.07; }
+/* The top bar lets the aura through instead of laying a band over it. */
+body.route-home .topbar { background: color-mix(in srgb, var(--canvas) 70%, transparent); border-bottom-color: transparent; }
+@media (max-width: 899.98px) {
+  .homebg__light { width: 520px; height: 420px; top: -220px; }
+  .homebg__light--a { left: calc(50% - 420px); }
+  .homebg__light--b { left: calc(50% - 60px); }
+}
+@media (prefers-reduced-motion: reduce) { .homebg__light { animation: none; } }
+
+/* The greeting's small sun or moon, in the hour's own hue: the same clock the aura follows. */
+.home__date { display: flex; align-items: center; gap: 6px; }
+.home__daymark { display: inline-grid; color: var(--hb-mark, var(--ink-faint)); }
+.home__daymark[data-daypart="morning"] { --hb-mark: #C8641E; }
+.home__daymark[data-daypart="day"]     { --hb-mark: #2C5CD6; }
+.home__daymark[data-daypart="evening"] { --hb-mark: #6A45E8; }
+.home__daymark[data-daypart="night"]   { --hb-mark: #5B6BD8; }
+:root[data-theme="dark"] .home__daymark { filter: brightness(1.45); }
+@media (prefers-color-scheme: dark) { :root[data-theme="system"] .home__daymark { filter: brightness(1.45); } }
+.home__title h1 { letter-spacing: -0.015em; }

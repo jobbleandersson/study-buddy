@@ -24,6 +24,7 @@ import { dailySlot } from "../components/daily-card.js";
 import { houseAd } from "../components/house-ad.js";
 import { installBanner } from "../components/install-app.js";
 import { hasSummary, openSummary } from "../components/set-summary.js";
+import { daypart } from "../components/home-backdrop.js";
 import { tonightPlan } from "./tonight.js";
 import { shareSet } from "../lib/share-set.js";
 import { loadScript, scriptKey } from "../lib/podcast.js";
@@ -903,11 +904,18 @@ function continueCard() {
   ].filter(Boolean));
 }
 
+/** A small sun by day, a moon at night, beside the greeting. */
+function daymark() {
+  const part = daypart();
+  return el("span.home__daymark", { "aria-hidden": "true", "data-daypart": part },
+    icon(part === "evening" || part === "night" ? ICONS.moon : ICONS.sun, 14));
+}
+
 /** The top of the home page: the greeting, small, over one question. */
 function homeHead() {
   return el("div.home__head", {}, [
     el("div.home__title", {}, [
-      el("p.home__date", {}, greeting()),
+      el("p.home__date", {}, [daymark(), el("span", {}, greeting())]),
       el("h1", {}, t("menu.askToday")),
     ]),
   ]);
@@ -916,7 +924,7 @@ function homeHead() {
 /** "Vad vill du plugga idag?" — the big shortcuts to the app's main jobs, each
  *  an icon, a name and one line on what it's for. Same pages as the sidebar;
  *  this is just the obvious place to start from. */
-// Bright, slightly neon hues — each tile's edge, glow and icon chip.
+// Each tile's hue, shown only in its icon (css/app.css .home-tile).
 const HOME_TILES = [
   { href: "#/create",    icon: ICONS.plus,       label: "nav.create",   sub: "menu.pickCreateSub",  color: "#7650FF" },
   { href: "#/library",   icon: ICONS.book,       label: "nav.library",  sub: "menu.pickLibrarySub", color: "#0FA3C2" },
@@ -925,10 +933,19 @@ const HOME_TILES = [
   { href: "#/hp",        icon: ICONS.award,      label: "nav.hp",       sub: "menu.pickHpSub",      color: "#FF7426" },
 ];
 function homeTiles() {
-  return el("nav.home-tiles", { "aria-label": t("menu.askToday") }, HOME_TILES.map((x) =>
+  // Where the pointer is over a tile, for the faint light that follows it (mouse only, see the CSS).
+  const follow = (e) => {
+    const tile = e.target.closest?.(".home-tile");
+    if (!tile || e.pointerType !== "mouse") return;
+    const r = tile.getBoundingClientRect();
+    tile.style.setProperty("--mx", `${Math.round(e.clientX - r.left)}px`);
+    tile.style.setProperty("--my", `${Math.round(e.clientY - r.top)}px`);
+  };
+  return el("nav.home-tiles", { "aria-label": t("menu.askToday"), onpointermove: follow }, HOME_TILES.map((x) =>
     el("a.home-tile", { href: x.href, style: { "--tile": x.color } }, [
       el("span.home-tile__ic", { "aria-hidden": "true" }, icon(x.icon, 20)),
       el("span", {}, [el("b", {}, t(x.label)), el("small", {}, t(x.sub))]),
+      el("span.home-tile__go", { "aria-hidden": "true" }, icon(ICONS.arrow, 16)),
     ])));
 }
 
