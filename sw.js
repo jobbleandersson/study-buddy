@@ -150,6 +150,7 @@ const APP_SHELL = [
   "./js/views/rules.js",
   "./js/components/daily-card.js",
   "./js/components/house-ad.js",
+  "./js/components/install-app.js",
   "./js/components/class-daily-panel.js",
   "./js/components/bus-question.js",
   "./js/views/check.js",

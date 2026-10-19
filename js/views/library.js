@@ -55,7 +55,7 @@ export async function renderLibrary(qs = null) {
     return { solid: `var(--c-${p.name})`, ink: `var(--c-${p.name}-ink)`, tint: `var(--c-${p.name}-tint)` };
   }
 
-  const root = el("div");
+  const root = el("div.libview");
   // ?q= comes from the search field in the app's top bar.
   const state = { level: null, subject: null, query: qs?.get?.("q") || "", examMin: 0, addCounts: {} };
   // Deep links from the welcome quiz: #/library?subject=<id> or ?level=<id>.
@@ -90,9 +90,18 @@ export async function renderLibrary(qs = null) {
     // Only one back control at a time: the round step-back arrow when you're a
     // level deep, the "← Home" pill at the top level — not both stacked.
     if (!back) headerEl.appendChild(homeButton());
-    headerEl.appendChild(el("div", { style: { display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" } }, [
+    // A level deep, the title says where you are ("Årskurs 9", "Matematik") under a small trail back
+    // up; at the top it's the library itself.
+    const level = state.level ? index.levels.find((l) => l.id === state.level) : null;
+    const subject = state.subject ? index.subjects.find((s) => s.id === state.subject) : null;
+    const title = subject ? subjName(subject) : level ? lvlLabel(level) : t("lib.title");
+    const trail = subject ? `${t("lib.title")} · ${lvlLabel(level) || ""}` : level ? t("lib.title") : null;
+    headerEl.appendChild(el("div.libhead", {}, [
       back && el("button.iconbtn.iconbtn--sm", { type: "button", "aria-label": t("common.back"), onclick: back }, [icon(ICONS.back, 16)]),
-      el("h1", {}, t("lib.title")),
+      el("div.libhead__text", {}, [
+        trail ? el("p.libhead__trail", {}, trail) : null,
+        el("h1", {}, title),
+      ].filter(Boolean)),
     ].filter(Boolean)));
   }
 
@@ -275,11 +284,10 @@ export async function renderLibrary(qs = null) {
       el("section.panel", {}, [
         el("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "start", gap: "12px", flexWrap: "wrap", marginBottom: "6px" } }, [
           el("div", {}, [
-            el("h3", { style: { display: "flex", alignItems: "center", gap: "8px" } }, [
-              el("span", { style: { width: "10px", height: "10px", borderRadius: "var(--r-full)", background: color.solid, flex: "none" } }),
-              subjName(subject),
+            el("p.note", { style: { margin: 0, display: "flex", alignItems: "baseline", gap: "8px" } }, [
+              el("span", { style: { width: "10px", height: "10px", borderRadius: "var(--r-full)", background: color.solid, flex: "none", transform: "translateY(1px)" } }),
+              subjDesc(subject),
             ]),
-            el("p.note", { style: { marginTop: "4px" } }, subjDesc(subject)),
           ]),
           el("div", { style: { display: "flex", gap: "8px", flexWrap: "wrap" } }, [
             examPrepBtn,

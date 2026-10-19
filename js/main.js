@@ -14,6 +14,7 @@ import { showAchievementUnlocks } from "./lib/achievement-toast.js";
 import { isSessionActive } from "./lib/session-active.js";
 import { mountUpgradePrompt } from "./components/upgrade-prompt.js";
 import { aiTile } from "./components/ai-mark.js";
+import { initInstall, installMenuItem } from "./components/install-app.js";
 import { loadLibraryIndex } from "./lib/library-content.js";
 import { playFanfare } from "./lib/sound.js";
 import { mountModalA11y } from "./lib/modal-a11y.js";
@@ -24,6 +25,8 @@ window.__sbStarted = true;
 // First thing after the imports, so an error anywhere in boot is reported too (anonymous, see
 // lib/error-report.js).
 installErrorReporting(ERRORS_URL);
+// Early too: the browser offers its install prompt once, shortly after the page loads.
+initInstall();
 
 // pluggera.se/hp and the like are this same page with that screen's own preview image and title
 // (server/src/routes/share-pages.js, for a TikTok bio or a message). Open the screen they stand for,
@@ -450,6 +453,7 @@ function navActive(match) {
  *  marks the tab itself current — the current page lives inside this menu
  *  rather than one of the bar's own three direct tabs. */
 function moreMenu(active) {
+  const installItem = installMenuItem();
   const list = el("div.topmenu__list", { role: "menu", hidden: true }, [
     ...navGroups().flatMap((g, gi) => [
       g.label
@@ -460,6 +464,8 @@ function moreMenu(active) {
         "aria-current": navActive(it.match) ? "page" : null,
       }, [it.ai ? aiTile(20) : icon(it.icon, 16), it.label])),
     ].filter(Boolean)),
+    // "Install the app" — only while there's something to offer (not inside the installed app).
+    installItem,
     // The sidebar's theme switcher has no home on mobile (no sidebar) — so it
     // lives here, in the menu, rather than only in Settings. Language keeps
     // its own topbar button; the streak shows in the topbar badge — so this
@@ -488,6 +494,7 @@ function moreMenu(active) {
 
   btn.addEventListener("click", () => {
     if (list.hidden) {
+      installItem.refresh();
       list.hidden = false;
       document.body.classList.add("has-topmenu");
       btn.setAttribute("aria-expanded", "true");
@@ -497,7 +504,7 @@ function moreMenu(active) {
       }, 0);
     } else close();
   });
-  list.addEventListener("click", (e) => { if (e.target.closest("a")) close(); });
+  list.addEventListener("click", (e) => { if (e.target.closest("a, .topmenu__item")) close(); });
 
   const wrap = el("div.tabbar__more", {}, [btn, list]);
   return wrap;

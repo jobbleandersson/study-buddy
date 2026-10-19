@@ -89,6 +89,14 @@ export function renderResults(attemptId) {
 
   const deltaEntries = Object.entries(deltas).sort((a, b) => (b[1].after - b[1].before) - (a[1].after - a[1].before));
 
+  // Phones: the next step stays in reach at the bottom of the screen ("Try again" and "Done"), however
+  // long the list of answers to look at is above it. CSS shows it below 900px only.
+  const again = retryHash(attempt, assignment);
+  const bar = el("div.results__bar", {}, [
+    again && el("a.btn.btn--ghost", { href: again }, t(isReview ? "results.reviewAgain" : "results.tryAgain")),
+    el("a.btn", { href: "#/" }, [t("results.done"), icon(ICONS.arrow, 16)]),
+  ].filter(Boolean));
+
   const node = el("div.results", {}, [
     el("div", { style: { textAlign: "left" } }, [homeButton()]),
     el("h1", {}, t(great ? "results.great" : "results.nice")),
@@ -182,11 +190,12 @@ export function renderResults(attemptId) {
           filename: "pluggera-result.png",
         }),
       }, [icon(ICONS.share, 16), t("share.shareButton")]),
-      retryHash(attempt, assignment) && el("a.btn.btn--ghost", { href: retryHash(attempt, assignment) },
+      again && el("a.btn.btn--ghost.results__dup", { href: again },
         t(isReview ? "results.reviewAgain" : "results.tryAgain")),
       el("a.btn.btn--ghost", { href: "#/progress" }, t("results.seeProgress")),
-      el("a.btn.btn--ghost", { href: "#/" }, t("common.backToMenu")),
+      el("a.btn.btn--ghost.results__dup", { href: "#/" }, t("common.backToMenu")),
     ].filter(Boolean)),
+    bar,
   ]);
 
   requestAnimationFrame(() => {

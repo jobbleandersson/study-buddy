@@ -6493,3 +6493,76 @@ button.toolfly__item { border: 0; background: transparent; font: inherit; font-s
   .study-page .planner-page__head .btn { min-height: 40px; padding: 0 14px; border-radius: var(--r-full); }
   .study-page__sub { margin: 2px 0 14px; }
 }
+
+/* ---------- library header: where you are ---------- */
+.libhead { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.libhead__text { min-width: 0; }
+.libhead__trail { margin: 0 0 2px; font-size: var(--fs-sm); font-weight: 600; color: var(--ink-faint); }
+.libhead h1 { margin: 0; }
+
+/* ---------- "install the app" (components/install-app.js) ---------- */
+button.topmenu__item { border: 0; background: transparent; font-family: inherit; cursor: pointer; }
+.installcard { display: none; }
+.installdlg__card { max-width: 400px; display: grid; gap: var(--s-3); justify-items: start; }
+.installdlg__card h3 { margin: 0; }
+.installdlg__icon { border-radius: 14px; box-shadow: var(--shadow-1); }
+.installdlg__steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; width: 100%; }
+.installdlg__steps li { display: grid; grid-template-columns: 24px 36px minmax(0, 1fr); align-items: center; gap: 10px; font-size: var(--fs-sm); line-height: 1.45; }
+.installdlg__n { width: 24px; height: 24px; border-radius: var(--r-full); display: grid; place-items: center; background: var(--brand); color: #fff; font-size: 12.5px; font-weight: 700; }
+.installdlg__ic { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--surface-sunk); color: var(--ink); }
+.installdlg__card > .btn { justify-self: stretch; justify-content: center; min-height: 48px; }
+.results__bar { display: none; }
+
+@media (max-width: 899.98px) {
+  /* ---------- results on phones: a finish screen, the next step pinned at the bottom ---------- */
+  body:has(.results__bar) :is(.topbar, .tabbar) { display: none !important; }
+  body:has(.results__bar) .content { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
+  .results__dup { display: none !important; }
+  .results__bar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; display: flex; gap: 10px;
+    padding: 10px 16px calc(env(safe-area-inset-bottom) + 10px);
+    background: color-mix(in srgb, var(--canvas) 94%, transparent); backdrop-filter: blur(12px);
+    border-top: 1px solid var(--line);
+  }
+  .results__bar .btn { min-height: 52px; border-radius: 14px; font-size: 1rem; justify-content: center; gap: 8px; }
+  .results__bar .btn:not(.btn--ghost) { flex: 1; }
+  .results__bar .btn--ghost { flex: 0 0 auto; padding-inline: 18px; }
+}
+
+@media (max-width: 620px) {
+  /* The answers worth a look: lighter cards, the explanation in a size meant for reading on a phone. */
+  .results .delta-list--review .delta--review { padding: 12px 14px; gap: 4px; }
+  .results .delta__explain { font-size: 14px; line-height: 1.5; }
+
+  /* ---------- install card on the home page ---------- */
+  .installcard {
+    display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 4px 12px; align-items: center;
+    margin-bottom: var(--s-5); padding: 14px; border-radius: 18px;
+    background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-card);
+  }
+  .installcard[hidden] { display: none; }
+  .installcard__icon { border-radius: 11px; box-shadow: var(--shadow-1); }
+  .installcard__text { display: grid; gap: 2px; min-width: 0; }
+  .installcard__text strong { font-size: 15px; }
+  .installcard__text span { font-size: var(--fs-sm); color: var(--ink-soft); line-height: 1.4; }
+  .installcard__actions { grid-column: 1 / -1; display: flex; gap: 8px; margin-top: 8px; }
+  .installcard__actions .btn { flex: 1; justify-content: center; min-height: 44px; border-radius: 12px; }
+
+  /* ---------- the library on phones ---------- */
+  /* The subject list and the set list sit on the page, not in a card around cards. */
+  .libview .panel { background: transparent; border: 0; box-shadow: none; padding: 0; }
+  .libview .levelcard { padding: var(--s-4); }
+  .libview .libgrid { gap: 10px; margin-top: var(--s-3); }
+  .libview .libcard { padding: 14px; gap: 10px; border-radius: 16px; }
+  .libview .libcard .note { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+  /* Questions per session: one tidy row, label on the left, the choice on the right. */
+  .libview .libseg { justify-content: space-between; flex-wrap: nowrap; }
+  .libview .libseg__group button { min-height: 40px; min-width: 48px; }
+  /* The main action as a full-width button; the extras (weak spots, exam mode, worksheet) in a row under it. */
+  .libview .libcard__foot { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .libview .libcard__foot > div { display: flex; flex-wrap: wrap; gap: 8px !important; }
+  .libview .libcard__foot > div > .libseg { flex: 1 1 100%; }
+  .libview .libcard__foot > div > .btn:not(.btn--ghost) { flex: 1 1 100%; justify-content: center; min-height: 46px; border-radius: 12px; }
+  .libview .libcard__foot > div > .btn--ghost { flex: 1 1 0; justify-content: center; min-width: 0; white-space: nowrap; }
+  .libview .libcard__foot > div > .iconbtn { flex: none; width: 44px; height: 44px; }
+}
