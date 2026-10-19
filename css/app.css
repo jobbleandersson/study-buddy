@@ -666,51 +666,25 @@ body.has-topmenu .sitechat__fab { display: none; }
   display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
   gap: var(--s-3); margin-bottom: var(--s-5);
 }
-/* Each tile is a plain card with a hairline edge; its hue (--tile, set per tile in menu.js) lives only in
-   the icon, on a pale chip of the same hue. Calm by design: the colour tells the tiles apart without
-   competing with the content for attention. With a mouse, a faint light in the tile's hue follows the
-   pointer (--mx/--my, set in menu.js), the edge takes the hue and an arrow slides in: the tile answers
-   the hand without ever shouting. */
+/* Each tile is a card in the page's own colour with a faint tint of its hue
+   (--tile, set per tile in menu.js), a neon edge with a soft glow, and the
+   icon on a chip of the full colour. */
 .home-tile {
-  --tile-ink: color-mix(in oklab, var(--tile) 78%, var(--ink));
-  position: relative; overflow: hidden;
   display: grid; gap: 14px; align-content: start; min-height: 148px; padding: 18px 16px;
   border-radius: var(--r-lg); color: var(--ink); text-decoration: none;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  box-shadow: 0 1px 2px color-mix(in srgb, var(--ink) 5%, transparent);
-  transition: border-color var(--dur-fast), box-shadow var(--dur-fast), transform var(--dur-fast);
-}
-.home-tile::before {
-  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity var(--dur-fast);
-  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 0%), color-mix(in srgb, var(--tile) 10%, transparent), transparent 70%);
-}
-.home-tile > * { position: relative; }
-.home-tile__go {
-  position: absolute; top: 16px; right: 14px; color: var(--tile-ink);
-  opacity: 0; transform: translateX(-6px); transition: opacity var(--dur-fast), transform var(--dur-fast);
+  background: color-mix(in oklab, var(--tile) 9%, var(--surface));
+  border: 1.5px solid var(--tile);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--tile) 25%, transparent), 0 0 18px -4px color-mix(in srgb, var(--tile) 55%, transparent);
+  transition: box-shadow var(--dur-fast), transform var(--dur-fast);
 }
 .home-tile:hover {
-  transform: translateY(-1px);
-  border-color: color-mix(in oklab, var(--tile) 40%, var(--line));
-  box-shadow: 0 8px 22px -14px color-mix(in srgb, var(--ink) 35%, transparent);
-}
-@media (hover: hover) and (pointer: fine) {
-  .home-tile:hover::before { opacity: 1; }
-  .home-tile:hover .home-tile__go, .home-tile:focus-visible .home-tile__go { opacity: 1; transform: none; }
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--tile) 45%, transparent), 0 0 26px -2px color-mix(in srgb, var(--tile) 70%, transparent);
 }
 .home-tile:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
 .home-tile__ic {
   width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center;
-  color: var(--tile-ink);
-  background: linear-gradient(160deg, color-mix(in oklab, var(--tile) 7%, var(--surface)), color-mix(in oklab, var(--tile) 17%, var(--surface)));
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--tile) 16%, transparent);
-}
-:root[data-theme="dark"] .home-tile { --tile-ink: color-mix(in oklab, var(--tile) 70%, #fff); }
-:root[data-theme="dark"] .home-tile__ic { background: linear-gradient(160deg, color-mix(in oklab, var(--tile) 12%, var(--surface)), color-mix(in oklab, var(--tile) 24%, var(--surface))); }
-@media (prefers-color-scheme: dark) {
-  :root[data-theme="system"] .home-tile { --tile-ink: color-mix(in oklab, var(--tile) 70%, #fff); }
-  :root[data-theme="system"] .home-tile__ic { background: linear-gradient(160deg, color-mix(in oklab, var(--tile) 12%, var(--surface)), color-mix(in oklab, var(--tile) 24%, var(--surface))); }
+  background: var(--tile); color: #fff; box-shadow: 0 0 12px -2px color-mix(in srgb, var(--tile) 70%, transparent);
 }
 .home-tile b { display: block; font-size: calc(15px * var(--fs-scale, 1)); font-weight: 700; color: var(--ink); }
 .home-tile small { display: block; margin-top: 4px; font-size: calc(13px * var(--fs-scale, 1)); line-height: 1.4; color: var(--ink-soft); }
@@ -725,7 +699,7 @@ body.has-topmenu .sitechat__fab { display: none; }
   /* Every banner variant points at one of the tiles right above it. */
   .home-main .house-ad { display: none; }
 }
-@media (prefers-reduced-motion: reduce) { .home-tile:hover { transform: none; } .home-tile__go { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .home-tile:hover { transform: none; } }
 
 /* The badge closest to unlocking (js/components/ach-next.js), on the home page
    and the Progress page's trophy card — its icon on a chip in the tier's metal
