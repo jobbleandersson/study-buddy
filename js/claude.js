@@ -52,10 +52,15 @@ function headers() {
 // max_tokens. Tutoring and marking need little of it: effort "low", and room for the thinking it does so
 // an answer is never cut off by it.
 const THINKING_ROOM = 1024;
+// The most output the server lets one request ask for (server/src/usage.js MAX_OUTPUT_TOKENS). Past it
+// the server quietly lowers max_tokens and the thinking room above is gone, so the answer's own share is
+// capped instead: a 16,000-token set request becomes 14,976 for the answer + 1,024 for the thinking.
+const SERVER_MAX_OUTPUT = 16000;
 function tuned(body) {
   if (body.model !== "claude-haiku-5-5") return body;
+  const answer = Math.min(body.max_tokens, SERVER_MAX_OUTPUT - THINKING_ROOM);
   // A request that sets its own effort keeps it (the question reviewer thinks harder).
-  return { ...body, max_tokens: body.max_tokens + THINKING_ROOM, output_config: body.output_config || { effort: "low" } };
+  return { ...body, max_tokens: answer + THINKING_ROOM, output_config: body.output_config || { effort: "low" } };
 }
 
 /** task: "generate" | "tutor" | "grade" | "check" | "solve" */
