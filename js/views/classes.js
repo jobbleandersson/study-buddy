@@ -301,7 +301,7 @@ export async function renderClassDetail(id) {
               if (!(await confirmDialog({ message: t("classes.removeAssignmentConfirm", { title: names.setTitle(a.setId) }), confirmLabel: t("classes.removeAssignment"), danger: true }))) return;
               try { await api(`${classUrl(id)}/assignments/${a.id}`, { method: "DELETE" }); await reload(); } catch (e) { toast(e.message); }
             },
-          }, [icon(ICONS.close, 14)]),
+          }, [icon(ICONS.trash, 14)]),
         ].filter(Boolean))),
       ]);
 

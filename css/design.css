@@ -62,13 +62,13 @@ h1 { font-weight: 750; }
 
 /* The remaining left-edge stripes become an even hairline border. */
 .tile--resume { border-left-width: 1px; }
-.house-ad { border-left-width: 1px; border-color: color-mix(in srgb, var(--brand) 35%, var(--line)); }
+.house-ad { border-left-width: 1px; border-color: var(--line); border-color: color-mix(in srgb, var(--brand) 35%, var(--line)); }
 .plan-row { border-left: 1px solid var(--line); }
 .plan-row.is-overdue { border-left-color: var(--retry); }
 .source-opt--subject { border-left-width: 1px; }
 .review-so-far__item { border-left-width: 1px; }
-.review-so-far__item.is-ok { border-color: color-mix(in srgb, var(--ok) 45%, var(--line)); }
-.review-so-far__item.is-miss { border-color: color-mix(in srgb, var(--retry) 45%, var(--line)); }
+.review-so-far__item.is-ok { border-color: var(--line); border-color: color-mix(in srgb, var(--ok) 45%, var(--line)); }
+.review-so-far__item.is-miss { border-color: var(--line); border-color: color-mix(in srgb, var(--retry) 45%, var(--line)); }
 
 /* ---------- inputs ---------- */
 .search { border-radius: var(--r-md); }

@@ -1635,7 +1635,7 @@ function runSession(config) {
 
   // Kept as refs so a mid-session language switch can refresh their text
   // without rebuilding the session (see onLangSession below).
-  const headH2 = el("h2", {}, headTitle());
+  const headH2 = el("h2", { "aria-level": "1" }, headTitle());   // the screen's only heading: level 1 for the outline, the look stays
   const badgeEl = el("span.badge" + (config.examId && !config.examMode ? ".badge--exam" : ""), {}, badgeLabel(config));
   // Started from a test: say which, how close it is and how far today's work has got, with a way back.
   const ctxExam = config.examId ? resolveExam(config.examId) : null;
