@@ -62,8 +62,8 @@ feedback.post("/feedback", requireAuth, submitLimit, submitDaily, (req, res) => 
   if (!KINDS.has(b.kind)) return res.status(400).json({ error: { message: "Pick what this is about.", code: "feedback_kind" } });
   let mood = null;
   if (b.mood != null) {
-    mood = Number(b.mood);
-    if (!Number.isInteger(mood) || mood < 1 || mood > 5) {
+    mood = b.mood;
+    if (typeof mood !== "number" || !Number.isInteger(mood) || mood < 1 || mood > 5) {
       return res.status(400).json({ error: { message: "Mood is 1 to 5.", code: "feedback_mood" } });
     }
   }
@@ -82,6 +82,9 @@ feedback.post("/feedback", requireAuth, submitLimit, submitDaily, (req, res) => 
   // A double tap on "Skicka" sends the same text twice within moments: keep the first. Only for a linked
   // sender; two anonymous messages with the same words ("Bra app!") may be two people.
   const now = Date.now();
+  // An anonymous row gets the hour, not the millisecond: an exact time could be matched against the
+  // sender's own request times to find out who "anonymous" was.
+  const at = userId ? now : now - (now % 3_600_000);
   if (userId && message) {
     const twin = db.prepare("SELECT id FROM feedback WHERE user_id = ? AND kind = ? AND message = ? AND created_at > ?")
       .get(userId, b.kind, message, now - 10 * 60_000);
@@ -92,12 +95,12 @@ feedback.post("/feedback", requireAuth, submitLimit, submitDaily, (req, res) => 
   db.prepare(`
     INSERT INTO feedback (id, user_id, kind, mood, message, context, route, lang, app_version, browser, status, reply, created_at, updated_at)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'new', '', ?, ?)
-  `).run(id, userId, b.kind, mood, message, context, cleanRoute(b.route), lang, clip(b.version, 40), clip(b.browser, 60), now, now);
+  `).run(id, userId, b.kind, mood, message, context, cleanRoute(b.route), lang, clip(b.version, 40), clip(b.browser, 60), at, at);
   res.json({ ok: true, id });
 });
 
 feedback.get("/feedback/mine", requireAuth, (req, res) => {
-  const rows = db.prepare("SELECT * FROM feedback WHERE user_id = ? ORDER BY created_at DESC LIMIT 50").all(req.user.userId);
+  const rows = db.prepare("SELECT * FROM feedback WHERE user_id = ? ORDER BY rowid DESC LIMIT 50").all(req.user.userId);
   res.set("Cache-Control", "no-store");
   res.json({ feedback: rows.map(mineShape) });
 });
@@ -113,16 +116,21 @@ feedback.delete("/feedback/mine/:id", requireAuth, (req, res) => {
 const adminShape = (r) => ({
   id: r.id, kind: r.kind, mood: r.mood, message: r.message, context: r.context, route: r.route, lang: r.lang,
   version: r.app_version, browser: r.browser, status: r.status, reply: r.reply, repliedAt: r.replied_at,
-  linked: r.user_id != null, date: dateOf(r.created_at),
+  linked: r.user_id != null, date: dateOf(r.created_at), cursor: r.cursor,
 });
+// Everything above is client-supplied text. The admin page and "Dina förslag" must show it as text nodes,
+// never as HTML.
 
 feedback.get("/admin/feedback", adminFailures, requireAdminKey, (req, res) => {
   const status = STATUSES.includes(req.query.status) ? req.query.status : null;
   const kind = KINDS.has(req.query.kind) ? req.query.kind : null;
+  // Newest first by insertion order (an anonymous row's created_at is rounded to the hour, so it can't
+  // order or page by time). `before` is the `cursor` of the last row of the previous page.
+  const before = Number.isInteger(Number(req.query.before)) && req.query.before ? Number(req.query.before) : null;
   const rows = db.prepare(`
-    SELECT * FROM feedback WHERE (? IS NULL OR status = ?) AND (? IS NULL OR kind = ?)
-    ORDER BY created_at DESC LIMIT 200
-  `).all(status, status, kind, kind);
+    SELECT rowid AS cursor, * FROM feedback WHERE (? IS NULL OR status = ?) AND (? IS NULL OR kind = ?) AND (? IS NULL OR rowid < ?)
+    ORDER BY rowid DESC LIMIT 200
+  `).all(status, status, kind, kind, before, before);
   const counts = Object.fromEntries(STATUSES.map((s) => [s, 0]));
   for (const r of db.prepare("SELECT status, COUNT(*) AS n FROM feedback GROUP BY status").all()) counts[r.status] = r.n;
   const byKind = Object.fromEntries([...KINDS].map((k) => [k, 0]));

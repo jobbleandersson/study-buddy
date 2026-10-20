@@ -53,6 +53,9 @@ describe("sending feedback", () => {
       [idea({ kind: "rant" }), "feedback_kind"],
       [idea({ mood: 6 }), "feedback_mood"],
       [idea({ mood: "x" }), "feedback_mood"],
+      [idea({ mood: true }), "feedback_mood"],
+      [idea({ mood: "3" }), "feedback_mood"],
+      [idea({ mood: [5] }), "feedback_mood"],
       [idea({ mood: null, message: "ok" }), "feedback_text"],
       [idea({ message: "x".repeat(2001) }), "feedback_text"],
     ]) {
@@ -84,6 +87,13 @@ describe("sending feedback", () => {
     assert.equal(server.db.prepare("SELECT user_id FROM feedback WHERE id = ?").get(r.json.id).user_id, null);
     const mine = await c.get("/api/feedback/mine");
     assert.equal(mine.json.feedback.some((f) => f.id === r.json.id), false);
+  });
+
+  test("an anonymous message is stamped with the hour, not the millisecond", async () => {
+    const r = await c.post("/api/feedback", { kind: "idea", message: `Tid ${Date.now()}`, anonymous: true });
+    const row = server.db.prepare("SELECT created_at, updated_at FROM feedback WHERE id = ?").get(r.json.id);
+    assert.equal(row.created_at % 3_600_000, 0);
+    assert.equal(row.updated_at, row.created_at);
   });
 
   test("a sender can take back their own, and nobody else's", async () => {
@@ -155,6 +165,19 @@ describe("the feedback inbox", () => {
     assert.ok(onlyProblems.json.feedback.length >= 1 && onlyProblems.json.feedback.every((f) => f.kind === "problem"));
     const done = await adm.get("/api/admin/feedback?status=done");
     assert.equal(done.json.feedback.length, 0);
+  });
+
+  test("the inbox pages past 200 with the cursor of the last row", async () => {
+    const ins = server.db.prepare("INSERT INTO feedback (id, user_id, kind, message, status, created_at, updated_at) VALUES (?, NULL, 'other', ?, 'declined', ?, ?)");
+    const t = Date.now();
+    for (let i = 0; i < 205; i++) ins.run(`page-${i}`, `Rad ${i}`, t, t);
+    const first = await adm.get("/api/admin/feedback?status=declined");
+    assert.equal(first.json.feedback.length, 200);
+    assert.equal(first.json.feedback[0].message, "Rad 204");
+    const next = await adm.get(`/api/admin/feedback?status=declined&before=${first.json.feedback[199].cursor}`);
+    assert.deepEqual(next.json.feedback.map((f) => f.message), ["Rad 4", "Rad 3", "Rad 2", "Rad 1", "Rad 0"]);
+    assert.equal(first.json.counts.declined, 205);
+    server.db.prepare("DELETE FROM feedback WHERE id LIKE 'page-%'").run();
   });
 
   test("a status and a reply reach the sender; an anonymous sender cannot be answered", async () => {
