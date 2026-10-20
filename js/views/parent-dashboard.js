@@ -37,7 +37,7 @@ function signedOutNode() {
     homeButton({ grid: true }),
     pageHead(t("parent.title"), t("parent.pageSub")),
     card(ICONS.users, t("parent.title"), null, [
-      row(t("parent.signInLabel"), t("parent.signInPrompt"), el("a.btn.btn--sm", { href: "#/login" }, t("login.signIn"))),
+      row(t("parent.signInLabel"), t("parent.signInPrompt"), el("a.btn.btn--sm", { href: `#/login?next=${encodeURIComponent("#/parent")}` }, t("login.signIn"))),
     ]),
   ]);
 }
