@@ -80,6 +80,8 @@ export const clearAssignedUrl = (id) => `${API}/api/assigned/${id}`;
 // Friend leaderboard (mutual links, separate from the parent/student ones).
 export const FRIEND_INVITE_CODE_URL = `${API}/api/friends/invite-code`;
 export const FRIEND_REDEEM_URL = `${API}/api/friends/redeem`;
+export const FRIEND_INVITE_LINK_URL = `${API}/api/friends/invite-link`;
+export const FRIEND_PREVIEW_URL = `${API}/api/friends/preview`;
 export const FRIEND_LEADERBOARD_URL = `${API}/api/friends/leaderboard`;
 export const unfriendUrl = (linkId) => `${API}/api/friends/${linkId}`;
 

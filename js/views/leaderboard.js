@@ -5,10 +5,12 @@
 
 import { store, isAvatarDataUrl } from "../store.js";
 import { el, clear, toast, icon, ICONS, wrappableEmail } from "../lib/dom.js";
-import { FRIEND_INVITE_CODE_URL, FRIEND_REDEEM_URL, FRIEND_LEADERBOARD_URL, unfriendUrl } from "../config.js";
+import { FRIEND_INVITE_CODE_URL, FRIEND_INVITE_LINK_URL, FRIEND_REDEEM_URL, FRIEND_LEADERBOARD_URL, unfriendUrl } from "../config.js";
 import { shareCard, tierEmoji } from "../lib/share-card.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { homeButton } from "../components/nav.js";
+import { linkBox } from "../components/link-actions.js";
+import { joinUrl } from "../lib/join-link.js";
 import { t, plural } from "../lib/i18n.js";
 import { serverMessage } from "../lib/server-errors.js";
 
@@ -58,6 +60,21 @@ export function renderLeaderboard() {
       genBtn.disabled = false;
     });
 
+    // The same invitation as a link, for sending in a message: the friend taps it and confirms (views/join.js).
+    const linkSlot = el("div");
+    const linkBtn = el("button.btn.btn--ghost.btn--sm", { type: "button", style: { marginLeft: "8px" } }, t("join.friendLinkCreate"));
+    linkBtn.addEventListener("click", async () => {
+      linkBtn.disabled = true;
+      try {
+        const data = await api(FRIEND_INVITE_LINK_URL, { method: "POST" });
+        linkSlot.replaceChildren(
+          linkBox(joinUrl("friend", data.token), { title: t("join.friendShareTitle"), text: t("join.friendShareText") }),
+          el("p.note", { style: { margin: "0 0 8px" } }, t("join.friendLinkNote")),
+        );
+      } catch (e) { toast(e.message); }
+      linkBtn.disabled = false;
+    });
+
     const input = el("input", { type: "text", placeholder: t("leaderboard.inviteCodePlaceholder"), style: { textTransform: "uppercase" } });
     const redeemBtn = el("button.btn.btn--sm", { type: "button" }, t("leaderboard.addFriend"));
     redeemBtn.addEventListener("click", async () => {
@@ -76,7 +93,7 @@ export function renderLeaderboard() {
     clear(invitePanel);
     invitePanel.append(
       el("h3", { "aria-level": "2", style: { marginBottom: "8px" } }, t("leaderboard.inviteHeading")),
-      status, codeDisplay, genBtn,
+      status, codeDisplay, genBtn, linkBtn, linkSlot,
       el("div", { style: { marginTop: "16px" } }, [
         el("label.field", { style: { marginBottom: "8px" } }, [el("span", {}, t("leaderboard.haveCode")), input]),
         redeemBtn,

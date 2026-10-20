@@ -194,8 +194,8 @@ const routes = [
   { rx: /^\/reset$/, view: (m, qs) => import("./views/reset-password.js").then((mod) => mod.renderResetPassword(qs)) },
   { rx: /^\/parent$/, view: () => import("./views/parent-dashboard.js").then((mod) => mod.renderParentHub()) },
   { rx: /^\/parent\/(.+)$/, view: (m) => import("./views/parent-dashboard.js").then((mod) => mod.renderParentStudent(m[1])) },
-  // A shared link to a class or to a student's invitation (views/join.js).
-  { rx: /^\/join\/(class|parent)\/([A-Za-z0-9_-]+)$/, view: (m) => import("./views/join.js").then((mod) => mod.renderJoin(m[1], m[2])) },
+  // A shared link to a class, to a student's invitation or to a friend invitation (views/join.js).
+  { rx: /^\/join\/(class|parent|friend)\/([A-Za-z0-9_-]+)$/, view: (m) => import("./views/join.js").then((mod) => mod.renderJoin(m[1], m[2])) },
   { rx: /^\/classes$/, view: (m, qs) => import("./views/classes.js").then((mod) => mod.renderClasses(qs)) },
   { rx: /^\/classes\/(.+)$/, view: (m) => import("./views/classes.js").then((mod) => mod.renderClassDetail(m[1])) },
   { rx: /^\/teachers$/, view: () => import("./views/teachers.js").then((mod) => mod.renderTeacherLanding()) },

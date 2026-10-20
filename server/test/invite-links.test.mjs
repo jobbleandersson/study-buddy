@@ -258,3 +258,99 @@ describe("a link's token is never recorded where someone was", () => {
     assert.equal(everything.includes(token), false);
   });
 });
+
+describe("a friend link", () => {
+  let server;
+  before(async () => { server = await startServer(); });
+  after(async () => { await server.stop(); });
+
+  async function account(prefix) {
+    const addr = email(prefix);
+    const c = makeClient(server.baseUrl);
+    assert.equal((await c.post("/api/auth/signup", { email: addr, password: "correctpw1", consent: true })).status, 200);
+    return { addr, c };
+  }
+  const userId = (addr) => server.db.prepare("SELECT id FROM users WHERE email = ?").get(addr).id;
+
+  test("asking again gives the same live link, a long token that lasts a day", async () => {
+    const a = await account("a");
+    const first = (await a.c.post("/api/friends/invite-link")).json;
+    assert.match(first.token, /^[A-Za-z0-9_-]{24}$/);
+    const life = first.expiresAt - Date.now();
+    assert.ok(life > 23 * 3600e3 && life <= 24 * 3600e3);
+    assert.equal((await a.c.post("/api/friends/invite-link")).json.token, first.token);
+    assert.equal(server.db.prepare("SELECT COUNT(*) AS n FROM friend_invite_links WHERE user_id = ?").get(userId(a.addr)).n, 1);
+    assert.equal((await makeClient(server.baseUrl).post("/api/friends/invite-link")).status, 401);
+  });
+
+  test("the preview names who is asking without using the link up; the link then makes them friends on both boards", async () => {
+    const a = await account("a");
+    const b = await account("b");
+    const { token } = (await a.c.post("/api/friends/invite-link")).json;
+
+    const seen = await b.c.post("/api/friends/preview", { token });
+    assert.equal(seen.status, 200);
+    assert.match(seen.json.friendName, /@example\.com$/);
+    assert.equal(JSON.stringify(seen.json).includes(a.addr), false, "never the whole address");
+    assert.equal(seen.json.alreadyFriends, false);
+    assert.equal((await b.c.get("/api/friends/leaderboard")).json.entries.length, 1, "looking adds nobody");
+
+    const done = await b.c.post("/api/friends/redeem", { token });
+    assert.equal(done.status, 200);
+    assert.ok(done.json.friendName);
+    assert.equal((await a.c.get("/api/friends/leaderboard")).json.entries.length, 2);
+    assert.equal((await b.c.get("/api/friends/leaderboard")).json.entries.length, 2);
+    assert.equal((await b.c.post("/api/friends/preview", { token })).status, 400, "used");
+  });
+
+  test("it works once, even when two people open it at once", async () => {
+    const a = await account("a");
+    const b = await account("b");
+    const c = await account("c");
+    const { token } = (await a.c.post("/api/friends/invite-link")).json;
+    const results = await Promise.all([b.c.post("/api/friends/redeem", { token }), c.c.post("/api/friends/redeem", { token })]);
+    assert.deepEqual(results.map((r) => r.status).sort(), [200, 400]);
+    assert.equal(server.db.prepare("SELECT COUNT(*) AS n FROM friend_links WHERE user_a_id = ? OR user_b_id = ?").get(userId(a.addr), userId(a.addr)).n, 1);
+  });
+
+  test("your own link, an unknown one and an expired one are refused; people who are friends already are told", async () => {
+    const a = await account("a");
+    const b = await account("b");
+    const { token } = (await a.c.post("/api/friends/invite-link")).json;
+    assert.equal((await a.c.post("/api/friends/redeem", { token })).status, 400);
+    assert.equal((await a.c.post("/api/friends/preview", { token })).status, 400);
+    assert.equal((await b.c.post("/api/friends/redeem", { token: "Z".repeat(24) })).status, 400);
+    assert.equal((await b.c.post("/api/friends/preview", {})).status, 400);
+
+    server.db.prepare("UPDATE friend_invite_links SET expires_at = ? WHERE code = ?").run(Date.now() - 1000, token);
+    assert.equal((await b.c.post("/api/friends/preview", { token })).status, 400);
+    const fresh = (await a.c.post("/api/friends/invite-link")).json.token;
+    assert.notEqual(fresh, token);
+    assert.equal((await b.c.post("/api/friends/redeem", { token: fresh })).status, 200);
+
+    const again = (await a.c.post("/api/friends/invite-link")).json.token;
+    assert.equal((await b.c.post("/api/friends/preview", { token: again })).json.alreadyFriends, true);
+  });
+
+  test("a code is not a link and a link is not a code; the code still works", async () => {
+    const a = await account("a");
+    const b = await account("b");
+    const { code } = (await a.c.post("/api/friends/invite-code")).json;
+    const { token } = (await a.c.post("/api/friends/invite-link")).json;
+    assert.equal((await b.c.post("/api/friends/redeem", { token: code })).status, 400);
+    assert.equal((await b.c.post("/api/friends/redeem", { code: token })).status, 400);
+    assert.equal((await b.c.post("/api/friends/redeem", { code })).status, 200);
+  });
+
+  test("deleting the account removes its friend links; the pageview keeps no friend token", async () => {
+    const a = await account("a");
+    await a.c.post("/api/friends/invite-link");
+    const id = userId(a.addr);
+    assert.equal((await a.c.delete("/api/account", { password: "correctpw1" })).status, 200);
+    assert.equal(server.db.prepare("SELECT COUNT(*) AS n FROM friend_invite_links WHERE user_id = ?").get(id).n, 0);
+
+    const c = makeClient(server.baseUrl);
+    assert.equal((await c.post("/api/analytics/pageview", { path: "/join/friend/SecretFriendTokenAbCdEfGh" })).status, 204);
+    assert.equal(server.db.prepare("SELECT path FROM page_views").get().path, "/join/friend/:id");
+  });
+});

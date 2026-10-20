@@ -15,13 +15,14 @@ describe("join links", () => {
   test("the token is taken out of a route before it is recorded", () => {
     assert.equal(hideJoinToken("/join/class/abcDEF123_-abcDEF123_-12"), "/join/class/:id");
     assert.equal(hideJoinToken("/join/parent/x"), "/join/parent/:id");
+    assert.equal(hideJoinToken("/join/friend/x"), "/join/friend/:id");
     assert.equal(hideJoinToken("/classes"), "/classes");
     assert.equal(hideJoinToken("/classes/join/class/abc"), "/classes/join/class/abc", "only a route that starts with /join/");
     assert.equal(hideJoinToken(undefined), "");
   });
 
   test("what a token may look like, and which kinds there are", () => {
-    assert.deepEqual(JOIN_KINDS, ["class", "parent"]);
+    assert.deepEqual(JOIN_KINDS, ["class", "parent", "friend"]);
     assert.ok(TOKEN_RX.test("A".repeat(24)));
     assert.ok(TOKEN_RX.test("aZ09_-aZ09_-aZ09_-aZ09_-"));
     assert.equal(TOKEN_RX.test("short"), false);

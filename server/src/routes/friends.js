@@ -21,13 +21,43 @@ friends.post("/friends/invite-code", requireAuth, (req, res) => {
   res.json({ code: issued.code, expiresAt: issued.expiresAt });
 });
 
-friends.post("/friends/redeem", requireAuth, ...codeGuessLimits, (req, res) => {
-  const code = String(req.body?.code || "").trim().toUpperCase();
-  if (!code) return res.status(400).json({ error: { message: "Enter a code." } });
+// The same invitation as a link: a long token the app puts after "#/join/friend/". Good for a day, once.
+friends.post("/friends/invite-link", requireAuth, (req, res) => {
+  const issued = issueCode("friendLink", req.user.userId);
+  if (!issued) return res.status(429).set("Retry-After", "600").json({ error: { message: TOO_MANY_MESSAGE, code: "too_many_codes" } });
+  res.json({ token: issued.code, expiresAt: issued.expiresAt });
+});
 
-  const invite = db.prepare("SELECT * FROM friend_codes WHERE code = ?").get(code);
+// The invitation a request names, from a friend code or a link's token: { table, row (maybe undefined), kind }, or null
+// when it names neither. Table names are fixed here.
+function findInvite(body) {
+  const token = typeof body?.token === "string" ? body.token.trim() : "";
+  if (token) return { table: "friend_invite_links", row: db.prepare("SELECT * FROM friend_invite_links WHERE code = ?").get(token), kind: "link" };
+  const code = String(body?.code || "").trim().toUpperCase();
+  if (!code) return null;
+  return { table: "friend_codes", row: db.prepare("SELECT * FROM friend_codes WHERE code = ?").get(code), kind: "code" };
+}
+const gone = (kind) => (kind === "link" ? "This invitation is invalid or has expired." : "That code is invalid or has expired.");
+
+// Who is asking, shown before a friend link is used. Nothing is changed. Needs a session, like redeeming does.
+friends.post("/friends/preview", requireAuth, ...codeGuessLimits, (req, res) => {
+  const found = findInvite({ token: req.body?.token });
+  if (!found) return res.status(400).json({ error: { message: "Open the link again." } });
+  const { row, kind } = found;
+  if (!row || row.used_at || row.expires_at < Date.now()) return res.status(400).json({ error: { message: gone(kind) } });
+  if (row.user_id === req.user.userId) return res.status(400).json({ error: { message: "You can't add yourself as a friend." } });
+  const [a, b] = pair(req.user.userId, row.user_id);
+  const already = !!db.prepare("SELECT 1 FROM friend_links WHERE user_a_id = ? AND user_b_id = ? AND status = 'active'").get(a, b);
+  // A first name or a shortened address, never the whole address of a person only known by a link.
+  res.json({ friendName: displayNames([row.user_id]).get(row.user_id), alreadyFriends: already });
+});
+
+friends.post("/friends/redeem", requireAuth, ...codeGuessLimits, (req, res) => {
+  const found = findInvite(req.body);
+  if (!found) return res.status(400).json({ error: { message: "Enter a code." } });
+  const { table, row: invite, kind } = found;
   if (!invite || invite.used_at || invite.expires_at < Date.now()) {
-    return res.status(400).json({ error: { message: "That code is invalid or has expired." } });
+    return res.status(400).json({ error: { message: gone(kind) } });
   }
   if (invite.user_id === req.user.userId) {
     return res.status(400).json({ error: { message: "You can't add yourself as a friend." } });
@@ -35,11 +65,16 @@ friends.post("/friends/redeem", requireAuth, ...codeGuessLimits, (req, res) => {
 
   const [a, b] = pair(req.user.userId, invite.user_id);
   const now = Date.now();
-  db.prepare(`
-    INSERT INTO friend_links (id, user_a_id, user_b_id, status, created_at) VALUES (?, ?, ?, 'active', ?)
-    ON CONFLICT(user_a_id, user_b_id) DO UPDATE SET status = 'active'
-  `).run(crypto.randomUUID(), a, b, now);
-  db.prepare("UPDATE friend_codes SET used_at = ? WHERE id = ?").run(now, invite.id);
+  // Using it up and making the friendship are one step, and only the request that wins the use gets it.
+  const claimed = db.transaction(() => {
+    if (db.prepare(`UPDATE ${table} SET used_at = ? WHERE id = ? AND used_at IS NULL`).run(now, invite.id).changes !== 1) return false;
+    db.prepare(`
+      INSERT INTO friend_links (id, user_a_id, user_b_id, status, created_at) VALUES (?, ?, ?, 'active', ?)
+      ON CONFLICT(user_a_id, user_b_id) DO UPDATE SET status = 'active'
+    `).run(crypto.randomUUID(), a, b, now);
+    return true;
+  })();
+  if (!claimed) return res.status(400).json({ error: { message: gone(kind) } });
 
   res.json({ friendName: displayNames([invite.user_id]).get(invite.user_id) });
 });

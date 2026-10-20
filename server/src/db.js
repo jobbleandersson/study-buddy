@@ -81,6 +81,16 @@ db.exec(`
     created_at INTEGER NOT NULL
   );
 
+  -- A friend invitation as a link, apart from friend_codes for the same reason invite_links is apart from invite_codes.
+  CREATE TABLE IF NOT EXISTS friend_invite_links (
+    id TEXT PRIMARY KEY,
+    user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    code TEXT UNIQUE NOT NULL,
+    expires_at INTEGER NOT NULL,
+    used_at INTEGER,
+    created_at INTEGER NOT NULL
+  );
+
   -- A set a parent assigned to a student, waiting to be imported. Kept
   -- outside state_blobs entirely so it never touches the version-checked
   -- sync path — the student's own addAssignmentDoc() consumes it directly.

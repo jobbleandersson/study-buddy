@@ -5,8 +5,8 @@ import { isUniqueViolation } from "./errors.js";
 
 // The short codes one person hands to another: a student's code for a parent or teacher
 // (invite_codes), a friend code (friend_codes). Both work the same way, so they are issued here.
-// The same student can also hand over a link instead of a code (invite_links): a long random token
-// in a web address, good for a day, for when reading six characters out loud is the awkward part.
+// The same person can also hand over a link instead of a code (invite_links, friend_invite_links): a long random
+// token in a web address, good for a day, for when reading six characters out loud is the awkward part.
 //
 // One account used to be able to ask for a new code as often as it liked, and every ask wrote a row
 // (about 1,300 a second on a laptop, 166 bytes each, and the clean-up only ran hourly): a loop of
@@ -39,6 +39,7 @@ const KINDS = {
   invite: { table: "invite_codes", owner: "student_user_id", ttl: CODE_TTL_MS, make: randomCode },
   inviteLink: { table: "invite_links", owner: "student_user_id", ttl: LINK_TTL_MS, make: randomToken },
   friend: { table: "friend_codes", owner: "user_id", ttl: CODE_TTL_MS, make: randomCode },
+  friendLink: { table: "friend_invite_links", owner: "user_id", ttl: LINK_TTL_MS, make: randomToken },
 };
 
 const perHour = () => {

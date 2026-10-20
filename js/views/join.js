@@ -8,7 +8,7 @@ import { t } from "../lib/i18n.js";
 import { serverMessage } from "../lib/server-errors.js";
 import { card, pageHead } from "../components/set-ui.js";
 import { TOKEN_RX, joinHash } from "../lib/join-link.js";
-import { CLASS_PREVIEW_URL, CLASS_JOIN_URL, LINK_PREVIEW_URL, REDEEM_CODE_URL } from "../config.js";
+import { CLASS_PREVIEW_URL, CLASS_JOIN_URL, LINK_PREVIEW_URL, REDEEM_CODE_URL, FRIEND_PREVIEW_URL, FRIEND_REDEEM_URL } from "../config.js";
 
 async function post(url, token) {
   const res = await fetch(url, { method: "POST", credentials: "include", headers: { "content-type": "application/json" }, body: JSON.stringify({ token }) });
@@ -32,6 +32,20 @@ const PAGES = {
     done: "#/parent",
     fallback: "#/parent",
   },
+  friend: {
+    icon: ICONS.users,
+    preview: FRIEND_PREVIEW_URL,
+    accept: FRIEND_REDEEM_URL,
+    done: "#/leaderboard",
+    fallback: "#/leaderboard",
+  },
+};
+
+// What each kind of link's preview answers with: the name to show, who is asking, and whether it is already done.
+const FIELDS = {
+  class: (info) => ({ name: info.name, who: info.teacherName, already: info.alreadyMember }),
+  parent: (info) => ({ name: info.studentName, who: info.studentName, already: false }),
+  friend: (info) => ({ name: info.friendName, who: info.friendName, already: info.alreadyFriends }),
 };
 
 export function renderJoin(kind, token) {
@@ -66,12 +80,11 @@ export function renderJoin(kind, token) {
   }
 
   function ask(info) {
-    const name = kind === "class" ? info.name : info.studentName;
-    const who = kind === "class" ? info.teacherName : info.studentName;
-    if (kind === "class" && info.alreadyMember) {
+    const { name, who, already } = FIELDS[kind](info);
+    if (already) {
       body.replaceChildren(
-        el("p", {}, [icon(ICONS.check, 18), " ", t("join.class.already", { name })]),
-        actions(el("a.btn.btn--sm", { href: page.done }, t("join.class.open"))),
+        el("p", {}, [icon(ICONS.check, 18), " ", t(`join.${kind}.already`, { name })]),
+        actions(el("a.btn.btn--sm", { href: page.done }, t(`join.${kind}.open`))),
       );
       return;
     }
@@ -82,7 +95,9 @@ export function renderJoin(kind, token) {
       error.hidden = true;
       try {
         const result = await post(page.accept, token);
-        toast(kind === "class" ? t("classes.joined", { name: result.name }) : t("parent.linkedToStudent", { email: result.studentEmail }));
+        toast(kind === "class" ? t("classes.joined", { name: result.name })
+          : kind === "friend" ? t("leaderboard.addedFriend", { name: result.friendName })
+          : t("parent.linkedToStudent", { email: result.studentEmail }));
         location.hash = page.done;
       } catch (e) {
         error.textContent = e.message;
