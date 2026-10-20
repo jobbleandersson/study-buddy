@@ -93,7 +93,7 @@ export function renderMenu(mode) {
     const ids = visibleSets().map((a) => a.id);
     const all = ids.length && ids.every((id) => selected.has(id));
     if (all) ids.forEach((id) => selected.delete(id)); else ids.forEach((id) => selected.add(id));
-    paint();
+    syncPicks();
   } });
   const deleteSelected = el("button.selectbar__del", { type: "button", onclick: () => removeMany([...selected]) },
     [icon(ICONS.trash, 16), el("span", {}, t("common.delete"))]);
@@ -117,6 +117,19 @@ export function renderMenu(mode) {
     selectAll.textContent = t(items.length && items.every((a) => selected.has(a.id)) ? "menu.selectNone" : "menu.selectAll");
     deleteSelected.disabled = !n;
     deleteSelected.setAttribute("aria-label", n ? plural(n, "menu.deleteSelectedOne", "menu.deleteSelectedMany") : t("common.delete"));
+  }
+
+  // A pick changes the cards in place: rebuilding the grid on every tap made it blink and the page jump.
+  function syncPicks() {
+    for (const c of grid.querySelectorAll(".acard[data-set]")) {
+      const on = selected.has(c.dataset.set);
+      if (c.classList.contains("is-picked") === on) continue;
+      c.classList.toggle("is-picked", on);
+      c.setAttribute("aria-checked", String(on));
+      const check = c.querySelector(".acard__check");
+      if (check) check.replaceChildren(...(on ? [icon(ICONS.check, 16)] : []));
+    }
+    paintSelect(visibleSets());
   }
 
   function paintFilterDrawer() {
@@ -288,8 +301,7 @@ export function renderMenu(mode) {
     const activate = () => {
       if (!selecting) { location.hash = resume?.hash || `#/session/${a.id}`; return; }
       if (selected.has(a.id)) selected.delete(a.id); else selected.add(a.id);
-      paint();
-      grid.querySelector(`[data-set="${CSS.escape(a.id)}"]`)?.focus();   // the repaint rebuilt the card
+      syncPicks();
     };
     return el("div.acard" + (ai ? ".acard--ai" : "") + (picked ? ".is-picked" : ""), {
       role: selecting ? "checkbox" : "button", tabindex: "0", "data-set": a.id,

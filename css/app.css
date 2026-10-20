@@ -6680,14 +6680,21 @@ body.route-home .topbar { background: color-mix(in srgb, var(--canvas) 70%, tran
   transition: background var(--dur-fast), border-color var(--dur-fast), transform var(--dur-fast);
 }
 .acard__check svg { width: 14px; height: 14px; stroke-width: 3; }
-.grid.is-selecting .acard { user-select: none; transition: box-shadow var(--dur-fast), background var(--dur-fast), border-color var(--dur-fast); }
+/* Picking is instant and still: no lift on hover (it jumped under the pointer and stuck after a tap on a
+   phone), no grey tap flash, no double-tap-zoom wait. */
+.grid.is-selecting .acard {
+  user-select: none; -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+  transition: box-shadow var(--dur-fast), background var(--dur-fast), border-color var(--dur-fast);
+}
+.grid.is-selecting .acard:hover, .grid.is-selecting .acard:active { transform: none; }
+.grid.is-selecting .acard:hover .acard__go { transform: none; }
 .grid.is-selecting .acard:hover .acard__check { border-color: var(--brand); }
 .acard.is-picked {
   background: color-mix(in oklab, var(--brand) 7%, var(--surface));
   border-color: color-mix(in oklab, var(--brand) 55%, var(--line));
   box-shadow: 0 0 0 1px color-mix(in oklab, var(--brand) 55%, transparent), var(--shadow-1);
 }
-.acard.is-picked .acard__check { background: var(--brand); border-color: var(--brand); transform: scale(1.06); }
+.acard.is-picked .acard__check { background: var(--brand); border-color: var(--brand); }
 .grid.is-selecting .acard:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
 /* Room under the last card, so the floating bar never sits on it. */
 .grid.is-selecting { padding-bottom: 84px; }
@@ -6736,6 +6743,6 @@ body.route-home .topbar { background: color-mix(in srgb, var(--canvas) 70%, tran
 @media (max-width: 620px) {
   .grid > .acard .acard__check { grid-area: menu; position: static; justify-self: center; align-self: center; }
 }
-@media (prefers-reduced-motion: reduce) { .selectbar { animation: none; } .acard.is-picked .acard__check { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .selectbar { animation: none; } }
 /* The floating chat bubble would sit on the bar's corner: it steps aside while sets are being picked. */
 body:has(.selectbar:not([hidden])) .sitechat__fab { display: none; }
