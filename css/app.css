@@ -306,12 +306,13 @@ a.streakbadge:hover {
 .topbar__spacer { flex: 1; }
 
 .wordmark { display: inline-block; letter-spacing: -.02em; }
-/* The name itself: Lexend Bold, upright and tight, with "Era" in the brand blue (js/lib/wordmark.js). Used wherever
-   "PluggEra" stands next to the logo — the sidebar, the topbar, the front page, the sign-in page, the footer, the
-   welcome screen and the profile card. */
+/* The name itself: Lexend Bold, tight and leaning a little forward, with "Era" in the brand blue (js/lib/wordmark.js).
+   Used wherever "PluggEra" stands next to the logo — the sidebar, the topbar, the front page, the sign-in page, the
+   footer, the welcome screen and the profile card. */
 .wordmark__text {
   display: inline-block; font-family: "Lexend", var(--font-display); font-weight: 700; letter-spacing: -.035em;
   font-size: 1.2em;   /* a touch larger than the text around it, so the name reads next to the logo */
+  transform: skewX(-8deg); padding-right: .08em;   /* the lean; the padding keeps the top of the "a" off what follows */
 }
 .wordmark__text b { font-weight: inherit; color: var(--brand-ink); }
 /* On the two panels that are a fixed dark colour in every theme: a lighter blue on the sign-in panel; on the profile card,
@@ -1386,8 +1387,11 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
   .lp-brand .wordmark__text { font-size: 1em; }
 }
 @media (max-width: 420px) {
+  .lp-brand { gap: 6px; }
+  .lp-brand .wordmark__text { padding-right: 0; }
   .lp-head__actions { gap: var(--s-2); }
   .lp-head__actions .btn { padding-inline: 12px; }
+  .lp-head__actions .lp-lang { padding-inline: 8px; }
 }
 /* On the narrowest phones the logo, language pill and "Open the app" no longer
    fit in one row — the wordmark steps aside (still read by screen readers). */
