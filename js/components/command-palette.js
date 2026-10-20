@@ -15,7 +15,6 @@ function actions() {
     { label: t("cmd.review"), run: () => (location.hash = "#/review") },
     { label: t("cmd.weak"), run: () => (location.hash = "#/practice-weak") },
     { label: t("cmd.new"), run: () => (location.hash = "#/create") },
-    { label: t("cmd.gallery"), run: () => (location.hash = "#/gallery") },
     { label: t("cmd.progress"), run: () => (location.hash = "#/progress") },
     { label: t("cmd.rules"), run: () => (location.hash = "#/rules") },
     { label: t("cmd.check"), run: () => (location.hash = "#/solve?mode=check") },

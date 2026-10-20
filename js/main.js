@@ -175,7 +175,6 @@ const routes = [
   { rx: /^\/progress$/, view: () => import("./views/progress.js").then((mod) => mod.renderProgress()) },
   { rx: /^\/settings$/, view: () => import("./views/settings.js").then((mod) => mod.renderSettings()) },
   { rx: /^\/profile$/, view: () => import("./views/profile.js").then((mod) => mod.renderProfile()) },
-  { rx: /^\/gallery$/, view: () => import("./views/gallery.js").then((mod) => mod.renderGallery()) },
   { rx: /^\/library$/, view: (m, qs) => import("./views/library.js").then((mod) => mod.renderLibrary(qs)) },
   { rx: /^\/utmaning$/, view: (m, qs) => import("./views/challenge.js").then((mod) => mod.renderChallenge(qs)) },
   { rx: /^\/solve$/, view: (m, qs) => (qs.get("mode") === "check"
@@ -1233,7 +1232,7 @@ window.addEventListener("sb:langchange", async () => {
   // Best-effort — a failed content sync must not leave the UI stranded in the
   // old language, so the re-render below always runs.
   try {
-    await Promise.all([store.syncDemoLanguage(), store.syncLibraryLanguage(), store.syncHpLanguage()]);
+    await Promise.all([store.syncLibraryLanguage(), store.syncHpLanguage()]);
   } catch (e) {
     console.warn("language content sync failed:", e);
   }
@@ -1374,13 +1373,12 @@ store.init().then(() => {
   if (!landingShown && !privateGate() && /^\/(library|study|create|solve|hp|exam-prep)?$/.test(bootPath)) {
     import("./components/onboarding.js").then((m) => m.maybeShowOnboarding());
   }
-  // Bring any demo or library sets loaded in a different language up to date —
+  // Bring any library sets loaded in a different language up to date —
   // then refresh whatever's on screen so a deep-linked session or the home
   // grid shows the corrected wording.
   // Language first, then any questions a library moment has gained since the
   // student added it — so an appended question lands in the right language.
   Promise.all([
-    store.syncDemoLanguage(),
     store.syncLibraryLanguage().then(async (n) => n + (await store.syncLibraryUpdates())),
     store.syncHpLanguage(),
   ]).then((counts) => {

@@ -1,5 +1,5 @@
-// Settings: look & feel, studying, AI (tutor server + models), account, demo
-// content, your data.
+// Settings: look & feel, studying, AI (tutor server + models), account, your
+// data.
 //
 // Laid out like a settings screen rather than a form: each section is a card
 // of rows — what the setting is and does on the left, its control on the
@@ -11,7 +11,7 @@ import { el, clear, toast, icon, ICONS, downloadText } from "../lib/dom.js";
 import { localDayKey } from "../lib/activity.js";
 import { MODELS } from "../claude.js";
 import { getFont, setFont, getTextSize, setTextSize } from "../lib/typeface.js";
-import { t, plural, getLang, setLang, LANGS, fmtDate } from "../lib/i18n.js";
+import { t, getLang, setLang, LANGS, fmtDate } from "../lib/i18n.js";
 import { getTheme, setTheme } from "../lib/theme.js";
 import { homeButton } from "../components/nav.js";
 import { voiceControls } from "../components/voice-controls.js";
@@ -248,7 +248,6 @@ export function renderSettings() {
     ["studying", "set.studying", ICONS.book, studyPanel],
     ["ai", "set.aiTitle", ICONS.spark, aiSection()],
     ["account", "set.acctTitle", ICONS.user, accountSection()],
-    ["demo", "set.demoTitle", ICONS.play, demoSection()],
     ["data", "set.dataTitle", ICONS.download, dataSection()],
   ].filter(([, , , panel]) => panel);
   for (const [id, , , panel] of sections) panel.id = `settings-${id}`;
@@ -390,55 +389,6 @@ export function renderSettings() {
 
   function modelRow(job, model, when) {
     return el("tr", {}, [el("th", {}, job), el("td", {}, prettyModel(model)), el("td.note", {}, when)]);
-  }
-
-  /* ---------------- demo sets ---------------- */
-  function demoSection() {
-    const status = el("p.set-row__note");
-    const actions = el("div.set-row__ctl");
-
-    function paint() {
-      const { loaded, total } = store.demoStatus;
-      status.textContent = loaded === 0 ? t("set.demoNone")
-        : loaded < total ? t("set.demoPartial", { loaded, total })
-        : t("set.demoAll");
-
-      clear(actions);
-      if (loaded < total) {
-        actions.appendChild(el("button.btn.btn--sm", {
-          type: "button",
-          onclick: async (e) => {
-            e.currentTarget.disabled = true;
-            try {
-              const n = await store.loadDemoContent();
-              toast(n ? plural(n, "set.demoAddedOne", "set.demoAddedMany") : t("set.demoAlready"));
-            } catch {
-              toast(t("set.demoFailed"));
-            }
-            paint();
-          },
-        }, [icon(ICONS.play, 16), t(loaded ? "set.demoAddMissing" : "set.demoLoad")]));
-      }
-      if (loaded > 0) {
-        actions.appendChild(el("button.btn.btn--ghost.btn--sm.set-danger", {
-          type: "button",
-          onclick: async () => {
-            if (!(await confirmDialog({ message: t("set.demoRemoveConfirm"), confirmLabel: t("set.demoRemove"), danger: true }))) return;
-            store.removeDemoContent();
-            toast(t("set.demoRemoved"));
-            paint();
-          },
-        }, t("set.demoRemove")));
-      }
-    }
-    paint();
-
-    return card(ICONS.play, t("set.demoTitle"), t("set.demoSub"), [
-      el("div.set-row", {}, [
-        el("div.set-row__text", {}, [el("span.set-row__label", {}, t("set.demoTitle")), status]),
-        actions,
-      ]),
-    ]);
   }
 
   /* ---------------- account ---------------- */

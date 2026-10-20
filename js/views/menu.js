@@ -352,16 +352,7 @@ export function renderMenu(mode) {
       el("div", { style: { display: "flex", gap: "10px", justifyContent: "center", marginTop: "16px", flexWrap: "wrap" } }, [
         el("a.btn" + (isFirstRun && mode !== "study" ? ".btn--ghost" : ""), { href: "#/library" }, [icon(ICONS.book, 18), t("menu.libraryCta")]),
         el("a.btn.btn--ghost", { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
-        isFirstRun && store.demoStatus.loaded === 0 && el("button.btn.btn--ghost", {
-          type: "button",
-          onclick: async (e) => {
-            const btn = e.currentTarget;
-            btn.disabled = true;
-            try { await store.loadDemoContent(); toast(t("menu.demoAdded")); }
-            catch { toast(t("menu.demoFailed")); btn.disabled = false; }
-          },
-        }, [icon(ICONS.play, 16), t("menu.tryDemo")]),
-      ].filter(Boolean)),
+      ]),
     ]);
   }
 

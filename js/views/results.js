@@ -25,9 +25,9 @@ export function renderResults(attemptId) {
   }
   const assignment = store.getAssignment(attempt.assignmentId);
   const isReview = !!attempt.isReview;
-  // A demo/library set follows the UI language, so show its current title
-  // rather than whatever it was called when this attempt was recorded.
-  const synced = assignment && (assignment._sampleLang || assignment._libLang);
+  // A library set follows the UI language, so show its current title rather
+  // than whatever it was called when this attempt was recorded.
+  const synced = assignment && assignment._libLang;
   const heading = (synced && assignment.title) || attempt.title || assignment?.title || t("session.reviewTitle");
   const score = attempt.scorePct;
   const great = score >= 80;

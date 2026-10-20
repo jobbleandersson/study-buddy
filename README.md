@@ -128,7 +128,7 @@ js/config.js         backend server URLs
 js/data/national-tests.js      curated links to public Swedish national exams
 js/views/login.js    email/password sign in, optional
 js/views/parent-dashboard.js   linking, assigning sets, read-only student progress
-data/samples/        demo sets + scripted tutor, English and Swedish (demo mode)
+data/samples/        scripted tutor, English and Swedish (demo mode)
 vendor/              pdf.js, KaTeX, canvas-confetti (committed, no npm)
 server/              serves the frontend + API: key proxy, accounts/sync, parent-teacher
                      linking (Node/Express/SQLite) — see server/README.md

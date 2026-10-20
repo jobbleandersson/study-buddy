@@ -2158,15 +2158,6 @@ body.no-chrome .sitechat__panel { display: none; }
 .qedit.is-dragging { opacity: .5; }
 .qedit.is-dragover { outline: 2px dashed var(--brand); outline-offset: 2px; }
 
-/* sample gallery */
-.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--s-4); }
-.gallery__card {
-  display: flex; flex-direction: column; gap: 6px; align-items: flex-start;
-  padding: var(--s-4); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface);
-}
-.gallery__card h3 { font-size: var(--fs-md); }
-.gallery__card .btn { margin-top: auto; }
-.gallery__preview { font-style: italic; color: var(--ink-soft); font-size: var(--fs-sm); }
 
 /* practice library */
 /* Library, step 1: one card per level with its size and subjects */
