@@ -2176,7 +2176,10 @@ body.no-chrome .sitechat__panel { display: none; }
 .levelcard__name { font-family: var(--font-display); font-weight: 800; font-size: 1.35rem; letter-spacing: -.02em; }
 .levelcard__stats { font-size: var(--fs-sm); color: var(--ink-soft); font-variant-numeric: tabular-nums; }
 .levelcard__marks { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
-.levelcard__marks .subjmark { width: 34px; height: 34px; font-size: calc(13px * var(--fs-scale, 1)); border-radius: 9px; }
+.levelcard__marks .subjmark {
+  width: 34px; height: 34px; font-size: calc(13px * var(--fs-scale, 1)); border-radius: 9px;
+  box-shadow: 0 0 10px -3px color-mix(in srgb, var(--subject, var(--brand)) 55%, transparent);
+}
 .levelcard__marks .subjmark small { font-size: calc(8px * var(--fs-scale, 1)); }
 
 .libgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: var(--s-3); margin-top: var(--s-4); }
@@ -4735,7 +4738,20 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 /* ===== subject picker: book covers ===== */
 .source-grid--subjects { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
 .source-opt--subject { display: grid; grid-template-columns: 56px minmax(0, 1fr); column-gap: 14px; align-items: center; align-content: start; text-align: left; padding: 16px 16px 14px 18px; }
-.subjmark { width: 56px; height: 56px; border-radius: var(--r-md); background: var(--subject-tint, var(--brand-tint)); color: var(--subject-text, var(--subject-ink, var(--brand-ink))); display: grid; place-items: center; align-content: center; text-align: center; font-family: var(--font-display); font-weight: 700; font-size: calc(21px * var(--fs-scale, 1)); letter-spacing: -.02em; line-height: 1.05; }
+/* A subject's mark in the library, in the home page tiles' subtle neon (.home-tile): a faint tint of the
+   subject's colour (views/library.js SUBJECT_COLORS), a neon edge with a soft glow, and letters in the
+   colour. Mixed with the theme's surface and ink, so it is lighter on the dark theme and deeper on the light. */
+.subjmark {
+  width: 56px; height: 56px; border-radius: var(--r-md);
+  background: var(--surface);
+  background: color-mix(in oklab, var(--subject, var(--brand)) 12%, var(--surface));
+  border: 1.5px solid var(--subject, var(--brand));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--subject, var(--brand)) 22%, transparent), 0 0 14px -4px color-mix(in srgb, var(--subject, var(--brand)) 55%, transparent);
+  color: var(--brand-ink);
+  color: color-mix(in srgb, var(--subject, var(--brand)) 70%, var(--ink));
+  display: grid; place-items: center; align-content: center; text-align: center;
+  font-family: var(--font-display); font-weight: 700; font-size: calc(21px * var(--fs-scale, 1)); letter-spacing: -.02em; line-height: 1.05;
+}
 .subjmark small { display: block; font-size: calc(11px * var(--fs-scale, 1)); font-weight: 600; letter-spacing: 0; opacity: .9; }
 .subjtext { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .subjname { font-size: var(--fs-md); font-weight: 600; }

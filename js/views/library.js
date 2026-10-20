@@ -2,12 +2,22 @@
 // subject's sets — instead of one endless page. Works with no API key; every
 // set is a static file that's copied into the student's own library on "Add".
 
-import { store, PALETTE } from "../store.js";
+import { store } from "../store.js";
 import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
 import { t, plural, getLang } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { loadLibraryIndex, loadLibraryTranslations, isImported, importSet } from "../data/library.js";
 import { masteryByTopic, setProgress } from "../lib/mastery.js";
+
+// Every school subject has its own colour in the library (by its Swedish name), so "Ma" is found at a
+// glance; drawn in the home page tiles' subtle neon (app.css .subjmark). Where a subject matches a tile's
+// hue it takes that tile's exact colour (Skapa's purple, Biblioteket's cyan, Inför provet's green,
+// PluggEra AI's pink, Högskoleprovet's orange). A subject not listed gets one of these by its name.
+const SUBJECT_COLORS = {
+  Matematik: "#4A6CF7", Svenska: "#F5B82E", Engelska: "#F0484E", Biologi: "#22A35A", Fysik: "#7650FF",
+  Kemi: "#0FA3C2", Historia: "#FF7426", Geografi: "#2F8BEA", Samhällskunskap: "#14B38A",
+  Religionskunskap: "#C04FE0", Naturkunskap: "#74B816", Spanska: "#EE3D86", Tyska: "#B07D52", Franska: "#F2677A",
+};
 
 export async function renderLibrary(qs = null) {
   let index, tr;
@@ -34,25 +44,18 @@ export async function renderLibrary(qs = null) {
   const setTitle = (s) => tr.sets[s?.id]?.title || s?.title;
   const setSummary = (s) => tr.sets[s?.id]?.summary || s?.summary;
 
-  // Colour-code library subjects the same way the rest of the app does — if
-  // this subject's already in the student's own library (by name), reuse its
-  // real colour so it matches the home menu / progress page; otherwise assign
-  // one by position in its level, so subjects are still visually distinct
-  // while browsing, before anything's been added.
   // Courses of one subject share a family: "Matematik 3" -> "Matematik". The key comes from the
   // Swedish name so it is language-stable; the label follows the UI language.
   const familyKey = (s) => (s?.name || "").replace(/\s+\d\w*$/, "");
   const familyLabel = (s) => (subjName(s) || "").replace(/\s+\d\w*$/, "");
 
-  function libSubjectColor(subject, siblings) {
-    const name = (subjName(subject) || "").toLowerCase();
-    const own = store.subjects.find((s) => s.name.toLowerCase() === name);
-    if (own) return store.subjectColor(own.id);
-    // One colour per family ("Matematik 1/2/3" share it), so grouped courses read as one subject.
-    const families = [...new Set(siblings.map(familyKey))];
-    const idx = Math.max(0, families.indexOf(familyKey(subject)));
-    const p = PALETTE[idx % PALETTE.length];
-    return { solid: `var(--c-${p.name})`, ink: `var(--c-${p.name}-ink)`, tint: `var(--c-${p.name}-tint)` };
+  /** A subject's colour in the library: its own, the same at every level and for every course of it,
+   *  so "Ma" is always the blue one. */
+  function libSubjectColor(subject) {
+    const fam = familyKey(subject);
+    const all = Object.values(SUBJECT_COLORS);
+    const hex = SUBJECT_COLORS[fam] || all[[...fam].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 0) % all.length];
+    return { solid: hex };
   }
 
   const root = el("div.libview");
@@ -135,8 +138,7 @@ export async function renderLibrary(qs = null) {
     const sections = [...bySubject.entries()].map(([subjId, sets]) => {
       const subject = index.subjects.find((s) => s.id === subjId);
       const level = index.levels.find((l) => l.id === subject?.level);
-      const siblings = index.subjects.filter((s) => s.level === subject?.level);
-      const color = libSubjectColor(subject, siblings);
+      const color = libSubjectColor(subject);
       return el("section.panel", { style: { marginBottom: "20px" } }, [
         el("p.note", { style: { marginBottom: "8px", display: "flex", alignItems: "center", gap: "8px" } }, [
           el("span", { style: { width: "8px", height: "8px", borderRadius: "var(--r-full)", background: color.solid, flex: "none" } }),
@@ -169,29 +171,24 @@ export async function renderLibrary(qs = null) {
             icon(ICONS.arrow, 18),
           ]),
           el("span.levelcard__stats", {}, t("lib.levelStats", { subjects: subjects.length, sets: sets.length, questions })),
-          el("span.levelcard__marks", { "aria-hidden": "true" }, subjects.slice(0, 8).map((s) => {
-            const c = libSubjectColor(s, subjects);
-            const m = subjectMark(subjName(s));
-            m.style.setProperty("--subject-tint", c.tint);
-            m.style.setProperty("--subject-ink", c.ink);
-            m.style.setProperty("--subject-text", c.text);
-            return m;
-          })),
+          el("span.levelcard__marks", { "aria-hidden": "true" }, subjects.slice(0, 8).map((s) => subjectMark(subjName(s), libSubjectColor(s)))),
         ]);
       })),
     ]);
   }
 
   // The cover of the subject's book on the shelf: two letters ("Ma", "Sv"), and for a
-  // gymnasium course the course underneath ("Ma" over "1c"). Made from the name, so it
-  // works for every subject without a list to keep up to date.
-  function subjectMark(name) {
+  // gymnasium course the course underneath ("Ma" over "1c"), on the subject's own colour
+  // (libSubjectColor). Made from the name, so it works for every subject without a list to
+  // keep up to date.
+  function subjectMark(name, color) {
     const words = String(name || "").trim().split(/\s+/);
     const first = words[0] || "?";
     const last = words.length > 1 ? words[words.length - 1] : "";
     const course = /^\d\w{0,2}$/.test(last) ? last : "";
     const letters = first.charAt(0).toUpperCase() + first.charAt(1).toLowerCase();
-    return el("span.subjmark", { "aria-hidden": "true" }, course ? [el("span", {}, letters), el("small", {}, course)] : letters);
+    return el("span.subjmark", { "aria-hidden": "true", style: { "--subject": color.solid } },
+      course ? [el("span", {}, letters), el("small", {}, course)] : letters);
   }
 
   /* ---- step 2: pick a subject ---- */
@@ -215,13 +212,13 @@ export async function renderLibrary(qs = null) {
       : [{ label: null, subjects }];
 
     const card = (subject) => {
-        const color = libSubjectColor(subject, subjects);
+        const color = libSubjectColor(subject);
         const nSets = index.sets.filter((s) => s.subject === subject.id).length;
         return el("button.source-opt.source-opt--subject", {
           type: "button", onclick: () => { state.subject = subject.id; paint(); },
-          style: { "--subject": color.solid, "--subject-ink": color.ink, "--subject-text": color.text, "--subject-tint": color.tint },
+          style: { "--subject": color.solid },
         }, [
-          subjectMark(subjName(subject)),
+          subjectMark(subjName(subject), color),
           el("span.subjtext", {}, [
             el("strong.subjname", {}, subjName(subject)),
             el("span.subjmeta", {}, plural(nSets, "lib.subjSetsOne", "lib.subjSetsMany")),
@@ -246,8 +243,7 @@ export async function renderLibrary(qs = null) {
     const subject = index.subjects.find((s) => s.id === state.subject);
     const sets = index.sets.filter((s) => s.subject === subject.id);
     const missing = sets.filter((s) => !isImported(s.id));
-    const siblings = index.subjects.filter((s) => s.level === subject.level);
-    const color = libSubjectColor(subject, siblings);
+    const color = libSubjectColor(subject);
 
     // The exam-prep page keys off the student's own subject id, which only
     // exists once at least one set from here has been imported.
