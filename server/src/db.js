@@ -316,6 +316,30 @@ db.exec(`
   );
   CREATE INDEX IF NOT EXISTS ai_reports_status ON ai_reports(status, created_at);
 
+  -- What students tell us about the site (routes/feedback.js): an idea, a problem, praise or a question, with
+  -- an optional mood (1-5) and the page it was sent from. user_id is NULL when the sender chose "send without
+  -- my account"; those can be read but never answered. Read at #/admin/feedback with REVIEW_ADMIN_KEY. A
+  -- linked row goes with the account if it is deleted.
+  CREATE TABLE IF NOT EXISTS feedback (
+    id TEXT PRIMARY KEY,
+    user_id TEXT REFERENCES users(id) ON DELETE CASCADE,
+    kind TEXT NOT NULL,                       -- 'idea' | 'problem' | 'praise' | 'other'
+    mood INTEGER,                             -- 1 (bad) to 5 (great), or NULL
+    message TEXT NOT NULL DEFAULT '',
+    context TEXT NOT NULL DEFAULT 'button',   -- where the form was opened: 'button' | 'page' | 'after-session' | 'after-results'
+    route TEXT,                               -- the page, without a query string
+    lang TEXT,
+    app_version TEXT,
+    browser TEXT,
+    status TEXT NOT NULL DEFAULT 'new',       -- 'new' | 'seen' | 'planned' | 'done' | 'declined'
+    reply TEXT NOT NULL DEFAULT '',           -- what we wrote back; the sender sees it under "Dina förslag"
+    created_at INTEGER NOT NULL,
+    updated_at INTEGER NOT NULL,
+    replied_at INTEGER
+  );
+  CREATE INDEX IF NOT EXISTS feedback_status ON feedback(status, created_at);
+  CREATE INDEX IF NOT EXISTS feedback_user ON feedback(user_id, created_at);
+
   CREATE TABLE IF NOT EXISTS page_views (
     id TEXT PRIMARY KEY,
     path TEXT NOT NULL,
