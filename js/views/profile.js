@@ -16,6 +16,7 @@ import { masteryByTopic, masteryForSubject } from "../lib/mastery.js";
 import { estimatedGrade } from "../lib/grade.js";
 import { isHpSetId } from "../lib/hp.js";
 import { hpPrognosis } from "./hp.js";
+import { wordmarkText } from "../lib/wordmark.js";
 
 const ROLES = ["student", "parent", "teacher"];
 const SUBJECTS_SHOWN = 6;
@@ -119,7 +120,7 @@ function studentCard(p, role) {
 
   return el("section.idcard", { "aria-label": t("profile.cardAria") }, [
     el("div.idcard__top", {}, [
-      el("span.idcard__brand", {}, [el("img", { src: "assets/favicon.svg", alt: "" }), el("span.wordmark__text", {}, "PluggEra")]),
+      el("span.idcard__brand", {}, [el("img", { src: "assets/favicon.svg", alt: "" }), wordmarkText()]),
       el("button.idcard__edit", { type: "button", onclick: () => openProfileEditor() }, [icon(ICONS.pencil, 15), t("profile.edit")]),
     ]),
     el("div.idcard__who", {}, [

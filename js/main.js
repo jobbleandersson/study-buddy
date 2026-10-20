@@ -4,6 +4,7 @@ import { store } from "./store.js";
 import { PAGEVIEW_URL, PROXY_HEALTH_URL, ERRORS_URL } from "./config.js";
 import { installErrorReporting } from "./lib/error-report.js";
 import { hideJoinToken } from "./lib/join-link.js";
+import { wordmarkText } from "./lib/wordmark.js";
 import { el, clear, mount, append, icon, ICONS, toast, showBanner, hideBanner, downloadText } from "./lib/dom.js";
 import { announce, focusHeading } from "./lib/a11y.js";
 import { t, plural, getLang, setLang, applyLang, LANGS, daysUntil } from "./lib/i18n.js";
@@ -917,8 +918,8 @@ function chatRoute() {
 
 // Highlighter-swipe wordmark: two rough, overlapping tinted strokes behind
 // the brand text, like it's been marked up twice with a highlighter.
-function wordmark(text) {
-  return [el("span.wordmark__text", {}, text)];
+function wordmark() {
+  return [wordmarkText()];
 }
 
 function shell(contentNode) {
