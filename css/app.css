@@ -6665,3 +6665,77 @@ body.route-home .topbar { background: color-mix(in srgb, var(--canvas) 70%, tran
 :root[data-theme="dark"] .home__daymark { filter: brightness(1.45); }
 @media (prefers-color-scheme: dark) { :root[data-theme="system"] .home__daymark { filter: brightness(1.45); } }
 .home__title h1 { letter-spacing: -0.015em; }
+
+/* ---- "Välj": picking sets to delete (menu.js select mode) ----
+   Picking is a calm, everyday act, so it is drawn in the brand blue: a picked card gets a blue edge, a
+   light blue wash and a filled check. Red is kept for the one destructive button. The actions live in a
+   floating bar at the bottom of the screen (dark in light mode, light in dark mode), within reach however
+   far down the list you are; it slides up when select mode opens. */
+.selecttoggle[aria-pressed="true"] { background: var(--brand-tint); border-color: transparent; color: var(--brand-ink); }
+
+.acard__check {
+  position: absolute; top: 12px; right: 12px; z-index: 2;
+  width: 24px; height: 24px; border-radius: var(--r-full); display: grid; place-items: center;
+  border: 1.5px solid var(--line-strong); background: var(--surface); color: #fff;
+  transition: background var(--dur-fast), border-color var(--dur-fast), transform var(--dur-fast);
+}
+.acard__check svg { width: 14px; height: 14px; stroke-width: 3; }
+.grid.is-selecting .acard { user-select: none; transition: box-shadow var(--dur-fast), background var(--dur-fast), border-color var(--dur-fast); }
+.grid.is-selecting .acard:hover .acard__check { border-color: var(--brand); }
+.acard.is-picked {
+  background: color-mix(in oklab, var(--brand) 7%, var(--surface));
+  border-color: color-mix(in oklab, var(--brand) 55%, var(--line));
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--brand) 55%, transparent), var(--shadow-1);
+}
+.acard.is-picked .acard__check { background: var(--brand); border-color: var(--brand); transform: scale(1.06); }
+.grid.is-selecting .acard:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+/* Room under the last card, so the floating bar never sits on it. */
+.grid.is-selecting { padding-bottom: 84px; }
+
+.selectbar {
+  --sb-bg: color-mix(in srgb, var(--ink) 94%, var(--brand));
+  --sb-fg: var(--canvas);
+  --sb-soft: color-mix(in srgb, var(--canvas) 68%, transparent);
+  position: fixed; z-index: 40; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  display: flex; align-items: center; gap: 6px;
+  width: max-content; max-width: calc(100vw - 32px);
+  padding: 6px 6px 6px 18px; border-radius: var(--r-full);
+  background: var(--sb-bg); color: var(--sb-fg);
+  box-shadow: 0 12px 32px -8px rgba(10, 14, 30, .45), 0 2px 6px rgba(10, 14, 30, .2);
+  animation: selectbar-in .22s cubic-bezier(.2, .8, .2, 1);
+}
+.selectbar[hidden] { display: none; }
+@keyframes selectbar-in { from { opacity: 0; transform: translate(-50%, 16px); } to { opacity: 1; transform: translate(-50%, 0); } }
+.selectbar__info { display: inline-flex; align-items: center; gap: 8px; margin-right: 10px; font-size: var(--fs-sm); font-weight: 600; white-space: nowrap; }
+.selectbar__info .selectbar__n { color: var(--sb-soft); font-weight: 500; }
+.selectbar.has-picks .selectbar__info .selectbar__n { color: var(--sb-fg); font-weight: 600; }
+.selectbar__num {
+  min-width: 26px; height: 26px; padding: 0 7px; border-radius: var(--r-full); display: inline-grid; place-items: center;
+  background: var(--brand); color: #fff; font-size: 13px; font-weight: 800; font-variant-numeric: tabular-nums;
+}
+.selectbar__num[hidden] { display: none; }
+.selectbar__all, .selectbar__del {
+  display: inline-flex; align-items: center; gap: 7px; height: 38px; padding: 0 14px; border: 0; border-radius: var(--r-full);
+  font: inherit; font-size: var(--fs-sm); font-weight: 600; cursor: pointer; white-space: nowrap;
+  transition: background var(--dur-fast), opacity var(--dur-fast);
+}
+.selectbar__all { background: transparent; color: var(--sb-fg); }
+.selectbar__all:hover { background: color-mix(in srgb, var(--sb-fg) 12%, transparent); }
+.selectbar__del { background: var(--c-berry-ink); color: #fff; padding: 0 16px 0 14px; }
+.selectbar__del:hover:not(:disabled) { background: color-mix(in srgb, var(--c-berry-ink) 86%, #000); }
+.selectbar__del:disabled { opacity: .4; cursor: default; }
+.selectbar :is(button):focus-visible { outline: 2px solid var(--brand-bright); outline-offset: 2px; }
+/* Desktop: centred under the content column, not under the whole window (the sidebar takes the left). */
+@media (min-width: 900px) { .selectbar { left: calc(50% + 126px); } }
+/* Phone: a full-width pill just above the tab bar. */
+@media (max-width: 899.98px) {
+  .selectbar { width: calc(100vw - 24px); bottom: calc(72px + env(safe-area-inset-bottom, 0px)); padding-left: 16px; }
+  .selectbar__info { margin-right: auto; }
+}
+@media (max-width: 620px) {
+  .grid > .acard .acard__check { grid-area: menu; position: static; justify-self: center; align-self: center; }
+}
+@media (prefers-reduced-motion: reduce) { .selectbar { animation: none; } .acard.is-picked .acard__check { transform: none; } }
+/* The floating chat bubble would sit on the bar's corner: it steps aside while sets are being picked. */
+body:has(.selectbar:not([hidden])) .sitechat__fab { display: none; }

@@ -9,7 +9,6 @@ import { loadLibraryIndex, loadLibraryTranslations, baseSubjectName } from "../l
 import { localDayKey } from "../lib/activity.js";
 import { masteryByTopic, masteryForAssignment } from "../lib/mastery.js";
 import { monthCalendar, weekStrip } from "../components/calendar.js";
-import { confirmDialog } from "../components/confirm-dialog.js";
 import { homeButton } from "../components/nav.js";
 import { isAiSet } from "../components/ai-mark.js";
 import { openDueDialog, closeDueDialog } from "../components/due-dialog.js";
@@ -36,6 +35,10 @@ let subjectFilter = "all";
 let sortBy = "recent";
 let query = "";
 let filtersOpen = false;
+// "Välj": picking several sets to delete at once. Kept outside renderMenu because the screen is rebuilt on
+// every store change; the ids of sets that are gone are dropped at the next paint.
+let selecting = false;
+const selected = new Set();
 // How many sets the home page previews on a phone before "See all" (the rest are on Studera).
 const HOME_PREVIEW = 4;
 
@@ -76,6 +79,45 @@ export function renderMenu(mode) {
     type: "button", "aria-expanded": "false",
     onclick: () => { filtersOpen = !filtersOpen; paintFilterDrawer(); },
   }, [t("menu.filter"), filterCount, el("span.caret", { "aria-hidden": "true" }, "▾")]);
+
+  // Select mode: a toggle in the bar, and above the cards a row with the count, "Select all" and Delete.
+  const selectToggle = el("button.btn.btn--ghost.btn--sm.selecttoggle", {
+    type: "button", "aria-pressed": "false",
+    onclick: () => { selecting = !selecting; selected.clear(); paint(); },
+  });
+  // A floating bar at the bottom of the screen while picking: the count, "Select all" and Delete, always in
+  // reach however far down the list you are.
+  const selectNum = el("b.selectbar__num");
+  const selectCount = el("span.selectbar__n", { "aria-live": "polite" });
+  const selectAll = el("button.selectbar__all", { type: "button", onclick: () => {
+    const ids = visibleSets().map((a) => a.id);
+    const all = ids.length && ids.every((id) => selected.has(id));
+    if (all) ids.forEach((id) => selected.delete(id)); else ids.forEach((id) => selected.add(id));
+    paint();
+  } });
+  const deleteSelected = el("button.selectbar__del", { type: "button", onclick: () => removeMany([...selected]) },
+    [icon(ICONS.trash, 16), el("span", {}, t("common.delete"))]);
+  const selectBar = el("div.selectbar", { hidden: true, role: "toolbar", "aria-label": t("menu.select") }, [
+    el("span.selectbar__info", {}, [selectNum, selectCount]), selectAll, deleteSelected,
+  ]);
+
+  function paintSelect(items) {
+    const inTab = store.assignments.some((a) => a.type === tab);
+    if (!inTab) selecting = false;
+    for (const id of [...selected]) if (!items.some((a) => a.id === id)) selected.delete(id);
+    selectToggle.hidden = !inTab;
+    selectToggle.textContent = t(selecting ? "common.cancel" : "menu.select");
+    selectToggle.setAttribute("aria-pressed", String(selecting));
+    selectBar.hidden = !selecting;
+    const n = selected.size;
+    selectBar.classList.toggle("has-picks", n > 0);
+    selectNum.textContent = String(n);
+    selectNum.hidden = !n;
+    selectCount.textContent = n ? t(n === 1 ? "menu.selectedOne" : "menu.selectedMany") : t("menu.selectHint");
+    selectAll.textContent = t(items.length && items.every((a) => selected.has(a.id)) ? "menu.selectNone" : "menu.selectAll");
+    deleteSelected.disabled = !n;
+    deleteSelected.setAttribute("aria-label", n ? plural(n, "menu.deleteSelectedOne", "menu.deleteSelectedMany") : t("common.delete"));
+  }
 
   function paintFilterDrawer() {
     const active = Number(subjectFilter !== "all") + Number(sortBy !== "recent");
@@ -137,14 +179,17 @@ export function renderMenu(mode) {
     paintFilterDrawer();
 
     const items = visibleSets();
+    paintSelect(items);
+    grid.classList.toggle("is-selecting", selecting);
     clear(grid);
     // First run: the empty state below already offers it. The Studera page has it as a button in its header.
-    if (store.assignments.length && mode !== "study") grid.appendChild(newCard());
+    if (store.assignments.length && mode !== "study" && !selecting) grid.appendChild(newCard());
     // On a phone the home page shows the first four as a preview and links on to Studera (CSS hides the
-    // rest); while searching it shows every hit.
+    // rest); while searching, or picking sets to delete, it shows every one ("Select all" must never
+    // take a set the student can't see).
     items.forEach((a, i) => {
       const c = card(a, topicMastery);
-      if (mode !== "study" && i >= HOME_PREVIEW && !query.trim()) c.classList.add("acard--extra");
+      if (mode !== "study" && i >= HOME_PREVIEW && !query.trim() && !selecting) c.classList.add("acard--extra");
       grid.appendChild(c);
     });
 
@@ -239,17 +284,25 @@ export function renderMenu(mode) {
         [el("i", { style: { width: `${Math.min(100, Math.round((openCount / Math.max(1, a.questions.length)) * 100))}%` } })]),
     ].filter(Boolean);
 
-    return el("div.acard" + (ai ? ".acard--ai" : ""), {
-      role: "button", tabindex: "0",
+    const picked = selecting && selected.has(a.id);
+    const activate = () => {
+      if (!selecting) { location.hash = resume?.hash || `#/session/${a.id}`; return; }
+      if (selected.has(a.id)) selected.delete(a.id); else selected.add(a.id);
+      paint();
+      grid.querySelector(`[data-set="${CSS.escape(a.id)}"]`)?.focus();   // the repaint rebuilt the card
+    };
+    return el("div.acard" + (ai ? ".acard--ai" : "") + (picked ? ".is-picked" : ""), {
+      role: selecting ? "checkbox" : "button", tabindex: "0", "data-set": a.id,
+      ...(selecting ? { "aria-checked": String(picked) } : {}),
       style: { "--subject": color.solid, "--subject-ink": color.ink, "--subject-text": color.text, "--subject-tint": color.tint },
-      "aria-label": t(open ? "menu.cardAriaOpen" : "menu.cardAria",
+      "aria-label": selecting ? a.title : t(open ? "menu.cardAriaOpen" : "menu.cardAria",
         { title: a.title, subject: subjectName, count: a.questions.length }),
-      onclick: () => { location.hash = resume?.hash || `#/session/${a.id}`; },
+      onclick: activate,
       onkeydown: (e) => {
-        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); location.hash = resume?.hash || `#/session/${a.id}`; }
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); activate(); }
       },
     }, [
-      menuBtn,
+      selecting ? el("span.acard__check", { "aria-hidden": "true" }, picked ? icon(ICONS.check, 16) : null) : menuBtn,
       // The subject as a dot in its colour and a name that trims on one line, so a long one ("XYZ – Matematisk
       // problemlösning") never wraps and every title starts at the same height.
       el("div.acard__top", {}, [
@@ -359,17 +412,29 @@ export function renderMenu(mode) {
     toast(t("menu.renamed"));
   }
 
-  async function remove(a) {
-    const attempts = store.attempts.filter((x) => x.assignmentId === a.id).length;
-    const msg = attempts
-      ? t("menu.deleteConfirmAttempts", { title: a.title, n: attempts })
-      : t("menu.deleteConfirm", { title: a.title });
-    if (!(await confirmDialog({ message: msg, confirmLabel: t("common.delete"), danger: true }))) return;
+  // Deleting asks nothing: the student's results stay in their history, and "Ångra" in the toast puts the
+  // set back with its review schedule (store.deleteAssignment / restoreAssignment). The toast stays up while
+  // the pointer or keyboard is on it.
+  function remove(a) {
     const snapshot = store.deleteAssignment(a.id);
-    toast(t("menu.deleted"), snapshot ? {
+    toast(t("menu.deletedOne", { title: a.title }), snapshot ? {
       actionLabel: t("common.undo"),
       onAction: () => store.restoreAssignment(snapshot),
     } : undefined);
+  }
+
+  /** "Ta bort (3)" in select mode: all at once, and one "Ångra" puts every one back. */
+  function removeMany(ids) {
+    if (!ids.length) return;
+    selecting = false;
+    selected.clear();
+    const snapshots = ids.map((id) => store.deleteAssignment(id)).filter(Boolean);
+    if (!snapshots.length) { paint(); return; }
+    toast(snapshots.length === 1 ? t("menu.deletedOne", { title: snapshots[0].assignment.title }) : t("menu.deletedMany", { n: snapshots.length }), {
+      actionLabel: t("common.undo"),
+      // Back in the order they were in: restoreAssignment puts each one first in the list.
+      onAction: () => { for (const s of [...snapshots].reverse()) store.restoreAssignment(s); },
+    });
   }
 
   /* ---------------- header + tabs ---------------- */
@@ -398,15 +463,20 @@ export function renderMenu(mode) {
   paint();
 
   const libraryUI = [
-    el("div.librarybar", {}, [tabsEl, searchWrap, filterToggle]),
+    el("div.librarybar", {}, [tabsEl, searchWrap, filterToggle, selectToggle]),
     filterDrawer,
     countLabel,
+    selectBar,
     grid,
   ];
   // The screen is rebuilt on every store change (a sync, a subject removed in the quick-add dialog): the
   // quick-add dialog stays open through that and closes only when you leave the screen.
   const onHome = () => ["", "/", "/study"].includes(location.hash.replace(/^#/, "").split("?")[0]);
-  const menuCleanup = () => { closeCardMenu(); closeDueDialog(); closeDayChooser(); if (!onHome()) closeQuickAdd(); };
+  // Leaving for another screen also ends select mode, so it isn't still on when the student comes back.
+  const menuCleanup = () => {
+    closeCardMenu(); closeDueDialog(); closeDayChooser();
+    if (!onHome()) { closeQuickAdd(); selecting = false; selected.clear(); }
+  };
 
   // "Study" = just the set library on its own page (reached from the nav).
   if (mode === "study") {
