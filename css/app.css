@@ -3718,6 +3718,11 @@ summary.gcalc__label:focus-visible { outline: none; box-shadow: var(--ring); bor
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
 .set-code__input::placeholder { letter-spacing: .14em; font-weight: 500; }
+/* A link to copy (join links): the whole row, not the narrow uppercase box a code gets. */
+.set-linkbox { display: grid; gap: var(--s-2); justify-items: start; padding: var(--s-2) 0 var(--s-3); }
+.set-linkbox .set-code { flex-wrap: wrap; width: 100%; }
+.set-code__input--link { flex: 1 1 240px; width: auto; min-width: 0; text-transform: none; letter-spacing: 0; font-weight: 500; font-size: var(--fs-sm); }
+.set-join__title { margin: 0 0 var(--s-2); font-size: var(--fs-lg, 1.15em); }
 .set-codechip {
   display: inline-flex; align-items: center; padding: 3px 9px; border-radius: var(--r-sm);
   border: 1px dashed var(--line-strong); color: var(--ink-soft); font-size: calc(12.5px * var(--fs-scale, 1)); font-weight: 700; letter-spacing: .1em;

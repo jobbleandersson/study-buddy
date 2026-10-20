@@ -1,0 +1,109 @@
+// #/join/class/<token> and #/join/parent/<token>: the page a shared link opens. It asks to sign in if need be (and
+// brings the person back here), says plainly what accepting means, and does it on one tap. Nothing happens to
+// anyone's account until they press the button: opening a link only shows what it is for.
+
+import { store } from "../store.js";
+import { el, toast, icon, ICONS } from "../lib/dom.js";
+import { t } from "../lib/i18n.js";
+import { serverMessage } from "../lib/server-errors.js";
+import { card, pageHead } from "../components/set-ui.js";
+import { TOKEN_RX, joinHash } from "../lib/join-link.js";
+import { CLASS_PREVIEW_URL, CLASS_JOIN_URL, LINK_PREVIEW_URL, REDEEM_CODE_URL } from "../config.js";
+
+async function post(url, token) {
+  const res = await fetch(url, { method: "POST", credentials: "include", headers: { "content-type": "application/json" }, body: JSON.stringify({ token }) });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(serverMessage(data?.error?.message, t("login.somethingWrong")));
+  return data;
+}
+
+const PAGES = {
+  class: {
+    icon: ICONS.presentation,
+    preview: CLASS_PREVIEW_URL,
+    accept: CLASS_JOIN_URL,
+    done: "#/classes",
+    fallback: "#/classes",
+  },
+  parent: {
+    icon: ICONS.users,
+    preview: LINK_PREVIEW_URL,
+    accept: REDEEM_CODE_URL,
+    done: "#/parent",
+    fallback: "#/parent",
+  },
+};
+
+export function renderJoin(kind, token) {
+  const page = PAGES[kind];
+  const body = el("div");
+  const node = el("div.settings.settings--narrow", {}, [
+    pageHead(t(`join.${kind}.pageTitle`), t(`join.${kind}.pageSub`)),
+    card(page.icon, t(`join.${kind}.heading`), null, [body]),
+  ]);
+
+  const note = (text, tone) => el(tone ? `p.note.note--${tone}` : "p.note", {}, text);
+  const actions = (...btns) => el("div.set-inline", { style: { marginTop: "var(--s-4)" } }, btns);
+
+  function broken(message) {
+    body.replaceChildren(
+      el("p", {}, [icon(ICONS.close, 18), " ", message || t("join.brokenTitle")]),
+      note(t("join.brokenBody")),
+      actions(el("a.btn.btn--ghost.btn--sm", { href: page.fallback }, t(`join.${kind}.haveCode`))),
+    );
+  }
+
+  function signedOut() {
+    const next = encodeURIComponent(joinHash(kind, token));
+    body.replaceChildren(
+      el("p", {}, t(`join.${kind}.signedOut`)),
+      note(t("join.signedOutNote")),
+      actions(
+        el("a.btn.btn--sm", { href: `#/login?next=${next}` }, t("join.signIn")),
+        el("a.btn.btn--ghost.btn--sm", { href: `#/login?next=${next}&mode=signup` }, t("join.signUp")),
+      ),
+    );
+  }
+
+  function ask(info) {
+    const name = kind === "class" ? info.name : info.studentName;
+    const who = kind === "class" ? info.teacherName : info.studentName;
+    if (kind === "class" && info.alreadyMember) {
+      body.replaceChildren(
+        el("p", {}, [icon(ICONS.check, 18), " ", t("join.class.already", { name })]),
+        actions(el("a.btn.btn--sm", { href: page.done }, t("join.class.open"))),
+      );
+      return;
+    }
+    const error = el("p.note.note--warn", { hidden: true, role: "alert" });
+    const accept = el("button.btn.btn--sm", { type: "button" }, t(`join.${kind}.accept`));
+    accept.addEventListener("click", async () => {
+      accept.disabled = true;
+      error.hidden = true;
+      try {
+        const result = await post(page.accept, token);
+        toast(kind === "class" ? t("classes.joined", { name: result.name }) : t("parent.linkedToStudent", { email: result.studentEmail }));
+        location.hash = page.done;
+      } catch (e) {
+        error.textContent = e.message;
+        error.hidden = false;
+        accept.disabled = false;
+      }
+    });
+    body.replaceChildren(
+      el("h2.set-join__title", {}, t(`join.${kind}.title`, { name, who })),
+      el("p", {}, t(`join.${kind}.body`, { name, who })),
+      error,
+      actions(accept, el("a.btn.btn--ghost.btn--sm", { href: "#/" }, t("join.decline"))),
+    );
+  }
+
+  if (!TOKEN_RX.test(token)) broken();
+  else if (!store.authed) signedOut();
+  else {
+    body.replaceChildren(el("p.set-loading", {}, t("join.loading")));
+    post(page.preview, token).then(ask, (e) => broken(e.message));
+  }
+
+  return { title: t(`join.${kind}.pageTitle`), node };
+}

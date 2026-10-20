@@ -70,6 +70,17 @@ db.exec(`
     created_at INTEGER NOT NULL
   );
 
+  -- The same invitation as a link instead of a code, kept in its own table so a six-character code can never be
+  -- redeemed as a link or the other way round. "code" holds the link's long random token (see codes.js).
+  CREATE TABLE IF NOT EXISTS invite_links (
+    id TEXT PRIMARY KEY,
+    student_user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    code TEXT UNIQUE NOT NULL,
+    expires_at INTEGER NOT NULL,
+    used_at INTEGER,
+    created_at INTEGER NOT NULL
+  );
+
   -- A set a parent assigned to a student, waiting to be imported. Kept
   -- outside state_blobs entirely so it never touches the version-checked
   -- sync path — the student's own addAssignmentDoc() consumes it directly.
@@ -448,3 +459,10 @@ if (!db.prepare("PRAGMA table_info(ai_usage)").all().some((c) => c.name === "cos
 if (!db.prepare("PRAGMA table_info(state_blobs)").all().some((c) => c.name === "digest")) {
   alter("ALTER TABLE state_blobs ADD COLUMN digest TEXT");
 }
+
+// A class's shareable join link: a long random token, next to the short code that is read out loud. NULL until the
+// teacher first asks for the link; making a new class code clears it. A secret, like the code.
+if (!db.prepare("PRAGMA table_info(classes)").all().some((c) => c.name === "link_token")) {
+  alter("ALTER TABLE classes ADD COLUMN link_token TEXT");
+}
+db.exec("CREATE UNIQUE INDEX IF NOT EXISTS classes_link_token ON classes(link_token) WHERE link_token IS NOT NULL");

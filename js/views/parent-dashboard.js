@@ -11,13 +11,15 @@ import { el, toast, icon, ICONS } from "../lib/dom.js";
 import { t, plural } from "../lib/i18n.js";
 import { serverMessage } from "../lib/server-errors.js";
 import { homeButton } from "../components/nav.js";
+import { linkBox } from "../components/link-actions.js";
+import { joinUrl } from "../lib/join-link.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { row, card, pageHead, emptyState, avatar, codeField } from "../components/set-ui.js";
 import { masteryByTopic, masteryForSubject } from "../lib/mastery.js";
 import { dueQuestions } from "../lib/library.js";
 import { currentStreak } from "../lib/activity.js";
 import {
-  LINKS_URL, INVITE_CODE_URL, REDEEM_CODE_URL, ASSIGNED_FOR_ME_URL, ASSIGN_URL,
+  LINKS_URL, INVITE_CODE_URL, INVITE_LINK_URL, REDEEM_CODE_URL, ASSIGNED_FOR_ME_URL, ASSIGN_URL,
   studentStateUrl, unlinkUrl, clearAssignedUrl,
 } from "../config.js";
 
@@ -64,6 +66,7 @@ export function renderParentHub() {
   const parentsBody = el("div", {}, [loading()]);
   const assignedBody = el("div", {}, [loading()]);
   const inviteBody = el("div");
+  const linkBody = el("div");
 
   async function refreshLinks() {
     let data;
@@ -217,9 +220,27 @@ export function renderParentHub() {
     );
   }
 
+  // The same invitation as a link, for sending in a message: the parent taps it and confirms (views/join.js).
+  function paintInviteLink() {
+    const btn = el("button.btn.btn--sm", { type: "button" }, [icon(ICONS.share, 15), t("join.parentLinkCreate")]);
+    btn.addEventListener("click", async () => {
+      btn.disabled = true;
+      try {
+        const data = await api(INVITE_LINK_URL, { method: "POST" });
+        // The row keeps its heading; the link sits under it, with what to know about it.
+        linkBody.replaceChildren(
+          row(t("join.parentLinkLabel"), t("join.parentLinkNote")),
+          linkBox(joinUrl("parent", data.token), { title: t("join.parentShareTitle"), text: t("join.parentShareText") }),
+        );
+      } catch (e) { toast(e.message); btn.disabled = false; }
+    });
+    linkBody.replaceChildren(row(t("join.parentLinkLabel"), t("join.parentLinkIntro"), btn));
+  }
+
   refreshLinks();
   paintAssigned();
   paintInvite();
+  paintInviteLink();
   // The list changes from other tabs and devices (a link made, a student who unlinked): look again when this tab
   // comes back into view, and stop once the screen has been left.
   const onBack = () => {
@@ -232,7 +253,7 @@ export function renderParentHub() {
   const node = el("div.settings.settings--narrow", {}, [
     homeButton({ grid: true }),
     pageHead(t("parent.title"), t("parent.pageSub")),
-    card(ICONS.share, t("parent.inviteHeading"), t("parent.inviteSub"), [inviteBody]),
+    card(ICONS.share, t("parent.inviteHeading"), t("parent.inviteSub"), [inviteBody, linkBody]),
     card(ICONS.users, t("parent.studentsHeading"), t("parent.studentsSub"), [studentsBody]),
     card(ICONS.user, t("parent.parentsHeading"), t("parent.parentsSub"), [parentsBody]),
     card(ICONS.clipboard, t("parent.assignedToYouHeading"), t("parent.assignedSub"), [assignedBody]),

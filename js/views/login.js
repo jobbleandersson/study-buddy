@@ -28,7 +28,8 @@ const messageOf = (err, fallbackKey) => (NETWORK_ERROR.test(err?.message || "") 
 
 export function renderLogin(qs) {
   const dest = safeNext(qs?.get?.("next"));
-  let mode = "login"; // "login" | "signup" | "forgot" | "forgotSent" | "twofa"
+  // A link meant for someone with no account yet opens this on "create account" (?mode=signup).
+  let mode = qs?.get?.("mode") === "signup" ? "signup" : "login"; // "login" | "signup" | "forgot" | "forgotSent" | "twofa"
   let pendingChallenge = null;   // set once login()/resetPassword() ask for a 2FA code
   let pendingMethod = "totp";    // 'email' (a code was mailed) or 'totp' (authenticator app)
 

@@ -3,6 +3,7 @@ import crypto from "node:crypto";
 import { db } from "../db.js";
 import { clientErrorLimit } from "../middleware/authLimits.js";
 import { adminFailures, requireAdminKey } from "../middleware/adminKey.js";
+import { hideJoinToken } from "../route-privacy.js";
 
 export const clientErrors = Router();
 
@@ -23,7 +24,7 @@ const clip = (v, max) => {
   return s ? s.slice(0, max) : null;
 };
 // The page, without a query string (it can carry a token) - the browser does this too.
-const cleanRoute = (v) => clip(typeof v === "string" ? v.split("?")[0] : "", 100);
+const cleanRoute = (v) => clip(typeof v === "string" ? hideJoinToken(v.split("?")[0]) : "", 100);
 
 clientErrors.post("/client-errors", clientErrorLimit, (req, res) => {
   const b = req.body || {};

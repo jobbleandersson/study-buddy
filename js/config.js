@@ -69,6 +69,8 @@ export const STATE_URL = `${API}/api/state`;
 export const LINKS_URL = `${API}/api/links`;
 export const INVITE_CODE_URL = `${API}/api/links/invite-code`;
 export const REDEEM_CODE_URL = `${API}/api/links/redeem`;
+export const INVITE_LINK_URL = `${API}/api/links/invite-link`;
+export const LINK_PREVIEW_URL = `${API}/api/links/preview`;
 export const ASSIGNED_FOR_ME_URL = `${API}/api/assigned-for-me`;
 export const ASSIGN_URL = `${API}/api/assigned`;
 export const studentStateUrl = (studentUserId) => `${API}/api/parent/students/${studentUserId}/state`;
@@ -84,8 +86,10 @@ export const unfriendUrl = (linkId) => `${API}/api/friends/${linkId}`;
 // Class mode: a teacher's classes, and a student's view of what they've been given.
 export const CLASSES_URL = `${API}/api/classes`;
 export const CLASS_JOIN_URL = `${API}/api/classes/join`;
+export const CLASS_PREVIEW_URL = `${API}/api/classes/preview`;
 export const MY_CLASS_ASSIGNMENTS_URL = `${API}/api/my-class-assignments`;
 export const classUrl = (id) => `${API}/api/classes/${id}`;
+export const classLinkUrl = (id) => `${API}/api/classes/${id}/link`;
 // Dagens fråga: a teacher writes one question a day for a class; students answer it once.
 export const classDailyUrl = (id) => `${API}/api/classes/${id}/daily`;
 export const MY_DAILY_URL = `${API}/api/my-daily`;
