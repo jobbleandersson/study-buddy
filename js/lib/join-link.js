@@ -12,6 +12,14 @@ export const TOKEN_RX = /^[A-Za-z0-9_-]{20,64}$/;
  *  the same to what it is sent (server/src/route-privacy.js), so a report from an old app version is cleaned too. */
 export const hideJoinToken = (path) => String(path ?? "").replace(/^(\/join\/(?:class|parent|friend)\/).*$/, "$1:id");
 
+// What the server says when the link itself is the problem: no such invitation, or one that is used up or past its day.
+// Anything else it can say (you are asking about your own class, too many tries) is about the person, not the link.
+const LINK_PROBLEM = ["This invitation is invalid or has expired.", "Open the link again."];
+
+/** Is this server message (in English, as the server sends it) a sign that the link is broken, so that "ask for a new
+ *  link or use a code" is the right thing to tell them? */
+export const isBrokenLink = (message) => LINK_PROBLEM.includes(message);
+
 /** The in-app route for a link: "#/join/class/<token>". */
 export const joinHash = (kind, token) => `#/join/${kind}/${token}`;
 

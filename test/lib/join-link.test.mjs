@@ -1,7 +1,7 @@
 import "./helpers.mjs";
 import { test, describe } from "node:test";
 import assert from "node:assert/strict";
-import { joinUrl, joinHash, hideJoinToken, TOKEN_RX, JOIN_KINDS } from "../../js/lib/join-link.js";
+import { joinUrl, joinHash, hideJoinToken, isBrokenLink, TOKEN_RX, JOIN_KINDS } from "../../js/lib/join-link.js";
 
 describe("join links", () => {
   test("a link is the app's own address with the token after #/join/", () => {
@@ -19,6 +19,17 @@ describe("join links", () => {
     assert.equal(hideJoinToken("/classes"), "/classes");
     assert.equal(hideJoinToken("/classes/join/class/abc"), "/classes/join/class/abc", "only a route that starts with /join/");
     assert.equal(hideJoinToken(undefined), "");
+  });
+
+  test("only a broken link is told to ask for a new one", () => {
+    assert.equal(isBrokenLink("This invitation is invalid or has expired."), true);
+    assert.equal(isBrokenLink("Open the link again."), true);
+    // problems with the person, not the link
+    assert.equal(isBrokenLink("You can't join your own class."), false);
+    assert.equal(isBrokenLink("You can't link to your own account."), false);
+    assert.equal(isBrokenLink("You can't add yourself as a friend."), false);
+    assert.equal(isBrokenLink("Too many attempts. Try again in a few minutes."), false);
+    assert.equal(isBrokenLink(undefined), false);
   });
 
   test("what a token may look like, and which kinds there are", () => {
