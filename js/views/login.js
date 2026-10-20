@@ -28,7 +28,9 @@ const messageOf = (err, fallbackKey) => (NETWORK_ERROR.test(err?.message || "") 
 
 export function renderLogin(qs) {
   const dest = safeNext(qs?.get?.("next"));
-  let mode = "login"; // "login" | "signup" | "forgot" | "forgotSent" | "twofa"
+  // "login" | "signup" | "forgot" | "forgotSent" | "twofa". `?mode=signup` opens straight on sign-up (the
+  // "Create a free account" buttons on the Klasser and Förälder / lärare pages).
+  let mode = qs?.get?.("mode") === "signup" ? "signup" : "login";
   let pendingChallenge = null;   // set once login()/resetPassword() ask for a 2FA code
   let pendingMethod = "totp";    // 'email' (a code was mailed) or 'totp' (authenticator app)
 

@@ -8,11 +8,12 @@
 import { store } from "../store.js";
 import { cleanSetDoc } from "../lib/share-set.js";
 import { el, toast, icon, ICONS } from "../lib/dom.js";
-import { t, plural } from "../lib/i18n.js";
+import { t, plural, getLang } from "../lib/i18n.js";
 import { serverMessage } from "../lib/server-errors.js";
 import { homeButton } from "../components/nav.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { row, card, pageHead, emptyState, avatar, codeField } from "../components/set-ui.js";
+import { signInGate, gateBar } from "../components/signin-gate.js";
 import { masteryByTopic, masteryForSubject } from "../lib/mastery.js";
 import { dueQuestions } from "../lib/library.js";
 import { currentStreak } from "../lib/activity.js";
@@ -33,12 +34,51 @@ async function api(url, opts) {
 }
 
 function signedOutNode() {
-  return el("div.settings.settings--narrow", {}, [
+  return el("div.settings", {}, [
     homeButton({ grid: true }),
-    pageHead(t("parent.title"), t("parent.pageSub")),
-    card(ICONS.users, t("parent.title"), null, [
-      row(t("parent.signInLabel"), t("parent.signInPrompt"), el("a.btn.btn--sm", { href: `#/login?next=${encodeURIComponent("#/parent")}` }, t("login.signIn"))),
+    signInGate({
+      eyebrowIcon: ICONS.users, eyebrow: t("parent.title"),
+      title: t("parent.gateTitle"), lead: t("parent.gateLead"),
+      points: [
+        [ICONS.lock, t("parent.gateLinkHead"), t("parent.gateLinkBody")],
+        [ICONS.chart, t("parent.gateSeeHead"), t("parent.gateSeeBody")],
+        [ICONS.shield, t("parent.gatePrivateHead"), t("parent.gatePrivateBody")],
+      ],
+      preview: parentPreview(),
+      next: "#/parent",
+      foot: t("parent.gateStudent"),
+    }),
+  ]);
+}
+
+// Minutes studied Monday to Sunday in the preview; 0 is a day off.
+const DEMO_WEEK = [35, 50, 0, 70, 45, 0, 25];
+
+/** The signed-out preview: a made-up linked student as the progress page
+ *  shows them — the week, each subject (weakest first) and what's due. */
+function parentPreview() {
+  // 1 Jan 2024 was a Monday, so these give the week's day letters in the app's language.
+  const day = new Intl.DateTimeFormat(getLang() === "sv" ? "sv-SE" : "en-GB", { weekday: "narrow" });
+  const max = Math.max(...DEMO_WEEK);
+  return el("div.gart", {}, [
+    el("div.gart__head", {}, [
+      avatar(t("parent.demoName")),
+      el("div.gart__who", {}, [el("strong", {}, t("parent.demoName")), el("span", {}, t("parent.studentNote"))]),
+      el("span.gart__streak", {}, [icon(ICONS.flame, 14), t("parent.streakDays", { n: 6 })]),
     ]),
+    el("div.gart__box", {}, [
+      el("p.gart__label", {}, t("parent.demoWeek")),
+      el("div.gart__week", {}, DEMO_WEEK.map((m, i) => el("span.gart__day" + (m ? "" : ".is-off"), {}, [
+        el("span", {}, [el("i", { style: { height: `${m ? Math.round((m / max) * 100) : 8}%` } })]),
+        el("small", {}, day.format(new Date(2024, 0, 1 + i))),
+      ]))),
+    ]),
+    el("div.gart__box", {}, [
+      el("p.gart__label", {}, t("parent.masteryHeading")),
+      ...[["parent.demoSubj1", 41, "warn"], ["parent.demoSubj2", 64, ""], ["parent.demoSubj3", 82, "ok"]].map(([k, pct, tone]) =>
+        el("div.gart__subj", {}, [el("span", {}, t(k)), gateBar(pct, tone), el("b", {}, `${pct} %`)])),
+    ]),
+    el("p.gart__due", {}, [icon(ICONS.clock, 14), t("parent.dueMany", { n: 12 })]),
   ]);
 }
 
