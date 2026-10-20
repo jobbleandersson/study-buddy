@@ -304,6 +304,26 @@ export function sendNewReviewEmail({ rating, name, context, lang, text, updated 
   });
 }
 
+/** A student reported an AI answer (routes/ai-reports.js). The answer, what they asked and why - never who
+ *  they are. Everything in it came from a student or the model, so all of it is escaped. */
+export function sendNewAiReportEmail({ where, reason, note = "", content, prompt = "" }) {
+  const reasonSv = { wrong: "svaret är fel", harmful: "olämpligt eller stötande", other: "något annat" }[reason] || reason;
+  const whereSv = where === "solve" ? "PluggEra AI" : "handledaren i ett pass";
+  const quote = (s) => `<blockquote style="margin:0 0 12px;padding:10px 14px;border-left:3px solid #C8CDDA;background:#F4F6FB;white-space:pre-wrap">${escapeHtml(s)}</blockquote>`;
+  return sendEmail({
+    to: ALERT_TO(),
+    subject: `PluggEra: ett AI-svar har rapporterats (${reasonSv})`,
+    html: layout(`
+      <p><strong>En elev har rapporterat ett svar från ${escapeHtml(whereSv)}.</strong> Skäl: ${escapeHtml(reasonSv)}.</p>
+      ${note ? `<p style="font-size:14px;color:#3A4254"><strong>Elevens kommentar:</strong></p>${quote(note)}` : ""}
+      ${prompt ? `<p style="font-size:14px;color:#3A4254"><strong>Eleven hade skrivit:</strong></p>${quote(prompt)}` : ""}
+      <p style="font-size:14px;color:#3A4254"><strong>AI:ns svar:</strong></p>
+      ${quote(content)}
+      <p><a href="${PUBLIC_URL}/#/admin/ai-reports" style="display:inline-block;padding:10px 16px;background:#2C5CD6;color:#fff;border-radius:8px;text-decoration:none">Öppna rapporterna</a></p>
+    `, "Automatiskt mejl från PluggEras server."),
+  });
+}
+
 /** An unexpected server error (alerts.js decides when one is worth a mail). Everything that came
  *  from the error is escaped: this html lands in our own inbox. */
 export function sendServerErrorEmail({ where, message, stack, suppressed = 0, at }) {

@@ -11,7 +11,7 @@ import { el, clear, toast, icon, ICONS, downloadText } from "../lib/dom.js";
 import { localDayKey } from "../lib/activity.js";
 import { MODELS } from "../claude.js";
 import { getFont, setFont, getTextSize, setTextSize } from "../lib/typeface.js";
-import { t, plural, getLang, setLang, LANGS } from "../lib/i18n.js";
+import { t, plural, getLang, setLang, LANGS, fmtDate } from "../lib/i18n.js";
 import { getTheme, setTheme } from "../lib/theme.js";
 import { homeButton } from "../components/nav.js";
 import { voiceControls } from "../components/voice-controls.js";
@@ -23,6 +23,7 @@ import { setPasswordDialog } from "../components/set-password-dialog.js";
 import { changePasswordDialog } from "../components/change-password-dialog.js";
 import { changeEmailDialog } from "../components/change-email-dialog.js";
 import { openWelcomeQuiz } from "../components/onboarding.js";
+import { hasAiConsent, withdrawAiConsent, askAiConsent } from "../components/ai-consent.js";
 import { playFanfare } from "../lib/sound.js";
 import { offlineSupported, isLibraryCached, cacheLibraryOffline } from "../lib/offline.js";
 import { row, card, pageHead } from "../components/set-ui.js";
@@ -359,12 +360,32 @@ export function renderSettings() {
         el("span.set-usage__pct", {}, `${pct} %`),
       ]) : null,
       row(t("set.replyLength"), t("set.replyLengthNote"), verbCtl),
+      consentRow(),
       el("details.set-details", {}, [
         el("summary", {}, t("set.modelsLabel")),
         el("p.set-row__note", {}, t("set.modelIntro")),
         modelTable,
       ]),
     ]);
+  }
+
+  /** Whether the student has allowed sending to Anthropic (components/ai-consent.js), with the way to change it. */
+  function consentRow() {
+    const on = hasAiConsent();
+    const at = store.state.settings.aiConsentAt;
+    const btn = el("button.btn.btn--ghost.btn--sm", {
+      type: "button",
+      onclick: async () => {
+        if (on) { withdrawAiConsent(); toast(t("set.aiConsentWithdrawn")); }
+        else await askAiConsent();
+        // This page isn't rebuilt on a settings change (it would steal focus from its fields): redraw the row.
+        const fresh = consentRow();
+        node.replaceWith(fresh);
+        fresh.querySelector("button")?.focus();
+      },
+    }, t(on ? "set.aiConsentWithdraw" : "set.aiConsentGive"));
+    const node = row(t("set.aiConsentLabel"), on ? t("set.aiConsentOn", { date: fmtDate(new Date(at).toISOString().slice(0, 10)) }) : t("set.aiConsentOff"), btn);
+    return node;
   }
 
   function modelRow(job, model, when) {

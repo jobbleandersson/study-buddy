@@ -46,6 +46,10 @@ export const REVIEWS_URL = `${API}/api/reviews`;
 export const MY_REVIEW_URL = `${API}/api/reviews/mine`;
 export const ADMIN_REVIEWS_URL = `${API}/api/admin/reviews`;
 export const adminReviewUrl = (id) => `${API}/api/admin/reviews/${encodeURIComponent(id)}`;
+// Reported AI answers: "Rapportera" under a tutor or PluggEra AI reply. See routes/ai-reports.js.
+export const AI_REPORTS_URL = `${API}/api/ai-reports`;
+export const ADMIN_AI_REPORTS_URL = `${API}/api/admin/ai-reports`;
+export const adminAiReportUrl = (id) => `${API}/api/admin/ai-reports/${encodeURIComponent(id)}`;
 
 // Anonymous error reports (js/lib/error-report.js) and the list of them at #/admin/errors. See
 // routes/client-errors.js.

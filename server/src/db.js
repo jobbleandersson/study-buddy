@@ -278,6 +278,23 @@ db.exec(`
     reviewed_at INTEGER
   );
 
+  -- An AI answer a student reported ("Rapportera" under a tutor or PluggEra AI reply): the answer, what they
+  -- had asked and why. Read at #/admin/ai-reports with REVIEW_ADMIN_KEY (routes/ai-reports.js). Goes with
+  -- the account if it is deleted.
+  CREATE TABLE IF NOT EXISTS ai_reports (
+    id TEXT PRIMARY KEY,
+    user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    where_from TEXT NOT NULL,                 -- 'tutor' | 'solve'
+    reason TEXT NOT NULL,                     -- 'wrong' | 'harmful' | 'other'
+    note TEXT NOT NULL DEFAULT '',
+    content TEXT NOT NULL,
+    prompt TEXT NOT NULL DEFAULT '',
+    status TEXT NOT NULL DEFAULT 'open',      -- 'open' | 'handled'
+    created_at INTEGER NOT NULL,
+    handled_at INTEGER
+  );
+  CREATE INDEX IF NOT EXISTS ai_reports_status ON ai_reports(status, created_at);
+
   CREATE TABLE IF NOT EXISTS page_views (
     id TEXT PRIMARY KEY,
     path TEXT NOT NULL,

@@ -13,6 +13,7 @@ import { t, getLang } from "../lib/i18n.js";
 import { tutorStream, ClaudeError } from "../claude.js";
 import { speak } from "../lib/speech.js";
 import { firstSentence } from "../lib/text.js";
+import { aiReportButton } from "./ai-report.js";
 
 // Cached per language — switching language should pick up the other script,
 // not keep serving the one loaded first.
@@ -402,6 +403,8 @@ export class TutorChat {
       // An answer that hit its length limit is not a finished one: say so under it, as Solve does.
       if (stopReason === "max_tokens" && acc.trim()) bubble.appendChild(el("p.msg__errnote", {}, t("tutor.truncated")));
       msgs.push({ role: "assistant", content: acc || "…" });
+      // A real AI answer can be reported (components/ai-report.js); the scripted demo replies can't.
+      if (acc.trim()) bubble.after(el("div.msg__acts", {}, [aiReportButton({ where: "tutor", content: acc, prompt: userText })]));
       if (gen !== (this._gen || 0)) return;
       opts.onReply?.(acc);
       setMood(this.mascotEl, opts.correct ? "cheer" : "idle");

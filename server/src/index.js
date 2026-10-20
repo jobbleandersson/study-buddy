@@ -35,6 +35,7 @@ import { isClientHangup } from "./errors.js";
 import { reportServerError, routeLabel } from "./alerts.js";
 import { startAiWatch } from "./ai-check.js";
 import { reviews } from "./routes/reviews.js";
+import { aiReports } from "./routes/ai-reports.js";
 import { practicePages } from "./routes/practice-pages.js";
 import { billing } from "./routes/billing.js";
 import { sharePages } from "./routes/share-pages.js";
@@ -213,6 +214,7 @@ app.use("/api", contact);
 app.use("/api", analytics);
 app.use("/api", clientErrors);
 app.use("/api", reviews);
+app.use("/api", aiReports);
 app.use("/api", billing);
 // An /api path no router claimed: answer in the API's own shape, not Express's HTML "Cannot GET".
 // (The static stand-in api/health, for hosts with no server, is never reached here — the health

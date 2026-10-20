@@ -45,6 +45,7 @@ import { newChatId, saveChat, chatTitle, addSaved, removeSaved, findSaved } from
 import { setSessionActive } from "../lib/session-active.js";
 import { localDayKey } from "../lib/activity.js";
 import { fmtDate } from "../lib/i18n.js";
+import { aiReportButton } from "../components/ai-report.js";
 
 /** How much of a long pasted text is echoed back in the student's own bubble — the message
  *  sent to the model is never truncated, only what's shown (a page of notes shouldn't make
@@ -85,6 +86,15 @@ export function renderSolve(qs) {
     saveChat({ id: state.chatId, mode: state.mode, material: state.material, messages: state.messages });
   }
 
+  /** What the student had written just before the reply `raw` (its text only), for a report of that reply. */
+  function promptBefore(raw) {
+    const i = state.messages.findIndex((m) => m.role === "assistant" && m.content === raw);
+    const m = i > 0 ? state.messages[i - 1] : null;
+    if (!m) return "";
+    return typeof m.content === "string" ? m.content
+      : (Array.isArray(m.content) ? m.content : []).filter((b) => b?.type === "text").map((b) => b.text).join("\n");
+  }
+
   /** An assistant reply, drawn from its raw text: the [F4] source markers become "fråga 4" tags, and a
    *  finished reply gets a bookmark. Runs on every streamed chunk, with `final` only at the end. */
   function renderReply(bubble, raw, final) {
@@ -119,6 +129,7 @@ export function renderSolve(qs) {
           ])
         : el("span"),
       saveButton(text),
+      aiReportButton({ where: "solve", content: text, prompt: () => promptBefore(raw) }),
     ]);
     bubble.appendChild(foot);
   }

@@ -208,6 +208,7 @@ const routes = [
   { rx: /^\/start\/(lib-[a-z0-9-]+)$/, view: (m) => import("./views/library.js").then((mod) => mod.renderStartSet(m[1])) },
   { rx: /^\/rate$/, view: () => import("./views/rate.js").then((mod) => mod.renderRate()) },
   { rx: /^\/admin\/reviews$/, view: () => import("./views/admin-reviews.js").then((mod) => mod.renderAdminReviews()) },
+  { rx: /^\/admin\/ai-reports$/, view: () => import("./views/admin-ai-reports.js").then((mod) => mod.renderAdminAiReports()) },
   { rx: /^\/admin\/errors$/, view: () => import("./views/admin-errors.js").then((mod) => mod.renderAdminErrors()) },
 ];
 

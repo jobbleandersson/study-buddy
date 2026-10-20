@@ -14,6 +14,7 @@ import { resolveMcAnswer } from "./lib/mc-answer.js";
 import { REVIEW_SYSTEM, reviewItems, parseVerdicts, flaggedIndexes } from "./lib/review.js";
 import { CHECK_REVIEW_SYSTEM, reviewInput, parseReview, reviewAgrees, disagreementNote } from "./lib/check-review.js";
 import { newQuestionsOnly } from "./lib/exam.js";
+import { ensureAiConsent } from "./components/ai-consent.js";
 
 const API_URL = PROXY_URL;
 
@@ -97,8 +98,14 @@ async function errorFrom(res) {
   return new ClaudeError(detail ? t("err.apiDetail", { status: res.status, detail }) : t("err.api", { status: res.status }));
 }
 
+/** Nothing goes to Anthropic before the student has said yes once (components/ai-consent.js). */
+async function consented() {
+  if (!(await ensureAiConsent())) throw new ClaudeError(t("aiConsent.declined"));
+}
+
 /** One non-streaming call: the reply text plus what Anthropic says it used. */
 async function callRaw(body, { strict = false } = {}) {
+  await consented();
   let res;
   try {
     res = await fetch(API_URL, { method: "POST", headers: headers(), body: JSON.stringify(tuned(body)) });
@@ -493,6 +500,7 @@ export async function generateTalkScript({ material }) {
 const STREAM_ERROR_KEYS = { overloaded_error: "err.upstream", rate_limit_error: "err.rateLimited" };
 
 export async function* tutorStream({ system, messages, signal, maxTokens = 800, onStop } = {}) {
+  await consented();
   const res = await fetch(API_URL, {
     method: "POST",
     headers: headers(),
