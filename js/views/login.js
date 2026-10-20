@@ -7,6 +7,7 @@ import { t, getLang, setLang, LANGS } from "../lib/i18n.js";
 import { renderGoogleButton } from "../components/google-signin.js";
 import { renderAppleButton } from "../components/apple-signin.js";
 import { passwordField } from "../components/password-field.js";
+import { wordmarkText } from "../lib/wordmark.js";
 
 /** Where to land after signing in. `?next=` carries a hash path, optionally with
  *  its own plain query string (e.g. from the classes hub's sign-in prompt,
@@ -335,7 +336,7 @@ export function renderLogin(qs) {
         langToggle(),
       ]),
       el("div.auth__card", {}, [
-        el("a.auth__brand", { href: "#/" }, [el("img", { src: "assets/favicon.svg", alt: "", width: 40, height: 40 }), el("span.wordmark__text", {}, "PluggEra")]),
+        el("a.auth__brand", { href: "#/" }, [el("img", { src: "assets/favicon.svg", alt: "", width: 40, height: 40 }), wordmarkText()]),
         heading,
         subline,
         serverDown ? el("p.auth__error", {}, t("login.serverDown")) : null,
@@ -378,7 +379,7 @@ function showcase() {
     el("b", {}, letter), el("span", {}, t(key)), right ? icon(ICONS.check, 16) : null,
   ].filter(Boolean));
   return el("aside.auth__panel", {}, [
-    el("div.auth__panelbrand", {}, [el("img", { src: "assets/favicon.svg", alt: "", width: 32, height: 32 }), el("span.wordmark__text", {}, "PluggEra")]),
+    el("div.auth__panelbrand", {}, [el("img", { src: "assets/favicon.svg", alt: "", width: 32, height: 32 }), wordmarkText()]),
     el("div.auth__pitch", {}, [
       el("h2", {}, t("lp.title")),
       el("p", {}, t("login.panelLead")),

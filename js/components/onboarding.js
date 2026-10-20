@@ -18,6 +18,7 @@ import { loadLibraryIndex, loadLibraryTranslations } from "../data/library.js";
 import { baseSubjectName } from "../lib/library-content.js";
 import { renderGoogleButton } from "./google-signin.js";
 import { renderAppleButton } from "./apple-signin.js";
+import { wordmarkText } from "../lib/wordmark.js";
 // Loaded lazily below, at the one click site that needs it — quick-add.js
 // pulls in views/create.js (and, transitively, claude.js/material.js/
 // prompts.js), and this whole file is eager-loaded on every page for the
@@ -79,7 +80,7 @@ export function openWelcomeQuiz({ force = false } = {}) {
   const stepLabel = el("span.welcome__step");
   const skipBtn = el("button.linkbtn", { type: "button", onclick: () => toRecap() }, t("welcome.skipAll"));
   const top = el("div.welcome__top", {}, [
-    el("div.welcome__brand", {}, [el("img", { src: "assets/favicon.svg", alt: "" }), el("span.wordmark__text", {}, "PluggEra")]),
+    el("div.welcome__brand", {}, [el("img", { src: "assets/favicon.svg", alt: "" }), wordmarkText()]),
     stepLabel,
     skipBtn,
   ]);

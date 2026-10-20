@@ -8,11 +8,7 @@ Atkinson Hyperlegible (regular, bold, italic; Latin)
   (c) Braille Institute of America, Inc. (https://brailleinstitute.org/freefont)
   SIL Open Font License 1.1: https://openfontlicense.org
 
-Yellowtail (regular; Latin) — the "PluggEra" wordmark in the app
-  (c) Astigmatic (https://github.com/google/fonts/tree/main/apache/yellowtail)
-  Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0
-
-Lexend (bold; Latin) — used by the image templates in tools/ (share image, TikTok slides)
+Lexend (bold; Latin) — the "PluggEra" wordmark in the app, and the image templates in tools/ (share image, TikTok slides)
   (c) The Lexend Project Authors (https://github.com/googlefonts/lexend)
   SIL Open Font License 1.1: https://openfontlicense.org
 
