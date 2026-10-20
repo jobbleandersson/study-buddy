@@ -1260,6 +1260,7 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
   background: transparent; color: var(--ink); cursor: pointer;
 }
 .cardmenu__item:hover { background: var(--surface-sunk); }
+a.cardmenu__item { text-decoration: none; }   /* a link in a menu is a row, not underlined text */
 .cardmenu__item--danger { color: var(--retry-ink); }
 .cardmenu__item--danger:hover { background: var(--retry-tint); }
 
@@ -3906,9 +3907,21 @@ summary.gcalc__label:focus-visible { outline: none; box-shadow: var(--ring); bor
 /* The topbar account button wears the picture edge to edge. */
 .topbar__profile.has-avatar { padding: 0; overflow: hidden; border-radius: var(--r-full); }
 .topbar__avatar { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: inherit; }
+/* The account menu (main.js shellActions): who is signed in, the pages as menu rows, then Logga ut. */
 .acctmenu__head { display: flex; align-items: center; gap: 10px; padding: var(--s-2) var(--s-3); }
-.acctmenu__head .note { margin: 0; min-width: 0; overflow-wrap: anywhere; }
-.acctmenu__avatar { width: 32px; height: 32px; flex: none; border-radius: var(--r-full); object-fit: cover; }
+.acctmenu__avatar { width: 36px; height: 36px; flex: none; border-radius: var(--r-full); object-fit: cover; }
+.acctmenu__avatar--icon { display: grid; place-items: center; background: var(--brand-tint); color: var(--brand-ink); }
+.acctmenu__who { display: grid; min-width: 0; line-height: 1.35; }
+.acctmenu__who span { font-size: calc(12px * var(--fs-scale, 1)); color: var(--ink-faint); }
+.acctmenu__who strong { font-size: var(--fs-sm); font-weight: 600; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.acctmenu__sep { height: 1px; margin: 4px 6px; background: var(--line); }
+.acctmenu .cardmenu__item { min-height: 40px; font-weight: 500; }
+.acctmenu .cardmenu__item > svg { flex: none; color: var(--ink-soft); }
+.acctmenu .cardmenu__item--danger > svg { color: inherit; }
+.acctmenu__link > span { flex: 1; }
+.acctmenu__link > svg:last-child { color: var(--ink-faint); transition: transform var(--dur-fast); }
+.acctmenu__link:hover > svg:last-child { transform: translateX(2px); }
+@media (prefers-reduced-motion: reduce) { .acctmenu__link:hover > svg:last-child { transform: none; } }
 
 /* The framing dialog. */
 .avatared { max-width: 340px; display: grid; gap: var(--s-3); }

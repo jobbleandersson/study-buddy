@@ -1579,7 +1579,7 @@ export default {
   "notif.tabRead": "Lästa",
   "notif.markRead": "Markera som läst",
 
-  "account.signedInAs": "Inloggad som {email}",
+  "account.signedIn": "Inloggad som",
   "account.settings": "Inställningar",
   "account.signOut": "Logga ut",
   "account.signOutDone": "Utloggad — lokalt läge",

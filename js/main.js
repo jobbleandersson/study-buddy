@@ -768,10 +768,6 @@ function syncBellDots() {
 }
 window.addEventListener("sb:reminders", syncBellDots);
 
-function popoverLink(href, path, label) {
-  return el("a.cardmenu__item", { href, onclick: closePopover }, [icon(path, 15), label]);
-}
-
 // Kept module-level so the last tab picked survives closing and reopening the
 // panel within a visit.
 let notifTab = "unread";
@@ -859,13 +855,25 @@ function shellActions() {
     type: "button", "aria-label": t("topbar.account"), "aria-haspopup": "menu", title: t("topbar.account"),
     onclick: (e) => {
       e.stopPropagation();
+      // A page to go to: icon, name and a small arrow, as one menu row.
+      const goTo = (href, path, label) => el("a.cardmenu__item.acctmenu__link", { href, onclick: closePopover }, [
+        icon(path, 16), el("span", {}, label), icon(ICONS.chevronRight, 14),
+      ]);
+      const sep = () => el("div.acctmenu__sep", { role: "separator" });
       const items = store.authed ? [
         el("div.acctmenu__head", {}, [
-          store.avatar ? el("img.acctmenu__avatar", { src: store.avatar, alt: "" }) : null,
-          el("p.note", {}, t("account.signedInAs", { email: store.authEmail || "" })),
-        ].filter(Boolean)),
-        popoverLink("#/profile", ICONS.user, t("account.profile")),
-        popoverLink("#/settings", ICONS.gear, t("account.settings")),
+          store.avatar
+            ? el("img.acctmenu__avatar", { src: store.avatar, alt: "" })
+            : el("span.acctmenu__avatar.acctmenu__avatar--icon", { "aria-hidden": "true" }, [icon(ICONS.user, 16)]),
+          el("div.acctmenu__who", {}, [
+            el("span", {}, t("account.signedIn")),
+            el("strong", { title: store.authEmail || "" }, store.authEmail || ""),
+          ]),
+        ]),
+        sep(),
+        goTo("#/profile", ICONS.user, t("account.profile")),
+        goTo("#/settings", ICONS.gear, t("account.settings")),
+        sep(),
         el("button.cardmenu__item.cardmenu__item--danger", {
           type: "button",
           onclick: async () => {
@@ -876,10 +884,10 @@ function shellActions() {
           },
         }, [icon(ICONS.logout, 15), t("account.signOut")]),
       ] : [
-        popoverLink("#/login", ICONS.user, t("account.signIn")),
-        popoverLink("#/settings", ICONS.gear, t("account.settings")),
+        goTo("#/login", ICONS.user, t("account.signIn")),
+        goTo("#/settings", ICONS.gear, t("account.settings")),
       ];
-      openPopover(e.currentTarget, items, { align: "right" });
+      openPopover(e.currentTarget, items, { align: "right" }).classList.add("acctmenu");
     },
   }, [profileFace()]);
 

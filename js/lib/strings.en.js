@@ -1564,7 +1564,7 @@ export default {
   "notif.tabRead": "Read",
   "notif.markRead": "Mark as read",
 
-  "account.signedInAs": "Signed in as {email}",
+  "account.signedIn": "Signed in as",
   "account.settings": "Settings",
   "account.signOut": "Sign out",
   "account.signOutDone": "Signed out — local mode",
