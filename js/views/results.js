@@ -16,6 +16,7 @@ import { shareCard } from "../lib/share-card.js";
 import { openChallengeDialog } from "../components/challenge-dialog.js";
 import { isChallengeableSet, percentOf } from "../lib/challenge.js";
 import { resolveExam, nextStep } from "../components/exam-flow.js";
+import { sessionFeedbackCard } from "../components/session-feedback.js";
 
 export function renderResults(attemptId) {
   const attempt = store.attempts.find((a) => a.id === attemptId);
@@ -121,6 +122,9 @@ export function renderResults(attemptId) {
       const n = (attempt.items || []).filter((i) => i.correct && !firstTryCorrect(i)).length;
       return n ? el("p.note", { style: { marginTop: "-4px" } }, plural(n, "results.retriedOne", "results.retriedMany")) : null;
     })(),
+
+    // Now and then: how did it go? One tap on a face (components/session-feedback.js).
+    isReview ? null : sessionFeedbackCard(),
 
     // From a test: the next step right under the score, before the details.
     examNextRow(attempt),
