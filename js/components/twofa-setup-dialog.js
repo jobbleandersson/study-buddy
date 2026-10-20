@@ -7,6 +7,7 @@
 
 import { store } from "../store.js";
 import { el, toast, icon, ICONS } from "../lib/dom.js";
+import { passwordField } from "./password-field.js";
 import { t } from "../lib/i18n.js";
 
 async function copyText(text) {
@@ -115,7 +116,7 @@ export function twofaSetupDialog() {
       card.appendChild(el("p.confirmdlg__body", {}, t("twofa.setupTitle")));
       card.appendChild(el("p.confirmdlg__note", {}, t("twofa.emailIntro")));
       card.appendChild(el("form.confirmdlg__card", { onsubmit: send }, [
-        el("label.field", {}, [el("span", {}, t("login.password")), passwordInput]),
+        el("label.field", {}, [el("span", {}, t("login.password")), passwordField(passwordInput)]),
         codeRow,
         err,
         el("div.confirmdlg__actions", {}, [cancelBtn, sendBtn, confirmBtn]),
@@ -150,7 +151,7 @@ export function twofaSetupDialog() {
       } }, [icon(ICONS.copy, 16)]);
 
       const passwordInput = el("input", { type: "password", autocomplete: "current-password", "aria-label": t("login.password") });
-      const codeInput = el("input", { type: "text", autocomplete: "one-time-code", "aria-label": t("twofa.enterCode") });
+      const codeInput = el("input", { type: "text", inputmode: "numeric", autocomplete: "one-time-code", "aria-label": t("twofa.enterCode") });
       const err = el("p.note.note--warn", { hidden: true, role: "alert" });
       const confirmBtn = el("button.btn", { type: "submit" }, t("twofa.confirm"));
       const cancelBtn = el("button.btn.btn--ghost", { type: "button", onclick: () => close(false) }, t("common.cancel"));
@@ -180,7 +181,7 @@ export function twofaSetupDialog() {
           el("div.auth__control", {}, [secretInput, copySecretBtn]),
         ]),
         el("a.linkbtn", { href: setup.otpauthUri }, t("twofa.openInApp")),
-        el("label.field", { style: { marginTop: "var(--s-3)" } }, [el("span", {}, t("login.password")), passwordInput]),
+        el("label.field", { style: { marginTop: "var(--s-3)" } }, [el("span", {}, t("login.password")), passwordField(passwordInput)]),
         el("label.field", {}, [el("span", {}, t("twofa.enterCode")), codeInput]),
         err,
         el("div.confirmdlg__actions", {}, [cancelBtn, confirmBtn]),

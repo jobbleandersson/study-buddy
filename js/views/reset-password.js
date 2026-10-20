@@ -67,7 +67,7 @@ export function renderResetPassword(qs) {
   // session too.
   function paintTwofa(challenge) {
     clear(body);
-    const codeInput = el("input", { type: "text", autocomplete: "one-time-code", placeholder: t("login.twofaPlaceholder") });
+    const codeInput = el("input", { type: "text", inputmode: "numeric", autocomplete: "one-time-code", placeholder: t("login.twofaPlaceholder") });
     const errorNote = el("p.note.note--warn", { hidden: true });
     const submitBtn = el("button.btn", { type: "submit" }, [t("login.twofaSubmit"), icon(ICONS.arrow, 18)]);
 

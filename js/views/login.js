@@ -37,7 +37,8 @@ export function renderLogin(qs) {
 
   const emailInput = el("input", { id: "auth-email", type: "email", autocomplete: "email", required: true, placeholder: t("login.emailPlaceholder"), disabled: serverDown });
   const passInput = el("input", { id: "auth-password", type: "password", placeholder: t("login.passwordPlaceholder"), disabled: serverDown });
-  const codeInput = el("input", { id: "auth-code", type: "text", autocomplete: "one-time-code", placeholder: t("login.twofaPlaceholder"), disabled: serverDown });
+  // Both kinds of code (emailed, or from an authenticator app) are six digits: the number pad either way.
+  const codeInput = el("input", { id: "auth-code", type: "text", inputmode: "numeric", autocomplete: "one-time-code", placeholder: t("login.twofaPlaceholder"), disabled: serverDown });
   const confirmInput = el("input", { id: "auth-confirm", type: "password", placeholder: t("login.confirmPlaceholder"), disabled: serverDown, autocomplete: "new-password" });
   const errorNote = el("p.auth__error", { hidden: true, role: "alert" });
   const submitBtn = el("button.auth__submit", { type: "submit", disabled: serverDown }, t("login.signIn"));
@@ -102,7 +103,6 @@ export function renderLogin(qs) {
     passRow.hidden = mode === "forgot" || forgotDone || twofa;
     codeRow.hidden = !twofa;
     resendBtn.hidden = !(twofa && pendingMethod === "email");
-    codeInput.inputMode = twofa && pendingMethod === "email" ? "numeric" : "text";
     confirmRow.hidden = mode !== "signup";
     passInput.autocomplete = mode === "login" ? "current-password" : "new-password";
     consentRow.hidden = mode !== "signup" && !googleCredential;

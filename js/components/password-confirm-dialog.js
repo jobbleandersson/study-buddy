@@ -8,6 +8,7 @@
 //   });
 
 import { el } from "../lib/dom.js";
+import { passwordField } from "./password-field.js";
 import { t } from "../lib/i18n.js";
 
 export function passwordConfirmDialog({ title, body, confirmLabel, submit }) {
@@ -58,7 +59,7 @@ export function passwordConfirmDialog({ title, body, confirmLabel, submit }) {
         el("p.confirmdlg__note", {}, body),
         el("label.field", { style: { margin: "12px 0 0" } }, [
           el("span", {}, t("login.password")),
-          input,
+          passwordField(input),
         ]),
         err,
         el("div.confirmdlg__actions", {}, [cancelBtn, confirmBtn]),

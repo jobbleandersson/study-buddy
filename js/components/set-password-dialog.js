@@ -7,6 +7,7 @@
 
 import { store } from "../store.js";
 import { el } from "../lib/dom.js";
+import { passwordField } from "./password-field.js";
 import { t } from "../lib/i18n.js";
 import { renderGoogleButton } from "./google-signin.js";
 
@@ -85,8 +86,8 @@ export function setPasswordDialog() {
       card.appendChild(el("p.confirmdlg__body", {}, t("setpw.title")));
       card.appendChild(el("p.confirmdlg__note", {}, t("setpw.passwordIntro")));
       card.appendChild(el("form.confirmdlg__card", { onsubmit: submit }, [
-        el("label.field", {}, [el("span", {}, t("setpw.newPassword")), passwordInput]),
-        el("label.field", {}, [el("span", {}, t("login.confirmPassword")), confirmInput]),
+        el("label.field", {}, [el("span", {}, t("setpw.newPassword")), passwordField(passwordInput)]),
+        el("label.field", {}, [el("span", {}, t("login.confirmPassword")), passwordField(confirmInput)]),
         err,
         el("div.confirmdlg__actions", {}, [cancelBtn, confirmBtn]),
       ]));

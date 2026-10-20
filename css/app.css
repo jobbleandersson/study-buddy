@@ -6746,3 +6746,24 @@ body.route-home .topbar { background: color-mix(in srgb, var(--canvas) 70%, tran
 @media (prefers-reduced-motion: reduce) { .selectbar { animation: none; } }
 /* The floating chat bubble would sit on the bar's corner: it steps aside while sets are being picked. */
 body:has(.selectbar:not([hidden])) .sitechat__fab { display: none; }
+
+/* ---- Keyboard focus is never hidden under the bars (WCAG 2.4.11) ----
+   When Tab moves to a control the browser scrolls it into view; without this it could stop with the
+   control under the sticky top bar or, on a phone, under the tab bar at the bottom. A screen with a
+   taller bar of its own (the edit bar) keeps its larger value: html:has(.editbar) above. */
+html { scroll-padding-top: 80px; }
+@media (max-width: 899.98px) { html { scroll-padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); } }
+
+/* ---- Dark mode: readable placeholders and the "+" number on results ----
+   Placeholder text left to the browser default was 3.9:1 on the dark fields; the theme's own faint ink
+   is 7:1. The results page's improvement number used the light theme's dark green (3.4:1); the dark
+   theme has a light green for text. */
+:root[data-theme="dark"] :where(input, textarea)::placeholder { color: var(--ink-faint); opacity: 1; }
+:root[data-theme="dark"] .delta__n.up { color: var(--ok-ink); }
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="system"] :where(input, textarea)::placeholder { color: var(--ink-faint); opacity: 1; }
+  :root[data-theme="system"] .delta__n.up { color: var(--ok-ink); }
+}
+/* The eye button on password fields in dialogs and the welcome card (components/password-field.js). */
+.welcome__acct-fields .pwfield { min-width: 0; }
+.welcome__acct-fields .pwfield input { width: 100%; box-sizing: border-box; }

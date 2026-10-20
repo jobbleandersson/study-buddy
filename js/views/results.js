@@ -131,7 +131,7 @@ export function renderResults(attemptId) {
     hpNextRow(attempt),
 
     deltaEntries.length ? el("div", { style: { marginTop: "24px", textAlign: "left" } }, [
-      el("h3", { style: { marginBottom: "4px" } }, t("results.topicMastery")),
+      el("h3", { "aria-level": "2", style: { marginBottom: "4px" } }, t("results.topicMastery")),
       el("p.note", { style: { margin: "0 0 8px" } }, t("results.topicMasteryNote")),
       el("div.delta-list", {}, deltaEntries.map(([topic, d]) => {
         const change = Math.round((d.after - d.before) * 100);
@@ -145,7 +145,7 @@ export function renderResults(attemptId) {
 
     wrongEntries.length ? el("div", { style: { marginTop: "8px", textAlign: "left" } }, [
       el("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", flexWrap: "wrap", marginBottom: "8px" } }, [
-        el("h3", {}, t("results.worthLook")),
+        el("h3", { "aria-level": "2" }, t("results.worthLook")),
         el("a.btn.btn--sm", { href: `#/practice/${attempt.id}` }, [icon(ICONS.arrow, 16),
           wrongEntries.length === 1 ? t("results.practiseTheseOne") : t("results.practiseTheseMany", { n: wrongEntries.length })]),
       ]),
@@ -165,7 +165,7 @@ export function renderResults(attemptId) {
     retentionSection(forecast, horizonLabel),
 
     sched && sched.scheduled ? el("div", { style: { marginTop: "8px", textAlign: "left" } }, [
-      el("h3", { style: { marginBottom: "8px" } }, t("results.srsTitle")),
+      el("h3", { "aria-level": "2", style: { marginBottom: "8px" } }, t("results.srsTitle")),
       el("p.note", {}, plural(sched.scheduled, "results.srsScheduledOne", "results.srsScheduledMany")),
       el("p.note.srs-next", {}, t("results.srsNext", {
         when: sched.relearnOnly ? t("results.srsRelearnLabel") : dueLabel(sched.nextRec),
@@ -261,7 +261,7 @@ function challengeCard(attempt) {
     el("span.note", {}, label),
   ]);
   return el("div.challengecard.challengecard--" + outcome, {}, [
-    el("h3", {}, t(`challenge.${outcome}`, { name })),
+    el("h3", { "aria-level": "2" }, t(`challenge.${outcome}`, { name })),
     el("div.challengecard__vs", {}, [
       side(t("challenge.you"), mine, ".is-me"),
       el("span.challengecard__dash", { "aria-hidden": "true" }, "vs"),
@@ -423,7 +423,7 @@ function retentionSection(f, horizonLabel) {
   const without = Math.round(f.decayed * 100);
   const withPlan = Math.round(f.held * 100);
   return el("div", { style: { marginTop: "8px", textAlign: "left" } }, [
-    el("h3", { style: { marginBottom: "8px" } }, t("results.retentionTitle")),
+    el("h3", { "aria-level": "2", style: { marginBottom: "8px" } }, t("results.retentionTitle")),
     retentionChart(f, horizonLabel, without, withPlan),
     el("div.retention__legend", {}, [
       el("span", {}, [el("i.retention__k.retention__k--without"), t("results.retentionWithout")]),

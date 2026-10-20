@@ -7,6 +7,7 @@
 
 import { store } from "../store.js";
 import { el } from "../lib/dom.js";
+import { passwordField } from "./password-field.js";
 import { t } from "../lib/i18n.js";
 
 /** Is this visitor still outside? (The server says so in /api/health; see store.siteLocked.) */
@@ -24,7 +25,7 @@ export function openSiteGate(next = "#/") {
     el("form.modal__card.confirmdlg__card", { onsubmit: onSubmit }, [
       el("p.confirmdlg__body", {}, t("gate.title")),
       el("p.note", { style: { margin: "0 0 var(--s-3)" } }, t("gate.body")),
-      el("label.field", {}, [el("span", {}, t("gate.label")), input]),
+      el("label.field", {}, [el("span", {}, t("gate.label")), passwordField(input)]),
       err,
       el("div.confirmdlg__actions", {}, [cancel, submit]),
     ]),

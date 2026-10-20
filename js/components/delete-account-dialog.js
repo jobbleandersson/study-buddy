@@ -5,6 +5,7 @@
 
 import { store } from "../store.js";
 import { el } from "../lib/dom.js";
+import { passwordField } from "./password-field.js";
 import { t } from "../lib/i18n.js";
 
 export function deleteAccountDialog() {
@@ -59,7 +60,7 @@ export function deleteAccountDialog() {
         el("p.confirmdlg__note", {}, t("set.acctDeleteBody")),
         el("label.field", { style: { margin: "12px 0 0" } }, [
           el("span", {}, t(passwordless ? "set.acctDeleteEmailLabel" : "set.acctDeletePasswordLabel")),
-          input,
+          passwordless ? input : passwordField(input),
         ]),
         err,
         el("div.confirmdlg__actions", {}, [cancelBtn, confirmBtn]),

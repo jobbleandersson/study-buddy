@@ -5,6 +5,7 @@
 
 import { store } from "../store.js";
 import { el } from "../lib/dom.js";
+import { passwordField } from "./password-field.js";
 import { t } from "../lib/i18n.js";
 
 export function changePasswordDialog() {
@@ -26,13 +27,9 @@ export function changePasswordDialog() {
       resolve(value);
     }
     function onKey(e) {
+      // Tab is kept inside the dialog, in on-screen order, by lib/modal-a11y.js. A second trap here moved focus
+      // twice at the wrap and skipped the first field.
       if (e.key === "Escape") { e.stopPropagation(); if (!busy) close(false); }
-      else if (e.key === "Tab") {
-        const stops = [current, next, again, cancelBtn, confirmBtn].filter((n) => !n.disabled);
-        const at = stops.indexOf(document.activeElement);
-        e.preventDefault();
-        stops[(at + (e.shiftKey ? -1 : 1) + stops.length) % stops.length].focus();
-      }
     }
     const fail = (msg, focusOn) => { err.textContent = msg; err.hidden = false; focusOn?.focus(); };
 
@@ -61,9 +58,9 @@ export function changePasswordDialog() {
       el("form.modal__card.confirmdlg__card", { onsubmit: onSubmit }, [
         el("p.confirmdlg__body", {}, t("pwchange.title")),
         el("p.confirmdlg__note", {}, t("pwchange.intro")),
-        el("label.field", { style: { margin: "12px 0 0" } }, [el("span", {}, t("pwchange.current")), current]),
-        el("label.field", {}, [el("span", {}, t("pwchange.new")), next]),
-        el("label.field", {}, [el("span", {}, t("login.confirmPassword")), again]),
+        el("label.field", { style: { margin: "12px 0 0" } }, [el("span", {}, t("pwchange.current")), passwordField(current)]),
+        el("label.field", {}, [el("span", {}, t("pwchange.new")), passwordField(next)]),
+        el("label.field", {}, [el("span", {}, t("login.confirmPassword")), passwordField(again)]),
         err,
         el("div.confirmdlg__actions", {}, [cancelBtn, confirmBtn]),
       ]),

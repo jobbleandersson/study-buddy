@@ -9,6 +9,7 @@
 // Högskoleprov date), so the quiz never creates a second source of truth.
 
 import { el, icon, ICONS, toast } from "../lib/dom.js";
+import { passwordField } from "./password-field.js";
 import { store } from "../store.js";
 import { t, getLang, fmtDate } from "../lib/i18n.js";
 import { localDayKey } from "../lib/activity.js";
@@ -400,7 +401,7 @@ export function openWelcomeQuiz({ force = false } = {}) {
         } catch (e) { err.textContent = e.message || t("login.somethingWrong"); err.hidden = false; submit.disabled = false; }
       },
     }, [
-      el("div.welcome__acct-fields", {}, [email, pass, submit]),
+      el("div.welcome__acct-fields", {}, [email, passwordField(pass), submit]),
       consentRow,
       err,
     ]);

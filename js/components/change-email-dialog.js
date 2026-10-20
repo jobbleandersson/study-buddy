@@ -5,6 +5,7 @@
 
 import { store } from "../store.js";
 import { el } from "../lib/dom.js";
+import { passwordField } from "./password-field.js";
 import { t } from "../lib/i18n.js";
 
 export function changeEmailDialog() {
@@ -25,13 +26,9 @@ export function changeEmailDialog() {
       resolve(value);
     }
     function onKey(e) {
+      // Tab is kept inside the dialog, in on-screen order, by lib/modal-a11y.js. A second trap here moved focus
+      // twice at the wrap and skipped the first field.
       if (e.key === "Escape") { e.stopPropagation(); if (!busy) close(false); }
-      else if (e.key === "Tab") {
-        const stops = [next, password, cancelBtn, confirmBtn].filter((n) => !n.disabled);
-        const at = stops.indexOf(document.activeElement);
-        e.preventDefault();
-        stops[(at + (e.shiftKey ? -1 : 1) + stops.length) % stops.length].focus();
-      }
     }
     const fail = (msg, focusOn) => { err.textContent = msg; err.hidden = false; focusOn?.focus(); };
 
@@ -61,7 +58,7 @@ export function changeEmailDialog() {
         el("p.confirmdlg__body", {}, t("emailchange.title")),
         el("p.confirmdlg__note", {}, t("emailchange.intro")),
         el("label.field", { style: { margin: "12px 0 0" } }, [el("span", {}, t("emailchange.new")), next]),
-        el("label.field", {}, [el("span", {}, t("emailchange.password")), password]),
+        el("label.field", {}, [el("span", {}, t("emailchange.password")), passwordField(password)]),
         err,
         el("div.confirmdlg__actions", {}, [cancelBtn, confirmBtn]),
       ]),

@@ -262,7 +262,7 @@ const SHEET = [
 
 function sheetArt() {
   return el("div.lp-sheet", {}, SHEET.map(([label, cells]) => el("div", {}, [
-    el("h4", {}, t(label)),
+    el("h4", { "aria-level": "3" }, t(label)),   // under the section's h2: level 3 for the outline, the look stays
     el("div.lp-sheet__cells", {}, cells.map(([code, n], ci) => el("div.lp-sheet__cell", {}, [
       el("b", {}, code),
       el("div.lp-sheet__bubbles", { "aria-hidden": "true" },
@@ -533,7 +533,7 @@ export function footer() {
   // counts as onboarded and the app's Home doesn't bounce them back to this page.
   const APP_ROUTES = new Set(["#/solve", "#/hp", "#/exam-prep"]);
   const col = (title, links) => el("div.lp-foot__col", {}, [
-    el("h4", {}, t(title)),
+    el("h4", { "aria-level": "2" }, t(title)),   // a footer column's title, level 2 in the outline
     el("ul", {}, links.map(([href, key]) => el("li", {}, [el("a", {
       href, onclick: APP_ROUTES.has(href) ? (e) => { e.preventDefault(); enter(href); } : null,
     }, t(key))]))),
