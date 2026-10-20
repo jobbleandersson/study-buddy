@@ -311,6 +311,7 @@ a.streakbadge:hover {
    welcome screen and the profile card. */
 .wordmark__text {
   display: inline-block; font-family: "Lexend", var(--font-display); font-weight: 700; letter-spacing: -.035em;
+  font-size: 1.2em;   /* a touch larger than the text around it, so the name reads next to the logo */
 }
 .wordmark__text b { font-weight: inherit; color: var(--brand-ink); }
 /* On the two panels that are a fixed dark colour in every theme: a lighter blue on the sign-in panel; on the profile card,
@@ -1379,7 +1380,11 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .lp-brand img { width: 30px; height: 30px; }
 .lp-head__actions { display: flex; align-items: center; gap: var(--s-3); }
 .lp-head__actions .btn { white-space: nowrap; }
-/* Phones: tighter buttons, so the logo, the name, the language pill and "Open the app" still fit in one row. */
+/* Phones: the front page header keeps the name at the size of the text around it (the larger size is for the rest of the
+   app), and tighter buttons, so the logo, the name, the language pill and the buttons still fit in one row. */
+@media (max-width: 480px) {
+  .lp-brand .wordmark__text { font-size: 1em; }
+}
 @media (max-width: 420px) {
   .lp-head__actions { gap: var(--s-2); }
   .lp-head__actions .btn { padding-inline: 12px; }
