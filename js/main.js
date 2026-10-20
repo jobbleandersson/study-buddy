@@ -572,8 +572,11 @@ function sidebarStreak(streak, atRisk) {
     "aria-label": t("prog.streakAria", { n: streak }),
   }, [
     el("span.sidebar__streak-icon", {}, icon(atRisk ? ICONS.shield : ICONS.flame, 18)),
-    atRisk ? t("streak.atRiskShort")
-      : streak === 1 ? t("menu.tileStreakOne", { n: streak }) : t("menu.tileStreak", { n: streak }),
+    // Two short lines instead of one that wraps: the word, then the count (or "at risk").
+    el("span.sidebar__streak-text", {}, [
+      el("small", {}, t("streak.label")),
+      el("b", {}, atRisk ? t("streak.atRiskTwo") : plural(streak, "prog.streakDaysOne", "prog.streakDaysMany")),
+    ]),
   ]);
 }
 

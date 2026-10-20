@@ -1521,6 +1521,8 @@ export default {
   "streak.frozenDay": "streak freeze used",
   "streak.atRisk": "Study today to keep your {n}-day streak — a freeze is ready if you slip.",
   "streak.atRiskShort": "Streak at risk — study today",
+  "streak.label": "Streak",
+  "streak.atRiskTwo": "at risk",
 
   "prog.achievements": "Achievements",
   "prog.personalBestOne": "personal best: {n} day",
