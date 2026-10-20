@@ -207,6 +207,11 @@ a.streakbadge:hover {
   transition: background var(--dur-fast);
 }
 .sidebar__streak:hover { background: var(--line); }
+/* The label above the count, both short enough that the pair stays as high as the flame disc. */
+.sidebar__streak-text { display: grid; gap: 1px; min-width: 0; line-height: 1.15; }
+.sidebar__streak-text small { font-size: calc(11px * var(--fs-scale, 1)); font-weight: 600; color: var(--ink-faint); }
+.sidebar__streak-text b { font-weight: 700; overflow-wrap: anywhere; }
+.sidebar__streak--none .sidebar__streak-text b { font-weight: 600; }
 /* The flame disc breathes a warm glow — an ember, not a whole-button halo. */
 .sidebar__streak-icon {
   width: 32px; height: 32px; flex: none; border-radius: var(--r-full);

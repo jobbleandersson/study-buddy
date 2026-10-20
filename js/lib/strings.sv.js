@@ -1536,6 +1536,8 @@ export default {
   "streak.frozenDay": "streak-frysning använd",
   "streak.atRisk": "Plugga idag för att behålla din {n}-dagarssvit — en frysning finns redo om du missar.",
   "streak.atRiskShort": "Svit i fara — plugga idag",
+  "streak.label": "Svit",
+  "streak.atRiskTwo": "i fara",
 
   "prog.achievements": "Utmärkelser",
   "prog.personalBestOne": "personbästa: {n} dag",

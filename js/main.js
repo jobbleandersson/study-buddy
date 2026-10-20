@@ -561,8 +561,8 @@ function streakBadge(streak, atRisk) {
 }
 
 /** The sidebar footer's fuller streak row — same streak/at-risk logic as the
- *  compact topbar badge, just spelled out (icon + the day count in words)
- *  instead of a bare number. Sidebar-only, so the topbar's compact badge is
+ *  compact topbar badge, just spelled out (icon + a "Streak" label over the day
+ *  count in words) instead of a bare number. Sidebar-only, so the topbar's compact badge is
  *  untouched. Always shown, muted at zero — a fixed spot in the footer
  *  rather than something that pops in once a streak starts. */
 function sidebarStreak(streak, atRisk) {
@@ -570,10 +570,15 @@ function sidebarStreak(streak, atRisk) {
   return el("a.sidebar__streak" + (atRisk ? ".sidebar__streak--risk" : none ? ".sidebar__streak--none" : ""), {
     href: "#/progress",
     "aria-label": t("prog.streakAria", { n: streak }),
+    // The two short lines say "at risk" but not what to do about it; the tooltip keeps the full sentence.
+    title: atRisk ? t("streak.atRiskShort") : null,
   }, [
     el("span.sidebar__streak-icon", {}, icon(atRisk ? ICONS.shield : ICONS.flame, 18)),
-    atRisk ? t("streak.atRiskShort")
-      : streak === 1 ? t("menu.tileStreakOne", { n: streak }) : t("menu.tileStreak", { n: streak }),
+    // Two short lines instead of one that wraps: the word, then the count (or "at risk").
+    el("span.sidebar__streak-text", {}, [
+      el("small", {}, t("streak.label")),
+      el("b", {}, atRisk ? t("streak.atRiskTwo") : plural(streak, "prog.streakDaysOne", "prog.streakDaysMany")),
+    ]),
   ]);
 }
 
