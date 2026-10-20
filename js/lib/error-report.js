@@ -62,7 +62,7 @@ export function shapeReport({ kind, message, source, stack, origin = "", hash = 
 // it serves; see sw.js): the code this page runs. There is one, except for the moment a new
 // version installs next to it.
 let versionP = null;
-function appVersion() {
+export function appVersion() {
   versionP ||= (async () => {
     try {
       const keys = (await caches.keys()).filter((k) => k.startsWith("studify-"));

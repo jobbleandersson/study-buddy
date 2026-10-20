@@ -237,6 +237,17 @@ export const ICONS = {
   pause: "M8 5v14 M16 5v14",
   skipBack: "M6 5v14 M19 5 9 12l10 7V5Z",
   skipForward: "M18 5v14 M5 5l10 7-10 7V5Z",
+  // Feedback ("Tyck till"): the button, the four kinds and five mood faces (a ring, a mouth and, for the
+  // faces, two eyes, drawn as one path so they work with icon()).
+  feedback: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z",
+  idea: "M9 18h6 M10 21h4 M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z",
+  problem: "M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01",
+  heart: "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z",
+  mood1: "M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0z M16 17c-1-1.3-2.3-2-4-2s-3 .7-4 2 M7.5 8l2.5 1 M16.5 8L14 9",
+  mood2: "M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0z M16 16s-1.5-2-4-2-4 2-4 2 M9 9h.01 M15 9h.01",
+  mood3: "M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0z M8 15h8 M9 9h.01 M15 9h.01",
+  mood4: "M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0z M8 14s1.5 2 4 2 4-2 4-2 M9 9h.01 M15 9h.01",
+  mood5: "M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0z M7.5 13h9a4.5 4.5 0 0 1-9 0z M9 9h.01 M15 9h.01",
 };
 
 // This whole set above is stroke-only outline icons (icon() below always

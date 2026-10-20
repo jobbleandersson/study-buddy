@@ -213,6 +213,8 @@ const routes = [
   { rx: /^\/admin\/reviews$/, view: () => import("./views/admin-reviews.js").then((mod) => mod.renderAdminReviews()) },
   { rx: /^\/admin\/ai-reports$/, view: () => import("./views/admin-ai-reports.js").then((mod) => mod.renderAdminAiReports()) },
   { rx: /^\/admin\/errors$/, view: () => import("./views/admin-errors.js").then((mod) => mod.renderAdminErrors()) },
+  { rx: /^\/feedback$/, view: (m, qs) => import("./views/feedback.js").then((mod) => mod.renderFeedback(qs)) },
+  { rx: /^\/admin\/feedback$/, view: () => import("./views/admin-feedback.js").then((mod) => mod.renderAdminFeedback()) },
 ];
 
 let currentCleanup = null;
@@ -316,6 +318,9 @@ function navGroups() {
     { href: "#/classes", match: "/classes", icon: ICONS.presentation, label: t("nav.classes") },
     { href: "#/parent", match: "/parent", icon: ICONS.users, label: t("common.parent") },
     { href: "#/settings", match: "/settings", icon: ICONS.gear, label: t("common.settings"), foot: true },
+    // Beside the language selector in the top bar from 640px up (feedbackButton); on a phone that bar has no
+    // room, so it is here in the "Meny" instead. `foot` keeps it out of the sidebar's rows.
+    { href: "#/feedback", match: "/feedback", icon: ICONS.feedback, label: t("feedback.button"), foot: true },
   ];
 
   return [
@@ -535,6 +540,16 @@ function tabBar() {
     }, [icon(tb.icon, 20), el("span", {}, tb.label)])),
     moreMenu(!anyTabActive),
   ]);
+}
+
+/** "Tyck till": a button beside the language selector, on every screen, that opens #/feedback. Icon only
+ *  on narrow top bars (css), icon and word where there is room. */
+function feedbackButton() {
+  const on = navActive("/feedback");
+  return el("a.iconbtn.fbbtn" + (on ? ".is-active" : ""), {
+    href: "#/feedback", "aria-label": t("feedback.button"), title: t("feedback.button"),
+    "aria-current": on ? "page" : null,
+  }, [icon(ICONS.feedback, 18), el("span.fbbtn__label", {}, t("feedback.button"))]);
 }
 
 function langButton() {
@@ -948,6 +963,7 @@ function shell(contentNode) {
           topSearch(),
           el("span.topbar__spacer"),
           streakBadge(streak, atRisk),
+          feedbackButton(),
           langButton(),
           shellActions(),
         ]),

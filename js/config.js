@@ -52,6 +52,14 @@ export const AI_REPORTS_URL = `${API}/api/ai-reports`;
 export const ADMIN_AI_REPORTS_URL = `${API}/api/admin/ai-reports`;
 export const adminAiReportUrl = (id) => `${API}/api/admin/ai-reports/${encodeURIComponent(id)}`;
 
+// Feedback ("Tyck till"): students send it from #/feedback, the help panel or after a session; the inbox is
+// at #/admin/feedback. See routes/feedback.js.
+export const FEEDBACK_URL = `${API}/api/feedback`;
+export const MY_FEEDBACK_URL = `${API}/api/feedback/mine`;
+export const myFeedbackUrl = (id) => `${API}/api/feedback/mine/${encodeURIComponent(id)}`;
+export const ADMIN_FEEDBACK_URL = `${API}/api/admin/feedback`;
+export const adminFeedbackUrl = (id) => `${API}/api/admin/feedback/${encodeURIComponent(id)}`;
+
 // Anonymous error reports (js/lib/error-report.js) and the list of them at #/admin/errors. See
 // routes/client-errors.js.
 export const ERRORS_URL = `${API}/api/client-errors`;

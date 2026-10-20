@@ -57,15 +57,42 @@ export function mountSiteChat() {
   const titleEl = el("div.sitechat__title", {}, t("sitechat.title"));
   const subEl = el("div.sitechat__sub");
   const closeBtn = el("button.iconbtn.iconbtn--sm", { type: "button", "aria-label": t("common.close"), onclick: close }, [icon(ICONS.close, 16)]);
+  // Two tabs: "Fråga" (the helper, as always) and "Tyck till" (the feedback form, same one as #/feedback).
+  // The feedback pane is built the first time its tab is opened, and again after a sign-out.
+  const tabAsk = el("button.fb-tab", { type: "button", role: "tab", "aria-selected": "true", onclick: () => showTab("ask") }, t("sitechat.tabAsk"));
+  const tabFb = el("button.fb-tab", { type: "button", role: "tab", "aria-selected": "false", onclick: () => showTab("fb") }, t("sitechat.tabFeedback"));
+  const fbPane = el("div.sitechat__fb", { hidden: true });
+  let fbBuilt = false;
+  let fbAuthed = false;
+  function showTab(name) {
+    const fb = name === "fb";
+    tabAsk.setAttribute("aria-selected", String(!fb));
+    tabFb.setAttribute("aria-selected", String(fb));
+    panel.classList.toggle("is-fb", fb);
+    fbPane.hidden = !fb;
+    // Built on first use, and again if someone signed in or out since (the form differs).
+    if (fb && (!fbBuilt || fbAuthed !== store.authed)) {
+      fbBuilt = true;
+      fbAuthed = store.authed;
+      // Loaded here, not at the top: this widget mounts on every page and almost nobody opens this tab.
+      import("./feedback-form.js").then((m) => {
+        if (!fbBuilt) return;   // signed out or switched language while it loaded: built again next time
+        clear(fbPane).append(m.feedbackForm({ context: "button", moods: false, rows: 3, hint: t("sitechat.feedbackHint") }));
+      });
+    }
+  }
+
   const panel = el("div.sitechat__panel", { role: "dialog", "aria-modal": "false", "aria-label": t("sitechat.title"), hidden: true }, [
     el("div.sitechat__head", {}, [
       mascotEl,
       el("div.sitechat__id", {}, [titleEl, subEl]),
       closeBtn,
     ]),
+    el("div.fb-tabs", { role: "tablist" }, [tabAsk, tabFb]),
     logEl,
     formEl,
     fineEl,
+    fbPane,
   ]);
 
   /** "Svarar direkt" with a live dot, or "not available" with a grey one. */
@@ -83,6 +110,9 @@ export function mountSiteChat() {
     abort?.abort();
     messages.length = 0;
     clear(logEl);
+    clear(fbPane);
+    fbBuilt = false;
+    showTab("ask");
     close();
   });
 
@@ -95,6 +125,9 @@ export function mountSiteChat() {
     fab.setAttribute("aria-label", t("sitechat.fabLabel"));
     panel.setAttribute("aria-label", t("sitechat.title"));
     titleEl.textContent = t("sitechat.title");
+    tabAsk.textContent = t("sitechat.tabAsk");
+    tabFb.textContent = t("sitechat.tabFeedback");
+    if (fbBuilt) { fbBuilt = false; if (!fbPane.hidden) showTab("fb"); else clear(fbPane); }
     paintStatus();
     fineEl.textContent = t("sitechat.fine");
     closeBtn.setAttribute("aria-label", t("common.close"));
