@@ -42,6 +42,9 @@ describe("error-report", () => {
     assert.equal(sanitizeRoute("#/verify?token=secret"), "/verify");
     assert.equal(sanitizeRoute("#/hp/xyz"), "/hp/xyz");
     assert.equal(sanitizeRoute(""), "/");
+    // a join link's token is a secret, whatever characters it happens to have
+    assert.equal(sanitizeRoute("#/join/class/abcdefghijklmnopqrstuvwx"), "/join/class/:id");
+    assert.equal(sanitizeRoute("#/join/parent/AbC_dEf-GhIjKlMnOpQrStUv?x=1"), "/join/parent/:id");
   });
 
   test("the browser is reduced to its family and major version", () => {

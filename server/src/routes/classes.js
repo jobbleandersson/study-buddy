@@ -7,6 +7,7 @@ import { studentSetProgress, classTopics } from "../class-stats.js";
 import { readDigest, displayNames } from "../state-digest.js";
 import { codeGuessLimits } from "../middleware/authLimits.js";
 import { isUniqueViolation } from "../errors.js";
+import { randomToken } from "../codes.js";
 
 // Class mode: a teacher creates a class, students join with its code, the
 // teacher assigns ready-made library sets to the whole class and sees how
@@ -62,13 +63,35 @@ classes.post("/classes", requireAuth, (req, res) => {
   fail(res, 500, "Couldn't create the class. Try again.");
 });
 
-// A student joins with the class code. Joining is also their agreement that
+// The class a join request names, by the short code or by a link's token: { cls, byLink } (cls undefined when nothing
+// matches), or null when it names neither.
+function classFromRequest(body) {
+  const token = typeof body?.token === "string" ? body.token.trim() : "";
+  if (token) return { cls: db.prepare("SELECT * FROM classes WHERE link_token = ?").get(token), byLink: true };
+  const code = String(body?.code || "").trim().toUpperCase();
+  if (!code) return null;
+  return { cls: db.prepare("SELECT * FROM classes WHERE code = ?").get(code), byLink: false };
+}
+
+// What a class link is for, shown before joining: the class, its teacher and whether you are already in it.
+// Nothing is changed. The teacher is shown as in the class list, never by whole address.
+classes.post("/classes/preview", requireAuth, ...codeGuessLimits, (req, res) => {
+  const found = classFromRequest({ token: req.body?.token });
+  if (!found) return fail(res, 400, "Open the link again.");
+  const cls = found.cls;
+  if (!cls) return fail(res, 400, "This invitation is invalid or has expired.");
+  if (cls.teacher_user_id === req.user.userId) return fail(res, 400, "You can't join your own class.");
+  const already = !!db.prepare("SELECT 1 FROM class_members WHERE class_id = ? AND student_user_id = ?").get(cls.id, req.user.userId);
+  res.json({ name: cls.name, teacherName: displayNames([cls.teacher_user_id]).get(cls.teacher_user_id) || "", alreadyMember: already });
+});
+
+// A student joins with the class code or the class link. Joining is also their agreement that
 // the teacher sees their results on the sets assigned to the class.
 classes.post("/classes/join", requireAuth, ...codeGuessLimits, (req, res) => {
-  const code = String(req.body?.code || "").trim().toUpperCase();
-  if (!code) return fail(res, 400, "Enter a code.");
-  const cls = db.prepare("SELECT * FROM classes WHERE code = ?").get(code);
-  if (!cls) return fail(res, 400, "That code is invalid or has expired.");
+  const found = classFromRequest(req.body);
+  if (!found) return fail(res, 400, "Enter a code.");
+  const cls = found.cls;
+  if (!cls) return fail(res, 400, found.byLink ? "This invitation is invalid or has expired." : "That code is invalid or has expired.");
   if (cls.teacher_user_id === req.user.userId) return fail(res, 400, "You can't join your own class.");
 
   const members = db.prepare("SELECT COUNT(*) AS n FROM class_members WHERE class_id = ?").get(cls.id).n;
@@ -165,6 +188,23 @@ classes.get("/classes/:id/results", requireAuth, (req, res) => {
   res.json({ assignments });
 });
 
+// The class's join link: its token, made the first time it is asked for and the same afterwards. Only the teacher.
+classes.post("/classes/:id/link", requireAuth, (req, res) => {
+  const cls = teacherClass(req, res);
+  if (!cls) return;
+  if (cls.link_token) return res.json({ token: cls.link_token });
+  for (let attempt = 0; attempt < 6; attempt++) {
+    const token = randomToken();
+    try {
+      db.prepare("UPDATE classes SET link_token = ? WHERE id = ? AND link_token IS NULL").run(token, cls.id);
+      return res.json({ token: db.prepare("SELECT link_token FROM classes WHERE id = ?").get(cls.id).link_token });
+    } catch (e) {
+      if (!isUniqueViolation(e)) throw e;
+    }
+  }
+  fail(res, 500, "Couldn't make the link. Try again.");
+});
+
 // A new code for a class (the old one stops working at once): for a code that was shared too widely or kept too long.
 // Students already in the class stay in it.
 classes.post("/classes/:id/new-code", requireAuth, (req, res) => {
@@ -173,7 +213,8 @@ classes.post("/classes/:id/new-code", requireAuth, (req, res) => {
   for (let attempt = 0; attempt < 6; attempt++) {
     const code = randomCode();
     try {
-      db.prepare("UPDATE classes SET code = ? WHERE id = ?").run(code, cls.id);
+      // The link is dropped with the old code: both exist for the same reason (shared too widely, or kept too long).
+      db.prepare("UPDATE classes SET code = ?, link_token = NULL WHERE id = ?").run(code, cls.id);
       return res.json({ code });
     } catch (e) {
       if (!isUniqueViolation(e)) throw e;   // a code clash: pick another

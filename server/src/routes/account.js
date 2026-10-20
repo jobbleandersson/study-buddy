@@ -81,8 +81,10 @@ account.delete("/account", requireAuth, deleteFailures, asyncHandler(async (req,
     db.prepare("DELETE FROM assigned_sets WHERE student_user_id = ? OR assigned_by_user_id = ?").run(userId, userId);
     db.prepare("DELETE FROM links WHERE parent_user_id = ? OR student_user_id = ?").run(userId, userId);
     db.prepare("DELETE FROM invite_codes WHERE student_user_id = ?").run(userId);
+    db.prepare("DELETE FROM invite_links WHERE student_user_id = ?").run(userId);
     db.prepare("DELETE FROM friend_links WHERE user_a_id = ? OR user_b_id = ?").run(userId, userId);
     db.prepare("DELETE FROM friend_codes WHERE user_id = ?").run(userId);
+    db.prepare("DELETE FROM friend_invite_links WHERE user_id = ?").run(userId);
     db.prepare("DELETE FROM email_verify_tokens WHERE user_id = ?").run(userId);
     db.prepare("DELETE FROM password_reset_tokens WHERE user_id = ?").run(userId);
     db.prepare("DELETE FROM totp_backup_codes WHERE user_id = ?").run(userId);

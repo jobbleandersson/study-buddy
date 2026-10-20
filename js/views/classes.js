@@ -14,13 +14,15 @@ import { confirmDialog } from "../components/confirm-dialog.js";
 import { classDailyPanel } from "../components/class-daily-panel.js";
 import { classWizard } from "../components/class-wizard.js";
 import { openClassShareSlide } from "../components/class-share-slide.js";
+import { linkBox } from "../components/link-actions.js";
+import { joinUrl } from "../lib/join-link.js";
 import { foldedDatePicker } from "../components/calendar.js";
 import { row, card, pageHead, emptyState, avatar, chip, codeField } from "../components/set-ui.js";
 import { signInGate, gateBar } from "../components/signin-gate.js";
 import { localDayKey } from "../lib/activity.js";
 import { loadLibraryIndex, loadLibraryTranslations, isImported, importSet } from "../data/library.js";
 import { setProgress } from "../lib/mastery.js";
-import { CLASSES_URL, CLASS_JOIN_URL, MY_CLASS_ASSIGNMENTS_URL, classUrl } from "../config.js";
+import { CLASSES_URL, CLASS_JOIN_URL, MY_CLASS_ASSIGNMENTS_URL, classUrl, classLinkUrl } from "../config.js";
 
 async function api(url, opts) {
   const res = await fetch(url, { credentials: "include", headers: { "content-type": "application/json" }, ...opts });
@@ -396,6 +398,19 @@ export async function renderClassDetail(id) {
       try { cls.code = (await api(`${classUrl(cls.id)}/new-code`, { method: "POST" })).code; toast(t("classes.newCodeDone")); paint(); }
       catch (e) { toast(e.message); }
     } }, [icon(ICONS.refresh || ICONS.copy, 15), t("classes.newCode")]);
+    // The same join as a link: students tap it instead of typing the code (views/join.js). Made when first asked for.
+    const linkSlot = el("div");
+    const showLink = el("button.btn.btn--sm", { type: "button" }, [icon(ICONS.share, 15), t("join.classLinkShow")]);
+    showLink.addEventListener("click", async () => {
+      showLink.disabled = true;
+      try {
+        const { token } = await api(classLinkUrl(cls.id), { method: "POST" });
+        linkSlot.replaceChildren(row(t("join.classLinkLabel"), t("join.classLinkNote")), linkBox(joinUrl("class", token), {
+          title: t("join.classShareTitle", { name: cls.name }), text: t("join.classShareText", { name: cls.name }),
+        }));
+      } catch (e) { toast(e.message); showLink.disabled = false; }
+    });
+    linkSlot.append(row(t("join.classLinkLabel"), t("join.classLinkNote"), showLink));
     root.append(
       el("a.btn.btn--ghost.btn--sm.set-back", { href: "#/classes" }, [icon(ICONS.back, 16), t("classes.back")]),
       pageHead(cls.name, [
@@ -407,6 +422,7 @@ export async function renderClassDetail(id) {
           el("span.set-bigcode__code", { "aria-label": `${t("classes.code")}: ${cls.code.split("").join(" ")}` }, cls.code),
           el("div.set-row__ctl", {}, [copy, show, fresh]),
         ]),
+        linkSlot,
       ]),
       wizard.el,
       assignForm(),

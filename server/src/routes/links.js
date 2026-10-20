@@ -5,6 +5,7 @@ import { requireAuth } from "../middleware/requireAuth.js";
 import { codeGuessLimits } from "../middleware/authLimits.js";
 import { TOO_MANY_MESSAGE } from "../middleware/attemptLimit.js";
 import { issueCode } from "../codes.js";
+import { displayNames } from "../state-digest.js";
 
 export const links = Router();
 
@@ -16,14 +17,43 @@ links.post("/links/invite-code", requireAuth, (req, res) => {
   res.json({ code: issued.code, expiresAt: issued.expiresAt });
 });
 
-// A parent/teacher redeems a student's code to create the link.
-links.post("/links/redeem", requireAuth, ...codeGuessLimits, (req, res) => {
-  const code = String(req.body?.code || "").trim().toUpperCase();
-  if (!code) return res.status(400).json({ error: { message: "Enter a code." } });
+// The same invitation as a link: a long token the app puts after "#/join/parent/". Good for a day, once.
+links.post("/links/invite-link", requireAuth, (req, res) => {
+  const issued = issueCode("inviteLink", req.user.userId);
+  if (!issued) return res.status(429).set("Retry-After", "600").json({ error: { message: TOO_MANY_MESSAGE, code: "too_many_codes" } });
+  res.json({ token: issued.code, expiresAt: issued.expiresAt });
+});
 
-  const invite = db.prepare("SELECT * FROM invite_codes WHERE code = ?").get(code);
+// The invitation a request names, from either a student's code or a link's token: { table, row } (row may be undefined),
+// or null when it names neither. Table names are fixed here.
+function findInvite(body) {
+  const token = typeof body?.token === "string" ? body.token.trim() : "";
+  if (token) return { table: "invite_links", row: db.prepare("SELECT * FROM invite_links WHERE code = ?").get(token), kind: "link" };
+  const code = String(body?.code || "").trim().toUpperCase();
+  if (!code) return null;
+  return { table: "invite_codes", row: db.prepare("SELECT * FROM invite_codes WHERE code = ?").get(code), kind: "code" };
+}
+
+const gone = (kind) => (kind === "link" ? "This invitation is invalid or has expired." : "That code is invalid or has expired.");
+
+// What a link is for, shown before it is used: who is inviting. Nothing is changed. Needs a session, like redeeming does.
+links.post("/links/preview", requireAuth, ...codeGuessLimits, (req, res) => {
+  const found = findInvite({ token: req.body?.token });
+  if (!found) return res.status(400).json({ error: { message: "Open the link again." } });
+  const { row, kind } = found;
+  if (!row || row.used_at || row.expires_at < Date.now()) return res.status(400).json({ error: { message: gone(kind) } });
+  if (row.student_user_id === req.user.userId) return res.status(400).json({ error: { message: "You can't link to your own account." } });
+  // A first name or a shortened address, never the whole address of a person only known by a link.
+  res.json({ studentName: displayNames([row.student_user_id]).get(row.student_user_id) });
+});
+
+// A parent/teacher redeems a student's code (or link) to create the link.
+links.post("/links/redeem", requireAuth, ...codeGuessLimits, (req, res) => {
+  const found = findInvite(req.body);
+  if (!found) return res.status(400).json({ error: { message: "Enter a code." } });
+  const { table, row: invite, kind } = found;
   if (!invite || invite.used_at || invite.expires_at < Date.now()) {
-    return res.status(400).json({ error: { message: "That code is invalid or has expired." } });
+    return res.status(400).json({ error: { message: gone(kind) } });
   }
   if (invite.student_user_id === req.user.userId) {
     return res.status(400).json({ error: { message: "You can't link to your own account." } });
@@ -31,11 +61,17 @@ links.post("/links/redeem", requireAuth, ...codeGuessLimits, (req, res) => {
 
   const student = db.prepare("SELECT email FROM users WHERE id = ?").get(invite.student_user_id);
   const now = Date.now();
-  db.prepare(`
-    INSERT INTO links (id, parent_user_id, student_user_id, status, created_at) VALUES (?, ?, ?, 'active', ?)
-    ON CONFLICT(parent_user_id, student_user_id) DO UPDATE SET status = 'active'
-  `).run(crypto.randomUUID(), req.user.userId, invite.student_user_id, now);
-  db.prepare("UPDATE invite_codes SET used_at = ? WHERE id = ?").run(now, invite.id);
+  // Using it up and making the link are one step, and only the request that wins the use gets the link: two
+  // people opening the same single-use link at once cannot both become the student's parent.
+  const claimed = db.transaction(() => {
+    if (db.prepare(`UPDATE ${table} SET used_at = ? WHERE id = ? AND used_at IS NULL`).run(now, invite.id).changes !== 1) return false;
+    db.prepare(`
+      INSERT INTO links (id, parent_user_id, student_user_id, status, created_at) VALUES (?, ?, ?, 'active', ?)
+      ON CONFLICT(parent_user_id, student_user_id) DO UPDATE SET status = 'active'
+    `).run(crypto.randomUUID(), req.user.userId, invite.student_user_id, now);
+    return true;
+  })();
+  if (!claimed) return res.status(400).json({ error: { message: gone(kind) } });
 
   res.json({ studentEmail: student.email });
 });

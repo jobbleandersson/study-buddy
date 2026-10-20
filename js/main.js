@@ -3,6 +3,7 @@
 import { store } from "./store.js";
 import { PAGEVIEW_URL, PROXY_HEALTH_URL, ERRORS_URL } from "./config.js";
 import { installErrorReporting } from "./lib/error-report.js";
+import { hideJoinToken } from "./lib/join-link.js";
 import { el, clear, mount, append, icon, ICONS, toast, showBanner, hideBanner, downloadText } from "./lib/dom.js";
 import { announce, focusHeading } from "./lib/a11y.js";
 import { t, plural, getLang, setLang, applyLang, LANGS, daysUntil } from "./lib/i18n.js";
@@ -91,7 +92,7 @@ function trackEntryPageview() {
     const hashParams = new URLSearchParams(hashQs || "");
     const pick = (name) => searchParams.get(name) || hashParams.get(name);
     const body = JSON.stringify({
-      path: hashPath || "/",
+      path: hideJoinToken(hashPath || "/"),   // a join link's token is a secret: never recorded
       referrer: document.referrer || null,
       utm_source: pick("utm_source"),
       utm_medium: pick("utm_medium"),
@@ -193,6 +194,8 @@ const routes = [
   { rx: /^\/reset$/, view: (m, qs) => import("./views/reset-password.js").then((mod) => mod.renderResetPassword(qs)) },
   { rx: /^\/parent$/, view: () => import("./views/parent-dashboard.js").then((mod) => mod.renderParentHub()) },
   { rx: /^\/parent\/(.+)$/, view: (m) => import("./views/parent-dashboard.js").then((mod) => mod.renderParentStudent(m[1])) },
+  // A shared link to a class, to a student's invitation or to a friend invitation (views/join.js).
+  { rx: /^\/join\/(class|parent|friend)\/([A-Za-z0-9_-]+)$/, view: (m) => import("./views/join.js").then((mod) => mod.renderJoin(m[1], m[2])) },
   { rx: /^\/classes$/, view: (m, qs) => import("./views/classes.js").then((mod) => mod.renderClasses(qs)) },
   { rx: /^\/classes\/(.+)$/, view: (m) => import("./views/classes.js").then((mod) => mod.renderClassDetail(m[1])) },
   { rx: /^\/teachers$/, view: () => import("./views/teachers.js").then((mod) => mod.renderTeacherLanding()) },

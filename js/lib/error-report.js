@@ -5,6 +5,8 @@
 // At most MAX_PER_LOAD different errors per page load, each once. Server side:
 // server/src/routes/client-errors.js; read them at #/admin/errors.
 
+import { hideJoinToken } from "./join-link.js";
+
 const MAX_PER_LOAD = 10;
 // Errors we can't act on: browser add-ons, the browser's own resize warning, cross-origin scripts that
 // hide their message ("Script error."), and requests that failed because the device is offline.
@@ -14,7 +16,7 @@ const NOISE = /^(?:Uncaught )?(?:ResizeObserver loop|Script error\.?$|(?:TypeErr
 /** The page a report came from, without anything personal: no query string (it can carry a token)
  *  and ids replaced, so "/results/5e1dfjnaqcrn" and "/verify?token=..." become "/results/:id", "/verify". */
 export function sanitizeRoute(hash) {
-  const path = String(hash || "").replace(/^#/, "").split("?")[0] || "/";
+  const path = hideJoinToken(String(hash || "").replace(/^#/, "").split("?")[0] || "/");
   return path.split("/").map((seg) => ((/\d/.test(seg) && seg.length >= 6) || seg.length > 40 ? ":id" : seg)).join("/").slice(0, 100);
 }
 

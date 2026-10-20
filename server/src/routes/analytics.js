@@ -3,6 +3,7 @@ import crypto from "node:crypto";
 import { db } from "../db.js";
 import { asyncHandler } from "../middleware/asyncHandler.js";
 import { pageviewLimit } from "../middleware/authLimits.js";
+import { hideJoinToken } from "../route-privacy.js";
 
 export const analytics = Router();
 
@@ -21,7 +22,7 @@ analytics.post("/analytics/pageview", pageviewLimit, asyncHandler(async (req, re
     VALUES (?, ?, ?, ?, ?, ?, ?)
   `).run(
     crypto.randomUUID(),
-    clip(b.path, 200) || "/",
+    clip(hideJoinToken(b.path), 200) || "/",
     clip(b.referrer, 300),
     clip(b.utm_source, 100),
     clip(b.utm_medium, 100),
