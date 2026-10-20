@@ -6796,3 +6796,24 @@ html { scroll-padding-top: 80px; }
 .admin-aireport__tag--harmful { background: var(--retry-tint); color: var(--retry-ink); }
 .admin-aireport__label { margin: 0 0 4px; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-faint); }
 .admin-aireport__text { margin: 0; padding: 10px 14px; border-left: 3px solid var(--line-strong); background: var(--surface-sunk); white-space: pre-wrap; overflow-wrap: anywhere; font-size: var(--fs-sm); line-height: 1.5; }
+
+/* ---- "Sign in with Apple" (components/apple-signin.js): Apple's look - black in light mode, white in dark,
+   the logo and Apple's wording - the same height and pill shape as Google's button above it. ---- */
+.auth__apple { display: flex; justify-content: center; margin-top: 10px; }
+.auth__apple[hidden] { display: none; }
+.applebtn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; max-width: 360px; height: 40px; padding: 0 16px; border: 1px solid #000; border-radius: 999px;
+  background: #000; color: #fff; font: 500 15px/1 -apple-system, BlinkMacSystemFont, "Inter", system-ui, sans-serif;
+  letter-spacing: .01em; cursor: pointer;
+}
+.applebtn:hover:not(:disabled) { background: #1d1d1f; }
+.applebtn:disabled { opacity: .6; cursor: default; }
+.applebtn:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+.applebtn__logo { display: inline-grid; margin-top: -2px; }
+:root[data-theme="dark"] .applebtn { background: #fff; color: #000; border-color: #fff; }
+:root[data-theme="dark"] .applebtn:hover:not(:disabled) { background: #f2f2f7; }
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="system"] .applebtn { background: #fff; color: #000; border-color: #fff; }
+  :root[data-theme="system"] .applebtn:hover:not(:disabled) { background: #f2f2f7; }
+}

@@ -156,6 +156,7 @@ const APP_SHELL = [
   "./js/components/home-backdrop.js",
   "./js/components/ai-consent.js",
   "./js/components/ai-report.js",
+  "./js/components/apple-signin.js",
   "./js/views/admin-ai-reports.js",
   "./js/components/class-daily-panel.js",
   "./js/components/bus-question.js",

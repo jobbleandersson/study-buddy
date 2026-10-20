@@ -32,7 +32,7 @@ import { findQuestion as findQuestionPure, dueQuestions as dueQuestionsPure } fr
 import { loadLibraryIndex, loadLibraryTranslations, englishFile } from "./lib/library-content.js";
 import { cleanRuleText, rulesForQuestion, RULE_MAX_COUNT } from "./lib/rules.js";
 import {
-  PROXY_HEALTH_URL, SITE_GATE_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_GOOGLE_URL, AUTH_SET_PASSWORD_URL, AUTH_CHANGE_PASSWORD_URL, AUTH_CHANGE_EMAIL_URL, AUTH_CONFIRM_EMAIL_CHANGE_URL, AUTH_LOGOUT_OTHERS_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, ACCOUNT_URL,
+  PROXY_HEALTH_URL, SITE_GATE_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_GOOGLE_URL, AUTH_APPLE_URL, AUTH_SET_PASSWORD_URL, AUTH_CHANGE_PASSWORD_URL, AUTH_CHANGE_EMAIL_URL, AUTH_CONFIRM_EMAIL_CHANGE_URL, AUTH_LOGOUT_OTHERS_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, ACCOUNT_URL,
   RESEND_VERIFICATION_URL, VERIFY_EMAIL_URL, FORGOT_PASSWORD_URL, RESET_PASSWORD_URL, STATE_URL, USAGE_URL, BILLING_STATUS_URL,
   AUTH_2FA_VERIFY_URL, AUTH_2FA_RESEND_URL, AUTH_2FA_SETUP_URL, AUTH_2FA_CONFIRM_URL, AUTH_2FA_DISABLE_URL,
 } from "./config.js";
@@ -474,6 +474,9 @@ class Store extends EventTarget {
     // Google OAuth client id when the server has Google sign-in set up, else null
     // (the sign-in screen then shows no Google button).
     this.googleClientId = null;
+    // The same for Sign in with Apple: the website's Services ID and the return address Apple has on file.
+    this.appleClientId = null;
+    this.appleRedirectUri = null;
 
     // Optional https link the server offers for getting more AI allowance;
     // null hides the upgrade button in the limit-reached prompt.
@@ -491,7 +494,8 @@ class Store extends EventTarget {
     // opt-in: local-only mode (authed === false) works exactly as before.
     this.authed = false;
     this.authEmail = null;
-    this.authPasswordless = false;   // a Google-linked account has no password to type
+    this.authPasswordless = false;   // a Google- or Apple-linked account has no password to type
+    this.authGoogleLinked = false;   // adding a password needs a fresh Google sign-in, so only a Google-linked account can
     // Meaningless while emailConfigured is false — the server reports true in that case so
     // nothing here ever nags about a feature that isn't switched on.
     this.authEmailVerified = false;
@@ -587,6 +591,8 @@ class Store extends EventTarget {
       // Absent (older server) → assume it does require auth, the safe default.
       this.proxyRequiresAuth = data?.messagesRequireAuth !== false;
       this.googleClientId = data?.googleClientId || null;
+      this.appleClientId = data?.appleClientId || null;
+      this.appleRedirectUri = data?.appleRedirectUri || null;
       this.emailConfigured = !!data?.emailConfigured;
       this.siteLocked = !!data?.siteLocked;
       this.siteUnlocked = !!data?.unlocked;
@@ -598,6 +604,7 @@ class Store extends EventTarget {
       this.proxyUp = false;
       this.proxyKeyConfigured = false;
       this.googleClientId = null;
+      this.appleClientId = null;
       this.emailConfigured = false;
     }
 
@@ -612,6 +619,7 @@ class Store extends EventTarget {
           this.authEmail = data.email;
           this._setDeviceOwner(data.email);
           this.authPasswordless = !!data.passwordless;
+          this.authGoogleLinked = data.googleLinked ?? !!data.passwordless;   // an older server: passwordless meant Google
           this.authEmailVerified = !!data.emailVerified;
           this.totpEnabled = !!data.totpEnabled;
           this.twofaMethod = data.twofaMethod || (data.totpEnabled ? "totp" : null);
@@ -2092,18 +2100,29 @@ class Store extends EventTarget {
   // One call covers "sign in" and "create account": the server decides which.
   // Returns { created, linked } so the screen can say what happened. A brand-new
   // account adopts this device's data (like signup); an existing one pulls.
-  async loginWithGoogle(credential, { consent = false } = {}) {
-    const res = await fetch(AUTH_GOOGLE_URL, {
+  loginWithGoogle(credential, { consent = false } = {}) {
+    return this._loginWithProvider("google", AUTH_GOOGLE_URL, { credential, consent: consent === true }, "login.googleFailed");
+  }
+  /** The same for Sign in with Apple: `idToken` is what Apple's sign-in handed back (components/apple-signin.js). */
+  loginWithApple(idToken, { consent = false } = {}) {
+    return this._loginWithProvider("apple", AUTH_APPLE_URL, { idToken, consent: consent === true }, "login.appleFailed");
+  }
+
+  async _loginWithProvider(provider, url, body, failKey) {
+    const res = await fetch(url, {
       method: "POST", credentials: "include",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ credential, consent: consent === true }),
+      body: JSON.stringify(body),
     });
     const data = await res.json().catch(() => ({}));
-    if (!res.ok) throw authError(data, t("login.googleFailed"));   // err.code === "consent_required" when a new account needs the checkbox
-    // An account with two-step sign-in: Google was the first step, the code step follows (verify2fa).
+    if (!res.ok) throw authError(data, t(failKey));   // err.code === "consent_required" when a new account needs the checkbox
+    // An account with two-step sign-in: the provider was the first step, the code step follows (verify2fa).
     if (data.twoFactorRequired) return twofaPending(data);
     this._adoptSignIn(data.email, { passwordless: true });
-    this.authEmailVerified = true;   // Google already verified it — see routes/auth.js
+    // Signing in with Google proves the account is linked to Google; with Apple it may or may not be too
+    // (the next page load asks /auth/me) - until then, no "add a password", which needs Google.
+    this.authGoogleLinked = provider === "google";
+    this.authEmailVerified = true;   // the provider already verified it — see routes/auth.js
     this.totpEnabled = false;   // linking clears any 2FA the account had (see routes/auth.js) — passwordless has none to have
     this.twofaMethod = null;
     if (data.created) {
@@ -2203,6 +2222,7 @@ class Store extends EventTarget {
     this.authed = false;
     this.authEmail = null;
     this.authPasswordless = false;
+    this.authGoogleLinked = false;
     this.authEmailVerified = false;
     this.totpEnabled = false;
     this.twofaMethod = null;
@@ -2267,6 +2287,7 @@ class Store extends EventTarget {
     this.authed = false;
     this.authEmail = null;
     this.authPasswordless = false;
+    this.authGoogleLinked = false;
     this.authEmailVerified = false;
     this.totpEnabled = false;
     this.twofaMethod = null;

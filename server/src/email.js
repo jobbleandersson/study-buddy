@@ -246,6 +246,16 @@ export function sendGoogleLinkedEmail(to) {
   });
 }
 
+// An existing password account was linked to Sign in with Apple: the password was turned off.
+export function sendAppleLinkedEmail(to) {
+  return sendEmail({
+    to, low: true, subject: subj("Ditt PluggEra-konto loggar nu in med Apple", "Your PluggEra account now signs in with Apple"),
+    html: layout(both(
+      `<p>Det här PluggEra-kontot kopplades just till en inloggning med Apple. Det gamla lösenordet fungerar inte längre och alla enheter loggades ut: logga in med Apple framöver.</p>${small("Om det inte var du: logga in med Apple och kontrollera ditt konto, eller skriv till oss.")}`,
+      `<p>This PluggEra account was just linked to Sign in with Apple. Its old password no longer works and every device was signed out: sign in with Apple from now on.</p>${small("If this wasn't you, sign in with Apple to check your account, or write to us.")}`), FOOT),
+  });
+}
+
 export function sendPasswordAddedEmail(to) {
   return sendEmail({
     to, subject: subj("Ett lösenord lades till på ditt PluggEra-konto", "A password was added to your PluggEra account"),

@@ -353,6 +353,12 @@ if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === "google
 }
 db.exec("CREATE UNIQUE INDEX IF NOT EXISTS users_google_sub ON users(google_sub) WHERE google_sub IS NOT NULL");
 
+// Sign in with Apple: the Apple ID's stable id ("sub"), exactly like google_sub above (routes/auth.js).
+if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === "apple_sub")) {
+  alter("ALTER TABLE users ADD COLUMN apple_sub TEXT");
+}
+db.exec("CREATE UNIQUE INDEX IF NOT EXISTS users_apple_sub ON users(apple_sub) WHERE apple_sub IS NOT NULL");
+
 // When someone accepted the Terms and confirmed their age at signup, and which version of the
 // terms that was — evidence of consent. NULL for accounts made before the checkbox existed.
 for (const [col, type] of [["consent_at", "INTEGER"], ["terms_version", "TEXT"]]) {

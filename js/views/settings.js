@@ -546,7 +546,8 @@ export function renderSettings() {
           el("div.set-row__ctl", {}, actions),
         ]),
         photoRow(),
-        store.authPasswordless
+        // Adding a password re-proves the account with a fresh Google sign-in, so an Apple-only account can't yet.
+        store.authPasswordless && store.authGoogleLinked
           ? row(t("setpw.add"), t("set.pwNote"), el("button.btn.btn--ghost.btn--sm", {
               type: "button",
               onclick: async () => { if (await setPasswordDialog()) { toast(t("setpw.addedToast")); paint(); } },

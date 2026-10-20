@@ -17,6 +17,7 @@ import { serverMessage } from "../lib/server-errors.js";
 import { loadLibraryIndex, loadLibraryTranslations } from "../data/library.js";
 import { baseSubjectName } from "../lib/library-content.js";
 import { renderGoogleButton } from "./google-signin.js";
+import { renderAppleButton } from "./apple-signin.js";
 // Loaded lazily below, at the one click site that needs it — quick-add.js
 // pulls in views/create.js (and, transitively, claude.js/material.js/
 // prompts.js), and this whole file is eager-loaded on every page for the
@@ -348,17 +349,18 @@ export function openWelcomeQuiz({ force = false } = {}) {
     const err = el("p.note.note--warn", { hidden: true });
     const submit = el("button.btn", { type: "submit" }, t("login.createAccount"));
     const googleBox = el("div.gbtn");
-    const googleSection = el("div.login-google", { hidden: true }, [googleBox, el("div.login-or", {}, [el("span", {}, t("login.or"))])]);
+    const appleBox = el("div.auth__apple", { hidden: true });
+    const googleSection = el("div.login-google", { hidden: true }, [googleBox, appleBox, el("div.login-or", {}, [el("span", {}, t("login.or"))])]);
     const box = el("section.welcome__acct");
 
     // Making an account needs the same yes to the Terms + Privacy Policy and the age statement as
     // the sign-in page — the server refuses to create one without it (routes/auth.js).
-    let pendingCredential = null;   // a Google pick waiting on the box, so they needn't pick again
+    let pendingProvider = null;   // { kind, token }: a Google or Apple sign-in waiting on the box, so they needn't sign in again
     const consentInput = el("input", {
       type: "checkbox",
       onchange: () => {
         err.hidden = true;
-        if (consentInput.checked && pendingCredential) onGoogle(pendingCredential);
+        if (consentInput.checked && pendingProvider) onProvider(pendingProvider.kind, pendingProvider.token);
       },
     });
     const consentRow = el("label.field.consentrow", {}, [
@@ -375,16 +377,17 @@ export function openWelcomeQuiz({ force = false } = {}) {
     function done() {
       box.replaceChildren(el("div.welcome__acct-done", {}, [icon(ICONS.check, 18), el("span", {}, t("welcome.accDone"))]));
     }
-    async function onGoogle(credential) {
+    async function onProvider(kind, token) {
       err.hidden = true;
       try {
-        await store.loginWithGoogle(credential, { consent: consentInput.checked });
-        pendingCredential = null;
-        toast(t("login.googleCreatedToast"));
+        const opts = { consent: consentInput.checked };
+        await (kind === "apple" ? store.loginWithApple(token, opts) : store.loginWithGoogle(token, opts));
+        pendingProvider = null;
+        toast(t(`login.${kind}CreatedToast`));
         done();
       } catch (e) {
-        if (e.code === "consent_required") { pendingCredential = credential; err.textContent = t("login.googleNeedsConsent"); }
-        else err.textContent = e.message || t("login.googleFailed");
+        if (e.code === "consent_required") { pendingProvider = { kind, token }; err.textContent = t("login.googleNeedsConsent"); }
+        else err.textContent = e.message || t(`login.${kind}Failed`);
         err.hidden = false;
       }
     }
@@ -406,10 +409,20 @@ export function openWelcomeQuiz({ force = false } = {}) {
       err,
     ]);
     box.append(el("h3", {}, t("welcome.accTitle")), el("p.note", {}, t("welcome.accBody")), googleSection, form);
-    if (store.googleClientId) {
+    const wantGoogle = !!store.googleClientId;
+    const wantApple = !!store.appleClientId;
+    if (wantGoogle || wantApple) {
       googleSection.hidden = false;
-      renderGoogleButton(googleBox, { clientId: store.googleClientId, mode: "signup", handler: onGoogle })
-        .then((ok) => { if (!ok) googleSection.hidden = true; });
+      googleBox.hidden = !wantGoogle;
+      appleBox.hidden = !wantApple;
+      Promise.all([
+        wantGoogle ? renderGoogleButton(googleBox, { clientId: store.googleClientId, mode: "signup", handler: (c) => onProvider("google", c) }) : false,
+        wantApple ? renderAppleButton(appleBox, {
+          clientId: store.appleClientId, redirectUri: store.appleRedirectUri, mode: "signup",
+          handler: (tok) => onProvider("apple", tok),
+          onError: () => { err.textContent = t("login.appleFailed"); err.hidden = false; },
+        }) : false,
+      ]).then(([g, a]) => { googleBox.hidden = !g; appleBox.hidden = !a; if (!g && !a) googleSection.hidden = true; });
     }
     return box;
   }

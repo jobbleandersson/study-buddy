@@ -4,9 +4,10 @@ import crypto from "node:crypto";
 import { db } from "../db.js";
 import { COOKIE_NAME } from "../constants.js";
 import { verifyGoogleIdToken, GoogleTokenError } from "../google.js";
+import { verifyAppleIdToken, AppleTokenError, appleClientIds } from "../apple.js";
 import { asyncHandler } from "../middleware/asyncHandler.js";
 import {
-  signupHourly, signupDaily, loginFailures, googleSignInLimit,
+  signupHourly, signupDaily, loginFailures, googleSignInLimit, appleSignInLimit,
   resendVerificationLimit, forgotPasswordLimits, verifyEmailIpLimit, resetPasswordIpLimit,
   twoFaVerifyLimits, twoFaPasswordLimit, setPasswordLimit, changePasswordLimit, changeEmailLimit, twoFaEmail, twoFaResendIpLimit, DAY_MS,
 } from "../middleware/authLimits.js";
@@ -16,7 +17,7 @@ import { requireAuth } from "../middleware/requireAuth.js";
 import { SESSION_TTL_MS, cookieOpts, renewSession } from "../session.js";
 import { isPlausibleEmail } from "../emailCheck.js";
 import { mayMail } from "../mailLimits.js";
-import { emailEnabled, sendVerifyEmail, sendResetEmail, sendTwoFaEnabledEmail, sendTwoFaDisabledEmail, sendPasswordAddedEmail, sendPasswordChangedEmail, sendEmailChangeConfirmEmail, sendEmailChangeRequestedEmail, sendEmailChangedEmail, sendUseGoogleEmail, sendGoogleLinkedEmail, sendTwoFaCodeEmail, sendWelcomeEmail } from "../email.js";
+import { emailEnabled, sendVerifyEmail, sendResetEmail, sendTwoFaEnabledEmail, sendTwoFaDisabledEmail, sendPasswordAddedEmail, sendPasswordChangedEmail, sendEmailChangeConfirmEmail, sendEmailChangeRequestedEmail, sendEmailChangedEmail, sendUseGoogleEmail, sendGoogleLinkedEmail, sendAppleLinkedEmail, sendTwoFaCodeEmail, sendWelcomeEmail } from "../email.js";
 import { hashPassword, comparePassword, answerIfBusy } from "../passwordHash.js";
 import { generateSecret, verifyTotp, otpauthUri } from "../totp.js";
 
@@ -322,14 +323,97 @@ auth.post("/auth/2fa/resend", twoFaResendIpLimit, asyncHandler(async (req, res) 
   res.json({ ok: true, cooldownSec: twoFaEmail.cooldownSec });
 }));
 
-// Sign in with Google — and, for someone new, how the account gets made. The
-// browser sends the ID token Google gave it; we verify it, then one of:
-//   • this Google account is already known      → sign in
+// Sign in with Google or with Apple — and, for someone new, how the account gets made. The browser sends
+// the token the provider gave it; the route checks it (google.js / apple.js), then providerSignIn() does
+// one of:
+//   • this provider account is already known      → sign in
 //   • its (verified) email has a password account → link the two
 //   • neither                                     → create an account
-// Linking turns the old password OFF and signs out other sessions. Email
-// isn't verified at password signup, so without that, whoever registered an
-// address first could keep a password to the real owner's data forever.
+// Linking turns the old password OFF and signs out other sessions. Email isn't verified at password
+// signup, so without that, whoever registered an address first could keep a password to the real
+// owner's data forever. Both providers go through the same rules; only the users column that holds the
+// provider's account id differs.
+const PROVIDERS = {
+  google: { column: "google_sub", linkedEmail: sendGoogleLinkedEmail },
+  apple: { column: "apple_sub", linkedEmail: sendAppleLinkedEmail },
+};
+
+async function providerSignIn(req, res, provider, { sub, email }) {
+  const { column, linkedEmail } = PROVIDERS[provider];   // a fixed column name, never from the request
+  let user = db.prepare(`SELECT id, email, totp_enabled_at AS totpEnabledAt, twofa_method AS twofaMethod FROM users WHERE ${column} = ?`).get(sub);
+  let created = false;
+  let linked = false;
+
+  if (!user) {
+    const existing = db.prepare(`SELECT id, email, ${column} AS providerSub, email_verified_at AS emailVerifiedAt, email_verify_required AS verifyRequired, totp_enabled_at AS totpEnabledAt, twofa_method AS twofaMethod FROM users WHERE email = ?`).get(email);
+    if (existing && existing.providerSub) return emailTaken(res);   // that address belongs to a different account at this provider
+    // Linking turns the password off and with it the second factor — so an account with two-step
+    // sign-in is never linked by a provider sign-in alone. Whoever controls only the inbox (enough to
+    // make a Google or Apple account for that address) must not get past the authenticator that way.
+    if (existing && twoFaMethod(existing)) {
+      return res.status(409).json({ error: { message: "This account uses two-step sign-in. Sign in with your email and password.", code: `${provider}_link_twofa` } });
+    }
+    // Linking to an account that already agreed at signup needs no new yes; making a new one does.
+    if (!existing && req.body?.consent !== true) return consentRequired(res);
+
+    // A random hash nobody knows: this account signs in with the provider only. password_set_at stays
+    // NULL below for a brand-new account (omitted from the INSERT) — passwordless from birth, same as
+    // the unusable hash right here.
+    const unusableHash = await hashPassword(crypto.randomBytes(32).toString("hex"));
+    try {
+      // Either way the provider has verified the email right now — there's nothing for our own
+      // verify-email flow to add, so it's marked confirmed immediately.
+      const now = Date.now();
+      if (existing) {
+        db.transaction(() => {
+          // password_set_at = NULL right here, atomic with the password_hash that's becoming unusable —
+          // this is the one event that turns the password off, so the two travel together.
+          db.prepare(`UPDATE users SET ${column} = ?, password_hash = ?, email_verified_at = ?, password_set_at = NULL WHERE id = ?`)
+            .run(sub, unusableHash, now, existing.id);
+          db.prepare("DELETE FROM sessions WHERE user_id = ?").run(existing.id);
+          retireResetTokens(existing.id, now);
+          if (looksPreRegistered(existing)) revokeTies(existing.id);
+          // This account becomes passwordless (signs in with the provider only), so there's no local
+          // password step left to gate with a second factor — clear it rather than leave it orphaned.
+          clearTwoFa(existing.id);
+        })();
+        user = { id: existing.id, email: existing.email };
+        linked = true;
+        linkedEmail(existing.email).catch(() => {});
+      } else {
+        const id = crypto.randomUUID();
+        db.prepare(`INSERT INTO users (id, email, password_hash, ${column}, created_at, consent_at, terms_version, email_verified_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`)
+          .run(id, email, unusableHash, sub, now, now, TERMS_VERSION, now);
+        user = { id, email };
+        created = true;
+      }
+    } catch (e) {
+      if (isUniqueViolation(e)) return emailTaken(res);   // lost a race with a parallel request
+      throw e;
+    }
+  }
+
+  // An account that was already linked and has since added a password and turned on two-step sign-in:
+  // the provider is its first factor, like a password — the code still has to follow.
+  const method = !created && !linked ? twoFaMethod(user) : null;
+  if (method === "email") {
+    return res.json({ twoFactorRequired: true, method, ...(await issueEmailChallenge({ id: user.id, email: user.email })) });
+  }
+  if (method) return res.json({ twoFactorRequired: true, method, challenge: issueTwoFaChallenge(user.id) });
+
+  createSession(res, user.id);
+  // A brand-new account: the provider has already proven the address, so the welcome goes now (best-effort).
+  if (created) sendWelcomeEmail(user.email).catch(() => {});
+  res.json({ email: user.email, created, linked, emailVerified: true });
+}
+
+/** The end of both provider routes: a busy password pool says so, anything else is a logged 500. */
+function providerFailed(e, res, label) {
+  if (answerIfBusy(e, res)) return;   // the password-hashing pool is full
+  console.error(`[study-buddy-server] /auth/${label} failed:`, e);
+  if (!res.headersSent) res.status(500).json({ error: { message: "Something went wrong." } });
+}
+
 auth.post("/auth/google", googleSignInLimit, asyncHandler(async (req, res) => {
   const clientId = process.env.GOOGLE_CLIENT_ID;
   if (!clientId) {
@@ -353,79 +437,40 @@ auth.post("/auth/google", googleSignInLimit, asyncHandler(async (req, res) => {
       }
       return invalid();
     }
-
-    const { sub, email } = profile;
-    let user = db.prepare("SELECT id, email, totp_enabled_at AS totpEnabledAt, twofa_method AS twofaMethod FROM users WHERE google_sub = ?").get(sub);
-    let created = false;
-    let linked = false;
-
-    if (!user) {
-      const existing = db.prepare("SELECT id, email, google_sub, email_verified_at AS emailVerifiedAt, email_verify_required AS verifyRequired, totp_enabled_at AS totpEnabledAt, twofa_method AS twofaMethod FROM users WHERE email = ?").get(email);
-      if (existing && existing.google_sub) return emailTaken(res);   // that address belongs to a different Google account
-      // Linking turns the password off and with it the second factor — so an account with two-step
-      // sign-in is never linked by a Google sign-in alone. Whoever controls only the inbox (enough to
-      // make a Google account for a non-Gmail address) must not get past the authenticator that way.
-      if (existing && twoFaMethod(existing)) {
-        return res.status(409).json({ error: { message: "This account uses two-step sign-in. Sign in with your email and password.", code: "google_link_twofa" } });
-      }
-      // Linking to an account that already agreed at signup needs no new yes; making a new one does.
-      if (!existing && req.body?.consent !== true) return consentRequired(res);
-
-      // A random hash nobody knows: this account signs in with Google only. password_set_at stays
-      // NULL below for a brand-new account (omitted from the INSERT) — passwordless from birth,
-      // same as the unusable hash right here.
-      const unusableHash = await hashPassword(crypto.randomBytes(32).toString("hex"));
-      try {
-        // Either way the email is Google-verified right now — there's nothing for our own
-        // verify-email flow to add, so it's marked confirmed immediately.
-        const now = Date.now();
-        if (existing) {
-          db.transaction(() => {
-            // password_set_at = NULL right here, atomic with the password_hash that's becoming
-            // unusable — this is the one event that turns the password off, so the two travel
-            // together in one statement rather than being spread across the transaction.
-            db.prepare("UPDATE users SET google_sub = ?, password_hash = ?, email_verified_at = ?, password_set_at = NULL WHERE id = ?")
-              .run(sub, unusableHash, now, existing.id);
-            db.prepare("DELETE FROM sessions WHERE user_id = ?").run(existing.id);
-            retireResetTokens(existing.id, now);
-            if (looksPreRegistered(existing)) revokeTies(existing.id);
-            // This account becomes passwordless (signs in with Google only), so there's no local
-            // password step left to gate with a second factor — clear it rather than leave it
-            // orphaned and unreachable (Settings hides 2FA management once passwordless).
-            clearTwoFa(existing.id);
-          })();
-          user = { id: existing.id, email: existing.email };
-          linked = true;
-          sendGoogleLinkedEmail(existing.email).catch(() => {});
-        } else {
-          const id = crypto.randomUUID();
-          db.prepare("INSERT INTO users (id, email, password_hash, google_sub, created_at, consent_at, terms_version, email_verified_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)")
-            .run(id, email, unusableHash, sub, now, now, TERMS_VERSION, now);
-          user = { id, email };
-          created = true;
-        }
-      } catch (e) {
-        if (isUniqueViolation(e)) return emailTaken(res);   // lost a race with a parallel request
-        throw e;
-      }
-    }
-
-    // An account that was already linked and has since added a password and turned on two-step
-    // sign-in: Google is its first factor, like a password — the code still has to follow.
-    const method = !created && !linked ? twoFaMethod(user) : null;
-    if (method === "email") {
-      return res.json({ twoFactorRequired: true, method, ...(await issueEmailChallenge({ id: user.id, email: user.email })) });
-    }
-    if (method) return res.json({ twoFactorRequired: true, method, challenge: issueTwoFaChallenge(user.id) });
-
-    createSession(res, user.id);
-    // A brand-new account: Google has already proven the address, so the welcome goes now (best-effort).
-    if (created) sendWelcomeEmail(user.email).catch(() => {});
-    res.json({ email: user.email, created, linked, emailVerified: true });
+    return await providerSignIn(req, res, "google", profile);
   } catch (e) {
-    if (answerIfBusy(e, res)) return;   // the password-hashing pool is full
-    console.error("[study-buddy-server] /auth/google failed:", e);
-    if (!res.headersSent) res.status(500).json({ error: { message: "Something went wrong." } });
+    providerFailed(e, res, "google");
+  }
+}));
+
+// Sign in with Apple: the browser (Apple's own button script, or the iOS app later) hands over Apple's
+// identity token. Off — the button isn't shown — until APPLE_CLIENT_ID is set (apple.js).
+auth.post("/auth/apple", appleSignInLimit, asyncHandler(async (req, res) => {
+  const clientIds = appleClientIds();
+  if (!clientIds.length) {
+    return res.status(501).json({ error: { message: "Sign in with Apple isn't set up on this server.", code: "apple_not_configured" } });
+  }
+  try {
+    const token = String(req.body?.idToken || "");
+    const invalid = () => res.status(401).json({ error: { message: "Couldn't verify your Apple sign-in.", code: "apple_invalid" } });
+    if (!token || token.length > 4096) return invalid();
+
+    let profile;
+    try {
+      profile = await verifyAppleIdToken(token, { clientIds });
+    } catch (e) {
+      const code = e instanceof AppleTokenError ? e.code : "";
+      if (code === "email_unverified") {
+        return res.status(403).json({ error: { message: "Your Apple ID's email isn't verified.", code: "apple_email_unverified" } });
+      }
+      if (code === "keys_unavailable") {
+        return res.status(503).json({ error: { message: "Sign in with Apple is unavailable right now. Try again shortly.", code: "apple_unavailable" } });
+      }
+      return invalid();
+    }
+    return await providerSignIn(req, res, "apple", profile);
+  } catch (e) {
+    providerFailed(e, res, "apple");
   }
 }));
 
@@ -442,16 +487,17 @@ auth.post("/auth/logout", (req, res) => {
 auth.get("/auth/me", (req, res) => {
   const sid = req.cookies?.[COOKIE_NAME];
   const row = sid && db.prepare(
-    `SELECT sessions.expires_at AS sessionEnds, sessions.created_at AS sessionStarted, users.email AS email, users.google_sub AS googleSub, users.password_set_at AS passwordSetAt, users.email_verified_at AS emailVerifiedAt, users.totp_enabled_at AS totpEnabledAt, users.twofa_method AS twofaMethod
+    `SELECT sessions.expires_at AS sessionEnds, sessions.created_at AS sessionStarted, users.email AS email, users.google_sub AS googleSub, users.apple_sub AS appleSub, users.password_set_at AS passwordSetAt, users.email_verified_at AS emailVerifiedAt, users.totp_enabled_at AS totpEnabledAt, users.twofa_method AS twofaMethod
      FROM sessions JOIN users ON users.id = sessions.user_id
      WHERE sessions.id = ? AND sessions.expires_at > ?`
   ).get(sid, Date.now());
   if (row) renewSession(res, sid, row.sessionEnds, row.sessionStarted);
-  // passwordless: Google-linked with no password ever added, so there's no local sign-in step to
-  // type — account deletion asks for the Google email instead, and 2FA has nothing to protect.
-  // A hybrid account (linked to Google *and* has since added a password) is not passwordless.
+  // passwordless: linked to Google or Apple with no password ever added, so there's no local sign-in step
+  // to type — account deletion asks for the account's email instead, and 2FA has nothing to protect.
+  // A hybrid account (linked *and* has since added a password) is not passwordless. googleLinked: adding
+  // a password needs a fresh Google sign-in (/auth/set-password), so an Apple-only account can't yet.
   res.json(row
-    ? { authed: true, email: row.email, passwordless: !!row.googleSub && !row.passwordSetAt, emailVerified: !emailEnabled() || !!row.emailVerifiedAt, totpEnabled: !!row.totpEnabledAt, twofaMethod: twoFaMethod(row) }
+    ? { authed: true, email: row.email, passwordless: (!!row.googleSub || !!row.appleSub) && !row.passwordSetAt, googleLinked: !!row.googleSub, emailVerified: !emailEnabled() || !!row.emailVerifiedAt, totpEnabled: !!row.totpEnabledAt, twofaMethod: twoFaMethod(row) }
     : { authed: false });
 });
 

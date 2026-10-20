@@ -29,6 +29,10 @@ health.get("/health", (req, res) => {
     // Public by design (it's sent to every browser anyway). Null = Google
     // sign-in isn't set up, and the sign-in screen shows no Google button.
     googleClientId: process.env.GOOGLE_CLIENT_ID || null,
+    // The same for Sign in with Apple (apple.js): the website's Services ID, and where Apple's sign-in
+    // says it returns to (it has to be one registered with Apple, even in its popup mode).
+    appleClientId: process.env.APPLE_CLIENT_ID || null,
+    appleRedirectUri: process.env.APPLE_REDIRECT_URI || (process.env.CANONICAL_HOST ? `https://${process.env.CANONICAL_HOST}/` : null),
     // True = a SITE_PASSWORD is set (see gate.js): the client shows only the front page until `unlocked`.
     siteLocked: siteLocked(),
     unlocked: hasGate(req),

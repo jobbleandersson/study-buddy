@@ -24,6 +24,7 @@ export const SITE_GATE_URL = `${API}/api/gate`;
 export const AUTH_SIGNUP_URL = `${API}/api/auth/signup`;
 export const AUTH_LOGIN_URL = `${API}/api/auth/login`;
 export const AUTH_GOOGLE_URL = `${API}/api/auth/google`;
+export const AUTH_APPLE_URL = `${API}/api/auth/apple`;
 export const AUTH_SET_PASSWORD_URL = `${API}/api/auth/set-password`;
 export const AUTH_LOGOUT_URL = `${API}/api/auth/logout`;
 export const AUTH_CHANGE_EMAIL_URL = `${API}/api/auth/change-email`;

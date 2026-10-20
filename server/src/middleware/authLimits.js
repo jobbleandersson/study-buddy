@@ -57,6 +57,10 @@ export const contactAllDaily = num("CONTACT_PER_DAY", 30);
 export const googleSignInLimit = attemptLimit({
   name: "google-signin", max: num("GOOGLE_SIGNIN_FAILS_PER_MIN_PER_IP", 30), windowMs: MIN, failureStatuses: [401, 403], reserve: false,
 });
+// Sign in with Apple, on the same terms.
+export const appleSignInLimit = attemptLimit({
+  name: "apple-signin", max: num("APPLE_SIGNIN_FAILS_PER_MIN_PER_IP", 30), windowMs: MIN, failureStatuses: [401, 403], reserve: false,
+});
 
 // Verification and password-reset. All three are reachable without an existing session (reset and
 // verify have to be — that's the whole point), so IP is the only key available for two of them; a

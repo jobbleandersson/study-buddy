@@ -131,10 +131,11 @@ app.use((req, res, next) => {
     // No 'unsafe-eval'. vendor/pdf.min.js and its worker only call new Function() when told they
     // may (getDocument's isEvalSupported, which js/material.js turns off: that path is also how
     // CVE-2024-4367 ran a malicious PDF's code in the page), so importing a PDF needs no eval.
-    // The Google origin is for "Sign in with Google": its script and the sign-in iframe it opens.
+    // The Google origin is for "Sign in with Google": its script and the sign-in iframe it opens. Apple's
+    // is the script behind "Sign in with Apple" (dormant until APPLE_CLIENT_ID is set; it opens a popup).
     // index.html's inline scripts are allowed by hash (INLINE_SCRIPT_HASHES above), never by
     // 'unsafe-inline'.
-    ["script-src 'self' https://accounts.google.com", ...INLINE_SCRIPT_HASHES].join(" "),
+    ["script-src 'self' https://accounts.google.com https://appleid.cdn-apple.com", ...INLINE_SCRIPT_HASHES].join(" "),
     // 'unsafe-inline': a few places build an inline style="" attribute into an HTML string
     // (e.g. js/components/questions.js) rather than setting it through the DOM. The one outside
     // stylesheet is Google's own for its sign-in button (dormant until GOOGLE_CLIENT_ID is set) -
@@ -143,7 +144,7 @@ app.use((req, res, next) => {
     "img-src 'self' data: blob:",
     "font-src 'self'",
     "connect-src 'self' https://accounts.google.com",
-    "frame-src https://accounts.google.com",
+    "frame-src https://accounts.google.com https://appleid.apple.com",
     "object-src 'none'",
     "base-uri 'self'",
     "form-action 'self'",

@@ -5,6 +5,7 @@ import { store } from "../store.js";
 import { el, toast, icon, ICONS } from "../lib/dom.js";
 import { t, getLang, setLang, LANGS } from "../lib/i18n.js";
 import { renderGoogleButton } from "../components/google-signin.js";
+import { renderAppleButton } from "../components/apple-signin.js";
 import { passwordField } from "../components/password-field.js";
 
 /** Where to land after signing in. `?next=` carries a hash path, optionally with
@@ -62,7 +63,7 @@ export function renderLogin(qs) {
   const codeRow = el("label.auth__field", { for: "auth-code" }, [el("span", {}, t("login.twofaLabel")), withIcon(ICONS.shield, codeInput)]);
 
   // Making an account needs a yes to the Terms + Privacy Policy and the age statement. The box
-  // shows in sign-up mode, and for Google when the server says the sign-in would create a new account.
+  // shows in sign-up mode, and for Google or Apple when the server says the sign-in would create a new account.
   const consentInput = el("input", { type: "checkbox", onchange: () => { errorNote.hidden = true; } });
   const consentRow = el("label.auth__consent", { hidden: true }, [
     consentInput,
@@ -74,8 +75,8 @@ export function renderLogin(qs) {
       ".",
     ]),
   ]);
-  let googleCredential = null;   // kept while the person ticks the box, so they needn't pick their account again
-  const googleConfirmBtn = el("button.auth__submit", { type: "button", hidden: true, onclick: () => confirmGoogle() }, t("login.googleConfirm"));
+  let pendingProvider = null;   // { kind: "google" | "apple", token }, kept while the person ticks the box, so they needn't pick their account again
+  const googleConfirmBtn = el("button.auth__submit", { type: "button", hidden: true, onclick: () => confirmProvider() }, t("login.googleConfirm"));
 
   function paintMode() {
     const forgotDone = mode === "forgotSent";
@@ -105,8 +106,8 @@ export function renderLogin(qs) {
     resendBtn.hidden = !(twofa && pendingMethod === "email");
     confirmRow.hidden = mode !== "signup";
     passInput.autocomplete = mode === "login" ? "current-password" : "new-password";
-    consentRow.hidden = mode !== "signup" && !googleCredential;
-    googleConfirmBtn.hidden = !googleCredential;
+    consentRow.hidden = mode !== "signup" && !pendingProvider;
+    googleConfirmBtn.hidden = !pendingProvider;
     passInput.placeholder = mode === "login" ? t("login.passwordPlaceholder") : t("login.passwordHint");
     // A new password's minimum length is checked right here, before a round trip to the server.
     if (mode === "signup") passInput.setAttribute("minlength", "8"); else passInput.removeAttribute("minlength");
@@ -116,7 +117,7 @@ export function renderLogin(qs) {
     mode = next;
     errorNote.hidden = true;
     paintMode();
-    paintGoogle();
+    paintProviders();
   }
   toggleBtn.addEventListener("click", () => setMode(mode === "login" ? "signup" : "login"));
   forgotLink.addEventListener("click", () => setMode("forgot"));
@@ -153,12 +154,14 @@ export function renderLogin(qs) {
     }
   });
 
-  // Google's button: only when the server has it set up. If Google's script
-  // can't load (blocked, offline) the whole section stays hidden and the form
+  // Google's and Apple's buttons: each only when the server has it set up. If a provider's script can't
+  // load (blocked, offline) its button stays hidden, and with neither the whole section does; the form
   // below works exactly as before.
   const googleBox = el("div.gbtn.auth__google");
+  const appleBox = el("div.auth__apple", { hidden: true });
   const googleSection = el("div", { hidden: true }, [
     googleBox,
+    appleBox,
     el("div.auth__or", {}, [el("span", {}, t("login.orEmail"))]),
   ]);
   /** The code step after a first factor (password or Google) on an account with two-step sign-in. */
@@ -174,40 +177,51 @@ export function renderLogin(qs) {
       errorNote.hidden = false;
     }
   }
-  async function onGoogle(credential) {
+  async function onProvider(kind, token) {
     errorNote.hidden = true;
     try {
-      const r = await store.loginWithGoogle(credential, { consent: consentInput.checked });
-      googleCredential = null;
+      const opts = { consent: consentInput.checked };
+      const r = kind === "apple" ? await store.loginWithApple(token, opts) : await store.loginWithGoogle(token, opts);
+      pendingProvider = null;
       if (r?.twoFactorRequired) { enterTwofa(r); return; }
-      toast(r.linked ? t("login.googleLinkedToast") : r.created ? t("login.googleCreatedToast") : t("login.signedInToast"));
+      toast(r.linked ? t(`login.${kind}LinkedToast`) : r.created ? t(`login.${kind}CreatedToast`) : t("login.signedInToast"));
       location.hash = dest;
     } catch (err) {
       if (err.code === "consent_required") {
-        // A new account would be created — ask first, then let them confirm without re-picking.
-        googleCredential = credential;
+        // A new account would be created — ask first, then let them confirm without signing in again.
+        pendingProvider = { kind, token };
         paintMode();
         errorNote.textContent = t("login.googleNeedsConsent");
       } else {
-        errorNote.textContent = messageOf(err, "login.googleFailed");
+        errorNote.textContent = messageOf(err, `login.${kind}Failed`);
       }
       errorNote.hidden = false;
     }
   }
-  async function confirmGoogle() {
-    if (!googleCredential) return;
+  async function confirmProvider() {
+    if (!pendingProvider) return;
     if (!consentInput.checked) { errorNote.textContent = t("login.consentNeeded"); errorNote.hidden = false; consentInput.focus(); return; }
-    await onGoogle(googleCredential);
+    await onProvider(pendingProvider.kind, pendingProvider.token);
   }
-  async function paintGoogle() {
-    if (serverDown || !store.googleClientId || mode === "forgot" || mode === "forgotSent" || mode === "twofa") { googleSection.hidden = true; return; }
-    googleSection.hidden = false;   // reserve the space first so the button can measure its width
-    const ok = await renderGoogleButton(googleBox, {
-      clientId: store.googleClientId,
-      mode,
-      handler: onGoogle,
-    });
-    if (!ok) googleSection.hidden = true;
+  async function paintProviders() {
+    const off = serverDown || mode === "forgot" || mode === "forgotSent" || mode === "twofa";
+    const wantGoogle = !off && !!store.googleClientId;
+    const wantApple = !off && !!store.appleClientId;
+    googleBox.hidden = !wantGoogle;
+    appleBox.hidden = !wantApple;
+    googleSection.hidden = !wantGoogle && !wantApple;   // reserve the space first so Google's button can measure its width
+    if (googleSection.hidden) return;
+    const [g, a] = await Promise.all([
+      wantGoogle ? renderGoogleButton(googleBox, { clientId: store.googleClientId, mode, handler: (c) => onProvider("google", c) }) : false,
+      wantApple ? renderAppleButton(appleBox, {
+        clientId: store.appleClientId, redirectUri: store.appleRedirectUri, mode,
+        handler: (tok) => onProvider("apple", tok),
+        onError: () => { errorNote.textContent = t("login.appleFailed"); errorNote.hidden = false; },
+      }) : false,
+    ]);
+    googleBox.hidden = !g;
+    appleBox.hidden = !a;
+    if (!g && !a) googleSection.hidden = true;
   }
 
   async function submit(e) {
@@ -335,7 +349,7 @@ export function renderLogin(qs) {
     ]),
     showcase(),
   ]);
-  paintGoogle();
+  paintProviders();
 
   return { title: t("login.title"), chrome: false, node };
 }
