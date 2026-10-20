@@ -310,11 +310,13 @@ function navGroups() {
     { href: "#/rules",      match: "/rules",      icon: ICONS.pencil,     label: t("nav.rules") },
     { href: "#/calculator", match: "/calculator", icon: ICONS.calculator, label: t("nav.calculator") },
   ];
-  const account = [];
-  if (store.authed) account.push({ href: "#/classes", match: "/classes", icon: ICONS.presentation, label: t("nav.classes") });
-  if (store.authed) account.push({ href: "#/parent", match: "/parent", icon: ICONS.users, label: t("common.parent") });
+  // Shown signed out too: both pages explain themselves and offer sign-in.
   // `foot`: the desktop sidebar shows this as an icon button in its footer, not a row.
-  account.push({ href: "#/settings", match: "/settings", icon: ICONS.gear, label: t("common.settings"), foot: true });
+  const account = [
+    { href: "#/classes", match: "/classes", icon: ICONS.presentation, label: t("nav.classes") },
+    { href: "#/parent", match: "/parent", icon: ICONS.users, label: t("common.parent") },
+    { href: "#/settings", match: "/settings", icon: ICONS.gear, label: t("common.settings"), foot: true },
+  ];
 
   return [
     { key: "main",    label: null,                items: main },

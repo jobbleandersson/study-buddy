@@ -202,6 +202,7 @@ const APP_SHELL = [
   "./js/components/hp-more.js",
   "./js/components/exam-flow.js",
   "./js/components/set-ui.js",
+  "./js/components/signin-gate.js",
   "./js/components/avatar-editor.js",
   "./js/components/subject-field.js",
   "./js/components/quick-add.js",

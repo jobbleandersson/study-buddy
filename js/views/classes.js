@@ -18,6 +18,7 @@ import { linkBox } from "../components/link-actions.js";
 import { joinUrl } from "../lib/join-link.js";
 import { foldedDatePicker } from "../components/calendar.js";
 import { row, card, pageHead, emptyState, avatar, chip, codeField } from "../components/set-ui.js";
+import { signInGate, gateBar } from "../components/signin-gate.js";
 import { localDayKey } from "../lib/activity.js";
 import { loadLibraryIndex, loadLibraryTranslations, isImported, importSet } from "../data/library.js";
 import { setProgress } from "../lib/mastery.js";
@@ -48,12 +49,46 @@ function signedOut(qs) {
   // with once they land back here — see renderClasses's own prefillCode below.
   const code = (qs?.get?.("code") || "").trim();
   const next = code ? `#/classes?code=${encodeURIComponent(code)}` : "#/classes";
-  return el("div.settings.settings--narrow", {}, [
+  return el("div.settings", {}, [
     homeButton({ grid: true }),
-    pageHead(t("classes.title"), t("classes.pageSub")),
-    card(ICONS.presentation, t("classes.title"), null, [
-      row(t("classes.signInLabel"), t("classes.signInPrompt"),
-        el("a.btn.btn--sm", { href: `#/login?next=${encodeURIComponent(next)}` }, t("login.signIn"))),
+    signInGate({
+      eyebrowIcon: ICONS.presentation, eyebrow: t("classes.title"),
+      title: t("classes.gateTitle"), lead: t("classes.gateLead"),
+      points: [
+        [ICONS.users, t("classes.gateJoinHead"), t("classes.gateJoinBody")],
+        [ICONS.calendarCheck, t("classes.gateAssignHead"), t("classes.gateAssignBody")],
+        [ICONS.chart, t("classes.gateResultsHead"), t("classes.gateResultsBody")],
+      ],
+      preview: classPreview(),
+      next,
+      foot: [t("classes.gateTeacher"), " ", el("a", { href: "#/teachers" }, t("classes.gateTeacherLink"))],
+    }),
+  ]);
+}
+
+/** The signed-out preview: a made-up class with one set handed out, how far
+ *  everyone has got, and where they miss — the hub's whole story in one card. */
+function classPreview() {
+  const faces = ["Alva", "Malte", "Saga", "Juni"];
+  return el("div.gart", {}, [
+    el("div.gart__head", {}, [
+      el("span.gart__ic", {}, icon(ICONS.presentation, 18)),
+      el("div.gart__who", {}, [el("strong", {}, t("classes.demoName")), el("span", {}, t("classes.studentMany", { n: 24 }))]),
+      el("span.gart__code", {}, [el("small", {}, t("classes.code")), "ABC234"]),
+    ]),
+    el("div.gart__box", {}, [
+      el("div.gart__row", {}, [el("strong", {}, t("classes.demoSet")), chip(t("classes.due", { when: t("classes.demoWhen") }), "warn")]),
+      gateBar(75),
+      el("div.gart__row", {}, [
+        el("span.gart__faces", {}, [...faces.map((n) => avatar(n)), el("span.gart__more", {}, "+20")]),
+        el("span.gart__soft", {}, t("classes.demoDone", { n: 18, total: 24 })),
+      ]),
+    ]),
+    el("div.gart__box", {}, [
+      el("p.gart__label", {}, t("classes.demoMisses")),
+      ...[["classes.demoMiss1", 38], ["classes.demoMiss2", 21]].map(([k, pct]) => el("div.gart__row", {}, [
+        el("span", {}, t(k)), el("span.gart__miss", {}, t("classes.missRate", { pct })),
+      ])),
     ]),
   ]);
 }
