@@ -6572,7 +6572,9 @@ button.toolfly__item { border: 0; background: transparent; font: inherit; font-s
    From 1200px: a wider column with the question centred in the free height and larger, the Back / Skip / Next bar
    pinned to the bottom of it, and the tutor panel as tall as the window. Phones keep the full-screen study mode. */
 @media (min-width: 1200px) {
-  .sessionview { max-width: 1180px; margin-inline: auto; }
+  /* width: 100% — .content is a flex column, where auto side margins alone shrink the view to its content:
+     a short question ("stringent") gave a 755px, phone-like screen on a 1920px window. */
+  .sessionview { width: 100%; max-width: 1180px; margin-inline: auto; }
   .sessionview .session { grid-template-columns: minmax(0, 1fr) 420px; align-items: stretch; min-height: calc(100dvh - 300px); }
   .sessionview .session > div:first-child { display: flex; flex-direction: column; min-width: 0; }
   .sessionview .session__stage { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; padding-block: var(--s-4); }
