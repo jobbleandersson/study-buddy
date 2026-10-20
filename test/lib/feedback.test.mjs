@@ -43,3 +43,12 @@ test("the kinds and moods match what the server accepts", () => {
   assert.deepEqual(KINDS, ["idea", "problem", "praise", "other"]);
   assert.deepEqual(MOODS, [1, 2, 3, 4, 5]);
 });
+
+test("the card is only for the session that has just finished, not an old one opened from Framsteg", async () => {
+  const { isFreshResult } = await import("../../js/lib/feedback.js");
+  assert.equal(isFreshResult(now - 60_000, now), true);
+  assert.equal(isFreshResult(now - 11 * 60_000, now), false);
+  assert.equal(isFreshResult(now - 7 * DAY, now), false);
+  assert.equal(isFreshResult(undefined, now), false);
+  assert.equal(isFreshResult(0, now), false);
+});

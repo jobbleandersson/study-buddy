@@ -19,6 +19,12 @@ const ASK_MIN_SESSIONS = 3;
 const ASK_EVERY_MS = 3 * 24 * 60 * 60_000;
 const ASKED_KEY = "studify.feedbackAskedAt";
 
+/** Whether a results screen is for a session that has just finished, not an old one opened from the
+ *  progress page: the card asks about the session you are looking at, so it has to be the fresh one. */
+export function isFreshResult(finishedAt, now = Date.now()) {
+  return Number.isFinite(finishedAt) && finishedAt > 0 && now - finishedAt < 10 * 60_000;
+}
+
 /** Whether the results screen should show "Hur gick passet?" now. */
 export function shouldAskAfterSession({ authed, sessions, lastAskedAt, now = Date.now() }) {
   if (!authed || !(sessions >= ASK_MIN_SESSIONS)) return false;

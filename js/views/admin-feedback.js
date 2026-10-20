@@ -5,7 +5,7 @@
 // sender can be answered. Server side: routes/feedback.js.
 
 import { el, icon, ICONS, toast, clear } from "../lib/dom.js";
-import { t, getLang } from "../lib/i18n.js";
+import { t, plural, getLang } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { ADMIN_FEEDBACK_URL, adminFeedbackUrl } from "../config.js";
@@ -80,7 +80,7 @@ export function renderAdminFeedback() {
       stat(total, t("adminFb.stat.total")),
       el("div.fb-stat", {}, [
         el("b", {}, m.average == null ? "–" : String(m.average).replace(".", getLang() === "sv" ? "," : ".")),
-        el("span", {}, t("adminFb.stat.mood", { n: m.n })),
+        el("span", {}, `${t("adminFb.stat.mood")} · ${plural(m.n, "adminFb.stat.answersOne", "adminFb.stat.answersMany")}`),
         el("div.fb-bars", { "aria-hidden": "true" }, [1, 2, 3, 4, 5].map((n) => el("i", { style: { height: `${Math.max(6, (m.byMood[n] / peak) * 100)}%` } }))),
       ]),
     ]);

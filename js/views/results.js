@@ -124,7 +124,7 @@ export function renderResults(attemptId) {
     })(),
 
     // Now and then: how did it go? One tap on a face (components/session-feedback.js).
-    isReview ? null : sessionFeedbackCard(),
+    isReview ? null : sessionFeedbackCard(attempt.finishedAt),
 
     // From a test: the next step right under the score, before the details.
     examNextRow(attempt),

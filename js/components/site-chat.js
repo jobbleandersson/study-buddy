@@ -11,7 +11,6 @@ import { mascot, setMood } from "./mascot.js";
 import { store } from "../store.js";
 import { t } from "../lib/i18n.js";
 import { resetDateText } from "./ai-gate.js";
-import { feedbackForm } from "./feedback-form.js";
 // prompts.js and claude.js (plus their own transitive weight — check.js,
 // loose-json.js) are loaded lazily in submit() below, not here: this widget
 // mounts on every page from main.js, but almost nobody who loads a page ever
@@ -75,7 +74,11 @@ export function mountSiteChat() {
     if (fb && (!fbBuilt || fbAuthed !== store.authed)) {
       fbBuilt = true;
       fbAuthed = store.authed;
-      clear(fbPane).append(feedbackForm({ context: "button", moods: false, rows: 3, hint: t("sitechat.feedbackHint") }));
+      // Loaded here, not at the top: this widget mounts on every page and almost nobody opens this tab.
+      import("./feedback-form.js").then((m) => {
+        if (!fbBuilt) return;   // signed out or switched language while it loaded: built again next time
+        clear(fbPane).append(m.feedbackForm({ context: "button", moods: false, rows: 3, hint: t("sitechat.feedbackHint") }));
+      });
     }
   }
 

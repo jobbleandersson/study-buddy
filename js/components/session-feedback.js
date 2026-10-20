@@ -6,11 +6,13 @@
 import { el, icon, ICONS } from "../lib/dom.js";
 import { t } from "../lib/i18n.js";
 import { store } from "../store.js";
-import { shouldAskAfterSession, lastAskedAt, markAsked, sendFeedback, MESSAGE_MIN, MESSAGE_MAX } from "../lib/feedback.js";
+import { isFreshResult, shouldAskAfterSession, lastAskedAt, markAsked, sendFeedback, MESSAGE_MIN, MESSAGE_MAX } from "../lib/feedback.js";
 import { moodPicker } from "./feedback-form.js";
 
-/** The card, or null when it isn't time to ask. */
-export function sessionFeedbackCard() {
+/** The card, or null when it isn't time to ask. `finishedAt`: when the session being shown ended; an old
+ *  one opened from the progress page doesn't get asked about. */
+export function sessionFeedbackCard(finishedAt) {
+  if (!isFreshResult(finishedAt)) return null;
   if (!shouldAskAfterSession({ authed: store.authed, sessions: store.attempts.length, lastAskedAt: lastAskedAt() })) return null;
   markAsked();
 
