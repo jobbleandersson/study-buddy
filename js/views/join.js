@@ -7,13 +7,17 @@ import { el, toast, icon, ICONS } from "../lib/dom.js";
 import { t } from "../lib/i18n.js";
 import { serverMessage } from "../lib/server-errors.js";
 import { card, pageHead } from "../components/set-ui.js";
-import { TOKEN_RX, joinHash } from "../lib/join-link.js";
+import { TOKEN_RX, joinHash, isBrokenLink } from "../lib/join-link.js";
 import { CLASS_PREVIEW_URL, CLASS_JOIN_URL, LINK_PREVIEW_URL, REDEEM_CODE_URL, FRIEND_PREVIEW_URL, FRIEND_REDEEM_URL } from "../config.js";
 
 async function post(url, token) {
   const res = await fetch(url, { method: "POST", credentials: "include", headers: { "content-type": "application/json" }, body: JSON.stringify({ token }) });
   const data = await res.json().catch(() => ({}));
-  if (!res.ok) throw new Error(serverMessage(data?.error?.message, t("login.somethingWrong")));
+  if (!res.ok) {
+    const err = new Error(serverMessage(data?.error?.message, t("login.somethingWrong")));
+    err.raw = data?.error?.message;   // the server's own words, to tell a broken link from a problem with the person
+    throw err;
+  }
   return data;
 }
 
@@ -59,7 +63,16 @@ export function renderJoin(kind, token) {
   const note = (text, tone) => el(tone ? `p.note.note--${tone}` : "p.note", {}, text);
   const actions = (...btns) => el("div.set-inline", { style: { marginTop: "var(--s-4)" } }, btns);
 
-  function broken(message) {
+  // The link can't be used. A broken link (incomplete, used up, expired) is told to ask for a new one or use a code; any
+  // other reason (your own class, too many tries, the server unreachable) is just said, with a way back.
+  function broken(message, raw) {
+    if (!isBrokenLink(raw)) {
+      body.replaceChildren(
+        el("p", {}, [icon(ICONS.close, 18), " ", message || t("join.brokenTitle")]),
+        actions(el("a.btn.btn--ghost.btn--sm", { href: "#/" }, t("common.backToMenu"))),
+      );
+      return;
+    }
     body.replaceChildren(
       el("p", {}, [icon(ICONS.close, 18), " ", message || t("join.brokenTitle")]),
       note(t("join.brokenBody")),
@@ -113,11 +126,11 @@ export function renderJoin(kind, token) {
     );
   }
 
-  if (!TOKEN_RX.test(token)) broken();
+  if (!TOKEN_RX.test(token)) broken(null, "Open the link again.");
   else if (!store.authed) signedOut();
   else {
     body.replaceChildren(el("p.set-loading", {}, t("join.loading")));
-    post(page.preview, token).then(ask, (e) => broken(e.message));
+    post(page.preview, token).then(ask, (e) => broken(e.message, e.raw));
   }
 
   return { title: t(`join.${kind}.pageTitle`), node };
