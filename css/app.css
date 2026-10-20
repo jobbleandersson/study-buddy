@@ -6981,13 +6981,26 @@ html { scroll-padding-top: 80px; }
 .fb-label { margin: 0 0 var(--s-2); font-weight: 700; font-size: var(--fs-sm); }
 .fb-form { display: grid; gap: 0; }
 .fb-faces { display: flex; gap: var(--s-2); flex-wrap: wrap; }
+/* Each face in its mood's colour, red to green (the same neon hues as the library's subjects), in the
+   site's subtle neon: a tinted edge and face at rest, the full colour with a soft glow when picked. */
 .fb-face {
+  --mood: var(--brand);
   display: grid; place-items: center; width: 46px; height: 46px; padding: 0; border-radius: var(--r-full);
-  border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink-soft); cursor: pointer;
-  transition: border-color var(--dur-fast), color var(--dur-fast), transform var(--dur-fast);
+  border: 1px solid var(--line-strong); border-color: color-mix(in srgb, var(--mood) 45%, var(--line-strong));
+  background: var(--surface); color: var(--ink-soft); color: color-mix(in srgb, var(--mood) 70%, var(--ink));
+  cursor: pointer;
+  transition: border-color var(--dur-fast), background var(--dur-fast), box-shadow var(--dur-fast), transform var(--dur-fast);
 }
-.fb-face:hover { border-color: var(--brand); color: var(--brand); transform: translateY(-1px); }
-.fb-face[aria-pressed="true"] { background: var(--brand-tint); border-color: var(--brand); color: var(--brand-ink); }
+.fb-face--1 { --mood: #F0484E; }
+.fb-face--2 { --mood: #FF7426; }
+.fb-face--3 { --mood: #F5B82E; }
+.fb-face--4 { --mood: #74B816; }
+.fb-face--5 { --mood: #22A35A; }
+.fb-face:hover { border-color: var(--mood); transform: translateY(-1px); }
+.fb-face[aria-pressed="true"] {
+  background: color-mix(in oklab, var(--mood) 14%, var(--surface)); border: 1.5px solid var(--mood);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--mood) 25%, transparent), 0 0 14px -4px color-mix(in srgb, var(--mood) 60%, transparent);
+}
 .fb-face:focus-visible, .fb-kind:focus-visible, .fb-tab:focus-visible, .fb-filter:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
 .fb-kinds { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s-2); }
 .fb-kind {

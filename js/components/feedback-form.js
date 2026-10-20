@@ -67,11 +67,12 @@ function screenshotPicker({ onError }) {
   };
 }
 
-/** Five faces from "mycket dåligt" to "mycket bra". Tapping the one that is on turns it off again.
- *  Real buttons with aria-pressed, so keyboard and screen readers work as usual. */
+/** Five faces from "mycket dåligt" to "mycket bra", each in its own colour from red to green
+ *  (.fb-face--1 to --5 in app.css). Tapping the one that is on turns it off again. Real buttons with
+ *  aria-pressed, so keyboard and screen readers work as usual. */
 export function moodPicker({ onChange, size = 26 } = {}) {
   let value = null;
-  const buttons = MOODS.map((n) => el("button.fb-face", {
+  const buttons = MOODS.map((n) => el(`button.fb-face.fb-face--${n}`, {
     type: "button", "aria-pressed": "false", "aria-label": t(`feedback.mood${n}`), title: t(`feedback.mood${n}`),
     onclick: () => set(value === n ? null : n, true),
   }, [icon(ICONS[`mood${n}`], size)]));
