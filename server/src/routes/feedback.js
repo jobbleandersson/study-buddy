@@ -10,18 +10,22 @@ export const feedback = Router();
 // What students tell us about the site: ideas, problems, praise, a quick mood tap. In the first months this
 // is how we find out what to build and fix, so it has to be easy to send and impossible to lose. The flow
 // mirrors reviews.js and ai-reports.js:
-//   POST   /api/feedback              a signed-in student sends one -> 'new'
+//   POST   /api/feedback              a signed-in student sends one -> 'new', with up to 3 screenshots
 //   GET    /api/feedback/mine         their own, with the status and our reply, for "Dina förslag"
+//   GET    /api/feedback/mine/:id/images/:n   one of their own screenshots
 //   DELETE /api/feedback/mine/:id     they take one back
 //   GET    /api/admin/feedback        the inbox (#/admin/feedback), for whoever holds REVIEW_ADMIN_KEY
+//   GET    /api/admin/feedback/:id/images/:n  a screenshot, for the inbox
 //   POST   /api/admin/feedback/:id    set a status and/or write a reply the sender will see
-//   DELETE /api/admin/feedback/:id    remove one
+//   DELETE /api/admin/feedback/:id    remove one (its screenshots go with it)
 //
 // A student can send "without my account" (anonymous: true): the row then has no user_id, so it can be read
 // but not answered, and it is not in /mine. The moderator never sees an email or a user id either way, only
 // whether the sender can be answered (`linked`). Nothing here is shown to other students.
 
-export const FEEDBACK_LIMITS = { messageMax: 2000, messageMin: 3, replyMax: 500 };
+// imageBytes: a screenshot after the browser has shrunk it (lib/feedback.js prepares them to fit). index.js lets
+// this route's body be big enough for three.
+export const FEEDBACK_LIMITS = { messageMax: 2000, messageMin: 3, replyMax: 500, images: 3, imageBytes: 600 * 1024 };
 const KINDS = new Set(["idea", "problem", "praise", "other"]);
 const CONTEXTS = new Set(["button", "page", "after-session", "after-results"]);
 const STATUSES = ["new", "seen", "planned", "done", "declined"];
@@ -49,13 +53,58 @@ const cleanRoute = (v) => clip(typeof v === "string" ? v.split("?")[0] : "", 100
 
 const dateOf = (ms) => new Date(ms).toISOString().slice(0, 10);
 
+/** What a picture is, from its first bytes - never from what the browser said. Only these three are kept. */
+export function sniffImage(buf) {
+  if (buf.length > 3 && buf[0] === 0xff && buf[1] === 0xd8 && buf[2] === 0xff) return "image/jpeg";
+  if (buf.length > 8 && buf.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]))) return "image/png";
+  if (buf.length > 12 && buf.toString("latin1", 0, 4) === "RIFF" && buf.toString("latin1", 8, 12) === "WEBP") return "image/webp";
+  return null;
+}
+
+/** The screenshots in a request (`images`: base64 strings) as { type, buf }, or { error } with a code. */
+function readImages(list) {
+  if (list == null) return { images: [] };
+  if (!Array.isArray(list) || list.length > FEEDBACK_LIMITS.images) return { error: "feedback_images" };
+  const images = [];
+  for (const item of list) {
+    if (typeof item !== "string" || !/^[A-Za-z0-9+/]+={0,2}$/.test(item)) return { error: "feedback_image" };
+    const buf = Buffer.from(item, "base64");
+    if (buf.length > FEEDBACK_LIMITS.imageBytes) return { error: "feedback_image_size" };
+    const type = sniffImage(buf);
+    if (!type) return { error: "feedback_image" };
+    images.push({ type, buf });
+  }
+  return { images };
+}
+const IMAGE_ERRORS = {
+  feedback_images: "Attach up to 3 pictures.",
+  feedback_image: "That picture can't be used. Try a PNG or JPG.",
+  feedback_image_size: "That picture is too large.",
+};
+
+// How many screenshots a row has, for the lists (the pictures themselves are fetched one by one).
+const IMAGE_COUNT = "(SELECT COUNT(*) FROM feedback_images i WHERE i.feedback_id = f.id) AS image_count";
+
 /** The row as the sender sees their own. */
 function mineShape(r) {
   return {
     id: r.id, kind: r.kind, mood: r.mood, message: r.message, context: r.context,
-    status: r.status, reply: r.reply, repliedAt: r.replied_at, date: dateOf(r.created_at),
+    status: r.status, reply: r.reply, repliedAt: r.replied_at, date: dateOf(r.created_at), images: r.image_count || 0,
   };
 }
+
+/** One screenshot as an image, never as anything a browser would run, and not kept in a shared cache. */
+function sendImage(res, row) {
+  if (!row) return res.status(404).json({ error: { message: "Not found." } });
+  res.set({
+    "Content-Type": row.media_type,
+    "Cache-Control": "private, no-store",
+    "X-Content-Type-Options": "nosniff",
+    "Content-Security-Policy": "default-src 'none'; sandbox",
+  });
+  res.send(row.data);
+}
+const imageIndex = (v) => (/^[0-2]$/.test(String(v)) ? Number(v) : -1);
 
 feedback.post("/feedback", requireAuth, submitLimit, submitDaily, (req, res) => {
   const b = req.body || {};
@@ -71,8 +120,11 @@ feedback.post("/feedback", requireAuth, submitLimit, submitDaily, (req, res) => 
   if (message.length > FEEDBACK_LIMITS.messageMax) {
     return res.status(400).json({ error: { message: "Keep it under 2000 characters.", code: "feedback_text" } });
   }
-  // A quick mood tap needs no words; everything else needs something to read.
-  if (message.length < FEEDBACK_LIMITS.messageMin && mood == null) {
+  const { images, error: imageError } = readImages(b.images);
+  if (imageError) return res.status(400).json({ error: { message: IMAGE_ERRORS[imageError], code: imageError } });
+  // A quick mood tap needs no words, nor does a screenshot of what went wrong; everything else needs
+  // something to read.
+  if (message.length < FEEDBACK_LIMITS.messageMin && mood == null && !images.length) {
     return res.status(400).json({ error: { message: "Write a few words, or tap a mood.", code: "feedback_text" } });
   }
   const context = CONTEXTS.has(b.context) ? b.context : "button";
@@ -92,17 +144,28 @@ feedback.post("/feedback", requireAuth, submitLimit, submitDaily, (req, res) => 
   }
 
   const id = crypto.randomUUID();
-  db.prepare(`
-    INSERT INTO feedback (id, user_id, kind, mood, message, context, route, lang, app_version, browser, status, reply, created_at, updated_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'new', '', ?, ?)
-  `).run(id, userId, b.kind, mood, message, context, cleanRoute(b.route), lang, clip(b.version, 40), clip(b.browser, 60), at, at);
+  db.transaction(() => {
+    db.prepare(`
+      INSERT INTO feedback (id, user_id, kind, mood, message, context, route, lang, app_version, browser, status, reply, created_at, updated_at)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'new', '', ?, ?)
+    `).run(id, userId, b.kind, mood, message, context, cleanRoute(b.route), lang, clip(b.version, 40), clip(b.browser, 60), at, at);
+    const addImage = db.prepare("INSERT INTO feedback_images (feedback_id, n, media_type, data) VALUES (?, ?, ?, ?)");
+    images.forEach((img, n) => addImage.run(id, n, img.type, img.buf));
+  })();
   res.json({ ok: true, id });
 });
 
 feedback.get("/feedback/mine", requireAuth, (req, res) => {
-  const rows = db.prepare("SELECT * FROM feedback WHERE user_id = ? ORDER BY rowid DESC LIMIT 50").all(req.user.userId);
+  const rows = db.prepare(`SELECT f.*, ${IMAGE_COUNT} FROM feedback f WHERE f.user_id = ? ORDER BY f.rowid DESC LIMIT 50`).all(req.user.userId);
   res.set("Cache-Control", "no-store");
   res.json({ feedback: rows.map(mineShape) });
+});
+
+feedback.get("/feedback/mine/:id/images/:n", requireAuth, (req, res) => {
+  sendImage(res, db.prepare(`
+    SELECT i.media_type, i.data FROM feedback_images i JOIN feedback f ON f.id = i.feedback_id
+    WHERE f.id = ? AND f.user_id = ? AND i.n = ?
+  `).get(String(req.params.id), req.user.userId, imageIndex(req.params.n)));
 });
 
 feedback.delete("/feedback/mine/:id", requireAuth, (req, res) => {
@@ -116,7 +179,7 @@ feedback.delete("/feedback/mine/:id", requireAuth, (req, res) => {
 const adminShape = (r) => ({
   id: r.id, kind: r.kind, mood: r.mood, message: r.message, context: r.context, route: r.route, lang: r.lang,
   version: r.app_version, browser: r.browser, status: r.status, reply: r.reply, repliedAt: r.replied_at,
-  linked: r.user_id != null, date: dateOf(r.created_at), cursor: r.cursor,
+  linked: r.user_id != null, date: dateOf(r.created_at), cursor: r.cursor, images: r.image_count || 0,
 });
 // Everything above is client-supplied text. The admin page and "Dina förslag" must show it as text nodes,
 // never as HTML.
@@ -128,8 +191,9 @@ feedback.get("/admin/feedback", adminFailures, requireAdminKey, (req, res) => {
   // order or page by time). `before` is the `cursor` of the last row of the previous page.
   const before = Number.isInteger(Number(req.query.before)) && req.query.before ? Number(req.query.before) : null;
   const rows = db.prepare(`
-    SELECT rowid AS cursor, * FROM feedback WHERE (? IS NULL OR status = ?) AND (? IS NULL OR kind = ?) AND (? IS NULL OR rowid < ?)
-    ORDER BY rowid DESC LIMIT 200
+    SELECT f.rowid AS cursor, f.*, ${IMAGE_COUNT} FROM feedback f
+    WHERE (? IS NULL OR f.status = ?) AND (? IS NULL OR f.kind = ?) AND (? IS NULL OR f.rowid < ?)
+    ORDER BY f.rowid DESC LIMIT 200
   `).all(status, status, kind, kind, before, before);
   const counts = Object.fromEntries(STATUSES.map((s) => [s, 0]));
   for (const r of db.prepare("SELECT status, COUNT(*) AS n FROM feedback GROUP BY status").all()) counts[r.status] = r.n;
@@ -147,6 +211,11 @@ feedback.get("/admin/feedback", adminFailures, requireAdminKey, (req, res) => {
     mood: { last30days: { n: total, average: total ? Math.round((sum / total) * 100) / 100 : null, byMood: moods } },
     feedback: rows.map(adminShape),
   });
+});
+
+feedback.get("/admin/feedback/:id/images/:n", adminFailures, requireAdminKey, (req, res) => {
+  sendImage(res, db.prepare("SELECT media_type, data FROM feedback_images WHERE feedback_id = ? AND n = ?")
+    .get(String(req.params.id), imageIndex(req.params.n)));
 });
 
 feedback.post("/admin/feedback/:id", adminFailures, requireAdminKey, (req, res) => {

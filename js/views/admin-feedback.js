@@ -8,7 +8,7 @@ import { el, icon, ICONS, toast, clear } from "../lib/dom.js";
 import { t, plural, getLang } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
-import { ADMIN_FEEDBACK_URL, adminFeedbackUrl } from "../config.js";
+import { ADMIN_FEEDBACK_URL, adminFeedbackUrl, adminFeedbackImageUrl } from "../config.js";
 import { openSiteGate, siteIsLocked } from "../components/site-gate-dialog.js";
 import { KINDS } from "../lib/feedback.js";
 
@@ -96,6 +96,27 @@ export function renderAdminFeedback() {
     ]);
   }
 
+  // A screenshot needs the admin key, sent as a header, which an <img> can't do: each is fetched and shown from
+  // a blob URL, freed when the inbox is loaded again or left.
+  let blobUrls = [];
+  const freeBlobs = () => { blobUrls.forEach((u) => URL.revokeObjectURL(u)); blobUrls = []; };
+  function shotList(row) {
+    if (!row.images) return null;
+    return el("div.fb-shots__list", {}, Array.from({ length: row.images }, (_, n) => {
+      const link = el("a.fb-shot", { target: "_blank", rel: "noopener" });
+      fetch(adminFeedbackImageUrl(row.id, n), { headers: { "x-admin-key": key } })
+        .then((res) => (res.ok ? res.blob() : Promise.reject(new Error(String(res.status)))))
+        .then((blob) => {
+          const url = URL.createObjectURL(blob);
+          blobUrls.push(url);
+          link.href = url;
+          link.append(el("img", { src: url, alt: t("feedback.imageAlt", { n: n + 1 }) }));
+        })
+        .catch(() => link.append(el("span.note", {}, t("adminFb.imageFailed"))));
+      return link;
+    }));
+  }
+
   function card(row) {
     const badge = el(`span.fb-badge.fb-badge--${row.status}`, {}, t(`feedback.status.${row.status}`));
     const replyText = el("textarea.fb-text", { rows: 2, maxlength: "500", placeholder: t("adminFb.replyPlaceholder"), "aria-label": t("adminFb.replyPlaceholder") });
@@ -120,6 +141,7 @@ export function renderAdminFeedback() {
         badge,
       ]),
       row.message ? el("p.fb-item__msg", {}, row.message) : null,
+      shotList(row),
       el("p.note", {}, [
         [row.route, row.browser, row.version].filter(Boolean).join(" · "),
         " · ", t(row.linked ? "adminFb.linked" : "adminFb.anonymous"),
@@ -151,6 +173,7 @@ export function renderAdminFeedback() {
   async function load() {
     if (siteIsLocked()) { body.replaceChildren(gatePanel()); return; }
     if (!key) { body.replaceChildren(keyForm()); return; }
+    freeBlobs();
     body.replaceChildren(el("p.note", {}, t("adminRev.loading")));
     try {
       const data = await call("GET", query());
@@ -181,6 +204,7 @@ export function renderAdminFeedback() {
   load();
 
   return {
+    cleanup: freeBlobs,
     title: t("adminFb.title"),
     node: el("div.settings.fbadmin", {}, [
       homeButton({ grid: true }),

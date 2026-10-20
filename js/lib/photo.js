@@ -13,15 +13,17 @@ const MAX_SOURCE_BYTES = 30 * 1024 * 1024;   // sanity cap on what we'll even tr
  * Resolves { mediaType, data (base64), preview (data URL) } — the same shape
  * as material.js readImageFile(). Anything the canvas route can't do (no
  * createImageBitmap, an odd format) falls back to sending the file as it is.
+ * `maxPixels` also caps the area — for screenshots, where a long phone capture
+ * would be shrunk to an unreadable strip by the longest edge alone.
  */
-export async function shrinkImage(file, { maxEdge = 1600, quality = 0.85 } = {}) {
+export async function shrinkImage(file, { maxEdge = 1600, maxPixels = Infinity, quality = 0.85 } = {}) {
   if (!OK_TYPES.includes(file.type)) throw new Error(t("err.imageType"));
   if (file.size > MAX_SOURCE_BYTES) throw new Error(t("err.imageSize"));
   // Measured before it is decoded: a small file can still hold gigabytes of pixels.
   await assertDecodable(file, t("err.imagePixels"));
   try {
     const bmp = await createImageBitmap(file);          // honours the photo's EXIF rotation
-    const scale = Math.min(1, maxEdge / Math.max(bmp.width, bmp.height));
+    const scale = Math.min(1, maxEdge / Math.max(bmp.width, bmp.height), Math.sqrt(maxPixels / (bmp.width * bmp.height)));
     const w = Math.max(1, Math.round(bmp.width * scale));
     const h = Math.max(1, Math.round(bmp.height * scale));
     const canvas = document.createElement("canvas");

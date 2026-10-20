@@ -44,6 +44,20 @@ test("the kinds and moods match what the server accepts", () => {
   assert.deepEqual(MOODS, [1, 2, 3, 4, 5]);
 });
 
+test("screenshots ride along only when there are some, and never more than the server takes", async () => {
+  const { IMAGE_MAX } = await import("../../js/lib/feedback.js");
+  assert.equal("images" in feedbackBody({ kind: "problem", message: "Knappen fastnar" }, {}), false);
+  assert.deepEqual(feedbackBody({ kind: "problem", message: "", images: ["QUJD"] }, {}).images, ["QUJD"]);
+  assert.equal(feedbackBody({ kind: "problem", images: ["a", "b", "c", "d"] }, {}).images.length, IMAGE_MAX);
+});
+
+test("a base64 string's size in bytes, padding included", async () => {
+  const { base64Bytes } = await import("../../js/lib/feedback.js");
+  for (const raw of ["", "a", "ab", "abc", "abcd", "x".repeat(1000)]) {
+    assert.equal(base64Bytes(Buffer.from(raw).toString("base64")), raw.length, JSON.stringify(raw.slice(0, 5)));
+  }
+});
+
 test("the card is only for the session that has just finished, not an old one opened from Framsteg", async () => {
   const { isFreshResult } = await import("../../js/lib/feedback.js");
   assert.equal(isFreshResult(now - 60_000, now), true);

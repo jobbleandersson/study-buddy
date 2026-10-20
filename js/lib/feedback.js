@@ -6,12 +6,43 @@
 import { FEEDBACK_URL, MY_FEEDBACK_URL, myFeedbackUrl } from "../config.js";
 import { coarseBrowser, sanitizeRoute, appVersion } from "./error-report.js";
 import { serverMessage } from "./server-errors.js";
-import { getLang } from "./i18n.js";
+import { getLang, t } from "./i18n.js";
 
 export const KINDS = ["idea", "problem", "praise", "other"];
 export const MOODS = [1, 2, 3, 4, 5];
 export const MESSAGE_MAX = 2000;
 export const MESSAGE_MIN = 3;
+// Screenshots: how many, and how big each may be once shrunk (the server's FEEDBACK_LIMITS.imageBytes).
+export const IMAGE_MAX = 3;
+export const IMAGE_BYTES = 600 * 1024;
+const IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp"];
+
+/** How many bytes a base64 string holds. */
+export function base64Bytes(b64) {
+  const s = String(b64 || "");
+  return Math.floor((s.length * 3) / 4) - (s.endsWith("==") ? 2 : s.endsWith("=") ? 1 : 0);
+}
+
+// Each step a little smaller, until a picture fits. A desktop screenshot (1920 × 1080, about 2 megapixels)
+// keeps its full size in the first; only a very long or very detailed capture needs the later ones.
+const SHRINK_STEPS = [
+  { maxPixels: 2_400_000, quality: 0.82 },
+  { maxPixels: 1_400_000, quality: 0.72 },
+  { maxPixels: 800_000, quality: 0.65 },
+];
+
+/** A picture made ready to send: { data (base64), preview (data URL) }. Rejects with a message in the
+ *  user's language. photo.js is only loaded once someone attaches a picture. */
+export async function prepareImage(file) {
+  const { shrinkImage } = await import("./photo.js");
+  for (const step of SHRINK_STEPS) {
+    const img = await shrinkImage(file, { maxEdge: 3000, ...step });
+    // Without a canvas the file comes back as it was: a GIF can't be sent, and no smaller step changes that.
+    if (!IMAGE_TYPES.includes(img.mediaType)) throw new Error(t("err.imageType"));
+    if (base64Bytes(img.data) <= IMAGE_BYTES) return { data: img.data, preview: img.preview };
+  }
+  throw new Error(t("feedback.imageTooBig"));
+}
 
 // The card after a session is a favour, not a toll: not for someone who has barely started, and not
 // again for a few days once they have answered or said "not now".
@@ -39,10 +70,11 @@ export function markAsked(now = Date.now()) {
 }
 
 /** The JSON the server wants. `ctx` is where it was sent from (see feedbackContext). */
-export function feedbackBody({ kind, message = "", mood = null, context = "button", anonymous = false }, ctx = {}) {
+export function feedbackBody({ kind, message = "", mood = null, context = "button", anonymous = false, images = [] }, ctx = {}) {
   const body = { kind, message: String(message).trim(), context };
   if (mood != null) body.mood = mood;
   if (anonymous) body.anonymous = true;
+  if (images.length) body.images = images.slice(0, IMAGE_MAX);
   if (ctx.route) body.route = ctx.route;
   if (ctx.lang) body.lang = ctx.lang;
   if (ctx.version) body.version = ctx.version;

@@ -340,6 +340,17 @@ db.exec(`
   CREATE INDEX IF NOT EXISTS feedback_status ON feedback(status, created_at);
   CREATE INDEX IF NOT EXISTS feedback_user ON feedback(user_id, created_at);
 
+  -- Screenshots sent with a feedback message: up to 3, shrunk by the browser first and checked here by their
+  -- first bytes (routes/feedback.js). Shown only to the sender (under "Dina förslag") and in the inbox, and
+  -- gone with the message.
+  CREATE TABLE IF NOT EXISTS feedback_images (
+    feedback_id TEXT NOT NULL REFERENCES feedback(id) ON DELETE CASCADE,
+    n INTEGER NOT NULL,                       -- 0, 1, 2: the order they were added
+    media_type TEXT NOT NULL,                 -- 'image/jpeg' | 'image/png' | 'image/webp', from the bytes
+    data BLOB NOT NULL,
+    PRIMARY KEY (feedback_id, n)
+  );
+
   CREATE TABLE IF NOT EXISTS page_views (
     id TEXT PRIMARY KEY,
     path TEXT NOT NULL,

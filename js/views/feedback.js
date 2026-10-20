@@ -9,6 +9,7 @@ import { homeButton } from "../components/nav.js";
 import { feedbackForm, feedbackSignedOut } from "../components/feedback-form.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { loadMine, takeBack } from "../lib/feedback.js";
+import { myFeedbackImageUrl } from "../config.js";
 
 const dateText = (iso) => new Date(`${iso}T12:00:00`).toLocaleDateString(getLang() === "sv" ? "sv-SE" : "en-GB", { day: "numeric", month: "short" });
 
@@ -23,6 +24,11 @@ function mineItem(row, reload) {
     ]),
     row.message ? el("p.fb-item__msg", {}, row.message) : null,
     row.mood && !row.message ? el("p.fb-item__msg", {}, moodTag(row.mood)) : null,
+    // The screenshots sent with it; each opens full size in a new tab.
+    row.images ? el("div.fb-shots__list", {}, Array.from({ length: row.images }, (_, n) =>
+      el("a.fb-shot", { href: myFeedbackImageUrl(row.id, n), target: "_blank", rel: "noopener" }, [
+        el("img", { src: myFeedbackImageUrl(row.id, n), alt: t("feedback.imageAlt", { n: n + 1 }), loading: "lazy" }),
+      ]))) : null,
     row.reply ? el("div.fb-reply", {}, [el("strong", {}, t("feedback.mine.reply")), el("p", {}, row.reply)]) : null,
     el("div", {}, [
       el("button.linkbtn", {

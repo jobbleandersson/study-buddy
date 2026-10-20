@@ -126,6 +126,93 @@ describe("feedback limits", () => {
   });
 });
 
+describe("screenshots with feedback", () => {
+  // A real 1×1 PNG, and bytes that start like a JPEG (the server reads the first bytes, nothing more).
+  const PNG = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==";
+  const JPEG = Buffer.concat([Buffer.from([0xff, 0xd8, 0xff, 0xe0]), Buffer.alloc(64, 7)]).toString("base64");
+  const b64 = (s) => Buffer.from(s).toString("base64");
+  let server, c, other, adm;
+  const raw = (p, headers = {}) => fetch(server.baseUrl + p, { headers });
+  const imageCount = (id) => server.db.prepare("SELECT COUNT(*) AS n FROM feedback_images WHERE feedback_id = ?").get(id).n;
+  before(async () => {
+    server = await startServer({ REVIEW_ADMIN_KEY: KEY, FEEDBACK_PER_HOUR_PER_USER: "100", FEEDBACK_PER_DAY_PER_USER: "100" });
+    c = await account(server.baseUrl);
+    other = await account(server.baseUrl);
+    adm = admin(server.baseUrl);
+  });
+  after(async () => { await server.stop(); });
+
+  test("they are stored with the message, in order; the sender and the inbox can see them, nobody else", async () => {
+    const r = await c.post("/api/feedback", { kind: "problem", message: `Knappen syns inte ${Date.now()}`, images: [PNG, JPEG] });
+    assert.equal(r.status, 200, JSON.stringify(r.json));
+    assert.equal((await c.get("/api/feedback/mine")).json.feedback.find((f) => f.id === r.json.id).images, 2);
+
+    const own = await raw(`/api/feedback/mine/${r.json.id}/images/0`, { cookie: c.cookie });
+    assert.equal(own.status, 200);
+    assert.equal(own.headers.get("content-type"), "image/png");
+    assert.equal(own.headers.get("x-content-type-options"), "nosniff");
+    assert.match(own.headers.get("cache-control"), /no-store/);
+    assert.deepEqual(Buffer.from(await own.arrayBuffer()), Buffer.from(PNG, "base64"));
+    assert.equal((await raw(`/api/feedback/mine/${r.json.id}/images/1`, { cookie: c.cookie })).headers.get("content-type"), "image/jpeg");
+    assert.equal((await raw(`/api/feedback/mine/${r.json.id}/images/2`, { cookie: c.cookie })).status, 404);
+    assert.equal((await raw(`/api/feedback/mine/${r.json.id}/images/x`, { cookie: c.cookie })).status, 404);
+    assert.equal((await raw(`/api/feedback/mine/${r.json.id}/images/0`, { cookie: other.cookie })).status, 404, "not someone else's");
+    assert.equal((await raw(`/api/feedback/mine/${r.json.id}/images/0`)).status, 401);
+
+    assert.equal((await adm.get("/api/admin/feedback")).json.feedback.find((f) => f.id === r.json.id).images, 2);
+    const inbox = await raw(`/api/admin/feedback/${r.json.id}/images/1`, { "x-admin-key": KEY });
+    assert.equal(inbox.status, 200);
+    assert.equal(inbox.headers.get("content-type"), "image/jpeg");
+    assert.equal((await raw(`/api/admin/feedback/${r.json.id}/images/1`, { "x-admin-key": "wrong" })).status, 403);
+  });
+
+  test("a screenshot alone is enough to send, without words or a mood", async () => {
+    const r = await c.post("/api/feedback", { kind: "problem", message: "", images: [PNG] });
+    assert.equal(r.status, 200, JSON.stringify(r.json));
+    assert.equal(imageCount(r.json.id), 1);
+  });
+
+  test("more than three, something that isn't a picture, and a picture that is too large are refused, and nothing is stored", async () => {
+    const before = server.db.prepare("SELECT COUNT(*) AS n FROM feedback").get().n;
+    for (const [images, code] of [
+      [[PNG, PNG, PNG, PNG], "feedback_images"],
+      ["not a list", "feedback_images"],
+      [[b64("<svg onload=alert(1)></svg>")], "feedback_image"],
+      [[b64("GIF89a and the rest")], "feedback_image"],
+      [["not base64!"], "feedback_image"],
+      [[5], "feedback_image"],
+      [[Buffer.concat([Buffer.from([0xff, 0xd8, 0xff]), Buffer.alloc(600 * 1024)]).toString("base64")], "feedback_image_size"],
+    ]) {
+      const r = await c.post("/api/feedback", { kind: "problem", message: `Med bild ${Date.now()}`, images });
+      assert.equal(r.status, 400, code);
+      assert.equal(r.json.error.code, code);
+    }
+    assert.equal(server.db.prepare("SELECT COUNT(*) AS n FROM feedback").get().n, before);
+  });
+
+  test("a body too big for three screenshots is refused, and signed out not even read", async () => {
+    const huge = { kind: "problem", message: "x", images: ["A".repeat(3.2 * 1024 * 1024)] };
+    assert.equal((await c.post("/api/feedback", huge)).status, 413);
+    assert.equal((await makeClient(server.baseUrl).post("/api/feedback", { kind: "problem", images: ["A".repeat(2 * 1024 * 1024)] })).status, 401);
+  });
+
+  test("taking a message back, removing it in the inbox, or deleting the account takes its screenshots too", async () => {
+    const taken = (await c.post("/api/feedback", { kind: "problem", message: `Tillbaka ${Date.now()}`, images: [PNG] })).json.id;
+    assert.equal((await c.delete(`/api/feedback/mine/${taken}`)).status, 200);
+    assert.equal(imageCount(taken), 0);
+
+    const removed = (await c.post("/api/feedback", { kind: "problem", message: `Bort ${Date.now()}`, images: [PNG] })).json.id;
+    assert.equal((await adm.delete(`/api/admin/feedback/${removed}`)).status, 200);
+    assert.equal(imageCount(removed), 0);
+
+    const gone = await account(server.baseUrl);
+    const sent = (await gone.post("/api/feedback", { kind: "problem", message: `Konto bort ${Date.now()}`, images: [PNG, JPEG] })).json.id;
+    assert.equal(imageCount(sent), 2);
+    assert.equal((await gone.delete("/api/account", { password: "correctpw1" })).status, 200);
+    assert.equal(imageCount(sent), 0);
+  });
+});
+
 describe("the feedback inbox", () => {
   let server, a, adm;
   before(async () => {

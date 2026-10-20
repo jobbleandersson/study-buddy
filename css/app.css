@@ -6983,6 +6983,31 @@ html { scroll-padding-top: 80px; }
 }
 .fb-text:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 18%, transparent); }
 .fb-meta { display: flex; justify-content: space-between; gap: var(--s-2); margin: 6px 0 var(--s-3); font-size: calc(12.5px * var(--fs-scale, 1)); color: var(--ink-faint); }
+/* Screenshots (components/feedback-form.js): "Lägg till bild" with a line beside it, then the pictures as
+   thumbnails, each with a round remove button. Also the thumbnails under "Dina förslag" and in the inbox. */
+.fb-shots { display: grid; gap: var(--s-2); margin-top: var(--s-2); }
+.fb-shots__bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px var(--s-3); }
+.fb-shots__hint, .fb-shots__busy { font-size: calc(12.5px * var(--fs-scale, 1)); color: var(--ink-faint); }
+.fb-shots__busy:empty { display: none; }
+.fb-shots__list { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.fb-shots__list[hidden] { display: none; }
+.fb-shot {
+  position: relative; margin: 0; width: 92px; height: 72px; display: grid; place-items: center; overflow: hidden;
+  border: 1px solid var(--line-strong); border-radius: var(--r-sm); background: var(--surface-sunk);
+}
+.fb-shot img { width: 100%; height: 100%; object-fit: cover; display: block; font-size: 11px; color: var(--ink-faint); }   /* small alt text if one can't load */
+a.fb-shot { text-decoration: none; }
+a.fb-shot:hover { border-color: var(--brand); }
+a.fb-shot:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+.fb-shot .note { font-size: 11px; text-align: center; padding: 4px; }
+.fb-shot__x {
+  position: absolute; top: 4px; right: 4px; width: 24px; height: 24px; padding: 0; display: grid; place-items: center;
+  border: 0; border-radius: var(--r-full); background: rgba(10, 12, 17, .72); color: #fff; cursor: pointer;
+}
+.fb-shot__x:hover { background: rgba(10, 12, 17, .9); }
+.fb-shot__x:focus-visible { outline: 2px solid var(--brand); outline-offset: 1px; }
+/* A picture dragged over the form: the whole form says it will take it. */
+.fb-form.is-dropping { outline: 2px dashed var(--brand); outline-offset: 6px; border-radius: var(--r-sm); }
 .fb-check { display: flex; align-items: flex-start; gap: var(--s-3); margin: 0 0 var(--s-4); font-size: var(--fs-sm); }
 .fb-check input { flex: none; width: 18px; height: 18px; margin: 2px 0 0; }
 .fb-check small { display: block; color: var(--ink-faint); font-size: calc(12.5px * var(--fs-scale, 1)); }

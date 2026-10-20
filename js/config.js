@@ -57,8 +57,10 @@ export const adminAiReportUrl = (id) => `${API}/api/admin/ai-reports/${encodeURI
 export const FEEDBACK_URL = `${API}/api/feedback`;
 export const MY_FEEDBACK_URL = `${API}/api/feedback/mine`;
 export const myFeedbackUrl = (id) => `${API}/api/feedback/mine/${encodeURIComponent(id)}`;
+export const myFeedbackImageUrl = (id, n) => `${myFeedbackUrl(id)}/images/${n}`;
 export const ADMIN_FEEDBACK_URL = `${API}/api/admin/feedback`;
 export const adminFeedbackUrl = (id) => `${API}/api/admin/feedback/${encodeURIComponent(id)}`;
+export const adminFeedbackImageUrl = (id, n) => `${adminFeedbackUrl(id)}/images/${n}`;
 
 // Anonymous error reports (js/lib/error-report.js) and the list of them at #/admin/errors. See
 // routes/client-errors.js.

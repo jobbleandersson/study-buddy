@@ -197,7 +197,12 @@ app.use("/api/stripe/webhook", express.raw({ type: "application/json", limit: "1
 const STORED_JSON_PATH = /^\/api\/(state|assigned)\/?$/i;
 const jsonLarge = express.json({ limit: "10mb", verify: (req, res, buf) => { if (STORED_JSON_PATH.test(req.path)) assertShallow(req, res, buf); } });
 const jsonSmall = express.json({ limit: "100kb" });
-app.use((req, res, next) => (LARGE_JSON_ROUTES.test(req.path) ? jsonLarge : jsonSmall)(req, res, next));
+// A feedback message can carry three screenshots (routes/feedback.js FEEDBACK_LIMITS, 600KB each before base64):
+// a middle-sized cap, and only for someone signed in - checked before the body is read, as for /api/state.
+const FEEDBACK_JSON_ROUTE = /^\/api\/feedback\/?$/i;
+const jsonFeedback = express.json({ limit: "3mb" });
+app.post("/api/feedback", requireAuth);
+app.use((req, res, next) => (LARGE_JSON_ROUTES.test(req.path) ? jsonLarge : FEEDBACK_JSON_ROUTE.test(req.path) ? jsonFeedback : jsonSmall)(req, res, next));
 
 app.use("/api", gate);
 app.use("/api", health);
