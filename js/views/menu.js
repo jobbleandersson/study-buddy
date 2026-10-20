@@ -21,7 +21,6 @@ import { prepFor, taskHash, taskLabel, shortCountdown, resumeFor, taskButtonLabe
 import { testsTomorrow } from "../lib/tonight.js";
 import { dailySlot } from "../components/daily-card.js";
 import { houseAd } from "../components/house-ad.js";
-import { installBanner } from "../components/install-app.js";
 import { hasSummary, openSummary } from "../components/set-summary.js";
 import { daypart } from "../components/home-backdrop.js";
 import { tonightPlan } from "./tonight.js";
@@ -538,7 +537,7 @@ export function renderMenu(mode) {
   const layout = el(rail ? "div.home-layout" : "div.home-layout.home-layout--solo", {}, [
     // The rail starts level with the greeting, up in the corner, rather than
     // under a full-width head.
-    el("div.home-main", {}, [greetingBlock, continueCard(), nextTestCard(), tonightCard(), dailySlot(), homeTiles(), store.attempts.length ? installBanner() : null, homeStarter(), ad, setsPanel].filter(Boolean)),
+    el("div.home-main", {}, [greetingBlock, continueCard(), nextTestCard(), tonightCard(), dailySlot(), homeTiles(), homeStarter(), ad, setsPanel].filter(Boolean)),
     rail,
   ].filter(Boolean));
 

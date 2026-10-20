@@ -6505,7 +6505,6 @@ button.toolfly__item { border: 0; background: transparent; font: inherit; font-s
 
 /* ---------- "install the app" (components/install-app.js) ---------- */
 button.topmenu__item { border: 0; background: transparent; font-family: inherit; cursor: pointer; }
-.installcard { display: none; }
 .installdlg__card { max-width: 400px; display: grid; gap: var(--s-3); justify-items: start; }
 .installdlg__card h3 { margin: 0; }
 .installdlg__icon { border-radius: 14px; box-shadow: var(--shadow-1); }
@@ -6537,19 +6536,6 @@ button.topmenu__item { border: 0; background: transparent; font-family: inherit;
   .results .delta-list--review .delta--review { padding: 12px 14px; gap: 4px; }
   .results .delta__explain { font-size: 14px; line-height: 1.5; }
 
-  /* ---------- install card on the home page ---------- */
-  .installcard {
-    display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 4px 12px; align-items: center;
-    margin-bottom: var(--s-5); padding: 14px; border-radius: 18px;
-    background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-card);
-  }
-  .installcard[hidden] { display: none; }
-  .installcard__icon { border-radius: 11px; box-shadow: var(--shadow-1); }
-  .installcard__text { display: grid; gap: 2px; min-width: 0; }
-  .installcard__text strong { font-size: 15px; }
-  .installcard__text span { font-size: var(--fs-sm); color: var(--ink-soft); line-height: 1.4; }
-  .installcard__actions { grid-column: 1 / -1; display: flex; gap: 8px; margin-top: 8px; }
-  .installcard__actions .btn { flex: 1; justify-content: center; min-height: 44px; border-radius: 12px; }
 
   /* ---------- the library on phones ---------- */
   /* The subject list and the set list sit on the page, not in a card around cards. */

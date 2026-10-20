@@ -3,40 +3,27 @@
 // prompt (Chrome and Edge on Android and desktop), we keep that event and show it from our button;
 // iPhone and iPad have no prompt at all, so the button opens two short steps instead (Share → Add to
 // Home Screen), and so do other phone browsers. Nothing is offered once it runs as an installed app.
+// Offered only from the Meny sheet: the home page's card was dropped (2026-10-20) with an App Store app
+// on the way.
 //
 //   initInstall()     once, early (main.js): catches the browser's prompt before it's gone
-//   installBanner()   the dismissible card on the home page (phones, after a first finished run)
 //   installMenuItem() an entry for the "Meny" sheet; it hides itself when there's nothing to offer
 
 import { el, icon, ICONS, toast } from "../lib/dom.js";
 import { t } from "../lib/i18n.js";
 
-const DISMISS_KEY = "studybuddy.installDismissedAt";
 const INSTALLED_KEY = "studybuddy.installed";   // installed from here: the browser tab stops offering it
-const DISMISS_DAYS = 30;
-const CHANGE = "sb:installchange";
 
 let deferred = null;   // the browser's beforeinstallprompt event, while it may still be shown
-let bannerCard = null; // the home page's card, if one is showing
-
-function paintBanner() {
-  if (bannerCard?.isConnected === false && bannerCard.dataset.shown) { bannerCard = null; return; }
-  if (!bannerCard) return;
-  bannerCard.dataset.shown = "1";
-  bannerCard.hidden = !canOfferInstall() || dismissedRecently();
-}
 
 export function initInstall() {
-  window.addEventListener(CHANGE, paintBanner);
   window.addEventListener("beforeinstallprompt", (e) => {
-    e.preventDefault();   // our own button shows it, not the browser's mini-bar
+    e.preventDefault();   // our own Meny entry shows it, not the browser's mini-bar
     deferred = e;
-    window.dispatchEvent(new Event(CHANGE));
   });
   window.addEventListener("appinstalled", () => {
     deferred = null;
     markInstalled();
-    window.dispatchEvent(new Event(CHANGE));
     toast(t("install.done"));
   });
 }
@@ -67,9 +54,8 @@ export async function startInstall() {
     try {
       await e.prompt();
       const { outcome } = await e.userChoice;
-      if (outcome === "accepted") markInstalled(); else rememberDismiss();
+      if (outcome === "accepted") markInstalled();
     } catch { openSteps(); }
-    window.dispatchEvent(new Event(CHANGE));
     return;
   }
   openSteps();
@@ -77,10 +63,6 @@ export async function startInstall() {
 
 function markInstalled() { try { localStorage.setItem(INSTALLED_KEY, "1"); } catch { /* private mode */ } }
 function installedHere() { try { return localStorage.getItem(INSTALLED_KEY) === "1"; } catch { return false; } }
-function rememberDismiss() { try { localStorage.setItem(DISMISS_KEY, String(Date.now())); } catch { /* private mode */ } }
-function dismissedRecently() {
-  try { return Date.now() - Number(localStorage.getItem(DISMISS_KEY) || 0) < DISMISS_DAYS * 864e5; } catch { return false; }
-}
 
 /** Two or three short steps, for a browser that can't install from a button. */
 function openSteps() {
@@ -110,25 +92,6 @@ function openSteps() {
   document.addEventListener("keydown", onKey, true);
   window.addEventListener("hashchange", close);
   done.focus();
-}
-
-/** The home page card. It shows and hides itself as the browser's prompt arrives or the app is
- *  installed; a "Not now" keeps it away for a month on this device. */
-export function installBanner() {
-  const card = el("section.installcard", { hidden: true, "aria-label": t("install.title") }, [
-    el("img.installcard__icon", { src: "assets/icon-192.png", alt: "", width: 44, height: 44 }),
-    el("div.installcard__text", {}, [el("strong", {}, t("install.title")), el("span", {}, t("install.sub"))]),
-    el("div.installcard__actions", {}, [
-      el("button.btn.btn--sm", { type: "button", onclick: () => startInstall() }, t("install.cta")),
-      el("button.btn.btn--ghost.btn--sm", {
-        type: "button", onclick: () => { rememberDismiss(); card.hidden = true; },
-      }, t("install.later")),
-    ]),
-  ]);
-  // One card on screen at a time (the home page re-renders often), repainted by the one listener below.
-  bannerCard = card;
-  paintBanner();
-  return card;
 }
 
 /** "Installera appen" for the Meny sheet; main.js calls refresh() each time the sheet opens. */
