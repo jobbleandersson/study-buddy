@@ -301,11 +301,12 @@ a.streakbadge:hover {
 .topbar__spacer { flex: 1; }
 
 .wordmark { display: inline-block; letter-spacing: -.02em; }
-/* The name itself: Lexend Bold leaning forward a little, for momentum. Used wherever "PluggEra"
-   stands next to the logo — the sidebar, the topbar, the front page and the sign-in page. */
+/* The name itself: Yellowtail, a retro brand script. Used wherever "PluggEra" stands next to the
+   logo — the sidebar, the topbar, the front page, the sign-in page and the welcome screen. A script
+   has small letters for its size, so it's set larger than the text around it. */
 .wordmark__text {
-  display: inline-block; font-family: "Lexend", var(--font-display); font-weight: 700;
-  letter-spacing: -.035em; transform: skewX(-9deg); padding-right: .08em;
+  display: inline-block; font-family: "Yellowtail", var(--font-display); font-weight: 400;
+  font-size: 1.4em; line-height: 1; letter-spacing: 0; padding: 0 .06em .1em 0;
 }
 
 /* Bottom tab bar — mobile's primary nav (see js/main.js tabBar()). Fixed and
@@ -1369,9 +1370,15 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .lp-brand img { width: 30px; height: 30px; }
 .lp-head__actions { display: flex; align-items: center; gap: var(--s-3); }
 .lp-head__actions .btn { white-space: nowrap; }
+/* Phones: a slightly smaller name and tighter buttons, so the row still fits. */
+@media (max-width: 420px) {
+  .lp-brand .wordmark__text { font-size: 1.12em; }
+  .lp-head__actions { gap: var(--s-2); }
+  .lp-head__actions .btn { padding-inline: 12px; }
+}
 /* On the narrowest phones the logo, language pill and "Open the app" no longer
    fit in one row — the wordmark steps aside (still read by screen readers). */
-@media (max-width: 360px) {
+@media (max-width: 389.98px) {
   .lp-brand { position: relative; }
   .lp-brand span {
     position: absolute; width: 1px; height: 1px; overflow: hidden;

@@ -27,7 +27,7 @@ const APP_SHELL = [
   "./css/tokens.css",
   "./css/fonts.css",
   "./assets/fonts/inter-latin.woff2",
-  "./assets/fonts/lexend-700-latin.woff2",
+  "./assets/fonts/yellowtail-400-latin.woff2",
   "./assets/fonts/inter-italic-latin.woff2",
   "./css/app.css",
   "./css/design.css",
