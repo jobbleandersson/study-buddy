@@ -130,6 +130,7 @@ const APP_SHELL = [
   "./js/lib/wordmark.js",
   "./js/lib/subject-match.js",
   "./js/lib/join-link.js",
+  "./js/lib/language-guess.js",
   "./js/components/link-actions.js",
   "./js/views/library.js",
   "./js/views/calendar.js",

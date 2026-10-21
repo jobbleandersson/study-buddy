@@ -17,7 +17,7 @@ export const QUESTION_SHAPE = `Each question object has:
 - "explanation": for "mc" — one or two sentences on why the answer is right. It must agree with the correct option word for word and never contradict it.
 - Multiple-choice quality: exactly one option is clearly right, and the wrong ones are plausible but clearly wrong. No two options may overlap or be nearly equal, and "all/none of the above" style options are to be avoided. For a calculation or an estimate, the correct (properly rounded) value must itself be one of the options — never leave the student to pick the "closest" of options that are all off.
 - "steps": for "worked" — an array of 3-6 strings, the reasoning steps in order.
-- "opener": ALWAYS include. One short sentence the tutor says before the student answers — a nudge toward how to think about THIS question. Never state or give away the answer. Address the student as "you". Max 25 words.`;
+- "opener": ALWAYS include. One short sentence the tutor says before the student answers — a nudge toward how to think about THIS question. Never state or give away the answer. Write it in the same language as the question's "prompt" (a Swedish question gets a Swedish opener) and address the student directly ("you" / "du"). Max 25 words.`;
 
 /** The language of a generated set. In the Swedish interface the old instruction forced Swedish even for a student who
  *  pasted English notes; now the material decides, and Swedish is the default. English interface: nothing is added
@@ -403,8 +403,9 @@ const OPENERS = {
   ],
 };
 
-export function fallbackOpeners() {
-  return OPENERS[getLang()] || OPENERS.en;
+/** The generic openers, in `lang` ("sv" or "en"): the language of the question when it is known, else the interface's. */
+export function fallbackOpeners(lang) {
+  return OPENERS[lang] || OPENERS[getLang()] || OPENERS.en;
 }
 
 const LEVEL_EN = {
