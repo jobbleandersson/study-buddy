@@ -8,15 +8,17 @@ import { el, clear, append } from "../lib/dom.js";
 import { t } from "../lib/i18n.js";
 import { store } from "../store.js";
 import { mascot } from "./mascot.js";
+import { wordmarkText } from "../lib/wordmark.js";
 
 /** `extra` are appended after the name/status block (Solve's reset/history buttons; none for Check). */
 export function aiHead(extra = []) {
-  const mascotEl = mascot("idle", 40);
+  const mascotEl = mascot("idle", 44);
   const statusEl = el("p.solvehead__status");
   const node = el("div.solvehead", {}, [
     mascotEl,
     el("div.solvehead__id", {}, [
-      el("h1.solvehead__name", {}, t("solve.aiName")),
+      // "PluggEra" set like the logo and an outlined "AI" tag; read as one name, "PluggEra AI".
+      el("h1.solvehead__name", { "aria-label": t("solve.aiName") }, [wordmarkText(), el("i.solvehead__tag", { "aria-hidden": "true" }, "AI")]),
       statusEl,
     ]),
     ...extra,
