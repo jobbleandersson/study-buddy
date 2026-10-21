@@ -5465,11 +5465,12 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .solvehead { display: flex; align-items: center; gap: var(--s-3); margin: 12px 0 var(--s-3); }
 /* The name, and under it the status as a pill. */
 .solvehead__id { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
-.solvehead__name { font-size: var(--fs-xl); margin: 0; line-height: 1.1; }
+/* The name (the wordmark inside is 1.2em of this) with the AI tag centred on it, side by side. */
+.solvehead__name { font-size: var(--fs-lg); margin: 0; line-height: 1.1; display: flex; align-items: center; gap: .55em; }
 .solvehead__tag {
-  font-style: normal; font-family: var(--font-body); font-size: .5em; font-weight: 700; letter-spacing: .08em;
+  font-style: normal; font-family: var(--font-body); font-size: .6em; font-weight: 700; letter-spacing: .08em; line-height: 1;
   color: var(--brand-ink); border: 1.5px solid color-mix(in srgb, var(--brand-ink) 55%, transparent); border-radius: 6px;
-  padding: 2px 7px; margin-left: .8em; vertical-align: .5em;
+  padding: 3px 7px;
 }
 .solvehead__status {
   display: flex; align-items: center; gap: 8px; max-width: 100%;
@@ -6084,7 +6085,7 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   .solve.is-chatting .solve-chat { min-height: max(380px, calc(100dvh - 330px)); }
 }
 @media (max-width: 560px) {
-  .solvehead__name { font-size: var(--fs-lg); }
+  .solvehead__name { font-size: var(--fs-md); }
   .solve-chat__reset {
     width: 38px; height: 38px; justify-content: center; border: 1px solid var(--line); border-radius: var(--r-md);
     background: var(--surface); color: var(--ink-soft); text-decoration: none;
