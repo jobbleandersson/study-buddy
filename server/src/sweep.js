@@ -14,6 +14,10 @@ const DAY = 24 * 60 * MINUTE;
 export const SWEEP_EVERY_MS = Number(process.env.SWEEP_EVERY_MS) > 0 ? Number(process.env.SWEEP_EVERY_MS) : 5 * MINUTE;   // the env knob is for the tests
 // The dashboard (routes/analytics.js) reads the last 30 days of page views; the rest only takes disk.
 export const PAGE_VIEWS_KEEP_MS = 90 * DAY;
+// Feedback (routes/feedback.js) is kept until it has been dealt with. Once it is marked Klar or Nej tack
+// it stays this long, so the student can still read our reply under "Dina förslag", then it goes.
+// Anything not yet resolved (new, seen, planned) is kept.
+export const FEEDBACK_RESOLVED_KEEP_MS = 30 * DAY;
 
 // [statement, the value it is given: a time, "now" or a cutoff].
 const stmts = [
@@ -26,6 +30,7 @@ const stmts = [
   [db.prepare("DELETE FROM password_reset_tokens WHERE expires_at < ? OR used_at IS NOT NULL"), (now) => now],
   [db.prepare("DELETE FROM twofa_challenges WHERE expires_at < ? OR used_at IS NOT NULL"), (now) => now],
   [db.prepare("DELETE FROM page_views WHERE created_at < ?"), (now) => now - PAGE_VIEWS_KEEP_MS],
+  [db.prepare("DELETE FROM feedback WHERE status IN ('done', 'declined') AND updated_at < ?"), (now) => now - FEEDBACK_RESOLVED_KEEP_MS],
 ];
 
 /** One pass over every table; returns how many rows were removed. Exported for the tests. */

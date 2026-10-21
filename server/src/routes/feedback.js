@@ -4,6 +4,7 @@ import { db } from "../db.js";
 import { requireAuth } from "../middleware/requireAuth.js";
 import { attemptLimit } from "../middleware/attemptLimit.js";
 import { adminFailures, requireAdminKey } from "../middleware/adminKey.js";
+import { reportNewFeedback } from "../alerts.js";
 
 export const feedback = Router();
 
@@ -22,6 +23,10 @@ export const feedback = Router();
 // A student can send "without my account" (anonymous: true): the row then has no user_id, so it can be read
 // but not answered, and it is not in /mine. The moderator never sees an email or a user id either way, only
 // whether the sender can be answered (`linked`). Nothing here is shown to other students.
+//
+// The owner gets a mail when feedback arrives (alerts.js: reportNewFeedback) with the counts and a link to
+// the inbox, never the text. Feedback is kept until it is dealt with: once marked Klar or Nej tack it is
+// removed 30 days later (sweep.js).
 
 // imageBytes: a screenshot after the browser has shrunk it (lib/feedback.js prepares them to fit). index.js lets
 // this route's body be big enough for three.
@@ -152,6 +157,9 @@ feedback.post("/feedback", requireAuth, submitLimit, submitDaily, (req, res) => 
     const addImage = db.prepare("INSERT INTO feedback_images (feedback_id, n, media_type, data) VALUES (?, ?, ?, ?)");
     images.forEach((img, n) => addImage.run(id, n, img.type, img.buf));
   })();
+  // Tell the owner there is something to read: batched and capped in alerts.js, and it carries only the
+  // kind, never the message or a screenshot. Best-effort: it never throws and the answer does not wait.
+  reportNewFeedback({ kind: b.kind });
   res.json({ ok: true, id });
 });
 
