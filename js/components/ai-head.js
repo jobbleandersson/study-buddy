@@ -10,10 +10,14 @@ import { store } from "../store.js";
 import { mascot } from "./mascot.js";
 import { wordmarkText } from "../lib/wordmark.js";
 
-/** `extra` are appended after the name/status block (Solve's reset/history buttons; none for Check). */
-export function aiHead(extra = []) {
+/** `extra` are appended after the name/status block (Solve's reset/history buttons; none for Check).
+ *  `statusInHead: false` leaves the live status out of the header (the caller shows `heroStatus`, the same line, in the
+ *  greeting instead); a status that says the AI is NOT available (signed out, offline, quota used) always stays in the header,
+ *  so the reason is on screen for as long as the page is. */
+export function aiHead(extra = [], { statusInHead = true } = {}) {
   const mascotEl = mascot("idle", 44);
   const statusEl = el("p.solvehead__status");
+  const heroStatus = el("p.solvehead__status.solvehead__status--line");
   const node = el("div.solvehead", {}, [
     mascotEl,
     el("div.solvehead__id", {}, [
@@ -28,15 +32,19 @@ export function aiHead(extra = []) {
     const on = store.canUseAI();
     const reason = store.aiBlockReason();
     const statusKey = on ? "solve.aiStatus" : reason === "signin" ? "solve.aiSignInStatus" : "solve.aiOffline";
-    clear(statusEl);
-    append(statusEl, [
-      el(`i.solvehead__livedot${on ? "" : ".is-off"}`, { "aria-hidden": "true" }),
-      // The text trims on its own, so the dot's pulse ring isn't cut off with it.
-      el("span.solvehead__statustext", {}, t(statusKey)),
-    ]);
+    for (const node of [statusEl, heroStatus]) {
+      clear(node);
+      append(node, [
+        el(`i.solvehead__livedot${on ? "" : ".is-off"}`, { "aria-hidden": "true" }),
+        // The text trims on its own, so the dot's pulse ring isn't cut off with it.
+        el("span.solvehead__statustext", {}, t(statusKey)),
+      ]);
+    }
+    statusEl.hidden = !statusInHead && on;
+    heroStatus.hidden = !on;   // when the AI is not available the header says so; the greeting does not repeat it
     return on;
   }
   paint();
 
-  return { node, mascotEl, paint };
+  return { node, mascotEl, heroStatus, paint };
 }

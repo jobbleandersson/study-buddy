@@ -246,6 +246,7 @@ export function renderSolve(qs) {
       el("div.solve-hero__mark", { "aria-hidden": "true" }, icon(mode ? ICONS[mode.icon] || ICONS.spark : ICONS.spark, 30)),
       el("h2.solve-hero__title", {}, mode ? t(`chat.mode.${mode.id}`) : t("solve.heroTitle")),
       el("div.solve-hero__sub", { html: markdown(sub) }),
+      head?.heroStatus,
       mode ? null : el("div.solve-starts", {}, [
         start(ICONS.camera, "photo", () => refs.fileInput.click()),
         start(ICONS.target, "quiz", () => pickMode("quiz")),
@@ -621,7 +622,7 @@ export function renderSolve(qs) {
       resetBtn, historyBtn, modeBtns, gateEl, tabsEl, formEl, panel: null, history: null, hero: null,
     };
 
-    head = aiHead([resetBtn, historyBtn]);
+    head = aiHead([resetBtn, historyBtn], { statusInHead: false });   // the live status sits in the greeting
     root.appendChild(homeButton({ grid: true }));
     root.appendChild(head.node);
     root.appendChild(tabsEl);
