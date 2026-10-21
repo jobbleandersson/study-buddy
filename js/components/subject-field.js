@@ -21,6 +21,9 @@ const VISIBLE = 8;   // chips shown before "Visa fler"
 const same = (a, b) => String(a).trim().toLowerCase() === String(b).trim().toLowerCase();
 const standardNames = () => STANDARD.map((k) => t(`subj.std.${k}`));
 
+/** The picker's name for each usual subject, by key ({ swedish: "Svenska", ... }) — for matching what the AI called a set. */
+export const standardSubjectNames = () => Object.fromEntries(STANDARD.map((k) => [k, t(`subj.std.${k}`)]));
+
 /** The names on offer, in order: the student's own (most sets first), then the standard ones not already among them. */
 export function subjectChoices() {
   const count = new Map();
