@@ -543,7 +543,7 @@ function tonightCard() {
   const plan = tonightPlan(test);
   const name = plan.subject?.name || test.title;
   const finished = !!plan.day.finishedAt;
-  return el("a.tonightcard.theme-night" + (finished ? ".tonightcard--done" : ""), { href: `#/tonight/${test.id}` }, [
+  return el("a.tonightcard" + (finished ? ".tonightcard--done" : ""), { href: `#/tonight/${test.id}` }, [
     el("span.tonightcard__moon", { "aria-hidden": "true" }, [icon(ICONS.moon, 22)]),
     el("span.tonightcard__text", {}, [
       el("strong", {}, t("tonight.cardTitle", { subject: name })),

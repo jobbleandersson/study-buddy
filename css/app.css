@@ -5024,8 +5024,9 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   .rulesheet__box { flex: none; width: 13px; height: 13px; margin-top: 3px; border: 1.5px solid #000; border-radius: 2px; }
 }
 
-/* ===== kvällen före provet: a calm, dark panel with a short checklist ===== */
-.tonight, .tonightcard, .bus {
+/* ===== kvällen före provet: a calm, dark panel with a short checklist =====
+   (The card on the home page, .tonightcard, is not one of these: it follows the active theme.) */
+.tonight, .bus {
   --canvas: #0C1226; --surface: #141C36; --surface-sunk: #1B2545;
   --line: #263153; --line-strong: #37446E; --brand-tint: #1A2A55;
   background: radial-gradient(120% 100% at 100% 0%, #1B2A5C 0%, rgba(27,42,92,0) 58%), var(--canvas);
@@ -5066,7 +5067,11 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .tonight__quiet .linkbtn { color: var(--brand-ink); min-height: 32px; }
 .tonight__also { margin: 14px 4px 0; font-size: calc(14px * var(--fs-scale, 1)); color: var(--ink-soft); }
 
-.tonightcard { display: flex; align-items: center; gap: 14px; margin: 0 0 var(--s-5); padding: 14px 16px; text-decoration: none; transition: transform var(--dur-fast) var(--ease-spring); }
+.tonightcard {
+  display: flex; align-items: center; gap: 14px; margin: 0 0 var(--s-5); padding: 14px 16px; text-decoration: none;
+  background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: var(--r-lg);
+  box-shadow: var(--shadow-card, var(--shadow-1)); transition: transform var(--dur-fast) var(--ease-spring);
+}
 .tonightcard:hover { transform: translateY(-1px); }
 .tonightcard__moon { flex: none; width: 44px; height: 44px; border-radius: 50%; background: var(--brand-tint); color: var(--brand-ink); display: grid; place-items: center; }
 .tonightcard__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
