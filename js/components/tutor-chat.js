@@ -13,6 +13,7 @@ import { t, getLang } from "../lib/i18n.js";
 import { tutorStream, ClaudeError } from "../claude.js";
 import { speak } from "../lib/speech.js";
 import { firstSentence } from "../lib/text.js";
+import { guessLang, openerFits } from "../lib/language-guess.js";
 import { aiReportButton } from "./ai-report.js";
 
 // Cached per language — switching language should pick up the other script,
@@ -232,12 +233,13 @@ export class TutorChat {
    * No API call either way.
    */
   async _opener(question) {
-    if (question.opener) return question.opener;
+    // A stored opener in another language than the question (older sets) is left out: a generic one in the question's language is better.
+    if (question.opener && openerFits(question.opener, question.prompt)) return question.opener;
     const s = await loadScripted();
     const scripted = s.byQuestion?.[question.id]?.intro;
     if (scripted) return scripted;
     if (!this.live && s.generic?.intro) return s.generic.intro;
-    const openers = fallbackOpeners();
+    const openers = fallbackOpeners(guessLang(question.prompt));
     this._openerIndex = (this._openerIndex + 1) % openers.length;
     return openers[this._openerIndex];
   }
