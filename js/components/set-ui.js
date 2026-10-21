@@ -1,8 +1,66 @@
-// The card-and-row building blocks shared by Settings, Klasser and
-// Förälder / lärare, so the three pages read as one product. Styles: the
-// "Settings: cards of rows" block in css/app.css (.set-*).
+// The card-and-row building blocks shared by Settings, Klasser, Förälder / lärare
+// and Skapa, so the pages read as one product. Styles: the "Settings: cards of
+// rows" block in css/app.css (.set-*).
 
 import { el, icon } from "../lib/dom.js";
+
+/** An on/off switch. */
+export function toggle(label, on, onChange, { disabled = false } = {}) {
+  const b = el("button.set-switch", {
+    type: "button", role: "switch", "aria-checked": String(!!on), "aria-label": label, disabled,
+  }, [el("span.set-switch__knob")]);
+  b.addEventListener("click", () => {
+    const next = b.getAttribute("aria-checked") !== "true";
+    b.setAttribute("aria-checked", String(next));
+    onChange(next);
+  });
+  return b;
+}
+
+/** A short choice as segmented buttons (a radio group; arrow keys move it).
+ *  `text` may be a node (the theme picker's swatches). */
+export function seg(label, options, value, onChange, { cls = "set-seg", opt = "set-seg__opt" } = {}) {
+  const group = el(`div.${cls}`, { role: "radiogroup", "aria-label": label });
+  const btns = options.map(([v, text]) => el(`button.${opt}`, {
+    type: "button", role: "radio", "aria-checked": String(v === value), tabindex: v === value ? "0" : "-1",
+  }, text));
+  const pick = (b, focus) => {
+    btns.forEach((x) => { x.setAttribute("aria-checked", String(x === b)); x.tabIndex = x === b ? 0 : -1; });
+    if (focus) b.focus();
+    onChange(options[btns.indexOf(b)][0]);
+  };
+  btns.forEach((b, i) => {
+    b.addEventListener("click", () => { if (b.getAttribute("aria-checked") !== "true") pick(b); });
+    b.addEventListener("keydown", (e) => {
+      const step = e.key === "ArrowRight" || e.key === "ArrowDown" ? 1 : e.key === "ArrowLeft" || e.key === "ArrowUp" ? -1 : 0;
+      if (!step) return;
+      e.preventDefault();
+      pick(btns[(i + step + btns.length) % btns.length], true);
+    });
+  });
+  if (!btns.some((b) => b.tabIndex === 0) && btns[0]) btns[0].tabIndex = 0;
+  group.append(...btns);
+  return group;
+}
+
+/** A number with − and + beside it, kept within min..max. */
+export function stepper({ label, value, min, max, step = 1, onChange }) {
+  const input = el("input", { type: "number", inputmode: "numeric", min: String(min), max: String(max), "aria-label": label });
+  const minus = el("button", { type: "button", "aria-label": `−${step}` }, "−");
+  const plus = el("button", { type: "button", "aria-label": `+${step}` }, "+");
+  const set = (raw, notify = true) => {
+    const n = Math.max(min, Math.min(max, Math.round(Number(raw)) || min));
+    input.value = String(n);
+    minus.disabled = n <= min;
+    plus.disabled = n >= max;
+    if (notify) onChange(n);
+  };
+  minus.addEventListener("click", () => set(Number(input.value) - step));
+  plus.addEventListener("click", () => set(Number(input.value) + step));
+  input.addEventListener("change", () => set(input.value));
+  set(value, false);
+  return el("div.set-stepper", {}, [minus, input, plus]);
+}
 
 /** One line item: its name and what it is on the left, the control(s) on the
  *  right. `stack` puts the control under the text (for wide controls); `danger`

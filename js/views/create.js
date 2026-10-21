@@ -12,11 +12,12 @@ import { detectSections } from "../lib/split.js";
 import { homeButton } from "../components/nav.js";
 import { generateAssignment, ClaudeError } from "../claude.js";
 import { questionEditor } from "../components/question-editor.js";
-import { subjectField } from "../components/subject-field.js";
+import { subjectField, subjectChoices } from "../components/subject-field.js";
 import { t, plural } from "../lib/i18n.js";
 import { localDayKey } from "../lib/activity.js";
 import { foldedDatePicker } from "../components/calendar.js";
 import { fileDrop } from "../components/file-drop.js";
+import { row, seg, toggle, stepper } from "../components/set-ui.js";
 import { aiQuotaNote } from "../components/ai-gate.js";
 import { NATIONAL_TEST_LEVELS, NATIONAL_TEST_SUBJECTS, nationalSubjectName } from "../data/national-tests.js";
 import { blankQuestions } from "../lib/blank-questions.js";
@@ -86,13 +87,17 @@ export function renderCreate(prefill) {
     // student to type their own subject straight after it and end up with
     // "AllmäntBiologi". The generic-subject fallback only applies at save
     // time (see the .trim() || t("common.general") sites below).
-    subject: prefillSubject || store.subjects[0]?.name || "",
+    // The first of the picker's own choices: the subject most of the student's sets are in, or for a new
+    // student the first school subject — never a seeded placeholder that would open "+ Nytt ämne".
+    subject: prefillSubject || subjectChoices()[0] || "",
     // Locked when the subject came from the Nationellt prov source below (or a
     // ?subject=&lock=1 prefill) — every set for the same exam has to land under
     // one exact subject name so it can be found again by subjectId later.
     subjectLocked: !!prefillSubject && prefill?.get?.("lock") === "1",
     npLevel: null,            // Nationellt prov: chosen level id
     npEntry: null,            // Nationellt prov: chosen subject entry
+    npInput: "file",          // Nationellt prov: the material as a "file" or as pasted "text"
+    importMode: "paste",      // Importera kort: "paste" the cards or upload a "file"
     preferFlashcards: false,
     type: "assignment",
     count: 6,
@@ -191,6 +196,15 @@ export function renderCreate(prefill) {
     paste: "#7650FF", photo: "#EE3D86", pdf: "#FF7426", nationalprov: "#22A35A",
     blank: "#0FA3C2", import: "#3AA4E6",
   };
+  // …and its icon and name (step 1's card, step 2's heading). Its line on step 1 is the name's key + "Sub".
+  const SOURCE_ICONS = {
+    paste: ICONS.pencil, photo: ICONS.camera, pdf: ICONS.fileText, nationalprov: ICONS.graduation,
+    blank: ICONS.plus, import: ICONS.clipboard,
+  };
+  const SOURCE_TITLES = {
+    paste: "create.optPaste", photo: "create.optPhoto", pdf: "create.optPdf", nationalprov: "create.optNational",
+    blank: "create.optBlank", import: "create.optImport",
+  };
 
   /* ---- step 1: source ----
    * Two groups: the AI-generated sources (marked when there's no server to run
@@ -199,22 +213,22 @@ export function renderCreate(prefill) {
     const noServer = !store.hasKey();
     const needsSignIn = store.aiNeedsSignIn();
     const quotaOut = store.aiBlockReason() === "quota";
-    const opt = (key, iconPath, label, desc, needsAi) => el("button.srcpick" + (needsAi && noServer ? ".is-locked" : ""), {
+    const opt = (key, needsAi) => el("button.srcpick" + (needsAi && noServer ? ".is-locked" : ""), {
       type: "button", style: { "--c": SOURCE_COLORS[key] },
       onclick: () => {
         // Leaving the Nationellt prov source: drop any stale subject lock.
         if (key !== "nationalprov" && state.subjectLocked) {
           state.subjectLocked = false;
-          state.subject = store.subjects[0]?.name || "";
+          state.subject = subjectChoices()[0] || "";
           state.npLevel = null; state.npEntry = null;
         }
         state.source = key; state.step = "input"; paint();
       },
     }, [
-      el("span.srcpick__ic", { "aria-hidden": "true" }, icon(iconPath, 20)),
+      el("span.srcpick__ic", { "aria-hidden": "true" }, icon(SOURCE_ICONS[key], 20)),
       el("span.srcpick__text", {}, [
-        el("strong", {}, label),
-        el("small", {}, desc),
+        el("strong", {}, t(SOURCE_TITLES[key])),
+        el("small", {}, t(`${SOURCE_TITLES[key]}Sub`)),
         needsAi && noServer ? el("span.srcpick__tag", {}, t(needsSignIn ? "create.optNeedsSignIn" : quotaOut ? "create.optQuotaOut" : "create.optNeedsServer")) : null,
       ].filter(Boolean)),
       el("span.srcpick__go", { "aria-hidden": "true" }, icon(ICONS.arrow, 16)),
@@ -232,14 +246,10 @@ export function renderCreate(prefill) {
     return el("div.panel.srcpanel", {}, [
       el("p.srcpanel__q", {}, t("create.whereFrom")),
       group(ICONS.spark, t("create.groupAi"), t("create.groupAiSub"), [
-        opt("paste", ICONS.pencil, t("create.optPaste"), t("create.optPasteSub"), true),
-        opt("photo", ICONS.camera, t("create.optPhoto"), t("create.optPhotoSub"), true),
-        opt("pdf", ICONS.fileText, t("create.optPdf"), t("create.optPdfSub"), true),
-        opt("nationalprov", ICONS.graduation, t("create.optNational"), t("create.optNationalSub"), true),
+        opt("paste", true), opt("photo", true), opt("pdf", true), opt("nationalprov", true),
       ]),
       group(ICONS.layers, t("create.groupSelf"), t("create.groupSelfSub"), [
-        opt("blank", ICONS.plus, t("create.optBlank"), t("create.optBlankSub"), false),
-        opt("import", ICONS.clipboard, t("create.optImport"), t("create.optImportSub"), false),
+        opt("blank", false), opt("import", false),
       ]),
       noServer && needsSignIn && el("p.note", { style: { marginTop: "16px" } }, [
         t("create.needSignIn"), el("a", { href: "#/login" }, t("create.needSignInLink")),
@@ -253,11 +263,12 @@ export function renderCreate(prefill) {
     ]);
   }
 
-  /* A file input that reads a PDF directly, or unpacks every PDF inside a ZIP
-   * (e.g. Skolverket's national-exam downloads) and concatenates their text —
-   * shared by the "Upload PDF" source and the Nationellt prov source. */
-  function appendPdfOrZipField(body) {
-    const status = el("p.note", { style: { marginTop: "8px" } });
+  /* A PDF read directly, or every PDF inside a ZIP (e.g. Skolverket's national-exam downloads) with
+   * their text joined — shared by the "Ladda upp PDF" source and the Nationellt prov source. The drop
+   * zone with a status line under it. */
+  function pdfOrZipField() {
+    const status = el("p.mk__status", { role: "status" });
+    const say = (text, tone = "") => { status.textContent = text; status.className = "mk__status" + (tone ? ` is-${tone}` : ""); };
     let run = 0;   // a newer file wins if an older one is still being read
     const zone = fileDrop({
       accept: "application/pdf,.pdf,application/zip,application/x-zip-compressed,.zip",
@@ -266,117 +277,125 @@ export function renderCreate(prefill) {
       onFile: async (file) => {
         const mine = ++run;
         state.pdfName = file.name;
-        status.className = "note";
-        status.textContent = t("create.reading"); state.material = "";
+        say(t("create.reading")); state.material = "";
         const isZip = /\.zip$/i.test(file.name) || file.type.includes("zip");
         try {
           if (isZip) {
             const { text, pdfCount, totalPdfCount, skippedAudio } = await extractZipText(file);
             if (mine !== run) return;
             state.material = text;
-            status.textContent = t("create.zipExtracted", {
+            say(t("create.zipExtracted", {
               n: pdfCount, total: totalPdfCount, name: file.name,
               audio: skippedAudio ? t("create.zipSkippedAudio", { n: skippedAudio }) : "",
-            });
+            }), "ok");
           } else {
             const text = await extractPdfText(file);
             if (mine !== run) return;
             state.material = text;
-            status.textContent = t("create.extracted", { n: state.material.length.toLocaleString(), name: file.name });
+            say(t("create.extracted", { n: state.material.length.toLocaleString(), name: file.name }), "ok");
           }
         } catch (err) {
           if (mine !== run) return;
-          status.className = "note note--warn";
           // pdf.js's own errors are English and technical ("No password given"): say it plainly.
-          status.textContent = err?.name === "PasswordException" ? t("create.pdfLocked")
+          say(err?.name === "PasswordException" ? t("create.pdfLocked")
             : /Exception$/.test(err?.name || "") ? t("create.readFail")
-            : err?.message || t("create.readFail");
+            : err?.message || t("create.readFail"), "warn");
           zone.reset(); state.pdfName = "";
         }
       },
-      onClear: () => { run++; state.material = ""; state.pdfName = ""; status.textContent = ""; },
+      onClear: () => { run++; state.material = ""; state.pdfName = ""; say(""); },
     });
-    body.appendChild(el("div.field", {}, [el("span", {}, t("create.pdfOrZipFile")), zone.el]));
-    body.appendChild(status);
+    return el("div.mk__field", {}, [zone.el, status]);
   }
 
-  /* Where to get the material + already-imported years + "mix all years",
-   * for one chosen Nationellt prov subject entry. */
+  /* Where to get the material, the sets already made for it and "mix all years", for one chosen
+   * Nationellt prov subject. */
   function nationalInfoPanel(entry) {
     const name = nationalSubjectName(entry);
     const subject = store.subjects.find((s) => s.name.toLowerCase() === name.toLowerCase());
     const sets = subject ? store.assignments.filter((a) => a.subjectId === subject.id) : [];
     const totalQuestions = sets.reduce((n, a) => n + a.questions.length, 0);
+    let mixCount = Math.min(15, totalQuestions);
 
-    const extra = [];
-    if (sets.length) {
-      const countInput = el("input", {
-        type: "number", min: "3", max: String(Math.max(3, totalQuestions)),
-        value: String(Math.min(15, totalQuestions)), style: { width: "80px" },
-      });
-      const startBtn = el("button.btn.btn--sm", { type: "button" }, t("create.npMixStart"));
-      startBtn.addEventListener("click", () => {
-        const n = Math.max(3, Math.min(+countInput.value || 15, totalQuestions));
-        location.hash = `#/national/mix/${subject.id}?count=${n}`;
-      });
-      extra.push(
-        el("p.note", { style: { fontWeight: 700, marginTop: "10px" } },
-          plural(sets.length, "create.npImportedOne", "create.npImportedMany")),
-        el("div", { style: { display: "grid", gap: "4px", marginBottom: "8px" } }, sets.map((a) =>
-          el("a", { href: `#/session/${a.id}`, class: "note" }, `→ ${a.title} (${plural(a.questions.length, "common.questionOne", "common.questionMany")})`))),
-        el("label.field", { style: { display: "flex", alignItems: "center", gap: "10px", marginBottom: "0" } }, [
-          el("span", { style: { fontWeight: 400 } }, t("create.npMixLabel")),
-          countInput, startBtn,
+    return el("div.npcard", {}, [
+      el("div.npcard__top", {}, [
+        el("div.npcard__name", {}, [
+          el("strong", {}, entry.name),
+          el("span.npcard__badge", {}, entry.kind === "limited" ? t("create.npBadgeExample") : t("create.npBadgeExternal")),
         ]),
-      );
-    }
-
-    return el("div", { style: { border: "1px solid var(--line)", borderRadius: "var(--r-md)", padding: "var(--s-4)", marginTop: "4px" } }, [
-      el("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", gap: "10px", flexWrap: "wrap" } }, [
-        el("span", {}, [entry.name, el("span.badge", { style: { marginLeft: "8px" } }, entry.kind === "limited" ? t("create.npBadgeExample") : t("create.npBadgeExternal"))]),
         el("a.btn.btn--ghost.btn--sm", { href: entry.url, target: "_blank", rel: "noopener noreferrer" }, t("create.npGetMaterial")),
       ]),
-      el("p.note", { style: { margin: "8px 0 0" } },
-        entry.kind === "limited" ? t("create.npInfoLimited") : t("create.npInfoExternal")),
-      ...extra,
-    ]);
+      el("p.npcard__note", {}, entry.kind === "limited" ? t("create.npInfoLimited") : t("create.npInfoExternal")),
+      sets.length ? el("div.npcard__mine", {}, [
+        el("p.npcard__label", {}, plural(sets.length, "create.npImportedOne", "create.npImportedMany")),
+        el("ul.npcard__sets", {}, sets.map((a) => el("li", {}, [
+          el("a", { href: `#/session/${a.id}` }, a.title),
+          el("span", {}, plural(a.questions.length, "common.questionOne", "common.questionMany")),
+        ]))),
+        el("div.npcard__mix", {}, [
+          el("span", {}, t("create.npMixLabel")),
+          stepper({ label: t("create.npMixLabel"), value: mixCount, min: 3, max: Math.max(3, totalQuestions), onChange: (n) => { mixCount = n; } }),
+          el("button.btn.btn--sm", { type: "button", onclick: () => { location.hash = `#/national/mix/${subject.id}?count=${mixCount}`; } }, t("create.npMixStart")),
+        ]),
+      ]) : null,
+    ].filter(Boolean));
   }
 
-  /* ---- step 2: material + options ---- */
+  /* ---- step 2: material + settings ----
+   * One card for every source: what was chosen at the top, then its material, then the settings as
+   * rows (the same rows as Settings), then Back and the main button. Each source shows only what it
+   * needs: Bygg själv has no material, Importera kort no question count (the cards are the questions). */
   function inputStep() {
-    const body = el("div");
+    const ai = !["blank", "import"].includes(state.source);
+    const back = () => { state.step = "source"; paint(); };
+    const err = el("p.note.note--warn.mk__err", { hidden: true, role: "alert" });
+    const showErr = (text) => { err.textContent = text; err.hidden = false; };
 
-    if (state.source === "paste") {
-      const splitBox = el("div", { style: { marginTop: "10px" } });
-      const ta = el("textarea", {
-        placeholder: t("create.materialPlaceholder"),
-        oninput: (e) => { state.material = e.target.value; refreshSplit(); },
-      });
-      ta.value = state.material;
-      body.appendChild(el("label.field", {}, [el("span", {}, t("create.material")), ta]));
-      body.appendChild(splitBox);
+    /** A labelled part of the material: a small heading over the control. */
+    const group = (label, control) => el("div.mk__group", {}, [el("p.mk__label", {}, label), control]);
 
-      function refreshSplit() {
-        clear(splitBox);
-        // At most this many sets in one go — each is a full AI call on the student's monthly allowance.
-        const secs = detectSections(state.material).slice(0, 8);
-        if (secs.length < 2) return;
-        splitBox.appendChild(el("p.note", {}, t("create.splitFound", { n: secs.length })));
-        splitBox.appendChild(el("div", { style: { display: "flex", flexWrap: "wrap", gap: "6px", margin: "6px 0" } },
-          secs.map((s) => el("span.badge", {}, s.title.length > 32 ? s.title.slice(0, 32) + "…" : s.title))));
-        splitBox.appendChild(el("button.btn.btn--ghost.btn--sm", {
-          type: "button", disabled: !store.hasKey(),
-          title: store.hasKey() ? "" : t("create.needKeyShort"),
-          onclick: () => runSplit(secs),
-        }, [icon(ICONS.spark, 16), t("create.splitEach", { n: secs.length })]));
-      }
-      refreshSplit();
+    /** Two ways to give the same material, as a segmented choice that shows one pane at a time. */
+    function either(label, key, options, panes) {
+      const show = (v) => { state[key] = v; for (const [k, p] of Object.entries(panes)) p.hidden = k !== v; };
+      const value = state[key] || options[0][0];
+      const tabs = seg(label, options, value, show);
+      show(value);
+      return el("div.mk__field", {}, [tabs, ...Object.values(panes)]);
     }
 
-    if (state.source === "pdf") appendPdfOrZipField(body);
+    function pasteInput() {
+      const count = el("span.mk__count");
+      const splitBox = el("div.mk__split", { hidden: true });
+      const ta = el("textarea.mk__text", {
+        rows: 10, placeholder: t("create.materialPlaceholder"), "aria-label": t("create.material"),
+        oninput: (e) => { state.material = e.target.value; refresh(); },
+      });
+      ta.value = state.material;
+      function refresh() {
+        count.textContent = t("create.chars", { n: state.material.length.toLocaleString() });
+        // At most this many sets in one go — each is a full AI call on the student's monthly allowance.
+        const secs = detectSections(state.material).slice(0, 8);
+        splitBox.hidden = secs.length < 2;
+        if (secs.length < 2) return;
+        splitBox.replaceChildren(
+          el("div.mk__splittext", {}, [
+            el("strong", {}, t("create.splitFound", { n: secs.length })),
+            el("div.mk__splittags", {}, secs.map((s) => el("span.badge", {}, s.title.length > 32 ? s.title.slice(0, 32) + "…" : s.title))),
+          ]),
+          el("button.btn.btn--ghost.btn--sm", {
+            type: "button", disabled: !store.hasKey(),
+            title: store.hasKey() ? "" : t("create.needKeyShort"),
+            onclick: () => runSplit(secs),
+          }, [icon(ICONS.spark, 16), t("create.splitEach", { n: secs.length })]),
+        );
+      }
+      refresh();
+      return el("div.mk__field", {}, [ta, el("div.mk__meta", {}, [count]), splitBox]);
+    }
 
-    if (state.source === "photo") {
-      const status = el("p.note", { style: { marginTop: "8px" } });
+    function photoInput() {
+      const status = el("p.mk__status", { role: "status" });
+      const say = (text, tone = "") => { status.textContent = text; status.className = "mk__status" + (tone ? ` is-${tone}` : ""); };
       let run = 0;   // a newer picture wins if an older one is still being read
       const zone = fileDrop({
         kind: "image", accept: "image/*", types: t("drop.typesImage"),
@@ -386,31 +405,28 @@ export function renderCreate(prefill) {
         onFile: async (file, { pasted }) => {
           const mine = ++run;
           state.imageName = pasted ? t("drop.pastedName") : file.name;
-          status.className = "note";
-          status.textContent = t("create.reading"); state.image = null;
+          say(t("create.reading")); state.image = null;
           try {
             const img = await shrinkImage(file);
             if (mine !== run) return;
             state.image = img;
-            status.textContent = "";
+            say("");
             zone.setThumb(img.preview);
-          } catch (err) {
+          } catch (e) {
             if (mine !== run) return;
-            status.className = "note note--warn";
-            status.textContent = err.message || t("create.readFail");
+            say(e.message || t("create.readFail"), "warn");
             zone.reset(); state.imageName = "";
           }
         },
-        onClear: () => { run++; state.image = null; state.imageName = ""; status.textContent = ""; },
+        onClear: () => { run++; state.image = null; state.imageName = ""; say(""); },
       });
-      body.appendChild(el("div.field", {}, [el("span", {}, t("create.choosePhotoLabel")), zone.el]));
-      body.appendChild(status);
+      return el("div.mk__field", {}, [zone.el, status]);
     }
 
-    if (state.source === "import") {
-      const status = el("p.note", { style: { marginTop: "8px" } });
-      const ta = el("textarea", {
-        placeholder: t("create.importPlaceholder"),
+    function importInput() {
+      const status = el("p.mk__status", { role: "status" });
+      const ta = el("textarea.mk__text", {
+        rows: 8, placeholder: t("create.importPlaceholder"), "aria-label": t("create.importPaste"),
         oninput: (e) => { state.material = e.target.value; refresh(); },
       });
       ta.value = state.material;
@@ -429,91 +445,75 @@ export function renderCreate(prefill) {
               location.hash = `#/edit/${a.id}`;
               return;
             }
-          } catch (err) { toast(err.message); zone.reset(); return; }
+          } catch (e) { toast(e.message); zone.reset(); return; }
           state.material = text;
           ta.value = state.material;
           refresh();
         },
       });
-      body.append(
-        el("p.note", {}, t("create.importHint")),
-        el("label.field", {}, [el("span", {}, t("create.importPaste")), ta]),
-        el("div.field", {}, [el("span", {}, t("create.importFile")), zone.el]),
-        status,
-      );
       function refresh() {
-        const cards = parseCards(state.material);
-        status.className = cards.length ? "note" : "note note--warn";
-        status.textContent = cards.length
-          ? t("create.importFound", { n: cards.length })
-          : (state.material.trim() ? t("create.importNone") : "");
+        const n = parseCards(state.material).length;
+        const typed = !!state.material.trim();
+        status.className = "mk__status" + (n ? " is-ok" : typed ? " is-warn" : "");
+        status.textContent = n ? t("create.importFound", { n }) : typed ? t("create.importNone") : "";
       }
       refresh();
-    }
-
-    if (state.source === "nationalprov") {
-      const levelSel = el("select", {
-        onchange: (e) => {
-          state.npLevel = e.target.value || null;
-          state.npEntry = null; state.subjectLocked = false; state.material = ""; state.pdfName = "";
-          paint();
-        },
-      }, [
-        el("option", { value: "" }, t("create.npLevelPlaceholder")),
-        ...NATIONAL_TEST_LEVELS.map((lvl) => el("option", { value: lvl.id }, lvl.label)),
+      return el("div.mk__field", {}, [
+        either(t("create.importHow"), "importMode", [["paste", t("create.importPaste")], ["file", t("create.inputFile")]], {
+          paste: el("div.mk__field", {}, [ta, el("p.mk__hint", {}, t("create.importFormat"))]),
+          file: el("div.mk__field", {}, [zone.el]),
+        }),
+        status,
       ]);
-      levelSel.value = state.npLevel || "";
-      body.appendChild(el("label.field", {}, [el("span", {}, t("create.npLevel")), levelSel]));
-
-      if (state.npLevel) {
-        const subjectEntries = NATIONAL_TEST_SUBJECTS.filter((e) => e.level === state.npLevel);
-        const subjSel = el("select", {
-          onchange: (e) => {
-            const entry = subjectEntries.find((s) => s.id === e.target.value) || null;
-            state.npEntry = entry;
-            state.material = ""; state.pdfName = "";
-            if (entry) { state.subject = nationalSubjectName(entry); state.subjectLocked = true; }
-            else state.subjectLocked = false;
-            paint();
-          },
-        }, [
-          el("option", { value: "" }, t("create.npSubjectPlaceholder")),
-          ...subjectEntries.map((s) => el("option", { value: s.id }, s.name)),
-        ]);
-        subjSel.value = state.npEntry?.id || "";
-        body.appendChild(el("label.field", {}, [el("span", {}, t("create.npSubject")), subjSel]));
-      }
-
-      if (state.npEntry) {
-        body.appendChild(nationalInfoPanel(state.npEntry));
-
-        const ta = el("textarea", { placeholder: t("create.npPastePlaceholder"), oninput: (e) => { state.material = e.target.value; } });
-        ta.value = state.material;
-        body.appendChild(el("label.field", { style: { marginTop: "12px" } }, [el("span", {}, t("create.npPasteText")), ta]));
-
-        appendPdfOrZipField(body);
-      }
     }
 
-    // shared options
-    const subjectFld = state.subjectLocked
-      ? { el: el("input", { type: "text", value: state.subject, disabled: true, "aria-label": t("create.subject") }) }
-      : subjectField({ value: state.subject, onChange: (v) => { state.subject = v; } });
-    const typeSel = el("select", { onchange: (e) => { state.type = e.target.value; } }, [
-      el("option", { value: "assignment" }, t("create.typeAssignment")),
-      el("option", { value: "test" }, t("create.typeTest")),
-    ]);
-    typeSel.value = state.type;
-    const countInput = el("input", { type: "number", min: "3", max: "15", value: state.count, oninput: (e) => { state.count = Math.max(3, Math.min(15, +e.target.value || 6)); } });
-    const flashcardsCheck = el("input", { type: "checkbox", checked: state.preferFlashcards, onchange: (e) => { state.preferFlashcards = e.target.checked; } });
+    function nationalInput() {
+      const parts = [group(t("create.npLevel"), seg(t("create.npLevel"), NATIONAL_TEST_LEVELS.map((l) => [l.id, l.label]), state.npLevel, (v) => {
+        state.npLevel = v;
+        state.npEntry = null; state.subjectLocked = false; state.material = ""; state.pdfName = "";
+        paint();
+      }))];
+      if (state.npLevel) {
+        const entries = NATIONAL_TEST_SUBJECTS.filter((e) => e.level === state.npLevel);
+        parts.push(group(t("create.npSubject"), el("div.subjpick", { role: "group", "aria-label": t("create.npSubject") }, entries.map((entry) =>
+          el("button.subjpick__chip", {
+            type: "button", "aria-pressed": String(state.npEntry?.id === entry.id),
+            onclick: () => {
+              state.npEntry = entry;
+              state.material = ""; state.pdfName = "";
+              state.subject = nationalSubjectName(entry); state.subjectLocked = true;
+              paint();
+            },
+          }, entry.name)))));
+      }
+      if (state.npEntry) {
+        const ta = el("textarea.mk__text", {
+          rows: 8, placeholder: t("create.npPastePlaceholder"), "aria-label": t("create.inputText"),
+          oninput: (e) => { state.material = e.target.value; },
+        });
+        ta.value = state.material;
+        parts.push(nationalInfoPanel(state.npEntry), group(t("create.npMaterial"),
+          either(t("create.npMaterial"), "npInput", [["file", t("create.inputFile")], ["text", t("create.inputText")]], {
+            file: pdfOrZipField(),
+            text: el("div.mk__field", {}, [ta]),
+          })));
+      }
+      return parts;
+    }
 
-    const err = el("p.note.note--warn", { hidden: true });
-    const genBtn = el("button.btn.btn--ai", { type: "button", disabled: !store.hasKey(), onclick: generate }, [icon(ICONS.spark, 18), t("create.generate")]);
+    const material = {
+      paste: () => [pasteInput()],
+      photo: () => [photoInput()],
+      pdf: () => [pdfOrZipField()],
+      nationalprov: nationalInput,
+      import: () => [importInput()],
+      blank: () => [],
+    }[state.source]();
 
     // Import needs no AI — the cards *are* the questions. Straight to review.
     function buildFromImport() {
       const cards = parseCards(state.material);
-      if (!cards.length) { err.hidden = false; err.textContent = t("create.importNone"); return; }
+      if (!cards.length) { showErr(t("create.importNone")); return; }
       const doc = cardsToDoc(cards, { title: state.subject !== t("common.general") ? state.subject : t("create.importedCards"), subject: state.subject || t("common.general") });
       doc.subject = state.subject.trim() || t("common.general");
       doc.type = state.type;
@@ -522,23 +522,8 @@ export function renderCreate(prefill) {
       state.step = "review"; paint();
     }
 
-    if (state.source === "import") {
-      return el("div.panel", {}, [
-        body,
-        el("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))", gap: "12px", marginTop: "8px", alignItems: "start" } }, [
-          el("div.field", {}, [el("span", {}, t("create.subject")), subjectFld.el]),
-          el("label.field", {}, [el("span", {}, t("create.type")), typeSel]),
-        ]),
-        err,
-        el("div.nav-row", {}, [
-          el("button.btn.btn--ghost", { type: "button", onclick: () => { state.step = "source"; paint(); } }, t("common.back")),
-          el("button.btn", { type: "button", onclick: buildFromImport }, [icon(ICONS.check, 18), t("create.importBuild")]),
-        ]),
-      ]);
-    }
-
     // A blank set — no AI. Drops straight into the editor with a few starter
-    // questions of each kind (blank answers OK), for trying the app out.
+    // questions of each kind (blank answers OK) to rewrite as your own.
     function buildBlank() {
       state.doc = {
         title: t("create.blankTitle"),
@@ -551,24 +536,9 @@ export function renderCreate(prefill) {
       state.step = "review"; paint();
     }
 
-    if (state.source === "blank") {
-      return el("div.panel", {}, [
-        el("p.note", { style: { marginBottom: "12px" } }, t("create.blankHint")),
-        el("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))", gap: "12px", alignItems: "start" } }, [
-          el("div.field", {}, [el("span", {}, t("create.subject")), subjectFld.el]),
-          el("label.field", {}, [el("span", {}, t("create.type")), typeSel]),
-        ]),
-        el("label.field", { style: { maxWidth: "160px" } }, [el("span", {}, t("create.howMany")), countInput]),
-        el("div.nav-row", {}, [
-          el("button.btn.btn--ghost", { type: "button", onclick: () => { state.step = "source"; paint(); } }, t("common.back")),
-          el("button.btn", { type: "button", onclick: buildBlank }, [icon(ICONS.check, 18), t("create.blankBuild")]),
-        ]),
-      ]);
-    }
-
     function generate() {
       const hasInput = state.material.trim() || state.topic.trim() || state.image;
-      if (!hasInput) { err.hidden = false; err.textContent = t("create.needMaterial"); return; }
+      if (!hasInput) { showErr(t("create.needMaterial")); return; }
       state.step = "generating"; paint();
       const job = startGeneration({
         material: state.material ? fitText(state.material) : "",
@@ -592,46 +562,49 @@ export function renderCreate(prefill) {
           if (bg === job) bg = null;   // nothing to resume into either way — the toast is the whole story
           if (!mounted) { toast(msg); return; }
           state.step = "input"; paint();
-          const m = root.querySelector(".note--warn");
           toast(msg);
+          const m = root.querySelector(".mk__err");
           if (m) { m.hidden = false; m.textContent = msg; }
         },
       });
     }
 
-    return el("div.panel", {}, [
-      body,
-      el("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))", gap: "12px", alignItems: "start" } }, [
-        el("div.field", {}, [
-          el("span", {}, t("create.subject")), subjectFld.el,
-          state.subjectLocked && el("span.note", { style: { display: "block", marginTop: "4px" } }, t("create.subjectLocked")),
-        ]),
-        el("label.field", {}, [el("span", {}, t("create.type")), typeSel]),
+    // The subject: tap one (or name a new one); locked to the exam's subject for Nationellt prov.
+    const subjectCtl = state.subjectLocked
+      ? el("span.mk__locked", {}, [icon(ICONS.lock, 14), state.subject])
+      : subjectField({ value: state.subject, onChange: (v) => { state.subject = v; } }).el;
+
+    // Spell out why the button is dead — right where it's dead, not just on step 1.
+    const aiNote = ai && !store.hasKey() && (store.aiBlockReason() === "quota"
+      ? aiQuotaNote({ altHref: "#/library", altKey: "create.noServerAlt" })
+      : store.aiNeedsSignIn()
+      ? el("p.note", {}, [t("create.genNeedSignIn"), el("a", { href: "#/login" }, t("create.needSignInLink")), t("create.genNeedSignInTail")])
+      : el("p.note.note--warn", {}, [t("create.noServerHere") + " ", el("a", { href: "#/library" }, t("create.noServerAlt")), t("create.noServerTail")]));
+
+    const primary = ai
+      ? el("button.btn.btn--ai", { type: "button", disabled: !store.hasKey(), onclick: generate }, [icon(ICONS.spark, 18), t("create.generate")])
+      : el("button.btn", { type: "button", onclick: state.source === "import" ? buildFromImport : buildBlank }, [icon(ICONS.check, 18), t("create.build")]);
+
+    return el("section.panel.mk", { style: { "--c": SOURCE_COLORS[state.source] } }, [
+      el("header.mk__head", {}, [
+        el("span.mk__ic", { "aria-hidden": "true" }, icon(SOURCE_ICONS[state.source], 20)),
+        el("div", {}, [el("h2", {}, t(SOURCE_TITLES[state.source])), el("p", {}, t(`create.inSub.${state.source}`))]),
       ]),
-      el("div", { style: { display: "flex", alignItems: "flex-end", gap: "24px", flexWrap: "wrap" } }, [
-        el("label.field", { style: { maxWidth: "160px", marginBottom: "0" } }, [el("span", {}, t("create.howMany")), countInput]),
-        el("label", { style: { display: "flex", alignItems: "center", gap: "8px", marginBottom: "var(--s-4)" } }, [
-          flashcardsCheck, el("span", {}, t("create.preferFlashcards")),
-        ]),
-      ]),
-      err,
-      // Spell out why the button is dead — right where it's dead, not just on step 1.
-      !store.hasKey() && (store.aiBlockReason() === "quota"
-        ? aiQuotaNote({ altHref: "#/library", altKey: "create.noServerAlt", style: { marginBottom: "12px" } })
-        : store.aiNeedsSignIn()
-        ? el("p.note", { style: { marginBottom: "12px" } }, [
-            t("create.genNeedSignIn"),
-            el("a", { href: "#/login" }, t("create.needSignInLink")),
-            t("create.genNeedSignInTail"),
-          ])
-        : el("p.note.note--warn", { style: { marginBottom: "12px" } }, [
-            t("create.noServerHere") + " ",
-            el("a", { href: "#/library" }, t("create.noServerAlt")),
-            t("create.noServerTail"),
-          ])),
-      el("div.nav-row", {}, [
-        el("button.btn.btn--ghost", { type: "button", onclick: () => { state.step = "source"; paint(); } }, t("common.back")),
-        genBtn,
+      material.length ? el("div.mk__body", {}, material) : null,
+      el("div.mk__settings", {}, [
+        el("h3.mk__label", {}, t("create.settings")),
+        row(t("create.subject"), t(state.subjectLocked ? "create.subjectLocked" : "create.subjectNote"), subjectCtl, { stack: true }),
+        row(t("create.type"), t("create.typeNote"), seg(t("create.type"), [["assignment", t("create.typeAssignment")], ["test", t("create.typeTest")]], state.type, (v) => { state.type = v; })),
+        state.source !== "import" && row(t("create.howMany"), t("create.howManyNote"),
+          stepper({ label: t("create.howMany"), value: state.count, min: 3, max: 15, onChange: (n) => { state.count = n; } })),
+        ai && row(t("create.preferFlashcards"), t("create.flashNote"),
+          toggle(t("create.preferFlashcards"), state.preferFlashcards, (on) => { state.preferFlashcards = on; })),
+        err,
+        aiNote,
+      ].filter(Boolean)),
+      el("footer.mk__foot", {}, [
+        el("button.btn.btn--ghost", { type: "button", onclick: back }, [icon(ICONS.back, 16), t("common.back")]),
+        primary,
       ]),
     ].filter(Boolean));
   }

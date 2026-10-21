@@ -3287,6 +3287,78 @@ summary.gcalc__label:focus-visible { outline: none; box-shadow: var(--ring); bor
 }
 @media (prefers-reduced-motion: reduce) { .srcpick:hover { transform: none; } }
 
+/* Step 2 — the material and the settings (views/create.js inputStep): one card with the chosen source
+   at the top, its material, the settings as rows (the same .set-row as Settings), then Back and the
+   main button. Every source is laid out the same way; each shows only the parts it needs. */
+.mk { padding: 0; overflow: hidden; }
+.mk [hidden] { display: none !important; }
+.mk__head { display: flex; align-items: center; gap: var(--s-3); padding: var(--s-5); border-bottom: 1px solid var(--line); }
+.mk__ic {
+  flex: none; width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center;
+  background: var(--brand-tint); background: color-mix(in oklab, var(--c, var(--brand)) 14%, var(--surface)); color: var(--c, var(--brand));
+}
+.mk__head h2 { margin: 0; font-size: var(--fs-lg); letter-spacing: -.01em; }
+.mk__head p { margin: 2px 0 0; max-width: 64ch; font-size: var(--fs-sm); line-height: 1.5; color: var(--ink-soft); }
+.mk__body { display: grid; gap: var(--s-5); padding: var(--s-5); }
+.mk__group { display: grid; gap: var(--s-2); }
+.mk__label { margin: 0; font-size: calc(12px * var(--fs-scale, 1)); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-faint); }
+.mk__field { display: grid; gap: var(--s-3); min-width: 0; }
+.mk .set-seg { justify-self: start; }
+.mk__text {
+  width: 100%; min-height: 200px; resize: vertical; padding: 14px 16px;
+  font: inherit; line-height: 1.55; color: var(--ink);
+  background: var(--surface-sunk); border: 1px solid var(--line-strong); border-radius: var(--r-md);
+}
+.mk__text:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 18%, transparent); }
+.mk__meta { display: flex; justify-content: flex-end; margin-top: calc(-1 * var(--s-2)); }
+.mk__count { font-size: calc(12.5px * var(--fs-scale, 1)); color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+.mk__hint { margin: 0; font-size: var(--fs-sm); line-height: 1.5; color: var(--ink-faint); }
+.mk__status { margin: 0; font-size: var(--fs-sm); color: var(--ink-soft); }
+.mk__status:empty { display: none; }
+.mk__status.is-ok { color: var(--ok-ink); font-weight: 600; }
+.mk__status.is-warn { color: var(--retry-ink); font-weight: 600; }
+/* "Ser ut som 3 avsnitt": one set per section, offered under the text. */
+.mk__split {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-3);
+  padding: var(--s-3) var(--s-4); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface-sunk);
+}
+.mk__splittext { display: grid; gap: 6px; min-width: 0; font-size: var(--fs-sm); }
+.mk__splittags { display: flex; flex-wrap: wrap; gap: 6px; }
+.mk__settings { display: grid; padding: var(--s-4) var(--s-5) var(--s-2); border-top: 1px solid var(--line); }
+.mk__head + .mk__settings { border-top: 0; }
+.mk__settings > .mk__label + .set-row { border-top: 0; }
+.mk__settings .set-row { flex-wrap: wrap; }
+.mk__settings > .note { margin: var(--s-2) 0 var(--s-3); }
+.mk__locked {
+  display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: var(--r-full);
+  background: var(--surface-sunk); font-size: var(--fs-sm); font-weight: 600; color: var(--ink);
+}
+.mk__locked svg { color: var(--ink-faint); }
+.mk__foot {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--s-3);
+  padding: var(--s-4) var(--s-5); border-top: 1px solid var(--line);
+  background: var(--surface-sunk); background: color-mix(in oklab, var(--surface-sunk) 45%, var(--surface));
+}
+/* Nationellt prov: where to get the exam, and what has already been made from it. */
+.npcard { display: grid; gap: var(--s-3); padding: var(--s-4); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface-sunk); }
+.npcard__top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-2) var(--s-3); }
+.npcard__name { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2); }
+.npcard__badge {
+  padding: 2px 8px; border-radius: var(--r-full); border: 1px solid var(--line-strong); background: var(--surface);
+  font-size: calc(11.5px * var(--fs-scale, 1)); font-weight: 600; color: var(--ink-soft);
+}
+.npcard__note { margin: 0; font-size: var(--fs-sm); line-height: 1.5; color: var(--ink-soft); }
+.npcard__mine { display: grid; gap: var(--s-2); padding-top: var(--s-3); border-top: 1px solid var(--line); }
+.npcard__label { margin: 0; font-size: var(--fs-sm); font-weight: 600; color: var(--ink); }
+.npcard__sets { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.npcard__sets li { display: flex; justify-content: space-between; gap: var(--s-3); font-size: var(--fs-sm); }
+.npcard__sets span { flex: none; color: var(--ink-faint); }
+.npcard__mix { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2) var(--s-3); font-size: var(--fs-sm); }
+@media (max-width: 560px) {
+  .mk__head, .mk__body, .mk__settings, .mk__foot { padding-inline: var(--s-4); }
+  .mk__head { align-items: flex-start; }
+}
+
 
 .source-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s-3); }
 .source-opt { position: relative; cursor: pointer; padding: var(--s-5) var(--s-4); border-radius: var(--r-md); border: 2px solid var(--line-strong); background: var(--surface); text-align: center; font-family: var(--font-display); font-weight: 600; transition: transform var(--dur-fast) var(--ease-spring), border-color var(--dur-fast); }
@@ -3334,6 +3406,12 @@ summary.gcalc__label:focus-visible { outline: none; box-shadow: var(--ring); bor
 }
 .subjpick__more:hover { color: var(--ink); }
 .subjpick__new[hidden] { display: none; }
+/* Styled here rather than through .field, so it looks the same in any form (Skapa's settings rows too). */
+.subjpick__input {
+  width: 100%; max-width: 380px; padding: 10px 12px; font: inherit; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--r-md);
+}
+.subjpick__input:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 18%, transparent); }
 /* Remove mode: the subjects of your own turn into remove buttons, the rest step back. */
 .subjpick__chip:disabled { opacity: .4; cursor: default; }
 .subjpick__chip:disabled:hover { border-color: var(--line-strong); }
@@ -3570,6 +3648,8 @@ summary.gcalc__label:focus-visible { outline: none; box-shadow: var(--ring); bor
   width: 38px; border: 0; background: var(--surface-sunk); color: var(--ink); font: inherit; font-size: calc(18px * var(--fs-scale, 1)); cursor: pointer;
 }
 .set-stepper button:hover { background: var(--line); }
+.set-stepper button:disabled { color: var(--ink-faint); cursor: default; }
+.set-stepper button:disabled:hover { background: var(--surface-sunk); }
 .set-stepper input {
   width: 60px; height: 38px; border: 0; border-inline: 1px solid var(--line); border-radius: 0;
   background: var(--surface); color: var(--ink); font: inherit; font-weight: 700; text-align: center;

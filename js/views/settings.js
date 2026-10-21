@@ -26,49 +26,11 @@ import { openWelcomeQuiz } from "../components/onboarding.js";
 import { hasAiConsent, withdrawAiConsent, askAiConsent } from "../components/ai-consent.js";
 import { playFanfare } from "../lib/sound.js";
 import { offlineSupported, isLibraryCached, cacheLibraryOffline } from "../lib/offline.js";
-import { row, card, pageHead } from "../components/set-ui.js";
+import { row, card, pageHead, toggle, seg } from "../components/set-ui.js";
 import { openAvatarEditor } from "../components/avatar-editor.js";
 
 /* ---------------- building blocks ---------------- */
-
-/** An on/off switch. */
-function toggle(label, on, onChange, { disabled = false } = {}) {
-  const b = el("button.set-switch", {
-    type: "button", role: "switch", "aria-checked": String(!!on), "aria-label": label, disabled,
-  }, [el("span.set-switch__knob")]);
-  b.addEventListener("click", () => {
-    const next = b.getAttribute("aria-checked") !== "true";
-    b.setAttribute("aria-checked", String(next));
-    onChange(next);
-  });
-  return b;
-}
-
-/** A short choice as segmented buttons (a radio group; arrow keys move it).
- *  `text` may be a node (the theme picker's swatches). */
-function seg(label, options, value, onChange, { cls = "set-seg", opt = "set-seg__opt" } = {}) {
-  const group = el(`div.${cls}`, { role: "radiogroup", "aria-label": label });
-  const btns = options.map(([v, text]) => el(`button.${opt}`, {
-    type: "button", role: "radio", "aria-checked": String(v === value), tabindex: v === value ? "0" : "-1",
-  }, text));
-  const pick = (b, focus) => {
-    btns.forEach((x) => { x.setAttribute("aria-checked", String(x === b)); x.tabIndex = x === b ? 0 : -1; });
-    if (focus) b.focus();
-    onChange(options[btns.indexOf(b)][0]);
-  };
-  btns.forEach((b, i) => {
-    b.addEventListener("click", () => { if (b.getAttribute("aria-checked") !== "true") pick(b); });
-    b.addEventListener("keydown", (e) => {
-      const step = e.key === "ArrowRight" || e.key === "ArrowDown" ? 1 : e.key === "ArrowLeft" || e.key === "ArrowUp" ? -1 : 0;
-      if (!step) return;
-      e.preventDefault();
-      pick(btns[(i + step + btns.length) % btns.length], true);
-    });
-  });
-  if (!btns.some((b) => b.tabIndex === 0) && btns[0]) btns[0].tabIndex = 0;
-  group.append(...btns);
-  return group;
-}
+// toggle() and seg() live in components/set-ui.js, shared with Skapa.
 
 /** A quiet "Saved ✓" beside the row's name, instead of a toast on every change.
  *  role=status so a screen reader still hears it. */
