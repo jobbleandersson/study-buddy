@@ -1324,6 +1324,18 @@ class Store extends EventTarget {
     return rec;
   }
 
+  /** The other way: a plain set again. It also leaves the coming tests that cover it (a test with no other
+   *  set goes), or the store would make it a test again on the next load. */
+  unmarkAsTest(id) {
+    const today = localDayKey();
+    for (const e of [...this.state.exams]) {
+      if (e.date < today || !(e.setIds || []).includes(id)) continue;
+      const rest = e.setIds.filter((x) => x !== id);
+      if (rest.length) this.updateExam(e.id, { setIds: rest }); else this.removeExam(e.id);
+    }
+    this.setAssignmentType(id, "assignment");
+  }
+
   /** Change a test's date, title, note or sets; the rest stays. Null if it doesn't exist or the result isn't valid. */
   updateExam(id, patch) {
     const cur = this.getExam(id);

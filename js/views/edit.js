@@ -110,6 +110,7 @@ export function renderEdit(assignmentId, qs) {
     });
     // A test with a date is a test record too, so it is on Inför provet (store.markAsTest).
     if (typeSel.value === "test") store.markAsTest(original.id);
+    else if (original.type === "test") store.unmarkAsTest(original.id);
     toast(t("edit.saved"));
     location.hash = "#/";
   }
