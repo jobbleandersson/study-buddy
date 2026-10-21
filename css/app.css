@@ -4602,6 +4602,11 @@ body:has(.hp-intro) .session__headright > .btn { display: none; }
 .lbrow__stats { display: flex; align-items: center; gap: var(--s-4); flex: none; }
 .lbrow__streak { display: inline-flex; align-items: center; gap: 4px; color: var(--retry-ink); font-weight: 700; font-size: var(--fs-sm); }
 .lbrow__questions { font-weight: 700; font-size: var(--fs-sm); color: var(--ink-soft); white-space: nowrap; }
+/* The signed-out page's preview (views/leaderboard.js boardPreview): the same rows, tighter, one line each. */
+.lbprev { gap: 6px; }
+.lbprev .lbrow { flex-wrap: nowrap; padding: 8px 12px; gap: var(--s-2); }
+.lbprev .lbrank { margin: 0; width: 26px; height: 26px; }
+.lbprev .lbrow__stats { gap: var(--s-3); }
 /* Phones: the stats move under the name so the name gets the row's width - two friends whose names
    start the same (anna.l, anna.lindberg) would otherwise both cut to "anna…". */
 @media (max-width: 520px) {

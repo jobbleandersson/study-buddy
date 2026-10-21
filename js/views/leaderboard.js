@@ -1,7 +1,7 @@
 // Friend leaderboard: questions answered this week, among people you've
 // added — resets weekly so it stays a live competition rather than being
 // permanently led by whoever signed up first. Needs an account + the
-// backend; signed-out (or no server), it's a sign-in prompt.
+// backend; signed out it shows what the board is and a way in (no server: a plain note).
 
 import { store, isAvatarDataUrl } from "../store.js";
 import { el, clear, toast, icon, ICONS, wrappableEmail } from "../lib/dom.js";
@@ -9,6 +9,7 @@ import { FRIEND_INVITE_CODE_URL, FRIEND_INVITE_LINK_URL, FRIEND_REDEEM_URL, FRIE
 import { shareCard, tierEmoji } from "../lib/share-card.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { homeButton } from "../components/nav.js";
+import { signInGate } from "../components/signin-gate.js";
 import { linkBox } from "../components/link-actions.js";
 import { joinUrl } from "../lib/join-link.js";
 import { t, plural } from "../lib/i18n.js";
@@ -26,16 +27,53 @@ async function api(url, opts) {
 }
 
 function signedOutNode() {
+  // Without the server there is nothing to sign in to: the plain panel says so.
+  if (!store.proxyUp) {
+    return el("div.settings", {}, [
+      homeButton({ grid: true }),
+      el("h1", {}, t("leaderboard.title")),
+      el("section.panel", {}, [el("p.note.note--warn", {}, t("leaderboard.noServer"))]),
+      el("a.btn.btn--ghost", { href: "#/" }, [icon(ICONS.back, 16), t("common.backToMenu")]),
+    ]);
+  }
   return el("div.settings", {}, [
     homeButton({ grid: true }),
-    el("h1", {}, t("leaderboard.title")),
-    el("section.panel", {}, [
-      el("p.note", { style: { marginBottom: "12px" } }, t("leaderboard.signInIntro")),
-      store.proxyUp
-        ? el("a.btn", { href: "#/login" }, t("login.signIn"))
-        : el("p.note.note--warn", {}, t("leaderboard.noServer")),
+    signInGate({
+      eyebrowIcon: ICONS.podium, eyebrow: t("leaderboard.title"),
+      title: t("leaderboard.gateTitle"), lead: t("leaderboard.gateLead"),
+      points: [
+        [ICONS.users, t("leaderboard.gateFriendsHead"), t("leaderboard.gateFriendsBody")],
+        [ICONS.calendar, t("leaderboard.gateWeekHead"), t("leaderboard.gateWeekBody")],
+        [ICONS.flame, t("leaderboard.gateStreakHead"), t("leaderboard.gateStreakBody")],
+      ],
+      preview: boardPreview(),
+      next: "#/leaderboard",
+    }),
+  ]);
+}
+
+// The signed-out preview's made-up week: [name, streak, questions], first place first.
+const DEMO_BOARD = [["Alva", 12, 86], [null, 6, 71], ["Malte", 4, 54], ["Juni", 2, 38]];
+
+/** The signed-out preview: this week's board among four friends, gold, silver and bronze on top and
+ *  "Du" in second place — the rows drawn the same way as the real board's. */
+function boardPreview() {
+  return el("div.gart", {}, [
+    el("div.gart__head", {}, [
+      el("span.gart__ic", {}, icon(ICONS.podium, 18)),
+      el("div.gart__who", {}, [el("strong", {}, t("leaderboard.boardHeading")), el("span", {}, t("leaderboard.demoResets"))]),
     ]),
-    el("a.btn.btn--ghost", { href: "#/" }, [icon(ICONS.back, 16), t("common.backToMenu")]),
+    el("div.lbrows.lbprev", {}, DEMO_BOARD.map(([name, streak, questions], i) => {
+      const tier = ["gold", "silver", "bronze"][i];
+      return el("div.lbrow" + (name ? "" : ".lbrow--me"), {}, [
+        el("span.lbrank" + (tier ? `.lbrank--${tier}` : ""), {}, String(i + 1)),
+        el("div.lbrow__who", {}, [el("span.lbrow__handle", {}, name || t("leaderboard.you"))]),
+        el("div.lbrow__stats", {}, [
+          el("span.lbrow__streak", {}, [icon(ICONS.flame, 14), String(streak)]),
+          el("span.lbrow__questions", {}, plural(questions, "leaderboard.questionOne", "leaderboard.questionMany")),
+        ]),
+      ]);
+    })),
   ]);
 }
 
