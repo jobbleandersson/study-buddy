@@ -13,11 +13,13 @@ import { emailEnabled, sendServerErrorEmail, sendNewFeedbackEmail } from "./emai
 const PER_KEY_MS = 60 * 60_000;
 const MAX_KEYS = 200;
 
-const maxPerDay = () => {
-  const raw = process.env.ALERT_ERRORS_PER_DAY;
+// A whole number from the environment: unset, empty, negative or not a number falls back.
+const num = (name, fallback) => {
+  const raw = process.env[name];
   const n = Number(raw);
-  return raw != null && raw.trim() !== "" && Number.isFinite(n) && n >= 0 ? Math.floor(n) : 10;
+  return raw != null && raw.trim() !== "" && Number.isFinite(n) && n >= 0 ? Math.floor(n) : fallback;
 };
+const maxPerDay = () => num("ALERT_ERRORS_PER_DAY", 10);
 
 const seen = new Map();   // key -> { lastSent, suppressed }
 let day = "";
@@ -73,11 +75,6 @@ export function reportServerError({ where, err, send = sendServerErrorEmail, now
 // (default 30, 0 = no mails) carrying the count of what came in meanwhile, and at most
 // FEEDBACK_ALERTS_PER_DAY a day (default 6; whatever is over waits for the next mail). What a mail carries:
 // how many, of which kind, and a link to #/admin/feedback. Never the message or who sent it.
-const num = (name, fallback) => {
-  const raw = process.env[name];
-  const n = Number(raw);
-  return raw != null && raw.trim() !== "" && Number.isFinite(n) && n >= 0 ? Math.floor(n) : fallback;
-};
 const emptyCounts = () => ({ idea: 0, problem: 0, praise: 0, other: 0 });
 let fbPending = emptyCounts();
 let fbLastSent = 0;
@@ -93,7 +90,7 @@ export function reportNewFeedback({ kind, send = sendNewFeedbackEmail, now = Dat
   try {
     const windowMin = num("FEEDBACK_ALERT_MINUTES", 30);
     if (!enabled || windowMin === 0) return "off";
-    fbPending[kind in fbPending ? kind : "other"]++;
+    fbPending[Object.hasOwn(fbPending, kind) ? kind : "other"]++;
 
     const windowMs = windowMin * 60_000;
     const flush = (t) => {

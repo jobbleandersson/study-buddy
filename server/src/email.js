@@ -328,7 +328,7 @@ export function sendNewFeedbackEmail({ counts, total, windowMin }) {
       <p style="font-size:15px;margin:0 0 16px">${escapeHtml(list)}</p>
       <p><a href="${PUBLIC_URL}/#/admin/feedback" style="display:inline-block;padding:10px 16px;background:#2C5CD6;color:#fff;border-radius:8px;text-decoration:none">Öppna all feedback</a></p>
       <p style="font-size:13px;color:#6B7386">Själva meddelandena står inte i mejlet, de finns i inkorgen.</p>
-    `, `Automatiskt mejl från PluggEras server. Högst ett mejl var ${windowMin}:e minut.`),
+    `, `Automatiskt mejl från PluggEras server. Högst ett mejl per ${windowMin} minuter.`),
   });
 }
 

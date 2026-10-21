@@ -51,7 +51,7 @@ describe("reportNewFeedback (batching and caps)", () => {
   });
 
   test("an unknown kind is counted as other", () => {
-    report("whatever");
+    report("constructor");
     assert.equal(sent[0].counts.other, 1);
   });
 
