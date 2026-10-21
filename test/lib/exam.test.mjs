@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import {
   dayDiff, nextExam, upcomingExams, normalizeExam, examSetDates, examsFromMarkedSets, scopeAttempts,
   topicsOf, readiness, practisedSince, buildExamPlan, prepHashForSet, pickSeedQuestions, newQuestionsOnly, calendarEntries, PLAN_MAX_DAYS,
-  planStartSets, MAX_SETS_PER_DAY, PLAN_MINUTES, distributeSets, questionsForMinutes, mockCountFor, buildStudyPass, pickMockQuestions,
+  planStartSets, examToMakeFor, MAX_SETS_PER_DAY, PLAN_MINUTES, distributeSets, questionsForMinutes, mockCountFor, buildStudyPass, pickMockQuestions,
 } from "../../js/lib/exam.js";
 
 const set = (id, subjectId, extra = {}) => ({
@@ -365,5 +365,33 @@ describe("exam.calendarEntries", () => {
 
   test("soonest first", () => {
     assert.deepEqual(out.map((x) => x.dueAt), ["2026-10-06", "2026-10-07", "2026-10-09"]);
+  });
+});
+
+describe("examToMakeFor (a set marked as a test needs a test record to be on Inför provet)", () => {
+  const today = "2026-10-21";
+  const marked = (extra = {}) => set("s1", "sub1", { type: "test", dueAt: "2026-10-22", ...extra });
+  const exam = (extra = {}) => ({ id: "e1", subjectId: "sub1", date: "2026-10-22", setIds: ["s1"], ...extra });
+
+  test("a set with a coming date and no test covering it gets a record from its own date", () => {
+    assert.deepEqual(examToMakeFor(marked(), [], today), { subjectId: "sub1", date: "2026-10-22", setIds: ["s1"] });
+  });
+  test("today counts as coming", () => {
+    assert.ok(examToMakeFor(marked({ dueAt: today }), [], today));
+  });
+  test("nothing to make without a date, or when the date has passed", () => {
+    assert.equal(examToMakeFor(marked({ dueAt: null }), [], today), null);
+    assert.equal(examToMakeFor(marked({ dueAt: "2026-10-20" }), [], today), null);
+  });
+  test("nothing to make when a coming test already covers the set", () => {
+    assert.equal(examToMakeFor(marked(), [exam()], today), null);
+  });
+  test("a test that has passed, or covers other sets, does not count as covering", () => {
+    assert.ok(examToMakeFor(marked(), [exam({ date: "2026-10-01" })], today));
+    assert.ok(examToMakeFor(marked(), [exam({ setIds: ["other"] })], today));
+  });
+  test("a missing set or list is handled", () => {
+    assert.equal(examToMakeFor(null, [], today), null);
+    assert.ok(examToMakeFor(marked(), undefined, today));
   });
 });

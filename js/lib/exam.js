@@ -89,6 +89,15 @@ export function calendarEntries(exams, assignments, titleOf) {
   return out.sort((x, y) => x.dueAt.localeCompare(y.dueAt) || (x.kind === y.kind ? 0 : x.kind === "test" ? -1 : 1) || String(x.title).localeCompare(String(y.title)));
 }
 
+/** What to make a test record from when a set is marked as a test: the set's own coming date, unless a
+ *  coming test already covers the set. Null when there is no date, the date has passed, or the set is
+ *  covered. Without the record the set would count as a test everywhere except on the Inför provet page. */
+export function examToMakeFor(a, exams, today) {
+  if (!a || !a.dueAt || a.dueAt < today) return null;
+  if ((exams || []).some((e) => e && e.date >= today && (e.setIds || []).includes(a.id))) return null;
+  return { subjectId: a.subjectId, date: a.dueAt, setIds: [a.id] };
+}
+
 /** A subject's next test, or null. */
 export function nextExam(exams, assignments, subjectId, today) {
   return upcomingExams(exams, assignments, today).find((e) => e.subjectId === subjectId) || null;

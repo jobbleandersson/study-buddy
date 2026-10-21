@@ -646,6 +646,7 @@ export default {
   "create.giveName": "Give the set a name.",
   "create.saved": "Saved!",
   "create.dueDate": "Due date (optional)",
+  "create.testNeedsDate": "Pick the date of the test first.",
   "create.summaryLabel": "About this set",
   "summary.read": "Read the summary",
   "summary.start": "Start studying",
