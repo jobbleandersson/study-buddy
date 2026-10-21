@@ -12,7 +12,8 @@ import { detectSections } from "../lib/split.js";
 import { homeButton } from "../components/nav.js";
 import { generateAssignment, ClaudeError } from "../claude.js";
 import { questionEditor } from "../components/question-editor.js";
-import { subjectField, subjectChoices } from "../components/subject-field.js";
+import { subjectField, subjectChoices, standardSubjectNames } from "../components/subject-field.js";
+import { matchSubject } from "../lib/subject-match.js";
 import { t, plural } from "../lib/i18n.js";
 import { localDayKey } from "../lib/activity.js";
 import { foldedDatePicker } from "../components/calendar.js";
@@ -34,10 +35,18 @@ let bg = null; // { promise, doc, error }
 // A set generated from the previous student's material must not wait in Skapa for the next one.
 store.addEventListener("deviceCleared", () => { bg = null; });
 
+/** The subject a new AI set is filed under. One the student picked themselves (or that is locked to an exam) always stands.
+ *  Otherwise what was ticked is only the picker's first choice, so the subject the AI found for the material is used when
+ *  it is one the picker offers: a Swedish essay comes back under "Svenska", not "Matematik". */
+function chosenSubject(doc, picked, pickedByStudent) {
+  const found = pickedByStudent ? null : matchSubject(doc.subject, subjectChoices(), standardSubjectNames());
+  return found || (picked || "").trim() || doc.subject || t("common.general");
+}
+
 function startGeneration(params) {
   bg = { promise: null, doc: null, error: null };
   bg.promise = generateAssignment(params).then((doc) => {
-    doc.subject = params.subject.trim() || doc.subject || t("common.general");
+    doc.subject = chosenSubject(doc, params.subject, params.subjectChosen);
     doc.type = params.type;
     doc.questions = doc.questions.map((q) => ({ ...q, id: uid() }));
     bg.doc = doc;
@@ -94,6 +103,9 @@ export function renderCreate(prefill) {
     // ?subject=&lock=1 prefill) — every set for the same exam has to land under
     // one exact subject name so it can be found again by subjectId later.
     subjectLocked: !!prefillSubject && prefill?.get?.("lock") === "1",
+    // Did the student pick the subject (or arrive with one)? If not, what is ticked is just the first choice, and the subject the
+    // AI finds in the material is used instead (chosenSubject).
+    subjectChosen: !!prefillSubject,
     npLevel: null,            // Nationellt prov: chosen level id
     npEntry: null,            // Nationellt prov: chosen subject entry
     npInput: "file",          // Nationellt prov: the material as a "file" or as pasted "text"
@@ -174,7 +186,7 @@ export function renderCreate(prefill) {
       if (stopped || !stopBtn.isConnected) { rows[i].textContent = `— ${secs[i].title}`; continue; }
       try {
         const doc = await generateAssignment({ material: fitText(secs[i].body), count: state.count });
-        doc.subject = state.subject.trim() || doc.subject || t("common.general");
+        doc.subject = chosenSubject(doc, state.subject, state.subjectChosen);
         doc.title = secs[i].title || doc.title;
         doc.type = state.type;
         doc.ai = true;
@@ -548,6 +560,7 @@ export function renderCreate(prefill) {
         gradeHint: state.gradeHint.trim(),
         preferFlashcards: state.preferFlashcards,
         subject: state.subject,
+        subjectChosen: state.subjectChosen,
         type: state.type,
       });
       watchGeneration(job, {
@@ -572,7 +585,7 @@ export function renderCreate(prefill) {
     // The subject: tap one (or name a new one); locked to the exam's subject for Nationellt prov.
     const subjectCtl = state.subjectLocked
       ? el("span.mk__locked", {}, [icon(ICONS.lock, 14), state.subject])
-      : subjectField({ value: state.subject, onChange: (v) => { state.subject = v; } }).el;
+      : subjectField({ value: state.subject, onChange: (v) => { state.subject = v; state.subjectChosen = true; } }).el;
 
     // Spell out why the button is dead — right where it's dead, not just on step 1.
     const aiNote = ai && !store.hasKey() && (store.aiBlockReason() === "quota"

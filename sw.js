@@ -128,6 +128,7 @@ const APP_SHELL = [
   "./js/views/parent-dashboard.js",
   "./js/views/join.js",
   "./js/lib/wordmark.js",
+  "./js/lib/subject-match.js",
   "./js/lib/join-link.js",
   "./js/components/link-actions.js",
   "./js/views/library.js",
