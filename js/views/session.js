@@ -7,6 +7,7 @@
 
 import { store, REVIEW_ID, PRACTICE_ID, WEAK_ID, RULES_ID, TONIGHT_ID, HP_MOCK_ID, NATIONAL_MIX_PREFIX, nationalMixId, EXAM_PASS_PREFIX, examPassId } from "../store.js";
 import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
+import { VOICE_FEATURES } from "../lib/voice-features.js";
 import {
   parseHpSetId, isHpSetId, rawByPart, DELPROV_ORDER, NORM_TABLES, VERBAL_DELPROV, KVANT_DELPROV,
   PASS_COUNT, MAX_RUN, SEC_PER_Q, minutesFor, pickPracticeIds, questionHistory,
@@ -76,7 +77,7 @@ export async function renderSession(assignmentId, qs) {
   // ?bus=1 is commute mode: the multiple-choice questions only, read aloud and
   // answered by voice or tap (components/bus-question.js). It always counts as
   // practice, even on a test set — feedback is spoken straight away.
-  const bus = !examMode && qs?.get?.("bus") === "1";
+  const bus = VOICE_FEATURES.commute && !examMode && qs?.get?.("bus") === "1";
   // ?practice=1 runs a test set as ordinary practice — tutor on, feedback as
   // you go. Exam prep links here: getting ready for a test shouldn't lock help.
   const practice = !examMode && !bus && qs?.get?.("practice") === "1";
@@ -1699,7 +1700,7 @@ function runSession(config) {
   // Commute mode for this same set: only where it makes sense — practice on a
   // real set or the review queue, and only when the browser can read aloud.
   const busHref = (() => {
-    if (config.bus || isTest || isExam || config.hp || !speechSupported()) return null;
+    if (!VOICE_FEATURES.commute || config.bus || isTest || isExam || config.hp || !speechSupported()) return null;
     if (!state.order.some((id) => isBusQuestion(store.findQuestion(id)?.question))) return null;
     if (config.assignmentId === REVIEW_ID) return `#/review?bus=1${config.reviewScope ? `&${config.reviewScope}` : ""}`;
     return store.getAssignment(config.assignmentId) ? `#/session/${config.assignmentId}?bus=1` : null;
