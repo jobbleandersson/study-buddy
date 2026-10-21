@@ -381,7 +381,7 @@ export default {
   "challenge.win": "You beat {name}",
   "challenge.tie": "You tied with {name}",
   "challenge.lose": "{name} scored higher this time",
-  "q.flashcardRecallPlaceholder": "Type what you remember from the back of this card…",
+  "q.flashcardRecallPlaceholder": "Type what you remember…",
   "q.selfMarkAsk": "How did yours compare with the model answer?",
   "q.gradingFailed": "Couldn't grade this automatically — here's the model answer to compare against.",
   "q.rateAgain": "Again",
