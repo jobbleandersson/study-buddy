@@ -3,6 +3,7 @@
 
 import { costKr } from "./lib/ai-price.js";
 import { store } from "./store.js";
+import { fence, inlineText } from "./lib/untrusted.js";
 import { generationSystem, gradingSystem, workedGradingSystem, clozeGradingSystem, checkWorkSystem, podcastSystem } from "./prompts.js";
 import { t } from "./lib/i18n.js";
 import { PROXY_URL } from "./config.js";
@@ -140,16 +141,16 @@ async function writeSet({ material, topic, image, count = 6, gradeHint = "", pre
   const moreKinds = moreLike ? [...new Set((moreLike.questions || []).map((q) => q?.kind).filter(Boolean))] : [];
   const ask = moreLike
     ? [
-        `Here is an existing question set titled "${moreLike.title}" (subject: ${moreLike.subject}).`,
-        `Existing questions (JSON):\n"""\n${JSON.stringify(moreLike.questions, null, 1)}\n"""`,
+        `Here is an existing question set titled "${inlineText(moreLike.title)}" (subject: ${inlineText(moreLike.subject)}).`,
+        `Existing questions (JSON):\n${fence("existing_questions", JSON.stringify(moreLike.questions, null, 1))}`,
         // A top-up after the review stays on the student's own material.
-        material ? `Study material the set is built on:\n"""\n${material}\n"""` : null,
+        material ? `Study material the set is built on:\n${fence("material", material)}` : null,
         extraRules || null,
         moreKinds.length ? `Use ONLY these question kinds, in roughly the same mix as the existing questions: ${moreKinds.join(", ")}. Do not use any other kind.` : null,
         `Write about ${count} MORE questions in the same style, difficulty and topics. Do NOT repeat or lightly reword any existing question. Return the JSON object only — its "questions" array holds only the new questions.`,
       ].filter(Boolean).join("\n\n")
     : [
-        material ? `Study material:\n"""\n${material}\n"""` : null,
+        material ? `Study material:\n${fence("material", material)}` : null,
         topic ? `Topic to build questions on: ${topic}` : null,
         image ? "Use the attached image of the student's material." : null,
         `Create about ${count} questions. Return the JSON object only.`,
@@ -214,7 +215,7 @@ export async function generateAssignment({ task = "generate", ...params }) {
 async function reviewSet(questions, { material, image } = {}) {
   const content = [];
   if (image) content.push({ type: "image", source: { type: "base64", media_type: image.mediaType, data: image.data } });
-  const basis = material ? `Underlaget frågorna bygger på:\n"""\n${material}\n"""\n\n` : image ? "Frågorna bygger på den bifogade bilden.\n\n" : "";
+  const basis = material ? `Underlaget frågorna bygger på:\n${fence("material", material)}\n\n` : image ? "Frågorna bygger på den bifogade bilden.\n\n" : "";
   content.push({ type: "text", text: `${basis}Frågor att granska:\n${JSON.stringify(reviewItems(questions))}` });
   for (let attempt = 0; attempt < 2; attempt++) {
     try {
@@ -299,7 +300,7 @@ export async function gradeAnswer({ question, studentAnswer }) {
       role: "user",
       content: [{
         type: "text",
-        text: `${question.topic ? `Topic: ${question.topic}\n` : ""}Question: ${question.prompt}\n\nModel answer: ${question.answer}\n${question.rubric ? `Rubric: ${question.rubric}\n` : ""}\nStudent answer: "${studentAnswer}"\n\nReturn the JSON only.`,
+        text: `${fence("set_content", `${question.topic ? `Topic: ${question.topic}\n` : ""}Question: ${question.prompt}\n\nModel answer: ${question.answer}\n${question.rubric ? `Rubric: ${question.rubric}\n` : ""}`)}\nStudent answer: "${studentAnswer}"\n\nReturn the JSON only.`,
       }],
     }],
   });
@@ -325,7 +326,7 @@ export async function gradeCloze({ question, blanks }) {
       role: "user",
       content: [{
         type: "text",
-        text: `${question.topic ? `Topic: ${question.topic}\n` : ""}Sentence: ${question.prompt}\n\nBlanks to judge:\n${blanks.map((b) => `${b.n}) accepted: ${b.accepted.join(" / ")}; the student wrote: "${b.given}"`).join("\n")}\n\nReturn the JSON only.`,
+        text: `${fence("set_content", `${question.topic ? `Topic: ${question.topic}\n` : ""}Sentence: ${question.prompt}`)}\n\nBlanks to judge:\n${blanks.map((b) => `${b.n}) accepted: ${b.accepted.join(" / ")}; the student wrote: "${b.given}"`).join("\n")}\n\nReturn the JSON only.`,
       }],
     }],
   });
@@ -355,7 +356,7 @@ export async function gradeWorking({ question, working }) {
       role: "user",
       content: [{
         type: "text",
-        text: `${question.topic ? `Topic: ${question.topic}\n` : ""}Problem: ${question.prompt}\n\nModel solution (final answer): ${question.answer}${steps}\n${question.rubric ? `Rubric: ${question.rubric}\n` : ""}\nStudent's working:\n"""\n${working}\n"""\n\nReturn the JSON only.`,
+        text: `${fence("set_content", `${question.topic ? `Topic: ${question.topic}\n` : ""}Problem: ${question.prompt}\n\nModel solution (final answer): ${question.answer}${steps}\n${question.rubric ? `Rubric: ${question.rubric}\n` : ""}`)}\nStudent's working:\n"""\n${working}\n"""\n\nReturn the JSON only.`,
       }],
     }],
   });
@@ -486,7 +487,7 @@ export async function generateTalkScript({ material }) {
     model: modelFor("tutor"),
     max_tokens: 2200,
     system: podcastSystem(),
-    messages: [{ role: "user", content: [{ type: "text", text: `Material:\n${material.text}\n\nWrite the conversation now.` }] }],
+    messages: [{ role: "user", content: [{ type: "text", text: `Material:\n${fence("material", material.text)}\n\nWrite the conversation now.` }] }],
   }, { strict: true });
   try { return parseScript(parseLooseJSON(text)); }
   catch { throw new ClaudeError(t("talk.err")); }
