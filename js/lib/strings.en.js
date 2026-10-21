@@ -99,8 +99,6 @@ export default {
   "menu.cardAria": "{title}, {subject}, {count} questions",
   "menu.cardAriaOpen": "{title}, {subject}, {count} questions, in progress",
   "menu.cardOptions": "Options for {title}",
-  "menu.aiMade": "AI",
-  "menu.aiMadeTitle": "Written by PluggEra AI",
   "menu.masteryTitle": "{pct}% mastery — how well you've been answering this set's topics",
   "menu.emptyFirstTitle": "You haven't added any sets yet",
   "menu.emptyFirstBody": "Open the library to find a ready-made set on almost any subject, or make your own.",

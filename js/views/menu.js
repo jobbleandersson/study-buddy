@@ -318,7 +318,6 @@ export function renderMenu(mode) {
       // problemlösning") never wraps and every title starts at the same height.
       el("div.acard__top", {}, [
         el("span.acard__subject", { title: subjectName }, [el("span.acard__dot"), el("span.acard__subjectname", {}, subjectName)]),
-        ai && el("span.acard__tag.acard__tag--ai", { title: t("menu.aiMadeTitle") }, [icon(ICONS.spark, 12), t("menu.aiMade")]),
       ].filter(Boolean)),
       el("div.acard__title", { title: a.title }, a.title),
       el("div.acard__foot", {}, [
