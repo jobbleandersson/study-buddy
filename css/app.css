@@ -2592,6 +2592,28 @@ body.route-chat .sitechat__panel { display: none; }
 
 /* ---------- results ---------- */
 .results { text-align: center; max-width: 560px; margin: 0 auto; }
+/* A wide screen: the score and what to do next on the left, the details beside them (views/results.js
+   groups them) — instead of one 560px column down the middle of the window. The buttons sit under the
+   score. Below 1100px, and for a result with no details, it stays the one column above. */
+@media (min-width: 1100px) {
+  .results.results--wide {
+    width: 100%; max-width: 1180px; display: grid; grid-template-columns: minmax(0, 440px) minmax(0, 1fr);
+    grid-template-areas: "summary details" "actions details"; column-gap: var(--s-7); align-items: start;
+    /* The first row hugs the score; the details' extra height goes to the second, so the buttons sit
+       right under the score rather than halfway down the page. */
+    grid-template-rows: auto 1fr;
+  }
+  .results--wide .results__summary { grid-area: summary; }
+  .results--wide .results__actions { grid-area: actions; margin-top: var(--s-4); }
+  .results--wide .results__details {
+    grid-area: details; display: grid; gap: var(--s-6);
+    padding: var(--s-5); border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface);
+  }
+  .results--wide .results__details > * { margin-top: 0 !important; }
+  .results--wide .results__details .delta-list { margin-bottom: 0; }
+  /* The rows are inside a card already: flat, not cards on a card. */
+  .results--wide .results__details .delta { background: var(--surface-sunk); border-color: transparent; }
+}
 .results__actions { display: flex; gap: 12px; justify-content: center; margin-top: 24px; flex-wrap: wrap; }
 /* Phone: the main action across the full width, the rest in even pairs, "back to the menu" last on its
    own row — not three ragged centred rows. */

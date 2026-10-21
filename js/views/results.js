@@ -98,7 +98,11 @@ export function renderResults(attemptId) {
     el("a.btn", { href: "#/" }, [t("results.done"), icon(ICONS.arrow, 16)]),
   ].filter(Boolean));
 
+  // Two groups: the score and what to do next (.results__summary), then the details — mastery per topic,
+  // the questions worth a look, the forgetting curve, the review plan (.results__details). One column on a
+  // phone; side by side on a wide screen (app.css .results--wide), with the buttons under the score.
   const node = el("div.results", {}, [
+    el("div.results__summary", {}, [
     el("div", { style: { textAlign: "left" } }, [homeButton()]),
     el("h1", {}, t(great ? "results.great" : "results.nice")),
     el("p.note", {}, heading + (attempt.examMode ? t("results.examSuffix") : attempt.wasTest ? t("results.testSuffix") : "")),
@@ -133,7 +137,9 @@ export function renderResults(attemptId) {
     gradeReveal(attempt),
     hpReveal(attempt),
     hpNextRow(attempt),
+    ]),
 
+    el("div.results__details", {}, [
     deltaEntries.length ? el("div", { style: { marginTop: "24px", textAlign: "left" } }, [
       el("h3", { "aria-level": "2", style: { marginBottom: "4px" } }, t("results.topicMastery")),
       el("p.note", { style: { margin: "0 0 8px" } }, t("results.topicMasteryNote")),
@@ -177,6 +183,7 @@ export function renderResults(attemptId) {
       bucketLine(sched) ? el("p.note", {}, bucketLine(sched)) : null,
       reviewCta(attempt),
     ].filter(Boolean)) : null,
+    ]),
 
     el("div.results__actions", {}, [
       canChallenge && el("button.btn", {
@@ -201,6 +208,11 @@ export function renderResults(attemptId) {
     ].filter(Boolean)),
     bar,
   ]);
+
+  // Nothing to show beside the score (a run with no topics or misses): stay one centred column.
+  const details = node.querySelector(".results__details");
+  if (details.children.length) node.classList.add("results--wide");
+  else details.remove();
 
   requestAnimationFrame(() => {
     node.querySelectorAll(".delta__bar i").forEach((i) => { i.style.width = `${i.dataset.w}%`; });
