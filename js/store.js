@@ -6,7 +6,7 @@ import { deepClone } from "./lib/clone.js";
 import { localDayKey, currentStreak, addDays, studiedToday, questionsAnsweredToday } from "./lib/activity.js";
 import { getLang, t } from "./lib/i18n.js";
 import { serverMessage } from "./lib/server-errors.js";
-import { normalizeExam, examsFromMarkedSets, examSetDates, calendarEntries } from "./lib/exam.js";
+import { normalizeExam, examsFromMarkedSets, examSetDates, calendarEntries, examToMakeFor } from "./lib/exam.js";
 import { mergeStates, looksLikeBackup } from "./lib/merge-state.js";
 import { hasLocalWork } from "./lib/local-work.js";
 import { classifyPushStatus, nextRetryDelay } from "./lib/sync-status.js";
@@ -1300,6 +1300,17 @@ class Store extends EventTarget {
 
   // ---------- tests (lib/exam.js) ----------
   get exams() { return this.state.exams; }
+
+  /** Marks a set as a test, and when it has a coming date makes it a test record too, so it is on the Inför
+   *  provet page with a plan like a test made there or from the calendar. (Marking alone, as the card's
+   *  Deadline dialog and Skapa's date used to, gave the countdown but never a place in Inför provet.)
+   *  Returns the new record, or null when there was none to make. */
+  markAsTest(id) {
+    if (!this.getAssignment(id)) return null;
+    this.setAssignmentType(id, "test");
+    const make = examToMakeFor(this.getAssignment(id), this.state.exams, localDayKey());
+    return make ? this.addExam(make) : null;
+  }
 
   getExam(id) { return this.state.exams.find((e) => e.id === id); }
 

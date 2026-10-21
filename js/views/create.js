@@ -644,6 +644,9 @@ export function renderCreate(prefill) {
       : subjectField({ value: doc.subject, onChange: (v) => { doc.subject = v; } });
 
     const duePicker = foldedDatePicker({ label: t("create.dueDate"), value: doc.dueAt || "", min: localDayKey() });
+    // A date alone is only a deadline. Ticked, the set is a test: countdown, plan, and a place in Inför provet.
+    const testToggle = el("input", { type: "checkbox" });
+    const testRow = el("label.due-dialog__test", {}, [testToggle, el("span", {}, [icon(ICONS.graduation, 15), t("due.markTest")])]);
 
     const countNote = el("p.note");
     const editor = questionEditor(doc, {
@@ -655,7 +658,9 @@ export function renderCreate(prefill) {
       if (!questions.length) { toast(t("create.addAtLeastOne")); return; }
       if (!doc.title.trim()) { toast(t("create.giveName")); titleInput.focus(); return; }
       doc.dueAt = duePicker.getValue() || null;
+      if (testToggle.checked && !doc.dueAt) { toast(t("create.testNeedsDate")); return; }
       const saved = store.addAssignmentDoc(doc);
+      if (testToggle.checked) store.markAsTest(saved.id);
       toast(t("create.saved"));
       location.hash = `#/session/${saved.id}`;
     }
@@ -667,6 +672,7 @@ export function renderCreate(prefill) {
           el("div.field", {}, [el("span", {}, t("create.subject")), subjectFld.el]),
         ]),
         duePicker.el,
+        testRow,
         countNote,
       ]),
       // Blank/imported sets never call AI and always carry sourceSummary: ""

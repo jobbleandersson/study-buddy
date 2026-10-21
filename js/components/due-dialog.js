@@ -36,8 +36,10 @@ export function openDueDialog(a, { onSaved, defaultTest = false } = {}) {
   });
 
   function commit() {
-    const wantType = testToggle.checked ? "test" : "assignment";
-    if (a.type !== wantType) store.setAssignmentType(a.id, wantType);
+    // A test is a test record too (so it is on Inför provet); saving a set that is already marked also
+    // gives it the record it may be missing.
+    if (testToggle.checked) store.markAsTest(a.id);
+    else if (a.type === "test") store.setAssignmentType(a.id, "assignment");
     closeDueDialog();
     onSaved?.();
   }

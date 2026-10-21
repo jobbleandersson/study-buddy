@@ -663,6 +663,7 @@ export default {
   "create.giveName": "Ge settet ett namn.",
   "create.saved": "Sparat!",
   "create.dueDate": "Deadline (valfritt)",
+  "create.testNeedsDate": "Välj ett datum för provet först.",
   "create.summaryLabel": "Om det här",
   "summary.read": "Läs sammanfattningen",
   "summary.start": "Börja plugga",
