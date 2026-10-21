@@ -8,16 +8,18 @@
 // What a mail carries: the route (query string dropped, ids replaced), the error's message and the top
 // of its stack. Never the request body, headers, cookies or who was signed in.
 
-import { emailEnabled, sendServerErrorEmail } from "./email.js";
+import { emailEnabled, sendServerErrorEmail, sendNewFeedbackEmail } from "./email.js";
 
 const PER_KEY_MS = 60 * 60_000;
 const MAX_KEYS = 200;
 
-const maxPerDay = () => {
-  const raw = process.env.ALERT_ERRORS_PER_DAY;
+// A whole number from the environment: unset, empty, negative or not a number falls back.
+const num = (name, fallback) => {
+  const raw = process.env[name];
   const n = Number(raw);
-  return raw != null && raw.trim() !== "" && Number.isFinite(n) && n >= 0 ? Math.floor(n) : 10;
+  return raw != null && raw.trim() !== "" && Number.isFinite(n) && n >= 0 ? Math.floor(n) : fallback;
 };
+const maxPerDay = () => num("ALERT_ERRORS_PER_DAY", 10);
 
 const seen = new Map();   // key -> { lastSent, suppressed }
 let day = "";
@@ -68,5 +70,57 @@ export function reportServerError({ where, err, send = sendServerErrorEmail, now
   }
 }
 
+// ---- new feedback (routes/feedback.js) ----
+// One mail when feedback arrives after a quiet spell, then at most one every FEEDBACK_ALERT_MINUTES
+// (default 30, 0 = no mails) carrying the count of what came in meanwhile, and at most
+// FEEDBACK_ALERTS_PER_DAY a day (default 6; whatever is over waits for the next mail). What a mail carries:
+// how many, of which kind, and a link to #/admin/feedback. Never the message or who sent it.
+const emptyCounts = () => ({ idea: 0, problem: 0, praise: 0, other: 0 });
+let fbPending = emptyCounts();
+let fbLastSent = 0;
+let fbTimer = null;
+let fbDay = "";
+let fbSentToday = 0;
+
+/**
+ * @returns "sent" | "queued" | "off" — for the tests; callers ignore it.
+ * `send`, `now`, `enabled` and `schedule` exist so tests can supply their own mailer, clock, on/off and timer.
+ */
+export function reportNewFeedback({ kind, send = sendNewFeedbackEmail, now = Date.now, enabled = emailEnabled(), schedule = setTimeout }) {
+  try {
+    const windowMin = num("FEEDBACK_ALERT_MINUTES", 30);
+    if (!enabled || windowMin === 0) return "off";
+    fbPending[Object.hasOwn(fbPending, kind) ? kind : "other"]++;
+
+    const windowMs = windowMin * 60_000;
+    const flush = (t) => {
+      const today = new Date(t).toISOString().slice(0, 10);
+      if (today !== fbDay) { fbDay = today; fbSentToday = 0; }
+      const total = Object.values(fbPending).reduce((a, b) => a + b, 0);
+      if (!total || fbSentToday >= num("FEEDBACK_ALERTS_PER_DAY", 6)) return false;
+      const counts = fbPending;
+      fbPending = emptyCounts();
+      fbLastSent = t;
+      fbSentToday++;
+      Promise.resolve(send({ counts, total, windowMin })).catch(() => {});
+      return true;
+    };
+
+    const t = now();
+    if (t - fbLastSent >= windowMs) return flush(t) ? "sent" : "queued";
+    if (!fbTimer) {
+      fbTimer = schedule(() => { fbTimer = null; flush(now()); }, fbLastSent + windowMs - t);
+      fbTimer?.unref?.();
+    }
+    return "queued";
+  } catch {
+    return "off";
+  }
+}
+
 /** Test-only: forget every count. */
-export function _resetAlerts() { seen.clear(); day = ""; sentToday = 0; }
+export function _resetAlerts() {
+  seen.clear(); day = ""; sentToday = 0;
+  if (fbTimer) clearTimeout(fbTimer);
+  fbPending = emptyCounts(); fbLastSent = 0; fbTimer = null; fbDay = ""; fbSentToday = 0;
+}

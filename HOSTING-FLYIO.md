@@ -306,6 +306,7 @@ fly secrets set ALERT_EMAIL=you@example.com     # optional; default is CONTACT_T
 | You get a mail when… | From | Notes |
 |---|---|---|
 | a student sends or changes a review | the server | Links to `#/admin/reviews`. Never contains the student's email. |
+| a student sends feedback with Tyck till | the server | The first one mails at once, after that at most one mail every `FEEDBACK_ALERT_MINUTES` (default 30, `0` = none) with the count of what came in meanwhile, and at most `FEEDBACK_ALERTS_PER_DAY` (default 6) a day. Counts and a link to `#/admin/feedback` only: the messages themselves never go in the mail. Feedback marked Klar or Nej tack is deleted after 30 days; the rest is kept. |
 | the server hits an unexpected error (a 500) | the server | Route, message and the top of the stack. The same error on the same route is mailed at most once an hour; at most `ALERT_ERRORS_PER_DAY` (default 10, `0` = none) a day in all. |
 | the AI stops answering, and again when it's back | the server | Checked every 6 hours (`ai-check.js`). |
 | the whole site is down | **an outside monitor**, see below | A server that is down cannot send mail, so this one can't live in the app. |

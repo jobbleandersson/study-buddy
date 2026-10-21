@@ -314,6 +314,24 @@ export function sendNewReviewEmail({ rating, name, context, lang, text, updated 
   });
 }
 
+/** Someone has sent feedback with Tyck till (alerts.js batches these so a busy hour is one mail, not
+ *  twenty). Only how many and of what kind, plus the link: what the students wrote can name a person, so
+ *  it stays in the inbox behind the admin key and never travels by email. */
+export function sendNewFeedbackEmail({ counts, total, windowMin }) {
+  const kinds = [["idea", "idé", "idéer"], ["problem", "problem", "problem"], ["praise", "beröm", "beröm"], ["other", "annat", "annat"]];
+  const list = kinds.filter(([k]) => counts[k] > 0).map(([k, one, many]) => `${counts[k]} ${counts[k] === 1 ? one : many}`).join(", ");
+  return sendEmail({
+    to: ALERT_TO(),
+    subject: total === 1 ? "PluggEra: ny feedback" : `PluggEra: ${total} nya feedback`,
+    html: layout(`
+      <p><strong>${total === 1 ? "En elev har skickat feedback" : `${total} elever har skickat feedback`}.</strong></p>
+      <p style="font-size:15px;margin:0 0 16px">${escapeHtml(list)}</p>
+      <p><a href="${PUBLIC_URL}/#/admin/feedback" style="display:inline-block;padding:10px 16px;background:#2C5CD6;color:#fff;border-radius:8px;text-decoration:none">Öppna all feedback</a></p>
+      <p style="font-size:13px;color:#6B7386">Själva meddelandena står inte i mejlet, de finns i inkorgen.</p>
+    `, `Automatiskt mejl från PluggEras server. Högst ett mejl per ${windowMin} minuter.`),
+  });
+}
+
 /** A student reported an AI answer (routes/ai-reports.js). The answer, what they asked and why - never who
  *  they are. Everything in it came from a student or the model, so all of it is escaped. */
 export function sendNewAiReportEmail({ where, reason, note = "", content, prompt = "" }) {
