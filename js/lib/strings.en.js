@@ -275,6 +275,14 @@ export default {
 
   /* ---- shortcuts sheet ---- */
   "keys.title": "Keyboard shortcuts",
+  "keys.groupAnswer": "Answer",
+  "keys.groupMove": "Between questions",
+  "keys.groupGeneral": "General",
+  "keys.spaceKey": "Space",
+  "keys.or": "or",
+  "keys.to": "to",
+  "keys.rightKey": "Right arrow",
+  "keys.leftKey": "Left arrow",
   "keys.pick": "Pick a multiple-choice answer",
   "keys.enter": "Check your answer, then move on",
   "keys.next": "Next question",

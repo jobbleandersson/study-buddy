@@ -1537,33 +1537,56 @@ function runSession(config) {
   function closeShortcuts() { shortcutsEl?.remove(); shortcutsEl = null; }
   function openShortcuts() {
     shortcutsEl = el("div.modal", {
-      role: "dialog", "aria-modal": "true", "aria-label": t("keys.title"),
+      role: "dialog", "aria-modal": "true", "aria-labelledby": "keysheet-title",
       onclick: (e) => { if (e.target === shortcutsEl) closeShortcuts(); },
     }, [
-      el("div.modal__card", {}, [
-        el("h3", { style: { marginBottom: "12px" } }, t("keys.title")),
-        el("table.preset-table", {}, [el("tbody", {}, [
-          keyRow("A – D  ·  1 – 4", t("keys.pick")),
-          keyRow("Enter", t("keys.enter")),
-          keyRow("→", t("keys.next")),
-          isExam ? keyRow("←", t("keys.prev")) : null,
-          isExam ? keyRow("M", t("keys.mark")) : null,
-          isExam ? keyRow("O", t("keys.overview")) : null,
-          isExam ? null : keyRow("S", t("keys.skip")),
-          keyRow("Space", t("keys.space")),
-          keyRow("?", t("keys.show")),
-          keyRow("Esc", t("keys.close")),
-        ].filter(Boolean))]),
-        el("button.btn.btn--ghost.btn--sm", {
-          type: "button", style: { marginTop: "16px" }, onclick: closeShortcuts,
-        }, t("common.close")),
+      el("div.modal__card.keysheet", {}, [
+        el("div.keysheet__head", {}, [
+          el("h2", { id: "keysheet-title" }, t("keys.title")),
+          el("button.iconbtn", {
+            type: "button", "aria-label": t("common.close"), title: t("common.close"), onclick: closeShortcuts,
+          }, icon(ICONS.close, 18)),
+        ]),
+        keyGroup(t("keys.groupAnswer"), [
+          keyRow(["A", "–", "D", "|", "1", "–", "4"], t("keys.pick")),
+          keyRow(["Enter"], t("keys.enter")),
+          keyRow([t("keys.spaceKey")], t("keys.space")),
+        ]),
+        keyGroup(t("keys.groupMove"), [
+          keyRow(["→"], t("keys.next")),
+          isExam ? keyRow(["←"], t("keys.prev")) : null,
+          isExam ? null : keyRow(["S"], t("keys.skip")),
+          isExam ? keyRow(["M"], t("keys.mark")) : null,
+          isExam ? keyRow(["O"], t("keys.overview")) : null,
+        ]),
+        keyGroup(t("keys.groupGeneral"), [
+          keyRow(["?"], t("keys.show")),
+          keyRow(["Esc"], t("keys.close")),
+        ]),
       ]),
     ]);
     document.body.appendChild(shortcutsEl);
     shortcutsEl.querySelector("button").focus();
   }
+  function keyGroup(label, rows) {
+    return el("section.keysheet__group", {}, [
+      el("h3.keysheet__label", {}, label),
+      el("dl.keysheet__list", {}, rows.filter(Boolean)),
+    ]);
+  }
+  // Each key is a cap; "–" joins the two ends of a range and "|" reads as "or".
   function keyRow(keys, what) {
-    return el("tr", {}, [el("th", {}, el("kbd", {}, keys)), el("td", {}, what)]);
+    return el("div.keysheet__row", {}, [
+      el("dt", {}, what),
+      el("dd", {}, keys.map((k) =>
+        k === "–" ? [el("span.keysheet__sep", { "aria-hidden": "true" }, "–"), el("span.sr-only", {}, t("keys.to"))]
+        : k === "|" ? el("span.keysheet__sep", {}, t("keys.or"))
+        // The arrow glyphs come out dash-sized in a key cap — draw them instead.
+        : k === "→" || k === "←" ? el(`kbd${k === "←" ? ".keysheet__left" : ""}`, {}, [
+          icon(ICONS.arrow, 14), el("span.sr-only", {}, t(k === "→" ? "keys.rightKey" : "keys.leftKey")),
+        ])
+        : el("kbd", {}, k)).flat()),
+    ]);
   }
 
   document.addEventListener("keydown", onKeyDown);

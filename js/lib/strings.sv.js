@@ -290,6 +290,14 @@ export default {
 
   /* ---- shortcuts sheet ---- */
   "keys.title": "Kortkommandon",
+  "keys.groupAnswer": "Svara",
+  "keys.groupMove": "Mellan frågorna",
+  "keys.groupGeneral": "Allmänt",
+  "keys.spaceKey": "Mellanslag",
+  "keys.or": "eller",
+  "keys.to": "till",
+  "keys.rightKey": "Högerpil",
+  "keys.leftKey": "Vänsterpil",
   "keys.pick": "Välj ett svarsalternativ",
   "keys.enter": "Rätta ditt svar, gå sedan vidare",
   "keys.next": "Nästa fråga",

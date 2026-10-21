@@ -4121,6 +4121,32 @@ summary.gcalc__label:focus-visible { outline: none; box-shadow: var(--ring); bor
   border-radius: var(--r-lg); box-shadow: var(--shadow-2);
   padding: var(--s-5); max-width: 420px; width: 100%;
 }
+/* The shortcuts themselves: grouped lists, what a key does on the left and the key on the right. */
+.modal__card.keysheet { max-width: 460px; }
+.keysheet__head { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); }
+.keysheet__head h2 { margin: 0; font-size: var(--fs-lg); letter-spacing: -.01em; }
+.keysheet__head .iconbtn { width: 34px; height: 34px; margin: -4px -6px -4px 0; border-color: transparent; background: none; }
+.keysheet__head .iconbtn:hover { background: var(--surface-sunk); }
+.keysheet__group { margin-top: var(--s-4); }
+.keysheet__label { margin: 0 0 var(--s-2); font-size: calc(12.5px * var(--fs-scale, 1)); font-weight: 600; color: var(--ink-faint); }
+.keysheet__list { margin: 0; border: 1px solid var(--line); border-radius: var(--r-md); }
+.keysheet__row {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+  gap: 6px var(--s-4); padding: 10px var(--s-4);
+}
+.keysheet__row + .keysheet__row { border-top: 1px solid var(--line); }
+.keysheet__row dt { font-size: var(--fs-sm); line-height: 1.4; color: var(--ink); }
+.keysheet__row dd { flex: none; margin: 0; display: flex; align-items: center; gap: 4px; }
+.keysheet kbd {
+  display: inline-grid; place-items: center; min-width: 26px; height: 26px; padding: 0 7px;
+  font-family: inherit; font-weight: 600; line-height: 1;
+  /* The brand's soft blue, like the tiles on Hem, rather than grey caps. */
+  background: color-mix(in oklab, var(--brand) 11%, var(--surface));
+  border-color: color-mix(in oklab, var(--brand) 40%, var(--surface));
+  color: var(--brand-ink);
+}
+.keysheet__left svg { transform: scaleX(-1); }
+.keysheet__sep { padding-inline: 2px; font-size: calc(12.5px * var(--fs-scale, 1)); color: var(--ink-faint); }
 
 /* "Review answered" panel — practice / review look-back at what's been done. */
 .review-so-far { max-width: 560px; max-height: 82vh; display: flex; flex-direction: column; }
