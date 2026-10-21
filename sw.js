@@ -79,6 +79,7 @@ const APP_SHELL = [
   "./js/lib/figures.js",
   "./js/lib/spark.js",
   "./js/lib/speech.js",
+  "./js/lib/voice-features.js",
   "./js/lib/lang-detect.js",
   "./js/lib/challenge.js",
   "./js/lib/exam-nav.js",

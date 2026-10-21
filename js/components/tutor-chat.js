@@ -12,6 +12,7 @@ import { passageContext } from "../lib/passages.js";
 import { t, getLang } from "../lib/i18n.js";
 import { tutorStream, ClaudeError } from "../claude.js";
 import { speak } from "../lib/speech.js";
+import { VOICE_FEATURES } from "../lib/voice-features.js";
 import { firstSentence } from "../lib/text.js";
 import { guessLang, openerFits } from "../lib/language-guess.js";
 import { aiReportButton } from "./ai-report.js";
@@ -128,7 +129,7 @@ export class TutorChat {
     // student has turned that on in Settings. The button is hidden outright
     // when the browser has neither.
     const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-    this._canListen = !!SR;
+    this._canListen = VOICE_FEATURES.dictation && !!SR;
     this._canSpeak = "speechSynthesis" in window;
 
     const voiceBtn = el("button.iconbtn.voice-btn", {
@@ -138,7 +139,8 @@ export class TutorChat {
       onclick: (e) => { e.preventDefault(); this._toggleMic(); },
     }, [icon(ICONS.mic, 18)]);
     this.voiceBtn = voiceBtn;
-    if (!this._canListen && !this._canSpeak) voiceBtn.hidden = true;
+    // Dictation is dormant (lib/voice-features.js): no microphone button at all, not a disabled one.
+    if (!VOICE_FEATURES.dictation || (!this._canListen && !this._canSpeak)) voiceBtn.hidden = true;
     if (!this._canListen) { voiceBtn.disabled = true; voiceBtn.title = t("tutor.voiceListenUnsupported"); }
 
     if (SR) {

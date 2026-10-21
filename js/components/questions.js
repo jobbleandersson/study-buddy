@@ -5,6 +5,7 @@
 // opts: { question, tutor, live, onDone }
 
 import { el, clear, icon, ICONS } from "../lib/dom.js";
+import { VOICE_FEATURES } from "../lib/voice-features.js";
 import { renderRich } from "../lib/rich.js";
 import { figureURL } from "../lib/figures.js";
 import { gradeAnswer, gradeWorking, gradeCloze } from "../claude.js";
@@ -168,7 +169,7 @@ const setLangMode = (m) => { try { localStorage.setItem(LANG_MODE_KEY, m); } cat
  */
 function languageBar(question, target, promptEl) {
   const langName = t(`lang.name.${target.code}`);
-  const canSpeak = recognitionSupported();
+  const canSpeak = VOICE_FEATURES.speaking && recognitionSupported();
   const phrases = targetPhrases(question.prompt, target.code);
   // Shadowing a whole reading passage is too much — take its first sentence.
   const shadow = phrases.length

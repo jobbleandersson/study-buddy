@@ -3,6 +3,7 @@
 
 import { store } from "../store.js";
 import { el, clear, icon, ICONS, toast, downloadText } from "../lib/dom.js";
+import { VOICE_FEATURES } from "../lib/voice-features.js";
 import { t, plural, fmtDate, relativeDay, daysUntil, getLang } from "../lib/i18n.js";
 import { importSet } from "../data/library.js";
 import { loadLibraryIndex, loadLibraryTranslations, baseSubjectName } from "../lib/library-content.js";
@@ -370,7 +371,7 @@ export function renderMenu(mode) {
         if (copy) toast(t("menu.copiedAs", { title: copy.title }));
       }),
       item(ICONS.play, t("menu.itemPrint"), () => { location.hash = `#/print/${a.id}`; }),
-      (store.canUseAI() || loadScript(scriptKey(a))) && (a.questions?.length || 0) > 0 && item(ICONS.headphones, t("menu.itemTalk"), () => import("../components/talk-player.js").then((m) => m.openTalk(a), () => toast(t("common.openFailed")))),
+      VOICE_FEATURES.talk && (store.canUseAI() || loadScript(scriptKey(a))) && (a.questions?.length || 0) > 0 && item(ICONS.headphones, t("menu.itemTalk"), () => import("../components/talk-player.js").then((m) => m.openTalk(a), () => toast(t("common.openFailed")))),
       item(ICONS.share, t("menu.itemShare"), () => shareSet(a)),
       store.hasKey() && item(ICONS.spark, t("menu.itemMore"), () => { location.hash = `#/edit/${a.id}?more=1`; }),
       item(ICONS.trash, t("menu.itemDelete"), () => remove(a), true),
