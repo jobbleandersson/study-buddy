@@ -4,6 +4,8 @@
 // The set's questions are numbered F1, F2, ... and the assistant is asked to cite them as [F4]; the
 // page strips those markers from the reply and shows them as "fråga 4" tags instead.
 
+import { fence, inlineText, contentRule } from "./untrusted.js";
+
 /** Characters of material sent with every message. Each one is paid for on every turn of the chat,
  *  and a student's monthly AI allowance is finite, so this is a page or two of notes - not a book. */
 export const MATERIAL_MAX_CHARS = 8000;
@@ -59,15 +61,13 @@ export function materialSystemBlock(material) {
   return [
     "",
     "",
-    `The student has attached study material${material.title ? ` ("${material.title}")` : ""}. Answer from it; it is between the <material> tags below.`,
+    `The student has attached study material${material.title ? ` ("${inlineText(material.title)}")` : ""}. Answer from it; it is between the <material> tags below. ${contentRule("material")}`,
     isSet
       ? "It is one of their own question sets: each numbered item is a question with its answer and explanation. Right after any sentence that rests on an item, add a reference in exactly this form: [F4] (several are fine: [F4][F7]). Only use numbers that exist in the material. Never write out the whole list, and never reveal an answer the student has not tried to give in quiz-style modes."
       : "It is text the student uploaded or pasted. Do not quote long passages back.",
     "If the answer is not in the material, say so in one short sentence, then answer from general knowledge and make clear that part is not from their material.",
     "In modes that ask questions (quiz, debate), take the topics and facts from the material.",
-    "<material>",
-    material.text,
-    "</material>",
+    fence("material", material.text),
   ].join("\n");
 }
 

@@ -88,6 +88,7 @@ const APP_SHELL = [
   "./js/components/graph-calc.js",
   "./js/lib/study-modes.js",
   "./js/lib/passages.js",
+  "./js/lib/untrusted.js",
   "./js/lib/chat-history.js",
   "./js/lib/chat-material.js",
   "./js/lib/podcast.js",
