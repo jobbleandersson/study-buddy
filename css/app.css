@@ -5489,6 +5489,11 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 }
 @media (prefers-reduced-motion: reduce) { .solvehead__livedot { animation: none; } }
 .solvehead .solve-chat__reset { flex: none; }
+/* The same status as a quiet line (no pill), centred in the greeting under the intro text. */
+.solvehead__status--line {
+  justify-content: center; padding: 0; border: 0; background: none; border-radius: 0; margin: 4px 0 0; color: var(--ink-soft);
+}
+.solvehead__status[hidden] { display: none; }
 
 /* ---------- sign in / create account (#/login) ----------
    Full screen, no app shell: the form on the left, a brand panel on the right on wide screens
