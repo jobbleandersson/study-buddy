@@ -21,7 +21,7 @@ Several Claude sessions, plus the cloud sessions of a second developer, work on 
    - List what you ran, and what came out, in the PR description (the PR template has a spot for it). If the PR doesn't say, the session that merges it runs them first. Cloud sessions that can't run a skill say so in the PR.
 9. **Writing code that calls the Anthropic API** (the AI tutor, `ai-check.js`, model IDs, prompts, caching): use the `/claude-api` skill while you write it, and take model IDs from the skill, never from memory.
 10. **Keep usage low** (one Pro plan pays for every session; each tool call re-reads the whole context, so long sessions and big tool output are what drain it):
-   - Message another session only when it blocks them (the deploy lane, a conflict, a hand-off the user asked for). No status updates or acknowledgements; PR numbers and notes go in the PR description.
+   - Message another session only when it blocks them (the deploy notices in rule 4, a conflict, a hand-off the user asked for). No status updates or acknowledgements; PR numbers and notes go in the PR description.
    - Check UI with DOM and computed values first and return only a few numbers from `javascript_tool`, never big DOM or JSON dumps. Screenshots only when the layout is the question, at about 0.4-0.6 scale or zoomed to a region, and not several in one batch.
    - Fewer worktree hops inside one session: each change of working directory re-injects this file.
 
