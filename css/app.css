@@ -306,13 +306,12 @@ a.streakbadge:hover {
 .topbar__spacer { flex: 1; }
 
 .wordmark { display: inline-block; letter-spacing: -.02em; }
-/* The name itself: Lexend Bold, tight and leaning a little forward, with "Era" in the brand blue (js/lib/wordmark.js).
+/* The name itself: Lexend Bold, tight and upright, with "Era" in the brand blue (js/lib/wordmark.js).
    Used wherever "PluggEra" stands next to the logo — the sidebar, the topbar, the front page, the sign-in page, the
    footer, the welcome screen and the profile card. */
 .wordmark__text {
   display: inline-block; font-family: "Lexend", var(--font-display); font-weight: 700; letter-spacing: -.035em;
   font-size: 1.2em;   /* a touch larger than the text around it, so the name reads next to the logo */
-  transform: skewX(-8deg); padding-right: .08em;   /* the lean; the padding keeps the top of the "a" off what follows */
 }
 .wordmark__text b { font-weight: inherit; color: var(--brand-ink); }
 /* On the two panels that are a fixed dark colour in every theme: a lighter blue on the sign-in panel; on the profile card,
@@ -5464,8 +5463,8 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
    assistant is a "someone", not a form field, and this is the first thing on the page that
    says so. Reuses the mascot() component so the same face appears in the tutor and here. */
 .solvehead { display: flex; align-items: center; gap: var(--s-3); margin: 12px 0 var(--s-3); }
-/* The name on the left and the status as a pill on the right; when the row is too narrow the pill drops under the name. */
-.solvehead__id { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px var(--s-3); }
+/* The name, and under it the status as a pill. */
+.solvehead__id { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
 .solvehead__name { font-size: var(--fs-xl); margin: 0; line-height: 1.1; }
 .solvehead__tag {
   font-style: normal; font-family: var(--font-body); font-size: .5em; font-weight: 700; letter-spacing: .08em;
