@@ -1,8 +1,9 @@
 // The card-and-row building blocks shared by Settings, Klasser, Förälder / lärare
 // and Skapa, so the pages read as one product. Styles: the "Settings: cards of
-// rows" block in css/app.css (.set-*).
+// rows" block in css/app.css (.set-*), and the dialog frame (.dlghead, .dlgfoot).
 
-import { el, icon } from "../lib/dom.js";
+import { el, icon, ICONS } from "../lib/dom.js";
+import { t } from "../lib/i18n.js";
 
 /** An on/off switch. */
 export function toggle(label, on, onChange, { disabled = false } = {}) {
@@ -125,4 +126,24 @@ export function chip(text, tone) {
 export function codeField(input, button) {
   input.classList.add("set-code__input");
   return el("div.set-code", {}, [input, button]);
+}
+
+/** The top of a dialog: its title (and a line under it) on the left, a close cross on the right. */
+export function dialogHead({ title, sub = null, id, onClose }) {
+  return el("div.dlghead", {}, [
+    el("div.dlghead__txt", {}, [
+      el("h2.dlghead__title", { id }, title),
+      sub ? el("p.dlghead__sub", {}, sub) : null,
+    ]),
+    el("button.iconbtn.dlghead__x", {
+      type: "button", "aria-label": t("common.close"), title: t("common.close"), onclick: onClose,
+    }, icon(ICONS.close, 18)),
+  ]);
+}
+
+/** The bottom of a dialog: its buttons at the right, the main one last. `left` (an alternative,
+ *  or "remove") stands apart at the left. */
+export function dialogFoot(buttons, { left = null } = {}) {
+  left?.classList.add("dlgfoot__left");
+  return el("div.dlgfoot", {}, [left, ...buttons]);
 }

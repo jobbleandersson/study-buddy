@@ -6,6 +6,7 @@ import { store } from "../store.js";
 import { t, plural } from "../lib/i18n.js";
 import { extractPdfText } from "../material.js";
 import { materialFromSet, materialFromText } from "../lib/chat-material.js";
+import { dialogHead, dialogFoot } from "./set-ui.js";
 
 let dialogEl = null;
 function onEsc(e) { if (e.key === "Escape") closeMaterialPicker(); }
@@ -75,20 +76,20 @@ export function openMaterialPicker({ onPick }) {
   });
 
   dialogEl = el("div.modal", {
-    role: "dialog", "aria-modal": "true", "aria-label": t("solve.materialTitle"),
+    role: "dialog", "aria-modal": "true", "aria-labelledby": "matpick-title",
     onclick: (e) => { if (e.target === dialogEl) closeMaterialPicker(); },
   }, [
     el("div.modal__card.matpick", {}, [
-      el("h3", { style: { marginBottom: "4px" } }, t("solve.materialTitle")),
-      el("p.note", { style: { marginBottom: "12px" } }, t("solve.materialLead")),
+      dialogHead({ title: t("solve.materialTitle"), sub: t("solve.materialLead"), id: "matpick-title", onClose: closeMaterialPicker }),
       store.assignments.length > 6 ? el("div.matpick__search", {}, [icon(ICONS.search, 16), search]) : null,
       list,
       status,
       fileInput,
-      el("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap", marginTop: "12px" } }, [
-        el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => fileInput.click() }, [icon(ICONS.fileText, 16), t("solve.materialUpload")]),
-        el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: closeMaterialPicker }, t("common.cancel")),
-      ]),
+      dialogFoot([
+        el("button.btn.btn--ghost", { type: "button", onclick: closeMaterialPicker }, t("common.cancel")),
+      ], {
+        left: el("button.btn.btn--ghost", { type: "button", onclick: () => fileInput.click() }, [icon(ICONS.fileText, 16), t("solve.materialUpload")]),
+      }),
     ].filter(Boolean)),
   ]);
   document.body.appendChild(dialogEl);

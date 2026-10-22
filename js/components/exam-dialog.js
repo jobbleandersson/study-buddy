@@ -16,6 +16,7 @@ import { isHpSetId } from "../lib/hp.js";
 import { EXAM_TITLE_MAX, EXAM_NOTE_MAX } from "../lib/exam.js";
 import { parseCards, cardsToDoc } from "../lib/import.js";
 import { shrinkImage } from "../lib/photo.js";
+import { dialogHead, dialogFoot } from "./set-ui.js";
 import { generateAssignment, ClaudeError } from "../claude.js";
 import { extractPdfText, extractZipText, fitText } from "../material.js";
 
@@ -332,8 +333,8 @@ export function openExamDialog({
 
   const subjFld = subjectField({ value: subjectName, onChange: subjectChanged });
 
-  const labelled = (ico, text, control) =>
-    el("label.field", {}, [el("span.exam-dlg__label", {}, [icon(ico, 15), text]), control]);
+  const labelled = (text, control) =>
+    el("label.field", {}, [el("span.exam-dlg__label", {}, text), control]);
 
   const titleId = "exam-dlg-title";
   dialogEl = el("div.modal", {
@@ -341,37 +342,40 @@ export function openExamDialog({
     onclick: (e) => { if (e.target === dialogEl) closeExamDialog(); },
   }, [
     el("div.modal__card.exam-dlg", {}, [
-      el("h3", { id: titleId }, editing ? t("examdlg.editTitle", { subject: subjectName }) : t("examdlg.addTitleAny")),
-      el("p.note.exam-dlg__lede", {}, t("examdlg.lede")),
+      dialogHead({
+        title: editing ? t("examdlg.editTitle", { subject: subjectName }) : t("examdlg.addTitleAny"),
+        sub: t("examdlg.lede"), id: titleId, onClose: closeExamDialog,
+      }),
       el("div.exam-dlg__cols", {}, [
         el("div.exam-dlg__col", {}, [
-          el("div.field", {}, [el("div.exam-dlg__label", {}, [icon(ICONS.book, 15), t("examdlg.subject")]), subjFld.el]),
-          labelled(ICONS.pencil, t("examdlg.name"), titleInput),
+          el("div.field", {}, [el("div.exam-dlg__label", {}, t("examdlg.subject")), subjFld.el]),
+          labelled(t("examdlg.name"), titleInput),
           el("div.field", {}, [
-            el("div.exam-dlg__label.exam-dlg__label--row", {}, [el("span", {}, [icon(ICONS.layers, 15), t("examdlg.what")]), allBtn]),
+            el("div.exam-dlg__label.exam-dlg__label--row", {}, [el("span", {}, t("examdlg.what")), allBtn]),
             setsBox,
           ]),
-          labelled(ICONS.clipboard, t("examdlg.note"), noteInput),
+          labelled(t("examdlg.note"), noteInput),
         ]),
         el("div.exam-dlg__col", {}, [
           el("div.field", {}, [
-            el("div.exam-dlg__label", {}, [icon(ICONS.calendar, 15), t("examdlg.when")]),
+            el("div.exam-dlg__label", {}, t("examdlg.when")),
             picker.el,
           ]),
         ]),
       ]),
       el("section.exam-dlg__material", {}, [
-        el("div.exam-dlg__label", {}, [icon(ICONS.spark, 15), t("examdlg.materialHead")]),
+        el("div.exam-dlg__label", {}, t("examdlg.materialHead")),
         el("p.note", { style: { margin: "0 0 var(--s-3)" } }, t("examdlg.materialHelp")),
         tiles,
         panel,
       ]),
       err,
-      el("div.exam-dlg__actions", {}, [
-        el("button.btn.btn--sm", { type: "button", onclick: save }, [icon(ICONS.check, 15), t("examdlg.save")]),
-        el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: closeExamDialog }, t("common.cancel")),
-        editing ? el("button.btn.btn--ghost.btn--sm.exam-dlg__remove", { type: "button", onclick: remove }, t("examdlg.remove")) : null,
-      ].filter(Boolean)),
+      dialogFoot([
+        el("button.btn.btn--ghost", { type: "button", onclick: closeExamDialog }, t("common.cancel")),
+        el("button.btn", { type: "button", onclick: save }, [icon(ICONS.check, 15), t("examdlg.save")]),
+      ], {
+        left: editing ? el("button.btn.btn--ghost.exam-dlg__remove", { type: "button", onclick: remove }, t("examdlg.remove")) : null,
+      }),
     ]),
   ]);
   paintSets();

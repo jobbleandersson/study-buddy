@@ -12,6 +12,7 @@
 import { el } from "../lib/dom.js";
 import { t } from "../lib/i18n.js";
 import { store } from "../store.js";
+import { dialogHead, dialogFoot } from "./set-ui.js";
 
 export const AI_CONSENT_VERSION = 1;
 
@@ -55,7 +56,7 @@ export function askAiConsent() {
       onclick: (e) => { if (e.target === overlay) finish(false); },
     }, [
       el("div.modal__card.confirmdlg__card", {}, [
-        el("h2.aiconsent__title", { id: "aiconsent-title" }, t("aiConsent.title")),
+        dialogHead({ title: t("aiConsent.title"), id: "aiconsent-title", onClose: () => finish(false) }),
         el("p.confirmdlg__body", {}, t("aiConsent.body")),
         el("ul.aiconsent__list", {}, [
           el("li", {}, t("aiConsent.sendWhat")),
@@ -66,7 +67,7 @@ export function askAiConsent() {
           el("a", { href: "#/privacy", onclick: () => finish(false) }, t("aiConsent.privacyLink")),
         ]),
         el("p.aiconsent__note", {}, t("aiConsent.change")),
-        el("div.confirmdlg__actions", {}, [laterBtn, allowBtn]),
+        dialogFoot([laterBtn, allowBtn]),
       ]),
     ]);
     document.body.appendChild(overlay);

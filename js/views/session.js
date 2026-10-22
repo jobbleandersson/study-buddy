@@ -23,6 +23,7 @@ import { renderRich } from "../lib/rich.js";
 import { TutorChat } from "../components/tutor-chat.js";
 import { homeButton } from "../components/nav.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
+import { dialogHead } from "../components/set-ui.js";
 import { openReadingControls } from "../components/reading-controls.js";
 import { hasSummary, openSummary } from "../components/set-summary.js";
 import { openPopover, closePopover } from "../lib/popover.js";
@@ -1542,12 +1543,7 @@ function runSession(config) {
       onclick: (e) => { if (e.target === shortcutsEl) closeShortcuts(); },
     }, [
       el("div.modal__card.keysheet", {}, [
-        el("div.keysheet__head", {}, [
-          el("h2", { id: "keysheet-title" }, t("keys.title")),
-          el("button.iconbtn", {
-            type: "button", "aria-label": t("common.close"), title: t("common.close"), onclick: closeShortcuts,
-          }, icon(ICONS.close, 18)),
-        ]),
+        dialogHead({ title: t("keys.title"), id: "keysheet-title", onClose: closeShortcuts }),
         keyGroup(t("keys.groupAnswer"), [
           keyRow(["A", "–", "D", "|", "1", "–", "4"], t("keys.pick")),
           keyRow(["Enter"], t("keys.enter")),

@@ -11,6 +11,7 @@ import { el, icon, ICONS, toast } from "../lib/dom.js";
 import { t } from "../lib/i18n.js";
 import { datePicker } from "./calendar.js";
 import { localDayKey } from "../lib/activity.js";
+import { dialogHead, dialogFoot } from "./set-ui.js";
 
 let dialogEl = null;
 function onEsc(e) { if (e.key === "Escape") closeDueDialog(); }
@@ -61,24 +62,22 @@ export function openDueDialog(a, { onSaved, defaultTest = false } = {}) {
   }
 
   dialogEl = el("div.modal", {
-    role: "dialog", "aria-modal": "true", "aria-label": t("due.title"),
+    role: "dialog", "aria-modal": "true", "aria-labelledby": "due-title",
     onclick: (e) => { if (e.target === dialogEl) closeDueDialog(); },
   }, [
     el("div.modal__card", {}, [
-      el("h3", { style: { marginBottom: "6px" } }, t("due.title")),
-      el("p.note", { style: { marginBottom: "14px" } }, t("due.body", { title: a.title })),
+      dialogHead({ title: t("due.title"), sub: t("due.body", { title: a.title }), id: "due-title", onClose: closeDueDialog }),
       picker.el,
       el("label.due-dialog__test", {}, [
         testToggle,
         el("span", {}, [icon(ICONS.graduation, 15), t("due.markTest")]),
       ]),
-      el("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap", marginTop: "14px" } }, [
-        el("button.btn.btn--sm", { type: "button", onclick: save }, t("due.save")),
-        a.dueAt && el("button.btn.btn--ghost.btn--sm", {
-          type: "button", style: { color: "var(--retry-ink)" }, onclick: clearDate,
-        }, t("due.clear")),
-        el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: closeDueDialog }, t("common.cancel")),
-      ].filter(Boolean)),
+      dialogFoot([
+        el("button.btn.btn--ghost", { type: "button", onclick: closeDueDialog }, t("common.cancel")),
+        el("button.btn", { type: "button", onclick: save }, t("due.save")),
+      ], {
+        left: a.dueAt ? el("button.btn.btn--ghost", { type: "button", style: { color: "var(--retry-ink)" }, onclick: clearDate }, t("due.clear")) : null,
+      }),
     ]),
   ]);
   document.body.appendChild(dialogEl);

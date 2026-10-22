@@ -4,9 +4,10 @@
 // working. The upgrade button only exists when the server hands out a
 // premiumUrl (PREMIUM_URL in server/.env); without one it's a plain notice.
 
-import { el, icon, ICONS } from "../lib/dom.js";
+import { el } from "../lib/dom.js";
 import { store } from "../store.js";
 import { t, getLang } from "../lib/i18n.js";
+import { dialogHead, dialogFoot } from "./set-ui.js";
 
 let showing = false;
 
@@ -43,11 +44,10 @@ export function showUpgradePrompt({ resetsAt = null } = {}) {
     onclick: (e) => { if (e.target === overlay) close(); },
   }, [
     el("div.modal__card.upgradedlg", {}, [
-      el("div.upgradedlg__icon", {}, [icon(ICONS.spark, 22)]),
-      el("h2.upgradedlg__title", { id: "upgrade-title" }, t("upgrade.title")),
+      dialogHead({ title: t("upgrade.title"), id: "upgrade-title", onClose: close }),
       el("p.upgradedlg__body", {}, date ? t("upgrade.body", { date }) : t("upgrade.bodyNoDate")),
       hasUpgrade ? el("p.upgradedlg__need", {}, t("upgrade.need")) : null,
-      el("div.upgradedlg__actions", {}, [dismiss, cta].filter(Boolean)),
+      dialogFoot([dismiss, cta].filter(Boolean)),
     ].filter(Boolean)),
   ]);
 

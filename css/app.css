@@ -2924,15 +2924,11 @@ body.route-chat .sitechat__panel { display: none; }
 
 /* "Lägg till prov" dialog. */
 .modal__card.exam-dlg { max-width: 880px; max-height: calc(100dvh - 32px); overflow-y: auto; }
-.exam-dlg h3 { margin: 0; }
-.exam-dlg__lede { margin: 4px 0 0; }
 .exam-dlg__label {
   display: flex; align-items: center; gap: 6px; margin: var(--s-4) 0 var(--s-2);
   font-size: var(--fs-sm); font-weight: 700; color: var(--ink);
 }
-.exam-dlg__label svg { color: var(--ink-faint); }
 .exam-dlg__label--row { justify-content: space-between; }
-.exam-dlg__label--row > span { display: inline-flex; align-items: center; gap: 6px; }
 .exam-dlg__all { font-size: var(--fs-sm); font-weight: 600; }
 .exam-dlg__sets {
   display: flex; flex-direction: column; gap: 2px; max-height: 240px; overflow-y: auto;
@@ -2948,8 +2944,11 @@ body.route-chat .sitechat__panel { display: none; }
 .exam-dlg__n { flex: none; font-size: calc(12px * var(--fs-scale, 1)); color: var(--ink-faint); }
 .exam-dlg__err { margin: var(--s-2) 0 0; font-size: var(--fs-sm); font-weight: 600; color: var(--retry-ink); }
 .exam-dlg__err:empty { display: none; }
-.exam-dlg__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: var(--s-4); }
-.exam-dlg__remove { margin-left: auto; color: var(--retry-ink); }
+.exam-dlg > .dlgfoot {
+  position: sticky; bottom: calc(-1 * var(--s-5)); z-index: 1;
+  margin-bottom: calc(-1 * var(--s-5)); padding-bottom: var(--s-5); background: var(--surface);
+}
+.exam-dlg__remove { color: var(--retry-ink); }
 
 @media (max-width: 700px) {
   .exam-hero { grid-template-columns: minmax(0, 1fr); padding: var(--s-4); gap: var(--s-4); }
@@ -4111,13 +4110,31 @@ summary.gcalc__label:focus-visible { outline: none; box-shadow: var(--ring); bor
   border-radius: var(--r-lg); box-shadow: var(--shadow-2);
   padding: var(--s-5); max-width: 420px; width: 100%;
 }
+/* The frame every dialog shares (dialogHead / dialogFoot in components/set-ui.js): the title and a
+   close cross at the top, the buttons at the bottom right with the main one last. */
+.dlghead { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--s-3); margin-bottom: var(--s-4); }
+.dlghead__txt { min-width: 0; }
+.dlghead__title {
+  margin: 0; font-family: var(--font-display); font-size: var(--fs-lg); font-weight: 700;
+  line-height: 1.3; letter-spacing: -.01em; text-wrap: balance;
+}
+.dlghead__sub { margin: 4px 0 0; font-size: var(--fs-sm); line-height: 1.45; color: var(--ink-soft); }
+.iconbtn.dlghead__x { width: 34px; height: 34px; margin: -4px -6px 0 0; border-color: transparent; background: none; }
+.iconbtn.dlghead__x:hover { background: var(--surface-sunk); }
+.dlgfoot {
+  display: flex; justify-content: flex-end; align-items: center; flex-wrap: wrap; gap: var(--s-2);
+  margin-top: var(--s-5); padding-top: var(--s-4); border-top: 1px solid var(--line);
+}
+.dlgfoot__left { margin-right: auto; }
+/* Phones: buttons wide enough to hit with a thumb, sharing the row; an alternative gets a row of its own. */
+@media (max-width: 480px) {
+  .dlgfoot .btn { flex: 1 1 auto; justify-content: center; }
+  .dlgfoot .dlgfoot__left { flex-basis: 100%; margin-right: 0; }
+}
+
 /* The shortcuts themselves: grouped lists, what a key does on the left and the key on the right. */
 .modal__card.keysheet { max-width: 460px; }
-.keysheet__head { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); }
-.keysheet__head h2 { margin: 0; font-size: var(--fs-lg); letter-spacing: -.01em; }
-.keysheet__head .iconbtn { width: 34px; height: 34px; margin: -4px -6px -4px 0; border-color: transparent; background: none; }
-.keysheet__head .iconbtn:hover { background: var(--surface-sunk); }
-.keysheet__group { margin-top: var(--s-4); }
+.keysheet__group + .keysheet__group { margin-top: var(--s-4); }
 .keysheet__label { margin: 0 0 var(--s-2); font-size: calc(12.5px * var(--fs-scale, 1)); font-weight: 600; color: var(--ink-faint); }
 .keysheet__list { margin: 0; border: 1px solid var(--line); border-radius: var(--r-md); }
 .keysheet__row {
@@ -4158,8 +4175,8 @@ summary.gcalc__label:focus-visible { outline: none; box-shadow: var(--ring); bor
 /* "This is a test" toggle in the Deadline dialog. */
 .due-dialog__test { display: flex; align-items: flex-start; gap: var(--s-2); margin-top: var(--s-3); font-size: var(--fs-sm); color: var(--ink-soft); cursor: pointer; }
 .due-dialog__test input { margin-top: 2px; flex: none; }
-.due-dialog__test span { display: flex; align-items: center; gap: 6px; }
-.due-dialog__test svg { flex: none; color: var(--ink-faint); }
+.due-dialog__test span { display: flex; align-items: flex-start; gap: 6px; }
+.due-dialog__test svg { flex: none; margin-top: 2px; color: var(--ink-faint); }
 
 /* Centred yes/no dialog — replaces window.confirm. */
 .confirmdlg__card { max-width: 400px; }
@@ -4235,15 +4252,8 @@ html[lang="sv"] .skiplink [lang="en"], html[lang="en"] .skiplink [lang="sv"] { d
 
 /* "You've used this month's AI allowance" prompt. */
 .upgradedlg { max-width: 400px; }
-.upgradedlg__icon {
-  width: 40px; height: 40px; display: grid; place-items: center; margin-bottom: var(--s-3);
-  border-radius: var(--r-md); background: var(--brand-tint); color: var(--brand);
-}
-.upgradedlg__title { margin: 0; font-family: var(--font-display); font-size: var(--fs-lg); line-height: 1.3; }
-.upgradedlg__body { margin: var(--s-2) 0 0; color: var(--ink-soft); font-size: var(--fs-sm); line-height: 1.5; }
+.upgradedlg__body { margin: 0; color: var(--ink-soft); font-size: var(--fs-sm); line-height: 1.5; }
 .upgradedlg__need { margin: var(--s-4) 0 0; font-weight: 700; font-size: var(--fs-sm); }
-.upgradedlg__actions { display: flex; justify-content: flex-end; gap: var(--s-3); margin-top: var(--s-5); flex-wrap: wrap; }
-.upgradedlg__actions .btn { flex: 1 1 auto; justify-content: center; min-width: 120px; }
 kbd {
   font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: calc(12px * var(--fs-scale, 1));
   background: var(--surface); background: color-mix(in srgb, var(--ink) 20%, var(--surface));
@@ -4628,7 +4638,7 @@ body:has(.hp-intro) .session__headright > .btn { display: none; }
   padding: 1px 8px; border-radius: var(--r-full); font-size: calc(12px * var(--fs-scale, 1)); font-weight: 700;
   background: var(--brand-tint); color: var(--brand-ink);
 }
-.quickadd__close { align-self: flex-start; }
+.quickadd__close { align-self: flex-start; margin: 0 -6px 0 0; }
 
 .quickadd__body { display: grid; gap: var(--s-4); padding: var(--s-4) var(--s-5) var(--s-5); }
 .quickadd__field { display: grid; gap: var(--s-2); min-width: 0; }
@@ -4673,15 +4683,10 @@ body:has(.hp-intro) .session__headright > .btn { display: none; }
 .quickadd__type[aria-checked="true"] .quickadd__typeic { background: var(--brand); color: #fff; }
 .quickadd__type[aria-checked="true"] .quickadd__check { opacity: 1; transform: none; }
 
-.quickadd__foot {
-  display: flex; justify-content: flex-end; gap: var(--s-2); flex-wrap: wrap;
-  padding: var(--s-3) var(--s-5); border-top: 1px solid var(--line); background: var(--surface-sunk);
-}
+.quickadd__foot { margin-top: 0; padding: var(--s-4) var(--s-5); }
 @media (max-width: 420px) {
   .quickadd__head, .quickadd__body { padding-inline: var(--s-4); }
   .quickadd__foot { padding-inline: var(--s-4); }
-  .quickadd__foot .btn { white-space: nowrap; }
-  .quickadd__foot .btn:last-child { flex: 1; justify-content: center; }
   .quickadd__typetxt small { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .quickadd { animation: none; } }
@@ -7046,15 +7051,9 @@ html { scroll-padding-top: 80px; }
 
 /* ---- "Before you use the AI features" (components/ai-consent.js) ---- */
 .aiconsent .confirmdlg__card { max-width: 440px; }
-.aiconsent__title { margin: 0 0 var(--s-2); font-size: var(--fs-lg); line-height: 1.3; text-wrap: balance; hyphens: manual; }
 .aiconsent .confirmdlg__body { font-family: inherit; font-weight: 400; font-size: var(--fs-md); line-height: 1.5; color: var(--ink-soft); }
 .aiconsent__list { margin: var(--s-3) 0 0; padding-left: 1.2em; display: grid; gap: 6px; font-size: var(--fs-sm); line-height: 1.45; color: var(--ink); }
 .aiconsent__note { margin: var(--s-3) 0 0; font-size: var(--fs-sm); line-height: 1.45; color: var(--ink-soft); }
-@media (max-width: 620px) {
-  .aiconsent .confirmdlg__actions { display: grid; grid-template-columns: minmax(0, 1fr); }
-  .aiconsent .confirmdlg__actions .btn { justify-content: center; min-height: 48px; }
-  .aiconsent .confirmdlg__actions .btn:not(.btn--ghost) { order: -1; }
-}
 
 /* ---- "Rapportera" under an AI answer, and its dialog (components/ai-report.js) ---- */
 .aireport {

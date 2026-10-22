@@ -105,17 +105,17 @@ export function openQuickAdd(dayKey, { onDone } = {}) {
             when ? el("span.quickadd__when", {}, when) : null,
           ].filter(Boolean)),
         ]),
-        el("button.iconbtn.iconbtn--sm.quickadd__close", { type: "button", "aria-label": t("common.close"), title: t("common.close"), onclick: close },
-          [icon(ICONS.close, 16)]),
+        el("button.iconbtn.dlghead__x.quickadd__close", { type: "button", "aria-label": t("common.close"), title: t("common.close"), onclick: close },
+          [icon(ICONS.close, 18)]),
       ]),
       el("div.quickadd__body", {}, [
         el("div.quickadd__field", {}, [el("label", { for: "quickadd-title" }, t("quickadd.titleLabel")), titleInput]),
         el("div.quickadd__field", {}, [el("span.quickadd__label", {}, t("create.type")), typeRow]),
         el("div.quickadd__field", {}, [el("span.quickadd__label", {}, t("create.subject")), subjectFld.el]),
       ]),
-      el("footer.quickadd__foot", {}, [
-        el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: close }, t("common.cancel")),
-        el("button.btn.btn--sm", { type: "button", onclick: create }, [icon(ICONS.plus, 16), t("quickadd.create")]),
+      el("footer.dlgfoot.quickadd__foot", {}, [
+        el("button.btn.btn--ghost", { type: "button", onclick: close }, t("common.cancel")),
+        el("button.btn", { type: "button", onclick: create }, [icon(ICONS.plus, 16), t("quickadd.create")]),
       ]),
     ]),
   ]);
