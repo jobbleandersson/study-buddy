@@ -10,6 +10,7 @@ import { el } from "../lib/dom.js";
 import { passwordField } from "./password-field.js";
 import { t } from "../lib/i18n.js";
 import { renderGoogleButton } from "./google-signin.js";
+import { dialogHead, dialogFoot } from "./set-ui.js";
 
 export function setPasswordDialog() {
   return new Promise((resolve) => {
@@ -26,7 +27,8 @@ export function setPasswordDialog() {
       if (e.key === "Escape") { e.stopPropagation(); if (!busy) close(false); }
     }
 
-    const overlay = el("div.modal.confirmdlg", { role: "alertdialog", "aria-modal": "true", "aria-label": t("setpw.title") });
+    const head = (sub) => dialogHead({ title: t("setpw.title"), sub, id: "setpw-title", onClose: () => { if (!busy) close(false); } });
+    const overlay = el("div.modal.confirmdlg", { role: "alertdialog", "aria-modal": "true", "aria-labelledby": "setpw-title" });
     document.body.appendChild(overlay);
     document.addEventListener("keydown", onKey, true);
     paintConfirm();
@@ -34,12 +36,11 @@ export function setPasswordDialog() {
     function paintConfirm() {
       const card = el("div.modal__card.confirmdlg__card");
       overlay.replaceChildren(card);
-      card.appendChild(el("p.confirmdlg__body", {}, t("setpw.title")));
-      card.appendChild(el("p.confirmdlg__note", {}, t("setpw.confirmIntro")));
+      card.appendChild(head(t("setpw.confirmIntro")));
 
       if (!store.googleClientId) {
         card.appendChild(el("p.note.note--warn", { role: "alert" }, t("setpw.googleUnavailable")));
-        card.appendChild(el("div.confirmdlg__actions", {}, [
+        card.appendChild(dialogFoot([
           el("button.btn.btn--ghost", { type: "button", onclick: () => close(false) }, t("common.close")),
         ]));
         return;
@@ -50,7 +51,7 @@ export function setPasswordDialog() {
       const cancelBtn = el("button.btn.btn--ghost", { type: "button", onclick: () => close(false) }, t("common.cancel"));
       card.appendChild(googleBox);
       card.appendChild(err);
-      card.appendChild(el("div.confirmdlg__actions", {}, [cancelBtn]));
+      card.appendChild(dialogFoot([cancelBtn]));
       renderGoogleButton(googleBox, { clientId: store.googleClientId, mode: "signin", handler: (credential) => paintPassword(credential) })
         .then((ok) => { if (!ok) err.hidden = false; });
     }
@@ -83,13 +84,12 @@ export function setPasswordDialog() {
         }
       }
 
-      card.appendChild(el("p.confirmdlg__body", {}, t("setpw.title")));
-      card.appendChild(el("p.confirmdlg__note", {}, t("setpw.passwordIntro")));
+      card.appendChild(head(t("setpw.passwordIntro")));
       card.appendChild(el("form.confirmdlg__card", { onsubmit: submit }, [
         el("label.field", {}, [el("span", {}, t("setpw.newPassword")), passwordField(passwordInput)]),
         el("label.field", {}, [el("span", {}, t("login.confirmPassword")), passwordField(confirmInput)]),
         err,
-        el("div.confirmdlg__actions", {}, [cancelBtn, confirmBtn]),
+        dialogFoot([cancelBtn, confirmBtn]),
       ]));
       passwordInput.focus();
     }

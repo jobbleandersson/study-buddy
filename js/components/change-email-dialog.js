@@ -7,6 +7,7 @@ import { store } from "../store.js";
 import { el } from "../lib/dom.js";
 import { passwordField } from "./password-field.js";
 import { t } from "../lib/i18n.js";
+import { dialogHead, dialogFoot } from "./set-ui.js";
 
 export function changeEmailDialog() {
   return new Promise((resolve) => {
@@ -51,16 +52,15 @@ export function changeEmailDialog() {
     }
 
     const overlay = el("div.modal.confirmdlg", {
-      role: "alertdialog", "aria-modal": "true", "aria-label": t("emailchange.title"),
+      role: "alertdialog", "aria-modal": "true", "aria-labelledby": "emailchange-title",
       onclick: (e) => { if (e.target === overlay && !confirmBtn.disabled) close(false); },
     }, [
       el("form.modal__card.confirmdlg__card", { onsubmit: onSubmit }, [
-        el("p.confirmdlg__body", {}, t("emailchange.title")),
-        el("p.confirmdlg__note", {}, t("emailchange.intro")),
-        el("label.field", { style: { margin: "12px 0 0" } }, [el("span", {}, t("emailchange.new")), next]),
+        dialogHead({ title: t("emailchange.title"), sub: t("emailchange.intro"), id: "emailchange-title", onClose: () => { if (!busy) close(false); } }),
+        el("label.field", {}, [el("span", {}, t("emailchange.new")), next]),
         el("label.field", {}, [el("span", {}, t("emailchange.password")), passwordField(password)]),
         err,
-        el("div.confirmdlg__actions", {}, [cancelBtn, confirmBtn]),
+        dialogFoot([cancelBtn, confirmBtn]),
       ]),
     ]);
 

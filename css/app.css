@@ -4190,6 +4190,8 @@ summary.gcalc__label:focus-visible { outline: none; box-shadow: var(--ring); bor
   font-size: var(--fs-sm); line-height: 1.4;
 }
 .confirmdlg--danger .confirmdlg__note, .confirmdlg--warn .confirmdlg__note { background: var(--retry-tint); color: var(--retry-ink); }
+/* A warning straight under a dialog's title ("Radera konto"): the title row already spaces it. */
+.dlghead + .confirmdlg__note { margin-top: 0; }
 .confirmdlg__actions {
   display: flex; justify-content: flex-end; gap: var(--s-3);
   margin-top: var(--s-5); flex-wrap: wrap;

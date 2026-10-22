@@ -10,6 +10,7 @@
 import { el } from "../lib/dom.js";
 import { passwordField } from "./password-field.js";
 import { t } from "../lib/i18n.js";
+import { dialogHead, dialogFoot } from "./set-ui.js";
 
 export function passwordConfirmDialog({ title, body, confirmLabel, submit }) {
   return new Promise((resolve) => {
@@ -51,18 +52,17 @@ export function passwordConfirmDialog({ title, body, confirmLabel, submit }) {
     }
 
     const overlay = el("div.modal.confirmdlg", {
-      role: "alertdialog", "aria-modal": "true", "aria-label": title,
+      role: "alertdialog", "aria-modal": "true", "aria-labelledby": "pwconfirm-title",
       onclick: (e) => { if (e.target === overlay && !confirmBtn.disabled) close(false); },
     }, [
       el("form.modal__card.confirmdlg__card", { onsubmit: onSubmit }, [
-        el("p.confirmdlg__body", {}, title),
-        el("p.confirmdlg__note", {}, body),
-        el("label.field", { style: { margin: "12px 0 0" } }, [
+        dialogHead({ title, sub: body, id: "pwconfirm-title", onClose: () => { if (!busy) close(false); } }),
+        el("label.field", {}, [
           el("span", {}, t("login.password")),
           passwordField(input),
         ]),
         err,
-        el("div.confirmdlg__actions", {}, [cancelBtn, confirmBtn]),
+        dialogFoot([cancelBtn, confirmBtn]),
       ]),
     ]);
 

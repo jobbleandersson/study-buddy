@@ -7,6 +7,7 @@ import { store } from "../store.js";
 import { el } from "../lib/dom.js";
 import { passwordField } from "./password-field.js";
 import { t } from "../lib/i18n.js";
+import { dialogHead, dialogFoot } from "./set-ui.js";
 
 export function changePasswordDialog() {
   return new Promise((resolve) => {
@@ -52,17 +53,16 @@ export function changePasswordDialog() {
     }
 
     const overlay = el("div.modal.confirmdlg", {
-      role: "alertdialog", "aria-modal": "true", "aria-label": t("pwchange.title"),
+      role: "alertdialog", "aria-modal": "true", "aria-labelledby": "pwchange-title",
       onclick: (e) => { if (e.target === overlay && !confirmBtn.disabled) close(false); },
     }, [
       el("form.modal__card.confirmdlg__card", { onsubmit: onSubmit }, [
-        el("p.confirmdlg__body", {}, t("pwchange.title")),
-        el("p.confirmdlg__note", {}, t("pwchange.intro")),
-        el("label.field", { style: { margin: "12px 0 0" } }, [el("span", {}, t("pwchange.current")), passwordField(current)]),
+        dialogHead({ title: t("pwchange.title"), sub: t("pwchange.intro"), id: "pwchange-title", onClose: () => { if (!busy) close(false); } }),
+        el("label.field", {}, [el("span", {}, t("pwchange.current")), passwordField(current)]),
         el("label.field", {}, [el("span", {}, t("pwchange.new")), passwordField(next)]),
         el("label.field", {}, [el("span", {}, t("login.confirmPassword")), passwordField(again)]),
         err,
-        el("div.confirmdlg__actions", {}, [cancelBtn, confirmBtn]),
+        dialogFoot([cancelBtn, confirmBtn]),
       ]),
     ]);
 

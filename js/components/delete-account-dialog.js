@@ -7,6 +7,7 @@ import { store } from "../store.js";
 import { el } from "../lib/dom.js";
 import { passwordField } from "./password-field.js";
 import { t } from "../lib/i18n.js";
+import { dialogHead, dialogFoot } from "./set-ui.js";
 
 export function deleteAccountDialog() {
   return new Promise((resolve) => {
@@ -52,18 +53,18 @@ export function deleteAccountDialog() {
     }
 
     const overlay = el("div.modal.confirmdlg.confirmdlg--danger", {
-      role: "alertdialog", "aria-modal": "true", "aria-label": t("set.acctDeleteTitle"),
+      role: "alertdialog", "aria-modal": "true", "aria-labelledby": "acctdelete-title",
       onclick: (e) => { if (e.target === overlay && !confirmBtn.disabled) close(false); },
     }, [
       el("form.modal__card.confirmdlg__card", { onsubmit: submit }, [
-        el("p.confirmdlg__body", {}, t("set.acctDeleteTitle")),
+        dialogHead({ title: t("set.acctDeleteTitle"), id: "acctdelete-title", onClose: () => { if (!busy) close(false); } }),
         el("p.confirmdlg__note", {}, t("set.acctDeleteBody")),
-        el("label.field", { style: { margin: "12px 0 0" } }, [
+        el("label.field", {}, [
           el("span", {}, t(passwordless ? "set.acctDeleteEmailLabel" : "set.acctDeletePasswordLabel")),
           passwordless ? input : passwordField(input),
         ]),
         err,
-        el("div.confirmdlg__actions", {}, [cancelBtn, confirmBtn]),
+        dialogFoot([cancelBtn, confirmBtn]),
       ]),
     ]);
 

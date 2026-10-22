@@ -9,6 +9,7 @@ import { store } from "../store.js";
 import { el, toast, icon, ICONS } from "../lib/dom.js";
 import { passwordField } from "./password-field.js";
 import { t } from "../lib/i18n.js";
+import { dialogHead, dialogFoot } from "./set-ui.js";
 
 async function copyText(text) {
   try { await navigator.clipboard.writeText(text); toast(t("common.copied")); return true; }
@@ -34,7 +35,8 @@ export function twofaSetupDialog() {
       if (e.key === "Escape") { e.stopPropagation(); if (!busy) close(false); }
     }
 
-    const overlay = el("div.modal.confirmdlg", { role: "alertdialog", "aria-modal": "true", "aria-label": t("twofa.setupTitle") });
+    const head = (sub) => dialogHead({ title: t("twofa.setupTitle"), sub, id: "twofa-title", onClose: () => { if (!busy) close(false); } });
+    const overlay = el("div.modal.confirmdlg", { role: "alertdialog", "aria-modal": "true", "aria-labelledby": "twofa-title" });
     document.body.appendChild(overlay);
     document.addEventListener("keydown", onKey, true);
     if (store.emailConfigured) paintEmail(); else paintTotp();
@@ -113,14 +115,12 @@ export function twofaSetupDialog() {
         }
       }
 
-      card.appendChild(el("p.confirmdlg__body", {}, t("twofa.setupTitle")));
-      card.appendChild(el("p.confirmdlg__note", {}, t("twofa.emailIntro")));
+      card.appendChild(head(t("twofa.emailIntro")));
       card.appendChild(el("form.confirmdlg__card", { onsubmit: send }, [
         el("label.field", {}, [el("span", {}, t("login.password")), passwordField(passwordInput)]),
         codeRow,
         err,
-        el("div.confirmdlg__actions", {}, [cancelBtn, sendBtn, confirmBtn]),
-        appLink,
+        dialogFoot([cancelBtn, sendBtn, confirmBtn], { left: appLink }),
       ]));
       passwordInput.focus();
     }
@@ -130,20 +130,21 @@ export function twofaSetupDialog() {
       clearInterval(timer);
       const card = el("div.modal__card.confirmdlg__card");
       overlay.replaceChildren(card);
-      card.appendChild(el("p.confirmdlg__body", {}, t("twofa.setupTitle")));
+      const loadingHead = head(null);
+      card.appendChild(loadingHead);
 
       let setup;
       try {
         setup = await store.setup2fa({ method: "totp" });
       } catch (ex) {
         card.appendChild(el("p.note.note--warn", { role: "alert" }, ex.message || t("login.somethingWrong")));
-        card.appendChild(el("div.confirmdlg__actions", {}, [
+        card.appendChild(dialogFoot([
           el("button.btn.btn--ghost", { type: "button", onclick: () => close(false) }, t("common.close")),
         ]));
         return;
       }
 
-      card.appendChild(el("p.confirmdlg__note", {}, t("twofa.setupIntro")));
+      loadingHead.replaceWith(head(t("twofa.setupIntro")));
 
       const secretInput = el("input", { type: "text", readonly: true, value: setup.secret, "aria-label": t("twofa.secretLabel") });
       const copySecretBtn = el("button.iconbtn", { type: "button", "aria-label": t("common.copy"), onclick: async () => {
@@ -184,9 +185,10 @@ export function twofaSetupDialog() {
         el("label.field", { style: { marginTop: "var(--s-3)" } }, [el("span", {}, t("login.password")), passwordField(passwordInput)]),
         el("label.field", {}, [el("span", {}, t("twofa.enterCode")), codeInput]),
         err,
-        el("div.confirmdlg__actions", {}, [cancelBtn, confirmBtn]),
-        store.emailConfigured ? el("button.linkbtn", { type: "button", onclick: () => paintEmail() }, t("twofa.useEmail")) : null,
-      ].filter(Boolean)));
+        dialogFoot([cancelBtn, confirmBtn], {
+          left: store.emailConfigured ? el("button.linkbtn", { type: "button", onclick: () => paintEmail() }, t("twofa.useEmail")) : null,
+        }),
+      ]));
       passwordInput.focus();
     }
   });
