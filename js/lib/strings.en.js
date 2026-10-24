@@ -55,6 +55,7 @@ export default {
   "menu.morning": "Good morning",
   "menu.afternoon": "Good afternoon",
   "menu.evening": "Good evening",
+  "menu.night": "Up late",
   "menu.askToday": "What do you want to study today?",
   "menu.pickCreateSub": "From notes, a photo or a PDF",
   "menu.pickLibrarySub": "Hundreds of ready-made sets",

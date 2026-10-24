@@ -927,8 +927,8 @@ function ring(v, color) {
 }
 
 function greeting() {
-  const h = new Date().getHours();
-  const hello = t(h < 12 ? "menu.morning" : h < 18 ? "menu.afternoon" : "menu.evening");
+  // The same hours as the background behind it: not "Good morning" at three at night.
+  const hello = t({ morning: "menu.morning", day: "menu.afternoon", evening: "menu.evening", night: "menu.night" }[daypart()]);
   const name = store.profile?.name;   // from the welcome quiz — see components/onboarding.js
   return name ? `${hello}, ${name}` : hello;
 }
