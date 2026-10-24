@@ -252,8 +252,8 @@ export function renderSolve(qs) {
       refs.inputEl.setSelectionRange(refs.inputEl.value.length, refs.inputEl.value.length);
     }) }, [icon(ICONS.layers, 16), el("span.chatmode__label", {}, t("solve.start.set"))]);
     const mark = mode
-      ? el("span.ai-tile", { style: { "--s": "52px" }, "aria-hidden": "true" }, icon(ICONS[mode.icon] || ICONS.spark, 26))
-      : aiTile(52);
+      ? el("span.ai-tile", { style: { "--s": "60px" }, "aria-hidden": "true" }, icon(ICONS[mode.icon] || ICONS.spark, 30))
+      : aiTile(60);
     mark.classList.add("solve-hero__mark");
     refs.hero = el("div.solve-hero", {}, [
       mark,

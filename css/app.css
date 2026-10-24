@@ -5964,6 +5964,30 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 /* Before the first message the log grows with the greeting instead of scrolling inside itself. */
 .solve:not(.is-chatting) .solve-chat__log { overflow: visible; min-height: 0; flex: 1 0 auto; }
 .solve-hero__mark { margin-bottom: 6px; }
+/* Computers: the greeting's tile keeps its shine (a soft blue-to-violet gradient with a light top edge) and a
+   slow, soft glow breathing behind it. The small marks everywhere else stay flat. */
+@media (min-width: 900px) {
+  .solve-hero { position: relative; isolation: isolate; }
+  .solve-hero::before {
+    content: ""; position: absolute; z-index: -1; top: 0; left: 50%; width: min(360px, 100%); height: 220px; pointer-events: none;
+    transform: translate(-50%, -26%);
+    background:
+      radial-gradient(48% 48% at 40% 50%, color-mix(in srgb, var(--brand) 30%, transparent), transparent 72%),
+      radial-gradient(42% 44% at 64% 44%, color-mix(in srgb, #7650FF 24%, transparent), transparent 72%);
+    filter: blur(22px);
+    animation: solve-breathe 7s ease-in-out infinite alternate;
+  }
+  .solve-hero__mark.ai-tile {
+    border-radius: 18px;
+    background: linear-gradient(140deg, color-mix(in oklab, var(--brand) 78%, #fff), var(--brand) 48%, color-mix(in oklab, var(--brand) 55%, #7650FF));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 12px 30px -12px color-mix(in srgb, var(--brand) 75%, transparent);
+  }
+}
+@keyframes solve-breathe {
+  from { opacity: .6; transform: translate(-50%, -26%) scale(.94); }
+  to   { opacity: 1;  transform: translate(-50%, -26%) scale(1.06); }
+}
+@media (prefers-reduced-motion: reduce) { .solve-hero::before { animation: none; } }
 .solve-hero__title {
   margin: 0; font-family: var(--font-display); font-size: clamp(1.4rem, 2vw, 1.8rem);
   letter-spacing: -.02em; line-height: 1.2; color: var(--ink); text-wrap: balance;
