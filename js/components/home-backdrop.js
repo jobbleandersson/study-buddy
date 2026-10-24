@@ -7,7 +7,7 @@
 
 import { el } from "../lib/dom.js";
 
-/** "morning" 05-12, "day" 12-18, "evening" 18-22, "night" 22-05: the greeting's hours, plus night. */
+/** "morning" 05-12, "day" 12-18, "evening" 18-22, "night" 22-05: the background's hours and the greeting's (menu.js). */
 export function daypart(h = new Date().getHours()) {
   if (h >= 5 && h < 12) return "morning";
   if (h >= 12 && h < 18) return "day";
