@@ -1,13 +1,13 @@
-// The AI's avatar — the tutor in a set, the PluggEra AI page header, the help chat: the same sparkle
-// tile as the AI page's hero (css: .ai-tile), not a cartoon face. Mood still comes through, just as a
+// The AI's avatar — the tutor in a set, the PluggEra AI page header, the help chat: the AI's tile
+// (ai-mark.js, css: .ai-tile), not a cartoon face. Mood still comes through, just as a
 // subtle status dot (like an online/typing indicator) rather than an expression change, and while the
 // AI is thinking the tile slowly pulses (and a halo behind it, where the container has one, speeds up).
 // mascot(mood, size) -> HTMLElement ;  setMood(el, mood)
 //
-// The glyph is the app's AI sparkles (ICONS.spark), so the tutor wears the same mark as
-// "PluggEra AI" in the menu and on the home page.
+// The glyph is the AI's star (ai-mark.js), so the tutor wears the same mark as "PluggEra AI" in the
+// menu and on the home page.
 
-import { ICONS } from "../lib/dom.js";
+import { aiGlyphSvg } from "./ai-mark.js";
 
 const DOT = {
   thinking:  { color: "var(--ink-faint)", pulse: true },
@@ -22,9 +22,7 @@ export function mascot(mood = "idle", size = 40) {
   wrap.setAttribute("role", "img");
   wrap.setAttribute("aria-label", "PluggEra");
   wrap.innerHTML = `
-    <span class="ai-tile" style="--s:${size}px" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${ICONS.spark}"/></svg>
-    </span>
+    <span class="ai-tile" style="--s:${size}px" aria-hidden="true">${aiGlyphSvg()}</span>
     <i class="mascot__dot"></i>`;
   setMood(wrap, mood);
   return wrap;

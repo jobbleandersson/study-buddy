@@ -34,9 +34,10 @@ import { STUDY_MODES, isStudyMode, trimHistory, MAX_INPUT_CHARS } from "../lib/s
 import { t, plural } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { bindFileTargets } from "../components/file-drop.js";
-import { solveTabs } from "../components/solve-tabs.js";
 import { aiQuotaNote } from "../components/ai-gate.js";
 import { aiHead } from "../components/ai-head.js";
+import { aiTile } from "../components/ai-mark.js";
+import { openPopover, closePopover } from "../lib/popover.js";
 import { setMood } from "../components/mascot.js";
 import { openMaterialPicker } from "../components/material-picker.js";
 import { chatHistoryPanel } from "../components/chat-history-panel.js";
@@ -51,6 +52,9 @@ import { aiReportButton } from "../components/ai-report.js";
  *  sent to the model is never truncated, only what's shown (a page of notes shouldn't make
  *  the transcript unscrollable). */
 const ECHO_CHARS = 600;
+
+/** Signed out, every way in leads here: the sign-in page, then back to the chat. */
+const SIGN_IN_HREF = `#/login?next=${encodeURIComponent("/solve")}`;
 
 export function renderSolve(qs) {
   const root = el("div.solve");
@@ -214,9 +218,7 @@ export function renderSolve(qs) {
     if (html != null) node.innerHTML = html;
     refs.hero?.remove();
     refs.hero = null;
-    refs.logEl.appendChild(who === "ai"
-      ? el("div.msgrow", {}, [el("span.msgrow__av", { "aria-hidden": "true" }, icon(ICONS.spark, 15)), node])
-      : node);
+    refs.logEl.appendChild(who === "ai" ? el("div.msgrow", {}, [aiTile(26), node]) : node);
     refs.logEl.scrollTop = refs.logEl.scrollHeight;
     return node;
   }
@@ -231,35 +233,52 @@ export function renderSolve(qs) {
     log.scrollTop = Math.min(maxScroll, bubbleTop);
   }
 
-  /** The empty conversation: a centred greeting — the mark, a heading, the mode's own intro —
-   *  and, for the default persona, four ways to start. Gone as soon as the first message lands. */
+  /** The empty conversation: a centred greeting — a heading and the mode's own intro — and, for the
+   *  default persona, four ways to start and a row of the other ways to study. Every way in appears once;
+   *  the composer below holds nothing but the box. Gone as soon as the first message lands. */
   function appendWelcome() {
     refs.hero?.remove();
     const mode = state.mode ? STUDY_MODES.find((m) => m.id === state.mode) : null;
     // A mode's intro opens with its name in bold; the heading already says it.
     const sub = mode ? introText().replace(/^\*\*[^*]+\*\*\s*/, "") : t("solve.heroSub");
-    const start = (iconPath, key, onclick) => el("button.solve-start", { type: "button", onclick, disabled: !canChat }, [
+    const start = (iconPath, key, onclick) => el("button.solve-start", { type: "button", onclick: () => whenAvailable(onclick) }, [
       el("span.solve-start__ic", { "aria-hidden": "true" }, icon(iconPath, 18)),
       el("span.solve-start__txt", {}, [el("strong", {}, t(`solve.start.${key}`)), el("small", {}, t(`solve.start.${key}Sub`))]),
     ]);
+    const setChip = el("button.chatmode", { type: "button", onclick: () => whenAvailable(() => {
+      refs.inputEl.value = t("solve.start.setPrefill");
+      autosize();
+      refs.inputEl.focus();
+      refs.inputEl.setSelectionRange(refs.inputEl.value.length, refs.inputEl.value.length);
+    }) }, [icon(ICONS.layers, 16), el("span.chatmode__label", {}, t("solve.start.set"))]);
+    const mark = mode
+      ? el("span.ai-tile", { style: { "--s": "52px" }, "aria-hidden": "true" }, icon(ICONS[mode.icon] || ICONS.spark, 26))
+      : aiTile(52);
+    mark.classList.add("solve-hero__mark");
     refs.hero = el("div.solve-hero", {}, [
-      el("div.solve-hero__mark", { "aria-hidden": "true" }, icon(mode ? ICONS[mode.icon] || ICONS.spark : ICONS.spark, 30)),
+      mark,
       el("h2.solve-hero__title", {}, mode ? t(`chat.mode.${mode.id}`) : t("solve.heroTitle")),
       el("div.solve-hero__sub", { html: markdown(sub) }),
-      head?.heroStatus,
       mode ? null : el("div.solve-starts", {}, [
         start(ICONS.camera, "photo", () => refs.fileInput.click()),
+        start(ICONS.check, "check", () => { location.hash = "#/solve?mode=check"; }),
         start(ICONS.target, "quiz", () => pickMode("quiz")),
         start(ICONS.spark, "explain", () => pickMode("explain")),
-        start(ICONS.layers, "set", () => {
-          refs.inputEl.value = t("solve.start.setPrefill");
-          autosize();
-          refs.inputEl.focus();
-          refs.inputEl.setSelectionRange(refs.inputEl.value.length, refs.inputEl.value.length);
-        }),
+      ]),
+      mode ? null : el("div.solve-more", {}, [
+        el("p.solve-more__label", {}, t("solve.moreWays")),
+        el("div.chatmodes", { role: "group", "aria-label": t("chat.modesLabel") }, [...refs.modeBtns, setChip]),
       ]),
     ].filter(Boolean));
     refs.logEl.appendChild(refs.hero);
+  }
+
+  /** A way in that needs the AI: runs it, or says why not — signed out, it goes to the sign-in page and
+   *  back here, so the ways in stay readable instead of greyed out. */
+  function whenAvailable(fn) {
+    if (canChat) return fn();
+    if (store.aiNeedsSignIn()) { location.hash = SIGN_IN_HREF; return; }
+    toast(blockedToast());
   }
 
   function appendUserBubble(text, imgSrc) {
@@ -372,18 +391,20 @@ export function renderSolve(qs) {
     canChat = head.paint();
     refs.inputEl.disabled = !canChat;
     refs.attachBtn.disabled = !canChat;
-    refs.materialBtn.disabled = !canChat;
     refs.sendBtn.disabled = !canChat;
-    for (const btn of refs.modeBtns) btn.disabled = !canChat;
-    refs.hero?.querySelectorAll(".solve-start").forEach((b) => { b.disabled = !canChat; });
     paintGate();
   }
 
-  /** The note above the log explaining why the AI is off (sign in / quota / no server) — a persistent
-   *  container so it can be swapped in and out live, not just decided once at build time. */
+  /** Where the composer is, when the AI is off: signed out, a sign-in card in its place; otherwise
+   *  (quota, no server) a short note above the disabled box. A persistent container, so it can be swapped
+   *  in and out live, not just decided once at build time. While the history list is open, none of it. */
   function paintGate() {
     clear(refs.gateEl);
-    refs.gateEl.hidden = canChat;
+    const away = !!refs.history;
+    const signIn = !canChat && store.aiNeedsSignIn();
+    refs.gateEl.hidden = canChat || away;
+    refs.formEl.hidden = signIn || away;
+    refs.hintEl.hidden = signIn || away;
     if (!canChat) refs.gateEl.appendChild(gateNote());
   }
 
@@ -419,7 +440,7 @@ export function renderSolve(qs) {
     });
     refs.panel.appendChild(refs.history.node);
     refs.logEl.hidden = true;
-    refs.formEl.hidden = true;
+    paintGate();
     refs.historyBtn.setAttribute("aria-pressed", "true");
   }
 
@@ -427,18 +448,27 @@ export function renderSolve(qs) {
     refs.history?.node.remove();
     refs.history = null;
     refs.logEl.hidden = false;
-    refs.formEl.hidden = false;
+    paintGate();
     refs.historyBtn.setAttribute("aria-pressed", "false");
   }
 
+  /** The box's placeholder, and — while a way of studying is on — its name as a pill above the box, with
+   *  a cross back to the default help. */
   function paintModes() {
-    for (const btn of refs.modeBtns) {
-      const on = btn.dataset.mode === state.mode;
-      btn.setAttribute("aria-pressed", String(on));
-      btn.classList.toggle("is-on", on);
-    }
     refs.inputEl.placeholder = placeholderText();
     refs.inputEl.setAttribute("aria-label", placeholderText());
+    const mode = state.mode ? STUDY_MODES.find((m) => m.id === state.mode) : null;
+    clear(refs.modePill);
+    refs.modePill.hidden = !mode;
+    if (mode) {
+      refs.modePill.append(
+        icon(ICONS[mode.icon] || ICONS.spark, 14),
+        el("span", {}, t(`chat.mode.${mode.id}`)),
+        el("button.solve-modepill__x", {
+          type: "button", "aria-label": t("solve.modeExit"), title: t("solve.modeExit"), onclick: () => pickMode(mode.id),
+        }, icon(ICONS.close, 14)),
+      );
+    }
   }
 
   function autosize() {
@@ -480,7 +510,6 @@ export function renderSolve(qs) {
     state.busy = true;
     refs.inputEl.disabled = true;
     refs.attachBtn.disabled = true;
-    refs.materialBtn.disabled = true;
     refs.sendBtn.disabled = true;
     setMood(head.mascotEl, "thinking");
     const bubble = appendBubble("ai", `<span class="typing"><span></span><span></span><span></span></span>`);
@@ -539,14 +568,13 @@ export function renderSolve(qs) {
   }
 
   function gateNote() {
-    if (store.aiBlockReason() === "quota") return aiQuotaNote({ style: { marginBottom: "16px" } });
+    if (store.aiBlockReason() === "quota") return aiQuotaNote();
     return store.aiNeedsSignIn()
-      ? el("p.note", { style: { marginBottom: "16px" } }, [
-          t("solve.needSignIn"),
-          el("a", { href: "#/login" }, t("solve.needSignInLink")),
-          t("solve.needSignInTail"),
+      ? el("div.solve-signin", {}, [
+          el("p", {}, t("solve.signInCta")),
+          el("a.btn", { href: SIGN_IN_HREF }, t("login.signIn")),
         ])
-      : el("p.note.note--warn", { style: { marginBottom: "16px" } }, [
+      : el("p.note.note--warn", {}, [
           t("solve.noServerHere"),
           el("a", { href: "#/library" }, t("solve.noServerAlt")),
         ]);
@@ -573,63 +601,70 @@ export function renderSolve(qs) {
       onkeydown: (e) => { if (e.key === "Enter" && !e.shiftKey && !e.isComposing) { e.preventDefault(); send(); } },
     });
 
-    const attachBtn = el("button.iconbtn", {
-      type: "button", "aria-label": t("solve.attachLabel"), title: t("solve.uploadHint"),
-      onclick: () => fileInput.click(),
-    }, [icon(ICONS.camera, 18)]);
-
-    const materialBtn = el("button.iconbtn", {
-      type: "button", "aria-label": t("solve.attachMaterial"), title: t("solve.attachMaterial"),
-      onclick: () => openMaterialPicker({
-        onPick: (m) => { state.material = m; paintMaterial(); persist(); refs.inputEl.focus(); },
-      }),
-    }, [icon(ICONS.paperclip, 18)]);
+    // One "+" for both things you can add — a picture, or a set / file to base the answers on.
+    const attachItem = (iconPath, label, onclick) => el("button.cardmenu__item", {
+      type: "button", role: "menuitem", onclick: () => { closePopover(); onclick(); },
+    }, [icon(iconPath, 18), label]);
+    const attachBtn = el("button.iconbtn.solve-dock__add", {
+      type: "button", "aria-label": t("solve.attachMenu"), title: t("solve.attachMenu"), "aria-haspopup": "menu",
+      onclick: (e) => {
+        e.stopPropagation();
+        if (document.querySelector(".popover.solve-addmenu")) { closePopover(); return; }
+        openPopover(attachBtn, [
+          attachItem(ICONS.camera, t("solve.attachLabel"), () => fileInput.click()),
+          attachItem(ICONS.paperclip, t("solve.attachMaterial"), () => openMaterialPicker({
+            onPick: (m) => { state.material = m; paintMaterial(); persist(); refs.inputEl.focus(); },
+          })),
+        ], { placement: "above", width: 240, label: t("solve.attachMenu") }).classList.add("solve-addmenu");
+      },
+    }, [icon(ICONS.plus, 20)]);
     const materialEl = el("div.matchip", { hidden: true });
+    const modePill = el("div.solve-modepill", { hidden: true });
 
     const sendBtn = el("button.iconbtn.solve-dock__send", { type: "submit", "aria-label": t("tutor.send") }, [icon(ICONS.arrow, 18)]);
 
-    // "Ny konversation" — a plus and the words; on a phone just the plus (the words stay for screen readers).
-    const resetBtn = el("button.linkbtn.solve-chat__reset", { type: "button", hidden: true, title: t("solve.newChat"), onclick: () => resetChat() },
-      [icon(ICONS.plus, 16), el("span.solve-chat__resetlabel", {}, t("solve.newChat"))]);
+    // "Ny konversation": a pencil beside history, once there is something to start over from.
+    const resetBtn = el("button.iconbtn.solve-chat__reset", {
+      type: "button", hidden: true, "aria-label": t("solve.newChat"), title: t("solve.newChat"), onclick: () => resetChat(),
+    }, [icon(ICONS.pencil, 18)]);
     const historyBtn = el("button.iconbtn.solvehead__hist", {
       type: "button", "aria-label": t("solve.historyOpen"), title: t("solve.historyOpen"), "aria-pressed": "false",
       onclick: () => (refs.history ? showChat() : showHistory()),
     }, [icon(ICONS.clock, 18)]);
 
-    const modeBtns = STUDY_MODES.map((m) => el("button.chatmode", {
-      type: "button", "data-mode": m.id, "aria-pressed": "false", title: t(`chat.mode.${m.id}`), onclick: () => pickMode(m.id),
-    // The label is a span so a phone in mid-conversation can show the seven tiles as icons only (css) and
-    // still keep the name for screen readers and as a tooltip.
-    }, [icon(ICONS[m.icon] || ICONS.spark, 18), el("span.chatmode__label", {}, t(`chat.mode.${m.id}`))]));
+    // The ways to study besides the two starters (quiz me, explain), as chips in the empty conversation.
+    // Picking one starts a thread in that mode; the composer then names it in a pill (paintModes).
+    const modeBtns = STUDY_MODES.filter((m) => m.id !== "quiz" && m.id !== "explain").map((m) => el("button.chatmode", {
+      type: "button", "data-mode": m.id, onclick: () => whenAvailable(() => pickMode(m.id)),
+    }, [icon(ICONS[m.icon] || ICONS.spark, 16), el("span.chatmode__label", {}, t(`chat.mode.${m.id}`))]));
 
-    const hintEl = el("span.solve-dock__hint", {}, t("solve.enterHint"));
+    // Computers only (css): a phone has no Shift key to remember.
+    const hintEl = el("p.solve-dock__hint", {}, t("solve.enterHint"));
 
-    // One docked card: the box, attach + send under it, and the seven ways to study as a row of chips.
+    // The composer: what is attached (a set, a picture, the way of studying) above one bar — "+", the box, send.
     const formEl = el("form.solve-dock", { onsubmit: (e) => { e.preventDefault(); send(); } }, [
       fileInput,
       materialEl,
       pendingEl,
-      inputEl,
-      el("div.solve-dock__row", {}, [attachBtn, materialBtn, hintEl, sendBtn]),
-      el("div.chatmodes", { role: "group", "aria-label": t("chat.modesLabel") }, modeBtns),
+      modePill,
+      el("div.solve-dock__bar", {}, [attachBtn, inputEl, sendBtn]),
     ]);
 
     const gateEl = el("div.solve-gate", { hidden: true });
-    const tabsEl = solveTabs("help");
 
     refs = {
-      logEl, pendingEl, inputEl, attachBtn, materialBtn, materialEl, sendBtn, hintEl, fileInput,
-      resetBtn, historyBtn, modeBtns, gateEl, tabsEl, formEl, panel: null, history: null, hero: null,
+      logEl, pendingEl, inputEl, attachBtn, materialEl, modePill, sendBtn, hintEl, fileInput,
+      resetBtn, historyBtn, modeBtns, gateEl, formEl, panel: null, history: null, hero: null,
     };
 
-    head = aiHead([resetBtn, historyBtn], { statusInHead: false });   // the live status sits in the greeting
+    head = aiHead([resetBtn, historyBtn]);
     root.appendChild(homeButton({ grid: true }));
     root.appendChild(head.node);
-    root.appendChild(tabsEl);
     const panel = el("div.solve-chat.solve-chat__panel", {}, [
-      gateEl,
       logEl,
+      gateEl,
       formEl,
+      hintEl,
       el("div.solve-chat__drop", { "aria-hidden": "true" }, t("solve.dropHere")),
     ]);
     refs.panel = panel;
@@ -658,24 +693,15 @@ export function renderSolve(qs) {
    *  no real exchange has happened yet. */
   function onLangSession() {
     document.title = `${t("solve.pageTitle")} · PluggEra`;
-    for (const btn of refs.modeBtns) {
-      const label = t(`chat.mode.${btn.dataset.mode}`);
-      btn.title = label;
-      btn.querySelector(".chatmode__label").textContent = label;
-    }
+    for (const btn of refs.modeBtns) btn.querySelector(".chatmode__label").textContent = t(`chat.mode.${btn.dataset.mode}`);
     refs.hintEl.textContent = t("solve.enterHint");
-    refs.resetBtn.querySelector(".solve-chat__resetlabel").textContent = t("solve.newChat");
     refs.resetBtn.title = t("solve.newChat");
+    refs.resetBtn.setAttribute("aria-label", t("solve.newChat"));
     refs.historyBtn.title = t("solve.historyOpen");
     refs.historyBtn.setAttribute("aria-label", t("solve.historyOpen"));
-    refs.attachBtn.title = t("solve.uploadHint");
-    refs.attachBtn.setAttribute("aria-label", t("solve.attachLabel"));
-    refs.materialBtn.title = t("solve.attachMaterial");
-    refs.materialBtn.setAttribute("aria-label", t("solve.attachMaterial"));
+    refs.attachBtn.title = t("solve.attachMenu");
+    refs.attachBtn.setAttribute("aria-label", t("solve.attachMenu"));
     refs.sendBtn.setAttribute("aria-label", t("tutor.send"));
-    const newTabs = solveTabs("help");
-    refs.tabsEl.replaceWith(newTabs);
-    refs.tabsEl = newTabs;
     head.paint();
     paintModes();
     paintMaterial();
