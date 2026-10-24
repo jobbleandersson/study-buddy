@@ -160,7 +160,6 @@ const APP_SHELL = [
   "./js/views/rules.js",
   "./js/components/daily-card.js",
   "./js/components/house-ad.js",
-  "./js/components/install-app.js",
   "./js/components/set-summary.js",
   "./js/components/home-backdrop.js",
   "./js/components/ai-consent.js",
