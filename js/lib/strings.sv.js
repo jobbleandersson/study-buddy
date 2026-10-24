@@ -54,6 +54,7 @@ export default {
   "menu.morning": "God morgon",
   "menu.afternoon": "God eftermiddag",
   "menu.evening": "God kväll",
+  "menu.night": "Sent uppe",
   "menu.askToday": "Vad vill du plugga idag?",
   "menu.pickCreateSub": "Från anteckningar, foto eller PDF",
   "menu.pickLibrarySub": "Hundratals färdiga set",
