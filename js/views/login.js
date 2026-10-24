@@ -39,7 +39,7 @@ export function renderLogin(qs) {
   // someone fill it in and hit a network error.
   const serverDown = !store.proxyUp;
 
-  const emailInput = el("input", { id: "auth-email", type: "email", autocomplete: "email", required: true, placeholder: t("login.emailPlaceholder"), disabled: serverDown });
+  const emailInput = el("input", { id: "auth-email", type: "email", autocomplete: "email", placeholder: t("login.emailPlaceholder"), disabled: serverDown });
   const passInput = el("input", { id: "auth-password", type: "password", placeholder: t("login.passwordPlaceholder"), disabled: serverDown });
   // Both kinds of code (emailed, or from an authenticator app) are six digits: the number pad either way.
   const codeInput = el("input", { id: "auth-code", type: "text", inputmode: "numeric", autocomplete: "one-time-code", placeholder: t("login.twofaPlaceholder"), disabled: serverDown });
@@ -104,6 +104,9 @@ export function renderLogin(qs) {
     forgotSentNote.hidden = !forgotDone;
     introNote.hidden = forgotting || twofa;
     emailRow.hidden = forgotDone || twofa;
+    // A hidden field that is still `required` and empty (after Google sign-in the email box is never
+    // filled in) makes the browser silently refuse to submit, so "Verify" does nothing.
+    emailInput.required = !emailRow.hidden;
     passRow.hidden = mode === "forgot" || forgotDone || twofa;
     codeRow.hidden = !twofa;
     resendBtn.hidden = !(twofa && pendingMethod === "email");
