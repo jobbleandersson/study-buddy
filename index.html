@@ -23,7 +23,9 @@
        to this file from a deep path (a stale /ova/... link, a typo) resolves them against THAT
        path instead of the site root — a blank, unstyled page with every request 404ing. -->
   <base href="/" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- interactive-widget: Chrome on Android shrinks the page when the on-screen keyboard opens (as iOS
+       does), instead of letting the keyboard cover the bottom of it — the PluggEra AI box, a fixed button bar. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content" />
   <!-- share-meta: what search results and shared links show. server/src/routes/share-pages.js swaps
        this whole block for the pages with an address of their own (pluggera.se/hp), so keep the
        markers. The preview images come from tools/og/render-og.mjs. -->

@@ -26,8 +26,17 @@
   --shadow-2: 0 2px 4px -2px rgba(16, 24, 40, .06), 0 12px 24px -6px rgba(16, 24, 40, .12);
   --shadow-card: 0 1px 2px rgba(16, 24, 40, .04), 0 1px 3px rgba(16, 24, 40, .04);
   --sidebar-w: 248px;
+  --sb-row: 38px;   /* a sidebar row's height */
+  --sb-ic: 18px;    /* its icon */
   --topbar-h: 60px;
 }
+/* The sidebar on other screens: narrower beside a tablet-width page (a big iPad upright or lying down, a small
+   laptop), a little tighter on short windows, and wider with roomier rows on big monitors. */
+@media (min-width: 900px) and (max-width: 1199px) { :root { --sidebar-w: 224px; } }
+@media (min-width: 900px) and (max-height: 820px) { :root { --sb-row: 35px; } }
+@media (min-width: 900px) and (max-height: 700px) { :root { --sb-row: 33px; } }
+@media (min-width: 2000px) { :root { --sidebar-w: 276px; --sb-row: 44px; --sb-ic: 20px; } }
+@media (min-width: 2600px) { :root { --sidebar-w: 300px; --sb-row: 46px; --sb-ic: 21px; } }
 :root[data-theme="dark"], .theme-night { --shadow-card: 0 1px 2px rgba(0, 0, 0, .3); }
 @media (prefers-color-scheme: dark) { :root[data-theme="system"] { --shadow-card: 0 1px 2px rgba(0, 0, 0, .3); } }
 
@@ -81,6 +90,16 @@ h1 { font-weight: 750; }
     border: 0; border-right: 1px solid var(--line); border-radius: 0;
     background: var(--surface);
   }
+  /* The logo at the top and the footer at the bottom keep their size; the list between them takes exactly the
+     height that's left. On a window too short even for 28px rows, the list scrolls inside that space (a thin
+     bar while the pointer is over it); the side margins let a row's glow and focus ring reach the edges. */
+  .sidebar__brand, .sidebar__foot { flex-shrink: 0; }
+  .sidebar__nav {
+    flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain;
+    margin-inline: -12px; padding: 2px 12px;
+    scrollbar-width: thin; scrollbar-color: transparent transparent;
+  }
+  .sidebar__nav:hover { scrollbar-color: var(--line-strong) transparent; }
   .sidebar__brand {
     position: sticky; top: 0; z-index: 2;
     height: var(--topbar-h); margin: 0 -12px 10px; padding: 0 22px;
@@ -89,20 +108,32 @@ h1 { font-weight: 750; }
   }
   .sidebar__brand img { width: 28px; height: 28px; }
   .sidebar__link {
-    min-height: 36px; max-height: 40px; padding: 0 10px; gap: 11px;
+    min-height: var(--sb-row); padding: 0 10px; gap: 11px;
     border-radius: 8px; font-size: calc(14px * var(--fs-scale, 1)); font-weight: 500; color: var(--ink-soft);
   }
-  .sidebar__link svg { width: 18px; height: 18px; stroke-width: 1.8; color: var(--ink-faint); }
+  /* The list always runs exactly from the logo down to the footer: the rows share the window's height, growing
+     on a tall one (up to a comfortable cap) and giving a little on a short one (never below 28px). Past the cap,
+     the rest of the height goes between the sections (the headings' and the divider's auto margins), so the
+     rows never turn into tall slabs. Only if even 28px rows can't fit does the list scroll. */
+  :is(.sidebar__nav, .sidebar__more) > :is(.sidebar__link, .sidebar__acc) {
+    flex: 1 1 var(--sb-row); min-height: 28px; max-height: calc(var(--sb-row) + 22px);
+  }
+  .sidebar__link svg { width: var(--sb-ic); height: var(--sb-ic); stroke-width: 1.8; color: var(--ink-faint); }
   .sidebar__link:hover svg { color: var(--ink-soft); }
   .sidebar__link.is-active { background: var(--brand-tint); color: var(--brand-ink); font-weight: 600; }
   .sidebar__link.is-active svg { color: var(--brand); }
   /* Section labels read like quiet headings, not shouted caps. */
-  .sidebar__group { margin: 16px 10px 4px; font-size: calc(12px * var(--fs-scale, 1)); letter-spacing: 0; font-weight: 500; text-transform: none; }
-  .sidebar__acc { min-height: 36px; padding: 0 10px; border-radius: 8px; font-weight: 500; font-size: calc(14px * var(--fs-scale, 1)); }
+  .sidebar__group { margin: auto 10px 4px; padding-top: 16px; font-size: calc(12px * var(--fs-scale, 1)); letter-spacing: 0; font-weight: 500; text-transform: none; }
+  .sidebar__acc { min-height: var(--sb-row); padding: 0 10px; border-radius: 8px; font-weight: 500; font-size: calc(14px * var(--fs-scale, 1)); }
   .sidebar__acc svg:first-child { stroke-width: 1.8; color: var(--ink-faint); }
   .sidebar__acc-count { border-radius: 6px; }
-  .sidebar__div { margin: 10px 10px; }
-  .sidebar__foot { gap: 6px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
+  .sidebar__div { height: 0; margin: auto 10px 10px; padding-top: 10px; background: none; border-bottom: 1px solid var(--line); }
+  /* The footer's band: the negative margins pull it over the sidebar's padding, to the edges and the bottom. */
+  .sidebar__foot {
+    position: sticky; bottom: -14px; z-index: 2; gap: 6px;
+    margin: 14px -12px -14px; padding: 12px 12px 14px;
+    border-top: 1px solid var(--line); background: var(--surface);
+  }
   /* Two icon buttons (settings, theme) beside the streak — kept narrow so "N dagar i rad" usually fits on one line; longer labels ("Svit i fara …") wrap. */
   .sidebar__themebtn { width: 40px; }
   .sidebar__streak { gap: 8px; padding: 7px 8px 7px 6px; }
@@ -122,6 +153,19 @@ h1 { font-weight: 750; }
     padding: 0 clamp(24px, 3vw, 40px);
   }
   .content { padding-top: clamp(28px, 3vw, 40px); }
+}
+/* Laptop and Chromebook heights: a little less air between the sections, so the rows have more of the height. */
+@media (min-width: 900px) and (max-height: 820px) {
+  .sidebar__brand { margin-bottom: 4px; }
+  .sidebar__group { margin-bottom: 2px; padding-top: 8px; }
+  .sidebar__div { margin-bottom: 6px; padding-top: 6px; }
+  .sidebar__acc { margin-top: 6px; }
+  .sidebar__foot { margin-top: 8px; padding-top: 10px; padding-bottom: 12px; }
+}
+@media (min-width: 900px) and (max-height: 700px) {
+  .sidebar__group { padding-top: 6px; }
+  .sidebar__brand { margin-bottom: 2px; }
+  .sidebar__nav { padding-block: 0; }
 }
 
 /* Library search in the top bar — desktop only; phones have the library tab. */
