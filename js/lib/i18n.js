@@ -93,6 +93,28 @@ if (typeof window !== "undefined") {
   });
 }
 
+// A key that exists in the code but not in the strings on screen means this device holds files from
+// two versions (an old cached copy next to newer code). Once per tab, drop the worker and its caches
+// and reload, so the next load is all one version instead of showing raw keys until the student
+// clears site data by hand. The flag stops a key that is missing everywhere from reloading forever.
+const HEALED = "studybuddy.healed";
+function healStaleFiles() {
+  if (typeof document === "undefined" || !("caches" in globalThis)) return;
+  try {
+    if (sessionStorage.getItem(HEALED)) return;
+    sessionStorage.setItem(HEALED, "1");
+  } catch { return; }
+  (async () => {
+    try {
+      const regs = (await navigator.serviceWorker?.getRegistrations?.()) || [];
+      await Promise.all(regs.map((r) => r.unregister()));
+      await Promise.all((await caches.keys()).map((k) => caches.delete(k)));
+    } finally {
+      location.reload();
+    }
+  })();
+}
+
 /**
  * t("menu.newSet") -> "New set"
  * t("session.questionOf", { n: 2, total: 5 }) -> "Question 2 of 5"
@@ -107,6 +129,7 @@ export function t(key, vars) {
   if (s == null) s = STRINGS[FALLBACK]?.[key];
   if (s == null) {
     console.warn("[i18n] missing string:", key);
+    healStaleFiles();
     return key;
   }
   if (!vars) return s;

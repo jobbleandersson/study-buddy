@@ -6800,16 +6800,8 @@ button.toolfly__item { border: 0; background: transparent; font: inherit; font-s
 .libhead__trail { margin: 0 0 2px; font-size: var(--fs-sm); font-weight: 600; color: var(--ink-faint); }
 .libhead h1 { margin: 0; }
 
-/* ---------- "install the app" (components/install-app.js) ---------- */
+/* ---------- button rows in the Meny sheet ---------- */
 button.topmenu__item { border: 0; background: transparent; font-family: inherit; cursor: pointer; }
-.installdlg__card { max-width: 400px; display: grid; gap: var(--s-3); justify-items: start; }
-.installdlg__card h3 { margin: 0; }
-.installdlg__icon { border-radius: 14px; box-shadow: var(--shadow-1); }
-.installdlg__steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; width: 100%; }
-.installdlg__steps li { display: grid; grid-template-columns: 24px 36px minmax(0, 1fr); align-items: center; gap: 10px; font-size: var(--fs-sm); line-height: 1.45; }
-.installdlg__n { width: 24px; height: 24px; border-radius: var(--r-full); display: grid; place-items: center; background: var(--brand); color: #fff; font-size: 12.5px; font-weight: 700; }
-.installdlg__ic { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--surface-sunk); color: var(--ink); }
-.installdlg__card > .btn { justify-self: stretch; justify-content: center; min-height: 48px; }
 .results__bar { display: none; }
 
 @media (max-width: 899.98px) {
