@@ -4,8 +4,8 @@
 // AI is thinking the tile slowly pulses (and a halo behind it, where the container has one, speeds up).
 // mascot(mood, size) -> HTMLElement ;  setMood(el, mood)
 //
-// The glyph is the AI's star (ai-mark.js), so the tutor wears the same mark as "PluggEra AI" in the
-// menu and on the home page.
+// The glyph is the app's AI sparkles (ai-mark.js), so the tutor wears the same mark as "PluggEra AI" in
+// the menu and on the home page.
 
 import { aiGlyphSvg } from "./ai-mark.js";
 

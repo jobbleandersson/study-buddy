@@ -2352,9 +2352,12 @@ html:has(.editbar) { scroll-padding-bottom: 160px; }
    lives only on the active sidebar row and the tutor's header. components/ai-mark.js builds the tile. */
 .ai-tile {
   --s: 40px; width: var(--s); height: var(--s); border-radius: calc(var(--s) * .28); display: grid; place-items: center; flex: none; color: #fff;
-  background: var(--brand);
+  /* Deep blue: the brand blue darkened, lit at the top-left corner and deepening toward indigo, with a
+     light top edge and a soft shadow of its own colour. */
+  background: linear-gradient(140deg, var(--brand), color-mix(in oklab, var(--brand) 72%, #000) 55%, color-mix(in oklab, var(--brand) 55%, #1E1470));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .22), 0 calc(var(--s) * .16) calc(var(--s) * .4) calc(var(--s) * -.2) color-mix(in srgb, var(--brand) 55%, transparent);
 }
-.ai-tile svg { width: 58%; height: 58%; }
+.ai-tile svg { width: 48%; height: 48%; stroke-width: 2.1; }
 .ai-halo { position: relative; isolation: isolate; }
 .ai-halo::before {
   content: ""; position: absolute; z-index: -1; left: var(--hx, 50%); top: var(--hy, 50%); width: var(--hw, 240px); height: var(--hh, 150px);
@@ -2378,7 +2381,7 @@ html:has(.editbar) { scroll-padding-bottom: 160px; }
    tile. The tile's sparkle stays white, at its own size, whatever the row is doing. */
 /* At 24px the sparkle needs to fill more of the tile, at a firmer stroke than the rows' thin 1.8px icons, to read as
    a mark rather than a smudge. */
-.sidebar__link.sidebar__link--ai .ai-tile svg, .topmenu__item.topmenu__item .ai-tile svg { width: 60%; height: 60%; color: #fff; }
+.sidebar__link.sidebar__link--ai .ai-tile svg, .topmenu__item.topmenu__item .ai-tile svg { width: 56%; height: 56%; stroke-width: 2.2; color: #fff; }
 .sidebar__link.sidebar__link--ai.is-active { background: linear-gradient(90deg, color-mix(in srgb, var(--brand) 22%, var(--brand-tint)), var(--brand-tint) 70%); }
 .sidebar__link--ai.ai-halo { --hx: 22px; --hw: 130px; --hh: 70px; }
 .topmenu__item .ai-tile { --s: 20px; margin: -2px; }
@@ -5964,8 +5967,7 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 /* Before the first message the log grows with the greeting instead of scrolling inside itself. */
 .solve:not(.is-chatting) .solve-chat__log { overflow: visible; min-height: 0; flex: 1 0 auto; }
 .solve-hero__mark { margin-bottom: 6px; }
-/* Computers: the greeting's tile keeps its shine (a soft blue-to-violet gradient with a light top edge) and a
-   slow, soft glow breathing behind it. The small marks everywhere else stay flat. */
+/* Computers: the greeting's tile, larger, with a slow, soft glow breathing behind it. */
 @media (min-width: 900px) {
   .solve-hero { position: relative; isolation: isolate; }
   .solve-hero::before {
@@ -5979,8 +5981,7 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   }
   .solve-hero__mark.ai-tile {
     border-radius: 18px;
-    background: linear-gradient(140deg, color-mix(in oklab, var(--brand) 78%, #fff), var(--brand) 48%, color-mix(in oklab, var(--brand) 55%, #7650FF));
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 12px 30px -12px color-mix(in srgb, var(--brand) 75%, transparent);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 12px 30px -12px color-mix(in srgb, var(--brand) 75%, transparent);
   }
 }
 @keyframes solve-breathe {
