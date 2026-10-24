@@ -27,6 +27,8 @@ window.__sbStarted = true;
 // First thing after the imports, so an error anywhere in boot is reported too (anonymous, see
 // lib/error-report.js).
 installErrorReporting(ERRORS_URL);
+// No install entry in the app: keep the browser from showing its own install bar either.
+window.addEventListener("beforeinstallprompt", (e) => e.preventDefault());
 mountHomeBackdrop();
 
 // pluggera.se/hp and the like are this same page with that screen's own preview image and title

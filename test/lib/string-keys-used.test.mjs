@@ -21,7 +21,7 @@ test("every literal string key used in js/ exists in Swedish and English", () =>
   const missing = [];
   for (const f of files("js")) {
     const src = withoutComments(readFileSync(f, "utf8"));
-    for (const m of src.matchAll(/(?:^|[^\w.])t\(\s*"([a-zA-Z0-9_.-]+\.[a-zA-Z0-9_.-]+)"/g)) {
+    for (const m of src.matchAll(/(?:^|[^\w.])t\(\s*["']([a-zA-Z0-9_.-]+\.[a-zA-Z0-9_.-]+)["']/g)) {
       for (const [lang, table] of [["sv", sv], ["en", en]]) {
         if (!(m[1] in table)) missing.push(`${f}: ${m[1]} (${lang})`);
       }

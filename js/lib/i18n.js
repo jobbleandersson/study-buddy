@@ -98,8 +98,14 @@ if (typeof window !== "undefined") {
 // and reload, so the next load is all one version instead of showing raw keys until the student
 // clears site data by hand. The flag stops a key that is missing everywhere from reloading forever.
 const HEALED = "studybuddy.healed";
+let healed = false;
+// Never while a student has typed something into a field: the reload would throw it away.
+function hasTypedText() {
+  return [...document.querySelectorAll("textarea, input")].some((f) => !/^(checkbox|radio|button|submit)$/.test(f.type) && f.value);
+}
 function healStaleFiles() {
-  if (typeof document === "undefined" || !("caches" in globalThis)) return;
+  if (healed || typeof document === "undefined" || !("caches" in globalThis) || hasTypedText()) return;
+  healed = true;
   try {
     if (sessionStorage.getItem(HEALED)) return;
     sessionStorage.setItem(HEALED, "1");
