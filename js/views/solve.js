@@ -273,15 +273,20 @@ export function renderSolve(qs) {
       [icon(iconPath, 16), el("span.chatmode__label", {}, t(`chat.mode.${id}`))]);
     const moreBtn = mode ? null : el("button.chatmode.solve-quick__more", {
       type: "button", "aria-expanded": "false", "aria-controls": "solve-ways", onclick: () => setWaysOpen(!refs.hero.classList.contains("is-open")),
-    }, [icon(ICONS.dots, 16), el("span.chatmode__label", {}, t("solve.moreBtn"))]);
+    }, [icon(ICONS.chevronDown, 16), el("span.chatmode__label", {}, t("solve.moreBtn"))]);
+    // While the panel is open: Escape anywhere, or a tap outside it and its button, closes it.
+    const onKey = (e) => { if (e.key === "Escape") { setWaysOpen(false); moreBtn.focus(); } };
+    const onTapOutside = (e) => { if (!ways.contains(e.target) && !moreBtn.contains(e.target)) setWaysOpen(false); };
     function setWaysOpen(open) {
       refs.hero.classList.toggle("is-open", open);
       moreBtn.setAttribute("aria-expanded", String(open));
-      moreBtn.replaceChildren(icon(open ? ICONS.close : ICONS.dots, 16), el("span.chatmode__label", {}, t(open ? "common.close" : "solve.moreBtn")));
+      moreBtn.replaceChildren(icon(open ? ICONS.close : ICONS.chevronDown, 16), el("span.chatmode__label", {}, t(open ? "common.close" : "solve.moreBtn")));
+      document[open ? "addEventListener" : "removeEventListener"]("keydown", onKey);
+      document[open ? "addEventListener" : "removeEventListener"]("pointerdown", onTapOutside, true);
+      if (open) ways.querySelector("button:not([hidden])")?.focus({ preventScroll: true });
     }
     // Picking a way in closes the panel (a mode redraws the greeting anyway; a photo or a prefill doesn't).
     ways?.addEventListener("click", (e) => { if (e.target.closest("button")) setWaysOpen(false); });
-    ways?.addEventListener("keydown", (e) => { if (e.key === "Escape") { setWaysOpen(false); moreBtn.focus(); } });
     refs.hero = el("div.solve-hero" + (mode ? "" : ".solve-hero--home"), {}, [
       // The side menu's halo behind the tile on a phone; a computer's greeting has its own (.solve-hero::before).
       mode ? mark : el("span.solve-hero__glow.ai-halo", {}, mark),

@@ -6106,12 +6106,15 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   .solve-quick .chatmode { justify-content: center; min-height: 36px; padding: 0 12px; border-color: var(--line); background: var(--surface); }
   .solve-quick .chatmode svg { color: var(--brand-ink); }
   .solve-quick__more { color: var(--ink-soft); }
+  .solve-quick__more[aria-expanded="false"] svg { rotate: 180deg; }   /* the panel opens upward */
   .solve-quick__more[aria-expanded="true"] { color: var(--ink); border-color: var(--line-strong); }
   /* The panel: the other two starts and the other ways to study, as one even 2-column list. */
   .solve-hero--home .solve-ways { display: none; }
   .solve-hero--home.is-open .solve-ways {
-    position: absolute; left: 0; right: 0; bottom: calc(36px + var(--s-3) + var(--s-2)); z-index: 2;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 6px; max-height: calc(100% - 60px); overflow-y: auto;
+    /* In the flow just above the quick row (whatever its height at any text size); it shrinks and scrolls
+       on a short screen instead of covering the row. */
+    flex: 0 1 auto; min-height: 0; width: 100%; box-sizing: border-box; margin-top: var(--s-3);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6px; overflow-y: auto;
     padding: var(--s-3); border: 1px solid var(--line); border-radius: 18px; background: var(--surface);
     box-shadow: 0 18px 40px -20px rgba(16, 24, 40, .6), var(--shadow-1); text-align: left;
     animation: solve-rise .2s var(--ease-out) both;
