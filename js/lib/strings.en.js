@@ -1673,6 +1673,7 @@ export default {
   "solve.start.check": "Check my working",
   "solve.start.checkSub": "Snap your working and I'll find the slip",
   "solve.moreWays": "More ways to study",
+  "solve.moreBtn": "More",
   "solve.signInCta": "You need an account to chat with PluggEra AI.",
   "solve.attachMenu": "Add a picture or material",
   "solve.modeExit": "Leave this mode",

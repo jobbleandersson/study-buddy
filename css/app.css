@@ -6088,6 +6088,46 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   /* A reply's "Rapportera" is the flag alone; the word stays its name. */
   .solve .msgrow .aireport span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 }
+/* Computers and tablets: the ways in lay out exactly as before; the phone's quick row isn't there. */
+.solve-ways { display: contents; }
+.solve-quick { display: none; }
+/* PluggEra AI on a phone: before the first message, the greeting (the AI's tile with its glow and the
+   heading) sits alone in the middle, and the two most-used ways in sit just above the composer with "Fler",
+   which opens every other way in as a panel above them. The mode's own intro still shows once one is on. */
+@media (max-width: 560px) {
+  .solve:not(.is-chatting) .solve-chat__log { display: flex; flex-direction: column; }
+  .solve-hero--home { flex: 1; position: relative; display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 0; padding: var(--s-3) 0 0; }
+  .solve-hero--home .solve-hero__mark { display: grid; margin: auto 0 4px; }
+  .solve-hero--home .solve-hero__title { margin-bottom: auto; }
+  .solve-hero--home .solve-hero__sub { display: none; }
+  .solve-quick { display: grid; grid-template-columns: 1fr 1fr auto; gap: 6px; width: 100%; margin-top: var(--s-3); }
+  .solve-quick .chatmode { justify-content: center; min-height: 36px; padding: 0 12px; border-color: var(--line); background: var(--surface); }
+  .solve-quick .chatmode svg { color: var(--brand-ink); }
+  .solve-quick__more { color: var(--ink-soft); }
+  .solve-quick__more[aria-expanded="true"] { color: var(--ink); border-color: var(--line-strong); }
+  /* The panel: the other two starts and the other ways to study, as one even 2-column list. */
+  .solve-hero--home .solve-ways { display: none; }
+  .solve-hero--home.is-open .solve-ways {
+    position: absolute; left: 0; right: 0; bottom: calc(36px + var(--s-3) + var(--s-2)); z-index: 2;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6px; max-height: calc(100% - 60px); overflow-y: auto;
+    padding: var(--s-3); border: 1px solid var(--line); border-radius: 18px; background: var(--surface);
+    box-shadow: 0 18px 40px -20px rgba(16, 24, 40, .6), var(--shadow-1); text-align: left;
+    animation: solve-rise .2s var(--ease-out) both;
+  }
+  .solve-hero--home.is-open :is(.solve-starts, .solve-more, .solve-more .chatmodes) { display: contents; }
+  .solve-hero--home.is-open .solve-more__label { order: -1; grid-column: 1 / -1; margin: 0 2px 4px; text-align: left; }
+  .solve-hero--home.is-open :is(.solve-start, .solve-more .chatmode) {
+    display: flex; flex-direction: row; align-items: center; justify-content: flex-start; gap: 8px; min-height: 44px; margin: 0;
+    padding: 8px 10px; border: 0; border-radius: 12px; background: var(--surface-sunk);
+    font-size: calc(13px * var(--fs-scale, 1)); font-weight: 600; color: var(--ink); text-align: left;
+  }
+  .solve-hero--home.is-open .solve-start__ic { width: auto; height: auto; background: none; color: var(--brand-ink); }
+  .solve-hero--home.is-open .solve-start__ic svg { width: 16px; height: 16px; }
+  .solve-hero--home.is-open .solve-start__txt strong { font-size: inherit; font-weight: inherit; line-height: 1.3; }
+  .solve-hero--home.is-open .solve-more .chatmode svg { color: var(--brand-ink); }
+  /* Förhör mig and Förklara already sit in the quick row. */
+  .solve-hero--home.is-open .solve-starts > .solve-start:nth-child(n+3) { display: none; }
+}
 @media (prefers-reduced-motion: reduce) {
   .solve-hero, .solve .msgrow, .solve .msg.me { animation: none; }
 }

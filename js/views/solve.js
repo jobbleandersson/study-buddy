@@ -255,20 +255,39 @@ export function renderSolve(qs) {
       ? el("span.ai-tile", { style: { "--s": "60px" }, "aria-hidden": "true" }, icon(ICONS[mode.icon] || ICONS.spark, 30))
       : aiTile(60);
     mark.classList.add("solve-hero__mark");
-    refs.hero = el("div.solve-hero", {}, [
-      mark,
-      el("h2.solve-hero__title", {}, mode ? t(`chat.mode.${mode.id}`) : t("solve.heroTitle")),
-      el("div.solve-hero__sub", { html: markdown(sub) }),
-      mode ? null : el("div.solve-starts", {}, [
+    // Phones (css/app.css, "PluggEra AI on a phone"): two ways in sit by the composer, and "Fler" opens the
+    // rest in a panel above them. On wider screens .solve-ways lays out as before and .solve-quick is hidden.
+    const ways = mode ? null : el("div.solve-ways", { id: "solve-ways" }, [
+      el("div.solve-starts", {}, [
         start(ICONS.camera, "photo", () => refs.fileInput.click()),
         start(ICONS.check, "check", () => { location.hash = "#/solve?mode=check"; }),
         start(ICONS.target, "quiz", () => pickMode("quiz")),
         start(ICONS.spark, "explain", () => pickMode("explain")),
       ]),
-      mode ? null : el("div.solve-more", {}, [
+      el("div.solve-more", {}, [
         el("p.solve-more__label", {}, t("solve.moreWays")),
         el("div.chatmodes", { role: "group", "aria-label": t("chat.modesLabel") }, [...refs.modeBtns, setChip]),
       ]),
+    ]);
+    const quickChip = (iconPath, id) => el("button.chatmode", { type: "button", onclick: () => whenAvailable(() => pickMode(id)) },
+      [icon(iconPath, 16), el("span.chatmode__label", {}, t(`chat.mode.${id}`))]);
+    const moreBtn = mode ? null : el("button.chatmode.solve-quick__more", {
+      type: "button", "aria-expanded": "false", "aria-controls": "solve-ways", onclick: () => setWaysOpen(!refs.hero.classList.contains("is-open")),
+    }, [icon(ICONS.dots, 16), el("span.chatmode__label", {}, t("solve.moreBtn"))]);
+    function setWaysOpen(open) {
+      refs.hero.classList.toggle("is-open", open);
+      moreBtn.setAttribute("aria-expanded", String(open));
+      moreBtn.replaceChildren(icon(open ? ICONS.close : ICONS.dots, 16), el("span.chatmode__label", {}, t(open ? "common.close" : "solve.moreBtn")));
+    }
+    // Picking a way in closes the panel (a mode redraws the greeting anyway; a photo or a prefill doesn't).
+    ways?.addEventListener("click", (e) => { if (e.target.closest("button")) setWaysOpen(false); });
+    ways?.addEventListener("keydown", (e) => { if (e.key === "Escape") { setWaysOpen(false); moreBtn.focus(); } });
+    refs.hero = el("div.solve-hero" + (mode ? "" : ".solve-hero--home"), {}, [
+      mark,
+      el("h2.solve-hero__title", {}, mode ? t(`chat.mode.${mode.id}`) : t("solve.heroTitle")),
+      el("div.solve-hero__sub", { html: markdown(sub) }),
+      ways,
+      mode ? null : el("div.solve-quick", {}, [quickChip(ICONS.target, "quiz"), quickChip(ICONS.spark, "explain"), moreBtn]),
     ].filter(Boolean));
     refs.logEl.appendChild(refs.hero);
   }

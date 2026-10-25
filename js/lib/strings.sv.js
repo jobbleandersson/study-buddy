@@ -1688,6 +1688,7 @@ export default {
   "solve.start.check": "Kolla min uträkning",
   "solve.start.checkSub": "Fota din lösning, så hittar jag felet",
   "solve.moreWays": "Fler sätt att plugga",
+  "solve.moreBtn": "Fler",
   "solve.signInCta": "Du behöver ett konto för att chatta med PluggEra AI.",
   "solve.attachMenu": "Lägg till bild eller material",
   "solve.modeExit": "Avsluta läget",
