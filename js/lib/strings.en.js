@@ -2337,6 +2337,8 @@ export default {
   "exam.cardTitle": "{subject} test",
   "exam.emptyTitle": "No tests added yet",
   "exam.emptyBody": "Add your next test — the subject, the date and what's on it — and you get a plan for every day up to it.",
+  "exam.emptyTitlePast": "No upcoming tests",
+  "exam.emptyBodyPast": "Your last test is over. Add the next one — the subject, the date and what's on it — and you get a plan for every day up to it.",
   "exam.hpTitle": "Studying for the Högskoleprovet?",
   "exam.landingSub": "Add your tests and get a plan for every day until then, see how ready you are, and take a mock exam first.",
   "exam.landingEmpty": "Add some sets from the library first, then come back to prep for a test.",

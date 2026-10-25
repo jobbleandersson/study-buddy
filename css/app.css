@@ -1245,6 +1245,7 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 
 .empty { text-align: center; color: var(--ink-soft); padding: var(--s-7) var(--s-4); }
 .empty svg { margin-bottom: var(--s-3); }
+.empty > :is(h2, h3) + p { margin-top: var(--s-2); }
 
 /* ---------- card ⋮ menu ---------- */
 .acard { position: relative; }

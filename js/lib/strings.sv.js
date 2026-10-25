@@ -2336,6 +2336,8 @@ export default {
   "exam.cardTitle": "Prov i {subject}",
   "exam.emptyTitle": "Inga prov inlagda än",
   "exam.emptyBody": "Lägg in ditt nästa prov – ämne, datum och vad som ingår – så får du en plan för varje dag fram till provet.",
+  "exam.emptyTitlePast": "Inga kommande prov",
+  "exam.emptyBodyPast": "Ditt senaste prov har varit. Lägg in nästa – ämne, datum och vad som ingår – så får du en plan för varje dag fram till provet.",
   "exam.hpTitle": "Pluggar du till högskoleprovet?",
   "exam.landingSub": "Lägg in dina prov så får du en plan dag för dag, ser hur redo du är och kan göra övningsprov innan.",
   "exam.landingEmpty": "Lägg till några set från biblioteket först, så kan du sedan förbereda dig inför ett prov.",
