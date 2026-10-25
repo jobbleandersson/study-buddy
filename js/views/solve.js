@@ -75,8 +75,7 @@ export function renderSolve(qs) {
   // Built once; mutated directly from here on (streaming and attach
   // previews need to update in place without losing focus or typed text).
   let refs = null;
-  // The shared identity strip (avatar + live/off status) — its mood follows the same busy/idle
-  // rhythm as the help-chat bubble's (site-chat.js), so the assistant visibly "thinks" while streaming.
+  // The shared identity strip (name + live/off status); repainted when the AI's availability changes.
   let head = null;
 
   /** The default persona has its own strings (solve.*, unchanged from before the modes existed);
