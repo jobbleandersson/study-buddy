@@ -45,11 +45,15 @@ function fmtClock(ms) {
 function none() {
   return {
     title: t("tonight.pageTitle"),
-    node: el("div.empty", {}, [
-      icon(ICONS.moon, 26),
-      el("h2", {}, t("tonight.noneTitle")),
-      el("p", {}, t("tonight.noneBody")),
-      el("a.btn.btn--ghost", { href: "#/calendar", style: { marginTop: "16px" } }, t("tonight.noneCta")),
+    // The page has no tab bar (it is a quiet screen), so it keeps the way home like the plan does.
+    node: el("div", {}, [
+      homeButton(),
+      el("div.empty", {}, [
+        icon(ICONS.moon, 26),
+        el("h2", {}, t("tonight.noneTitle")),
+        el("p", {}, t("tonight.noneBody")),
+        el("a.btn.btn--ghost", { href: "#/calendar", style: { marginTop: "16px" } }, t("tonight.noneCta")),
+      ]),
     ]),
   };
 }

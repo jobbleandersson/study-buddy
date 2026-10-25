@@ -437,6 +437,8 @@ function renderLanding() {
   const plain = store.assignments.filter((a) => !isHpSetId(a.id));
   const canAdd = store.subjects.some((s) => plain.some((a) => a.subjectId === s.id));
   const exams = upcomingExams(store.exams, plain, today).filter((x) => store.subjects.some((s) => s.id === x.subjectId));
+  // Only past tests left: "none added yet" would be untrue.
+  const hadTests = (store.exams || []).some((x) => x && x.date < today && store.subjects.some((s) => s.id === x.subjectId));
 
   // One way in: the dialog asks which subject, when, and what's on it.
   const addTest = (cls = "btn") => el(`button.${cls}`, {
@@ -485,8 +487,8 @@ function renderLanding() {
         head,
         el("section.exam-emptyhero", {}, [
           el("span.exam-emptyhero__ic", { "aria-hidden": "true" }, icon(ICONS.graduation, 26)),
-          el("h2", {}, t("exam.emptyTitle")),
-          el("p", {}, t("exam.emptyBody")),
+          el("h2", {}, t(hadTests ? "exam.emptyTitlePast" : "exam.emptyTitle")),
+          el("p", {}, t(hadTests ? "exam.emptyBodyPast" : "exam.emptyBody")),
           addTest(),
         ]),
         howItWorks(),

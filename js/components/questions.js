@@ -632,8 +632,10 @@ function text({ question, tutor, live, testMode, onDone, askConfidence, targetLa
   const result = { correct: false, hintsUsed: 0 };
   const ta = el("textarea.answerbox", { placeholder: t("q.typeAnswer"), "aria-label": t("q.yourAnswer") });
   const keypad = keypadFor(ta, question, targetLang);
-  const checkBtn = el("button.btn.btn--sm.q-primary", { type: "button", onclick: check },
+  // Off until something is typed (the symbol pad fires "input" too): an empty check did nothing, silently.
+  const checkBtn = el("button.btn.btn--sm.q-primary", { type: "button", disabled: true, onclick: check },
     t(testMode ? "q.submit" : "q.check"));
+  ta.addEventListener("input", () => { if (!ta.disabled) checkBtn.disabled = !ta.value.trim(); });
   followLanguage(checkBtn, () => t(testMode ? "q.submit" : "q.check"));
   const feedback = el("div", {});
   const selfRate = el("div", {});
