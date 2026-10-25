@@ -4447,7 +4447,8 @@ body:has(.hp-intro) .session__headright > .btn { display: none; }
 }
 @media (max-width: 560px) {
   .ach-overview { grid-template-columns: 1fr; justify-items: center; padding: var(--s-4); gap: var(--s-4); }
-  .ach-tiers { width: 100%; gap: 6px; }
+  /* The last tile (milestones) gets more room: "Milstolpar" is wider than a fifth of a small phone. */
+  .ach-tiers { width: 100%; gap: 6px; grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(0, 1.5fr); }
   .ach-tiercount { padding: 8px 2px; }
   .ach-overview .ach-hero { width: 100%; }
 }
@@ -6944,6 +6945,9 @@ body.route-home .homebg {
 /* The top bar lets the aura through instead of laying a band over it. */
 body.route-home .topbar { background: color-mix(in srgb, var(--canvas) 70%, transparent); border-bottom-color: transparent; }
 @media (max-width: 899.98px) {
+  /* On phones the bar spans the page and cards scroll under it: blur them so their text doesn't show
+     through the buttons (design.css turns the usual blur off for the phone shell). */
+  body.route-home .topbar { -webkit-backdrop-filter: blur(14px) saturate(1.3); backdrop-filter: blur(14px) saturate(1.3); }
   .homebg__light { width: 520px; height: 420px; top: -220px; }
   .homebg__light--a { left: calc(50% - 420px); }
   .homebg__light--b { left: calc(50% - 60px); }
