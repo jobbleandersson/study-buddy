@@ -38,7 +38,6 @@ import { aiQuotaNote } from "../components/ai-gate.js";
 import { aiHead } from "../components/ai-head.js";
 import { aiTile } from "../components/ai-mark.js";
 import { openPopover, closePopover } from "../lib/popover.js";
-import { setMood } from "../components/mascot.js";
 import { openMaterialPicker } from "../components/material-picker.js";
 import { chatHistoryPanel } from "../components/chat-history-panel.js";
 import { materialSystemBlock, extractSourceRefs } from "../lib/chat-material.js";
@@ -536,7 +535,6 @@ export function renderSolve(qs) {
     refs.inputEl.disabled = true;
     refs.attachBtn.disabled = true;
     refs.sendBtn.disabled = true;
-    setMood(head.mascotEl, "thinking");
     const bubble = appendBubble("ai", `<span class="typing"><span></span><span></span><span></span></span>`);
     state.abort = new AbortController();
     const mine = state.abort;
@@ -586,7 +584,6 @@ export function renderSolve(qs) {
       if (state.abort === mine) {
         state.busy = false;
         paintAvailability();
-        setMood(head.mascotEl, "idle");
         if (canChat) refs.inputEl.focus();
       }
     }
