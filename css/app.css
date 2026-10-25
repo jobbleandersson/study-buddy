@@ -4450,6 +4450,8 @@ body:has(.hp-intro) .session__headright > .btn { display: none; }
   /* The last tile (milestones) gets more room: "Milstolpar" is wider than a fifth of a small phone. */
   .ach-tiers { width: 100%; gap: 6px; grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(0, 1.5fr); }
   .ach-tiercount { padding: 8px 2px; }
+  /* Five captions across a small phone leave no room for the large text size; the counts above them still scale. */
+  :root[data-textsize="l"] .ach-tiercount small { font-size: 12px; }
   .ach-overview .ach-hero { width: 100%; }
 }
 .achgroup__title { display: flex; align-items: center; gap: var(--s-3); margin-bottom: var(--s-4); color: var(--ink); font-size: var(--fs-md); }
