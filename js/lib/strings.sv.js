@@ -224,7 +224,7 @@ export default {
   "session.resumeDone": "Du svarade på {n} av {total} förra gången, så du är redo att slutföra.",
   "session.continue": "Fortsätt",
   "session.startOver": "Börja om",
-  "session.testBanner": "Provläge: ett försök per fråga och inga tips. Handledaren går igenom allt med dig efteråt.",
+  "session.testBanner": "Provläge: ett försök per fråga, genomgång efteråt.",
   "session.badgeReview": "Repetition",
   "session.badgePractice": "Övning",
   "session.badgeWeak": "Svaga punkter",
@@ -1835,7 +1835,8 @@ export default {
   "q.tutorClozeWrongBlank": "Jag kom inte på luckorna och lämnade dem tomma. Kan du hjälpa mig komma igång?",
   "q.mathKeypad": "Infoga en matematisk symbol",
 
-  "session.testBannerHints": "Provläge: ett försök per fråga. Du kan fråga handledaren upp till {n} gånger.",
+  "session.testBannerHint": "Provläge: ett försök per fråga, 1 fråga till handledaren.",
+  "session.testBannerHints": "Provläge: ett försök per fråga, {n} frågor till handledaren.",
   "session.adaptiveEase": "Vi tar det lite lugnare — handledaren är här, och de närmaste frågorna spelar på dina styrkor.",
   "session.adaptiveCruise": "Det här går som en dans för dig.",
   "session.adaptiveFinishNow": "Avsluta nu",
@@ -1992,7 +1993,7 @@ export default {
   "common.confirm": "Bekräfta",
   "common.menu": "Meny",
 
-  "session.testOff": "Stäng av provläge",
+  "session.testOff": "Stäng av",
   "session.testOn": "Sätt på provläge igen",
   "session.testOffConfirm": "Stänga av provläge?\n\nDu får tillgång till handledaren och ett andra försök på varje fråga, och detta sparas inte som ett provresultat.",
   "session.testOffToast": "Provläge av — handledaren finns här för att hjälpa.",

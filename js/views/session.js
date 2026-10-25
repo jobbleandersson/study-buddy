@@ -895,7 +895,7 @@ function runSession(config) {
     if (testMode) {
       testBar.className = "testbar note note--warn";
       testBar.append(
-        el("span", {}, tutorSilent ? t("session.testBanner") : t("session.testBannerHints", { n: hintBudget })),
+        el("span", {}, tutorSilent ? t("session.testBanner") : plural(hintBudget, "session.testBannerHint", "session.testBannerHints")),
         el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: tryLeaveTestMode }, t("session.testOff")),
       );
     } else {
@@ -1489,7 +1489,8 @@ function runSession(config) {
     }, [icon(ICONS.pencil, 16)]);
     scratch.reset();
     return el("div.hp-qbar", {}, [
-      el("span.hp-qbar__src", {}, source),
+      // A practice set's own name is already the page title: no chip that only repeats it.
+      ...(source === assignment.title ? [] : [el("span.hp-qbar__src", {}, source)]),
       el("span.hp-qbar__tools", {}, [penBtn, saveBtn]),
     ]);
   }
