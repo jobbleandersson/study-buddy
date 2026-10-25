@@ -7,7 +7,7 @@
 
 import { store } from "../store.js";
 import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
-import { t } from "../lib/i18n.js";
+import { t, plural } from "../lib/i18n.js";
 import { datePicker } from "./calendar.js";
 import { fileDrop } from "./file-drop.js";
 import { subjectField } from "./subject-field.js";
@@ -98,7 +98,7 @@ export function openExamDialog({
             onchange: (e) => { if (e.target.checked) picked.add(a.id); else picked.delete(a.id); err.textContent = ""; syncAll(); },
           }),
           el("span", {}, a.title),
-          el("span.exam-dlg__n", {}, t("examdlg.qCount", { n: a.questions?.length || 0 })),
+          el("span.exam-dlg__n", {}, plural(a.questions?.length || 0, "examdlg.qCountOne", "examdlg.qCount")),
         ]);
       })
       : [el("p.note", { style: { margin: "4px 10px" } }, t("examdlg.noSets"))]));
@@ -163,7 +163,7 @@ export function openExamDialog({
         picked.add(made.id);
         mat.source = null; mat.text = ""; mat.image = null;
         paintTiles(); paintPanel(); paintSets();
-        toast(t("examdlg.materialDone", { n: made.questions.length }));
+        toast(plural(made.questions.length, "examdlg.materialDoneOne", "examdlg.materialDone"));
       } catch (e) {
         msg.textContent = e instanceof ClaudeError ? e.message : (e?.message || t("create.genFailed"));
       } finally {

@@ -7,7 +7,7 @@
 
 import { store } from "../store.js";
 import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
-import { t, fmtDate, sentenceCase, fmtDecimal } from "../lib/i18n.js";
+import { t, plural, fmtDate, sentenceCase, fmtDecimal } from "../lib/i18n.js";
 import { localDayKey, addDays } from "../lib/activity.js";
 import { renderRich } from "../lib/rich.js";
 import { previewPrompt } from "../lib/text.js";
@@ -139,7 +139,7 @@ export async function renderHpDelprov(dp, qs) {
         toggle("ext", t("hp.extTitle"), t("hp.extSub")),
         toggle("marked", t("hp.markTitle"), t("hp.markSub")),
       ]) : null,
-      poolSize < full ? el("p.note", {}, t("hp.setupFewer", { n: poolSize })) : null,
+      poolSize < full ? el("p.note", {}, plural(poolSize, "hp.setupFewerOne", "hp.setupFewer")) : null,
       el("div.hp-setup__go", {}, [goLink, sumEl]),
     ].filter(Boolean));
   }

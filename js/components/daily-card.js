@@ -5,7 +5,7 @@
 import { store } from "../store.js";
 import { el, icon, ICONS, toast } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
-import { t } from "../lib/i18n.js";
+import { t, plural } from "../lib/i18n.js";
 import { announce } from "../lib/a11y.js";
 import { serverMessage } from "../lib/server-errors.js";
 import { fetchMyDaily, cachedDaily, answerDaily, rememberAnswer } from "../lib/daily.js";
@@ -92,7 +92,7 @@ function dailyCard(item) {
     return el("div.dailycard__streak", {}, [
       el("span.dailydots", { "aria-hidden": "true" }, Array.from({ length: 7 }, (_, i) => el("i" + (i < n ? ".is-on" : "")))),
       el("span", {}, [
-        item.streak > 0 ? t("daily.streak", { n: item.streak }) + " " : "",
+        item.streak > 0 ? plural(item.streak, "daily.streakOne", "daily.streak") + " " : "",
         t("daily.today", { a: p.answered, m: p.members }),
       ].join("")),
     ]);
