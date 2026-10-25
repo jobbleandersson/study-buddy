@@ -38,7 +38,6 @@ import { aiQuotaNote } from "../components/ai-gate.js";
 import { aiHead } from "../components/ai-head.js";
 import { aiTile } from "../components/ai-mark.js";
 import { openPopover, closePopover } from "../lib/popover.js";
-import { setMood } from "../components/mascot.js";
 import { openMaterialPicker } from "../components/material-picker.js";
 import { chatHistoryPanel } from "../components/chat-history-panel.js";
 import { materialSystemBlock, extractSourceRefs } from "../lib/chat-material.js";
@@ -76,8 +75,7 @@ export function renderSolve(qs) {
   // Built once; mutated directly from here on (streaming and attach
   // previews need to update in place without losing focus or typed text).
   let refs = null;
-  // The shared identity strip (avatar + live/off status) — its mood follows the same busy/idle
-  // rhythm as the help-chat bubble's (site-chat.js), so the assistant visibly "thinks" while streaming.
+  // The shared identity strip (name + live/off status); repainted when the AI's availability changes.
   let head = null;
 
   /** The default persona has its own strings (solve.*, unchanged from before the modes existed);
@@ -536,7 +534,6 @@ export function renderSolve(qs) {
     refs.inputEl.disabled = true;
     refs.attachBtn.disabled = true;
     refs.sendBtn.disabled = true;
-    setMood(head.mascotEl, "thinking");
     const bubble = appendBubble("ai", `<span class="typing"><span></span><span></span><span></span></span>`);
     state.abort = new AbortController();
     const mine = state.abort;
@@ -586,7 +583,6 @@ export function renderSolve(qs) {
       if (state.abort === mine) {
         state.busy = false;
         paintAvailability();
-        setMood(head.mascotEl, "idle");
         if (canChat) refs.inputEl.focus();
       }
     }
