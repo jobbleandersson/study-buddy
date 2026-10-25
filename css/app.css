@@ -6088,16 +6088,18 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   /* A reply's "Rapportera" is the flag alone; the word stays its name. */
   .solve .msgrow .aireport span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 }
-/* Computers and tablets: the ways in lay out exactly as before; the phone's quick row isn't there. */
-.solve-ways { display: contents; }
-.solve-quick { display: none; }
+/* Computers and tablets: the ways in lay out exactly as before; the phone's quick row and halo aren't there. */
+.solve-ways, .solve-hero__glow { display: contents; }
+.solve-quick, .solve-hero__glow::before { display: none; }
 /* PluggEra AI on a phone: before the first message, the greeting (the AI's tile with its glow and the
    heading) sits alone in the middle, and the two most-used ways in sit just above the composer with "Fler",
    which opens every other way in as a panel above them. The mode's own intro still shows once one is on. */
 @media (max-width: 560px) {
   .solve:not(.is-chatting) .solve-chat__log { display: flex; flex-direction: column; }
   .solve-hero--home { flex: 1; position: relative; display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 0; padding: var(--s-3) 0 0; }
-  .solve-hero--home .solve-hero__mark { display: grid; margin: auto 0 4px; }
+  .solve-hero--home .solve-hero__glow { display: grid; margin: auto 0 4px; --hw: 220px; --hh: 170px; }
+  .solve-hero--home .solve-hero__glow::before { display: block; }
+  .solve-hero--home .solve-hero__mark { display: grid; margin: 0; }
   .solve-hero--home .solve-hero__title { margin-bottom: auto; }
   .solve-hero--home .solve-hero__sub { display: none; }
   .solve-quick { display: grid; grid-template-columns: 1fr 1fr auto; gap: 6px; width: 100%; margin-top: var(--s-3); }

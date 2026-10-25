@@ -283,7 +283,8 @@ export function renderSolve(qs) {
     ways?.addEventListener("click", (e) => { if (e.target.closest("button")) setWaysOpen(false); });
     ways?.addEventListener("keydown", (e) => { if (e.key === "Escape") { setWaysOpen(false); moreBtn.focus(); } });
     refs.hero = el("div.solve-hero" + (mode ? "" : ".solve-hero--home"), {}, [
-      mark,
+      // The side menu's halo behind the tile on a phone; a computer's greeting has its own (.solve-hero::before).
+      mode ? mark : el("span.solve-hero__glow.ai-halo", {}, mark),
       el("h2.solve-hero__title", {}, mode ? t(`chat.mode.${mode.id}`) : t("solve.heroTitle")),
       el("div.solve-hero__sub", { html: markdown(sub) }),
       ways,
