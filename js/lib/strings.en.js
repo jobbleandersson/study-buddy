@@ -209,7 +209,7 @@ export default {
   "session.resumeDone": "You answered {n} of {total} last time, so you're ready to finish.",
   "session.continue": "Continue",
   "session.startOver": "Start over",
-  "session.testBanner": "Test mode: one attempt per question, review afterwards.",
+  "session.testBanner": "Test mode: one attempt per question, no hints. Review afterwards.",
   "session.badgeReview": "Review",
   "session.badgePractice": "Practice",
   "session.badgeWeak": "Weak spots",
@@ -1995,7 +1995,7 @@ export default {
   "quickadd.newDeadline": "New deadline",
 
   "session.testOff": "Turn off",
-  "session.testOn": "Turn test mode back on",
+  "session.testOn": "Turn back on",
   "session.testOffConfirm": "Turn off test mode?\n\nYou'll get the tutor and a second try on each question, and this won't be saved as a test result.",
   "session.testOffToast": "Test mode off — the tutor's here to help.",
   "session.testOnToast": "Test mode back on.",

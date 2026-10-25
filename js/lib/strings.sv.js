@@ -224,7 +224,7 @@ export default {
   "session.resumeDone": "Du svarade på {n} av {total} förra gången, så du är redo att slutföra.",
   "session.continue": "Fortsätt",
   "session.startOver": "Börja om",
-  "session.testBanner": "Provläge: ett försök per fråga, genomgång efteråt.",
+  "session.testBanner": "Provläge: ett försök per fråga, inga tips. Genomgång efteråt.",
   "session.badgeReview": "Repetition",
   "session.badgePractice": "Övning",
   "session.badgeWeak": "Svaga punkter",
@@ -1994,7 +1994,7 @@ export default {
   "common.menu": "Meny",
 
   "session.testOff": "Stäng av",
-  "session.testOn": "Sätt på provläge igen",
+  "session.testOn": "Sätt på igen",
   "session.testOffConfirm": "Stänga av provläge?\n\nDu får tillgång till handledaren och ett andra försök på varje fråga, och detta sparas inte som ett provresultat.",
   "session.testOffToast": "Provläge av — handledaren finns här för att hjälpa.",
   "session.testOnToast": "Provläge på igen.",
