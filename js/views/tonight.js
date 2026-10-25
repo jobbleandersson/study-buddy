@@ -119,7 +119,7 @@ export function renderTonight(setId) {
     const isDone = plan.done.has(step.id);
     const id = `tstep-${step.id}`;
     const title = step.id === "rules" ? plural(step.n, "tonight.stepRulesOne", "tonight.stepRulesMany")
-      : step.id === "practice" ? t("tonight.stepPractice", { n: step.n })
+      : step.id === "practice" ? plural(step.n, "tonight.stepPracticeOne", "tonight.stepPractice")
       : t("tonight.stepFormulas");
     const panel = el("div.tstep__body", { id: `${id}-body`, hidden: !isOpen }, stepBody(step, plan, isDone));
     const head = el("button.tstep__head", {

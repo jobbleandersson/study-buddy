@@ -1968,8 +1968,6 @@ body.no-chrome .sitechat__panel { display: none; }
   .hp-hero__date { padding: var(--s-4); border-left: 0; border-top: 1px solid var(--line); }
   .hp-hero__next { padding: var(--s-3) var(--s-4); }
   .hp-hero__next .btn { flex: 1 1 auto; justify-content: center; }
-  /* Room at the end of the last row for the floating help button, which sits over it at the top. */
-  .hp-hero__next::after { content: ""; flex: 0 0 52px; }
 }
 @media (max-width: 420px) {
   .hp-tile { min-height: 108px; padding: var(--s-3) var(--s-4); }
@@ -2198,6 +2196,7 @@ body.no-chrome .sitechat__panel { display: none; }
   box-shadow: 0 0 10px -3px color-mix(in srgb, var(--subject, var(--brand)) 55%, transparent);
 }
 .levelcard__marks .subjmark small { font-size: calc(8px * var(--fs-scale, 1)); }
+.levelcard__marks .subjmark--more { --subject: var(--ink-faint); font-size: calc(12px * var(--fs-scale, 1)); box-shadow: none; }
 
 .libgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: var(--s-3); margin-top: var(--s-4); }
 .libcard {

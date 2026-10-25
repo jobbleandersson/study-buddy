@@ -59,7 +59,7 @@ export function renderProgress() {
     kpi(atRisk ? ICONS.shield : ICONS.flame, "var(--c-tangerine)", t("prog.kpiStreak"),
       plural(displayStreak, "prog.streakDaysOne", "prog.streakDaysMany"),
       [
-        bestStreak > displayStreak ? t("prog.kpiBest", { n: bestStreak }) : null,
+        bestStreak > displayStreak ? plural(bestStreak, "prog.kpiBestOne", "prog.kpiBest") : null,
         freezes > 0 ? el("span.pg-chip", { title: t("streak.freezeHelp") }, [icon(ICONS.shield, 12), `×${freezes}`]) : null,
         freezes === 0 && displayStreak > 0 && nextFreezeIn > 0
           ? el("span.pg-help", { title: t("streak.freezeHelp") }, plural(nextFreezeIn, "streak.freezeNextOne", "streak.freezeNext"))

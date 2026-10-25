@@ -171,7 +171,10 @@ export async function renderLibrary(qs = null) {
             icon(ICONS.arrow, 18),
           ]),
           el("span.levelcard__stats", {}, t("lib.levelStats", { subjects: subjects.length, sets: sets.length, questions })),
-          el("span.levelcard__marks", { "aria-hidden": "true" }, subjects.slice(0, 8).map((s) => subjectMark(subjName(s), libSubjectColor(s)))),
+          // Eight marks fill a phone-wide card; with more subjects, seven and a "+N" so none look missing.
+          el("span.levelcard__marks", { "aria-hidden": "true" }, subjects.length > 8
+            ? [...subjects.slice(0, 7).map((s) => subjectMark(subjName(s), libSubjectColor(s))), el("span.subjmark.subjmark--more", {}, `+${subjects.length - 7}`)]
+            : subjects.map((s) => subjectMark(subjName(s), libSubjectColor(s)))),
         ]);
       })),
     ]);
