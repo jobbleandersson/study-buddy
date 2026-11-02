@@ -6517,11 +6517,10 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .idcard {
   position: relative; isolation: isolate; overflow: hidden; display: grid; gap: var(--s-5);
   padding: var(--s-5) var(--s-6) 0; border-radius: 22px; color: #fff;
-  background: linear-gradient(135deg, #2654CC 0%, #1E45AC 55%, #183A92 100%);
-  box-shadow: 0 22px 44px -26px rgba(20, 52, 140, .75), 0 2px 6px rgba(16, 24, 40, .12);
+  background: var(--brandcard-bg); box-shadow: var(--brandcard-shadow);
 }
-/* Two faint rings in the corner, like the print on a card. */
-.idcard::before {
+/* Two faint rings in the corner, like the print on a card (the page band wears them too). */
+.idcard::before, .pageband::before {
   content: ""; position: absolute; z-index: -1; right: -110px; top: -150px; width: 360px; height: 360px;
   border-radius: 50%; border: 44px solid rgba(255, 255, 255, .055); box-shadow: 0 0 0 44px rgba(255, 255, 255, .03);
 }
@@ -6580,6 +6579,33 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .idcard__stat + .idcard__stat { padding-left: var(--s-3); border-left: 1px solid rgba(255, 255, 255, .14); }
 .idcard__stat strong { font-family: var(--font-display); font-size: calc(24px * var(--fs-scale, 1)); line-height: 1.15; font-variant-numeric: tabular-nums; }
 .idcard__stat span { font-size: calc(12.5px * var(--fs-scale, 1)); line-height: 1.3; color: rgba(255, 255, 255, .76); }
+
+/* The profile card's look as a page's head (Bibliotek, Framsteg, Inför provet; set-ui.js pageBand): the same blue,
+   rings and row of figures, so those pages open the way the profile does. The figures share .idcard__stats. */
+.pageband {
+  position: relative; isolation: isolate; overflow: hidden; display: grid; gap: var(--s-4);
+  margin-bottom: var(--s-5); padding: var(--s-5) var(--s-6); border-radius: 22px; color: #fff;
+  background: var(--brandcard-bg); box-shadow: var(--brandcard-shadow);
+}
+.pageband:has(> .idcard__stats) { padding-bottom: 0; }
+.pageband > * { margin: 0; }
+.pageband h1 { margin: 0; color: #fff; }
+.pageband :is(.settings__head p, .exam-lede, .libhead__trail) { color: rgba(255, 255, 255, .82); }
+.pageband .btn, .pageband .iconbtn {
+  color: #fff; background: rgba(255, 255, 255, .14); border: 1px solid rgba(255, 255, 255, .34); box-shadow: none;
+}
+.pageband .btn:hover:not(:disabled), .pageband .iconbtn:hover:not(:disabled) { background: rgba(255, 255, 255, .22); border-color: rgba(255, 255, 255, .5); }
+.pageband :is(.btn, .iconbtn):focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+/* As many columns as figures (four at the top of the library, two for one subject). */
+.pageband .idcard__stats { margin: 0 calc(-1 * var(--s-6)); grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); }
+@media (max-width: 560px) {
+  .pageband { padding: var(--s-4); border-radius: 18px; }
+  .pageband .idcard__stats {
+    margin: 0 calc(-1 * var(--s-4)); padding: var(--s-3) var(--s-4);
+    grid-auto-flow: row; grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .pageband .idcard__stat:nth-child(odd) { padding-left: 0; border-left: 0; }
+}
 @media (max-width: 620px) {
   .idcard { padding: var(--s-4) var(--s-4) 0; gap: var(--s-4); border-radius: 18px; }
   .idcard__who { align-items: flex-start; gap: var(--s-4); }

@@ -92,6 +92,9 @@
   --dur-slow: 400ms;
 
   --maxw: 1360px;
+  /* The profile card's blue, also the page band's (Bibliotek, Framsteg, Inför provet): the same in every theme. */
+  --brandcard-bg: linear-gradient(135deg, #2654CC 0%, #1E45AC 55%, #183A92 100%);
+  --brandcard-shadow: 0 22px 44px -26px rgba(20, 52, 140, .75), 0 2px 6px rgba(16, 24, 40, .12);
 }
 
 /* Reading-support options (Settings -> Look & feel). Set on <html> pre-paint
