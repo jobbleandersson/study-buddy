@@ -5472,6 +5472,8 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   display: flex; align-items: center; gap: 6px; max-width: 100%; min-width: 0; margin: 0;
   font-size: calc(12.5px * var(--fs-scale, 1)); line-height: 1.3; color: var(--ink-soft); white-space: nowrap;
 }
+/* The same status as a quiet line, centred in the greeting under the intro text. */
+.solvehead__status--line { justify-content: center; margin-top: 4px; }
 /* Only the words trim: clipping the whole line cut the live dot's pulse ring (it grows 6px around the dot). */
 .solvehead__statustext { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .solvehead__livedot {
@@ -6126,6 +6128,9 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   .solve-hero--home .solve-hero__mark { display: grid; margin: 0; }
   .solve-hero--home .solve-hero__title { margin-bottom: auto; }
   .solve-hero--home .solve-hero__sub { display: none; }
+  /* The status stays with the heading in the middle: it takes over the space that pushes the ways in down. */
+  .solve-hero--home .solve-hero__title:has(~ .solvehead__status--line:not([hidden])) { margin-bottom: 0; }
+  .solve-hero--home .solvehead__status--line { margin: 0 0 auto; }
   .solve-quick { display: grid; grid-template-columns: 1fr 1fr auto; gap: 6px; width: 100%; margin-top: var(--s-3); }
   .solve-quick .chatmode { justify-content: center; min-height: 36px; padding: 0 12px; border-color: var(--line); background: var(--surface); }
   .solve-quick .chatmode svg { color: var(--brand-ink); }

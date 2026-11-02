@@ -290,6 +290,7 @@ export function renderSolve(qs) {
       mode ? mark : el("span.solve-hero__glow.ai-halo", {}, mark),
       el("h2.solve-hero__title", {}, mode ? t(`chat.mode.${mode.id}`) : t("solve.heroTitle")),
       el("div.solve-hero__sub", { html: markdown(sub) }),
+      head?.heroStatus,
       ways,
       mode ? null : el("div.solve-quick", {}, [quickChip(ICONS.target, "quiz"), quickChip(ICONS.spark, "explain"), moreBtn]),
     ].filter(Boolean));
@@ -679,7 +680,7 @@ export function renderSolve(qs) {
       resetBtn, historyBtn, modeBtns, gateEl, formEl, panel: null, history: null, hero: null,
     };
 
-    head = aiHead([resetBtn, historyBtn]);
+    head = aiHead([resetBtn, historyBtn], { statusInHead: false });   // the live status sits in the greeting
     root.appendChild(homeButton({ grid: true }));
     root.appendChild(head.node);
     const panel = el("div.solve-chat.solve-chat__panel", {}, [
