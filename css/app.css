@@ -3788,6 +3788,16 @@ summary.gcalc__label:focus-visible { outline: none; box-shadow: var(--ring); bor
 .preset-table { width: 100%; border-collapse: collapse; margin-top: var(--s-3); font-size: var(--fs-sm); }
 .preset-table th, .preset-table td { text-align: left; padding: 6px 8px; border-top: 1px solid var(--line); }
 .preset-table th { font-weight: 600; color: var(--ink-soft); width: 40%; }
+/* On a phone the three columns do not fit (357px wide, so it ran past its card at 360px with large text):
+   each row becomes the job and its model on one line and when it is used under them. */
+@media (max-width: 520px) {
+  .preset-table, .preset-table tbody { display: block; }
+  .preset-table tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--s-3); padding: 8px 0; border-top: 1px solid var(--line); }
+  .preset-table th, .preset-table td { border: 0; padding: 0; width: auto; }
+  .preset-table th { grid-column: 1; grid-row: 1; }
+  .preset-table td:nth-child(2) { grid-column: 2; grid-row: 1; text-align: right; }
+  .preset-table td.note { grid-column: 1 / -1; grid-row: 2; }
+}
 
 /* ---------- Klasser + Förälder / lärare, on the same cards and rows ---------- */
 .settings--narrow { max-width: 900px; }
@@ -4069,7 +4079,8 @@ summary.gcalc__label:focus-visible { outline: none; box-shadow: var(--ring); bor
 .roadmap li::before { content: "🔜"; }
 
 .toast {
-  position: fixed; left: 50%; bottom: calc(var(--s-5) + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%) translateY(20px);
+  /* --toast-lift (set by toast() in dom.js) is how far a bar along the bottom reaches up; the toast rides above it. */
+  position: fixed; left: 50%; bottom: max(calc(var(--s-5) + env(safe-area-inset-bottom, 0px)), calc(var(--toast-lift, 0px) + var(--s-2))); transform: translateX(-50%) translateY(20px);
   /* Fixed dark pill regardless of theme — var(--ink) flips to near-white in
      dark mode, which left the hardcoded white text unreadable against it. */
   background: #2B2B3A; color: #fff; padding: var(--s-3) var(--s-5); border-radius: var(--r-lg);
@@ -4080,7 +4091,7 @@ summary.gcalc__label:focus-visible { outline: none; box-shadow: var(--ring); bor
   z-index: 50;
 }
 /* On a phone the tab bar sits at the bottom edge (about 56px); the toast rides above it, not over it. */
-@media (max-width: 899px) { .toast { bottom: calc(68px + var(--s-2) + env(safe-area-inset-bottom, 0px)); } }
+@media (max-width: 899px) { .toast { bottom: max(calc(68px + var(--s-2) + env(safe-area-inset-bottom, 0px)), calc(var(--toast-lift, 0px) + var(--s-2))); } }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 .toast:has(.toast__action) { display: flex; align-items: center; gap: var(--s-3); }
 .toast:has(.toast__action).show { pointer-events: auto; }
@@ -7322,4 +7333,17 @@ a.fb-shot:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; 
 @media (max-width: 640px) {
   .fb-kinds { grid-template-columns: repeat(2, 1fr); }
   .fb-stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Small controls keep their look, but on a touch screen the area that reacts to a thumb is about 44px (they are 26 to 30px
+   drawn). The ::after reaches past the box without moving anything. */
+@media (pointer: coarse) {
+  .topbar .brand, .plan-nav__btn, .cal__navbtn, .datepick__chip { position: relative; }
+  .topbar .brand::after { content: ""; position: absolute; inset: -9px; }
+  /* The areas stop short of a neighbour: the two week arrows are 4px apart and date chips wrap 6px apart, and a later
+     button's area would otherwise take taps on the edge of the one before it. */
+  .plan-nav__btn::after { content: ""; position: absolute; inset: -7px -2px; }
+  .cal__navbtn::after { content: ""; position: absolute; inset: -7px; }
+  .datepick__chip::after { content: ""; position: absolute; inset: -6px -3px; }
+  .set-switch::after { content: ""; position: absolute; inset: -8px -2px; }
 }
