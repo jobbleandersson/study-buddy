@@ -55,7 +55,7 @@ export function chatHistoryPanel({ activeId = null, onOpen, onNew, onBack, onDel
       const first = s.text.replace(/\s+/g, " ").slice(0, 110);
       savedEl.appendChild(el("details.history__answer", {}, [
         el("summary", {}, [first, s.text.length > 110 ? "…" : ""].join("")),
-        el("div.history__answerbody", { html: markdown(s.text) }),
+        el("div.history__answerbody", { html: markdown(s.text, { links: true }) }),
         el("div.history__answeractions", {}, [
           s.chatTitle ? el("small", {}, t("solve.savedFrom", { title: s.chatTitle })) : null,
           chat ? el("button.linkbtn", { type: "button", onclick: () => onOpen?.(chat) }, t("solve.savedOpenChat")) : null,

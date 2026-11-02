@@ -533,7 +533,13 @@ export async function* tutorStream({ system, messages, signal, maxTokens = 800, 
   let said = false;
   try {
   while (true) {
-    const { done, value } = await reader.read();
+    let got;
+    try { got = await reader.read(); }
+    catch (e) {
+      if (e?.name === "AbortError") throw e;
+      throw new ClaudeError(t("err.network"));
+    }
+    const { done, value } = got;
     if (done) break;
     buffer += decoder.decode(value, { stream: true });
     const events = buffer.split("\n\n");

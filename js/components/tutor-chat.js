@@ -346,8 +346,19 @@ export class TutorChat {
     this._respond(text, { usedHint: Number.isFinite(this.hintBudget) });
   }
 
+  /** Test mode switched off: no allowance. Back on: the test's, less what this run has used. */
+  setHintBudget(budget, used = 0) {
+    this.hintBudget = budget;
+    this.hintsLeft = Math.max(0, budget - used);
+    const closed = Number.isFinite(budget) && budget > 0 && this.hintsLeft <= 0;
+    this.inputEl.disabled = closed;
+    this.inputEl.placeholder = t(closed ? "tutor.hintsGone" : "tutor.ask");
+    this._refreshSub();
+  }
+
   /** A reply that failed did not help: the hint it took comes back. */
   _refundHint() {
+    if (!Number.isFinite(this.hintBudget)) return;   // test mode was left while the reply ran
     this.hintsLeft = Math.min(this.hintBudget, this.hintsLeft + 1);
     this.onHintUsed?.(this.hintBudget - this.hintsLeft);
     this._refreshSub();
@@ -426,6 +437,7 @@ export class TutorChat {
       if (stopReason === "max_tokens" && acc.trim()) bubble.appendChild(el("p.msg__errnote", {}, t("tutor.truncated")));
       msgs.push({ role: "assistant", content: acc || "…" });
       // A real AI answer can be reported (components/ai-report.js); the scripted demo replies can't.
+      if (!acc.trim() && opts.usedHint) this._refundHint();   // nothing came back: nothing was used
       if (acc.trim()) bubble.after(el("div.msg__acts", {}, [aiReportButton({ where: "tutor", content: acc, prompt: userText })]));
       if (gen !== (this._gen || 0)) return;
       opts.onReply?.(acc);

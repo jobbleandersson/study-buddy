@@ -23,6 +23,7 @@ import { aiHead } from "../components/ai-head.js";
 import { bindFileTargets, pasteKey } from "../components/file-drop.js";
 
 export function renderCheck() {
+  let head = null;
   const root = el("div.check");
   const st = {
     phase: "intro",        // "intro" | "busy" | "result"
@@ -50,7 +51,10 @@ export function renderCheck() {
     onFiles: ([file]) => { if (st.phase !== "busy") attach(file); },
     onReject: () => toast(t("err.imageType")),
   });
-  return { title: t("check.pageTitle"), node: root };
+  // The header's status follows the connection and the account without redrawing the page under the student.
+  const repaintHead = () => head?.paint();
+  store.addEventListener("change", repaintHead);
+  return { title: t("check.pageTitle"), node: root, cleanup: () => store.removeEventListener("change", repaintHead) };
 
   async function attach(file) {
     if (!store.hasKey()) {
@@ -70,9 +74,10 @@ export function renderCheck() {
 
   function paint() {
     const canUse = store.hasKey();
+    head = aiHead();
     root.replaceChildren(...[
       homeButton({ grid: true }),
-      aiHead().node,
+      head.node,
       solveTabs("check"),
       canUse ? null : gateNote(),
       st.phase === "intro" ? intro(canUse) : null,
@@ -186,7 +191,7 @@ export function renderCheck() {
       r.allGood ? null : ladder(r),
       st.solution && r.solution ? el("section.check-solution", {}, [
         el("h2", {}, t("check.solutionTitle")),
-        el("div", { html: markdown(r.solution) }),
+        el("div", { html: markdown(r.solution, { links: true }) }),
         el("p.note", {}, t("check.solutionNote")),
       ]) : null,
       el("div.check-actions", {}, [newPhoto]),

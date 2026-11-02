@@ -1,6 +1,7 @@
 import { test, describe } from "node:test";
 import assert from "node:assert/strict";
 import { markdown } from "../../js/lib/markdown.js";
+import { toSpeakable } from "../../js/lib/speech.js";
 
 const TABLE = [
   "| Aspekt | Mitos | Meios |",
@@ -147,6 +148,15 @@ describe("links in the AI's answers", () => {
 
   test("words that name another host still show the real one", () => {
     assert.match(on("[skolverket.se](https://evil.example/skolverket)"), /skolverket\.se<\/a> <small>\(evil\.example\)<\/small>/);
+  });
+
+  test("a look-alike that contains the real host still shows it", () => {
+    assert.match(on("[skolverket.se.evil.example](https://evil.example/x)"), /<small>\(evil\.example\)<\/small>/);
+  });
+
+  test("read aloud, a link is its words", () => {
+    assert.equal(toSpeakable("Läs hos [Skolverket](https://www.skolverket.se/a_(b)) idag."), "Läs hos Skolverket idag.");
+    assert.equal(toSpeakable("![en bild](https://e.se/a.png)"), "en bild");
   });
 
   test("any other address is only its words, and a picture never loads", () => {

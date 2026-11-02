@@ -49,14 +49,14 @@ function hostOf(escaped) {
 }
 
 /** Emphasis with links. A link is held aside while the emphasis runs (its address must not gain any <em>), so
- *  **[text](url)** still comes out bold. The host is shown beside the words unless they already say it, so a link's text
+ *  **[text](url)** still comes out bold. The host is shown beside the words unless they are exactly that host, so a link's text
  *  can't pretend to go somewhere it doesn't: students are told what they are about to open. */
 function linked(s) {
   const held = [];
   const text = s.replace(LINK, (_, bang, label, url) => {
     const host = bang ? "" : hostOf(url);
     const words = label || host;
-    const html = !host ? words : `<a href="${url}" target="_blank" rel="noopener noreferrer">${words}</a>${words.toLowerCase().includes(host.toLowerCase()) ? "" : ` <small>(${esc(host)})</small>`}`;
+    const html = !host ? words : `<a href="${url}" target="_blank" rel="noopener noreferrer">${words}</a>${words.toLowerCase() === host.toLowerCase() ? "" : ` <small>(${esc(host)})</small>`}`;
     held.push(html);
     return `\u0000${held.length - 1}\u0000`;
   });

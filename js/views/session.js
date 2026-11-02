@@ -933,6 +933,7 @@ function runSession(config) {
 
     tutor.locked = tutorSilent;
     tutor.testMode = testMode;
+    tutor.setHintBudget(on ? hintBudget : Infinity, state.tutorHintsUsed || 0);
     tutor.formEl.hidden = tutorSilent;
     hintFab.hidden = tutorSilent;
 
@@ -1330,7 +1331,7 @@ function runSession(config) {
       // (otherwise "took 25 h" for a 16-minute prognosis).
       finishedAt: opts.timedOut && state.deadlineAt ? Math.min(Date.now(), state.deadlineAt) : Date.now(),
       scorePct: denom ? Math.round((correct / denom) * 100) : 0,
-      tutorHints: Number.isFinite(hintBudget) ? hintBudget - tutor.hintsLeft : 0,
+      tutorHints: state.tutorHintsUsed || 0,
       items: answered,
       ...(unanswered.length ? { unanswered } : {}),
       ...(config.examId ? { examId: config.examId } : {}),
