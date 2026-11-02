@@ -15,6 +15,7 @@ import { store, nationalMixId } from "../store.js";
 import { el, icon, ICONS, toast } from "../lib/dom.js";
 import { t, plural, getLang, sentenceCase, fmtDate } from "../lib/i18n.js";
 import { localDayKey } from "../lib/activity.js";
+import { pageBand } from "../components/set-ui.js";
 import { homeButton } from "../components/nav.js";
 import { openExamDialog } from "../components/exam-dialog.js";
 import { addMoreQuestions, MORE_QUESTIONS } from "../components/exam-more.js";
@@ -446,13 +447,13 @@ function renderLanding() {
     onclick: () => openExamDialog({ onSaved: (rec) => { if (rec) location.hash = `#/exam-prep/${rec.id}`; } }),
   }, [icon(ICONS.plus, 16), t("exam.addTest")]);
 
-  const head = el("header.exam-head", {}, [
+  const head = pageBand(el("header.exam-head", {}, [
     el("div", {}, [
       el("h1", {}, t("exam.pageTitle")),
       el("p.exam-lede", {}, t("exam.landingSub")),
     ]),
     canAdd && exams.length ? addTest() : null,
-  ].filter(Boolean));
+  ].filter(Boolean)));
 
   const hpFoot = hasHp ? el("a.exam-hp", { href: "#/hp" }, [
     el("span.exam-hp__ic", { "aria-hidden": "true" }, icon(ICONS.award, 18)),

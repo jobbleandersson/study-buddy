@@ -12,7 +12,7 @@ import { localDayKey, addDays, recentDays, questionsAnsweredToday, reviewAccurac
 import { t, plural, getLang, fmtDecimal } from "../lib/i18n.js";
 import { goalRing } from "../components/goal-ring.js";
 import { homeButton } from "../components/nav.js";
-import { pageHead } from "../components/set-ui.js";
+import { pageHead, pageBand } from "../components/set-ui.js";
 import { ACHIEVEMENTS } from "../lib/achievements.js";
 import { achNext } from "../components/ach-next.js";
 import { estimatedGrade } from "../lib/grade.js";
@@ -145,7 +145,7 @@ export function renderProgress() {
 
   const node = el("div.dash.pg", {}, [
     homeButton({ grid: true }),
-    pageHead(t("prog.title"), t("prog.lede")),
+    pageBand(pageHead(t("prog.title"), t("prog.lede"))),
     kpis,
     el("div.pg-grid", {}, [
       el("div.pg-col", {}, [activity, mastery]),

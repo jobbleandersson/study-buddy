@@ -89,6 +89,16 @@ export function card(iconPath, title, sub, body, { id = null } = {}) {
   ]);
 }
 
+/** A page's head in the profile card's look (Bibliotek, Framsteg, Inför provet): `head` on the blue, and under it
+ *  an optional row of figures, each [value, label]. */
+export function pageBand(head, figures = null) {
+  return el("section.pageband", {}, [
+    head,
+    figures?.length ? el("div.idcard__stats", {}, figures.map(([value, label]) =>
+      el("div.idcard__stat", {}, [el("strong", {}, String(value)), el("span", {}, label)]))) : null,
+  ]);
+}
+
 /** A page head: the title and one line under it. */
 export function pageHead(title, sub) {
   return el("header.settings__head", {}, [el("h1", {}, title), sub ? el("p", {}, sub) : null].filter(Boolean));

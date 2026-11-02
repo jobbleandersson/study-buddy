@@ -6,6 +6,7 @@ import { store } from "../store.js";
 import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
 import { t, plural, getLang } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
+import { pageBand } from "../components/set-ui.js";
 import { loadLibraryIndex, loadLibraryTranslations, isImported, importSet } from "../data/library.js";
 import { masteryByTopic, setProgress } from "../lib/mastery.js";
 
@@ -99,13 +100,28 @@ export async function renderLibrary(qs = null) {
     const subject = state.subject ? index.subjects.find((s) => s.id === state.subject) : null;
     const title = subject ? subjName(subject) : level ? lvlLabel(level) : t("lib.title");
     const trail = subject ? `${t("lib.title")} · ${lvlLabel(level) || ""}` : level ? t("lib.title") : null;
-    headerEl.appendChild(el("div.libhead", {}, [
+    headerEl.appendChild(pageBand(el("div.libhead", {}, [
       back && el("button.iconbtn.iconbtn--sm", { type: "button", "aria-label": t("common.back"), onclick: back }, [icon(ICONS.back, 16)]),
       el("div.libhead__text", {}, [
         trail ? el("p.libhead__trail", {}, trail) : null,
         el("h1", {}, title),
       ].filter(Boolean)),
-    ].filter(Boolean)));
+    ].filter(Boolean)), figures(level, subject)));
+  }
+
+  /** The band's figures for what's on screen: the whole library, a level, or one subject. */
+  function figures(level, subject) {
+    const subjects = subject ? [subject] : index.subjects.filter((s) => !level || s.level === level.id);
+    const sets = index.sets.filter((s) => subjects.some((sub) => sub.id === s.subject));
+    const questions = sets.reduce((n, s) => n + (s.count || 0), 0);
+    const nf = new Intl.NumberFormat(getLang() === "sv" ? "sv-SE" : "en-GB");
+    const levels = index.levels.filter((l) => index.subjects.some((s) => s.level === l.id)).length;
+    return [
+      [nf.format(sets.length), plural(sets.length, "lib.figSetsOne", "lib.figSetsMany")],
+      [nf.format(questions), plural(questions, "lib.figQuestionsOne", "lib.figQuestionsMany")],
+      subject ? null : [nf.format(subjects.length), plural(subjects.length, "lib.figSubjectsOne", "lib.figSubjectsMany")],
+      level || subject ? null : [nf.format(levels), plural(levels, "lib.figLevelsOne", "lib.figLevelsMany")],
+    ].filter(Boolean);
   }
 
   function paintBody() {
