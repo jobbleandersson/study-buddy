@@ -93,6 +93,20 @@ function dismissToast(t) {
   // Faded out but still in the page: its button must not stay a Tab stop.
   t.querySelectorAll("button").forEach((b) => { b.tabIndex = -1; });
 }
+/** How far up the toast has to ride (px from the bottom of the screen) to clear the bars along the bottom edge: given the
+ *  rectangles of those bars, the distance from the screen's bottom up to the highest one that is on screen and in the lower
+ *  part of it. 0 when there is none. Pure, so it can be tested. */
+export function bottomClearance(rects, viewportHeight) {
+  let top = viewportHeight;
+  for (const r of rects) {
+    if (!r || !(r.height > 0) || r.top >= viewportHeight || r.top < viewportHeight * 0.4) continue;
+    top = Math.min(top, r.top);
+  }
+  return Math.max(0, Math.round(viewportHeight - top));
+}
+// What can sit along the bottom: the phone's tab bar, a practice session's button bar, the AI page's message box.
+const BOTTOM_BARS = ".tabbar, .nav-row, .solve-dock";
+
 export function toast(message, opts) {
   const t = toastEl();
   const withAction = !!(opts?.actionLabel && typeof opts.onAction === "function");
@@ -115,6 +129,9 @@ export function toast(message, opts) {
     } else {
       t.textContent = message;
     }
+    // Above the bar along the bottom (the AI page's message box, a session's buttons), not on top of it.
+    const lift = bottomClearance([...document.querySelectorAll(BOTTOM_BARS)].map((e) => e.getBoundingClientRect()), innerHeight);
+    t.style.setProperty("--toast-lift", `${lift}px`);
     t.classList.add("show");
     armToast(t);
   });
