@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { siteLocked } from "../gate.js";
+import { stableChoices } from "../../../js/lib/choices.js";
 
 // Public, server-rendered pages for the ready-made library, at real paths a search engine can index:
 //   /ova                         every level and subject
@@ -183,8 +184,10 @@ function questionHtml(q, i) {
   let body = "";
   let answer = "";
   if (q.kind === "mc") {
-    body = `<ol class="ova-choices" type="A">${q.choices.map((c) => `<li>${rich(c)}</li>`).join("")}</ol>`;
-    answer = `<p><strong>Rätt svar: ${"ABCDE"[q.answer] || ""}.</strong> ${rich(q.choices[q.answer])}</p>`
+    // A fixed shuffled order: the library stores the right answer first about half the time.
+    const { choices, answer: right } = stableChoices(q);
+    body = `<ol class="ova-choices" type="A">${choices.map((c) => `<li>${rich(c)}</li>`).join("")}</ol>`;
+    answer = `<p><strong>Rätt svar: ${"ABCDE"[right] || ""}.</strong> ${rich(choices[right])}</p>`
       + (q.explanation ? rich(q.explanation, "p") : "");
   } else if (q.kind === "worked") {
     answer = `<ol class="ova-steps">${(q.steps || []).map((s) => `<li>${rich(s)}</li>`).join("")}</ol>`

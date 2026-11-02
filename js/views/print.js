@@ -5,6 +5,7 @@
 import { store } from "../store.js";
 import { el, icon, ICONS } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
+import { stableChoices } from "../lib/choices.js";
 import { figureURL } from "../lib/figures.js";
 import { parseCloze, clozeToUnderscores } from "../components/questions.js";
 import { t } from "../lib/i18n.js";
@@ -50,7 +51,7 @@ export function renderPrint(id, qs) {
     const head = el("div.psheet__q", {}, [el("b", {}, `${i + 1}.`), " ", promptText(q)]);
     const body = [];
     if (q.kind === "mc" && Array.isArray(q.choices)) {
-      body.push(el("ol.psheet__choices", {}, q.choices.map((c) =>
+      body.push(el("ol.psheet__choices", {}, stableChoices(q).choices.map((c) =>
         el("li", { html: renderRich(c) }))));
     } else if (q.kind !== "cloze") {
       body.push(el("div.psheet__lines"));
@@ -62,7 +63,9 @@ export function renderPrint(id, qs) {
   // formula, not as the dollar signs and backslashes it is stored with.
   const answerParts = (q) => {
     if (q.kind === "mc") {
-      return [`${String.fromCharCode(65 + (q.answer ?? 0))} — `, el("span", { html: renderRich(q.choices?.[q.answer ?? 0] || "") })];
+      // The sheet's own order (stableChoices), so the key's letter matches what is printed.
+      const { choices, answer } = stableChoices(q);
+      return [`${String.fromCharCode(65 + (answer ?? 0))} — `, el("span", { html: renderRich(choices?.[answer ?? 0] || "") })];
     }
     if (q.kind === "cloze") return [el("span", { html: renderRich(parseCloze(q.prompt).filter((p) => p.blank).map((p) => p.blank[0]).join(", ")) })];
     // ?? not ||: an answer of 0 is an answer.

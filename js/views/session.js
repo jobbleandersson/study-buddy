@@ -36,7 +36,7 @@ import { renderBusQuestion, isBusQuestion, resetBusPrime } from "../components/b
 import { speechSupported } from "../lib/speech.js";
 import { setSessionActive } from "../lib/session-active.js";
 import { examCells, examSummary, toggleFlag } from "../lib/exam-nav.js";
-import { choicesDependOnOrder, explanationNamesOptions } from "../lib/choices.js";
+import { keepsChoiceOrder } from "../lib/choices.js";
 import { buildStudyPass, questionsForMinutes, pickMockQuestions } from "../lib/exam.js";
 import { resolveExam, contextLine } from "../components/exam-flow.js";
 
@@ -1809,16 +1809,6 @@ function runSession(config) {
       if (document.querySelector(".gcalc-modal")) import("../components/graph-calc.js").then((m) => m.closeGraphDialog());
     },
   };
-}
-
-/** Högskoleprov options are never reshuffled: KVA/NOG answers carry a fixed
- *  meaning, and every delprov's explanation refers to the options by letter or
- *  number ("alternativ C"). Any question with an HP `variant` — or a figure —
- *  keeps its authored option order, and so does one whose options point at each
- *  other ("Alla ovanstående") or whose explanation names an option by letter or
- *  position ("Svar B …"). Everything else is shuffled in every session. */
-function keepsChoiceOrder(q) {
-  return !!q?.variant || !!q?.figure || choicesDependOnOrder(q?.choices) || explanationNamesOptions(q);
 }
 
 function freshState(config) {
