@@ -2,6 +2,8 @@
 // HTML-escapes, then renders $...$ / $$...$$ math (KaTeX), **bold**, *italic*, `code`.
 // No block elements — safe to drop inside buttons, spans, list items.
 
+import { mathHtml } from "./math-render.js";
+
 function esc(s) {
   return s.replace(/[&<>"']/g, (c) => (
     { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]
@@ -9,9 +11,7 @@ function esc(s) {
 }
 
 function math(src, display) {
-  if (typeof window.katex === "undefined") return esc(src);
-  try { return window.katex.renderToString(src, { displayMode: display, throwOnError: false }); }
-  catch { return esc(src); }
+  return mathHtml(src, display, esc(src));
 }
 
 export function renderRich(input) {

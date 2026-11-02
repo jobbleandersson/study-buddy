@@ -7,7 +7,7 @@ import { deltaFromAttempt, firstTryCorrect } from "../lib/mastery.js";
 import { estimatedGrade, gradeRank } from "../lib/grade.js";
 import { normedScore, delprovEstimate, scoreBand, parseHpSetId, isHpSetId, attemptNormedTotal, prognosisMargin } from "../lib/hp.js";
 import { summarizeSchedule, dueLabel, retentionForecast } from "../lib/srs.js";
-import { celebrate, clearConfetti } from "../lib/confetti-helper.js";
+import { celebrate, clearConfetti, prepareConfetti } from "../lib/confetti-helper.js";
 import { t, plural, daysUntil, sentenceCase, fmtDecimal } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { playFanfare } from "../lib/sound.js";
@@ -86,6 +86,7 @@ export function renderResults(attemptId) {
     if (fg) fg.style.strokeDashoffset = String(C * (1 - score / 100));
   });
 
+  if (great) prepareConfetti();
   const fanfareTimer = great ? setTimeout(() => { celebrate(); playFanfare(); }, 250) : null;
 
   const deltaEntries = Object.entries(deltas).sort((a, b) => (b[1].after - b[1].before) - (a[1].after - a[1].before));

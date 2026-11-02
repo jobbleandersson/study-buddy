@@ -20,6 +20,7 @@ import { mountHomeBackdrop } from "./components/home-backdrop.js";
 import { loadLibraryIndex } from "./lib/library-content.js";
 import { playFanfare } from "./lib/sound.js";
 import { mountModalA11y } from "./lib/modal-a11y.js";
+import { loadMath } from "./lib/math-render.js";
 
 // Every module is in: boot.js's "couldn't start" screen stands down.
 window.__sbStarted = true;
@@ -112,6 +113,13 @@ function trackEntryPageview() {
 // ongoing visual change. A fixed, short delay fires predictably instead.
 function scheduleIdle(fn) { setTimeout(fn, 50); }
 scheduleIdle(() => { loadDeferredUI(); trackEntryPageview(); });
+
+// KaTeX for formulas (lib/math-render.js) is no longer part of the first load. A screen made of questions asks
+// for it as it opens (render() below); anywhere else it comes a few seconds after the page has loaded, so it's
+// here before the student opens a set without holding up the first screen.
+const MATH_ROUTES = /^\/(session|review|practice|tonight|teachback|challenge|results|edit|print|hp|exam-prep|solve|rules|create|library)(\/|-|$)/;
+if (document.readyState === "complete") setTimeout(loadMath, 3000);
+else window.addEventListener("load", () => setTimeout(loadMath, 3000));
 
 /**
  * Should the root route show the front page instead of the app? Only for a
@@ -1128,6 +1136,8 @@ async function render({ chromeOnly = false, softRefresh = false } = {}) {
     if (currentViewNode) mount(app, shell(currentViewNode));
     return;
   }
+
+  if (MATH_ROUTES.test(currentPath())) loadMath();
 
   // softRefresh: a re-render triggered by a store change on the *same* screen
   // (a background sync, a goal reached) — not a navigation. Keep the scroll
