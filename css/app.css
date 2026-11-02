@@ -6255,6 +6255,10 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   :is(.brand, .house-ad__x, .exam-card__name, .cal__navbtn, .plan-nav__btn, .iconbtn--sm, .acard__menu, .set-switch)::after {
     content: ""; position: absolute; inset: -7px;
   }
+  /* The logo and the switches reach 44px. The two week arrows are 4px apart: wider, the second takes taps on the edge of the first. */
+  .topbar .brand::after { inset: -9px; }
+  .set-switch::after { inset: -8px -2px; }
+  .plan-nav__btn::after { inset: -7px -2px; }
   /* Chips sit 8px apart in wrapping rows: grow up and down, barely sideways. */
   :is(.chip, .datepick__chip)::after { content: ""; position: absolute; inset: -6px -3px; }
   .linkbtn::after { inset: -10px -4px; }
@@ -7333,17 +7337,4 @@ a.fb-shot:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; 
 @media (max-width: 640px) {
   .fb-kinds { grid-template-columns: repeat(2, 1fr); }
   .fb-stats { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* Small controls keep their look, but on a touch screen the area that reacts to a thumb is about 44px (they are 26 to 30px
-   drawn). The ::after reaches past the box without moving anything. */
-@media (pointer: coarse) {
-  .topbar .brand, .plan-nav__btn, .cal__navbtn, .datepick__chip { position: relative; }
-  .topbar .brand::after { content: ""; position: absolute; inset: -9px; }
-  /* The areas stop short of a neighbour: the two week arrows are 4px apart and date chips wrap 6px apart, and a later
-     button's area would otherwise take taps on the edge of the one before it. */
-  .plan-nav__btn::after { content: ""; position: absolute; inset: -7px -2px; }
-  .cal__navbtn::after { content: ""; position: absolute; inset: -7px; }
-  .datepick__chip::after { content: ""; position: absolute; inset: -6px -3px; }
-  .set-switch::after { content: ""; position: absolute; inset: -8px -2px; }
 }
