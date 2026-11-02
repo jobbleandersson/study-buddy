@@ -3,6 +3,8 @@
 // unordered/ordered lists, pipe tables, blockquotes, horizontal rules, and
 // $...$ / $$...$$ math via KaTeX (lib/math-render.js).
 // Everything is HTML-escaped first, so model output can't inject markup.
+// With { links: true } (the AI's own answers): [text](https://...) becomes a link showing where it goes, any other address
+// and any ![picture](...) just its words. Left off, for text someone else may have written, it stays as typed.
 
 import { mathHtml } from "./math-render.js";
 
@@ -32,8 +34,33 @@ function inline(text) {
   return parts.map((p) => {
     if (p.t === "math") return renderMath(p.v, p.display);
     // Split on `code` first so nothing inside a code span gets bold/italic treatment.
-    return esc(p.v).split(/(`[^`]+`)/).map((seg, k) => (k % 2 ? `<code>${seg.slice(1, -1)}</code>` : emphasis(seg))).join("");
+    return esc(p.v).split(/(`[^`]+`)/).map((seg, k) => (k % 2 ? `<code>${seg.slice(1, -1)}</code>` : (linksOn ? linked(seg) : emphasis(seg)))).join("");
   }).join("");
+}
+
+let linksOn = false;   // set for the length of one markdown() call; rendering is synchronous
+// One level of brackets inside an address is allowed (Wikipedia links have them).
+const LINK = /(!?)\[([^\]\n]*)\]\(((?:[^()\s]|\([^()\s]*\))+)\)/g;
+
+/** The host of an already escaped address when it is a plain http(s) one, else "". */
+function hostOf(escaped) {
+  if (!/^https?:\/\//i.test(escaped)) return "";
+  try { return new URL(escaped.replace(/&amp;/g, "&")).host; } catch { return ""; }
+}
+
+/** Emphasis with links. A link is held aside while the emphasis runs (its address must not gain any <em>), so
+ *  **[text](url)** still comes out bold. The host is shown beside the words unless they already say it, so a link's text
+ *  can't pretend to go somewhere it doesn't: students are told what they are about to open. */
+function linked(s) {
+  const held = [];
+  const text = s.replace(LINK, (_, bang, label, url) => {
+    const host = bang ? "" : hostOf(url);
+    const words = label || host;
+    const html = !host ? words : `<a href="${url}" target="_blank" rel="noopener noreferrer">${words}</a>${words.toLowerCase().includes(host.toLowerCase()) ? "" : ` <small>(${esc(host)})</small>`}`;
+    held.push(html);
+    return `\u0000${held.length - 1}\u0000`;
+  });
+  return emphasis(text).replace(/\u0000(\d+)\u0000/g, (_, i) => held[i] ?? "");
 }
 
 /** **bold**, *italic* and _italic_ (an underscore only counts at a word edge, so snake_case and URLs are left alone). */
@@ -94,7 +121,12 @@ function tableHtml(lines, start) {
   return { html, next: i };
 }
 
-export function markdown(src) {
+export function markdown(src, { links = false } = {}) {
+  linksOn = links === true;
+  try { return render(src); } finally { linksOn = false; }
+}
+
+function render(src) {
   const lines = String(src ?? "").replace(/\r\n/g, "\n").split("\n");
   const out = [];
   let i = 0;
