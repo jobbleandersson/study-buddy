@@ -21,6 +21,7 @@ const KNOWN = {
   "Keep the description under 60 characters.": "srv.err.reviewContext",
   "Tick the box to let us show your review.": "srv.err.reviewConsent",
   "Password must be at least 8 characters.": "srv.err.password",
+  "That password is too easy to guess. Choose another one.": "srv.err.passwordCommon",
   "An account with that email already exists.": "srv.err.emailTaken",
   "Wrong email or password.": "srv.err.badLogin",
   "That site password is wrong.": "srv.err.sitePassword",

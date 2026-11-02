@@ -1105,6 +1105,7 @@ export default {
   "srv.err.contactName": "Enter your name.",
   "srv.err.contactMessage": "Write a message of up to 5000 characters.",
   "srv.err.password": "Password must be at least 8 characters.",
+  "srv.err.passwordCommon": "That password is too easy to guess. Choose another one.",
   "srv.err.emailTaken": "An account with that email already exists.",
   "srv.err.badLogin": "Wrong email or password.",
   "srv.err.sitePassword": "Wrong password. Try again.",
