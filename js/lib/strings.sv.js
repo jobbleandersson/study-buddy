@@ -1673,6 +1673,8 @@ export default {
   "solve.aiName": "PluggEra AI",
   "solve.aiStatus": "Svarar direkt, dygnet runt",
   "solve.aiOffline": "Inte tillgänglig just nu",
+  "solve.aiDeviceOffline": "Du är offline",
+  "solve.offlineNote": "Du är offline. AI:n är tillbaka när du har uppkoppling igen, och dina set går att öva på som vanligt.",
   "solve.aiSignInStatus": "Logga in för att chatta",
   "solve.intro": "Skicka en bild på uppgiften, klistra in en eller dra hit den, eller skriv bara din fråga — jag hjälper dig lösa den, steg för steg. Du kan också be mig göra ett övningsset åt dig.",
   "solve.heroTitle": "Vad vill du ha hjälp med?",

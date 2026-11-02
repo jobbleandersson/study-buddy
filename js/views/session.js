@@ -534,7 +534,8 @@ function runSession(config) {
     store.clearSession(config.key);
     saved = null;
   }
-  const resumable = saved && (saved.cursor > 0 || Object.keys(saved.items || {}).length > 0);
+  // A hint used before the first answer counts too, or reloading would hand a test its hints back.
+  const resumable = saved && (saved.cursor > 0 || Object.keys(saved.items || {}).length > 0 || saved.tutorHintsUsed > 0);
 
   const state = resumable
     ? { ...saved, order: saved.order.filter((id) => store.findQuestion(id)) }
@@ -567,7 +568,11 @@ function runSession(config) {
   let tutorSilent = testMode && hintBudget === 0;
   let leftTestMode = false;
 
-  const tutor = new TutorChat({ locked: tutorSilent, hintBudget, testMode });
+  const tutor = new TutorChat({
+    locked: tutorSilent, hintBudget, testMode,
+    hintsUsed: state.tutorHintsUsed || 0,
+    onHintUsed: (n) => { state.tutorHintsUsed = n; persist(); },
+  });
 
   const fill = el("div.progressbar__fill");
   const bar = el("div.progressbar", {}, [fill]);
@@ -650,6 +655,7 @@ function runSession(config) {
       isReview: config.assignmentId === REVIEW_ID,
       order: state.order,
       cursor: state.cursor,
+      tutorHintsUsed: state.tutorHintsUsed || 0,
       items: state.items,
       skipped: state.skipped,
       flagged: state.flagged,
@@ -927,6 +933,7 @@ function runSession(config) {
 
     tutor.locked = tutorSilent;
     tutor.testMode = testMode;
+    tutor.setHintBudget(on ? hintBudget : Infinity, state.tutorHintsUsed || 0);
     tutor.formEl.hidden = tutorSilent;
     hintFab.hidden = tutorSilent;
 
@@ -1324,7 +1331,7 @@ function runSession(config) {
       // (otherwise "took 25 h" for a 16-minute prognosis).
       finishedAt: opts.timedOut && state.deadlineAt ? Math.min(Date.now(), state.deadlineAt) : Date.now(),
       scorePct: denom ? Math.round((correct / denom) * 100) : 0,
-      tutorHints: Number.isFinite(hintBudget) ? hintBudget - tutor.hintsLeft : 0,
+      tutorHints: state.tutorHintsUsed || 0,
       items: answered,
       ...(unanswered.length ? { unanswered } : {}),
       ...(config.examId ? { examId: config.examId } : {}),

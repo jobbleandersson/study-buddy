@@ -23,9 +23,12 @@ export function aiHead(extra = []) {
   ]);
 
   function paint() {
-    const on = store.canUseAI();
+    const usable = store.canUseAI();
+    const on = usable && !store.deviceOffline;
     const reason = store.aiBlockReason();
-    const statusKey = on ? "solve.aiStatus" : reason === "signin" ? "solve.aiSignInStatus" : "solve.aiOffline";
+    const statusKey = on ? "solve.aiStatus"
+      : usable ? "solve.aiDeviceOffline"
+      : reason === "signin" ? "solve.aiSignInStatus" : "solve.aiOffline";
     clear(statusEl);
     append(statusEl, [
       el(`i.solvehead__livedot${on ? "" : ".is-off"}`, { "aria-hidden": "true" }),

@@ -1,6 +1,7 @@
 import { test, describe } from "node:test";
 import assert from "node:assert/strict";
 import { markdown } from "../../js/lib/markdown.js";
+import { toSpeakable } from "../../js/lib/speech.js";
 
 const TABLE = [
   "| Aspekt | Mitos | Meios |",
@@ -129,5 +130,59 @@ describe("markdown • bullets", () => {
   test("• needs no space after it, and a • in the middle of a line is left alone", () => {
     assert.equal(markdown("•ett\n•två"), "<ul><li>ett</li><li>två</li></ul>");
     assert.equal(markdown("A • B • C"), "<p>A • B • C</p>");
+  });
+});
+
+describe("links in the AI's answers", () => {
+  const on = (s) => markdown(s, { links: true });
+
+  test("an http(s) link becomes a real link that says where it goes", () => {
+    const html = on("Läs hos [Skolverket](https://www.skolverket.se/a?x=1&y=2).");
+    assert.match(html, /<a href="https:\/\/www\.skolverket\.se\/a\?x=1&amp;y=2" target="_blank" rel="noopener noreferrer">Skolverket<\/a> <small>\(www\.skolverket\.se\)<\/small>/);
+  });
+
+  test("words that already name the host don't repeat it, and bold around a link works", () => {
+    assert.equal(on("[skolverket.se](https://skolverket.se/x)"), '<p><a href="https://skolverket.se/x" target="_blank" rel="noopener noreferrer">skolverket.se</a></p>');
+    assert.match(on("**[Läs](https://e.se)**"), /<strong><a href="https:\/\/e\.se"[^>]*>Läs<\/a> <small>\(e\.se\)<\/small><\/strong>/);
+  });
+
+  test("words that name another host still show the real one", () => {
+    assert.match(on("[skolverket.se](https://evil.example/skolverket)"), /skolverket\.se<\/a> <small>\(evil\.example\)<\/small>/);
+  });
+
+  test("a look-alike that contains the real host still shows it", () => {
+    assert.match(on("[skolverket.se.evil.example](https://evil.example/x)"), /<small>\(evil\.example\)<\/small>/);
+  });
+
+  test("read aloud, a link is its words", () => {
+    assert.equal(toSpeakable("Läs hos [Skolverket](https://www.skolverket.se/a_(b)) idag."), "Läs hos Skolverket idag.");
+    assert.equal(toSpeakable("![en bild](https://e.se/a.png)"), "en bild");
+  });
+
+  test("any other address is only its words, and a picture never loads", () => {
+    for (const bad of ["javascript:alert(1)", "data:text/html,x", "vbscript:x", "//evil.example", "/local"]) {
+      const html = on(`[klick](${bad})`);
+      assert.equal(html, "<p>klick</p>", bad);
+    }
+    assert.equal(on("![en bild](https://e.se/a.png)"), "<p>en bild</p>");
+    assert.equal(on("![](https://e.se/a.png)"), "<p></p>");
+  });
+
+  test("quotes and markup in a link can't break out", () => {
+    const html = on('[<img src=x onerror=a>](https://e.se/"onmouseover="a)');
+    assert.equal(html.includes("<img"), false);
+    assert.equal(/href="[^"]*"onmouseover/.test(html), false);
+  });
+
+  test("an underscore in an address is not emphasis, and code stays code", () => {
+    assert.match(on("[a](https://e.se/_x_/y)"), /href="https:\/\/e\.se\/_x_\/y"/);
+    assert.equal(on("`[a](https://e.se)`"), "<p><code>[a](https://e.se)</code></p>");
+  });
+
+  test("off by default: text someone else may have written stays as typed", () => {
+    assert.equal(markdown("[a](https://e.se)"), "<p>[a](https://e.se)</p>");
+    const again = on("[a](https://e.se)");
+    assert.match(again, /<a /);
+    assert.equal(markdown("[a](https://e.se)"), "<p>[a](https://e.se)</p>", "the option does not stick");
   });
 });

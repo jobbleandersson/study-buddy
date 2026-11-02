@@ -84,7 +84,7 @@ function contentLadder(question) {
 }
 
 export class TutorChat {
-  constructor({ locked = false, hintBudget = Infinity, testMode = false } = {}) {
+  constructor({ locked = false, hintBudget = Infinity, testMode = false, hintsUsed = 0, onHintUsed = null } = {}) {
     this.locked = locked;
     // In a graded test the tutor may hint but must never confirm or reveal the answer
     // (the session flips this if the student leaves test mode).
@@ -92,7 +92,9 @@ export class TutorChat {
     // In a test the tutor can be given a small hint allowance instead of being
     // shut off entirely. hintBudget counts student questions, not tutor lines.
     this.hintBudget = hintBudget;
-    this.hintsLeft = hintBudget;
+    // hintsUsed: what this run has already used, when it is resumed; onHintUsed: tell the session, so it is saved with the run.
+    this.hintsLeft = Math.max(0, hintBudget - hintsUsed);
+    this.onHintUsed = onHintUsed;
     this.live = store.hasKey();
     this.messages = [];       // Anthropic-format history for the current question
     this.ladderIndex = -1;    // scripted mode
@@ -160,6 +162,12 @@ export class TutorChat {
       rec.onerror = () => this._stopMic();
       rec.onend = () => { if (this._listening) this._stopMic(); };
       this._rec = rec;
+    }
+
+    // A resumed test whose hints were already used up starts with the box closed, as it was left.
+    if (Number.isFinite(this.hintBudget) && this.hintBudget > 0 && this.hintsLeft <= 0) {
+      this.inputEl.disabled = true;
+      this.inputEl.placeholder = t("tutor.hintsGone");
     }
 
     this.formEl = el("form.tutor__form", { onsubmit: (e) => { e.preventDefault(); this._submit(); } }, [
@@ -328,13 +336,34 @@ export class TutorChat {
     this.inputEl.value = "";
     if (Number.isFinite(this.hintBudget)) {
       this.hintsLeft--;
+      this.onHintUsed?.(this.hintBudget - this.hintsLeft);
       this._refreshSub();
       if (this.hintsLeft <= 0) {
         this.inputEl.disabled = true;
         this.inputEl.placeholder = t("tutor.hintsGone");
       }
     }
-    this._respond(text);
+    this._respond(text, { usedHint: Number.isFinite(this.hintBudget) });
+  }
+
+  /** Test mode switched off: no allowance. Back on: the test's, less what this run has used. */
+  setHintBudget(budget, used = 0) {
+    this.hintBudget = budget;
+    this.hintsLeft = Math.max(0, budget - used);
+    const closed = Number.isFinite(budget) && budget > 0 && this.hintsLeft <= 0;
+    this.inputEl.disabled = closed;
+    this.inputEl.placeholder = t(closed ? "tutor.hintsGone" : "tutor.ask");
+    this._refreshSub();
+  }
+
+  /** A reply that failed did not help: the hint it took comes back. */
+  _refundHint() {
+    if (!Number.isFinite(this.hintBudget)) return;   // test mode was left while the reply ran
+    this.hintsLeft = Math.min(this.hintBudget, this.hintsLeft + 1);
+    this.onHintUsed?.(this.hintBudget - this.hintsLeft);
+    this._refreshSub();
+    this.inputEl.disabled = false;
+    this.inputEl.placeholder = t("tutor.ask");
   }
 
   async _respond(userText, opts = {}) {
@@ -401,13 +430,14 @@ export class TutorChat {
       });
       for await (const chunk of tutorStream({ system, messages: msgs, signal: this.abort.signal, onStop: (r) => { stopReason = r; } })) {
         acc += chunk;
-        bubble.innerHTML = markdown(acc);
+        bubble.innerHTML = markdown(acc, { links: true });
         this._scroll();
       }
       // An answer that hit its length limit is not a finished one: say so under it, as Solve does.
       if (stopReason === "max_tokens" && acc.trim()) bubble.appendChild(el("p.msg__errnote", {}, t("tutor.truncated")));
       msgs.push({ role: "assistant", content: acc || "…" });
       // A real AI answer can be reported (components/ai-report.js); the scripted demo replies can't.
+      if (!acc.trim() && opts.usedHint) this._refundHint();   // nothing came back: nothing was used
       if (acc.trim()) bubble.after(el("div.msg__acts", {}, [aiReportButton({ where: "tutor", content: acc, prompt: userText })]));
       if (gen !== (this._gen || 0)) return;
       opts.onReply?.(acc);
@@ -419,6 +449,7 @@ export class TutorChat {
       bubble.textContent = msg;
       bubble.classList.add("msg--error");
       msgs.pop(); // drop the user turn that failed
+      if (opts.usedHint && e?.name !== "AbortError") this._refundHint();
     }
   }
 
@@ -426,12 +457,12 @@ export class TutorChat {
     const bubble = this._append("ai", "");
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) {
-      bubble.innerHTML = markdown(text);
+      bubble.innerHTML = markdown(text, { links: true });
       this._scroll();
     } else {
       const words = text.split(" ");
       for (let i = 0; i < words.length; i++) {
-        bubble.innerHTML = markdown(words.slice(0, i + 1).join(" "));
+        bubble.innerHTML = markdown(words.slice(0, i + 1).join(" "), { links: true });
         this._scroll();
         await new Promise((r) => setTimeout(r, 18));
       }
@@ -442,7 +473,7 @@ export class TutorChat {
 
   _append(who, text) {
     const node = el(`div.msg.${who}`, {}, []);
-    node.innerHTML = who === "me" ? escapeHtml(text) : markdown(text);
+    node.innerHTML = who === "me" ? escapeHtml(text) : markdown(text, { links: true });
     this.logEl.appendChild(node);
     this._scroll();
     return node;

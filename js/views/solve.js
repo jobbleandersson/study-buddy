@@ -107,7 +107,7 @@ export function renderSolve(qs) {
     const { text, refs: sources } = extractSourceRefs(readable, set ? state.material.used : 0);
     // Its own suggested answers ("… [Kemi 1]") read as chips instead of raw brackets.
     let suggested = 0;
-    bubble.innerHTML = markdown(text).replace(/\[([^\[\]<>\n]{1,40})\](?=\s*(?:<\/li>|<\/p>|<br\s*\/?>|$))/g, (_, s) => {
+    bubble.innerHTML = markdown(text, { links: true }).replace(/\[([^\[\]<>\n]{1,40})\](?=\s*(?:<\/li>|<\/p>|<br\s*\/?>|$))/g, (_, s) => {
       suggested++;
       return `<span class="chatdef">${s}</span>`;
     });
@@ -589,6 +589,7 @@ export function renderSolve(qs) {
   }
 
   function gateNote() {
+    if (store.canUseAI() && store.deviceOffline) return el("p.note.note--warn", {}, t("solve.offlineNote"));
     if (store.aiBlockReason() === "quota") return aiQuotaNote();
     return store.aiNeedsSignIn()
       ? el("div.solve-signin", {}, [

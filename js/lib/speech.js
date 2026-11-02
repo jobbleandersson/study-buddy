@@ -163,6 +163,7 @@ export function splitForSpeech(text, max = 180) {
 /** Flatten markdown / LaTeX / cloze markup to something that reads as speech. */
 export function toSpeakable(text) {
   return String(text || "")
+    .replace(/!?\[([^\]\n]*)\]\((?:[^()\s]|\([^()\s]*\))+\)/g, "$1")   // link or picture -> its words
     .replace(/\{\{([^}|]*)(?:\|[^}]*)?\}\}/g, " $1 ")   // cloze -> first alternative
     .replace(/\$\$?([^$]*)\$\$?/g, " $1 ")               // math -> inner text
     .replace(/`([^`]*)`/g, "$1")

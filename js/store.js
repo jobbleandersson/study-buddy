@@ -1708,6 +1708,10 @@ class Store extends EventTarget {
    *  keyed, this month's budget isn't spent, and — unless this is a trusted
    *  no-auth server — the user is signed in (the key is not spendable
    *  anonymously). Entitlement (a paid plan) folds in here in Phase 2. */
+  /** The browser says this device has no connection. Separate from canUseAI(), which is about the server and the account:
+   *  a page that talks to the AI checks both. Only a clear "no" counts (browsers can't promise a working connection). */
+  get deviceOffline() { return typeof navigator !== "undefined" && navigator.onLine === false; }
+
   canUseAI() {
     if (!this.proxyUp || !this.proxyKeyConfigured || this._aiQuotaOut) return false;
     return this.authed || !this.proxyRequiresAuth;
@@ -2405,3 +2409,5 @@ function nextCopyTitle(title, existing) {
 }
 
 export const store = new Store();
+// The connection coming and going repaints whatever shows the AI's availability.
+for (const ev of ["online", "offline"]) globalThis.addEventListener?.(ev, () => store.dispatchEvent(new CustomEvent("change")));

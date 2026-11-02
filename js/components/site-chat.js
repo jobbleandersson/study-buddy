@@ -186,7 +186,7 @@ export function mountSiteChat() {
    *  a small sparkles avatar. Returns the bubble so a stream can fill it. */
   function append(who, text) {
     const node = el(`div.msg.${who}`, {}, []);
-    node.innerHTML = who === "me" ? escapeHtml(text) : markdown(text);
+    node.innerHTML = who === "me" ? escapeHtml(text) : markdown(text, { links: true });
     logEl.appendChild(who === "ai"
       ? el("div.sitechat__row", {}, [el("span.sitechat__av", { "aria-hidden": "true" }, icon(ICONS.spark, 13)), node])
       : node);
@@ -234,7 +234,7 @@ export function mountSiteChat() {
       ClaudeError = claudeMod.ClaudeError;
       for await (const chunk of claudeMod.tutorStream({ system: promptsMod.siteHelpSystem(), messages, signal: abort.signal, onStop: (r) => { stopReason = r; } })) {
         acc += chunk;
-        bubble.innerHTML = markdown(acc);
+        bubble.innerHTML = markdown(acc, { links: true });
         logEl.scrollTop = logEl.scrollHeight;
       }
       if (!acc.trim()) {

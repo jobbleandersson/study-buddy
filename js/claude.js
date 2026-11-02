@@ -96,6 +96,11 @@ async function errorFrom(res) {
   if (res.status === 401) return new ClaudeError(t("err.badKey"));   // Anthropic passthrough (server key rejected)
   // The proxy couldn't reach Anthropic (502), timed out (504), or Anthropic said it's overloaded (529).
   if (code === "upstream_unreachable" || [502, 504, 529].includes(res.status)) return new ClaudeError(t("err.upstream"));
+  // Any other fault on the server's side: the student can do nothing with its words, so they go to the console, not the chat.
+  if (res.status >= 500) {
+    console.warn("[ai] server error", res.status, detail);
+    return new ClaudeError(t("err.upstream"));
+  }
   return new ClaudeError(detail ? t("err.apiDetail", { status: res.status, detail }) : t("err.api", { status: res.status }));
 }
 
@@ -502,18 +507,24 @@ const STREAM_ERROR_KEYS = { overloaded_error: "err.upstream", rate_limit_error: 
 
 export async function* tutorStream({ system, messages, signal, maxTokens = 800, onStop } = {}) {
   await consented();
-  const res = await fetch(API_URL, {
-    method: "POST",
-    headers: headers(),
-    signal,
-    body: JSON.stringify(tuned({
-      model: modelFor("tutor"),
-      max_tokens: maxTokens,
-      stream: true,
-      system,
-      messages,
-    })),
-  });
+  let res;
+  try {
+    res = await fetch(API_URL, {
+      method: "POST",
+      headers: headers(),
+      signal,
+      body: JSON.stringify(tuned({
+        model: modelFor("tutor"),
+        max_tokens: maxTokens,
+        stream: true,
+        system,
+        messages,
+      })),
+    });
+  } catch (e) {
+    if (e?.name === "AbortError") throw e;   // the student moved on: not an error to show
+    throw new ClaudeError(t("err.network"));
+  }
   if (!res.ok || !res.body) throw await errorFrom(res);
 
   const reader = res.body.getReader();
@@ -522,7 +533,13 @@ export async function* tutorStream({ system, messages, signal, maxTokens = 800, 
   let said = false;
   try {
   while (true) {
-    const { done, value } = await reader.read();
+    let got;
+    try { got = await reader.read(); }
+    catch (e) {
+      if (e?.name === "AbortError") throw e;
+      throw new ClaudeError(t("err.network"));
+    }
+    const { done, value } = got;
     if (done) break;
     buffer += decoder.decode(value, { stream: true });
     const events = buffer.split("\n\n");

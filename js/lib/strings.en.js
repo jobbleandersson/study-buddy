@@ -1658,6 +1658,8 @@ export default {
   "solve.aiName": "PluggEra AI",
   "solve.aiStatus": "Answers right away, day or night",
   "solve.aiOffline": "Not available right now",
+  "solve.aiDeviceOffline": "You're offline",
+  "solve.offlineNote": "You're offline. The AI is back when you have a connection again, and your sets work as usual.",
   "solve.aiSignInStatus": "Sign in to chat",
   "solve.intro": "Send a photo of the problem, paste or drag one in, or just type your question — I'll help you work through it, step by step. You can also ask me to make you a practice set.",
   "solve.heroTitle": "What can I help you with?",
