@@ -3102,6 +3102,18 @@ body.route-chat .sitechat__panel { display: none; }
   .ref__math { font-size: 1.1rem; padding: 14px 10px; }
   .ref__print { display: none; }
 }
+/* The smallest phones (and small phones with large text): two tabs side by side leave the name too little
+   room next to the count, so the count moves under the name and the icon tile shrinks a little. */
+@media (max-width: 359px) {
+  .ref__tab { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 2px 8px; align-content: center; padding-left: 8px; }
+  .ref__tabic { grid-row: span 2; width: 28px; height: 28px; border-radius: 8px; }
+  .ref__tabcount { line-height: 1.2; }
+}
+@media (min-width: 360px) and (max-width: 419px) {
+  :root[data-textsize="l"] .ref__tab { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 2px 8px; align-content: center; padding-left: 8px; }
+  :root[data-textsize="l"] .ref__tabic { grid-row: span 2; width: 28px; height: 28px; border-radius: 8px; }
+  :root[data-textsize="l"] .ref__tabcount { line-height: 1.2; }
+}
 
 @media print {
   body:has(.ref) :is(.sidebar, .tabbar, .sitefooter, .sitechat__fab, .topbar, .homebtn) { display: none !important; }
