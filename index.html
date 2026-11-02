@@ -61,33 +61,65 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="PluggEra" />
 
+  <!-- The app's startup modules, all requested at once as the page starts instead of a level at a time as
+       main.js and its imports are read (seven levels: one round trip each on a phone's mobile data), and the
+       modules of the root address's two first screens, which js/boot.js requests for the one this visit gets. -->
+  <!-- modulepreload:start (written by tools/modulepreload.mjs: run it after changing an import) -->
+  <link rel="modulepreload" href="js/components/ai-mark.js" />
+  <link rel="modulepreload" href="js/components/home-backdrop.js" />
+  <link rel="modulepreload" href="js/components/set-ui.js" />
+  <link rel="modulepreload" href="js/components/upgrade-prompt.js" />
+  <link rel="modulepreload" href="js/config.js" />
+  <link rel="modulepreload" href="js/lib/a11y.js" />
+  <link rel="modulepreload" href="js/lib/achievement-toast.js" />
+  <link rel="modulepreload" href="js/lib/achievements.js" />
+  <link rel="modulepreload" href="js/lib/activity.js" />
+  <link rel="modulepreload" href="js/lib/clone.js" />
+  <link rel="modulepreload" href="js/lib/confetti-helper.js" />
+  <link rel="modulepreload" href="js/lib/dom.js" />
+  <link rel="modulepreload" href="js/lib/error-report.js" />
+  <link rel="modulepreload" href="js/lib/exam.js" />
+  <link rel="modulepreload" href="js/lib/grade.js" />
+  <link rel="modulepreload" href="js/lib/i18n.js" />
+  <link rel="modulepreload" href="js/lib/join-link.js" />
+  <link rel="modulepreload" href="js/lib/library-content.js" />
+  <link rel="modulepreload" href="js/lib/library.js" />
+  <link rel="modulepreload" href="js/lib/local-work.js" />
+  <link rel="modulepreload" href="js/lib/mastery.js" />
+  <link rel="modulepreload" href="js/lib/math-render.js" />
+  <link rel="modulepreload" href="js/lib/merge-state.js" />
+  <link rel="modulepreload" href="js/lib/modal-a11y.js" />
+  <link rel="modulepreload" href="js/lib/popover.js" />
+  <link rel="modulepreload" href="js/lib/rules.js" />
+  <link rel="modulepreload" href="js/lib/server-errors.js" />
+  <link rel="modulepreload" href="js/lib/session-active.js" />
+  <link rel="modulepreload" href="js/lib/sound.js" />
+  <link rel="modulepreload" href="js/lib/srs.js" />
+  <link rel="modulepreload" href="js/lib/sync-status.js" />
+  <link rel="modulepreload" href="js/lib/theme.js" />
+  <link rel="modulepreload" href="js/lib/wordmark.js" />
+  <link rel="modulepreload" href="js/store.js" />
+  <meta name="preload-screen-landing" content="js/views/landing.js js/components/apple-signin.js js/components/google-signin.js js/components/onboarding.js js/components/password-field.js js/components/site-gate-dialog.js js/data/library.js js/data/reviews.js js/lib/hp.js js/lib/study-modes.js" />
+  <meta name="preload-screen-home" content="js/views/menu.js js/components/ach-next.js js/components/calendar.js js/components/confirm-dialog.js js/components/daily-card.js js/components/due-dialog.js js/components/exam-flow.js js/components/house-ad.js js/components/nav.js js/components/quick-add.js js/components/set-summary.js js/components/subject-field.js js/data/library.js js/lib/blank-questions.js js/lib/daily.js js/lib/date-phrases.js js/lib/hp.js js/lib/markdown.js js/lib/podcast.js js/lib/rich.js js/lib/share-set.js js/lib/tonight.js js/lib/voice-features.js js/views/tonight.js" />
+  <!-- modulepreload:end -->
+
+  <!-- Sets the palette/font/language attributes <html> needs before first paint (no flash of the wrong one).
+       Above the stylesheets on purpose: a script waits for every stylesheet before it, and while it waits the
+       browser can't start on the app's own modules (main.js below) - on a phone's mobile data that held the
+       whole app back by about half a second. A plain external script, not inline, so this page's
+       Content-Security-Policy (server/src/index.js) needs no 'unsafe-inline' for scripts. -->
+  <script src="js/boot.js"></script>
+
   <!-- Typefaces are served from this site (css/fonts.css), not Google Fonts: no third-party request on load. -->
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/lexend-700-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/fonts.css" />
-
-  <!-- Math rendering (KaTeX) only appears inside specific components — most
-       pages, including this one's own landing/marketing routes, never use it
-       at all. Loaded with media="print" so the browser fetches it at normal
-       priority but doesn't block first paint on it; js/boot.js flips it to
-       the real media once it's in, so it's already applied by the time any
-       page that does render math needs it. The noscript fallback is for the
-       no-JS case only (the app itself already requires JS to run at all). -->
-  <link id="katex-print-css" rel="stylesheet" href="vendor/katex.min.css" media="print" />
-  <noscript><link rel="stylesheet" href="vendor/katex.min.css" /></noscript>
   <link rel="stylesheet" href="css/tokens.css" />
   <link rel="stylesheet" href="css/app.css" />
   <link rel="stylesheet" href="css/design.css" />
   <link rel="stylesheet" href="css/landing.css" />
-
-  <script src="vendor/canvas-confetti.min.js" defer></script>
-  <script src="vendor/katex.min.js" defer></script>
-  <!-- pdf.js and JSZip aren't here: js/material.js loads them the first time a file is imported. -->
-
-  <!-- Sets the palette/font/language attributes <html> needs before first paint (no flash of the
-       wrong one) and finishes the KaTeX media-swap above. A plain external script, not inline, so
-       this page's Content-Security-Policy (server/src/index.js) needs no 'unsafe-inline' for scripts. -->
-  <script src="js/boot.js"></script>
+  <!-- Not here, fetched when first needed: KaTeX for formulas (js/lib/math-render.js), the confetti
+       (js/lib/confetti-helper.js), pdf.js and JSZip (js/material.js). -->
 </head>
 <body>
   <a class="skiplink" href="#main"><span lang="sv">Hoppa till innehållet</span><span lang="en">Skip to content</span></a>

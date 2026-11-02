@@ -70,6 +70,7 @@ const APP_SHELL = [
   "./js/lib/mastery.js",
   "./js/lib/markdown.js",
   "./js/lib/rich.js",
+  "./js/lib/math-render.js",
   "./js/lib/confetti-helper.js",
   "./js/lib/library.js",
   "./js/lib/library-content.js",

@@ -1,8 +1,10 @@
 // Minimal, safe Markdown -> HTML for tutor messages.
 // Supports: paragraphs, bold, italic (* or _), inline code, fenced/indented code,
 // unordered/ordered lists, pipe tables, blockquotes, horizontal rules, and
-// $...$ / $$...$$ math via KaTeX when available.
+// $...$ / $$...$$ math via KaTeX (lib/math-render.js).
 // Everything is HTML-escaped first, so model output can't inject markup.
+
+import { mathHtml } from "./math-render.js";
 
 function esc(s) {
   return s.replace(/[&<>"']/g, (c) => (
@@ -11,12 +13,7 @@ function esc(s) {
 }
 
 function renderMath(src, display) {
-  if (typeof window.katex === "undefined") return esc(display ? `$$${src}$$` : `$${src}$`);
-  try {
-    return window.katex.renderToString(src, { displayMode: display, throwOnError: false });
-  } catch {
-    return esc(src);
-  }
+  return mathHtml(src, display, esc(display ? `$$${src}$$` : `$${src}$`), esc(src));
 }
 
 function inline(text) {

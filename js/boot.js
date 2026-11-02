@@ -1,7 +1,7 @@
 // Runs before first paint: sets the theme/font/language attributes <html> needs so there's no
-// flash of the wrong one, and finishes wiring up the KaTeX stylesheet's media-swap trick. A plain
-// external script rather than the inline <script> (and inline onload="") this used to be — moving
-// both out lets index.html ship a Content-Security-Policy with no 'unsafe-inline' in script-src.
+// flash of the wrong one. A plain external script rather than the inline <script> (and inline
+// onload="") this used to be — that lets index.html ship a Content-Security-Policy with no
+// 'unsafe-inline' in script-src.
 (function () {
   var root = document.documentElement;
   try {
@@ -41,18 +41,6 @@
     root.setAttribute("lang", "sv");
   }
 
-  // The KaTeX stylesheet loads with media="print" so the browser fetches it at normal priority
-  // without blocking first paint on it; flipping it to "all" the moment it's actually in means
-  // it's already applied by the time any page that renders math needs it. See index.html.
-  // This script runs after the <link> is parsed, so from a warm cache the stylesheet can already have
-  // loaded - its "load" event fired before the listener existed, and waiting for it would leave the
-  // sheet on media="print" for good (math unstyled on screen). A present .sheet means it's already in.
-  var katexLink = document.getElementById("katex-print-css");
-  if (katexLink) {
-    if (katexLink.sheet) katexLink.media = "all";
-    else katexLink.addEventListener("load", function () { katexLink.media = "all"; });
-  }
-
   // The rest is for the app itself (index.html), not the public practice pages that share this file.
   if (!root.hasAttribute("data-app")) return;
   var lang = root.getAttribute("lang");
@@ -60,12 +48,26 @@
   // The UI strings for that language, requested now: lib/i18n.js loads them with a dynamic import,
   // which the browser would otherwise only start once every other module had downloaded. Browsers
   // without modulepreload (Safari before 17) get the same request as a plain preload.
-  var pre = document.createElement("link");
-  var modulePreload = pre.relList && pre.relList.supports && pre.relList.supports("modulepreload");
-  pre.rel = modulePreload ? "modulepreload" : "preload";
-  if (!modulePreload) { pre.as = "script"; pre.crossOrigin = "anonymous"; }
-  pre.href = "js/lib/strings." + lang + ".js";
-  document.head.appendChild(pre);
+  var probe = document.createElement("link");
+  var modulePreload = probe.relList && probe.relList.supports && probe.relList.supports("modulepreload");
+  function preload(href) {
+    var link = document.createElement("link");
+    link.rel = modulePreload ? "modulepreload" : "preload";
+    if (!modulePreload) { link.as = "script"; link.crossOrigin = "anonymous"; }
+    link.href = href;
+    document.head.appendChild(link);
+  }
+  preload("js/lib/strings." + lang + ".js");
+
+  // The bare address opens the front page for a new visitor and Hem for a student with data saved on this
+  // device (main.js). Request that screen's modules now too, listed in index.html by tools/modulepreload.mjs,
+  // instead of three round trips after the app has started.
+  if (location.hash.replace(/^#\/?/, "").split("?")[0] === "") {
+    var saved = null;
+    try { saved = localStorage.getItem("studybuddy.v1"); } catch (e) { /* storage blocked: a new visitor */ }   // store.js KEY
+    var list = document.querySelector('meta[name="preload-screen-' + (saved ? "home" : "landing") + '"]');
+    if (list) list.content.split(" ").forEach(preload);
+  }
 
   // If the app can't start (a module that didn't download, or a browser too old to read it, such
   // as iOS 14), say so instead of leaving a blank page. main.js sets __sbStarted as soon as all
