@@ -10,7 +10,7 @@
 // chat) uses aria-modal="false" and is left alone.
 
 // Tab stops: tabindex="-1" opts an element out, even a button (the palette's rows are reached by arrow keys).
-const FOCUSABLE = ['a[href]', 'button:not([disabled])', 'input:not([disabled]):not([type="hidden"])', 'select:not([disabled])',
+export const FOCUSABLE = ['a[href]', 'button:not([disabled])', 'input:not([disabled]):not([type="hidden"])', 'select:not([disabled])',
   'textarea:not([disabled])', 'summary', '[contenteditable="true"]', '[tabindex]']
   .map((sel) => sel + ':not([tabindex="-1"])').join(", ");
 
@@ -25,6 +25,21 @@ export function cycleTarget(items, active, shift) {
   if (shift && active === first) return last;
   if (!shift && active === last) return first;
   return null;
+}
+
+/** A menu's arrow keys, Home and End: the index focus moves to (wrapping round), or null for any other key.
+ *  `at` is the focused item's index, -1 if none is (pure, for tests). */
+export function menuStep(key, at, count) {
+  if (!count) return null;
+  const from = at < 0 && key === "ArrowUp" ? 0 : at;
+  const next = { ArrowDown: from + 1, ArrowUp: from - 1, Home: 0, End: count - 1 }[key];
+  return next === undefined ? null : (next + count) % count;
+}
+
+/** Whether Tab takes focus out of a popover that sits at the end of <body>: from a menu always (a native
+ *  menu closes on Tab), from a panel only past its first or last control (pure, for tests). */
+export function tabLeaves(role, at, count, shift) {
+  return role === "menu" || (shift ? at <= 0 : at === count - 1);
 }
 
 const isVisible = (e) => e.getClientRects().length > 0 && getComputedStyle(e).visibility !== "hidden";

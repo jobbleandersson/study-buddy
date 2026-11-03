@@ -201,7 +201,9 @@ export function mountSiteChat() {
     clear(fab); fab.appendChild(icon(ICONS.close, 22));
     paintStatus();
     if (!messages.length) store.hasKey() ? paintIntro() : paintDormant();
-    inputEl.focus();
+    // The box, or (signed out, out of quota: the box is hidden) the first thing in the panel to act on.
+    if (!formEl.hidden) inputEl.focus();
+    else panel.querySelector("a[href], button:not([disabled])")?.focus();
   }
 
   function close() {
@@ -210,6 +212,15 @@ export function mountSiteChat() {
     fab.setAttribute("aria-expanded", "false");
     clear(fab); fab.appendChild(icon(ICONS.message, 24));
   }
+  // Escape closes the panel from anywhere inside it (or from the bubble) and hands focus back to the bubble.
+  function onEsc(e) {
+    if (e.key !== "Escape" || !opened) return;
+    e.stopPropagation();
+    close();
+    fab.focus();
+  }
+  panel.addEventListener("keydown", onEsc);
+  fab.addEventListener("keydown", onEsc);
 
   async function submit() {
     const text = inputEl.value.trim();
