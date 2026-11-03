@@ -11,7 +11,7 @@ import { t, plural, getLang, setLang, applyLang, LANGS, daysUntil } from "./lib/
 import { localDayKey } from "./lib/activity.js";
 import { prepHashForSet } from "./lib/exam.js";
 import { THEMES, getTheme, setTheme } from "./lib/theme.js";
-import { openPopover, closePopover } from "./lib/popover.js";
+import { openPopover, closePopover, menuKeys } from "./lib/popover.js";
 import { showAchievementUnlocks } from "./lib/achievement-toast.js";
 import { isSessionActive } from "./lib/session-active.js";
 import { mountUpgradePrompt } from "./components/upgrade-prompt.js";
@@ -345,31 +345,6 @@ function navItems() {
   return navGroups().flatMap((g) => g.items);
 }
 
-/** Keyboard and screen-reader wiring for a button that opens an openPopover()
- *  menu. Focus moves into the menu (the popover sits at the end of <body>, so
- *  Tab alone would never reach it), arrow keys step through it, Escape returns
- *  to the button, and aria-expanded follows the menu however it closes. */
-function wireMenu(btn, menu, startAt) {
-  btn.setAttribute("aria-expanded", "true");
-  const items = [...menu.querySelectorAll("button, a")];
-  menu.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") { btn.focus(); return; }
-    // Tab closes the menu and carries on from its button, as with a native menu.
-    if (e.key === "Tab") { closePopover(); btn.focus(); return; }
-    const step = e.key === "ArrowDown" ? 1 : e.key === "ArrowUp" ? -1 : 0;
-    if (!step) return;
-    e.preventDefault();
-    items[(items.indexOf(document.activeElement) + step + items.length) % items.length].focus();
-  });
-  const watch = new MutationObserver(() => {
-    if (menu.isConnected) return;
-    btn.setAttribute("aria-expanded", "false");
-    watch.disconnect();
-  });
-  watch.observe(document.body, { childList: true });
-  (startAt || items[0])?.focus();
-}
-
 /** "Verktyg" opens its three pages in a flyout beside the sidebar instead of
  *  unfolding them into the list, so the nav never grows. The row itself is
  *  marked current while one of those pages is open, since its links aren't
@@ -397,7 +372,7 @@ function flyoutButton(g) {
       }, [el("span.toolfly__icon", {}, icon(it.icon, 17)), el("span", {}, it.label)])),
     ], { placement: "right", fixed: true, offset: 21, width: 220, label: g.label });
     menu.classList.add("popover--flyout");
-    wireMenu(btn, menu, menu.querySelector(".toolfly__item.is-active"));
+    menu.querySelector(".toolfly__item.is-active")?.focus();
   });
   return btn;
 }
@@ -514,6 +489,7 @@ function moreMenu(active) {
       list.hidden = false;
       document.body.classList.add("has-topmenu");
       btn.setAttribute("aria-expanded", "true");
+      list.querySelector("a, button")?.focus();
       setTimeout(() => {
         document.addEventListener("click", onDoc, true);
         document.addEventListener("keydown", onEsc, true);
@@ -521,6 +497,7 @@ function moreMenu(active) {
     } else close();
   });
   list.addEventListener("click", (e) => { if (e.target.closest("a, .topmenu__item")) close(); });
+  menuKeys(list, btn, close, "menu");
 
   const wrap = el("div.tabbar__more", {}, [btn, list]);
   return wrap;
@@ -669,7 +646,7 @@ function themeMenuButton() {
       el("span", {}, themeLabel(value)),
       value === current ? icon(ICONS.check, 15) : null,
     ])), { align: "right", width: 200, label: t("set.theme"), placement: "above", fixed: true });
-    wireMenu(btn, menu, menu.querySelector('[aria-checked="true"]'));
+    menu.querySelector('[aria-checked="true"]')?.focus();
   });
   function onExternalChange() {
     if (!btn.isConnected) { window.removeEventListener("sb:themechange", onExternalChange); return; }
@@ -858,7 +835,7 @@ function shellActions() {
     onclick: (e) => {
       e.stopPropagation();
       // A page to go to: icon, name and a small arrow, as one menu row.
-      const goTo = (href, path, label) => el("a.cardmenu__item.acctmenu__link", { href, onclick: closePopover }, [
+      const goTo = (href, path, label) => el("a.cardmenu__item.acctmenu__link", { href, role: "menuitem", onclick: closePopover }, [
         icon(path, 16), el("span", {}, label), icon(ICONS.chevronRight, 14),
       ]);
       const sep = () => el("div.acctmenu__sep", { role: "separator" });
@@ -877,7 +854,7 @@ function shellActions() {
         goTo("#/settings", ICONS.gear, t("account.settings")),
         sep(),
         el("button.cardmenu__item.cardmenu__item--danger", {
-          type: "button",
+          type: "button", role: "menuitem",
           onclick: async () => {
             closePopover();
             let r = null;

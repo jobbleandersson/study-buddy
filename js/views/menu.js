@@ -28,6 +28,7 @@ import { tonightPlan } from "./tonight.js";
 import { shareSet } from "../lib/share-set.js";
 import { loadScript, scriptKey } from "../lib/podcast.js";
 import { MY_REVIEW_URL } from "../config.js";
+import { menuKeys } from "../lib/popover.js";
 
 // Module-level so the choices survive a re-render (e.g. after deleting a set).
 let tab = "assignment";
@@ -311,6 +312,8 @@ export function renderMenu(mode) {
         { title: a.title, subject: subjectName, count: a.questions.length }),
       onclick: activate,
       onkeydown: (e) => {
+        // Only the card's own keys: Enter on its ⋮ button is that button's, and must open the menu.
+        if (e.target !== e.currentTarget) return;
         if (e.key === "Enter" || e.key === " ") { e.preventDefault(); activate(); }
       },
     }, [
@@ -389,6 +392,7 @@ export function renderMenu(mode) {
     menu.style.top = `${r.bottom + window.scrollY + 4}px`;
     menu.style.left = `${Math.min(r.left + window.scrollX, window.innerWidth - 190)}px`;
     document.body.appendChild(menu);
+    menuKeys(menu, anchor, closeCardMenu, "menu");
     menu.querySelector("button")?.focus();
 
     setTimeout(() => {
@@ -685,6 +689,7 @@ function openDayChooser(anchor, mark) {
   menu.style.left = `${Math.max(8, Math.min(r.left + window.scrollX, window.innerWidth - 210))}px`;
   document.body.appendChild(menu);
   dayMenuEl = menu;
+  menuKeys(menu, anchor, closeDayChooser, "menu");
   menu.querySelector("a")?.focus();
 
   setTimeout(() => {

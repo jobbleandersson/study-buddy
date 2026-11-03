@@ -860,7 +860,6 @@ function runSession(config) {
       pomoMin ? el("p.toolfly__title", { role: "presentation" }, `${t("session.pomoTitle")} · ${pomoEl.textContent}`) : null,
     ].filter(Boolean), { align: "right", width: 250, fixed: true, label: t("session.moreOptions") });
     menu.classList.add("popover--flyout");
-    menu.querySelector("button")?.focus();
   }
 
   function fmtClock(ms) {
