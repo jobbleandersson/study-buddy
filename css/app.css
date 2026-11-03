@@ -6297,6 +6297,14 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   .auth__link::after { inset: -10px -4px; }
   .lp-more, .pg-more, .set-row__link { padding-block: 8px; margin-block: -8px; }
   .lp-more { margin-top: 12px; }
+  /* Settings: the option buttons (34px) and the section links (40px) reach 44px without moving anything. */
+  .set-seg__opt, .settings__navlink { position: relative; }
+  .set-seg__opt::after { content: ""; position: absolute; inset: -5px 0; }
+}
+/* Only where the section links wrap: wider, their row scrolls sideways and the taller hit area would make
+   it scroll up and down too. */
+@media (pointer: coarse) and (max-width: 540px) {
+  .settings__navlink::after { content: ""; position: absolute; inset: -2px 0; }
 }
 @media (max-width: 899.98px) {
   /* PluggEra AI: the composer stays in reach just above the tab bar as the conversation grows. */
