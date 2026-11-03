@@ -1191,6 +1191,8 @@ class Store extends EventTarget {
         variant: q.variant || undefined,
         figure: q.figure || undefined,
         stimulus: q.stimulus || undefined,
+        // A starter question's first wording (lib/blank-questions.js): lets an untouched one be told apart.
+        sample: typeof q.sample === "string" ? q.sample : undefined,
       })),
     };
     this.state.assignments.unshift(a);

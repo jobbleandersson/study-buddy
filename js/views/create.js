@@ -21,7 +21,7 @@ import { fileDrop } from "../components/file-drop.js";
 import { row, seg, toggle, stepper } from "../components/set-ui.js";
 import { aiQuotaNote } from "../components/ai-gate.js";
 import { NATIONAL_TEST_LEVELS, NATIONAL_TEST_SUBJECTS, nationalSubjectName } from "../data/national-tests.js";
-import { blankQuestions } from "../lib/blank-questions.js";
+import { blankQuestions, isUntouchedSample } from "../lib/blank-questions.js";
 
 export { blankQuestions };   // exam-dialog loads it from here
 
@@ -656,6 +656,8 @@ export function renderCreate(prefill) {
     function save() {
       const questions = editor.commit();
       if (!questions.length) { toast(t("create.addAtLeastOne")); return; }
+      const samples = questions.filter(isUntouchedSample).length;
+      if (samples) { toast(plural(samples, "create.samplesLeftOne", "create.samplesLeftMany")); return; }
       if (!doc.title.trim()) { toast(t("create.giveName")); titleInput.focus(); return; }
       doc.dueAt = duePicker.getValue() || null;
       if (testToggle.checked && !doc.dueAt) { toast(t("create.testNeedsDate")); return; }

@@ -1911,6 +1911,11 @@ export default {
   "create.blankHint": "Starts you off with a few editable questions of each kind. Handy for trying the app out.",
   "create.blankBuild": "Create blank set",
   "create.blankTitle": "Untitled set",
+  "create.samplesLeftOne": "{n} question is still a sample. Rewrite it or remove it.",
+  "create.samplesLeftMany": "{n} questions are still samples. Rewrite them or remove them.",
+  "session.samplesTitle": "Only sample questions so far",
+  "session.samplesBody": "Rewrite the sample questions as your own, then you can practise them.",
+  "session.samplesEdit": "Write the questions",
   "create.blankQ": "Sample question {n} — edit me",
   "create.blankCloze": "Sample {n}: the capital of France is {{Paris}}",
 

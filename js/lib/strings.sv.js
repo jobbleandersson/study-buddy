@@ -1926,6 +1926,11 @@ export default {
   "create.blankHint": "Ger dig några redigerbara frågor av varje typ att börja med. Bra för att testa appen.",
   "create.blankBuild": "Skapa tomt set",
   "create.blankTitle": "Namnlöst set",
+  "create.samplesLeftOne": "{n} fråga är fortfarande ett exempel. Skriv om den eller ta bort den.",
+  "create.samplesLeftMany": "{n} frågor är fortfarande exempel. Skriv om dem eller ta bort dem.",
+  "session.samplesTitle": "Bara exempelfrågor än",
+  "session.samplesBody": "Skriv om exempelfrågorna till dina egna, så kan du öva på dem.",
+  "session.samplesEdit": "Skriv frågorna",
   "create.blankQ": "Exempelfråga {n} — redigera mig",
   "create.blankCloze": "Exempel {n}: Frankrikes huvudstad är {{Paris}}",
 
