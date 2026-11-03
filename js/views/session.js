@@ -808,7 +808,15 @@ function runSession(config) {
   function showClock(text) { examTimeText.textContent = text; mTimeText.textContent = text; }
   function primarySource() {
     const own = stage.querySelector(".q-primary");
+    // In a test a question may be left for later, as Nästa allows on a computer: until something is picked
+    // or typed the bar offers Nästa, not a greyed-out Skicka svar that only ⋯ → Översikt got past (or, for
+    // a gap with nothing in it, a Skicka svar that would hand in a blank).
+    if (isExam && own && (own.disabled || nothingTyped())) return nextBtn;
     return own && !own.hidden ? own : nextBtn;
+  }
+  function nothingTyped() {
+    const fields = [...stage.querySelectorAll("input[type=text], textarea")].filter((f) => !f.disabled && f.offsetParent);
+    return fields.length > 0 && fields.every((f) => !f.value.trim());
   }
   function syncPrimary() {
     const src = primarySource();
@@ -819,6 +827,8 @@ function runSession(config) {
   const primaryWatch = new MutationObserver(syncPrimary);
   primaryWatch.observe(stage, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ["disabled", "hidden"] });
   primaryWatch.observe(nextBtn, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ["disabled", "hidden"] });
+  // Typing changes no attribute, but in a test it decides between Nästa and Skicka svar.
+  if (isExam) stage.addEventListener("input", syncPrimary);
   // iPhone keeps a fixed bar at the bottom of the page behind the keyboard: lift it above while typing.
   const vv = window.visualViewport;
   function liftBar() {
