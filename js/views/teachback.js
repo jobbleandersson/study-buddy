@@ -151,7 +151,7 @@ function notFound() {
   return {
     title: t("teach.title"),
     node: el("div.empty", {}, [
-      el("h2", {}, t("teach.goneTitle")),
+      el("h2", { "aria-level": "1" }, t("teach.goneTitle")),
       el("p", {}, t("teach.goneBody")),
       el("a.btn.btn--ghost", { href: "#/progress", style: { marginTop: "16px" } }, t("common.progress")),
     ]),

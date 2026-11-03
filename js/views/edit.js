@@ -1,7 +1,7 @@
 // Edit a saved set: title, subject, type, and its questions.
 // Reuses the same question editor the Create flow uses.
 
-import { store } from "../store.js";
+import { store, SET_TITLE_MAX } from "../store.js";
 import { el, icon, ICONS, toast, uid } from "../lib/dom.js";
 import { questionEditor } from "../components/question-editor.js";
 import { deepClone } from "../lib/clone.js";
@@ -37,7 +37,7 @@ export function renderEdit(assignmentId, qs) {
   });
 
   const titleInput = el("input", {
-    type: "text", value: draft.title, "aria-label": t("create.setTitleAria"),
+    type: "text", value: draft.title, "aria-label": t("create.setTitleAria"), maxlength: String(SET_TITLE_MAX),
     oninput: (e) => { draft.title = e.target.value; },
   });
   // draft.sourceSummary can be undefined on a set saved before this field

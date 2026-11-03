@@ -532,7 +532,7 @@ export function renderMenu(mode) {
     rail,
   ].filter(Boolean));
 
-  return { title: t("menu.title"), node: layout, cleanup: menuCleanup };
+  return { title: t("nav.home"), node: layout, cleanup: menuCleanup };
 }
 
 /** The evening before a test the home page leads with a calm card that opens the

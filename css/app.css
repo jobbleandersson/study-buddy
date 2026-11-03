@@ -4529,10 +4529,11 @@ body:has(.hp-intro) .session__headright > .btn { display: none; }
   border: 1px solid color-mix(in oklab, var(--c, var(--ink-faint)) 30%, var(--line));
 }
 .achbadge--next { border-color: var(--line); border-color: color-mix(in oklab, var(--c) 55%, var(--line)); background: var(--surface); background: color-mix(in oklab, var(--c) 6%, var(--surface)); }
-.achbadge--next .achbadge__tiername { color: color-mix(in oklab, var(--c) 75%, var(--ink)); }
+/* A level's name has to read as text (4.5:1) on every theme: mostly ink, tinted by its metal. */
+.achbadge--next .achbadge__tiername { color: color-mix(in oklab, var(--c) 55%, var(--ink)); }
 .achbadge__body { min-width: 0; }
 .achbadge__top { display: flex; align-items: center; gap: 6px; margin-bottom: 2px; }
-.achbadge__tiername { font-weight: 700; font-size: var(--fs-sm); color: color-mix(in oklab, var(--c, var(--ink-faint)) 70%, var(--ink-soft)); text-transform: uppercase; letter-spacing: .03em; }
+.achbadge__tiername { font-weight: 700; font-size: var(--fs-sm); color: color-mix(in oklab, var(--c, var(--ink-faint)) 55%, var(--ink)); text-transform: uppercase; letter-spacing: .03em; }
 .achbadge__check { display: grid; place-items: center; flex: none; width: 18px; height: 18px; border-radius: var(--r-full); background: var(--ok); color: #fff; }
 .achbadge__desc { font-size: var(--fs-sm); color: var(--ink-soft); line-height: 1.4; margin: 0 0 var(--s-2); }
 .achbadge__unlockdate { font-size: var(--fs-sm); color: var(--ink-faint); font-weight: 600; margin: 0; }
@@ -5323,7 +5324,7 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   font-size: calc(12px * var(--fs-scale, 1)); font-weight: 700; background: var(--surface-sunk); color: var(--ink-soft);
 }
 .teach-daily__opt.is-right { border-color: var(--ok-bright); background: var(--ok-tint); color: var(--ok-ink); }
-.teach-daily__opt.is-right .teach-daily__key { background: var(--ok-bright); color: #fff; }
+.teach-daily__opt.is-right .teach-daily__key { background: var(--ok); color: #fff; }   /* --ok-bright under white was 2.3:1 */
 .teach-daily__opt.is-right svg { margin-left: auto; }
 .teach-daily__result {
   display: flex; align-items: flex-start; gap: 10px;
@@ -6281,6 +6282,9 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   /* Chips sit 8px apart in wrapping rows: grow up and down, barely sideways. */
   :is(.chip, .datepick__chip)::after { content: ""; position: absolute; inset: -6px -3px; }
   .linkbtn::after { inset: -10px -4px; }
+  /* The test banner's Stäng av / Sätt på is 29px drawn. */
+  .testbar .btn { position: relative; }
+  .testbar .btn::after { content: ""; position: absolute; inset: -8px -2px; }
 }
 
 /* Phones and touch screens, continued (from a full mobile audit). A dialog taller than the screen

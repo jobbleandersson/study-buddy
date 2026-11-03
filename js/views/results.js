@@ -21,7 +21,7 @@ import { sessionFeedbackCard } from "../components/session-feedback.js";
 export function renderResults(attemptId) {
   const attempt = store.attempts.find((a) => a.id === attemptId);
   if (!attempt) {
-    return el("div.empty", {}, [el("h2", {}, t("results.none")), el("a.btn.btn--ghost", { href: "#/" }, t("common.backToMenu"))]);
+    return { title: t("results.title"), node: el("div.empty", {}, [el("h2", { "aria-level": "1" }, t("results.none")), el("a.btn.btn--ghost", { href: "#/" }, t("common.backToMenu"))]) };
   }
   const assignment = store.getAssignment(attempt.assignmentId);
   const isReview = !!attempt.isReview;
