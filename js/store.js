@@ -513,6 +513,10 @@ class Store extends EventTarget {
           try { this.state = migrate(JSON.parse(e.newValue)); this.emit(); } catch { /* half-written — the next event brings it */ }
         } else if (e.key === SYNC_VERSION_KEY) {
           this._syncVersion = Number(e.newValue) || 0;
+        } else if (e.key === DEVICE_OWNER_KEY && e.newValue !== e.oldValue) {
+          // Someone signed out or in from another tab. This tab still shows the last account's page (an open
+          // set, its title, a form that would "save" into nothing), so it starts over as the new account.
+          location.reload();
         }
       });
     }
@@ -2294,7 +2298,14 @@ class Store extends EventTarget {
       let payload = null;
       try { payload = await res.json(); } catch {}
       const { version, blob } = payload || {};
-      if (!blob) { this.dispatchEvent(new CustomEvent("syncConflict")); return; }
+      if (!blob) {
+        // The account has nothing saved, but this device remembers a version (an account swapped outside the
+        // sign-in screen, a row that is gone): there is nothing there to keep, so start from 0 and send this.
+        // Without this every save was refused, under a message that said another device had replaced work.
+        if (!version && this._syncVersion && _retry < 2) { this._setSyncVersion(0); return this._pushOnce(_retry + 1); }
+        this.dispatchEvent(new CustomEvent("syncConflict"));
+        return;
+      }
 
       // Keep a recoverable copy of what this device had, before anything
       // overwrites it — the fallback if the merge below can't be pushed.
