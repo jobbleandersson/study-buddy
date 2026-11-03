@@ -38,6 +38,16 @@ export function explanationNamesOptions(q) {
   return !!text && NAMES_OPTION.some((rx) => rx.test(text));
 }
 
+/** Högskoleprov options are never reshuffled: KVA/NOG answers carry a fixed
+ *  meaning, and every delprov's explanation refers to the options by letter or
+ *  number ("alternativ C"). Any question with an HP `variant` — or a figure —
+ *  keeps its authored option order, and so does one whose options point at each
+ *  other ("Alla ovanstående") or whose explanation names an option by letter or
+ *  position ("Svar B …"). Everything else is shuffled in every session. */
+export function keepsChoiceOrder(q) {
+  return !!q?.variant || !!q?.figure || choicesDependOnOrder(q?.choices) || explanationNamesOptions(q);
+}
+
 /** A shuffled copy of the index list [0..n-1] (Fisher–Yates). `rng` returns [0, 1). */
 export function shuffledIndexes(n, rng = Math.random) {
   const a = Array.from({ length: n }, (_, i) => i);
@@ -58,4 +68,19 @@ export function shuffleMc({ choices, answer, explanation, opener, steps }, rng =
   }
   const perm = shuffledIndexes(choices.length, rng);    // perm[newIndex] = oldIndex
   return { choices: perm.map((i) => choices[i]), answer: perm.indexOf(answer) };
+}
+
+/** A question's options in a shuffled order that is always the same for that question, for what is read
+ *  once and kept: a print sheet with its answer key, a public practice page. The order comes from the id. */
+export function stableChoices(q) {
+  if (q?.kind !== "mc" || !q.id || keepsChoiceOrder(q)) return { choices: q?.choices, answer: q?.answer };
+  let h = 2166136261;
+  for (const c of String(q.id)) h = Math.imul(h ^ c.charCodeAt(0), 16777619);
+  const rng = () => {   // mulberry32
+    h = (h + 0x6D2B79F5) | 0;
+    let x = Math.imul(h ^ (h >>> 15), 1 | h);
+    x = (x + Math.imul(x ^ (x >>> 7), 61 | x)) ^ x;
+    return ((x ^ (x >>> 14)) >>> 0) / 4294967296;
+  };
+  return shuffleMc(q, rng);
 }

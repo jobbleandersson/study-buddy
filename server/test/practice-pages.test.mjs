@@ -110,6 +110,23 @@ describe("public practice pages (indexing off, the default)", () => {
   });
 });
 
+describe("the options on a set's page", () => {
+  let server;
+  before(async () => { server = await startServer({ PUBLIC_INDEXING: "" }); });
+  after(async () => { await server.stop(); });
+
+  test("the stated answer is the option at that letter", async () => {
+    const subj = await get(server.baseUrl, "/ova/ak7-biologi");
+    const page = await get(server.baseUrl, firstSetPath(subj.body));
+    const mc = [...page.body.matchAll(/<ol class="ova-choices" type="A">(.*?)<\/ol>[\s\S]*?Rätt svar: ([A-E])\.<\/strong> (.*?)<\/p>/g)];
+    assert.ok(mc.length > 0, "the page shows multiple-choice questions");
+    for (const [, list, letter, text] of mc) {
+      const options = [...list.matchAll(/<li>(.*?)<\/li>/g)].map((m) => m[1]);
+      assert.equal(options["ABCDE".indexOf(letter)], text);
+    }
+  });
+});
+
 describe("public practice pages with PUBLIC_INDEXING=true", () => {
   let server;
   before(async () => { server = await startServer({ PUBLIC_INDEXING: "true" }); });
