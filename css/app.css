@@ -6093,6 +6093,8 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
      only the room the tab bar needs below it. */
   body.route-chat .sitefooter { display: none; }
   body.route-chat .shell:not(.shell--immersive) .content { padding-bottom: calc(60px + var(--s-2) + env(safe-area-inset-bottom, 0px)); }
+  /* "Kolla min uträkning" shares the route but has no composer: its last button gets breathing room above the tab bar. */
+  body.route-chat:has(.check) .shell:not(.shell--immersive) .content { padding-bottom: calc(60px + var(--s-6) + env(safe-area-inset-bottom, 0px)); }
 }
 @media (max-width: 560px) {
   /* The chat fills the screen between its head and the tab bar, so the composer rests just above the
