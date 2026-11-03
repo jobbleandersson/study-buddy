@@ -11,6 +11,7 @@ import { localDayKey } from "../lib/activity.js";
 import { foldedDatePicker } from "../components/calendar.js";
 import { subjectField } from "../components/subject-field.js";
 import { homeButton } from "../components/nav.js";
+import { isUntouchedSample } from "../lib/blank-questions.js";
 
 export function renderEdit(assignmentId, qs) {
   const original = store.getAssignment(assignmentId);
@@ -98,6 +99,8 @@ export function renderEdit(assignmentId, qs) {
     if (!title) { toast(t("edit.giveName")); titleInput.focus(); return; }
     const questions = editor.commit();
     if (!questions.length) { toast(t("edit.needQuestion")); return; }
+    const samples = questions.filter(isUntouchedSample).length;
+    if (samples) { toast(plural(samples, "create.samplesLeftOne", "create.samplesLeftMany")); return; }
 
     const subject = store.ensureSubject(subjectFld.getValue() || subjectName);
     store.updateAssignment(original.id, {

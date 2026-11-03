@@ -17,6 +17,13 @@ export function blankQuestions(n) {
     else if (kind === "cloze") { q.prompt = t("create.blankCloze", { n: i + 1 }); }
     else if (kind === "worked") { q.answer = ""; q.steps = []; }
     else { q.answer = ""; }
+    q.sample = q.prompt;   // what it said when made: still saying it means it was never rewritten
     return q;
   });
+}
+
+/** A starter question nobody has rewritten yet: it still says what it said when it was made. Such a question
+ *  is not saved as part of a set, and is never practised. */
+export function isUntouchedSample(q) {
+  return typeof q?.sample === "string" && (q.prompt || "") === q.sample;
 }

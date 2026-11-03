@@ -8,6 +8,7 @@
 import { store, REVIEW_ID, PRACTICE_ID, WEAK_ID, RULES_ID, TONIGHT_ID, HP_MOCK_ID, NATIONAL_MIX_PREFIX, nationalMixId, EXAM_PASS_PREFIX, examPassId } from "../store.js";
 import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
 import { VOICE_FEATURES } from "../lib/voice-features.js";
+import { isUntouchedSample } from "../lib/blank-questions.js";
 import {
   parseHpSetId, isHpSetId, rawByPart, DELPROV_ORDER, NORM_TABLES, VERBAL_DELPROV, KVANT_DELPROV,
   PASS_COUNT, MAX_RUN, SEC_PER_Q, minutesFor, pickPracticeIds, questionHistory,
@@ -55,6 +56,8 @@ export async function renderSession(assignmentId, qs) {
   const assignment = store.getAssignment(assignmentId);
   if (!assignment) return notFound(t("session.goneSet"));
   if (!assignment.questions.length) return notFound(t("session.emptySet"));
+  // A set made from the calendar starts with starter questions; those are not practised until rewritten.
+  if (assignment.questions.every(isUntouchedSample)) return samplesOnly(assignment);
 
   // ?exam=1[&min=N] runs ANY set under exam conditions — locked tutor, no
   // immediate feedback, an on-screen clock — without touching how the set is
@@ -83,6 +86,7 @@ export async function renderSession(assignmentId, qs) {
   // you go. Exam prep links here: getting ready for a test shouldn't lock help.
   const practice = !examMode && !bus && qs?.get?.("practice") === "1";
   const allIds = assignment.questions
+    .filter((q) => !isUntouchedSample(q))
     .filter((q) => !bus || isBusQuestion(q))
     .map((q) => q.id);
   if (bus && !allIds.length) return emptyScreen(t("bus.noneTitle"), t("bus.noneBody"), t("bus.badge"));
@@ -1911,6 +1915,17 @@ function emptyScreen(title, body, pageTitle) {
       el("h2", {}, title),
       el("p", {}, body),
       el("a.btn.btn--ghost", { href: "#/", style: { marginTop: "16px" } }, t("common.backToMenu")),
+    ]),
+  };
+}
+
+function samplesOnly(assignment) {
+  return {
+    title: assignment.title,
+    node: el("div.empty", {}, [
+      el("h2", {}, t("session.samplesTitle")),
+      el("p", {}, t("session.samplesBody")),
+      el("a.btn", { href: `#/edit/${assignment.id}`, style: { marginTop: "16px" } }, t("session.samplesEdit")),
     ]),
   };
 }
