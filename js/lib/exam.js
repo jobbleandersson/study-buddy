@@ -15,6 +15,7 @@
 // working unchanged; the record is the source of truth.
 
 import { addDays, isRealDay } from "./activity.js";
+import { isUntouchedSample } from "./blank-questions.js";
 
 /** Minutes each kind of plan day takes — shown next to the task. */
 export const PLAN_MINUTES = { start: 20, drill: 25, review: 15, practice: 20, mock: 40, tonight: 15, testday: 0 };
@@ -303,6 +304,7 @@ function questionStates(sets, attempts, srs, now) {
   const out = [];
   (sets || []).forEach((set, si) => {
     for (const q of set.questions || []) {
+      if (isUntouchedSample(q)) continue;   // a starter question is not practised until it is rewritten
       const l = last.get(q.id);
       out.push({ id: q.id, setIndex: si, lastAt: l ? l.at : null, wrong: !!l && !l.ok, due: !!srs?.[q.id] && (srs[q.id].dueAt || 0) <= now });
     }
@@ -372,7 +374,7 @@ export function prepHashForSet(exams, a) {
  *  generator needs. Only the test's sets are ever passed in, so the new questions stay about the test. */
 export function pickSeedQuestions(sets, max = 14, rng = Math.random) {
   const lists = (sets || []).map((a) => {
-    const qs = [...(a.questions || [])];
+    const qs = (a.questions || []).filter((q) => !isUntouchedSample(q));   // a placeholder is no style to copy
     for (let i = qs.length - 1; i > 0; i--) { const j = Math.floor(rng() * (i + 1)); [qs[i], qs[j]] = [qs[j], qs[i]]; }
     return qs;
   });
