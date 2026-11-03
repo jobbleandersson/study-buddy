@@ -5503,6 +5503,8 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 @media (prefers-reduced-motion: reduce) { .solvehead__livedot { animation: none; } }
 .solvehead__actions { flex: none; display: flex; gap: 4px; }
 .solvehead__actions .iconbtn { border-color: transparent; background: none; box-shadow: none; color: var(--ink-soft); }
+/* The plain look drops the shadow, and with it the focus ring every other button has: give that back. */
+.solvehead__actions .iconbtn:focus-visible { box-shadow: var(--ring); }
 .solvehead__actions .iconbtn:hover:not(:disabled) { background: var(--surface-sunk); color: var(--ink); }
 @media (max-width: 560px) {
   .solvehead { margin-top: 0; }
