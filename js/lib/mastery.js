@@ -1,3 +1,4 @@
+import { isUntouchedSample } from "./blank-questions.js";
 // Per-topic mastery, derived from attempt history.
 // Recency-weighted average correctness in [0,1]; newer attempts count more.
 
@@ -122,6 +123,7 @@ export function weakSpotQuestions(assignments, attempts, { threshold = 0.6, limi
 
   for (const a of assignments) {
     for (const q of a.questions || []) {
+      if (isUntouchedSample(q)) continue;   // a placeholder is nothing to drill
       const m = tm[q.topic];
       // Untouched topics have unknown mastery, not weak mastery — skip them.
       if (m == null || m >= threshold) continue;

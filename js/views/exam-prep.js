@@ -205,8 +205,13 @@ export function renderExamPrep(param, qs) {
         homeButton(),
         el("h1", {}, title),
         el("section.panel", {}, [
-          el("p", {}, t("exam.noSetsLeft")),
-          el("button.btn", { type: "button", style: { marginTop: "12px" }, onclick: addMaterial }, [icon(ICONS.plus, 16), t("exam.addMaterial")]),
+          // Its only set still holds the starter questions: the fix is to write them, not to add material.
+          m.samplesOnly
+            ? el("p", {}, t("session.samplesBody"))
+            : el("p", {}, t("exam.noSetsLeft")),
+          m.samplesOnly
+            ? el("a.btn", { href: `#/edit/${m.samplesOnly.id}`, style: { marginTop: "12px" } }, t("session.samplesEdit"))
+            : el("button.btn", { type: "button", style: { marginTop: "12px" }, onclick: addMaterial }, [icon(ICONS.plus, 16), t("exam.addMaterial")]),
         ]),
       ]),
     };
@@ -242,7 +247,10 @@ export function renderExamPrep(param, qs) {
     // Count the sets the pass will really draw from (new questions first can mean fewer sets).
     const picked = new Set(buildStudyPass({ sets: m.scope, attempts: m.attempts, srs: store.state.srs, n }));
     const sets = m.scope.filter((a) => (a.questions || []).some((q) => picked.has(q.id))).length;
-    passNote.textContent = t("exam.passHint", { n, sets });
+    passNote.textContent = t("exam.passHint", {
+      questions: plural(n, "common.questionOne", "common.questionMany"),
+      sets: plural(sets, "exam.passSetOne", "exam.passSetMany"),
+    });
     passStart.href = passHash(m, passMin);
     passStart.lastChild.textContent = t("exam.passStart", { min: passMin });
   }
