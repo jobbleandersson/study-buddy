@@ -19,6 +19,7 @@ import { isPlausibleEmail } from "../emailCheck.js";
 import { mayMail } from "../mailLimits.js";
 import { emailEnabled, sendVerifyEmail, sendResetEmail, sendTwoFaEnabledEmail, sendTwoFaDisabledEmail, sendPasswordAddedEmail, sendPasswordChangedEmail, sendEmailChangeConfirmEmail, sendEmailChangeRequestedEmail, sendEmailChangedEmail, sendUseGoogleEmail, sendGoogleLinkedEmail, sendAppleLinkedEmail, sendTwoFaCodeEmail, sendWelcomeEmail } from "../email.js";
 import { hashPassword, comparePassword, answerIfBusy } from "../passwordHash.js";
+import { passwordProblem } from "../passwordRules.js";
 import { generateSecret, verifyTotp, otpauthUri } from "../totp.js";
 
 export const auth = Router();
@@ -183,8 +184,8 @@ auth.post("/auth/signup", signupHourly, signupDaily, asyncHandler(async (req, re
   const email = String(req.body?.email || "").trim().toLowerCase();
   const password = String(req.body?.password || "");
   if (!isPlausibleEmail(email)) return res.status(400).json({ error: { message: "Enter a valid email." } });
-  if (password.length < 8) return res.status(400).json({ error: { message: "Password must be at least 8 characters." } });
-  if (password.length > 200) return res.status(400).json({ error: { message: "Password is too long." } });   // bcrypt only reads 72 bytes; don't hash megabytes
+  const problem = passwordProblem(password);
+  if (problem) return res.status(400).json({ error: { message: problem } });
   if (req.body?.consent !== true) return consentRequired(res);
 
   if (db.prepare("SELECT id FROM users WHERE email = ?").get(email)) return emailTaken(res);
@@ -581,8 +582,8 @@ auth.post("/auth/reset-password", resetPasswordIpLimit, asyncHandler(async (req,
   const token = String(req.body?.token || "");
   const password = String(req.body?.password || "");
   if (!token) return badToken(res);
-  if (password.length < 8) return res.status(400).json({ error: { message: "Password must be at least 8 characters." } });
-  if (password.length > 200) return res.status(400).json({ error: { message: "Password is too long." } });
+  const problem = passwordProblem(password);
+  if (problem) return res.status(400).json({ error: { message: problem } });
 
   const row = db.prepare("SELECT id, user_id AS userId FROM password_reset_tokens WHERE token = ? AND used_at IS NULL AND expires_at > ?")
     .get(token, Date.now());
@@ -754,8 +755,8 @@ auth.post("/auth/set-password", requireAuth, setPasswordLimit, asyncHandler(asyn
   const password = String(req.body?.password || "");
   const invalid = () => res.status(401).json({ error: { message: "Couldn't verify your Google sign-in.", code: "google_invalid" } });
   if (!credential || credential.length > 4096) return invalid();
-  if (password.length < 8) return res.status(400).json({ error: { message: "Password must be at least 8 characters." } });
-  if (password.length > 200) return res.status(400).json({ error: { message: "Password is too long." } });
+  const problem = passwordProblem(password);
+  if (problem) return res.status(400).json({ error: { message: problem } });
 
   const row = db.prepare("SELECT google_sub AS googleSub, password_set_at AS passwordSetAt FROM users WHERE id = ?").get(req.user.userId);
   if (!row?.googleSub) {
@@ -797,8 +798,8 @@ auth.post("/auth/set-password", requireAuth, setPasswordLimit, asyncHandler(asyn
 auth.post("/auth/change-password", requireAuth, changePasswordLimit, asyncHandler(async (req, res) => {
   const current = String(req.body?.currentPassword || "").slice(0, 200);
   const next = String(req.body?.newPassword || "");
-  if (next.length < 8) return res.status(400).json({ error: { message: "Password must be at least 8 characters." } });
-  if (next.length > 200) return res.status(400).json({ error: { message: "Password is too long." } });
+  const problem = passwordProblem(next);
+  if (problem) return res.status(400).json({ error: { message: problem } });
   const user = db.prepare("SELECT password_hash AS hash, password_set_at AS setAt FROM users WHERE id = ?").get(req.user.userId);
   if (!user?.setAt) return res.status(400).json({ error: { message: "This account has no password to change.", code: "no_password" } });
   try {

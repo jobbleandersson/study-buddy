@@ -1120,6 +1120,7 @@ export default {
   "srv.err.contactName": "Skriv ditt namn.",
   "srv.err.contactMessage": "Skriv ett meddelande på högst 5000 tecken.",
   "srv.err.password": "Lösenordet måste vara minst 8 tecken.",
+  "srv.err.passwordCommon": "Det lösenordet är för lätt att gissa. Välj ett annat.",
   "srv.err.emailTaken": "Det finns redan ett konto med den e-postadressen.",
   "srv.err.badLogin": "Fel e-post eller lösenord.",
   "srv.err.sitePassword": "Fel lösenord. Försök igen.",
