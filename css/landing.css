@@ -261,7 +261,7 @@
 .lp-sheet__cell { border-color: var(--line); border-radius: 10px; }
 .lp-split .lp-sheet__cell { padding: 10px; }
 .lp-split .lp-sheet__bubbles { flex-wrap: nowrap; gap: 3px; }
-.lp-split .lp-sheet__bubbles span { width: 17px; height: 17px; font-size: calc(9.5px * var(--fs-scale, 1)); flex: none; }
+.lp-split .lp-sheet__bubbles span { width: 17px; height: 17px; font-size: calc(11px * var(--fs-scale, 1)); flex: none; }
 
 /* ---------- subjects ---------- */
 .lp-subjgrid { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
