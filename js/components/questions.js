@@ -588,6 +588,9 @@ function mc({ question, tutor, testMode, onDone, askConfidence, revealAfter = 2,
     done = true;
     result.correct = false;
     btns.forEach((b) => (b.disabled = true));
+    // As on every other way a question ends: on a phone the session's bottom bar shows this button while it
+    // is on the page, so a disabled "Rätta svaret" left here hid "Nästa" and stranded the student.
+    checkBtn.remove();
     btns[question.answer].classList.add("is-correct");
     node.langReveal?.();
     feedback.className = "feedback retry";
