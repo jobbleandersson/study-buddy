@@ -50,7 +50,7 @@ function none() {
       homeButton(),
       el("div.empty", {}, [
         icon(ICONS.moon, 26),
-        el("h2", {}, t("tonight.noneTitle")),
+        el("h2", { "aria-level": "1" }, t("tonight.noneTitle")),
         el("p", {}, t("tonight.noneBody")),
         el("a.btn.btn--ghost", { href: "#/calendar", style: { marginTop: "16px" } }, t("tonight.noneCta")),
       ]),

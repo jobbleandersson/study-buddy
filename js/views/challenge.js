@@ -13,7 +13,7 @@ function broken() {
   return {
     title: t("challenge.title"),
     node: el("div.empty", {}, [
-      el("h2", {}, t("challenge.broken")),
+      el("h2", { "aria-level": "1" }, t("challenge.broken")),
       el("p", {}, t("challenge.brokenBody")),
       el("a.btn", { href: "#/library", style: { marginTop: "16px" } }, t("challenge.explore")),
     ]),

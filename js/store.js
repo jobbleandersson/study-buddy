@@ -85,6 +85,8 @@ const HELD_LOCAL_KEY = "studybuddy.v1.heldlocal";
 // Which account the data on this device came from (set while signed in, removed when the device is cleared),
 // so signing back in to the same account is not mistaken for someone else's work.
 const DEVICE_OWNER_KEY = "studybuddy.v1.deviceOwner";
+// The longest a set's title may be: longer ones filled the top of a print sheet and the browser tab.
+export const SET_TITLE_MAX = 120;
 
 // Everything else this app keeps per person in localStorage, cleared with the study data on sign-out
 // so the next student on a shared computer can't open it: AI chats and saved answers
@@ -1168,7 +1170,7 @@ class Store extends EventTarget {
       id: doc.id && !this.getAssignment(doc.id) ? doc.id : uid(),
       type: doc.type === "test" ? "test" : "assignment",
       subjectId: subject.id,
-      title: doc.title || "Untitled",
+      title: String(doc.title || "Untitled").slice(0, SET_TITLE_MAX),
       sourceSummary: doc.sourceSummary || "",
       createdAt: Date.now(),
       // Written by the AI (the AI chat, Skapa's generate, more HP questions): marks the set's card.
@@ -1209,6 +1211,7 @@ class Store extends EventTarget {
       const a = s.assignments.find((x) => x.id === id);
       if (!a) return;
       Object.assign(a, patch);
+      if (typeof patch.title === "string") a.title = patch.title.slice(0, SET_TITLE_MAX);
       a.updatedAt = Date.now();
       if (patch.questions) {
         a.topics = [...new Set(patch.questions.map((q) => q.topic).filter(Boolean))];

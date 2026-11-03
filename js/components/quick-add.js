@@ -5,7 +5,7 @@
 // the 14th" case — no source picker, no AI.
 
 import { el, icon, ICONS, toast } from "../lib/dom.js";
-import { store } from "../store.js";
+import { store, SET_TITLE_MAX } from "../store.js";
 import { t, getLang } from "../lib/i18n.js";
 import { localDayKey } from "../lib/activity.js";
 import { dayDiff } from "../lib/exam.js";
@@ -29,7 +29,7 @@ export function openQuickAdd(dayKey, { onDone } = {}) {
 
   let type = "assignment";
   const titleInput = el("input.quickadd__input", {
-    type: "text", id: "quickadd-title",
+    type: "text", id: "quickadd-title", maxlength: String(SET_TITLE_MAX),
     placeholder: t("quickadd.titlePlaceholder"),
     onkeydown: (e) => { if (e.key === "Enter") create(); },
   });

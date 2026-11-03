@@ -598,7 +598,7 @@ function runSession(config) {
   const overviewLbl = el("span", {}, t("session.overview"));
   const overviewBtn = el("button.btn.btn--ghost.btn--sm", { type: "button", hidden: !isExam, onclick: openOverview }, [icon(ICONS.layers, 15), overviewLbl]);
   const flagLbl = el("span", {}, t("session.flag"));
-  const flagBtn = el("button.btn.btn--ghost.btn--sm.flagbtn", { type: "button", hidden: !isExam, "aria-pressed": "false", onclick: toggleFlagged }, [icon(ICONS.flag, 15), flagLbl]);
+  const flagBtn = el("button.btn.btn--ghost.btn--sm.flagbtn", { type: "button", hidden: !isExam, "aria-pressed": "false", "aria-label": t("session.flag"), onclick: toggleFlagged }, [icon(ICONS.flag, 15), flagLbl]);
   const handInBtn = el("button.btn.btn--sm", { type: "button", hidden: !isExam, onclick: handIn }, t("session.handIn"));
   // Practice / review only — a test doesn't get to look back. Shown once
   // there's something answered to look at (paintReviewBtn keeps it in sync).
@@ -801,7 +801,7 @@ function runSession(config) {
     type: "button", "aria-haspopup": "menu", "aria-label": t("session.moreOptions"), title: t("session.moreOptions"),
     onclick: () => openMoreMenu(),
   }, [icon(ICONS.dots, 22)]);
-  const mTitle = el("p.mtop__title");
+  const mTitle = el("p.mtop__title", { role: "heading", "aria-level": "1" });   // the screen's main heading; the look stays
   const mPrimary = el("button.btn.mprimary", {
     type: "button", onclick: () => { const src = primarySource(); if (!src.disabled) src.click(); },
   });
@@ -1912,7 +1912,7 @@ function emptyScreen(title, body, pageTitle) {
     title: pageTitle,
     node: el("div.empty", {}, [
       icon(ICONS.check, 26),
-      el("h2", {}, title),
+      el("h2", { "aria-level": "1" }, title),
       el("p", {}, body),
       el("a.btn.btn--ghost", { href: "#/", style: { marginTop: "16px" } }, t("common.backToMenu")),
     ]),
@@ -1923,7 +1923,7 @@ function samplesOnly(assignment) {
   return {
     title: assignment.title,
     node: el("div.empty", {}, [
-      el("h2", {}, t("session.samplesTitle")),
+      el("h2", { "aria-level": "1" }, t("session.samplesTitle")),
       el("p", {}, t("session.samplesBody")),
       el("a.btn", { href: `#/edit/${assignment.id}`, style: { marginTop: "16px" } }, t("session.samplesEdit")),
     ]),
@@ -1934,7 +1934,7 @@ function notFound(message) {
   return {
     title: t("session.notFoundTitle"),
     node: el("div.empty", {}, [
-      el("h2", {}, t("session.notFoundTitle")),
+      el("h2", { "aria-level": "1" }, t("session.notFoundTitle")),
       el("p", {}, message),
       el("a.btn.btn--ghost", { href: "#/", style: { marginTop: "16px" } }, t("common.backToMenu")),
     ]),

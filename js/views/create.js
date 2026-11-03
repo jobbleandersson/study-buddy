@@ -1,6 +1,6 @@
 // Create flow: pick material -> provide it -> generate with Claude -> review/edit -> save.
 
-import { store } from "../store.js";
+import { store, SET_TITLE_MAX } from "../store.js";
 import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { markdown } from "../lib/markdown.js";
@@ -636,7 +636,7 @@ export function renderCreate(prefill) {
     const doc = state.doc;
 
     const titleInput = el("input", {
-      type: "text", value: doc.title, "aria-label": t("create.setTitleAria"),
+      type: "text", value: doc.title, "aria-label": t("create.setTitleAria"), maxlength: String(SET_TITLE_MAX),
       oninput: (e) => { doc.title = e.target.value; },
     });
     const subjectFld = state.subjectLocked

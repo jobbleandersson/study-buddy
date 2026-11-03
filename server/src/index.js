@@ -269,9 +269,14 @@ app.use(express.static(FRONTEND_ROOT, {
 
 // Single-page app: any unmatched GET falls back to index.html so deep links
 // (the client uses hash routing, but a bare "/" and any stray path) resolve.
+// Browsers and search engines ask for /favicon.ico whatever the page links to.
+app.get("/favicon.ico", (req, res) => res.redirect(301, "/assets/icon-192.png"));
 app.get("*", (req, res, next) => {
   if (req.path.startsWith("/api/")) return next();
-  res.sendFile(INDEX_HTML, (err) => { if (err) next(err); });
+  // The app lives at "/" and routes by hash, so any other path is one that doesn't exist. The person still
+  // gets the app, but with a 404, so a search engine doesn't keep a made-up address as a copy of the front page.
+  const known = req.path === "/" || req.path === "/index.html";
+  res.status(known ? 200 : 404).sendFile(INDEX_HTML, (err) => { if (err) next(err); });
 });
 
 // Turn a swallowed 500 into a logged stack trace — otherwise Render just shows
