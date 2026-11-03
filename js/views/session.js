@@ -178,7 +178,12 @@ export async function renderExamPass(examId, qs) {
   if (!exam) return notFound(t("exam.noTest"));
   const min = Math.max(5, Math.min(120, Math.round(Number(qs?.get?.("min")) || 30)));
   const ids = buildStudyPass({ sets: exam.sets, attempts: store.attempts, srs: store.state.srs, n: questionsForMinutes(min) });
-  if (!ids.length) return notFound(t("exam.noSetsLeft"));
+  if (!ids.length) {
+    // Nothing but starter questions to draw from: say so, as a set of only samples does, instead of "deleted".
+    const samples = exam.sets.find((a) => a.questions?.length && a.questions.every(isUntouchedSample));
+    if (samples && !exam.sets.some((a) => (a.questions || []).some((q) => !isUntouchedSample(q)))) return samplesOnly(samples);
+    return notFound(t("exam.noSetsLeft"));
+  }
   return runSession({
     key: `${examPassId(exam.id)}::${min}`,
     assignmentId: examPassId(exam.id),

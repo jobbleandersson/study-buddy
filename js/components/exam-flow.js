@@ -8,6 +8,7 @@
 import { store, nationalMixId, WEAK_ID } from "../store.js";
 import { t, plural, sentenceCase } from "../lib/i18n.js";
 import { localDayKey } from "../lib/activity.js";
+import { isUntouchedSample } from "../lib/blank-questions.js";
 import { masteryByTopic, weakSpotQuestions, setProgress } from "../lib/mastery.js";
 import {
   upcomingExams, readiness, buildExamPlan, scopeAttempts, planStartSets, mockCountFor, MOCK_MIN_QUESTIONS,
@@ -45,7 +46,12 @@ function setDoneToday(set, todays) {
 export function prepFor(exam) {
   const today = localDayKey();
   const since = startOfToday();
-  const scope = exam.sets;
+  // Starter questions nobody has rewritten are not part of the plan, its counts or its passes; a set with
+  // nothing else is left out, and `samplesOnly` names it so the page can say to write its questions.
+  const scope = exam.sets
+    .map((a) => ((a.questions || []).some(isUntouchedSample) ? { ...a, questions: a.questions.filter((q) => !isUntouchedSample(q)) } : a))
+    .filter((a) => a.questions?.length);
+  const samplesOnly = scope.length ? null : exam.sets.find((a) => a.questions?.length && a.questions.every(isUntouchedSample)) || null;
   const ids = scope.map((a) => a.id);
   const attempts = scopeAttempts(store.attempts, scope);
   const todays = attempts.filter((a) => (a.finishedAt || 0) >= since);
@@ -73,7 +79,7 @@ export function prepFor(exam) {
   });
 
   const m = {
-    exam, subjectId: exam.subjectId, scope, ids, tm, attempts, todays, progress, setReady, weak, weakTopics,
+    exam, subjectId: exam.subjectId, scope, samplesOnly, ids, tm, attempts, todays, progress, setReady, weak, weakTopics,
     dueCount, canMock, plan,
     ready: readiness(scope, tm),
     // How much of the test the plan reaches: sets already opened before today, plus the ones it schedules.
