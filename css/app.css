@@ -6314,6 +6314,13 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 @media (pointer: coarse) and (max-width: 540px) {
   .settings__navlink::after { content: ""; position: absolute; inset: -2px 0; }
 }
+/* Touch tablets (an iPad on its side): an invisible hit area above and below brings the footer links from
+   20px to 44px; the row gap keeps two wrapped rows from overlapping. Phones give them padding instead. */
+@media (pointer: coarse) and (min-width: 900px) {
+  .sitefooter .sitefooter__links { row-gap: 24px; }   /* design.css sets the gap; this outranks it */
+  .sitefooter__links a { position: relative; }
+  .sitefooter__links a::after { content: ""; position: absolute; inset: -12px -6px; }
+}
 @media (max-width: 899.98px) {
   /* PluggEra AI: the composer stays in reach just above the tab bar as the conversation grows. */
   .solve-dock, .solve-gate { position: sticky; bottom: calc(60px + var(--s-2) + env(safe-area-inset-bottom, 0px)); z-index: 6; }
