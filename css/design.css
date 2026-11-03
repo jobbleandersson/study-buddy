@@ -182,7 +182,8 @@ h1 { font-weight: 750; }
   .topsearch:focus-within { background: var(--surface); border-color: var(--brand); }
   .topsearch svg { flex: none; stroke-width: 1.8; }
   .topsearch__input {
-    flex: 1; min-width: 0; border: 0; outline: 0; background: transparent;
+    /* align-self: the whole 38px box takes the tap, not just the 25px line of text in its middle */
+    flex: 1; align-self: stretch; min-width: 0; border: 0; outline: 0; background: transparent;
     font: inherit; font-size: calc(14px * var(--fs-scale, 1)); color: var(--ink);
   }
   /* The wrapper's :focus-within above already shows focus (border + background) —

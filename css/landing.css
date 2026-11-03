@@ -397,7 +397,7 @@
 @media (prefers-color-scheme: dark) { :root:not([data-theme]) .lp-eyebrow-text { color: var(--brand-bright); } }
 
 /* Touch screens: finger-sized tap areas on the front pages. The header controls, the "read more" links and
-   the social icons get an invisible hit area (nothing moves); on phones the footer link lists get 44px rows,
+   the social icons get an invisible hit area (nothing moves); the footer link lists get 44px rows,
    since 9px between 17px-tall links left nothing to grow into. */
 @media (pointer: coarse) {
   .lp-brand, .lp-head__login, .lp-lang, .lp-head__cta, .lp-foot__social-link, .lp-more { position: relative; }
@@ -406,8 +406,6 @@
   :is(.lp-head__login, .lp-lang, .lp-head__cta)::after { inset: -4px 0; }
   .lp-foot__social-link::after { inset: -5px -3px; }
   .lp-more::after { inset: -3px 0; }
-}
-@media (pointer: coarse) and (max-width: 899.98px) {
   .lp-foot__col ul { gap: 0; }
   .lp-foot__col a { display: block; padding-block: 11px; }
   .lp-foot__col h4 { margin-bottom: 2px; }
