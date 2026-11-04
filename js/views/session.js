@@ -1670,12 +1670,19 @@ function runSession(config) {
     type: "button",
     // Opens the sheet; it closes from its own head (tutor-chat.js). Phones only (CSS), in the page right
     // under the question — floating, it covered Skip / Next. It hides while the sheet is open.
+    // This button hides while the sheet is open, so focus moves into the sheet (its conversation, not the
+    // input, which would raise the keyboard) and comes back here when the sheet closes.
     onclick: () => {
       tutor.el.classList.add("is-open");
-      tutor.el.querySelector(".tutor__log")?.scrollTo(0, 0);
+      const log = tutor.el.querySelector(".tutor__log");
+      log?.scrollTo(0, 0);
+      log?.focus({ preventScroll: true });
     },
   }, [icon(ICONS.spark, 16), el("span", {}, t("session.needHint"))]);
   if (tutorSilent) hintFab.hidden = true;
+  tutor.el.querySelector(".tutor__close")?.addEventListener("click", () => {
+    if (hintFab.isConnected && !hintFab.hidden) hintFab.focus({ preventScroll: true });
+  });
 
   paintTestBar();
 

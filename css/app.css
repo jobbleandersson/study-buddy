@@ -4328,9 +4328,12 @@ kbd {
     border-bottom: none;
     box-shadow: var(--shadow-2);
     transform: translateY(101%);
-    transition: transform var(--dur-mid) var(--ease-out);
+    /* Closed, the sheet is hidden as well as moved off-screen, so a keyboard or screen reader can't
+       land in a chat nobody can see. visibility flips at the end of the slide down, at its start going up. */
+    visibility: hidden;
+    transition: transform var(--dur-mid) var(--ease-out), visibility 0s linear var(--dur-mid);
   }
-  .tutor.is-open { transform: translateY(0); }
+  .tutor.is-open { transform: translateY(0); visibility: visible; transition-delay: 0s; }
 
   /* In the page, right under the question: a floating button sat on top of Skip / Next. */
   .hintfab {
@@ -6322,7 +6325,6 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
      (The :not()s only lift the specificity over component rules like `.qedit select`.) */
   input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]):not([type=color]),
   select:not([multiple]):not([hidden]), textarea:not([readonly]):not([hidden]) { font-size: max(16px, 1em); }
-  input[type=range] { min-height: 32px; }
   .langbar__modes button { min-height: 36px; padding-inline: 14px; }
   .auth__link::after { inset: -10px -4px; }
   .lp-more, .pg-more, .set-row__link { padding-block: 8px; margin-block: -8px; }
@@ -6330,6 +6332,29 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   /* Settings: the option buttons (34px) and the section links (40px) reach 44px without moving anything. */
   .set-seg__opt, .settings__navlink { position: relative; }
   .set-seg__opt::after { content: ""; position: absolute; inset: -5px 0; }
+
+  /* Second mobile run-through: the remaining controls under 44px. Each grows into at most half the gap
+     to its neighbour, so two hit areas never meet. */
+  :where(.qedit__toggle, .q-speak, .subjpick__chip, .subjpick__more, .hp-fchip, .ref__level, .tab, .chatmode,
+    .idcard__edit, .idcard__addname) { position: relative; }
+  :is(.qedit__toggle, .q-speak, .subjpick__chip, .subjpick__more, .hp-fchip, .ref__level, .tab, .chatmode,
+    .idcard__edit, .idcard__addname)::after { content: ""; position: absolute; }
+  .qedit__toggle::after { inset: -8px; }                       /* 28px */
+  .q-speak::after { inset: -6px; }                             /* 32px */
+  :is(.subjpick__chip, .hp-fchip, .chatmode)::after { inset: -4px -3px; }   /* 33–36px, rows 8px apart */
+  .subjpick__more::after { inset: -4px 0 -6px; }
+  .ref__level::after { inset: -6px -3px -4px; }                /* 34px, 6px above the formulas */
+  .tab::after { inset: -6px -2px -5px; }                       /* 33px, 4px apart in their pill */
+  :is(.idcard__edit, .idcard__addname)::after { inset: -3px 0; }   /* 38px, 16px apart */
+  /* Calendar month arrows: 8px further apart so each can be 42px wide without taking the other's taps. */
+  .plan-nav { gap: 12px; }
+  .plan-nav__btn::after { inset: -7px -6px; }
+  /* Steppers clip their buttons (overflow: hidden) and a select or slider has no ::after: these grow instead
+     (the HP ones sit with their own rules). The 1/2/3 options were 34px wide. */
+  .set-stepper button { width: 44px; }
+  .set-stepper input { height: 44px; }
+  .reading__voice, input[type=range] { min-height: 44px; }
+  .set-seg__opt { min-width: 44px; }
 }
 /* Only where the section links wrap: wider, their row scrolls sideways and the taller hit area would make
    it scroll up and down too. */
@@ -6492,6 +6517,13 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   appearance: none; -webkit-appearance: none; min-height: 36px; max-width: 260px; padding: 0 38px 0 14px;
   border-radius: var(--r-full); border: 1px solid var(--line-strong); background: var(--surface);
   font: inherit; font-size: var(--fs-sm); font-weight: 600; color: var(--ink); cursor: pointer; text-overflow: ellipsis;
+}
+/* Touch: the question-count stepper's buttons (38px) and the topic filter (36px) reach 44px, as in the mobile
+   block above; the stepper's 46px is its 1px border around 44px buttons. */
+@media (pointer: coarse) {
+  .hp-stepper, .hp-count { min-height: 46px; }   /* the 5 / 10 / 20 / 40 buttons beside it keep its height */
+  .hp-stepper__btn { width: 44px; }
+  .hp-fselect select { min-height: 44px; }
 }
 .hp-fselect select:hover { border-color: var(--line-strong); border-color: color-mix(in oklab, var(--brand) 55%, var(--line-strong)); }
 .hp-fselect select:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
