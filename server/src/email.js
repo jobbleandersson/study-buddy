@@ -375,6 +375,35 @@ export function sendAiRecoveredEmail() {
   });
 }
 
+/** The day's AI spend has passed a mark (alerts.js reportAiSpend decides when). Only the kind and the day's
+ *  dollar figures: no account, address or request. Critical: at most four a day, and the one that says AI has
+ *  stopped for everyone must not be the mail the daily budget drops. */
+export function sendAiSpendEmail({ kind, spentUsd = 0, spentKr = 0, capUsd = 0, poolUsd = 0 }) {
+  const $ = (n) => `$${Number(n).toFixed(2)}`;
+  const about = `ungefär ${Math.round(Number(spentKr))} kr`;
+  const raise = `Behöver gränsen höjas: <code>fly secrets set AI_DAILY_SPEND_CAP_USD=… -a studybuddy-jobble</code>`;
+  const texts = {
+    half: [`AI-kostnaden i dag har nått hälften av taket`,
+      `<p>Servern har använt <strong>${$(spentUsd)}</strong> (${about}) av dagens nödbroms på ${$(capUsd)}. Inget har stoppats.</p>
+       <p>Varje konto har sin egen gräns, så det här är ovanligt mycket. Kolla gärna <code>fly logs -a studybuddy-jobble</code> efter <code>[proxy]</code>-rader om det inte är en känd topp (prov, många nya elever).</p>`],
+    most: [`AI-kostnaden i dag har nått 80 % av taket`,
+      `<p>Servern har använt <strong>${$(spentUsd)}</strong> (${about}) av dagens nödbroms på ${$(capUsd)}. Når den taket stängs AI av för alla elever till kl. 00:00 UTC.</p>
+       <p>${raise}</p>`],
+    paused: [`AI är pausat för alla i dag`,
+      `<p><strong>Dagens nödbroms på ${$(capUsd)} har slagit till.</strong> Handledaren, att skapa set och rättning med AI är avstängda för alla elever till kl. 00:00 UTC (01:00 eller 02:00 svensk tid). Eleverna ser "AI är pausat för idag".</p>
+       <p>Använt hittills: ${$(spentUsd)} (${about}), plus det som pågick när det stoppades.</p>
+       <p>${raise}. Det gäller direkt efter omstarten.</p>`],
+    pool: [`Obekräftade konton har använt dagens AI-pott`,
+      `<p>Konton som inte har bekräftat sin e-post har tillsammans använt dagens pott på ${$(poolUsd)}. Fler obekräftade konton får vänta till i morgon eller bekräfta sin adress. Bekräftade elever påverkas inte.</p>
+       <p>Händer det ofta kan någon skapa konton med ett skript. Kolla nya konton i <code>fly logs -a studybuddy-jobble</code>.</p>`],
+  };
+  const [subject, body] = texts[kind] || texts.paused;
+  return sendEmail({
+    to: ALERT_TO(), critical: true, subject: `PluggEra: ${subject}`,
+    html: layout(body, "Automatiskt mejl från PluggEras server. Samma sorts mejl skickas högst en gång per dag."),
+  });
+}
+
 /** A message from the contact form. Reply-To is the sender, so answering it in the inbox just works.
  *  Everything the visitor typed is escaped: this html lands in our own inbox. */
 export function sendContactEmail({ name, email, message }) {

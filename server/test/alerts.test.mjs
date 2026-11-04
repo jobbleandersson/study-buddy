@@ -1,7 +1,7 @@
 import { test, describe, before, after, beforeEach } from "node:test";
 import assert from "node:assert/strict";
 import { startServer, makeClient, startFakeResend } from "./harness.mjs";
-import { reportServerError, routeLabel, _resetAlerts } from "../src/alerts.js";
+import { reportServerError, reportAiSpend, routeLabel, _resetAlerts } from "../src/alerts.js";
 
 const OWNER = "owner@example.com";
 const uniqueEmail = () => `alert-${Date.now()}-${Math.random().toString(36).slice(2)}@example.com`;
@@ -73,6 +73,36 @@ describe("reportServerError (rate limiting)", () => {
   test("a mailer that throws or rejects never surfaces", () => {
     assert.equal(report("a", "1", { send: () => { throw new Error("mailer down"); } }), "off");
     assert.equal(report("b", "2", { send: () => Promise.reject(new Error("mailer down")) }), "sent");
+  });
+});
+
+describe("reportAiSpend (the day's AI spend)", () => {
+  const t0 = Date.parse("2026-11-04T10:00:00Z");
+  let sent, clock;
+  const send = (m) => { sent.push(m); return Promise.resolve(true); };
+  const report = (kind) => reportAiSpend({ kind, spentUsd: 25, spentKr: 250, capUsd: 50, poolUsd: 1, send, now: () => clock, enabled: true });
+  beforeEach(() => { _resetAlerts(); sent = []; clock = t0; });
+
+  test("each kind mails once a UTC day, and again the next day", () => {
+    assert.equal(report("half"), "sent");
+    assert.equal(report("half"), "suppressed");
+    assert.equal(report("most"), "sent");
+    assert.equal(report("paused"), "sent");
+    assert.equal(report("pool"), "sent");
+    assert.equal(report("paused"), "suppressed");
+    clock = t0 + 24 * 60 * 60_000;
+    assert.equal(report("paused"), "sent");
+    assert.deepEqual(sent.map((m) => m.kind), ["half", "most", "paused", "pool", "paused"]);
+  });
+
+  test("an unknown kind, or email being off, sends nothing", () => {
+    assert.equal(report("other"), "off");
+    assert.equal(reportAiSpend({ kind: "paused", send, now: () => clock, enabled: false }), "off");
+    assert.equal(sent.length, 0);
+  });
+
+  test("a mailer that throws never surfaces", () => {
+    assert.equal(reportAiSpend({ kind: "half", send: () => { throw new Error("x"); }, now: () => clock, enabled: true }), "off");
   });
 });
 

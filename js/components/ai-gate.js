@@ -14,8 +14,12 @@ export function resetDateText(ts) {
     : "";
 }
 
-/** The warning line for the "allowance used up" state, with a way out to something that still works. */
+/** The warning line for the "allowance used up" state, with a way out to something that still works. When the
+ *  used-up allowance is the trial of an unconfirmed address, the way out is confirming it (Settings resends the link). */
 export function aiQuotaNote({ altHref = "#/library", altKey = "solve.noServerAlt", style } = {}) {
+  if (store.aiUsage?.needsVerify) {
+    return el("p.note.note--warn", { style }, [t("err.verifyForAi") + " ", el("a", { href: "#/settings" }, t("ai.verifyLink"))]);
+  }
   return el("p.note.note--warn", { style }, [
     t("set.aiQuotaReached", { date: resetDateText(store.aiUsage?.resetsAt) }) + " ",
     el("a", { href: altHref }, t(altKey)),

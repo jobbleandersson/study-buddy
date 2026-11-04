@@ -4,11 +4,24 @@ import { budgetFor, isPlus } from "../billing.js";
 import { asyncHandler } from "../middleware/asyncHandler.js";
 import { withSafetyRules } from "../ai-safety.js";
 import { takeToken, RATE_PER_MIN } from "../middleware/rateLimit.js";
+import { reportAiSpend } from "../alerts.js";
 import {
   recordUsage, checkBudget, isBudgetExempt, checkDailyCap, reserveSpend, worstCaseMicro, readUsage, currentPeriod, periodResetsAt,
-  checkUserDailyShare, reserveUserSpend, reserveUserBudget,
+  checkUserDaily, reserveUserSpend, reserveUserBudget, isUnconfirmed, UNVERIFIED_BUDGET_KR,
+  checkUnverifiedPool, reserveUnverifiedPool, reportRefusal, setSpendAlert,
   MAX_OUTPUT_TOKENS, ALLOWED_MODELS,
 } from "../usage.js";
+
+// The owner hears about the day's AI spend by mail (alerts.js): at 50% and 80% of the brake, when it trips,
+// and when unconfirmed accounts have used their pool.
+setSpendAlert(reportAiSpend);
+
+/** The monthly limit this request is checked against, in kronor: the plan's, or the small trial while the
+ *  account's email address is unconfirmed (whichever is lower). */
+function monthlyLimitFor(userId, unconfirmed) {
+  const plan = budgetFor(userId);
+  return unconfirmed ? Math.min(plan, UNVERIFIED_BUDGET_KR) : plan;
+}
 
 const ANTHROPIC_URL = "https://api.anthropic.com/v1/messages";
 
@@ -66,9 +79,9 @@ function bodyContentOk(body) {
     || (Array.isArray(sys) && sys.every((b) => b && b.type === "text" && typeof b.text === "string"));
 }
 
-// One person's requests in flight at once, and their share of the server's daily dollar cap: without
-// these one new account could fire a burst of maximum-size requests whose reservations fill the whole
-// day's cap, and AI would be off for everyone until midnight. In memory, like the other limiters.
+// One person's requests in flight at once (and, in usage.js, their daily limit): without these one account
+// could fire a burst of maximum-size requests whose reservations fill the server's whole daily brake, and AI
+// would be off for everyone until midnight. In memory, like the other limiters.
 const MAX_INFLIGHT_PER_USER = (() => {
   const n = Number(process.env.AI_MAX_INFLIGHT_PER_USER);
   return Number.isFinite(n) && n > 0 && process.env.AI_MAX_INFLIGHT_PER_USER?.trim() ? n : 3;
@@ -166,10 +179,12 @@ messages.post("/messages", ...guards, asyncHandler(async (req, res) => {
   const cap = checkDailyCap(worstMicro);
   if (!cap.ok) {
     log({ userId, model: body.model, status: 503, err: "daily_cap" });
+    reportRefusal("paused");
     return res.status(503).json({ error: { message: "AI is paused for today.", code: "daily_cap" }, resetsAt: cap.resetsAt });
   }
 
   // Per-user metering only applies when there's a user to meter (REQUIRE_AUTH on).
+  let unconfirmed = false;
   if (userId) {
     if (!takeToken(userId)) {
       return res.status(429).json({ error: { message: `Too many requests — max ${RATE_PER_MIN}/min.`, code: "rate_limited" } });
@@ -177,16 +192,29 @@ messages.post("/messages", ...guards, asyncHandler(async (req, res) => {
     if ((inflightByUser.get(userId) || 0) >= MAX_INFLIGHT_PER_USER) {
       return res.status(429).json({ error: { message: "Too many requests at once. Wait for the last answer to finish.", code: "ai_busy" } });
     }
-    if (!checkUserDailyShare(userId, worstMicro)) {
+    if (!checkUserDaily(userId, worstMicro)) {
       log({ userId, model: body.model, status: 429, err: "user_daily_cap" });
-      return res.status(429).json({ error: { message: "You've used today's share of AI. Try again tomorrow.", code: "user_daily_cap" }, resetsAt: cap.resetsAt });
+      return res.status(429).json({ error: { message: "You've used today's AI allowance. Try again tomorrow.", code: "user_daily_cap" }, resetsAt: cap.resetsAt });
     }
-    const budget = isBudgetExempt(userId) ? { ok: true } : checkBudget(userId, budgetFor(userId));
+    unconfirmed = isUnconfirmed(userId);
+    const budget = isBudgetExempt(userId) ? { ok: true } : checkBudget(userId, monthlyLimitFor(userId, unconfirmed));
     if (!budget.ok) {
+      // An unconfirmed account that used its trial: confirming the address is the way on, not waiting for next month.
+      if (unconfirmed) {
+        return res.status(402).json({
+          error: { message: "Confirm your email address to keep using AI.", code: "verify_email" },
+          used: budget.used, limit: budget.limit, unit: "kr", resetsAt: budget.resetsAt, needsVerify: true,
+        });
+      }
       return res.status(402).json({
         error: { message: "You've reached this month's AI limit.", code: "quota_exceeded" },
         used: budget.used, limit: budget.limit, unit: "kr", resetsAt: budget.resetsAt,
       });
+    }
+    if (unconfirmed && !checkUnverifiedPool(worstMicro)) {
+      log({ userId, model: body.model, status: 429, err: "unverified_pool" });
+      reportRefusal("pool");
+      return res.status(429).json({ error: { message: "Confirm your email address to use AI today.", code: "unverified_pool" }, resetsAt: cap.resetsAt });
     }
   }
 
@@ -203,13 +231,15 @@ messages.post("/messages", ...guards, asyncHandler(async (req, res) => {
   const release = reserveSpend(worstMicro);
   const releaseUser = userId ? reserveUserSpend(userId, worstMicro) : () => {};
   const releaseBudget = userId ? reserveUserBudget(userId, worstMicro) : () => {};
+  const releasePool = unconfirmed ? reserveUnverifiedPool(worstMicro) : () => {};
   if (userId) inflightByUser.set(userId, (inflightByUser.get(userId) || 0) + 1);
   try {
-    await forward({ res, userId, body, apiKey, started, signal: ac.signal });
+    await forward({ res, userId, body, apiKey, started, signal: ac.signal, unverified: unconfirmed });
   } finally {
     release();
     releaseUser();
     releaseBudget();
+    releasePool();
     if (userId) {
       const n = (inflightByUser.get(userId) || 1) - 1;
       if (n > 0) inflightByUser.set(userId, n); else inflightByUser.delete(userId);
@@ -218,7 +248,7 @@ messages.post("/messages", ...guards, asyncHandler(async (req, res) => {
 }));
 
 // Send one admitted request to Anthropic, relay the answer, and book what it cost.
-async function forward({ res, userId, body, apiKey, started, signal }) {
+async function forward({ res, userId, body, apiKey, started, signal, unverified = false }) {
   let upstream;
   try {
     upstream = await fetch(ANTHROPIC_URL, {
@@ -235,7 +265,7 @@ async function forward({ res, userId, body, apiKey, started, signal }) {
     // Hung up (or timed out) while Anthropic was still working: the request may well be billed, so
     // book at least what it read rather than nothing.
     if (signal.aborted) {
-      const costMicro = recordUsage({ userId, model: body.model, usage: { ...emptyUsage(), input: estimateInputTokens(body) } });
+      const costMicro = recordUsage({ userId, model: body.model, usage: { ...emptyUsage(), input: estimateInputTokens(body) }, unverified });
       log({ userId, model: body.model, status: 499, ms: Date.now() - started, err: "aborted_waiting", costMicro });
       return res.end();
     }
@@ -283,7 +313,7 @@ async function forward({ res, userId, body, apiKey, started, signal }) {
     } catch { /* client hung up mid-stream — still bill what we saw */ }
     if (!sawFinalUsage) usage.output = Math.max(usage.output, Math.ceil(outChars / 3));
     res.end();
-    const costMicro = upstream.ok ? recordUsage({ userId, model: body.model, usage }) : 0;
+    const costMicro = upstream.ok ? recordUsage({ userId, model: body.model, usage, unverified }) : 0;
     log({ userId, model: body.model, stream: true, status: upstream.status, ...usageFields(usage, costMicro), ms: Date.now() - started });
     return;
   }
@@ -293,7 +323,7 @@ async function forward({ res, userId, body, apiKey, started, signal }) {
   try { text = await upstream.text(); }
   catch {
     // The client left or the timeout fired with the answer on its way: book what was read, at least.
-    const costMicro = upstream.ok ? recordUsage({ userId, model: body.model, usage: { ...emptyUsage(), input: estimateInputTokens(body) } }) : 0;
+    const costMicro = upstream.ok ? recordUsage({ userId, model: body.model, usage: { ...emptyUsage(), input: estimateInputTokens(body) }, unverified }) : 0;
     log({ userId, model: body.model, status: 499, ms: Date.now() - started, err: "aborted", costMicro });
     return res.end();
   }
@@ -301,7 +331,7 @@ async function forward({ res, userId, body, apiKey, started, signal }) {
   res.end(text);
   const usage = emptyUsage();
   try { mergeUsage(usage, JSON.parse(text)?.usage); } catch { /* error body / non-JSON */ }
-  const costMicro = upstream.ok ? recordUsage({ userId, model: body.model, usage }) : 0;
+  const costMicro = upstream.ok ? recordUsage({ userId, model: body.model, usage, unverified }) : 0;
   log({ userId, model: body.model, status: upstream.status, ...usageFields(usage, costMicro), ms: Date.now() - started });
 }
 
@@ -310,11 +340,14 @@ async function forward({ res, userId, body, apiKey, started, signal }) {
 // REQUIRE_AUTH is off there's nothing to report).
 messages.get("/usage", requireAuth, (req, res) => {
   const u = readUsage(req.user.userId);
+  const unconfirmed = isUnconfirmed(req.user.userId);
   res.json({
     period: currentPeriod(),
-    // In kronor: what this account's AI has cost this month, and the limit it is checked against.
+    // In kronor: what this account's AI has cost this month, and the limit it is checked against (the trial
+    // while the email address is unconfirmed; `needsVerify` says so, and that confirming raises it).
     used: Math.round(u.costKr * 1000) / 1000,
-    limit: budgetFor(req.user.userId),
+    limit: monthlyLimitFor(req.user.userId, unconfirmed),
+    needsVerify: unconfirmed,
     unit: "kr",
     tokens: u.totalTokens,
     plus: isPlus(req.user.userId),

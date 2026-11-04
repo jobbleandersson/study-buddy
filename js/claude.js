@@ -84,6 +84,13 @@ async function errorFrom(res) {
   const detail = body?.error?.message || "";
 
   if (code === "daily_cap") return new ClaudeError(t("err.dailyCap"));   // the server's daily spend cap: off until tomorrow, not "shortly"
+  if (code === "user_daily_cap") return new ClaudeError(t("err.userDailyCap"));   // this account's day, not "too many requests"
+  if (code === "unverified_pool") return new ClaudeError(t("err.unverifiedPool"));   // unconfirmed accounts' shared pool: confirming is the way on
+  if (code === "verify_email") {
+    // The trial for an unconfirmed address is used: latch like the monthly limit, but the way on is confirming.
+    store.markAiQuotaExhausted({ used: body?.used, limit: body?.limit, resetsAt: body?.resetsAt, needsVerify: true });
+    return new ClaudeError(t("err.verifyForAi"));
+  }
   if (code === "maintenance" || res.status === 503) return new ClaudeError(t("err.maintenance"));
   if (code === "quota_exceeded" || res.status === 402) {
     store.markAiQuotaExhausted({ used: body?.used, limit: body?.limit, resetsAt: body?.resetsAt });

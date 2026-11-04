@@ -8,7 +8,7 @@
 // What a mail carries: the route (query string dropped, ids replaced), the error's message and the top
 // of its stack. Never the request body, headers, cookies or who was signed in.
 
-import { emailEnabled, sendServerErrorEmail, sendNewFeedbackEmail } from "./email.js";
+import { emailEnabled, sendServerErrorEmail, sendNewFeedbackEmail, sendAiSpendEmail } from "./email.js";
 
 const PER_KEY_MS = 60 * 60_000;
 const MAX_KEYS = 200;
@@ -118,9 +118,35 @@ export function reportNewFeedback({ kind, send = sendNewFeedbackEmail, now = Dat
   }
 }
 
+// ---- AI spend (usage.js) ----
+// The server-wide brake at 50% ("half") and 80% ("most") of the day, the moment it turns a request away
+// ("paused": AI is off for everyone until 00:00 UTC), and the moment unconfirmed accounts have used their
+// shared pool ("pool": maybe a sign-up script). Each kind mails at most once a UTC day per process. What a
+// mail carries: the kind and the day's dollar figures. Never an account, an address or a request.
+const spendSent = new Set();
+const SPEND_KINDS = new Set(["half", "most", "paused", "pool"]);
+
+/**
+ * @returns "sent" | "suppressed" | "off" — for the tests; callers ignore it.
+ * `send`, `now` and `enabled` exist so tests can supply their own mailer, clock and on/off.
+ */
+export function reportAiSpend({ kind, spentUsd = 0, spentKr = 0, capUsd = 0, poolUsd = 0, send = sendAiSpendEmail, now = Date.now, enabled = emailEnabled() }) {
+  try {
+    if (!enabled || !SPEND_KINDS.has(kind)) return "off";
+    const key = `${new Date(now()).toISOString().slice(0, 10)}|${kind}`;
+    if (spendSent.has(key)) return "suppressed";
+    if (spendSent.size > 50) spendSent.clear();   // old days; at most four keys a day
+    spendSent.add(key);
+    Promise.resolve(send({ kind, spentUsd, spentKr, capUsd, poolUsd })).catch(() => {});
+    return "sent";
+  } catch {
+    return "off";
+  }
+}
+
 /** Test-only: forget every count. */
 export function _resetAlerts() {
-  seen.clear(); day = ""; sentToday = 0;
+  seen.clear(); day = ""; sentToday = 0; spendSent.clear();
   if (fbTimer) clearTimeout(fbTimer);
   fbPending = emptyCounts(); fbLastSent = 0; fbTimer = null; fbDay = ""; fbSentToday = 0;
 }

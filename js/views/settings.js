@@ -278,7 +278,10 @@ export function renderSettings() {
       const serverReady = store.proxyUp && store.proxyKeyConfigured;
       const resets = fmtResetDate(store.aiUsage?.resetsAt);
       let body;
-      if (serverReady && store.aiOverBudget) {
+      if (serverReady && store.aiOverBudget && store.aiUsage?.needsVerify) {
+        // The trial of an unconfirmed address: confirming (the Account card resends the link) is the way on.
+        body = row(t("set.aiVerifyLabel"), t("set.aiVerifyNote"), statusPill(false, t("set.aiPillOut")));
+      } else if (serverReady && store.aiOverBudget) {
         body = row(t("set.aiOutLabel"), resets ? t("set.aiOutNote", { date: resets }) : t("set.aiOutNoteNoDate"), [statusPill(false, t("set.aiPillOut")), premiumLink()].filter(Boolean));
       } else if (serverReady && !store.authed) {
         body = row(t("set.aiSignInLabel"), t("set.aiSignInNote"), el("a.btn.btn--sm", { href: "#/login" }, t("account.signIn")));
@@ -289,8 +292,8 @@ export function renderSettings() {
     }
 
     const usage = store.aiUsage;
-    // kronor, one decimal while small (0,4 of 2), none once it is a whole figure (30)
-    const krText = (v) => (v >= 10 ? Math.round(v) : Math.round(v * 10) / 10).toLocaleString(getLang() === "sv" ? "sv-SE" : "en-GB");
+    // kronor: two decimals under 1 kr (0,25, the trial), one while small (0,4 of 2), none once it is a whole figure (30)
+    const krText = (v) => (v >= 10 ? Math.round(v) : v < 1 ? Math.round(v * 100) / 100 : Math.round(v * 10) / 10).toLocaleString(getLang() === "sv" ? "sv-SE" : "en-GB");
     const pct = usage?.limit ? Math.min(100, Math.round((usage.used / usage.limit) * 100)) : null;
     const verbCtl = seg(t("set.replyLength"), [
       ["concise", short(t("set.verbConcise"))],
@@ -315,7 +318,8 @@ export function renderSettings() {
       planRow(),
       pct != null ? row(t("set.aiMonthLabel"), [
         t("set.aiUsedKr", { pct, used: krText(usage.used), limit: krText(usage.limit) }),
-        usage.resetsAt ? " " + t("set.aiRefills", { date: fmtResetDate(usage.resetsAt) }) : "",
+        usage.needsVerify ? " " + t("set.aiTrialNote")
+          : usage.resetsAt ? " " + t("set.aiRefills", { date: fmtResetDate(usage.resetsAt) }) : "",
       ].join(""), [
         el("div.set-usage", { role: "img", "aria-label": t("set.aiUsedPct", { pct }) }, [el("i", { style: { width: `${pct}%` } })]),
         el("span.set-usage__pct", {}, `${pct} %`),

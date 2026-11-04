@@ -740,7 +740,8 @@ class Store extends EventTarget {
       const d = await res.json();
       this._plus = !!d?.plus;
       if (!d || d.metered === false || typeof d.limit !== "number") { this.aiUsage = null; this._aiQuotaOut = false; return; }
-      this.aiUsage = { used: d.used || 0, limit: d.limit, resetsAt: d.resetsAt || null };
+      // needsVerify: the limit is the small trial for an unconfirmed address, and confirming it raises the limit.
+      this.aiUsage = { used: d.used || 0, limit: d.limit, resetsAt: d.resetsAt || null, needsVerify: !!d.needsVerify };
       this._aiQuotaOut = this.aiUsage.used >= this.aiUsage.limit;
     } catch { /* offline — keep what we had */ }
   }
@@ -761,18 +762,22 @@ class Store extends EventTarget {
   }
 
   /** Called by claude.js when a request comes back 402: the monthly budget is
-   *  spent. Latches the gates shut until refreshUsage() clears it (next month,
-   *  or a raised limit). */
+   *  spent, or (`needsVerify`) the trial of an account whose address is unconfirmed.
+   *  Latches the gates shut until refreshUsage() clears it (next month, a raised
+   *  limit, or a confirmed address). */
   markAiQuotaExhausted(detail = {}) {
     const wasOut = this._aiQuotaOut;
     this._aiQuotaOut = true;
+    const needsVerify = !!detail.needsVerify;
     if (typeof detail.limit === "number") {
-      this.aiUsage = { used: detail.used ?? detail.limit, limit: detail.limit, resetsAt: detail.resetsAt ?? this.aiUsage?.resetsAt ?? null };
+      this.aiUsage = { used: detail.used ?? detail.limit, limit: detail.limit, resetsAt: detail.resetsAt ?? this.aiUsage?.resetsAt ?? null, needsVerify };
+    } else if (this.aiUsage) {
+      this.aiUsage = { ...this.aiUsage, needsVerify };
     }
     this.emit();
     // Only the moment the limit is first hit — the upgrade prompt listens for
     // this, and shouldn't reappear on every later rejected request.
-    if (!wasOut) window.dispatchEvent(new CustomEvent("sb:quotaout", { detail: { resetsAt: this.aiUsage?.resetsAt ?? null } }));
+    if (!wasOut) window.dispatchEvent(new CustomEvent("sb:quotaout", { detail: { resetsAt: this.aiUsage?.resetsAt ?? null, needsVerify } }));
   }
 
   /** A deadline that passed more than DUE_GRACE_DAYS ago clears itself, so the
@@ -1957,7 +1962,8 @@ class Store extends EventTarget {
     if (!res.ok) throw authError(data, t("verify.failed"));
     // Reflect it straight away if the link was for the account this device is signed in to. The link
     // works from any browser, so it can just as well be for someone else's account - then nothing here changes.
-    if (this.authed && data.email && data.email === this.authEmail) { this.authEmailVerified = true; this.emit(); }
+    // A confirmed address also lifts the AI trial to the full monthly limit, so pull the new limit too.
+    if (this.authed && data.email && data.email === this.authEmail) { this.authEmailVerified = true; await this.refreshUsage(); this.emit(); }
     return { email: data.email || null };
   }
 

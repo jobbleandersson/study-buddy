@@ -192,12 +192,79 @@ describe("usage: the limit is in kronor, not tokens", () => {
     assert.equal(usage.KR_PER_USD, 10);
     assert.equal(usage.microToKr(1_000_000), 10);
   });
+
+  test("the defaults: 0.25 kr trial, 5 kr a day per account, a $1 pool for unconfirmed accounts", () => {
+    assert.equal(usage.UNVERIFIED_BUDGET_KR, 0.25);
+    assert.equal(usage.USER_DAILY_KR, 5);
+    assert.equal(usage.UNVERIFIED_DAILY_USD, 1);
+  });
 });
 
-describe("usage: one account's share of the daily cap", () => {
-  test("is 10% by default: $0.01 cap here, so 1,000 micro-dollars", () => {
+describe("usage: one account's daily limit", () => {
+  test("is 5 kr (500,000 micro-dollars), fixed: not a share of the server's cap", () => {
     const userId = makeUser();
-    assert.equal(usage.checkUserDailyShare(userId, 1_000), true);
-    assert.equal(usage.checkUserDailyShare(userId, 1_001), false);
+    assert.equal(usage.checkUserDaily(userId, 500_000), true);
+    assert.equal(usage.checkUserDaily(userId, 500_001), false);
+  });
+
+  test("counts what the account has booked today and has in flight", () => {
+    const userId = makeUser();
+    usage.recordUsage({ userId, model: "claude-haiku-4-5", usage: { input: 0, output: 60_000, cacheWrite: 0, cacheRead: 0 } });   // 300,000 micro
+    const held = usage.reserveUserSpend(userId, 150_000);
+    assert.equal(usage.checkUserDaily(userId, 50_000), true, "300k + 150k + 50k = the limit exactly");
+    assert.equal(usage.checkUserDaily(userId, 50_001), false);
+    held();
+    assert.equal(usage.checkUserDaily(userId, 200_000), true, "released: room again");
+  });
+
+  test("other accounts are not affected", () => {
+    const a = makeUser(), b = makeUser();
+    const held = usage.reserveUserSpend(a, 500_000);
+    assert.equal(usage.checkUserDaily(a, 1), false);
+    assert.equal(usage.checkUserDaily(b, 500_000), true);
+    held();
+  });
+});
+
+describe("usage: unconfirmed addresses", () => {
+  const make = (required, verifiedAt) => {
+    const id = makeUser();
+    db.prepare("UPDATE users SET email_verify_required = ?, email_verified_at = ? WHERE id = ?").run(required, verifiedAt, id);
+    return id;
+  };
+  test("count as unconfirmed only when confirming was possible and hasn't happened", () => {
+    assert.equal(usage.isUnconfirmed(make(1, null)), true);
+    assert.equal(usage.isUnconfirmed(make(1, Date.now())), false, "confirmed");
+    assert.equal(usage.isUnconfirmed(make(null, null)), false, "made before email existed: an early, real user");
+    assert.equal(usage.isUnconfirmed(null), false);
+    assert.equal(usage.isUnconfirmed("no-such-user"), false);
+  });
+
+  test("share a $1 pool per day: held and booked spend both count", () => {
+    const userId = make(1, null);
+    assert.equal(usage.checkUnverifiedPool(1_000_000), true);
+    const held = usage.reserveUnverifiedPool(600_000);
+    assert.equal(usage.checkUnverifiedPool(400_000), true);
+    assert.equal(usage.checkUnverifiedPool(400_001), false);
+    held(); held();   // releasing twice gives back only once
+    assert.equal(usage.checkUnverifiedPool(1_000_000), true);
+    usage.recordUsage({ userId, model: "claude-haiku-4-5", usage: { input: 0, output: 100_000, cacheWrite: 0, cacheRead: 0 }, unverified: true });   // 500,000 micro
+    assert.equal(usage.checkUnverifiedPool(500_000), true);
+    assert.equal(usage.checkUnverifiedPool(500_001), false);
+    usage.recordUsage({ userId: makeUser(), model: "claude-haiku-4-5", usage: { input: 0, output: 100_000, cacheWrite: 0, cacheRead: 0 } });
+    assert.equal(usage.checkUnverifiedPool(500_000), true, "a confirmed account's spend doesn't come off the pool");
+  });
+});
+
+describe("usage: telling the owner", () => {
+  test("each kind of refusal is reported once a day, with no account in it", () => {
+    const seen = [];
+    usage.setSpendAlert((a) => seen.push(a));
+    usage.reportRefusal("paused");
+    usage.reportRefusal("paused");
+    usage.reportRefusal("pool");
+    usage.setSpendAlert(null);
+    assert.deepEqual(seen.map((a) => a.kind), ["paused", "pool"]);
+    for (const a of seen) assert.deepEqual(Object.keys(a).sort(), ["capUsd", "kind", "poolUsd", "spentKr", "spentUsd"]);
   });
 });

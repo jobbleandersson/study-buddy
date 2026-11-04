@@ -266,15 +266,26 @@ The copy holds everything the database holds (emails, password hashes, study sta
 
 ## AI limits per account
 
-Each account has a monthly AI limit in **kronor**, checked against what its requests actually cost (the price per model, from `server/src/usage.js`), not against a token count. Free: 2 kr. Plus: 30 kr. The settings, with their defaults (set with `fly secrets set` or in the `[env]` part of `fly.toml`; none of them is a secret):
+Each account has a monthly AI limit in **kronor**, checked against what its requests actually cost (the price per model, from `server/src/usage.js`), not against a token count. Free: 2 kr. Plus: 30 kr. Until an account confirms its email address it has a 0.25 kr trial instead (Google and Apple sign-ins arrive confirmed). Each account also has a daily limit, and the whole server an emergency brake that only trips when something is wrong: with the per-account limits in place, ordinary use never comes near it.
+
+| Limit | Default | Who it stops |
+|---|---|---|
+| Monthly, per account | 2 kr free, 30 kr Plus, 0.25 kr unconfirmed | That account, until the 1st (or until it confirms its address). The student sees why. |
+| Daily, per account | 5 kr | That account, until 00:00 UTC. A free account never reaches it. |
+| Unconfirmed accounts together | $1 a day | Unconfirmed accounts, until 00:00 UTC or until they confirm. You get a mail: it can mean someone is making accounts with a script. |
+| Whole server (emergency brake) | $50 a day | Everyone, until 00:00 UTC. You get a mail at 50% and 80%, and when it trips. |
+
+The owner's mails go to `ALERT_EMAIL` (default the contact address), at most once a day for each kind, and carry only the day's figures, never an account. The settings, with their defaults (set with `fly secrets set` or in the `[env]` part of `fly.toml`; none of them is a secret):
 
 | Setting | Default | What it does |
 |---|---|---|
 | `AI_FREE_BUDGET_KR` | 2 | Monthly limit of a free account, in kr |
 | `AI_PLUS_BUDGET_KR` | 30 | Monthly limit of a Plus account, in kr |
+| `AI_UNVERIFIED_BUDGET_KR` | 0.25 | Monthly limit of an account whose email address is unconfirmed, in kr |
+| `AI_USER_DAILY_KR` | 5 | Most one account may use in a UTC day, in kr (0 = off) |
+| `AI_UNVERIFIED_DAILY_USD` | 1 | Most all unconfirmed accounts together may use in a UTC day, in dollars (0 = off) |
+| `AI_DAILY_SPEND_CAP_USD` | 50 | The emergency brake: most the whole server may spend in a UTC day, in dollars (0 = off). $50 covers roughly 7,500 free accounts that each use their whole month |
 | `AI_KR_PER_USD` | 10 | Exchange rate used to turn Claude's dollar prices into kronor |
-| `AI_DAILY_SPEND_CAP_USD` | 5 | Most the whole server may spend in a UTC day, in dollars (raise it as users grow) |
-| `AI_USER_DAILY_SHARE` | 0.10 | One account's share of that daily cap |
 
 A tutor answer costs about half an öre, a generated set about ten öre and a Högskoleprov batch (Sonnet) about 90 öre, so 2 kr is roughly 40 sets or 400 tutor answers on Haiku, or two Högskoleprov batches. The month starts at zero when this was introduced: what was used before it is not counted.
 

@@ -203,7 +203,8 @@ export class TutorChat {
     if (this.locked) return t("tutor.subLocked");
     if (Number.isFinite(this.hintBudget)) return t("tutor.hintsLeft", { n: this.hintsLeft });
     if (this.live) return t("tutor.subLive");
-    return store.aiBlockReason() === "quota" ? t("tutor.subQuota") : t("tutor.subDemo");
+    if (store.aiBlockReason() === "quota") return t(store.aiUsage?.needsVerify ? "tutor.subVerify" : "tutor.subQuota");
+    return t("tutor.subDemo");
   }
   _refreshSub() { if (this.subEl) this.subEl.textContent = this._subText(); }
 

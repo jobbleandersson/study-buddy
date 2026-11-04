@@ -150,9 +150,10 @@ export function mountSiteChat() {
       return;
     }
     if (store.aiBlockReason() === "quota") {
+      const verify = !!store.aiUsage?.needsVerify;   // the trial of an unconfirmed address, not the month
       logEl.appendChild(el("div.sitechat__dormant", {}, [
-        el("p", {}, t("sitechat.quotaTitle")),
-        el("p.note", {}, t("sitechat.quotaBody", { date: resetDateText(store.aiUsage?.resetsAt) })),
+        el("p", {}, t(verify ? "ai.verifyTitle" : "sitechat.quotaTitle")),
+        el("p.note", {}, verify ? t("err.verifyForAi") : t("sitechat.quotaBody", { date: resetDateText(store.aiUsage?.resetsAt) })),
       ]));
       formEl.hidden = fineEl.hidden = true;
       return;
