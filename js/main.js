@@ -678,7 +678,13 @@ const DAY_MS = 86400000;
  *  not just the id — so a notification you dismissed reads as unread again
  *  once the underlying fact changes (more questions pile up, the test gets a
  *  day closer) instead of staying silently dismissed forever. */
+/** The bell's list. It runs on every screen (the header), so a fault in it must never take the page down:
+ *  it then has nothing to show, and the error goes to the console. */
 function buildNotifications() {
+  try { return collectNotifications(); } catch (e) { console.error(e); return []; }
+}
+
+function collectNotifications() {
   const now = Date.now();
   const list = [];
   // "Klart för i kväll" quiets reminders until morning — see views/tonight.js.
@@ -925,6 +931,14 @@ function wordmark() {
   return [wordmarkText()];
 }
 
+/** shell(), but a fault in the frame (sidebar, header, streak) shows the screen on its own instead of a blank page. */
+function safeShell(contentNode) {
+  try { return shell(contentNode); } catch (e) {
+    console.error(e);
+    return el("main.content", { id: "main" }, [contentNode]);
+  }
+}
+
 function shell(contentNode) {
   const { displayStreak: streak, atRisk } = store.streakInfo;
   const immersive = immersiveRoute();
@@ -1126,7 +1140,7 @@ async function render({ chromeOnly = false, softRefresh = false } = {}) {
   // content in place (see its "sb:langsession" listener) so a full re-render
   // would needlessly wipe the tutor thread and bounce the scroll.
   if (chromeOnly) {
-    if (currentViewNode) mount(app, shell(currentViewNode));
+    if (currentViewNode) mount(app, safeShell(currentViewNode));
     return;
   }
 
@@ -1146,7 +1160,7 @@ async function render({ chromeOnly = false, softRefresh = false } = {}) {
   // On a soft refresh the current screen stays put until the rebuilt one is
   // ready — no loading flash for what's usually an instant rebuild.
   if (!softRefresh) {
-    mount(app, shell(el("div", {
+    mount(app, safeShell(el("div", {
       style: { padding: "40px", textAlign: "center", color: "var(--ink-faint)" },
     }, t("common.loading"))));
   }
@@ -1169,7 +1183,7 @@ async function render({ chromeOnly = false, softRefresh = false } = {}) {
     // and footer, and app furniture would undercut the point of a front page.
     const bare = result?.chrome === false;
     document.body.classList.toggle("no-chrome", bare);
-    mount(app, bare ? node : shell(node));
+    mount(app, bare ? node : safeShell(node));
     if (!bare) preloadSession();
     // A running session / worksheet is a focus context — hide the floating
     // app-help chat there too (it lives on <body>, outside the shell).
@@ -1206,12 +1220,17 @@ async function render({ chromeOnly = false, softRefresh = false } = {}) {
     currentViewNode = null;
     // The error screen is a normal app screen, so the chrome comes back.
     document.body.classList.remove("no-chrome");
-    mount(app, shell(el("div.empty", {}, [
+    mount(app, safeShell(el("div.empty", {}, [
       el("h2", {}, t("common.somethingWrong")),
       el("p", {}, t("common.loadFailedBody")),
       el("div", { style: { display: "flex", gap: "8px", justifyContent: "center", flexWrap: "wrap", marginTop: "16px" } }, [
         el("button.btn", { type: "button", onclick: () => render() }, t("common.retry")),
         el("a.btn.btn--ghost", { href: "#/" }, t("common.backToMenu")),
+        // If it keeps happening, the student can still take their work with them (and send it to us).
+        el("button.btn.btn--ghost", {
+          type: "button",
+          onclick: () => { try { downloadText(`pluggera-backup-${localDayKey()}.json`, store.exportJSON()); } catch (err) { console.error(err); } },
+        }, t("common.saveDataCopy")),
       ]),
     ])));
     announce(t("common.somethingWrongShort"));

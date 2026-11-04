@@ -8,6 +8,7 @@ import { getLang, t } from "./lib/i18n.js";
 import { serverMessage } from "./lib/server-errors.js";
 import { normalizeExam, examsFromMarkedSets, examSetDates, calendarEntries, examToMakeFor } from "./lib/exam.js";
 import { mergeStates, looksLikeBackup } from "./lib/merge-state.js";
+import { coerceStateShape, cleanSettings } from "./lib/state-shape.js";
 import { hasLocalWork } from "./lib/local-work.js";
 import { classifyPushStatus, nextRetryDelay } from "./lib/sync-status.js";
 
@@ -240,8 +241,11 @@ function seedState() {
 
 // --- migration seam: bump SCHEMA_VERSION and add a block here ---
 function migrate(state) {
-  if (!state || typeof state !== "object") return seedState();
-  const s = state;
+  if (!state || typeof state !== "object" || Array.isArray(state)) return seedState();
+  const s = coerceStateShape(state);   // every field the right type before anything below reads it (lib/state-shape.js)
+  // Data a newer app version saved (another device, a fresher cached build) keeps its version: stamping it back
+  // down would make that newer version run its migration a second time on data that already has it.
+  const newer = Number(s.version) > SCHEMA_VERSION;
 
   if (!(s.version >= 2)) {
     // v1 stored a streak counter that went stale, and UTC day keys.
@@ -299,9 +303,9 @@ function migrate(state) {
     };
   }
 
-  s.version = SCHEMA_VERSION;
-  s.settings = { ...seedState().settings, ...(s.settings || {}) };
-  return finishMigrate(s);
+  s.version = newer ? Number(s.version) : SCHEMA_VERSION;
+  s.settings = cleanSettings(s.settings, seedState().settings);
+  return finishMigrate(s, { newer });
 }
 
 /** Remember that the session under `key` was finished or thrown away, so a sync merge can't bring
@@ -332,7 +336,7 @@ function pruneTonight(tonight) {
 
 /** The tail of migrate() — the version-independent normalisation — split out so
  *  a merged blob (which is already at SCHEMA_VERSION) gets the same treatment. */
-function finishMigrate(s) {
+function finishMigrate(s, { newer = false } = {}) {
   s.activity = { ...seedState().activity, ...(s.activity || {}) };
   s.achievements = s.achievements || {};
   s.readNotifications = s.readNotifications || {};
@@ -356,10 +360,13 @@ function finishMigrate(s) {
         delete s.achievements[oldId];
       }
     }
-    // Drop any remaining legacy ids that have no home in the new model.
-    const known = new Set(ACHIEVEMENTS.map((d) => d.id));
-    for (const id of Object.keys(s.achievements)) {
-      if (!known.has(id)) delete s.achievements[id];
+    // Drop any remaining legacy ids that have no home in the new model. Not in data from a newer app version:
+    // an id this version doesn't know may be a trophy that version added, and would be lost for good.
+    if (!newer) {
+      const known = new Set(ACHIEVEMENTS.map((d) => d.id));
+      for (const id of Object.keys(s.achievements)) {
+        if (!known.has(id)) delete s.achievements[id];
+      }
     }
   }
   // Existing users have already "onboarded" by virtue of having data — only a
