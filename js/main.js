@@ -807,7 +807,7 @@ function openNotificationPanel(anchor) {
     refreshBellDot();
   }
 
-  openPopover(anchor, [
+  const panel = openPopover(anchor, [
     el("div.notifpanel__head", {}, [
       el("h3", {}, t("notif.panelTitle")),
       el("button.iconbtn.iconbtn--sm", { type: "button", "aria-label": t("common.close"), onclick: closePopover }, [icon(ICONS.close, 16)]),
@@ -815,6 +815,9 @@ function openNotificationPanel(anchor) {
     el("div.notiftabs", { role: "tablist" }, [tabUnreadBtn, tabReadBtn]),
     bodyEl,
   ], { align: "right", width: 360, role: "dialog", label: t("notif.panelTitle") });
+  // On a phone the panel spans the screen just under the bell's row (css: .popover--notif).
+  panel.classList.add("popover--notif");
+  panel.style.setProperty("--notif-top", `${Math.round(anchor.getBoundingClientRect().bottom + 8)}px`);
 
   paint();
 }

@@ -4440,6 +4440,26 @@ body:has(.hp-intro) .session__headright > .btn { display: none; }
   cursor: pointer; transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
 }
 .notifcard__mark:hover { background: var(--ok); color: #fff; border-color: transparent; }
+/* Phones: the 360px dropdown sat off-centre with the page showing round it. Here the panel spans the
+   screen just under the bell's row, over a dimmed page; the tabs read as a switch and the action is a
+   real button. A tap on the dimmed page closes it (popover.js), without reaching what is underneath. */
+@media (max-width: 560px) {
+  body:has(.popover--notif)::after { content: ""; position: fixed; inset: 0; z-index: 59; background: rgba(20, 18, 28, .38); }
+  .popover--notif {
+    position: fixed !important; top: var(--notif-top, 72px) !important; left: 12px !important; right: 12px; width: auto !important; max-width: none;
+    max-height: calc(100vh - var(--notif-top, 72px) - 16px); max-height: calc(100dvh - var(--notif-top, 72px) - 16px); overflow-y: auto;
+    border-radius: 18px; border-color: var(--line); padding: 8px 4px 10px; box-shadow: var(--shadow-2);
+  }
+  .popover--notif .notifpanel__head { padding: 6px 8px 10px 12px; }
+  .popover--notif .notiftabs { background: var(--surface-sunk); border: 0; border-radius: var(--r-full); padding: 4px; margin: 2px 8px 12px; }
+  .popover--notif .notiftab { padding: 9px 12px; }
+  .popover--notif .notiftab[aria-selected="true"] { background: var(--surface); box-shadow: var(--shadow-1); }
+  .popover--notif .notifpanel__body { max-height: none; padding: 0 8px 4px; }
+  .popover--notif .notifcard { border: 1px solid var(--line); background: var(--surface); padding: 14px; }
+  .popover--notif .notifcard--unread { background: var(--brand-tint); border-color: transparent; }
+  .popover--notif .notifcard__footer { margin-top: 4px; }
+  .popover--notif .notifcard__link { display: inline-flex; align-items: center; min-height: 36px; padding: 0 16px; border-radius: var(--r-full); background: var(--brand); color: #fff; text-decoration: none; }
+}
 
 /* ---------- achievements page ---------- */
 .achievements-page { display: flex; flex-direction: column; gap: var(--s-5); }
