@@ -2,7 +2,7 @@
 
 import { store } from "./store.js";
 import { PAGEVIEW_URL, PROXY_HEALTH_URL, ERRORS_URL } from "./config.js";
-import { installErrorReporting } from "./lib/error-report.js";
+import { installErrorReporting, reportCaught } from "./lib/error-report.js";
 import { hideJoinToken } from "./lib/join-link.js";
 import { wordmarkText } from "./lib/wordmark.js";
 import { el, clear, mount, append, icon, ICONS, toast, showBanner, hideBanner, downloadText } from "./lib/dom.js";
@@ -681,7 +681,7 @@ const DAY_MS = 86400000;
 /** The bell's list. It runs on every screen (the header), so a fault in it must never take the page down:
  *  it then has nothing to show, and the error goes to the console. */
 function buildNotifications() {
-  try { return collectNotifications(); } catch (e) { console.error(e); return []; }
+  try { return collectNotifications(); } catch (e) { console.error(e); reportCaught(e); return []; }
 }
 
 function collectNotifications() {
@@ -935,7 +935,12 @@ function wordmark() {
 function safeShell(contentNode) {
   try { return shell(contentNode); } catch (e) {
     console.error(e);
-    return el("main.content", { id: "main" }, [contentNode]);
+    reportCaught(e);
+    // No sidebar or tab bar to leave by, so a plain way back to the start comes first.
+    return el("main.content", { id: "main" }, [
+      el("p", {}, el("a.btn.btn--ghost.btn--sm", { href: "#/" }, t("common.backToMenu"))),
+      contentNode,
+    ]);
   }
 }
 

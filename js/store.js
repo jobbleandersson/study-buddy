@@ -242,10 +242,12 @@ function seedState() {
 // --- migration seam: bump SCHEMA_VERSION and add a block here ---
 function migrate(state) {
   if (!state || typeof state !== "object" || Array.isArray(state)) return seedState();
-  const s = coerceStateShape(state);   // every field the right type before anything below reads it (lib/state-shape.js)
   // Data a newer app version saved (another device, a fresher cached build) keeps its version: stamping it back
-  // down would make that newer version run its migration a second time on data that already has it.
-  const newer = Number(s.version) > SCHEMA_VERSION;
+  // down would make that newer version run its migration a second time on data that already has it. Its types
+  // aren't "repaired" either: a shape this version calls wrong may be that version's right one, and repairing it
+  // here would be saved and synced back over the newer device's data. (This build updates itself soon after.)
+  const newer = Number(state.version) > SCHEMA_VERSION;
+  const s = newer ? state : coerceStateShape(state);   // every field the right type before anything below reads it (lib/state-shape.js)
 
   if (!(s.version >= 2)) {
     // v1 stored a streak counter that went stale, and UTC day keys.
@@ -304,7 +306,8 @@ function migrate(state) {
   }
 
   s.version = newer ? Number(s.version) : SCHEMA_VERSION;
-  s.settings = cleanSettings(s.settings, seedState().settings);
+  // A newer version may have added a choice this one doesn't know (a text size, say): its settings are only filled in.
+  s.settings = newer ? { ...seedState().settings, ...(s.settings || {}) } : cleanSettings(s.settings, seedState().settings);
   return finishMigrate(s, { newer });
 }
 

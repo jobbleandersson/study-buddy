@@ -73,6 +73,15 @@ export function appVersion() {
 }
 
 let installed = false;
+let sendReport = null;
+
+/** An error the app caught and survived (so window never saw it) but that is still a bug: the frame around a
+ *  screen failing, say. Reported like an uncaught one, through the same limits. A no-op before install. */
+export function reportCaught(err) {
+  try {
+    sendReport?.({ kind: "error", message: err?.message ? `${err.name || "Error"}: ${err.message}` : String(err), stack: err?.stack });
+  } catch { /* never */ }
+}
 
 /** Starts listening. Call once, as early as possible. Reporting never throws or logs an error itself. */
 export function installErrorReporting(url) {
@@ -96,6 +105,7 @@ export function installErrorReporting(url) {
       }
     } catch { /* reporting must never cause an error of its own */ }
   };
+  sendReport = send;
 
   // Capture phase, so a file that fails to load (an <img>, a <script>) is caught too; those events
   // don't bubble up to window.
