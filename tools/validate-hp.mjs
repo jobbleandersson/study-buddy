@@ -79,6 +79,13 @@ for (const entry of hpSets) {
       if (!existsSync(fp)) fail(`${tag}: figure file missing ${q.figure.src}`);
       if (!q.figure.alt) fail(`${tag}: figure has no alt text`);
     }
+    // A LaTeX command that lost its backslash ("$dfrac{1}{2}$") still renders, as the letters "dfrac".
+    for (const s of [q.prompt, ...(q.choices || []), q.explanation, ...(q.steps || [])].filter((x) => typeof x === "string")) {
+      for (const [, tex] of s.matchAll(/\$([^$]+)\$/g)) {
+        const bare = tex.match(/(^|[^\\a-zA-Z])(d?frac|sqrt|cdot|times|text|Rightarrow|approx|neq|leq|geq)\{/);
+        if (bare) fail(`${tag}: "\\${bare[2]}" is missing its backslash in $${tex}$`);
+      }
+    }
     if (q.stimulus && q.stimulus.id) {
       (groups[q.stimulus.id] ||= []).push(JSON.stringify(q.stimulus));
     }
