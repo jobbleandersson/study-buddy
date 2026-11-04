@@ -24,13 +24,13 @@
       },
       "prompt": "Vilken är textens huvudtanke?",
       "choices": [
-        "Svenskan bör skyddas mot nya lånord från engelskan",
+        "Engelskan är ett nytt hot, eftersom svenskan aldrig förut har tagit emot så många lånord",
         "Lånord speglar språkets kontakter genom historien och är i sig inget hot mot svenskan",
-        "Engelskan påverkar svenskan mer än något annat språk någonsin har gjort",
-        "Franskan har haft störst betydelse för det svenska ordförrådet"
+        "Lånord försvinner med tiden ur svenskan, så engelskan kommer inte att lämna några spår",
+        "Franskan har påverkat svenskan mer än lågtyskan, eftersom den gav ord med hög status"
       ],
       "answer": 1,
-      "explanation": "Texten följer lånorden genom tre epoker och avslutar med att historien \"ger skäl till ett visst lugn\": svenskan har klarat större mängder lånord förut. Att engelskan påverkar mer än något annat språk motsägs av att språket \"tidigare tagit emot betydligt större mängder lånord\", och texten säger aldrig att svenskan bör skyddas eller att franskan varit viktigast."
+      "explanation": "Texten följer lånorden genom tre epoker och avslutar med att historien \"ger skäl till ett visst lugn\": svenskan har klarat större mängder lånord förut. Att engelskan skulle vara ett större hot än något tidigare motsägs av att språket \"tidigare tagit emot betydligt större mängder lånord\". Lånorden försvinner inte utan anpassas och blir vardagliga, och texten jämför aldrig franskans betydelse med lågtyskans."
     },
     {
       "id": "q-hp-las2-02",
@@ -45,9 +45,9 @@
       "prompt": "Varför kom många lågtyska ord in i svenskan under senmedeltiden?",
       "choices": [
         "De tyska Hansastäderna dominerade handeln runt Östersjön",
-        "Svenskan saknade ord för många vardagliga saker",
-        "Den svenska överklassen tog efter tyska seder",
-        "Lågtyska ord var lättare att försvenska än franska"
+        "Svenskan saknade egna ord för många vardagliga saker och begrepp",
+        "Den svenska överklassen ville efterlikna de tyska furstehoven",
+        "Lågtyska ord var lättare att försvenska än både franska och engelska"
       ],
       "answer": 0,
       "explanation": "Texten knyter de lågtyska lånen till att Hansastäderna dominerade handeln runt Östersjön. Att överklassen tog efter ett annat land gäller franskan på 1700-talet, inte lågtyskan."
@@ -65,9 +65,9 @@
       "prompt": "Vad menas med att lånorden fungerar \"nästan som årsringar i ett träd\"?",
       "choices": [
         "De visar i vilken ordning olika språk har påverkat svenskan",
-        "De försvinner ur språket efter en viss tid",
-        "De gör språket starkare för varje år som går",
-        "De blir fler i samma takt varje år"
+        "De försvinner gradvis ur språket när en ny epok tar vid",
+        "De gör språket rikare och starkare för varje år som går",
+        "De tillkommer i ungefär samma takt år efter år, oavsett epok"
       ],
       "answer": 0,
       "explanation": "Årsringar avslöjar ett träds historia, lager för lager. På samma sätt visar lånorden vilka språk svenskan haft kontakt med under olika perioder – lågtyskan, sedan franskan och nu engelskan."
@@ -84,9 +84,9 @@
       },
       "prompt": "Vad är det enligt författaren som avgör ett språks framtid?",
       "choices": [
-        "Om antalet engelska lånord kan begränsas",
-        "Om lånorden får behålla sitt ursprungliga uttal",
-        "Om språket tar in ord från många olika språk",
+        "Om antalet nya engelska lånord kan hållas nere i skolan och arbetslivet",
+        "Om lånorden får behålla sitt ursprungliga uttal och sin stavning",
+        "Om språket fortsätter att ta in ord från många olika språk",
         "Om språket fortsätter att användas inom samhällets alla områden"
       ],
       "answer": 3,
@@ -104,9 +104,9 @@
       },
       "prompt": "Varför använde Ebbinghaus meningslösa stavelser?",
       "choices": [
-        "De glöms snabbare än riktiga ord",
-        "Han ville undersöka hur nya ord uppstår",
-        "De var lättare att lära sig än riktiga ord",
+        "De glöms snabbare än riktiga ord och gav därför tydligare kurvor",
+        "Han ville undersöka hur nya ord bildas och sprids i ett språk",
+        "De var lättare att lära sig än riktiga ord av samma längd",
         "De gick inte att koppla till något han redan kunde"
       ],
       "answer": 3,
@@ -124,9 +124,9 @@
       },
       "prompt": "Hur beskriver texten glömskekurvan?",
       "choices": [
-        "Det mesta glöms först efter ungefär en vecka",
-        "Glömskan sker i jämn takt över tid",
-        "Glömskan går fortare ju längre tiden går",
+        "Det mesta av det inlärda glöms först efter ungefär en vecka",
+        "Glömskan sker i ungefär jämn takt från första dagen",
+        "Glömskan går fortare ju längre tid som har gått",
         "Glömskan går snabbast i början och avtar sedan"
       ],
       "answer": 3,
@@ -144,10 +144,10 @@
       },
       "prompt": "När är det enligt texten bäst att repetera?",
       "choices": [
-        "Intensivt kvällen före ett prov",
+        "Intensivt under kvällen före provet, när allt är färskt",
         "När man håller på att glömma det man har lärt sig",
-        "Medan allt fortfarande sitter i minnet",
-        "Med lika långa mellanrum under hela studietiden"
+        "Medan allt fortfarande sitter ordentligt i minnet efter passet",
+        "Med lika långa mellanrum under hela studieperioden"
       ],
       "answer": 1,
       "explanation": "Enligt texten tyder forskningen på att minnet förstärks särskilt när repetitionen kommer \"när man håller på att glömma, inte medan allt fortfarande sitter\". Mellanrummen ska dessutom vara växande, inte lika långa."
@@ -165,9 +165,9 @@
       "prompt": "Vad vill författaren säga med att spridd repetition \"känns ofta mindre effektivt\"?",
       "choices": [
         "Att det som gör metoden obekväm är just det som gör att den fungerar",
-        "Att metoden kräver mer studietid totalt",
-        "Att metoden bara fungerar för meningslösa stavelser",
-        "Att metoden ger sämre resultat än att plugga intensivt"
+        "Att metoden kräver mer studietid totalt än att plugga intensivt",
+        "Att metoden bara har visat sig fungera för meningslösa stavelser",
+        "Att metoden i själva verket ger sämre resultat än intensivt pluggande"
       ],
       "answer": 0,
       "explanation": "Det känns ineffektivt eftersom man hela tiden möter sådant man nästan glömt – men \"just den ansträngningen\" är det som gör att kunskapen stannar. Metoden kräver inte mer tid: samma studietid sprids bara ut."
@@ -184,10 +184,10 @@
       },
       "prompt": "Vad handlar texten främst om?",
       "choices": [
-        "Varför domare dömer olika hårt",
-        "Hur ett tal vi möter först kan styra våra bedömningar, och hur effekten kan försvagas",
-        "Hur man förhandlar fram en högre lön",
-        "Varför människor har svårt att räkna med stora tal"
+        "Varför domare och förhandlare ofta gör sämre bedömningar än andra yrkesgrupper",
+        "Hur ett första tal kan styra våra bedömningar och hur effekten kan försvagas",
+        "Hur man i en förhandling använder ett högt första bud för att få fördel",
+        "Varför människor har svårt att uppskatta stora tal utan att räkna noggrant"
       ],
       "answer": 1,
       "explanation": "Hela texten handlar om förankring: vad den är, hur den visades, varför den uppstår och hur man kan försvaga den. Löneförhandlingar och domare nämns bara som exempel."
@@ -204,10 +204,10 @@
       },
       "prompt": "Hur förklarar texten att förankring uppstår?",
       "choices": [
-        "Vi har svårt att uppskatta stora belopp",
-        "Vi litar mer på andras tal än på våra egna",
+        "Vi har svårt att uppskatta stora belopp utan något att jämföra med",
+        "Vi litar mer på tal som andra nämner än på våra egna uppskattningar",
         "Vi utgår från det första talet och justerar sedan för lite",
-        "Vi tror att det första talet är det rätta svaret"
+        "Vi tror att det första talet vi hör är det rätta svaret"
       ],
       "answer": 2,
       "explanation": "Förklaringen står i tredje stycket: vi utgår från det första talet och justerar, men för lite. Effekten uppstår enligt texten \"även om du vet att det saknar betydelse\" – vi behöver alltså inte tro att talet är rätt."
@@ -225,9 +225,9 @@
       "prompt": "Vad betyder det att beloppet nämns \"i förbigående\"?",
       "choices": [
         "Att det nämns helt kort, utan att vara huvudsaken",
-        "Att det nämns flera gånger",
-        "Att det nämns av någon som går förbi",
-        "Att det nämns för att vilseleda"
+        "Att det upprepas flera gånger under samtalets gång",
+        "Att det nämns av någon som råkar gå förbi just då",
+        "Att det nämns för att medvetet vilseleda den som lyssnar"
       ],
       "answer": 0,
       "explanation": "Att säga något *i förbigående* är att nämna det kort och utan eftertryck, medan man egentligen talar om något annat. Uttrycket har inget med att gå förbi att göra."
@@ -244,10 +244,10 @@
       },
       "prompt": "Vilket påstående stöds bäst av textens sista stycke?",
       "choices": [
-        "Förankring går inte att göra något åt",
-        "Den som känner till förankring kan minska effekten men sällan ta bort den helt",
-        "Den som känner till förankring påverkas inte av den",
-        "Egna jämförelsetal gör förhandlingar onödigt långa"
+        "Förankring är så djupt rotad att den inte går att påverka, ens med kunskap om den",
+        "Den som känner till förankring kan minska effekten men sällan ta bort den helt och hållet",
+        "Den som känner till förankring och tar fram egna jämförelsetal påverkas inte alls",
+        "Egna jämförelsetal hjälper bara när det första talet som nämns är orimligt högt"
       ],
       "answer": 1,
       "explanation": "Sista stycket ger två motmedel och slutar med att effekten \"sällan\" försvinner helt men \"går att försvaga\". Det utesluter både att kunskap gör en immun och att inget går att göra."
@@ -265,9 +265,9 @@
       "prompt": "Vilken är textens huvudtanke?",
       "choices": [
         "Bilden av vargarnas effekt i Yellowstone är osäkrare än den ofta framställs",
-        "Björnar och pumor har varit viktigare än vargarna för Yellowstone",
-        "Vargarna räddade Yellowstones ekosystem",
-        "Vargarna har inte haft någon betydelse för Yellowstones ekosystem"
+        "Björnar och pumor har betytt mer än vargarna för Yellowstones ekosystem",
+        "Vargarna räddade på egen hand Yellowstones ekosystem efter återkomsten 1995",
+        "Vargarna har inte haft någon påvisbar betydelse för ekosystemet i parken"
       ],
       "answer": 0,
       "explanation": "Texten återger den populära berättelsen och visar sedan att senare forskning gjort bilden \"mer komplicerad\". Den säger uttryckligen att vargarna inte saknat betydelse, men inte heller att de ensamma räddade ekosystemet."
@@ -284,9 +284,9 @@
       },
       "prompt": "Enligt den vanliga berättelsen fick videna och asparna växa upp igen eftersom",
       "choices": [
-        "människor slutade jaga hjortar i parken",
+        "människor slutade jaga hjortar inne i parken",
         "bävrarnas dammar gav träden mer vatten",
-        "flera torra år gynnade träden",
+        "flera torra år gynnade träden längs vattendragen",
         "hjortarna undvek de öppna dalgångarna"
       ],
       "answer": 3,
@@ -324,9 +324,9 @@
       },
       "prompt": "Vad vill författaren främst visa med textens sista mening?",
       "choices": [
-        "Att forskare medvetet överdriver sina resultat",
-        "Att forskningen om Yellowstone saknar värde",
-        "Att vargar är en populär art bland allmänheten",
+        "Att forskare medvetet överdriver sina resultat för att väcka allmänhetens intresse",
+        "Att forskningen om vargarna i Yellowstone i grunden saknar vetenskapligt värde",
+        "Att vargar är en populär art som allmänheten gärna vill höra positiva nyheter om",
         "Att förenklade berättelser om forskning ofta sprids mer än forskarnas egna förbehåll"
       ],
       "answer": 3,
@@ -344,10 +344,10 @@
       },
       "prompt": "Vad var enligt texten det största problemet med det äldre sättet att lasta fartyg?",
       "choices": [
-        "Fartygen var för små för långa resor",
-        "Varorna skadades ofta under sjöresan",
-        "Det tog lång tid och kostade mycket att flytta varorna mellan land och fartyg",
-        "Det fanns för få hamnarbetare"
+        "Fartygen var för små för att klara de långa resorna över haven",
+        "Varorna skadades ofta när de bars ombord en och en av hamnarbetare",
+        "Det tog lång tid och kostade mycket att lasta och lossa",
+        "Det fanns för få hamnarbetare för att lasta alla fartyg i tid"
       ],
       "answer": 2,
       "explanation": "Första stycket betonar tiden (över en vecka i hamn) och kostnaden (lastningen kunde kosta mer än sjöresan). Skador, fartygens storlek och brist på arbetare nämns inte."
@@ -364,10 +364,10 @@
       },
       "prompt": "Varför dröjde det enligt texten innan containern slog igenom?",
       "choices": [
-        "Containrarna var för dyra att tillverka",
-        "Hamnarbetarna protesterade mot tekniken",
-        "Det krävdes nya kranar, ombyggda fartyg och gemensamma mått",
-        "McLeans första resa misslyckades"
+        "Containrarna var för dyra att tillverka i den mängd som behövdes",
+        "Hamnarbetarna protesterade mot tekniken som hotade deras jobb",
+        "Det krävdes nya kranar, ombyggda fartyg och framför allt gemensamma mått",
+        "McLeans första resa 1956 misslyckades och skrämde bort köparna"
       ],
       "answer": 2,
       "explanation": "Tredje stycket räknar upp vad som krävdes: nya kranar, ombyggda fartyg och – framför allt – gemensamma mått. Inget av de andra alternativen nämns."
@@ -404,10 +404,10 @@
       },
       "prompt": "Vad framgår av texten om containerns följder?",
       "choices": [
-        "Den skapade fler arbeten i hamnarna",
-        "Den löste transportproblemen direkt efter den första resan",
-        "Den gjorde det lönsamt att tillverka varor långt från köparna men minskade arbetet i hamnarna",
-        "Den gjorde själva sjöresorna mycket snabbare"
+        "Den skapade fler arbeten i hamnarna, eftersom mycket mer gods nu fraktades över haven",
+        "Den löste transportproblemen redan direkt efter den första resan 1956",
+        "Den gjorde det lönsamt att tillverka långt från köparna men minskade hamnarbetet",
+        "Den gjorde själva sjöresorna mycket snabbare, vilket sänkte kostnaderna"
       ],
       "answer": 2,
       "explanation": "Sista stycket nämner båda följderna: billigare frakt gjorde det lönsamt att tillverka långt från köparna, och samtidigt försvann mycket av arbetet i hamnarna. Tidsvinsten låg i lastningen, inte i sjöresan, och genombrottet dröjde över ett decennium."
