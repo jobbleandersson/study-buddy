@@ -267,8 +267,9 @@ export function checkDailyCap(extraMicro = 0) {
 
 // ---------- one account's daily limit ----------
 // Most one account may use in a UTC day (spent + in flight, worst case for the request being asked), in kronor,
-// whatever its plan: 5 kr. A free account never gets near it (its whole month is 2 kr); it bounds a Plus account, or
-// an exempt one with no monthly limit, if someone else gets hold of it. Fixed, not a share of the server's cap,
+// whatever its plan: 5 kr. A free account never gets near it (its whole month is 2 kr); it bounds a Plus account if
+// someone else gets hold of it. Exempt accounts (AI_BUDGET_EXEMPT_EMAILS) skip it, like the monthly limit; only the
+// server-wide brake bounds them (routes/messages.js). Fixed, not a share of the server's cap,
 // so raising the emergency brake doesn't raise it too. AI_USER_DAILY_KR=0 turns it off. In memory, like the
 // other limiters here: a restart starts the day's count over, and the monthly limit (in the database) still holds.
 export const USER_DAILY_KR = numOrOff("AI_USER_DAILY_KR", 5);

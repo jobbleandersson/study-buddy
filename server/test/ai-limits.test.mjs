@@ -123,7 +123,10 @@ describe("unconfirmed accounts share one daily pool; confirmed ones are not touc
 describe("each account has a daily limit of its own", () => {
   let server;
   before(async () => {
-    server = await startServer({ ANTHROPIC_API_KEY: "dummy-test-key", AI_USER_DAILY_KR: "0.00001" });   // far below one request
+    server = await startServer({
+      ANTHROPIC_API_KEY: "dummy-test-key", AI_USER_DAILY_KR: "0.00001",   // far below one request
+      AI_BUDGET_EXEMPT_EMAILS: "tester-daily@example.se",
+    });
   });
   after(async () => { await server.stop(); });
 
@@ -133,6 +136,12 @@ describe("each account has a daily limit of its own", () => {
     assert.equal(r.status, 429);
     assert.equal(r.json.error.code, "user_daily_cap");
     assert.ok(r.json.resetsAt > Date.now());
+  });
+
+  test("an exempt account (the owner, a tester) skips it", async () => {
+    const u = await signUp(server, "tester-daily@example.se");
+    const r = await u.client.post("/api/messages", BODY);
+    assert.notEqual(r.json?.error?.code, "user_daily_cap", "past the daily check (whatever upstream then answers)");
   });
 });
 

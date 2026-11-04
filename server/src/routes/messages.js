@@ -195,12 +195,15 @@ messages.post("/messages", ...guards, asyncHandler(async (req, res) => {
     if ((inflightByUser.get(userId) || 0) >= MAX_INFLIGHT_PER_USER) {
       return res.status(429).json({ error: { message: "Too many requests at once. Wait for the last answer to finish.", code: "ai_busy" } });
     }
-    if (!checkUserDaily(userId, worstMicro)) {
+    // The owner and testers (AI_BUDGET_EXEMPT_EMAILS, confirmed addresses only) skip the account's own limits, daily
+    // and monthly. The server-wide brake above still applies to them: it is what bounds the bill.
+    const exempt = isBudgetExempt(userId);
+    if (!exempt && !checkUserDaily(userId, worstMicro)) {
       log({ userId, model: body.model, status: 429, err: "user_daily_cap" });
       return res.status(429).json({ error: { message: "You've used today's AI allowance. Try again tomorrow.", code: "user_daily_cap" }, resetsAt: cap.resetsAt });
     }
     unconfirmed = onTrial(userId);
-    const budget = isBudgetExempt(userId) ? { ok: true } : checkBudget(userId, monthlyLimitFor(userId, unconfirmed));
+    const budget = exempt ? { ok: true } : checkBudget(userId, monthlyLimitFor(userId, unconfirmed));
     if (!budget.ok) {
       // An unconfirmed account that used its trial: confirming the address is the way on, not waiting for next month.
       if (unconfirmed) {

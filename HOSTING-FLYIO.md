@@ -275,6 +275,8 @@ Each account has a monthly AI limit in **kronor**, checked against what its requ
 | Unconfirmed accounts together | $1 a day | Unconfirmed accounts, until 00:00 UTC or until they confirm. You get a mail: it can mean someone is making accounts with a script. |
 | Whole server (emergency brake) | $50 a day | Everyone, until 00:00 UTC. You get a mail at 50% and 80%, and when it trips. |
 
+Accounts listed in `AI_BUDGET_EXEMPT_EMAILS` (the owner and testers; comma-separated, and the address must be confirmed) skip the per-account monthly and daily limits. The emergency brake still applies to them.
+
 The owner's mails go to `ALERT_EMAIL` (default the contact address), at most once a day for each kind, and carry only the day's figures, never an account. The settings, with their defaults (set with `fly secrets set` or in the `[env]` part of `fly.toml`; none of them is a secret):
 
 | Setting | Default | What it does |
