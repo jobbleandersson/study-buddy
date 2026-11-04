@@ -6,6 +6,7 @@ export default {
   /* ---- common ---- */
   "common.back": "Back",
   "common.backToMenu": "Back to menu",
+  "common.saveDataCopy": "Save a copy of your data",
   "common.retry": "Try again",
   "common.notFoundTitle": "Page not found",
   "common.notFoundBody": "The link may be mistyped, or the page has moved.",

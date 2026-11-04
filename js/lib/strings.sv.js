@@ -5,6 +5,7 @@ export default {
   /* ---- common ---- */
   "common.back": "Tillbaka",
   "common.backToMenu": "Tillbaka till menyn",
+  "common.saveDataCopy": "Spara en kopia av dina data",
   "common.retry": "Försök igen",
   "common.notFoundTitle": "Sidan finns inte",
   "common.notFoundBody": "Länken kan vara felstavad, eller så har sidan flyttats.",
