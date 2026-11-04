@@ -21,7 +21,7 @@ import { row, card, pageHead, emptyState, avatar, chip, codeField } from "../com
 import { signInGate, gateBar } from "../components/signin-gate.js";
 import { localDayKey } from "../lib/activity.js";
 import { loadLibraryIndex, loadLibraryTranslations, isImported, importSet } from "../data/library.js";
-import { setProgress } from "../lib/mastery.js";
+import { setProgress, masteryByTopic } from "../lib/mastery.js";
 import { CLASSES_URL, CLASS_JOIN_URL, MY_CLASS_ASSIGNMENTS_URL, classUrl, classLinkUrl } from "../config.js";
 
 async function api(url, opts) {
@@ -164,10 +164,10 @@ export async function renderClasses(qs) {
     ]);
   }
 
-  function assignmentRow(a) {
+  function assignmentRow(a, tm) {
     const entry = names?.index.sets.find((s) => s.id === a.setId);
     const mine = store.getAssignment(a.setId);
-    const p = mine ? setProgress(mine, store.attempts) : null;
+    const p = mine ? setProgress(mine, store.attempts, tm) : null;
     const started = !!(p && p.seen);
     const done = started && p.known >= p.total;
     const status = started
@@ -188,6 +188,7 @@ export async function renderClasses(qs) {
       memberBody.replaceChildren(emptyState(ICONS.book, t("classes.memberNone"), null, { compact: true }));
       return;
     }
+    const tm = masteryByTopic(store.attempts, { assignments: store.assignments });   // once, for every assigned set below
     memberBody.replaceChildren(...list.map((c) => {
       const items = given.filter((g) => g.classId === c.id);
       const leave = el("button.btn.btn--ghost.btn--sm.set-danger", {
@@ -201,7 +202,7 @@ export async function renderClasses(qs) {
       return el("div.set-group", {}, [
         row(c.name, t("classes.teacher", { name: c.teacherName }), leave, { lead: avatar(c.name, { square: true }) }),
         items.length
-          ? el("div.set-sublist", {}, items.map(assignmentRow))
+          ? el("div.set-sublist", {}, items.map((g) => assignmentRow(g, tm)))
           : el("p.set-sublist__empty", {}, t("classes.noAssignments")),
       ]);
     }));

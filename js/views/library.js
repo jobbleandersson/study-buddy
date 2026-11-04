@@ -323,7 +323,7 @@ export async function renderLibrary(qs = null) {
   // Attempts don't change while this view is open (studying happens on other
   // routes), so walk them once and let every card reuse the result.
   let topicMasteryCache = null;
-  const topicMastery = () => (topicMasteryCache ??= masteryByTopic(store.attempts));
+  const topicMastery = () => (topicMasteryCache ??= masteryByTopic(store.attempts, { assignments: store.assignments }));
 
   function lastStudiedText(ts) {
     const days = Math.max(0, Math.round((new Date().setHours(0, 0, 0, 0) - new Date(ts).setHours(0, 0, 0, 0)) / 86400000));

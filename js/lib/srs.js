@@ -34,7 +34,8 @@ export function review(rec, grade, now = Date.now()) {
 
   r.ease = clamp(r.ease + (q === 1 ? -0.15 : q === 3 ? 0.15 : 0), 1.3, 3.0);
   r.reps += 1;
-  if (r.reps === 1) r.intervalDays = q === 1 ? 1 : 2;
+  // First right answer: hard 1 day, good 2, easy (no help needed) 3, so "easy" means something from the start.
+  if (r.reps === 1) r.intervalDays = q === 1 ? 1 : q === 3 ? 3 : 2;
   else if (r.reps === 2) r.intervalDays = q === 1 ? 3 : 6;
   else r.intervalDays = Math.round(r.intervalDays * r.ease * (q === 1 ? 0.8 : q === 3 ? 1.3 : 1));
   r.intervalDays = clamp(r.intervalDays, 1, 365);
@@ -51,17 +52,26 @@ export function isDue(rec, now = Date.now()) {
  *  week's worth; practising its set again puts it back on the schedule. */
 export const REVIEW_WINDOW_DAYS = 7;
 
-/** The local midnight the review window starts at. */
-export function reviewWindowStart(now = Date.now()) {
+/** A question the student got wrong and hasn't yet answered right twice waits twice as long: two weeks.
+ *  A wrong answer comes due again ten minutes later, so with one window for all it was the first to drop
+ *  out, before the ones the student already knew. */
+export const MISSED_WINDOW_DAYS = 14;
+
+/** Missed and not yet recovered: the questions most worth bringing back. */
+export const isMissed = (rec) => !!rec && rec.lapses > 0 && rec.reps <= 2;
+
+/** The local midnight a window of `days` days (today included) starts at. */
+export function reviewWindowStart(now = Date.now(), days = REVIEW_WINDOW_DAYS) {
   const d = new Date(now);
   d.setHours(0, 0, 0, 0);
-  d.setDate(d.getDate() - (REVIEW_WINDOW_DAYS - 1));
+  d.setDate(d.getDate() - (days - 1));
   return d.getTime();
 }
 
-/** In the review pile: due now, and came due inside the window. */
+/** In the review pile: due now, and came due inside its window (two weeks for a missed question, one otherwise). */
 export function inReview(rec, now = Date.now()) {
-  return !!rec && rec.dueAt <= now && rec.dueAt >= reviewWindowStart(now);
+  if (!rec || !(rec.dueAt <= now)) return false;
+  return rec.dueAt >= reviewWindowStart(now, isMissed(rec) ? MISSED_WINDOW_DAYS : REVIEW_WINDOW_DAYS);
 }
 
 /** Reuses the same phrasing as due dates, so both lists read alike. A record
@@ -151,9 +161,9 @@ export function retentionForecast(items, srs, { horizonDays = 14, now = Date.now
  *  Priority: a lapse not yet recovered is the most useful thing to flag. */
 export function reviewReason(rec, now = Date.now()) {
   if (!rec) return "";
-  const overdueDays = Math.floor((now - rec.dueAt) / DAY);
-  if (rec.lapses > 0 && rec.reps <= 2) return t("srs.reasonMissed");
-  if (overdueDays >= 7) return t("srs.reasonOverdue");
+  // No "overdue" reason: nothing waits in the pile past its window, and a missed question (the only kind
+  // that waits longer than a week) already says "missed".
+  if (isMissed(rec)) return t("srs.reasonMissed");
   if (rec.reps <= 1) return t("srs.reasonFirst");
   if (rec.reps >= 4) return t("srs.reasonSolid");
   return "";

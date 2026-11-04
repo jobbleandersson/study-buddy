@@ -29,7 +29,7 @@ import { openReadingControls } from "../components/reading-controls.js";
 import { hasSummary, openSummary } from "../components/set-summary.js";
 import { openPopover, closePopover } from "../lib/popover.js";
 import { review } from "../lib/srs.js";
-import { weakSpotQuestions, masteryByTopic, firstTryCorrect } from "../lib/mastery.js";
+import { weakSpotQuestions, masteryByTopic, firstTryCorrect, topicKey } from "../lib/mastery.js";
 import { ruleQuestionIds } from "../lib/rules.js";
 import { pickTonightQuestions } from "../lib/tonight.js";
 import { playCorrect, playWrong, playChime } from "../lib/sound.js";
@@ -241,7 +241,7 @@ export async function renderWeakPractice(qs) {
       : subjectId
         ? store.assignments.filter((a) => a.subjectId === subjectId)
         : store.assignments;
-  const all = weakSpotQuestions(pool, store.attempts);
+  const all = weakSpotQuestions(pool, store.attempts, { allAssignments: store.assignments });
   // A topic that has since stopped being weak falls back to every weak spot.
   const onTopic = topic ? all.filter((w) => w.question.topic === topic) : [];
   const weak = onTopic.length ? onTopic : all;
@@ -980,6 +980,15 @@ function runSession(config) {
   }
 
   let loadToken = 0;   // which loadQuestion() drew the question on screen — a late verdict checks it
+  let mixed = null;    // does this run take questions from more than one set? Worked out once.
+  function mixesSets() {
+    if (mixed == null) {
+      const sets = new Set();
+      for (const id of state.order) { const a = store.findQuestion(id)?.assignment; if (a) sets.add(a.id); if (sets.size > 1) break; }
+      mixed = sets.size > 1;
+    }
+    return mixed;
+  }
   function loadQuestion() {
     const myLoad = ++loadToken;
     currentRenderer?.cleanup?.();   // commute mode: stop the last question's voice before drawing the next
@@ -1073,6 +1082,11 @@ function runSession(config) {
       const start = hpDelprovStart(question);
       if (start) stage.appendChild(start);
       stage.appendChild(hpQuestionBar(assignment, question));
+    } else if (!config.bus && mixesSets()) {
+      // A run mixing sets (Repetition, weak spots, a test's study pass): say where each question is from. The same
+      // prompt can sit in the German, French and Spanish sets with different answers ("Hur skriver man 15?").
+      const subjectName = store.subjects.find((s) => s.id === assignment.subjectId)?.name;
+      stage.appendChild(el("p.question__from", {}, [subjectName, assignment.title].filter(Boolean).join(" · ")));
     }
     stage.appendChild(r.el);
     // A question that isn't multiple choice can't show the earlier answer again, so say it is recorded.
@@ -1098,15 +1112,20 @@ function runSession(config) {
 
   function easeUpcoming() {
     // Blend lifetime mastery with what's happened in this session so far.
-    const tm = masteryByTopic(store.attempts);
-    for (const it of Object.values(state.items)) {
-      if (!it.topic) continue;
+    const tm = masteryByTopic(store.attempts, { assignments: store.assignments });
+    // A question's topic within its subject (lib/mastery.js topicKey), as the mastery map is keyed.
+    const keyOf = (id) => {
+      const found = store.findQuestion(id);
+      return found?.question.topic ? topicKey(found.assignment.subjectId, found.question.topic) : null;
+    };
+    for (const [id, it] of Object.entries(state.items)) {
+      const k = it.topic ? keyOf(it.questionId || id) : null;
+      if (!k) continue;
       const now = firstTryCorrect(it) ? 1 : 0;
-      tm[it.topic] = tm[it.topic] == null ? now : (tm[it.topic] + now) / 2;
+      tm[k] = tm[k] == null ? now : (tm[k] + now) / 2;
     }
     const rest = state.order.filter((id) => !state.items[id]);
-    const topicOf = (id) => store.findQuestion(id)?.question.topic;
-    rest.sort((a, b) => (tm[topicOf(b)] ?? 0.5) - (tm[topicOf(a)] ?? 0.5));
+    rest.sort((a, b) => (tm[keyOf(b)] ?? 0.5) - (tm[keyOf(a)] ?? 0.5));
     let i = 0;
     state.order = state.order.map((id) => (state.items[id] ? id : rest[i++]));
     persist();

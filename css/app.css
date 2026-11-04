@@ -1736,6 +1736,9 @@ body.no-chrome .sitechat__panel { display: none; }
 }
 
 .question { margin-top: var(--s-4); }
+/* Which subject and set a question in a mixed run (Repetition, weak spots) comes from. */
+.question__from { margin: var(--s-3) 0 0; color: var(--ink-soft); font-size: var(--fs-sm); font-weight: 600; }
+.question__from + .question { margin-top: var(--s-2); }
 
 /* ---------- Högskoleprovet: figure + stimulus + KVA/NOG panels ---------- */
 .question__figure { margin: 0 0 var(--s-4); }
@@ -5967,7 +5970,6 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   background: var(--surface-sunk); color: var(--ink-soft);
 }
 .pg-drow__why.is-missed { background: var(--c-berry-tint); color: var(--c-berry-text, var(--c-berry-ink)); }
-.pg-drow__why.is-late { background: var(--c-tangerine-tint); color: var(--c-tangerine-text, var(--c-tangerine-ink)); }
 .pg-drow__why.is-solid { background: var(--ok-tint); color: var(--ok-ink); }
 
 @media (max-width: 1100px) {

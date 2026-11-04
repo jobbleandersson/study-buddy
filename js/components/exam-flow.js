@@ -58,7 +58,7 @@ export function prepFor(exam) {
   const seenBefore = new Set();
   for (const a of attempts) if ((a.finishedAt || 0) < since) for (const it of a.items || []) seenBefore.add(it.questionId);
 
-  const tm = masteryByTopic(attempts);
+  const tm = masteryByTopic(attempts, { assignments: scope });
   const progress = new Map(scope.map((a) => [a.id, setProgress(a, attempts, tm)]));
   const setReady = new Map(scope.map((a) => [a.id, readiness([a], tm).pct]));
   // New to the plan = not opened before today. The ones finished today stay on today's row as done.

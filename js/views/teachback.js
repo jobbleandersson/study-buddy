@@ -10,7 +10,7 @@ import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
 import { t } from "../lib/i18n.js";
 import { gradeAnswer } from "../claude.js";
 import { review, fromCorrect } from "../lib/srs.js";
-import { masteryByTopic } from "../lib/mastery.js";
+import { masteryByTopic, topicKey } from "../lib/mastery.js";
 import { homeButton } from "../components/nav.js";
 
 const ROUNDS = 3;
@@ -20,7 +20,8 @@ export function renderTeachback(subjectId) {
   if (!subject) return notFound();
 
   const sets = store.assignments.filter((a) => a.subjectId === subjectId);
-  const tm = masteryByTopic(store.attempts);
+  const tm = masteryByTopic(store.attempts, { assignments: store.assignments });
+  const mastery = (topic) => tm[topicKey(subjectId, topic)];   // this subject's topic, not a same-named one elsewhere
 
   // One representative question per topic (for a model answer + a real id to
   // hang the SRS update on). Strongest topics first — this is a victory lap.
@@ -32,7 +33,7 @@ export function renderTeachback(subjectId) {
     }
   }
   const topics = [...byTopic.keys()]
-    .sort((x, y) => (tm[y] ?? 0) - (tm[x] ?? 0))
+    .sort((x, y) => (mastery(y) ?? 0) - (mastery(x) ?? 0))
     .slice(0, ROUNDS);
 
   if (!topics.length) return notFound();

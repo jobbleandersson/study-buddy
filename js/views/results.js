@@ -38,7 +38,7 @@ export function renderResults(attemptId) {
   const canChallenge = !isReview && !attempt.hp && isChallengeableSet(attempt.assignmentId) && answeredN > 0;
 
   const before = store.attempts.filter((a) => a.finishedAt < attempt.finishedAt);
-  const deltas = deltaFromAttempt(before, attempt);
+  const deltas = deltaFromAttempt(before, attempt, { assignments: store.assignments, subjectName: (id) => store.subjects.find((s) => s.id === id)?.name });
 
   // Look questions up across the whole library — a review session mixes sets.
   // Paired (not two parallel arrays) so a since-deleted question can't

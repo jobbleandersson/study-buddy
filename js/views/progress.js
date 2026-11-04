@@ -7,7 +7,7 @@ import { el, icon, ICONS } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { clozeToUnderscores } from "../components/questions.js";
 import { masteryByTopic, masteryForSubject, weakSpotQuestions } from "../lib/mastery.js";
-import { reviewReason, REVIEW_WINDOW_DAYS } from "../lib/srs.js";
+import { reviewReason, isMissed, REVIEW_WINDOW_DAYS } from "../lib/srs.js";
 import { localDayKey, addDays, recentDays, questionsAnsweredToday, reviewAccuracyTrend } from "../lib/activity.js";
 import { t, plural, getLang, fmtDecimal } from "../lib/i18n.js";
 import { goalRing } from "../components/goal-ring.js";
@@ -25,7 +25,7 @@ const HEAT_WEEKS = 20;
 
 export function renderProgress() {
   const attempts = store.attempts;
-  const tm = masteryByTopic(attempts);
+  const tm = masteryByTopic(attempts, { assignments: store.assignments });
   const today = localDayKey();
   const { freezes, atRisk, displayStreak, bestStreak, nextFreezeIn } = store.streakInfo;
   const studied = new Set(store.state.activity.daysStudied);
@@ -329,11 +329,9 @@ function dueGroups(items) {
   ]));
 }
 
-/** The tag's tone, matching reviewReason(): missed → red, overdue → amber,
- *  well learned → green, first review → neutral. */
-function reasonTone(rec, now = Date.now()) {
-  if (rec.lapses > 0 && rec.reps <= 2) return "missed";
-  if (Math.floor((now - rec.dueAt) / 864e5) >= 7) return "late";
+/** The tag's tone, matching reviewReason(): missed → red, well learned → green, first review → neutral. */
+function reasonTone(rec) {
+  if (isMissed(rec)) return "missed";
   if (rec.reps >= 4) return "solid";
   return "plain";
 }

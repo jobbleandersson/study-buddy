@@ -497,7 +497,7 @@ export default {
   "prog.practiseWeak": "Öva svaga punkter",
   "prog.due": "Veckans repetition",
   "prog.reviewToday": "Repetera idag",
-  "prog.reviewExplain": "Frågorna som blivit aktuella de senaste sju dagarna, från alla dina set. Det som väntat längre än en vecka faller bort, så högen växer aldrig.",
+  "prog.reviewExplain": "Frågorna som blivit aktuella de senaste sju dagarna, från alla dina set. Frågor du svarat fel på stannar i två veckor. Det som väntat längre faller bort, så högen växer aldrig.",
   "prog.nothingDue": "Inget att repetera den här veckan. Repetition tar tillbaka frågor precis innan du hinner glömma dem.",
   "prog.weekToday": "Idag",
   "prog.weekAria": "Frågor att repetera per dag, de senaste sju dagarna: {list}",
@@ -540,7 +540,6 @@ export default {
   "prog.lastScore": "Senaste resultat {score} %",
   "prog.hpTotal": "normerad poäng",
   "srs.reasonMissed": "fel tidigare",
-  "srs.reasonOverdue": "försenad",
   "srs.reasonFirst": "första repetitionen",
   "srs.reasonSolid": "sitter bra",
 

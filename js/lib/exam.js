@@ -16,6 +16,7 @@
 
 import { addDays, isRealDay } from "./activity.js";
 import { isUntouchedSample } from "./blank-questions.js";
+import { topicKey } from "./mastery.js";
 
 /** Minutes each kind of plan day takes — shown next to the task. */
 export const PLAN_MINUTES = { start: 20, drill: 25, review: 15, practice: 20, mock: 40, tonight: 15, testday: 0 };
@@ -160,12 +161,14 @@ export function topicsOf(sets) {
  * `pct` is null when the sets carry no topics at all.
  */
 export function readiness(sets, topicMastery) {
-  const topics = topicsOf(sets);
+  // Each topic within its subject (lib/mastery.js topicKey), matching masteryByTopic(attempts, { assignments }).
+  const keys = new Set();
+  for (const a of sets || []) for (const q of a.questions || []) if (q.topic) keys.add(topicKey(a.subjectId, q.topic));
   let sum = 0, seen = 0;
-  for (const tp of topics) {
-    if (Object.prototype.hasOwnProperty.call(topicMastery, tp)) { sum += topicMastery[tp]; seen++; }   // not `in`: a topic called "constructor" would match Object's own
+  for (const k of keys) {
+    if (Object.prototype.hasOwnProperty.call(topicMastery, k)) { sum += topicMastery[k]; seen++; }   // not `in`: a topic called "constructor" would match Object's own
   }
-  return { pct: topics.length ? Math.round((sum / topics.length) * 100) : null, topics: topics.length, seen };
+  return { pct: keys.size ? Math.round((sum / keys.size) * 100) : null, topics: keys.size, seen };
 }
 
 /** Did any attempt finished on or after `sinceMs` answer a question from these sets? */

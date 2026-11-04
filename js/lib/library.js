@@ -15,7 +15,7 @@ export function findQuestion(assignments, questionId) {
 }
 
 /** The review pile, across all sets: every question whose spaced-repetition record came due in the
- *  last week (see REVIEW_WINDOW_DAYS in srs.js). Older ones have dropped out. */
+ *  last week, or the last two weeks for a missed one (see inReview in srs.js). Older ones have dropped out. */
 export function dueQuestions(assignments, srs, now = Date.now()) {
   const out = [];
   for (const a of assignments) {

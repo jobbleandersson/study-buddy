@@ -388,7 +388,7 @@ export async function renderHp() {
     ]));
 
     /* ---- the plan to test day, and what's weak ---- */
-    const weak = weakSpotQuestions(sets, store.attempts);
+    const weak = weakSpotQuestions(sets, store.attempts, { allAssignments: store.assignments });
     const weakTopics = [...new Set(weak.map((w) => w.question.topic))].slice(0, 6);
     const plan = buildHpPlan({
       hpDate,
