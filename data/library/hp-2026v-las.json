@@ -12,10 +12,10 @@
         "body": "Länge betraktades gemensamt nyttjad mark som dömd att överexploateras: om betet är fritt för alla, resonerade man, kommer var och en att släppa på så många djur som möjligt, tills gräset är borta. Den brittiske ekonomen William Forster Lloyd formulerade tanken redan på 1830-talet, och den blev brett allmängods ett drygt sekel senare.\n\nSenare fältstudier har dock gett en mer sammansatt bild. Där byar under lång tid har delat en betesmark har de ofta utvecklat egna, informella regler: hur många djur varje hushåll får släppa ut, när betet ska vila, vem som håller uppsikt. Systemen är sällan nedskrivna och de syns inte i lagböckerna, men de fungerar — så länge gruppen är liten nog att alla känner alla och kan se vem som fuskar.\n\nProblemen uppstår när den lokala kopplingen bryts: när marken tas över av utomstående, när gruppen blir för stor, eller när en högre myndighet upphäver de gamla reglerna i tron att den vet bättre. Det som ser ut som en naturlag visar sig då vara en fråga om vilka institutioner som får finnas kvar." },
       "prompt": "Vilken är textens huvudtanke?",
       "choices": [
-        "Gemensamt nyttjad mark överexploateras alltid om den inte privatiseras",
+        "Gemensamt nyttjad mark överexploateras alltid om den inte delas upp i privata lotter",
         "Lokala grupper kan själva förvalta gemensamma resurser hållbart under vissa förutsättningar",
-        "Informella regler är alltid bättre än lagstiftning",
-        "William Forster Lloyds teori har helt motbevisats"
+        "Informella regler fungerar alltid bättre än lagstiftning, oavsett gruppens storlek",
+        "William Forster Lloyds teori har helt motbevisats av de senare fältstudierna"
       ],
       "answer": 1,
       "explanation": "Texten ställer den gamla \"naturlagen\" mot fältstudier som visar att små grupper med lokala regler ofta lyckas — men bara under vissa villkor (liten grupp, lokal koppling). Alternativ B fångar hela resonemanget. Alternativ A är den uppfattning texten nyanserar; C och D är för tvärsäkra." },
@@ -24,10 +24,10 @@
         "body": "Länge betraktades gemensamt nyttjad mark som dömd att överexploateras: om betet är fritt för alla, resonerade man, kommer var och en att släppa på så många djur som möjligt, tills gräset är borta. Den brittiske ekonomen William Forster Lloyd formulerade tanken redan på 1830-talet, och den blev brett allmängods ett drygt sekel senare.\n\nSenare fältstudier har dock gett en mer sammansatt bild. Där byar under lång tid har delat en betesmark har de ofta utvecklat egna, informella regler: hur många djur varje hushåll får släppa ut, när betet ska vila, vem som håller uppsikt. Systemen är sällan nedskrivna och de syns inte i lagböckerna, men de fungerar — så länge gruppen är liten nog att alla känner alla och kan se vem som fuskar.\n\nProblemen uppstår när den lokala kopplingen bryts: när marken tas över av utomstående, när gruppen blir för stor, eller när en högre myndighet upphäver de gamla reglerna i tron att den vet bättre. Det som ser ut som en naturlag visar sig då vara en fråga om vilka institutioner som får finnas kvar." },
       "prompt": "Enligt texten fungerar de informella reglerna så länge",
       "choices": [
-        "de är nedskrivna",
-        "en myndighet övervakar dem",
+        "de är nedskrivna och kända av alla som använder marken",
+        "en myndighet utanför byn regelbundet kontrollerar att de följs",
         "gruppen är liten nog att alla kan se vem som bryter mot dem",
-        "betesmarken är tillräckligt stor"
+        "betesmarken är tillräckligt stor för alla hushållens djur"
       ],
       "answer": 2,
       "explanation": "Andra stycket avslutas: \"så länge gruppen är liten nog att alla känner alla och kan se vem som fuskar\"." },
@@ -37,9 +37,9 @@
       "prompt": "Vilken slutsats stöds bäst av texten?",
       "choices": [
         "En reform som ersätter lokala regler med central styrning kan göra förvaltningen sämre",
-        "Utomstående ägare förvaltar mark bättre än lokalbefolkningen",
-        "Betesmarker bör alltid delas upp i privata lotter",
-        "Nedskrivna regler är en förutsättning för hållbart bete"
+        "Utomstående ägare förvaltar betesmark bättre än lokalbefolkningen brukar göra",
+        "Betesmarker bör delas upp i privata lotter för att skydda gräset från överbete",
+        "Regler måste vara nedskrivna och stå i lagen för att ett gemensamt bete ska hålla"
       ],
       "answer": 0,
       "explanation": "Tredje stycket säger att problem uppstår när \"en högre myndighet upphäver de gamla reglerna i tron att den vet bättre\" — alltså kan en sådan reform försämra läget." },
@@ -47,7 +47,7 @@
       "stimulus": { "id": "las-text-1", "title": "Text 1 – Allmänningarnas historia",
         "body": "Länge betraktades gemensamt nyttjad mark som dömd att överexploateras: om betet är fritt för alla, resonerade man, kommer var och en att släppa på så många djur som möjligt, tills gräset är borta. Den brittiske ekonomen William Forster Lloyd formulerade tanken redan på 1830-talet, och den blev brett allmängods ett drygt sekel senare.\n\nSenare fältstudier har dock gett en mer sammansatt bild. Där byar under lång tid har delat en betesmark har de ofta utvecklat egna, informella regler: hur många djur varje hushåll får släppa ut, när betet ska vila, vem som håller uppsikt. Systemen är sällan nedskrivna och de syns inte i lagböckerna, men de fungerar — så länge gruppen är liten nog att alla känner alla och kan se vem som fuskar.\n\nProblemen uppstår när den lokala kopplingen bryts: när marken tas över av utomstående, när gruppen blir för stor, eller när en högre myndighet upphäver de gamla reglerna i tron att den vet bättre. Det som ser ut som en naturlag visar sig då vara en fråga om vilka institutioner som får finnas kvar." },
       "prompt": "Uttrycket \"blev brett allmängods\" i första stycket betyder att tanken",
-      "choices": ["motbevisades", "blev allmänt känd och accepterad", "glömdes bort", "blev omstridd"],
+      "choices": ["motbevisades av senare forskning", "blev allmänt känd och accepterad", "föll i glömska under lång tid", "blev omstridd bland ekonomer"],
       "answer": 1,
       "explanation": "Att något blir *allmängods* betyder att det blir allmänt spritt och accepterat kunskapsstoff — här: att teorin fick brett genomslag ungefär hundra år efter Lloyd." },
     { "id": "q-hp-2026v-las-05", "kind": "mc", "variant": "las", "topic": "huvudtanke",
@@ -55,10 +55,10 @@
         "body": "Under det mesta av mänsklighetens historia var tiden lokal. Middag inträffade när solen stod högst, och den gjorde det vid olika ögonblick i olika städer. Så länge man färdades till fots eller till häst spelade det ingen roll att klockan i grannstaden gick några minuter fel.\n\nJärnvägen ändrade på det. När tåg skulle mötas på ett enkelspår, eller passagerare byta i en knutpunkt, blev skillnaderna plötsligt farliga. De brittiska järnvägsbolagen införde därför på 1840-talet en gemensam \"järnvägstid\", satt efter Greenwich, och lät den gälla längs hela linjen oavsett var solen råkade stå.\n\nMånga städer gjorde motstånd. Att låta en klocka i London bestämma när det var middag i Bristol uppfattades som ett övergrepp mot en lokal rättighet. Först flera decennier senare, och delvis efter internationella förhandlingar, blev den samordnade tiden en självklarhet — och då hade den redan blivit så invävd i vardagen att få mindes att den en gång varit kontroversiell." },
       "prompt": "Vilken är textens huvudtanke?",
       "choices": [
-        "Greenwich valdes godtyckligt som utgångspunkt för världens tidszoner",
-        "Standardiserad tid infördes av praktiska skäl och mötte först motstånd innan den blev självklar",
-        "Lokal tid var mer exakt än järnvägstiden",
-        "Järnvägsbolagen borde ha väntat på internationella förhandlingar"
+        "Greenwich valdes godtyckligt, och därför gjorde städer som Bristol motstånd i decennier",
+        "Gemensam tid infördes av praktiska skäl, möttes av motstånd och blev sedan självklar",
+        "Den lokala tiden var mer exakt än järnvägstiden, som bara gällde längs linjerna",
+        "Järnvägsbolagen borde ha väntat på internationella förhandlingar innan de agerade"
       ],
       "answer": 1,
       "explanation": "Texten beskriver hur järnvägen skapade ett praktiskt behov, hur städer gjorde motstånd, och hur tiden till slut blev en självklarhet man glömde var omstridd. Alternativ B sammanfattar det." },
@@ -67,10 +67,10 @@
         "body": "Under det mesta av mänsklighetens historia var tiden lokal. Middag inträffade när solen stod högst, och den gjorde det vid olika ögonblick i olika städer. Så länge man färdades till fots eller till häst spelade det ingen roll att klockan i grannstaden gick några minuter fel.\n\nJärnvägen ändrade på det. När tåg skulle mötas på ett enkelspår, eller passagerare byta i en knutpunkt, blev skillnaderna plötsligt farliga. De brittiska järnvägsbolagen införde därför på 1840-talet en gemensam \"järnvägstid\", satt efter Greenwich, och lät den gälla längs hela linjen oavsett var solen råkade stå.\n\nMånga städer gjorde motstånd. Att låta en klocka i London bestämma när det var middag i Bristol uppfattades som ett övergrepp mot en lokal rättighet. Först flera decennier senare, och delvis efter internationella förhandlingar, blev den samordnade tiden en självklarhet — och då hade den redan blivit så invävd i vardagen att få mindes att den en gång varit kontroversiell." },
       "prompt": "Varför blev tidsskillnaderna mellan städer ett problem först med järnvägen?",
       "choices": [
-        "Tågen gick för fort för att hinna stanna",
+        "Tågen gick så fort att de inte hann stanna vid alla stationer",
         "Möten mellan tåg och byten i knutpunkter krävde att alla höll samma tid",
-        "Passagerarna klagade på att klockorna var trasiga",
-        "Greenwich låg för långt bort"
+        "Passagerarna klagade på att stationernas klockor ofta var trasiga",
+        "Greenwich låg för långt bort för att klockorna skulle kunna ställas efter det"
       ],
       "answer": 1,
       "explanation": "Andra stycket: när tåg skulle mötas på enkelspår eller passagerare byta i en knutpunkt blev skillnaderna \"plötsligt farliga\"." },
@@ -80,9 +80,9 @@
       "prompt": "Vad antyder sista meningen om hur vanor uppstår?",
       "choices": [
         "En ordning som först känns som ett övergrepp kan senare kännas helt naturlig",
-        "Internationella förhandlingar löser alla konflikter",
-        "Städer minns alltid sina gamla rättigheter",
-        "Vanor förändras aldrig när de väl har satt sig"
+        "Internationella förhandlingar är det enda som kan lösa konflikter om gemensamma regler",
+        "Städer glömmer aldrig de lokala rättigheter som en gång har tagits ifrån dem",
+        "Vanor som väl har satt sig förändras sällan, hur goda skälen än är"
       ],
       "answer": 0,
       "explanation": "Att tiden \"blivit så invävd i vardagen att få mindes att den en gång varit kontroversiell\" säger att det omstridda kan bli självklart med tiden." },
@@ -90,7 +90,7 @@
       "stimulus": { "id": "las-text-2", "title": "Text 2 – Om att mäta tid",
         "body": "Under det mesta av mänsklighetens historia var tiden lokal. Middag inträffade när solen stod högst, och den gjorde det vid olika ögonblick i olika städer. Så länge man färdades till fots eller till häst spelade det ingen roll att klockan i grannstaden gick några minuter fel.\n\nJärnvägen ändrade på det. När tåg skulle mötas på ett enkelspår, eller passagerare byta i en knutpunkt, blev skillnaderna plötsligt farliga. De brittiska järnvägsbolagen införde därför på 1840-talet en gemensam \"järnvägstid\", satt efter Greenwich, och lät den gälla längs hela linjen oavsett var solen råkade stå.\n\nMånga städer gjorde motstånd. Att låta en klocka i London bestämma när det var middag i Bristol uppfattades som ett övergrepp mot en lokal rättighet. Först flera decennier senare, och delvis efter internationella förhandlingar, blev den samordnade tiden en självklarhet — och då hade den redan blivit så invävd i vardagen att få mindes att den en gång varit kontroversiell." },
       "prompt": "Ordet \"knutpunkt\" i andra stycket syftar på",
-      "choices": ["en plats där linjer möts och passagerare byter", "en tågs slutstation", "ett stopp för att fylla på vatten", "en gräns mellan två bolag"],
+      "choices": ["en plats där linjer möts och resenärer byter", "den station där ett tåg avslutar sin resa", "ett stopp där loket fyller på med vatten och kol", "en sträcka där tågen måste köra långsammare"],
       "answer": 0,
       "explanation": "En *knutpunkt* i järnvägssammanhang är en station där flera linjer möts och trafik och resenärer byter — därav vikten av samordnad tid." },
     { "id": "q-hp-2026v-las-09", "kind": "mc", "variant": "las", "topic": "slutsats",
@@ -100,8 +100,8 @@
       "choices": [
         "Det viktigaste för att träd ska kyla staden är att många träd planteras snabbt",
         "Trädens kylande effekt beror på att de får goda växtförhållanden under lång tid",
-        "Värmeöar uppstår främst för att städer saknar träd",
-        "Träd kyler staden mer genom skugga än genom avdunstning"
+        "Värmeöar uppstår främst för att städerna har för få träd längs sina gator",
+        "Träd kyler staden mer genom sin skugga än genom att bladen avger vatten"
       ],
       "answer": 1,
       "explanation": "Sista stycket säger att planteringen är \"den enkla delen\" och att det avgörande är hur träden har det under marken under lång tid. Alternativ A är just det texten avfärdar; C och D påstår mer än texten säger." },
@@ -117,10 +117,10 @@
         "body": "Under större delen av 1900-talet mättes ett folkbiblioteks framgång i utlån. Ju fler böcker som lämnade huset, desto bättre ansågs verksamheten fungera, och lokalerna ritades därefter: långa hyllrader, en disk vid entrén och några få platser att sitta på.\n\nUnder de senaste decennierna har utlånen minskat i många svenska kommuner, samtidigt som antalet besök på flera håll har legat kvar eller till och med ökat. Människor kommer för att plugga, läsa tidningar, använda datorer, gå på språkcaféer eller helt enkelt sitta någonstans där det är varmt och där ingen förväntar sig att de ska köpa något. Många bibliotek har därför byggt om: hyllorna har blivit lägre och färre, och golvytan har lämnats åt bord, grupprum och scener.\n\nFörändringen är inte okontroversiell. Kritiker menar att biblioteket riskerar att bli ett allaktivitetshus där läsningen trängs undan. Försvarare svarar att uppdraget aldrig har varit att låna ut böcker som sådant, utan att ge alla tillgång till kunskap och kultur – och att en lokal där människor faktiskt vill vara är en förutsättning för det. Kanske säger debatten mindre om biblioteken än om hur ovanligt det har blivit med offentliga rum som inte kräver ett ärende." },
       "prompt": "Vad handlar texten främst om?",
       "choices": [
-        "Varför allt färre människor läser böcker",
-        "Hur bibliotekens lokaler och uppgift har förändrats när besökarnas behov har ändrats",
-        "Hur biblioteken kan få utlånen att öka igen",
-        "Varför kritikerna av bibliotekens ombyggnader har rätt"
+        "Varför allt färre människor läser böcker, och vad det betyder för biblioteken",
+        "Hur bibliotekens lokaler och uppdrag har förändrats med besökarnas behov",
+        "Hur biblioteken med nya aktiviteter kan få utlånen att öka igen efter flera års nedgång",
+        "Varför kritikerna har rätt i att ombyggnaderna tränger undan läsningen"
       ],
       "answer": 1,
       "explanation": "Texten beskriver skiftet från utlån till mötesplats, hur lokalerna har byggts om och debatten om det. Att utlånen minskar betyder inte att färre läser, och texten tar inte ställning för kritikerna." },
@@ -129,9 +129,9 @@
         "body": "Under större delen av 1900-talet mättes ett folkbiblioteks framgång i utlån. Ju fler böcker som lämnade huset, desto bättre ansågs verksamheten fungera, och lokalerna ritades därefter: långa hyllrader, en disk vid entrén och några få platser att sitta på.\n\nUnder de senaste decennierna har utlånen minskat i många svenska kommuner, samtidigt som antalet besök på flera håll har legat kvar eller till och med ökat. Människor kommer för att plugga, läsa tidningar, använda datorer, gå på språkcaféer eller helt enkelt sitta någonstans där det är varmt och där ingen förväntar sig att de ska köpa något. Många bibliotek har därför byggt om: hyllorna har blivit lägre och färre, och golvytan har lämnats åt bord, grupprum och scener.\n\nFörändringen är inte okontroversiell. Kritiker menar att biblioteket riskerar att bli ett allaktivitetshus där läsningen trängs undan. Försvarare svarar att uppdraget aldrig har varit att låna ut böcker som sådant, utan att ge alla tillgång till kunskap och kultur – och att en lokal där människor faktiskt vill vara är en förutsättning för det. Kanske säger debatten mindre om biblioteken än om hur ovanligt det har blivit med offentliga rum som inte kräver ett ärende." },
       "prompt": "Vilket påstående stämmer med texten?",
       "choices": [
-        "Antalet besök har minskat lika mycket som utlånen",
+        "Antalet besök har minskat ungefär lika mycket som antalet utlån",
         "Försvararna anser att böcker inte längre behövs på bibliotek",
-        "Språkcaféer infördes för att få fler att låna böcker",
+        "Språkcaféer infördes för att locka fler besökare att låna böcker",
         "Äldre bibliotekslokaler var utformade framför allt för utlån"
       ],
       "answer": 3,
@@ -142,9 +142,9 @@
       "prompt": "Vad antyder textens sista mening?",
       "choices": [
         "Att det har blivit ovanligt med platser där man kan vistas utan ett särskilt ärende",
-        "Att debatten om biblioteken är onödig",
-        "Att biblioteken borde ta betalt för sina lokaler",
-        "Att kritikerna egentligen vill ha färre offentliga rum"
+        "Att debatten om biblioteken egentligen är onödig och borde avslutas",
+        "Att biblioteken borde ta betalt av dem som använder lokalerna utan att låna",
+        "Att kritikerna i själva verket vill ha färre offentliga rum i städerna"
       ],
       "answer": 0,
       "explanation": "Sista meningen flyttar blicken från biblioteken till samhället: debatten visar hur ovanligt det har blivit med offentliga rum \"som inte kräver ett ärende\", alltså där man kan vara utan att handla eller ha ett syfte." },
@@ -153,10 +153,10 @@
         "body": "En myra som har hittat föda lämnar på vägen hem ett spår av doftämnen, så kallade feromoner. Andra myror följer spåret och förstärker det med egna doftämnen när de i sin tur återvänder med föda. Eftersom feromonerna avdunstar efter en tid försvinner spår som ingen längre använder.\n\nMekanismen leder till ett anmärkningsvärt resultat. Om två vägar leder till samma födokälla hinner myrorna på den kortare vägen gå fram och tillbaka fler gånger på samma tid. Den vägen får därmed fler lager doft, lockar fler myror och blir snart den som nästan alla väljer. Ingen enskild myra jämför vägarna; valet växer fram ur många individers enkla beteende.\n\nForskare har lånat principen för att lösa problem som är svåra att räkna ut direkt, till exempel hur ett företag ska planera rutterna för sina leveransbilar. I datorn skickas mängder av konstgjorda myror ut längs möjliga vägar, och goda lösningar förstärks medan dåliga får blekna bort. Metoden garanterar inte det bästa svaret, men den hittar ofta ett mycket bra svar på rimlig tid – ungefär som myrorna själva." },
       "prompt": "Varför blir den kortare vägen till slut den som nästan alla myror väljer?",
       "choices": [
-        "Myrorna jämför vägarnas längd innan de ger sig av",
-        "Feromonerna avdunstar långsammare på korta vägar",
+        "Myrorna jämför först vägarnas längd och väljer sedan den som är kortast",
+        "Feromonerna avdunstar långsammare på korta vägar än på långa",
         "Fler resor hinns med på den, så att doftspåret förstärks oftare",
-        "De första myrorna hittar alltid den kortaste vägen"
+        "De första myrorna hittar alltid den kortaste vägen och visar de andra"
       ],
       "answer": 2,
       "explanation": "Andra stycket: på den kortare vägen hinner myrorna gå fram och tillbaka fler gånger, så den får \"fler lager doft\". Texten säger uttryckligen att ingen myra jämför vägarna." },
@@ -166,9 +166,9 @@
       "prompt": "Ordet \"anmärkningsvärt\" i andra stycket betyder ungefär",
       "choices": [
         "värt att lägga märke till",
-        "felaktigt",
-        "väntat",
-        "tillfälligt"
+        "värt att ifrågasätta i grunden",
+        "lätt att förutse",
+        "giltigt bara för en tid"
       ],
       "answer": 0,
       "explanation": "Något *anmärkningsvärt* är så slående att det är värt att notera – här att en så enkel mekanism hittar den kortaste vägen." },
@@ -177,9 +177,9 @@
         "body": "En myra som har hittat föda lämnar på vägen hem ett spår av doftämnen, så kallade feromoner. Andra myror följer spåret och förstärker det med egna doftämnen när de i sin tur återvänder med föda. Eftersom feromonerna avdunstar efter en tid försvinner spår som ingen längre använder.\n\nMekanismen leder till ett anmärkningsvärt resultat. Om två vägar leder till samma födokälla hinner myrorna på den kortare vägen gå fram och tillbaka fler gånger på samma tid. Den vägen får därmed fler lager doft, lockar fler myror och blir snart den som nästan alla väljer. Ingen enskild myra jämför vägarna; valet växer fram ur många individers enkla beteende.\n\nForskare har lånat principen för att lösa problem som är svåra att räkna ut direkt, till exempel hur ett företag ska planera rutterna för sina leveransbilar. I datorn skickas mängder av konstgjorda myror ut längs möjliga vägar, och goda lösningar förstärks medan dåliga får blekna bort. Metoden garanterar inte det bästa svaret, men den hittar ofta ett mycket bra svar på rimlig tid – ungefär som myrorna själva." },
       "prompt": "Vad säger texten om datormetoden som bygger på myrornas beteende?",
       "choices": [
-        "Den ger alltid den bästa lösningen",
-        "Den används främst för att forska om myror",
-        "Den är långsammare än att räkna ut svaret direkt",
+        "Den hittar alltid den bästa lösningen, om den får tillräckligt med tid",
+        "Den används främst för att forska om hur myror väljer väg",
+        "Den är långsammare än att räkna ut svaret direkt, men säkrare",
         "Den ger ofta goda men inte nödvändigtvis bästa lösningar"
       ],
       "answer": 3,
