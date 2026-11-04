@@ -1,12 +1,13 @@
-// Per-user Claude token accounting + the monthly budget check, plus one
-// account-wide spend counter with a daily dollar cap.
+// What Claude costs, and the limits that keep it bounded. The proxy (routes/messages.js) is the only
+// route that spends money, so the meters live right next to it. The limits, from the everyday one out:
 //
-// The proxy (routes/messages.js) is the only route that spends money, so the
-// meters live right next to it. One row per user per UTC calendar month in
-// ai_usage; the per-user budget is a flat token ceiling from env until
-// entitlements (Phase 2) make it per-plan. ai_spend_daily has one row per UTC
-// day for the whole server, in estimated dollars: the backstop that holds no
-// matter how many accounts exist.
+//   1. each account's month, in kronor (ai_usage, one row per user per UTC month): 2 kr free, 30 kr Plus,
+//      0.25 kr until the account's email address is confirmed;
+//   2. each account's UTC day: 5 kr, whatever the plan (in memory);
+//   3. all unconfirmed accounts together: $1 a UTC day (in memory), so throwaway sign-ups can't add up;
+//   4. the whole server: $50 a UTC day (ai_spend_daily), an emergency brake that mails the owner on the way.
+//
+// Only 4 stops AI for everyone, and with 1-3 in place it should only trip when something is wrong.
 
 import { db } from "./db.js";
 
@@ -25,6 +26,11 @@ export const MONTHLY_BUDGET_KR = krFromEnv("AI_FREE_BUDGET_KR", 2);
 /** The same for an account on the paid plan (PluggEra Plus, see billing.js): 30 kr, so that even a user who spends all
  *  of it leaves something of a 45 kr payment. The server-wide daily dollar cap below remains the backstop. */
 export const PLUS_BUDGET_KR = krFromEnv("AI_PLUS_BUDGET_KR", 30);
+
+/** What an account may use before its email address is confirmed: 0.25 kr, about five sets or fifty tutor answers.
+ *  Enough to try the AI while the confirmation mail is on its way, but a throwaway sign-up no longer gets a whole
+ *  month. Confirming lifts the account to its normal limit (the spend so far still counts). */
+export const UNVERIFIED_BUDGET_KR = krFromEnv("AI_UNVERIFIED_BUDGET_KR", 0.25);
 
 /** Micro-dollars -> kronor. */
 export const microToKr = (micro) => (micro / 1_000_000) * KR_PER_USD;
@@ -139,6 +145,17 @@ export function isBudgetExempt(userId) {
   return list.includes(String(row.email).toLowerCase());
 }
 
+/** The account's address could have been confirmed at sign-up and still isn't. Accounts made before email was
+ *  switched on (email_verify_required NULL) count as confirmed, like in routes/auth.js looksPreRegistered: they
+ *  are the real early users, and nothing was ever sent to them to confirm. Google and Apple sign-ins arrive
+ *  confirmed. While email is switched off (no RESEND_API_KEY) nobody counts as unconfirmed: no link could be sent,
+ *  so the trial would otherwise hold those accounts for good. */
+export function isUnconfirmed(userId) {
+  if (!userId || !process.env.RESEND_API_KEY) return false;
+  const row = emailOfStmt.get(userId);
+  return !!row && !!row.verifyRequired && !row.verifiedAt;
+}
+
 // What the requests that are running now could cost at most, per account. The monthly meter is only booked when a
 // request finishes, so without this three requests started together all see the same "used" and can each add a
 // whole answer. Held in memory, like the in-flight dollars below.
@@ -167,17 +184,22 @@ export function checkBudget(userId, limitKr = MONTHLY_BUDGET_KR) {
 
 // ---------- the account-wide daily dollar cap ----------
 
-function capFromEnv() {
-  const raw = process.env.AI_DAILY_SPEND_CAP_USD;
-  if (raw == null || raw.trim() === "") return 5;
+// A number from the environment where 0 means "off": unset, empty, negative or not a number falls back.
+function numOrOff(name, fallback) {
+  const raw = process.env[name];
+  if (raw == null || raw.trim() === "") return fallback;
   const n = Number(raw);
-  return Number.isFinite(n) && n >= 0 ? n : 5;
+  return Number.isFinite(n) && n >= 0 ? n : fallback;
 }
 
 /** Most the whole server may spend on Claude in one UTC day, in USD (estimated
  *  from token counts). Past it, /api/messages answers 503 until 00:00 UTC for
- *  everyone, however many accounts are asking. 0 turns the cap off. */
-export const DAILY_SPEND_CAP_USD = capFromEnv();
+ *  everyone, however many accounts are asking. 0 turns the cap off.
+ *
+ *  An emergency brake, not the everyday limit: every account has its own monthly and daily limit, so this only
+ *  trips when something is wrong (a bug that loops, a farm of accounts). $50 is about 500 kr, the whole month of
+ *  roughly 7,500 free accounts spread over 30 days, and the owner is mailed at 50% and 80% (alerts.js). */
+export const DAILY_SPEND_CAP_USD = numOrOff("AI_DAILY_SPEND_CAP_USD", 50);
 const CAP_MICRO = Math.round(DAILY_SPEND_CAP_USD * 1_000_000);
 
 /** "YYYY-MM-DD" for the current UTC day. */
@@ -243,30 +265,28 @@ export function checkDailyCap(extraMicro = 0) {
   };
 }
 
-// ---------- one person's share of the daily cap ----------
-// Most of the day's cap one account may use (spent + in flight), so a single account — a fresh one,
-// say — can't switch AI off for everyone. AI_USER_DAILY_SHARE=0 turns it off. The default is 10%
-// ($0.50 of a $5 cap): at the old 25% four new accounts asking for long answers from the dearest model
-// could use the whole day's cap in seconds, and ten now have to. Ordinary use stays far below it (a
-// tutor message costs a fraction of a cent, a set about two cents).
-const USER_SHARE = (() => {
-  const raw = process.env.AI_USER_DAILY_SHARE;
-  const n = Number(raw);
-  return raw != null && raw.trim() !== "" && Number.isFinite(n) && n >= 0 ? n : 0.1;
-})();
+// ---------- one account's daily limit ----------
+// Most one account may use in a UTC day (spent + in flight, worst case for the request being asked), in kronor,
+// whatever its plan: 5 kr. A free account never gets near it (its whole month is 2 kr); it bounds a Plus account if
+// someone else gets hold of it. Exempt accounts (AI_BUDGET_EXEMPT_EMAILS) skip it, like the monthly limit; only the
+// server-wide brake bounds them (routes/messages.js). Fixed, not a share of the server's cap,
+// so raising the emergency brake doesn't raise it too. AI_USER_DAILY_KR=0 turns it off. In memory, like the
+// other limiters here: a restart starts the day's count over, and the monthly limit (in the database) still holds.
+export const USER_DAILY_KR = numOrOff("AI_USER_DAILY_KR", 5);
+const USER_DAILY_MICRO = krToMicro(USER_DAILY_KR);
 const userDay = { day: "", spent: new Map(), inflight: new Map() };
 function rollUserDay() {
   const day = currentDay();
   if (userDay.day !== day) { userDay.day = day; userDay.spent.clear(); }
 }
-/** Would `extraMicro` more keep this account within its share of today's cap? */
-export function checkUserDailyShare(userId, extraMicro = 0) {
-  if (!CAP_MICRO || !(USER_SHARE > 0) || !userId) return true;
+/** Would `extraMicro` more keep this account within its daily limit? */
+export function checkUserDaily(userId, extraMicro = 0) {
+  if (!USER_DAILY_MICRO || !userId) return true;
   rollUserDay();
   const used = (userDay.spent.get(userId) || 0) + (userDay.inflight.get(userId) || 0);
-  return used + extraMicro <= CAP_MICRO * USER_SHARE;
+  return used + extraMicro <= USER_DAILY_MICRO;
 }
-/** Hold a request's worst case against the account's share while it runs; returns the release. */
+/** Hold a request's worst case against the account's daily limit while it runs; returns the release. */
 export function reserveUserSpend(userId, micro) {
   userDay.inflight.set(userId, (userDay.inflight.get(userId) || 0) + micro);
   let released = false;
@@ -282,22 +302,66 @@ function bookUserSpend(userId, micro) {
   userDay.spent.set(userId, (userDay.spent.get(userId) || 0) + micro);
 }
 
-// One warning line per threshold per day (per process) — `fly logs` is where
-// these are read; grep for "spend-alert".
+// ---------- what unconfirmed accounts may use together ----------
+// Each unconfirmed account has a small trial (UNVERIFIED_BUDGET_KR), but sign-ups cost nothing, so a script could
+// make hundreds. All unconfirmed accounts together share this pool per UTC day: $1 by default, about 40 people
+// trying the AI fully on their first day. Past it, unconfirmed accounts wait for tomorrow or confirm their
+// address, and confirmed students are never affected. AI_UNVERIFIED_DAILY_USD=0 turns the pool off. In memory.
+export const UNVERIFIED_DAILY_USD = numOrOff("AI_UNVERIFIED_DAILY_USD", 1);
+const POOL_MICRO = Math.round(UNVERIFIED_DAILY_USD * 1_000_000);
+const pool = { day: "", spent: 0, inflight: 0 };
+function rollPool() {
+  const day = currentDay();
+  if (pool.day !== day) { pool.day = day; pool.spent = 0; }
+}
+/** Would `extraMicro` more keep the unconfirmed accounts within today's pool? */
+export function checkUnverifiedPool(extraMicro = 0) {
+  if (!POOL_MICRO) return true;
+  rollPool();
+  return pool.spent + pool.inflight + extraMicro <= POOL_MICRO;
+}
+/** Hold an unconfirmed account's request against the pool while it runs; returns the release. */
+export function reserveUnverifiedPool(micro) {
+  pool.inflight += micro;
+  let released = false;
+  return () => {
+    if (released) return;
+    released = true;
+    pool.inflight = Math.max(0, pool.inflight - micro);
+  };
+}
+
+// ---------- telling the owner ----------
+// One log line per threshold per day (per process) — `fly logs` is where these are read; grep for
+// "spend-alert" — and a mail to the owner (alerts.js reportAiSpend, which keeps its own once-a-day-per-kind
+// rule). At 50% and 80% of booked spend; "paused" goes when the first request of the day is turned away
+// (routes/messages.js), since the brake counts requests in flight at their worst case and so can trip
+// before booked spend reaches 100%.
 const usd = (micro) => `$${(micro / 1_000_000).toFixed(2)}`;
 const alerted = new Set();
+let onSpendAlert = () => {};
+/** routes/messages.js passes alerts.js reportAiSpend here; usage.js stays free of the mail code (and of its imports in the unit tests). */
+export function setSpendAlert(fn) { onSpendAlert = typeof fn === "function" ? fn : () => {}; }
 function alertIfNeeded(day, spentMicro) {
   if (!CAP_MICRO) return;
-  for (const fraction of [0.5, 0.8, 1]) {
+  for (const fraction of [0.5, 0.8]) {
     const key = `${day}:${fraction}`;
     if (spentMicro < CAP_MICRO * fraction || alerted.has(key)) continue;
     alerted.add(key);
-    if (fraction >= 1) {
-      console.error(`[spend-alert] daily AI spend cap reached (${usd(spentMicro)} of ${usd(CAP_MICRO)}); AI is paused until 00:00 UTC`);
-    } else {
-      console.warn(`[spend-alert] daily AI spend at ${Math.round(fraction * 100)}% (${usd(spentMicro)} of ${usd(CAP_MICRO)})`);
-    }
+    console.warn(`[spend-alert] daily AI spend at ${Math.round(fraction * 100)}% (${usd(spentMicro)} of ${usd(CAP_MICRO)})`);
+    try { onSpendAlert({ kind: fraction === 0.5 ? "half" : "most", spentUsd: spentMicro / 1_000_000, spentKr: microToKr(spentMicro), capUsd: DAILY_SPEND_CAP_USD }); } catch { /* never let a mail break booking */ }
   }
+}
+/** The brake (kind "paused") or the unconfirmed pool ("pool") has just turned a request away: log it and tell the owner. */
+export function reportRefusal(kind) {
+  const day = currentDay();
+  const key = `${day}:${kind}`;
+  if (alerted.has(key)) return;
+  alerted.add(key);
+  const spentMicro = readDaySpend(day).costMicro;
+  if (kind === "paused") console.error(`[spend-alert] daily AI spend cap reached (${usd(spentMicro)} spent, ${usd(inflightMicro)} in flight, of ${usd(CAP_MICRO)}); AI is paused until 00:00 UTC`);
+  else console.warn(`[spend-alert] unconfirmed accounts used today's pool (${usd(pool.spent)} of ${usd(POOL_MICRO)})`);
+  try { onSpendAlert({ kind, spentUsd: spentMicro / 1_000_000, spentKr: microToKr(spentMicro), capUsd: DAILY_SPEND_CAP_USD, poolUsd: UNVERIFIED_DAILY_USD }); } catch { /* as above */ }
 }
 
 /**
@@ -305,9 +369,10 @@ function alertIfNeeded(day, spentMicro) {
  * the server's daily dollars. `usage` is { input, output, cacheWrite, cacheRead }
  * as the API reported it. The per-user meter counts every input token, cached
  * or not, so a client can't hide spend behind cache_control. Returns the
- * request's estimated cost in micro-dollars.
+ * request's estimated cost in micro-dollars. `unverified`: the account was unconfirmed when the request
+ * was admitted, so the cost also comes off the unconfirmed accounts' pool.
  */
-export function recordUsage({ userId, model, usage }) {
+export function recordUsage({ userId, model, usage, unverified = false }) {
   const input = usage.input + usage.cacheWrite + usage.cacheRead;
 
   const costMicro = costMicroUsd(model, usage);
@@ -320,6 +385,7 @@ export function recordUsage({ userId, model, usage }) {
   });
   alertIfNeeded(day, readDaySpend(day).costMicro);
   if (userId) bookUserSpend(userId, costMicro);
+  if (unverified) { rollPool(); pool.spent += costMicro; }
 
   // The user's own meter goes last, and its failure is contained. The money has already been spent
   // at this point, so the server-wide tally and the cap alert above must not depend on it - and a

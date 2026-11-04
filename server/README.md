@@ -34,11 +34,14 @@ and set `ALLOWED_ORIGIN` below so CORS allows it.
 - `GET /api/health` — `{ok, keyConfigured}`
 - `POST /api/messages` — proxies to Anthropic (streaming passthrough for the tutor).
   Requires a signed-in session by default (`MESSAGES_REQUIRE_AUTH`); enforces a
-  per-user request rate limit, a per-user monthly token budget and a server-wide
-  daily dollar cap (`AI_DAILY_SPEND_CAP_USD`); clamps `max_tokens` and rejects
+  per-user request rate limit, a per-user monthly limit in kronor (a small trial
+  while the email address is unconfirmed), a per-user daily limit, a daily pool for
+  unconfirmed accounts and a server-wide daily emergency brake
+  (`AI_DAILY_SPEND_CAP_USD`, see HOSTING-FLYIO.md); clamps `max_tokens` and rejects
   unknown models; obeys the `PROXY_DISABLED` kill switch.
   Its own failures carry a machine `code` in `error.code` (`not_authenticated`,
-  `rate_limited`, `quota_exceeded`, `daily_cap`, `maintenance`, `model_not_allowed`).
+  `rate_limited`, `ai_busy`, `user_daily_cap`, `quota_exceeded`, `verify_email`,
+  `unverified_pool`, `daily_cap`, `maintenance`, `model_not_allowed`).
 - `GET /api/usage` — the signed-in user's Claude token spend this month:
   `{period, used, limit, requests, resetsAt, metered}`
 - `POST /api/auth/signup`, `/login`, `/logout`, `GET /api/auth/me` — email/password,
