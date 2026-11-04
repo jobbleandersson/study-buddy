@@ -121,6 +121,18 @@ const MATH_ROUTES = /^\/(session|review|practice|tonight|teachback|challenge|res
 if (document.readyState === "complete") setTimeout(loadMath, 3000);
 else window.addEventListener("load", () => setTimeout(loadMath, 3000));
 
+// The study-session screen (views/session.js and the ~35 modules only it uses) is fetched the same way, a
+// moment after the page has loaded, so tapping "start" opens the set straight away instead of first
+// loading its code. Only in the app: the front page for first-time visitors has no set to start, and
+// a browser asking to save data gets the code on demand, as before. Fetching early runs nothing: those
+// modules only define functions until a session is opened.
+function preloadSession() {
+  if (navigator.connection?.saveData || document.body.classList.contains("no-chrome")) return;
+  import("./views/session.js").catch(() => { /* fetched again when a session opens */ });
+}
+if (document.readyState === "complete") setTimeout(preloadSession, 2500);
+else window.addEventListener("load", () => setTimeout(preloadSession, 2500));
+
 /**
  * Should the root route show the front page instead of the app? Only for a
  * genuinely new visitor: no sets of their own, intro not seen, not signed in,
