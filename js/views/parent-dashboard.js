@@ -339,7 +339,7 @@ export async function renderParentStudent(studentUserId) {
     };
   }
 
-  const tm = masteryByTopic(blob.attempts || []);
+  const tm = masteryByTopic(blob.attempts || [], { assignments: blob.assignments || [] });
   const streak = currentStreak(blob.activity?.daysStudied || [], blob.activity?.frozenDays || []);
   const due = dueQuestions(blob.assignments || [], blob.srs || {});
   const days = (blob.activity?.daysStudied || []).length;

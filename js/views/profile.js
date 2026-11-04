@@ -146,7 +146,7 @@ function studentCard(p, role) {
 /* ---------------- subjects ---------------- */
 
 function subjectsCard() {
-  const tm = masteryByTopic(store.attempts);
+  const tm = masteryByTopic(store.attempts, { assignments: store.assignments });
   // Högskoleprovet has its own 0–2.0 scale (the row under the list), not an E–A level.
   const hpSubjects = new Set(store.assignments.filter((a) => isHpSetId(a.id)).map((a) => a.subjectId));
   const rows = store.subjects

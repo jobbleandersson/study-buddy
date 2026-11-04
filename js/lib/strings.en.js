@@ -481,7 +481,7 @@ export default {
   "prog.practiseWeak": "Practise weak spots",
   "prog.due": "This week's review",
   "prog.reviewToday": "Review today",
-  "prog.reviewExplain": "The questions that came due in the last seven days, from every set. Anything that has waited longer than a week drops out, so the pile never grows.",
+  "prog.reviewExplain": "The questions that came due in the last seven days, from every set. Questions you got wrong stay for two weeks. Anything that has waited longer drops out, so the pile never grows.",
   "prog.nothingDue": "Nothing to review this week. Spaced repetition brings questions back just before you'd forget them.",
   "prog.weekToday": "Today",
   "prog.weekAria": "Questions to review per day, the last seven days: {list}",
@@ -524,7 +524,6 @@ export default {
   "prog.lastScore": "Last result {score}%",
   "prog.hpTotal": "normed score",
   "srs.reasonMissed": "missed before",
-  "srs.reasonOverdue": "overdue",
   "srs.reasonFirst": "first review",
   "srs.reasonSolid": "well learned",
 

@@ -10,16 +10,33 @@ export function firstTryCorrect(item) {
   return item.firstTry ?? !!item.correct;
 }
 
-export function masteryByTopic(attempts, { half = 5 } = {}) {
+/** The key a topic's mastery is kept under: the topic within its subject. 118 topic names are shared between
+ *  subjects ("present tense" in German, French and Spanish, "diagram" in maths and DTK), and keyed by name alone
+ *  a miss in one marked the others weak. Without a subject (a question whose set is gone) it is the bare name,
+ *  which no subject's lookup matches. */
+export const topicKey = (subjectId, topic) => (subjectId ? `${subjectId}␟${topic}` : topic);
+
+/** questionId -> subjectId over these sets. */
+function subjectsByQuestion(assignments) {
+  const m = new Map();
+  for (const a of assignments || []) for (const q of a.questions || []) if (!m.has(q.id)) m.set(q.id, a.subjectId);
+  return m;
+}
+
+/** Recency-weighted mastery per topic, in [0,1]. Pass `assignments` (the student's sets) and it is keyed by
+ *  topicKey(subject, topic), which is what every lookup below uses; without them, by bare topic name. */
+export function masteryByTopic(attempts, { half = 5, assignments = null } = {}) {
   // gather per-topic list of {correct, age} where age = attempts-ago
   const byTopic = new Map();
+  const subjectOf = assignments ? subjectsByQuestion(assignments) : null;
   const ordered = [...attempts].sort((a, b) => (a.finishedAt || 0) - (b.finishedAt || 0));
   ordered.forEach((att, idx) => {
     const age = ordered.length - 1 - idx;
     for (const it of att.items || []) {
       if (!it.topic) continue;
-      if (!byTopic.has(it.topic)) byTopic.set(it.topic, []);
-      byTopic.get(it.topic).push({ correct: firstTryCorrect(it) ? 1 : 0, age });
+      const key = subjectOf ? topicKey(subjectOf.get(it.questionId), it.topic) : it.topic;
+      if (!byTopic.has(key)) byTopic.set(key, []);
+      byTopic.get(key).push({ correct: firstTryCorrect(it) ? 1 : 0, age });
     }
   });
 
@@ -37,6 +54,7 @@ export function masteryByTopic(attempts, { half = 5 } = {}) {
 }
 
 // Mastery for a subject = mean of its topics' mastery (topics inferred from its assignments).
+// `topicMastery` from masteryByTopic(attempts, { assignments }).
 export function masteryForSubject(subjectId, assignments, topicMastery) {
   const topics = new Set();
   for (const a of assignments) {
@@ -45,31 +63,41 @@ export function masteryForSubject(subjectId, assignments, topicMastery) {
   }
   if (!topics.size) return null;
   let sum = 0, n = 0;
-  for (const t of topics) { if (has(topicMastery, t)) { sum += topicMastery[t]; n++; } }
+  for (const t of topics) { const k = topicKey(subjectId, t); if (has(topicMastery, k)) { sum += topicMastery[k]; n++; } }
   return n ? sum / n : null;
 }
 
 // Own keys only: a topic named "constructor" or "toString" must not pick up Object's built-ins.
 const has = (o, k) => Object.prototype.hasOwnProperty.call(o, k);
 
+/** One question's topic mastery (undefined when never practised), from masteryByTopic(attempts, { assignments }). */
+export const topicMasteryOf = (topicMastery, assignment, question) => {
+  const k = topicKey(assignment?.subjectId, question?.topic);
+  return question?.topic && has(topicMastery, k) ? topicMastery[k] : undefined;
+};
+
 // Mastery for a single assignment given the current topic mastery map.
 export function masteryForAssignment(assignment, topicMastery) {
   const topics = new Set((assignment.questions || []).map((q) => q.topic).filter(Boolean));
   if (!topics.size) return null;
   let sum = 0, n = 0;
-  for (const t of topics) { if (has(topicMastery, t)) { sum += topicMastery[t]; n++; } }
+  for (const t of topics) { const k = topicKey(assignment.subjectId, t); if (has(topicMastery, k)) { sum += topicMastery[k]; n++; } }
   return n ? sum / n : null;
 }
 
-// Snapshot before, apply one attempt, return {topic: {before, after}}.
+// Snapshot before, apply one attempt, return {topic: {before, after}} by topic name, for the results screen.
 // Only the topics this attempt actually covered — a Rome test shouldn't
 // report on your photosynthesis topics just because they exist.
-export function deltaFromAttempt(attempts, newAttempt) {
-  const before = masteryByTopic(attempts);
-  const after = masteryByTopic([...attempts, newAttempt]);
-  const topics = new Set((newAttempt.items || []).map((i) => i.topic).filter(Boolean));
+export function deltaFromAttempt(attempts, newAttempt, { assignments = null } = {}) {
+  const before = masteryByTopic(attempts, { assignments });
+  const after = masteryByTopic([...attempts, newAttempt], { assignments });
+  const subjectOf = assignments ? subjectsByQuestion(assignments) : null;
   const out = {};
-  for (const t of topics) out[t] = { before: before[t] ?? 0, after: after[t] ?? 0 };
+  for (const it of newAttempt.items || []) {
+    if (!it.topic || out[it.topic]) continue;
+    const k = subjectOf ? topicKey(subjectOf.get(it.questionId), it.topic) : it.topic;
+    out[it.topic] = { before: before[k] ?? 0, after: after[k] ?? 0 };
+  }
   return out;
 }
 
@@ -80,7 +108,7 @@ export function deltaFromAttempt(attempts, newAttempt) {
  * rule as weakSpotQuestions, so the card agrees with the weak-spots drill.
  * Pass a precomputed `topicMastery` to avoid re-walking every attempt per set.
  */
-export function setProgress(assignment, attempts, topicMastery = masteryByTopic(attempts), { threshold = 0.6 } = {}) {
+export function setProgress(assignment, attempts, topicMastery = masteryByTopic(attempts, { assignments: [assignment] }), { threshold = 0.6 } = {}) {
   const questions = assignment.questions || [];
   const ids = new Set(questions.map((q) => q.id));
 
@@ -100,7 +128,7 @@ export function setProgress(assignment, attempts, topicMastery = masteryByTopic(
 
   let weakTopic = null, weakLevel = threshold, weakCount = 0;
   for (const q of questions) {
-    const m = topicMastery[q.topic];
+    const m = topicMasteryOf(topicMastery, assignment, q);
     if (m == null || m >= threshold) continue;
     weakCount++;
     if (m < weakLevel) { weakLevel = m; weakTopic = q.topic; }
@@ -116,15 +144,17 @@ export function setProgress(assignment, attempts, topicMastery = masteryByTopic(
  *
  * Returns [{assignment, question, mastery}] weakest-topic first.
  */
-export function weakSpotQuestions(assignments, attempts, { threshold = 0.6, limit = 20 } = {}) {
-  const tm = masteryByTopic(attempts);
+export function weakSpotQuestions(assignments, attempts, { threshold = 0.6, limit = 20, allAssignments = assignments } = {}) {
+  // Mastery over every set the student has (allAssignments), so a topic practised in another set of the same
+  // subject still counts when only some sets are drilled.
+  const tm = masteryByTopic(attempts, { assignments: allAssignments });
   const seen = new Set();
   const out = [];
 
   for (const a of assignments) {
     for (const q of a.questions || []) {
       if (isUntouchedSample(q)) continue;   // a placeholder is nothing to drill
-      const m = tm[q.topic];
+      const m = topicMasteryOf(tm, a, q);
       // Untouched topics have unknown mastery, not weak mastery — skip them.
       if (m == null || m >= threshold) continue;
       if (seen.has(q.id)) continue;

@@ -1,7 +1,7 @@
 import "./helpers.mjs";
 import { test, describe } from "node:test";
 import assert from "node:assert/strict";
-import { fresh, fromCorrect, review, isDue, inReview, reviewWindowStart, REVIEW_WINDOW_DAYS, summarizeSchedule, retentionForecast } from "../../js/lib/srs.js";
+import { fresh, fromCorrect, review, isDue, inReview, reviewWindowStart, REVIEW_WINDOW_DAYS, MISSED_WINDOW_DAYS, summarizeSchedule, retentionForecast } from "../../js/lib/srs.js";
 import { dueQuestions } from "../../js/lib/library.js";
 
 describe("srs.fromCorrect", () => {
@@ -30,6 +30,12 @@ describe("srs.review", () => {
     assert.equal(rec.intervalDays, 0);
     assert.equal(rec.dueAt, now + 10 * 60 * 1000);
     assert.ok(rec.ease < 2.4, "ease should drop after a miss");
+  });
+
+  test("the first right answer: hard 1 day, good 2, easy 3", () => {
+    assert.equal(review(null, "hard", 0).intervalDays, 1);
+    assert.equal(review(null, "good", 0).intervalDays, 2);
+    assert.equal(review(null, "easy", 0).intervalDays, 3);
   });
 
   test("ease never drops below 1.3 no matter how many lapses", () => {
@@ -100,6 +106,21 @@ describe("srs.inReview: the pile is a week deep", () => {
   test("not due yet, or no record: not in the pile", () => {
     assert.equal(inReview({ dueAt: at(14) }, now), false);
     assert.equal(inReview(null, now), false);
+  });
+  test("a missed question (not yet right twice) stays two weeks, so it no longer drops out first", () => {
+    const missed = (dueAt) => ({ dueAt, lapses: 1, reps: 0 });
+    assert.equal(MISSED_WINDOW_DAYS, 14);
+    assert.equal(inReview(missed(at(1)), now), true, "12 days ago: still in the pile");
+    assert.equal(inReview(missed(at(6)), now), true, "a known question due then has dropped out; this one hasn't");
+    assert.equal(inReview(missed(new Date(2026, 8, 29, 12).getTime()), now), false, "past two weeks: dropped out");
+    assert.equal(inReview({ dueAt: at(1), lapses: 1, reps: 3 }, now), false, "recovered (right three times): the normal week");
+  });
+  test("the sweep's simulation: a week after a set, the 6 missed of 15 are still in the pile", () => {
+    const t0 = new Date(2026, 9, 1, 16, 0).getTime();
+    const srs = {};
+    for (let i = 0; i < 15; i++) srs[`q${i}`] = review(null, i < 6 ? "again" : "easy", t0);
+    const pile = Object.entries(srs).filter(([, r]) => inReview(r, t0 + 7 * 864e5)).map(([k]) => k);
+    for (let i = 0; i < 6; i++) assert.ok(pile.includes(`q${i}`), `q${i} (missed) in the pile on day 7: ${pile}`);
   });
   test("dueQuestions keeps only the pile, oldest first", () => {
     const sets = [{ id: "s", questions: [{ id: "a" }, { id: "b" }, { id: "c" }, { id: "d" }] }];

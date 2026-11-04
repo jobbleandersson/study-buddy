@@ -5,6 +5,7 @@ import {
   topicsOf, readiness, practisedSince, buildExamPlan, prepHashForSet, pickSeedQuestions, newQuestionsOnly, calendarEntries, PLAN_MAX_DAYS,
   planStartSets, examToMakeFor, MAX_SETS_PER_DAY, PLAN_MINUTES, distributeSets, questionsForMinutes, mockCountFor, buildStudyPass, pickMockQuestions,
 } from "../../js/lib/exam.js";
+import { topicKey } from "../../js/lib/mastery.js";
 
 const set = (id, subjectId, extra = {}) => ({
   id, subjectId, type: "assignment", dueAt: null,
@@ -122,7 +123,7 @@ describe("exam.scopeAttempts", () => {
 
 describe("exam.readiness", () => {
   test("an untouched topic counts as 0, not as missing", () => {
-    const r = readiness([set("a", "ma")], { "a-a": 1 });
+    const r = readiness([set("a", "ma")], { [topicKey("ma", "a-a")]: 1 });   // topics are keyed within their subject
     assert.deepEqual(r, { pct: 50, topics: 2, seen: 1 });
   });
   test("topics are shared across sets, counted once", () => {

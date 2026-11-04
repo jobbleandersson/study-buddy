@@ -2,8 +2,39 @@ import { test, describe } from "node:test";
 import assert from "node:assert/strict";
 import {
   firstTryCorrect, masteryByTopic, masteryForSubject, masteryForAssignment,
-  deltaFromAttempt, setProgress, weakSpotQuestions,
+  deltaFromAttempt, setProgress, weakSpotQuestions, topicKey,
 } from "../../js/lib/mastery.js";
+
+describe("mastery: topics are kept per subject (sweep finding L4)", () => {
+  // "present tense" exists in both the Spanish and the French set; a miss in Spanish must not make French weak.
+  const es = { id: "es", subjectId: "spanska", questions: [{ id: "es1", topic: "present tense" }] };
+  const fr = { id: "fr", subjectId: "franska", questions: [{ id: "fr1", topic: "present tense" }] };
+  const attempts = [
+    { finishedAt: 1, items: [{ questionId: "es1", topic: "present tense", correct: false }] },
+    { finishedAt: 2, items: [{ questionId: "fr1", topic: "present tense", correct: true }] },
+  ];
+  test("masteryByTopic with the sets keys each topic within its subject", () => {
+    const tm = masteryByTopic(attempts, { assignments: [es, fr] });
+    assert.equal(tm[topicKey("spanska", "present tense")], 0);
+    assert.equal(tm[topicKey("franska", "present tense")], 1);
+    assert.equal(tm["present tense"], undefined);
+  });
+  test("weak spots: only the Spanish question, not the French one", () => {
+    const weak = weakSpotQuestions([es, fr], attempts);
+    assert.deepEqual(weak.map((w) => w.question.id), ["es1"]);
+  });
+  test("subject mastery and set progress read their own subject", () => {
+    const tm = masteryByTopic(attempts, { assignments: [es, fr] });
+    assert.equal(masteryForSubject("franska", [es, fr], tm), 1);
+    assert.equal(masteryForSubject("spanska", [es, fr], tm), 0);
+    assert.equal(setProgress(fr, attempts, tm).weakCount, 0);
+    assert.equal(setProgress(es, attempts, tm).weakTopic, "present tense");
+  });
+  test("deltaFromAttempt still reports by topic name, for its own subject", () => {
+    const d = deltaFromAttempt([attempts[0]], attempts[1], { assignments: [es, fr] });
+    assert.deepEqual(d, { "present tense": { before: 0, after: 1 } });
+  });
+});
 
 describe("mastery.firstTryCorrect", () => {
   test("prefers the explicit firstTry flag", () => {
@@ -63,7 +94,7 @@ describe("mastery.masteryByTopic", () => {
 });
 
 describe("mastery.masteryForSubject / masteryForAssignment", () => {
-  const topicMastery = { algebra: 0.8, geometry: 0.4 };
+  const topicMastery = { algebra: 0.8, geometry: 0.4, [topicKey("math", "algebra")]: 0.8, [topicKey("math", "geometry")]: 0.4 };
 
   test("averages the mastery of a subject's own topics only", () => {
     const assignments = [

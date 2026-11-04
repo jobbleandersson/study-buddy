@@ -24,6 +24,7 @@ import {
   passHash, isStudyTask, nextStep, taskButtonLabel,
 } from "../components/exam-flow.js";
 import { isHpSetId } from "../lib/hp.js";
+import { topicKey } from "../lib/mastery.js";
 import {
   upcomingExams, topicsOf, mockCountFor, questionsForMinutes, STUDY_PASS_MINUTES, MAX_SETS_PER_DAY, buildStudyPass,
 } from "../lib/exam.js";
@@ -380,8 +381,11 @@ export function renderExamPrep(param, qs) {
       ]);
     });
 
+  // Each topic's mastery within the subject of the set it first appears in (lib/mastery.js topicKey).
+  const subjectOfTopic = new Map();
+  for (const a of m.scope) for (const q of a.questions || []) if (q.topic && !subjectOfTopic.has(q.topic)) subjectOfTopic.set(q.topic, a.subjectId);
   const topicList = topicsOf(m.scope)
-    .map((topic) => ({ topic, mv: m.tm[topic] }))
+    .map((topic) => ({ topic, mv: m.tm[topicKey(subjectOfTopic.get(topic), topic)] }))
     .sort((a, b) => (a.mv ?? -1) - (b.mv ?? -1));
 
   const standPanel = el("section.panel.exam-panel", {}, [

@@ -60,7 +60,7 @@ function distinctSubjects(s) {
 
 /** Every subject with any studied topic → its mastery 0..1. */
 function subjectMasteryValues(s) {
-  const tm = masteryByTopic(s.attempts || []);
+  const tm = masteryByTopic(s.attempts || [], { assignments: s.assignments || [] });
   const out = [];
   for (const sub of s.subjects || []) {
     const m = masteryForSubject(sub.id, s.assignments || [], tm);
@@ -120,7 +120,7 @@ export function achievementMetrics(state) {
   // and the old mini-mock, which older attempts still carry.
   const hp = attempts.filter((a) => a.hpPrognos || a.hpPass || a.assignmentId === "__hpmock__").length;
 
-  const tm = masteryByTopic(attempts);
+  const tm = masteryByTopic(attempts, { assignments });
   const cOrBetter = gradeRank("C");
   const mastery = subjects.filter((s) => {
     const m = masteryForSubject(s.id, assignments, tm);

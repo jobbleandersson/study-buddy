@@ -44,7 +44,7 @@ const selected = new Set();
 const HOME_PREVIEW = 4;
 
 export function renderMenu(mode) {
-  const topicMastery = masteryByTopic(store.attempts);
+  const topicMastery = masteryByTopic(store.attempts, { assignments: store.assignments });
 
   const grid = el("div.grid");
   const chipsRow = el("div.chips");
