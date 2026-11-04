@@ -639,7 +639,13 @@ class Store extends EventTarget {
     if (typeof window !== "undefined" && !this._syncHooks) {
       this._syncHooks = true;
       window.addEventListener("online", () => this._retryNow());
-      document.addEventListener("visibilitychange", () => { if (!document.hidden) this._retryNow(); });
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) return;
+        this._retryNow();
+        // The AI trial is used up and the way on is confirming the email, often from the phone: coming back to this
+        // tab is when that has happened, so ask the server again (one call, only in this state).
+        if (this._aiQuotaOut && this.aiUsage?.needsVerify) this.refreshUsage().then(() => this.emit());
+      });
     }
 
     this.emit();

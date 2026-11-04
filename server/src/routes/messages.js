@@ -16,11 +16,14 @@ import {
 // and when unconfirmed accounts have used their pool.
 setSpendAlert(reportAiSpend);
 
-/** The monthly limit this request is checked against, in kronor: the plan's, or the small trial while the
- *  account's email address is unconfirmed (whichever is lower). */
-function monthlyLimitFor(userId, unconfirmed) {
+/** The account is on the small trial: its email address is unconfirmed and it hasn't paid. A Plus subscriber
+ *  has the Plus limit whether or not they ever clicked the confirm link (checkout doesn't ask for one). */
+const onTrial = (userId) => isUnconfirmed(userId) && !isPlus(userId);
+
+/** The monthly limit this request is checked against, in kronor: the plan's, or the small trial. */
+function monthlyLimitFor(userId, trial) {
   const plan = budgetFor(userId);
-  return unconfirmed ? Math.min(plan, UNVERIFIED_BUDGET_KR) : plan;
+  return trial ? Math.min(plan, UNVERIFIED_BUDGET_KR) : plan;
 }
 
 const ANTHROPIC_URL = "https://api.anthropic.com/v1/messages";
@@ -196,7 +199,7 @@ messages.post("/messages", ...guards, asyncHandler(async (req, res) => {
       log({ userId, model: body.model, status: 429, err: "user_daily_cap" });
       return res.status(429).json({ error: { message: "You've used today's AI allowance. Try again tomorrow.", code: "user_daily_cap" }, resetsAt: cap.resetsAt });
     }
-    unconfirmed = isUnconfirmed(userId);
+    unconfirmed = onTrial(userId);
     const budget = isBudgetExempt(userId) ? { ok: true } : checkBudget(userId, monthlyLimitFor(userId, unconfirmed));
     if (!budget.ok) {
       // An unconfirmed account that used its trial: confirming the address is the way on, not waiting for next month.
@@ -340,7 +343,7 @@ async function forward({ res, userId, body, apiKey, started, signal, unverified 
 // REQUIRE_AUTH is off there's nothing to report).
 messages.get("/usage", requireAuth, (req, res) => {
   const u = readUsage(req.user.userId);
-  const unconfirmed = isUnconfirmed(req.user.userId);
+  const unconfirmed = onTrial(req.user.userId);
   res.json({
     period: currentPeriod(),
     // In kronor: what this account's AI has cost this month, and the limit it is checked against (the trial

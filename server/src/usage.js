@@ -148,9 +148,10 @@ export function isBudgetExempt(userId) {
 /** The account's address could have been confirmed at sign-up and still isn't. Accounts made before email was
  *  switched on (email_verify_required NULL) count as confirmed, like in routes/auth.js looksPreRegistered: they
  *  are the real early users, and nothing was ever sent to them to confirm. Google and Apple sign-ins arrive
- *  confirmed. */
+ *  confirmed. While email is switched off (no RESEND_API_KEY) nobody counts as unconfirmed: no link could be sent,
+ *  so the trial would otherwise hold those accounts for good. */
 export function isUnconfirmed(userId) {
-  if (!userId) return false;
+  if (!userId || !process.env.RESEND_API_KEY) return false;
   const row = emailOfStmt.get(userId);
   return !!row && !!row.verifyRequired && !row.verifiedAt;
 }

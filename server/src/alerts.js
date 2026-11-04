@@ -133,9 +133,10 @@ const SPEND_KINDS = new Set(["half", "most", "paused", "pool"]);
 export function reportAiSpend({ kind, spentUsd = 0, spentKr = 0, capUsd = 0, poolUsd = 0, send = sendAiSpendEmail, now = Date.now, enabled = emailEnabled() }) {
   try {
     if (!enabled || !SPEND_KINDS.has(kind)) return "off";
-    const key = `${new Date(now()).toISOString().slice(0, 10)}|${kind}`;
+    const today = new Date(now()).toISOString().slice(0, 10);
+    const key = `${today}|${kind}`;
     if (spendSent.has(key)) return "suppressed";
-    if (spendSent.size > 50) spendSent.clear();   // old days; at most four keys a day
+    for (const k of spendSent) if (!k.startsWith(today)) spendSent.delete(k);   // only today's kinds matter
     spendSent.add(key);
     Promise.resolve(send({ kind, spentUsd, spentKr, capUsd, poolUsd })).catch(() => {});
     return "sent";

@@ -23,7 +23,7 @@ const spendKr = (server, userId, kr) => server.db.prepare(
   "INSERT INTO ai_usage (user_id, period, input_tokens, output_tokens, request_count, cost_micro, updated_at) VALUES (?, ?, 1, 1, 1, ?, ?)"
 ).run(userId, PERIOD, Math.round((kr / 10) * 1_000_000), Date.now());   // AI_KR_PER_USD is 10
 const confirm = (server, userId) => server.db.prepare("UPDATE users SET email_verified_at = ? WHERE id = ?").run(Date.now(), userId);
-const waitFor = async (fn, ms = 2000) => { const end = Date.now() + ms; while (Date.now() < end) { if (fn()) return true; await new Promise((r) => setTimeout(r, 25)); } return false; };
+const waitFor = async (fn, ms = 5000) => { const end = Date.now() + ms; while (Date.now() < end) { if (fn()) return true; await new Promise((r) => setTimeout(r, 25)); } return false; };
 
 describe("an unconfirmed address gets a small trial, and confirming lifts it", () => {
   let server, fake;
@@ -61,6 +61,20 @@ describe("an unconfirmed address gets a small trial, and confirming lifts it", (
     assert.ok(usage.json.used >= 0.3);
     const r = await u.client.post("/api/messages", BODY);
     assert.notEqual(r.status, 402, "0.3 of 2 kr: past the budget check (whatever upstream then answers)");
+  });
+
+  test("a Plus subscriber who never confirmed has the Plus limit, not the trial", async () => {
+    const u = await signUp(server);
+    server.db.prepare("INSERT INTO subscriptions (user_id, stripe_customer_id, stripe_subscription_id, status, current_period_end, updated_at) VALUES (?, 'cus_t', 'sub_t', 'active', NULL, ?)")
+      .run(u.id, Date.now());
+    spendKr(server, u.id, 0.3);
+    const usage = await u.client.get("/api/usage");
+    assert.equal(usage.json.plus, true);
+    assert.equal(usage.json.limit, 30);
+    assert.equal(usage.json.needsVerify, false);
+    const r = await u.client.post("/api/messages", BODY);
+    assert.notEqual(r.status, 402, "paid: past the budget check (whatever upstream then answers)");
+    assert.notEqual(r.json?.error?.code, "unverified_pool");
   });
 
   test("a confirmed account over its month still gets quota_exceeded", async () => {

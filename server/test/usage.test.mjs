@@ -233,11 +233,18 @@ describe("usage: unconfirmed addresses", () => {
     return id;
   };
   test("count as unconfirmed only when confirming was possible and hasn't happened", () => {
-    assert.equal(usage.isUnconfirmed(make(1, null)), true);
-    assert.equal(usage.isUnconfirmed(make(1, Date.now())), false, "confirmed");
-    assert.equal(usage.isUnconfirmed(make(null, null)), false, "made before email existed: an early, real user");
-    assert.equal(usage.isUnconfirmed(null), false);
-    assert.equal(usage.isUnconfirmed("no-such-user"), false);
+    process.env.RESEND_API_KEY = "test-key";   // email on: a confirm link can be sent
+    try {
+      assert.equal(usage.isUnconfirmed(make(1, null)), true);
+      assert.equal(usage.isUnconfirmed(make(1, Date.now())), false, "confirmed");
+      assert.equal(usage.isUnconfirmed(make(null, null)), false, "made before email existed: an early, real user");
+      assert.equal(usage.isUnconfirmed(null), false);
+      assert.equal(usage.isUnconfirmed("no-such-user"), false);
+    } finally { delete process.env.RESEND_API_KEY; }
+  });
+
+  test("nobody is unconfirmed while email is off: no link could be sent", () => {
+    assert.equal(usage.isUnconfirmed(make(1, null)), false);
   });
 
   test("share a $1 pool per day: held and booked spend both count", () => {
