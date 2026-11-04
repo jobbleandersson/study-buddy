@@ -6342,6 +6342,9 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   .qedit__toggle::after { inset: -8px; }                       /* 28px */
   .q-speak::after { inset: -6px; }                             /* 32px */
   :is(.subjpick__chip, .hp-fchip, .chatmode)::after { inset: -4px -3px; }   /* 33–36px, rows 8px apart */
+  /* Two of those chip rows scroll sideways on a phone, and a scroller clips (and would scroll up and down
+     to) anything past its edge: room above and below, given back with a negative margin. */
+  .solve-more .chatmodes { padding-block: 4px; margin-block: -4px; }
   .subjpick__more::after { inset: -4px 0 -6px; }
   .ref__level::after { inset: -6px -3px -4px; }                /* 34px, 6px above the formulas */
   .tab::after { inset: -6px -2px -5px; }                       /* 33px, 4px apart in their pill */
@@ -6539,6 +6542,9 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   .hp-fchips::-webkit-scrollbar { display: none; }
   .hp-fchip { flex: none; }
 }
+/* Touch: the row clips (and would scroll up and down to) anything past its edge, so it gets room above and
+   below for its chips' taller hit areas, given back with a negative margin. */
+@media (max-width: 560px) and (pointer: coarse) { .hp-fchips { padding-block: 6px; margin-block: -6px; } }
 .hp-qlist { list-style: none; margin: 0; padding: 0; display: grid; }
 .hp-qrow { display: flex; align-items: center; gap: var(--s-2); padding: 10px 0; border-top: 1px solid var(--line); }
 .hp-qrow__main { flex: 1; min-width: 0; display: grid; gap: 4px; }
