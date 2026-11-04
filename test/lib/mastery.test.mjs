@@ -34,6 +34,15 @@ describe("mastery: topics are kept per subject (sweep finding L4)", () => {
     const d = deltaFromAttempt([attempts[0]], attempts[1], { assignments: [es, fr] });
     assert.deepEqual(d, { "present tense": { before: 0, after: 1 } });
   });
+  test("deltaFromAttempt: a name two subjects share in one mixed run shows both, the second with its subject", () => {
+    const mixedRun = { finishedAt: 3, items: [
+      { questionId: "es1", topic: "present tense", correct: true },
+      { questionId: "fr1", topic: "present tense", correct: true },
+    ] };
+    const names = { spanska: "Spanska", franska: "Franska" };
+    const d = deltaFromAttempt(attempts, mixedRun, { assignments: [es, fr], subjectName: (id) => names[id] });
+    assert.deepEqual(Object.keys(d), ["present tense", "present tense (Franska)"]);
+  });
 });
 
 describe("mastery.firstTryCorrect", () => {

@@ -87,16 +87,22 @@ export function masteryForAssignment(assignment, topicMastery) {
 
 // Snapshot before, apply one attempt, return {topic: {before, after}} by topic name, for the results screen.
 // Only the topics this attempt actually covered — a Rome test shouldn't
-// report on your photosynthesis topics just because they exist.
-export function deltaFromAttempt(attempts, newAttempt, { assignments = null } = {}) {
+// report on your photosynthesis topics just because they exist. A name two subjects share in one mixed run
+// gets the subject after it ("present tense (Franska)", via `subjectName`), so both show.
+export function deltaFromAttempt(attempts, newAttempt, { assignments = null, subjectName = (id) => id } = {}) {
   const before = masteryByTopic(attempts, { assignments });
   const after = masteryByTopic([...attempts, newAttempt], { assignments });
   const subjectOf = assignments ? subjectsByQuestion(assignments) : null;
   const out = {};
+  const keyOfLabel = new Map();   // label -> the mastery key it shows
   for (const it of newAttempt.items || []) {
-    if (!it.topic || out[it.topic]) continue;
-    const k = subjectOf ? topicKey(subjectOf.get(it.questionId), it.topic) : it.topic;
-    out[it.topic] = { before: before[k] ?? 0, after: after[k] ?? 0 };
+    if (!it.topic) continue;
+    const sid = subjectOf?.get(it.questionId);
+    const k = subjectOf ? topicKey(sid, it.topic) : it.topic;
+    if ([...keyOfLabel.values()].includes(k)) continue;
+    const label = keyOfLabel.has(it.topic) ? `${it.topic} (${subjectName(sid) || sid})` : it.topic;
+    keyOfLabel.set(label, k);
+    out[label] = { before: before[k] ?? 0, after: after[k] ?? 0 };
   }
   return out;
 }
