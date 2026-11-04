@@ -121,6 +121,19 @@ const MATH_ROUTES = /^\/(session|review|practice|tonight|teachback|challenge|res
 if (document.readyState === "complete") setTimeout(loadMath, 3000);
 else window.addEventListener("load", () => setTimeout(loadMath, 3000));
 
+// The study-session screen (views/session.js and the ~35 modules only it uses) is fetched in the
+// background a moment after the first app screen is up (render() below), so tapping "start" opens the
+// set straight away instead of first loading its code. Waiting for that screen keeps the preload from
+// competing with it on a slow connection; the front page for first-time visitors never starts it (a
+// newcomer gets it once they reach the app), and a browser asking to save data gets the code on
+// demand, as before. Fetching early runs nothing: those modules only define functions.
+let sessionPreloaded = false;
+function preloadSession() {
+  if (sessionPreloaded || navigator.connection?.saveData) return;
+  sessionPreloaded = true;
+  setTimeout(() => import("./views/session.js").catch(() => { /* fetched again when a session opens */ }), 2500);
+}
+
 /**
  * Should the root route show the front page instead of the app? Only for a
  * genuinely new visitor: no sets of their own, intro not seen, not signed in,
@@ -1157,6 +1170,7 @@ async function render({ chromeOnly = false, softRefresh = false } = {}) {
     const bare = result?.chrome === false;
     document.body.classList.toggle("no-chrome", bare);
     mount(app, bare ? node : shell(node));
+    if (!bare) preloadSession();
     // A running session / worksheet is a focus context — hide the floating
     // app-help chat there too (it lives on <body>, outside the shell).
     document.body.classList.toggle("route-immersive", immersiveRoute());
