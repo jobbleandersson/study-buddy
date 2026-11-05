@@ -1,7 +1,7 @@
 import { test, describe, before, after } from "node:test";
 import assert from "node:assert/strict";
 import crypto from "node:crypto";
-import { startServer, makeClient } from "./harness.mjs";
+import { startServer, makeClient, hashToken } from "./harness.mjs";
 
 const uniqueEmail = () => `reset-${Date.now()}-${Math.random().toString(36).slice(2)}@example.com`;
 
@@ -18,7 +18,7 @@ describe("POST /api/auth/reset-password", () => {
     const now = Date.now();
     server.db.prepare(
       "INSERT INTO password_reset_tokens (id, user_id, token, expires_at, created_at) VALUES (?, ?, ?, ?, ?)"
-    ).run(crypto.randomUUID(), userId, token, now + expiresInMs, now);
+    ).run(crypto.randomUUID(), userId, hashToken(token), now + expiresInMs, now);   // stored hashed, as the server does
     return token;
   }
 
@@ -42,7 +42,7 @@ describe("POST /api/auth/reset-password", () => {
     const { status } = await client.post("/api/auth/reset-password", { token, password: "short" });
     assert.equal(status, 400);
     // the token must still be usable - a rejected password shouldn't burn it
-    const row = server.db.prepare("SELECT used_at FROM password_reset_tokens WHERE token = ?").get(token);
+    const row = server.db.prepare("SELECT used_at FROM password_reset_tokens WHERE token = ?").get(hashToken(token));
     assert.equal(row.used_at, null);
   });
 
@@ -91,7 +91,7 @@ describe("POST /api/auth/reset-password", () => {
 
     await client.post("/api/auth/reset-password", { token: tokenA, password: "newpassword1" });
 
-    const rowB = server.db.prepare("SELECT used_at FROM password_reset_tokens WHERE token = ?").get(tokenB);
+    const rowB = server.db.prepare("SELECT used_at FROM password_reset_tokens WHERE token = ?").get(hashToken(tokenB));
     assert.ok(rowB.used_at, "the sibling token should have been retired even though it wasn't redeemed");
   });
 
@@ -129,7 +129,7 @@ describe("POST /api/auth/reset-password: revokeTies", () => {
     const now = Date.now();
     server.db.prepare(
       "INSERT INTO password_reset_tokens (id, user_id, token, expires_at, created_at) VALUES (?, ?, ?, ?, ?)"
-    ).run(crypto.randomUUID(), userId, token, now + 3600_000, now);
+    ).run(crypto.randomUUID(), userId, hashToken(token), now + 3600_000, now);   // stored hashed, as the server does
     return token;
   }
 

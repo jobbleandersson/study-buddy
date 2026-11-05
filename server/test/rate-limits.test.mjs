@@ -4,7 +4,7 @@
 // the 429 path itself.
 import { test, describe, before, after } from "node:test";
 import assert from "node:assert/strict";
-import { startServer, makeClient, startFakeResend } from "./harness.mjs";
+import { startServer, makeClient, startFakeResend, hashToken } from "./harness.mjs";
 import { totpAt } from "../src/totp.js";
 
 const uniqueEmail = () => `ratelimit-${Date.now()}-${Math.random().toString(36).slice(2)}@example.com`;
@@ -183,7 +183,7 @@ describe("set-password rate limiting: bad Google credentials", () => {
       "INSERT INTO users (id, email, password_hash, google_sub, created_at) VALUES (?, ?, ?, ?, ?)"
     ).run(id, email, "unusable-hash", "google-sub-ratelimit", now);
     server.db.prepare("INSERT INTO sessions (id, user_id, expires_at, created_at) VALUES (?, ?, ?, ?)")
-      .run("sess-" + now, id, now + 3600_000, now);
+      .run(hashToken("sess-" + now), id, now + 3600_000, now);   // stored hashed, as the server does
     client.cookie = "sb_session=sess-" + now;
 
     for (let i = 0; i < 3; i++) {

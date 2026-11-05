@@ -1,6 +1,7 @@
 import { db } from "../db.js";
 import { COOKIE_NAME } from "../constants.js";
 import { renewSession } from "../session.js";
+import { hashToken } from "../tokens.js";
 
 export function requireAuth(req, res, next) {
   const sid = req.cookies?.[COOKIE_NAME];
@@ -10,7 +11,7 @@ export function requireAuth(req, res, next) {
     `SELECT sessions.user_id AS userId, users.email AS email, sessions.expires_at AS sessionEnds, sessions.created_at AS sessionStarted
      FROM sessions JOIN users ON users.id = sessions.user_id
      WHERE sessions.id = ? AND sessions.expires_at > ?`
-  ).get(sid, Date.now());
+  ).get(hashToken(sid), Date.now());   // stored hashed (tokens.js)
 
   if (!row) return res.status(401).json({ error: { message: "Session expired.", code: "not_authenticated" } });
   renewSession(res, sid, row.sessionEnds, row.sessionStarted);

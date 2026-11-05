@@ -1,6 +1,6 @@
 import { test, describe, before, after } from "node:test";
 import assert from "node:assert/strict";
-import { startServer, makeClient } from "./harness.mjs";
+import { startServer, makeClient, hashToken } from "./harness.mjs";
 
 // A session lasts 30 days from its last use, never more than 90 days from sign-in.
 
@@ -18,11 +18,11 @@ describe("session renewal", () => {
     const sid = c.cookie.split("=")[1];
     return { c, sid };
   }
-  const row = (sid) => server.db.prepare("SELECT expires_at AS e, created_at AS c FROM sessions WHERE id = ?").get(sid);
+  const row = (sid) => server.db.prepare("SELECT expires_at AS e, created_at AS c FROM sessions WHERE id = ?").get(hashToken(sid));
 
   test("a session used after a few days is pushed out to 30 days from now, and the cookie is renewed", async () => {
     const { c, sid } = await signedIn();
-    server.db.prepare("UPDATE sessions SET expires_at = ? WHERE id = ?").run(Date.now() + 10 * DAY, sid);
+    server.db.prepare("UPDATE sessions SET expires_at = ? WHERE id = ?").run(Date.now() + 10 * DAY, hashToken(sid));
     const r = await c.get("/api/auth/me");
     assert.equal(r.json.authed, true);
     const e = row(sid).e;
@@ -41,14 +41,14 @@ describe("session renewal", () => {
 
   test("an API request that needs a session renews it too", async () => {
     const { c, sid } = await signedIn();
-    server.db.prepare("UPDATE sessions SET expires_at = ? WHERE id = ?").run(Date.now() + 5 * DAY, sid);
+    server.db.prepare("UPDATE sessions SET expires_at = ? WHERE id = ?").run(Date.now() + 5 * DAY, hashToken(sid));
     assert.equal((await c.get("/api/state")).status, 200);
     assert.ok(row(sid).e > Date.now() + 29 * DAY);
   });
 
   test("never past 90 days from sign-in", async () => {
     const { c, sid } = await signedIn();
-    server.db.prepare("UPDATE sessions SET created_at = ?, expires_at = ? WHERE id = ?").run(Date.now() - 80 * DAY, Date.now() + 2 * DAY, sid);
+    server.db.prepare("UPDATE sessions SET created_at = ?, expires_at = ? WHERE id = ?").run(Date.now() - 80 * DAY, Date.now() + 2 * DAY, hashToken(sid));
     await c.get("/api/auth/me");
     const { e, c: started } = row(sid);
     assert.equal(e, started + 90 * DAY);
@@ -56,7 +56,7 @@ describe("session renewal", () => {
 
   test("an expired session is not revived", async () => {
     const { c, sid } = await signedIn();
-    server.db.prepare("UPDATE sessions SET expires_at = ? WHERE id = ?").run(Date.now() - 1000, sid);
+    server.db.prepare("UPDATE sessions SET expires_at = ? WHERE id = ?").run(Date.now() - 1000, hashToken(sid));
     assert.equal((await c.get("/api/auth/me")).json.authed, false);
     assert.ok(row(sid).e < Date.now());
   });

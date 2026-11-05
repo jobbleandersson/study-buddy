@@ -15,6 +15,7 @@ import { consume, TOO_MANY_MESSAGE } from "../middleware/attemptLimit.js";
 import { isUniqueViolation } from "../errors.js";
 import { requireAuth } from "../middleware/requireAuth.js";
 import { SESSION_TTL_MS, cookieOpts, renewSession } from "../session.js";
+import { hashToken } from "../tokens.js";
 import { isPlausibleEmail } from "../emailCheck.js";
 import { mayMail } from "../mailLimits.js";
 import { emailEnabled, sendVerifyEmail, sendResetEmail, sendTwoFaEnabledEmail, sendTwoFaDisabledEmail, sendPasswordAddedEmail, sendPasswordChangedEmail, sendEmailChangeConfirmEmail, sendEmailChangeRequestedEmail, sendEmailChangedEmail, sendUseGoogleEmail, sendGoogleLinkedEmail, sendAppleLinkedEmail, sendTwoFaCodeEmail, sendWelcomeEmail } from "../email.js";
@@ -33,7 +34,7 @@ function createSession(res, userId) {
   const id = crypto.randomUUID();
   const now = Date.now();
   db.prepare("INSERT INTO sessions (id, user_id, expires_at, created_at) VALUES (?, ?, ?, ?)")
-    .run(id, userId, now + SESSION_TTL_MS, now);
+    .run(hashToken(id), userId, now + SESSION_TTL_MS, now);
   res.cookie(COOKIE_NAME, id, cookieOpts());
 }
 
@@ -130,19 +131,19 @@ function issueVerifyToken(userId) {
   const token = crypto.randomBytes(32).toString("hex");
   const now = Date.now();
   db.prepare("INSERT INTO email_verify_tokens (id, user_id, token, expires_at, created_at) VALUES (?, ?, ?, ?, ?)")
-    .run(crypto.randomUUID(), userId, token, now + VERIFY_TTL_MS, now);
+    .run(crypto.randomUUID(), userId, hashToken(token), now + VERIFY_TTL_MS, now);
   return token;
 }
 function issueResetToken(userId) {
   const token = crypto.randomBytes(32).toString("hex");
   const now = Date.now();
   db.prepare("INSERT INTO password_reset_tokens (id, user_id, token, expires_at, created_at) VALUES (?, ?, ?, ?, ?)")
-    .run(crypto.randomUUID(), userId, token, now + RESET_TTL_MS, now);
+    .run(crypto.randomUUID(), userId, hashToken(token), now + RESET_TTL_MS, now);
   return token;
 }
 // A reset mail that never went out leaves its token row behind, and the row is what the forgot-password
 // cooldown reads: drop it, so a failed send does not lock the person out of asking again for two minutes.
-const dropResetToken = (token) => db.prepare("DELETE FROM password_reset_tokens WHERE token = ? AND used_at IS NULL").run(token);
+const dropResetToken = (token) => db.prepare("DELETE FROM password_reset_tokens WHERE token = ? AND used_at IS NULL").run(hashToken(token));
 const badToken = (res) => res.status(400).json({ error: { message: "That link is invalid or has expired.", code: "bad_token" } });
 
 // Used up every reset link still floating around for an account, so a second, older email can't be
@@ -477,7 +478,7 @@ auth.post("/auth/apple", appleSignInLimit, asyncHandler(async (req, res) => {
 
 auth.post("/auth/logout", (req, res) => {
   const sid = req.cookies?.[COOKIE_NAME];
-  if (sid) db.prepare("DELETE FROM sessions WHERE id = ?").run(sid);
+  if (sid) db.prepare("DELETE FROM sessions WHERE id = ?").run(hashToken(sid));
   res.clearCookie(COOKIE_NAME, { path: "/" });
   res.json({ ok: true });
 });
@@ -491,7 +492,7 @@ auth.get("/auth/me", (req, res) => {
     `SELECT sessions.expires_at AS sessionEnds, sessions.created_at AS sessionStarted, users.email AS email, users.google_sub AS googleSub, users.apple_sub AS appleSub, users.password_set_at AS passwordSetAt, users.email_verified_at AS emailVerifiedAt, users.totp_enabled_at AS totpEnabledAt, users.twofa_method AS twofaMethod
      FROM sessions JOIN users ON users.id = sessions.user_id
      WHERE sessions.id = ? AND sessions.expires_at > ?`
-  ).get(sid, Date.now());
+  ).get(hashToken(sid), Date.now());
   if (row) renewSession(res, sid, row.sessionEnds, row.sessionStarted);
   // passwordless: linked to Google or Apple with no password ever added, so there's no local sign-in step
   // to type — account deletion asks for the account's email instead, and 2FA has nothing to protect.
@@ -526,7 +527,7 @@ auth.post("/auth/verify-email", verifyEmailIpLimit, asyncHandler(async (req, res
   const token = String(req.body?.token || "");
   if (!token) return badToken(res);
   const row = db.prepare("SELECT id, user_id AS userId FROM email_verify_tokens WHERE token = ? AND used_at IS NULL AND expires_at > ?")
-    .get(token, Date.now());
+    .get(hashToken(token), Date.now());
   if (!row) return badToken(res);
   // Claim the token in the same statement that checks it is unused: two requests carrying the same
   // link (a double-tap, a mail scanner that opened it first) both pass the SELECT above, and only
@@ -586,7 +587,7 @@ auth.post("/auth/reset-password", resetPasswordIpLimit, asyncHandler(async (req,
   if (problem) return res.status(400).json({ error: { message: problem } });
 
   const row = db.prepare("SELECT id, user_id AS userId FROM password_reset_tokens WHERE token = ? AND used_at IS NULL AND expires_at > ?")
-    .get(token, Date.now());
+    .get(hashToken(token), Date.now());
   if (!row) return badToken(res);
 
   const hash = await hashPassword(password);
@@ -730,7 +731,7 @@ auth.post("/auth/2fa/disable", requireAuth, twoFaPasswordLimit, asyncHandler(asy
     // Kill every *other* session — the one making this request already just re-proved the
     // password, so leaving it alive isn't a risk, and killing it too would just be confusing.
     // Revoking the rest still matters: it makes any other signed-in device notice something changed.
-    db.prepare("DELETE FROM sessions WHERE user_id = ? AND id != ?").run(req.user.userId, sid || "");
+    db.prepare("DELETE FROM sessions WHERE user_id = ? AND id != ?").run(req.user.userId, sid ? hashToken(sid) : "");
   })();
   sendTwoFaDisabledEmail(req.user.email).catch(() => {});
   res.json({ ok: true });
@@ -809,7 +810,7 @@ auth.post("/auth/change-password", requireAuth, changePasswordLimit, asyncHandle
     const sid = req.cookies?.[COOKIE_NAME];
     db.transaction(() => {
       db.prepare("UPDATE users SET password_hash = ?, password_set_at = ? WHERE id = ?").run(hash, now, req.user.userId);
-      db.prepare("DELETE FROM sessions WHERE user_id = ? AND id != ?").run(req.user.userId, sid || "");
+      db.prepare("DELETE FROM sessions WHERE user_id = ? AND id != ?").run(req.user.userId, sid ? hashToken(sid) : "");
       retireResetTokens(req.user.userId, now);
       db.prepare("DELETE FROM email_change_tokens WHERE user_id = ?").run(req.user.userId);   // a pending change of address dies with the old password
     })();
@@ -825,7 +826,7 @@ auth.post("/auth/change-password", requireAuth, changePasswordLimit, asyncHandle
 // it only removes access, and the person asking is already signed in.
 auth.post("/auth/logout-others", requireAuth, (req, res) => {
   const sid = req.cookies?.[COOKIE_NAME];
-  const r = db.prepare("DELETE FROM sessions WHERE user_id = ? AND id != ?").run(req.user.userId, sid || "");
+  const r = db.prepare("DELETE FROM sessions WHERE user_id = ? AND id != ?").run(req.user.userId, sid ? hashToken(sid) : "");
   res.json({ ok: true, signedOut: r.changes });
 });
 
@@ -857,7 +858,7 @@ auth.post("/auth/change-email", requireAuth, changeEmailLimit, asyncHandler(asyn
     db.transaction(() => {
       db.prepare("DELETE FROM email_change_tokens WHERE user_id = ?").run(req.user.userId);   // a new request replaces the old one
       db.prepare("INSERT INTO email_change_tokens (id, user_id, new_email, token, expires_at, created_at) VALUES (?, ?, ?, ?, ?, ?)")
-        .run(crypto.randomUUID(), req.user.userId, newEmail, token, now + EMAIL_CHANGE_TTL_MS, now);
+        .run(crypto.randomUUID(), req.user.userId, newEmail, hashToken(token), now + EMAIL_CHANGE_TTL_MS, now);
     })();
     sendEmailChangeConfirmEmail(newEmail, token).catch(() => {});
     sendEmailChangeRequestedEmail(user.email, newEmail).catch(() => {});
@@ -872,7 +873,7 @@ auth.post("/auth/confirm-email-change", verifyEmailIpLimit, asyncHandler(async (
   const token = String(req.body?.token || "");
   if (!token) return badToken(res);
   const row = db.prepare("SELECT id, user_id AS userId, new_email AS newEmail FROM email_change_tokens WHERE token = ? AND used_at IS NULL AND expires_at > ?")
-    .get(token, Date.now());
+    .get(hashToken(token), Date.now());
   if (!row) return badToken(res);
   const now = Date.now();
   const sid = req.cookies?.[COOKIE_NAME] || "";
@@ -883,8 +884,8 @@ auth.post("/auth/confirm-email-change", verifyEmailIpLimit, asyncHandler(async (
       if (claimed.changes === 0) return null;
       const old = db.prepare("SELECT email FROM users WHERE id = ?").get(row.userId)?.email;
       db.prepare("UPDATE users SET email = ?, email_verified_at = ? WHERE id = ?").run(row.newEmail, now, row.userId);   // UNIQUE: the address may have been taken meanwhile
-      const mine = !!sid && !!db.prepare("SELECT 1 AS x FROM sessions WHERE id = ? AND user_id = ?").get(sid, row.userId);
-      db.prepare("DELETE FROM sessions WHERE user_id = ? AND id != ?").run(row.userId, mine ? sid : "");
+      const mine = !!sid && !!db.prepare("SELECT 1 AS x FROM sessions WHERE id = ? AND user_id = ?").get(hashToken(sid), row.userId);
+      db.prepare("DELETE FROM sessions WHERE user_id = ? AND id != ?").run(row.userId, mine ? hashToken(sid) : "");
       retireResetTokens(row.userId, now);
       db.prepare("UPDATE email_verify_tokens SET used_at = ? WHERE user_id = ? AND used_at IS NULL").run(now, row.userId);
       db.prepare("DELETE FROM email_change_tokens WHERE user_id = ? AND id != ?").run(row.userId, row.id);

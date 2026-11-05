@@ -1,7 +1,7 @@
 import { test, describe, before, after } from "node:test";
 import assert from "node:assert/strict";
 import crypto from "node:crypto";
-import { startServer, startFakeResend, makeClient } from "./harness.mjs";
+import { startServer, startFakeResend, makeClient, seedSession, hashToken } from "./harness.mjs";
 
 // Changing the address you sign in with: password now, a link to the new address, notices to the old one.
 
@@ -114,7 +114,7 @@ describe("change email", () => {
     await ask(a.c, second); await sleep(300);
     assert.equal((await makeClient(server.baseUrl).post("/api/auth/confirm-email-change", { token: t1 })).status, 400);
     const t2 = tokenIn(fake.mailsTo(second)[0]);
-    server.db.prepare("UPDATE email_change_tokens SET expires_at = ? WHERE token = ?").run(Date.now() - 1000, t2);
+    server.db.prepare("UPDATE email_change_tokens SET expires_at = ? WHERE token = ?").run(Date.now() - 1000, hashToken(t2));
     assert.equal((await makeClient(server.baseUrl).post("/api/auth/confirm-email-change", { token: t2 })).status, 400);
   });
 
@@ -123,9 +123,9 @@ describe("change email", () => {
     const id = crypto.randomUUID();
     server.db.prepare("INSERT INTO users (id, email, password_hash, google_sub, created_at, email_verified_at) VALUES (?, ?, ?, ?, ?, ?)")
       .run(id, addr, "unusable-hash", "g-" + id, Date.now(), Date.now());
-    server.db.prepare("INSERT INTO sessions (id, user_id, created_at, expires_at) VALUES (?, ?, ?, ?)").run("sess-" + id, id, Date.now(), Date.now() + 3600_000);
+    const sid = seedSession(server.db, id);
     const c = makeClient(server.baseUrl);
-    c.cookie = `sb_session=sess-${id}`;
+    c.cookie = `sb_session=${sid}`;
     const r = await ask(c, email());
     assert.equal(r.status, 400);
     assert.equal(r.json.error.code, "google_account");
@@ -171,8 +171,7 @@ describe("a password reset or change cancels a pending change of address", () =>
     const p = await pending();
     const anon = makeClient(server.baseUrl);
     await anon.post("/api/auth/forgot-password", { email: p.addr });
-    const uid = server.db.prepare("SELECT id FROM users WHERE email = ?").get(p.addr).id;
-    const reset = server.db.prepare("SELECT token FROM password_reset_tokens WHERE user_id = ?").get(uid).token;
+    const reset = await fake.waitToken(p.addr);   // from the mailed link: the database holds only its hash
     assert.equal((await anon.post("/api/auth/reset-password", { token: reset, password: "ownersnewpw1" })).status, 200);
     assert.equal((await makeClient(server.baseUrl).post("/api/auth/confirm-email-change", { token: p.token })).status, 400);
   });

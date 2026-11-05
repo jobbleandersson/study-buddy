@@ -1,7 +1,7 @@
 import { test, describe, before, after } from "node:test";
 import assert from "node:assert/strict";
 import crypto from "node:crypto";
-import { startServer, startFakeResend, makeClient } from "./harness.mjs";
+import { startServer, startFakeResend, makeClient, seedSession } from "./harness.mjs";
 import { isPlausibleEmail } from "../src/emailCheck.js";
 
 // The basics of an account: an address that could receive mail, changing the password, signing out the
@@ -96,8 +96,7 @@ describe("change password and sign out other devices", () => {
     const { addr, a } = await twoDevices();
     const anon = makeClient(server.baseUrl);
     await anon.post("/api/auth/forgot-password", { email: addr });
-    const uid = server.db.prepare("SELECT id FROM users WHERE email = ?").get(addr).id;
-    const token = server.db.prepare("SELECT token FROM password_reset_tokens WHERE user_id = ?").get(uid).token;
+    const token = await fake.waitToken(addr);   // from the mailed link: the database holds only its hash
     await a.post("/api/auth/change-password", { currentPassword: "oldpassword1", newPassword: "brandnewpw2" });
     assert.equal((await anon.post("/api/auth/reset-password", { token, password: "attackerpw99" })).status, 400);
   });
@@ -107,9 +106,9 @@ describe("change password and sign out other devices", () => {
     const id = crypto.randomUUID();
     server.db.prepare("INSERT INTO users (id, email, password_hash, google_sub, created_at, email_verified_at) VALUES (?, ?, ?, ?, ?, ?)")
       .run(id, addr, "unusable-hash", "g-sub-" + id, Date.now(), Date.now());
-    server.db.prepare("INSERT INTO sessions (id, user_id, created_at, expires_at) VALUES (?, ?, ?, ?)").run("sess-" + id, id, Date.now(), Date.now() + 3600_000);
+    const sid = seedSession(server.db, id);
     const c = makeClient(server.baseUrl);
-    c.cookie = `sb_session=sess-${id}`;
+    c.cookie = `sb_session=${sid}`;
     const r = await c.post("/api/auth/change-password", { currentPassword: "whatever1", newPassword: "brandnewpw2" });
     assert.equal(r.status, 400);
     assert.equal(r.json.error.code, "no_password");

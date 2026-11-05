@@ -1,21 +1,23 @@
 import { test, describe, before, after } from "node:test";
 import assert from "node:assert/strict";
-import { startServer, makeClient } from "./harness.mjs";
+import { startServer, startFakeResend, makeClient, hashToken } from "./harness.mjs";
 
 const uniqueEmail = () => `verify-${Date.now()}-${Math.random().toString(36).slice(2)}@example.com`;
 
 describe("POST /api/auth/verify-email", () => {
-  let server, client;
-  before(async () => { server = await startServer({ RESEND_API_KEY: "dummy-test-key" }); client = makeClient(server.baseUrl); });
-  after(async () => { await server.stop(); });
+  let server, client, fake;
+  before(async () => {
+    fake = await startFakeResend();
+    server = await startServer({ RESEND_API_KEY: "dummy-test-key", RESEND_API_URL: fake.url });
+    client = makeClient(server.baseUrl);
+  });
+  after(async () => { await server.stop(); await fake.stop(); });
 
   async function signupAndGetToken() {
     const email = uniqueEmail();
     await client.post("/api/auth/signup", { email, password: "correctpw1", consent: true });
-    const row = server.db.prepare(
-      "SELECT token FROM email_verify_tokens WHERE user_id = (SELECT id FROM users WHERE email = ?)"
-    ).get(email);
-    return { email, token: row.token };
+    // From the mailed link, as a person would: the database holds only its hash (src/tokens.js).
+    return { email, token: await fake.waitToken(email) };
   }
 
   test("a missing token is rejected", async () => {
@@ -52,7 +54,7 @@ describe("POST /api/auth/verify-email", () => {
 
   test("an expired token is rejected", async () => {
     const { token } = await signupAndGetToken();
-    server.db.prepare("UPDATE email_verify_tokens SET expires_at = ? WHERE token = ?").run(Date.now() - 1000, token);
+    server.db.prepare("UPDATE email_verify_tokens SET expires_at = ? WHERE token = ?").run(Date.now() - 1000, hashToken(token));
     const { status, json } = await client.post("/api/auth/verify-email", { token });
     assert.equal(status, 400);
     assert.equal(json.error.code, "bad_token");

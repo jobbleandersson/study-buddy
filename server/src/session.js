@@ -1,5 +1,6 @@
 import { db } from "./db.js";
 import { COOKIE_NAME } from "./constants.js";
+import { hashToken } from "./tokens.js";
 
 // Sign-in sessions. One lasts 30 days from its last use and never more than 90 days from sign-in, so a
 // student who opens the app every week stays signed in instead of being thrown out on day 30 with
@@ -25,6 +26,6 @@ export function renewSession(res, sid, expiresAt, createdAt, now = Date.now()) {
   if (!sid || expiresAt - now > SESSION_TTL_MS - RENEW_AFTER_MS) return;
   const next = Math.min(now + SESSION_TTL_MS, (createdAt || now) + SESSION_MAX_AGE_MS);
   if (next <= expiresAt) return;
-  db.prepare("UPDATE sessions SET expires_at = ? WHERE id = ?").run(next, sid);
+  db.prepare("UPDATE sessions SET expires_at = ? WHERE id = ?").run(next, hashToken(sid));   // stored hashed (tokens.js); the cookie keeps the raw id
   res.cookie(COOKIE_NAME, sid, { ...cookieOpts(), maxAge: next - now });
 }
