@@ -13,7 +13,7 @@
 import { db } from "./db.js";
 
 /** Bump when the shape below changes: older rows are then rebuilt from their state on next read. */
-export const DIGEST_VERSION = 4;   // 4: reads lastAnswers and shortened attempts (js/lib/history.js)
+export const DIGEST_VERSION = 5;   // 5: a name that reads as official is not kept; 4: reads lastAnswers and shortened attempts (js/lib/history.js)
 
 // A profile picture (js/components/avatar-editor.js) travels inside each person's synced state. That
 // blob is whatever the client PUT, so before a picture goes out to a friend it is checked against the
@@ -33,7 +33,19 @@ export function nameFrom(blob) {
   const n = blob?.profile?.name;
   if (typeof n !== "string") return null;
   const clean = n.replace(/[^\p{L}\p{M}\s'’-]/gu, "").replace(/\s+/g, " ").trim().slice(0, 24);
-  return clean || null;
+  if (!clean || looksOfficial(clean)) return null;   // the masked address is shown instead
+  return clean;
+}
+
+// Words that make a name read as the app or the school speaking, not a classmate: "Admin PluggEra" or "Läraren" on
+// a friend's leaderboard or in a class list. Such a name isn't shown to others (the masked address is); the student
+// still sees it on their own profile and the tutor still uses it. Whole words, any case.
+const OFFICIAL = new Set([
+  "admin", "administrator", "administratör", "pluggera", "support", "moderator",
+  "lärare", "läraren", "teacher", "rektor", "rektorn", "personal", "staff",
+]);
+export function looksOfficial(name) {
+  return String(name).toLowerCase().split(/[\s'’-]+/u).some((w) => OFFICIAL.has(w));
 }
 
 /** "jonas.berg@school.se" -> "j•••@school.se": enough for a person to recognise their own pupil, not
