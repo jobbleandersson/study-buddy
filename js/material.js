@@ -5,6 +5,7 @@
 //   - topic string -> { topic }
 
 import { t } from "./lib/i18n.js";
+import { withinTotal } from "./lib/zip-limits.js";
 
 const MAX_CHARS = 24000;
 
@@ -75,7 +76,9 @@ export async function extractZipText(file) {
   // A PDF that unpacks to more than a PDF may be is skipped, not inflated: a few KB of zip can
   // expand to gigabytes.
   const entries = Object.values(zip.files).filter((f) => !f.dir && !((f._data?.uncompressedSize || 0) > MAX_PDF_BYTES));
-  const pdfEntries = entries.filter((f) => /\.pdf$/i.test(f.name)).slice(0, 20); // cap runaway zips
+  // At most 20 PDFs, and together no more than MAX_ZIP_BYTES unpacked: each one is under MAX_PDF_BYTES, but twenty
+  // of those would still crash the tab (lib/zip-limits.js).
+  const pdfEntries = withinTotal(entries.filter((f) => /\.pdf$/i.test(f.name)), MAX_ZIP_BYTES, (f) => f._data?.uncompressedSize).slice(0, 20);
   if (!pdfEntries.length) throw new Error(t("err.zipNoPdf"));
 
   const parts = [];
