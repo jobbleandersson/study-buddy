@@ -17,11 +17,13 @@ function fakeBox({ sw, cw, sh = 10, ch = 10 }) {
 test("an overflowing box becomes a focusable, named region", () => {
   const box = fakeBox({ sw: 300, cw: 200 });
   assert.equal(markIfScrolls(box, "Formel: Pythagoras sats"), true);
-  assert.deepEqual(Object.fromEntries(box.attrs), { tabindex: "0", role: "region", "aria-label": "Formel: Pythagoras sats" });
+  assert.deepEqual(Object.fromEntries(box.attrs), { tabindex: "0", role: "group", "aria-label": "Formel: Pythagoras sats" });
 });
 
-test("tall overflow counts too (a long reading text)", () => {
-  assert.equal(markIfScrolls(fakeBox({ sw: 100, cw: 100, sh: 900, ch: 300 }), "Texten"), true);
+test("tall overflow counts too; a reading text is a region (a landmark), a formula only a group", () => {
+  const text = fakeBox({ sw: 100, cw: 100, sh: 900, ch: 300 });
+  assert.equal(markIfScrolls(text, "Texten", "region"), true);
+  assert.equal(text.attrs.get("role"), "region");
 });
 
 test("a box that fits gets nothing, and loses it again once it fits", () => {

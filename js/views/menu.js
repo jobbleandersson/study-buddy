@@ -307,8 +307,11 @@ export function renderMenu(mode) {
     // The card is a plain container with two controls side by side: the title is the button that opens the set
     // (its ::after covers the whole card, so a tap anywhere still opens it) and the ⋮ menu. A card that was itself
     // a button with the ⋮ button inside was nested interactive content: a screen reader could skip the inner one.
+    // Its cover sits over the subject, the due date and the ring too, so their hover tips are joined into its own.
+    const tip = [a.title, subjectName, a.dueAt && t("menu.dueLabel", { date: fmtDate(a.dueAt) }),
+      m != null && t("menu.masteryTitle", { pct: Math.round(m * 100) })].filter(Boolean).join(" · ");
     const openBtn = el("button.acard__title.acard__open", {
-      type: "button", title: a.title,
+      type: "button", title: tip,
       ...(selecting ? { role: "checkbox", "aria-checked": String(picked) } : {}),
       "aria-label": selecting ? a.title : t(open ? "menu.cardAriaOpen" : "menu.cardAria",
         { title: a.title, subject: subjectName, count: a.questions.length }),

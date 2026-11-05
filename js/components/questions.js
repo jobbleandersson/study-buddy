@@ -425,7 +425,7 @@ function framePanel(question) {
       s.title ? el("h2.question__stimulus-label", {}, s.title) : null,
       s.figure ? figurePanel(s.figure) : null,
       el("div.question__stimulus-body", { html: renderRich(s.body) }),
-    ].filter(Boolean)), s.title || t("q.passage"));
+    ].filter(Boolean)), s.title || t("q.passage"), "region");
   }
   return null;
 }

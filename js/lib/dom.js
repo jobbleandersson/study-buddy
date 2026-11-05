@@ -161,10 +161,12 @@ export function downloadText(filename, text, mime = "application/json") {
 
 /** A box that scrolls (a wide formula, a long reading text) can only be scrolled by keyboard if it can be
  *  focused. This makes `box` a focusable, named region while — and only while — its content overflows, so
- *  boxes that fit add no stop to the Tab order. `label` is what a screen reader announces. Returns `box`. */
-export function scrollReachable(box, label) {
+ *  boxes that fit add no stop to the Tab order. `label` is what a screen reader announces. `role` is "group" by
+ *  default; "region" (a landmark) only for a box that is a main part of the page, like a reading text — a page
+ *  of formulas as landmarks would crowd landmark navigation. Returns `box`. */
+export function scrollReachable(box, label, role = "group") {
   if (typeof ResizeObserver !== "function") return box;
-  const ro = new ResizeObserver(() => markIfScrolls(box, label));
+  const ro = new ResizeObserver(() => markIfScrolls(box, label, role));
   // The children too: content drawn later (KaTeX filling in a formula) makes the box overflow without the box
   // itself changing size, which is all that watching the box would notice.
   ro.observe(box);
@@ -174,12 +176,12 @@ export function scrollReachable(box, label) {
 
 /** The check scrollReachable runs on every resize: a focusable, named region while `box` overflows, a plain
  *  box otherwise. Returns whether it scrolls. */
-export function markIfScrolls(box, label) {
+export function markIfScrolls(box, label, role = "group") {
   const scrolls = box.scrollWidth > box.clientWidth + 1 || box.scrollHeight > box.clientHeight + 1;
   if (scrolls === box.hasAttribute("tabindex")) return scrolls;
   if (scrolls) {
     box.setAttribute("tabindex", "0");
-    box.setAttribute("role", "region");
+    box.setAttribute("role", role);
     box.setAttribute("aria-label", label);
   } else {
     for (const a of ["tabindex", "role", "aria-label"]) box.removeAttribute(a);
