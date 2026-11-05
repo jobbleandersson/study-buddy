@@ -56,6 +56,11 @@ export function coerceStateShape(s) {
   s.sessions = recordOf(s.sessions);
   s.achievements = record(s.achievements);
   s.readNotifications = record(s.readNotifications);
+  // Each question's latest result from shortened history (lib/history.js): [atMs, 1|0] pairs only.
+  if ("lastAnswers" in s) {
+    s.lastAnswers = Object.fromEntries(Object.entries(record(s.lastAnswers))
+      .filter(([, v]) => Array.isArray(v) && Number.isFinite(v[0]) && (v[1] === 0 || v[1] === 1)));
+  }
   if ("deleted" in s) s.deleted = record(s.deleted);
   if ("sessionsCleared" in s) s.sessionsCleared = record(s.sessionsCleared);
   if ("tonight" in s && !isObj(s.tonight)) s.tonight = {};

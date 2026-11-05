@@ -399,7 +399,7 @@ export async function renderLibrary(qs = null) {
 
     // How this set is going: a bar of questions you got right last time, when
     // you last studied it, and the topic you miss most.
-    const progress = stored ? setProgress(stored, store.attempts, topicMastery()) : null;
+    const progress = stored ? setProgress(stored, store.attempts, topicMastery(), { lastAnswers: store.state.lastAnswers }) : null;
     const progressEl = progress
       ? el("div.libprog", {}, [
           el("div.libprog__bar", {

@@ -57,9 +57,15 @@ export function prepFor(exam) {
   const todays = attempts.filter((a) => (a.finishedAt || 0) >= since);
   const seenBefore = new Set();
   for (const a of attempts) if ((a.finishedAt || 0) < since) for (const it of a.items || []) seenBefore.add(it.questionId);
+  // Questions answered in attempts since shortened (lib/history.js) were seen too.
+  const lastAnswers = store.state.lastAnswers || {};
+  for (const a of scope) for (const q of a.questions || []) {
+    const v = Object.prototype.hasOwnProperty.call(lastAnswers, q.id) ? lastAnswers[q.id] : null;
+    if (Array.isArray(v) && v[0] < since) seenBefore.add(q.id);
+  }
 
   const tm = masteryByTopic(attempts, { assignments: scope });
-  const progress = new Map(scope.map((a) => [a.id, setProgress(a, attempts, tm)]));
+  const progress = new Map(scope.map((a) => [a.id, setProgress(a, attempts, tm, { lastAnswers: store.state.lastAnswers })]));
   const setReady = new Map(scope.map((a) => [a.id, readiness([a], tm).pct]));
   // New to the plan = not opened before today. The ones finished today stay on today's row as done.
   const newSets = scope.filter((a) => !(a.questions || []).some((q) => seenBefore.has(q.id)));

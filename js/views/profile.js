@@ -14,6 +14,7 @@ import { cleanName, LEVELS, GOALS } from "../components/onboarding.js";
 import { ACHIEVEMENTS, TIER_NAMES, nextAchievement } from "../lib/achievements.js";
 import { masteryByTopic, masteryForSubject } from "../lib/mastery.js";
 import { estimatedGrade } from "../lib/grade.js";
+import { answeredCount } from "../lib/history.js";
 import { isHpSetId } from "../lib/hp.js";
 import { hpPrognosis } from "./hp.js";
 import { wordmarkText } from "../lib/wordmark.js";
@@ -111,7 +112,7 @@ function studentCard(p, role) {
 
   const since = studyingSince();
   const { displayStreak } = store.streakInfo;
-  const answered = store.attempts.reduce((n, at) => n + (at.items?.length || 0), 0);
+  const answered = store.attempts.reduce((n, at) => n + answeredCount(at), 0);
   const days = store.state.activity.daysStudied.length;
   const unlocked = store.unlockedAchievements || {};
   const got = ACHIEVEMENTS.filter((d) => d.id in unlocked).length;

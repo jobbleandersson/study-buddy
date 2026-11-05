@@ -113,13 +113,24 @@ export function deltaFromAttempt(attempts, newAttempt, { assignments = null, sub
  * `weakTopic`/`weakCount` use the same threshold and "untouched isn't weak"
  * rule as weakSpotQuestions, so the card agrees with the weak-spots drill.
  * Pass a precomputed `topicMastery` to avoid re-walking every attempt per set.
+ * `lastAnswers` (state.lastAnswers, lib/history.js) holds the latest result of questions whose attempts have
+ * been shortened; it counts like an attempt that answered them then.
  */
-export function setProgress(assignment, attempts, topicMastery = masteryByTopic(attempts, { assignments: [assignment] }), { threshold = 0.6 } = {}) {
+export function setProgress(assignment, attempts, topicMastery = masteryByTopic(attempts, { assignments: [assignment] }), { threshold = 0.6, lastAnswers = null } = {}) {
   const questions = assignment.questions || [];
   const ids = new Set(questions.map((q) => q.id));
 
   const latest = new Map(); // questionId -> { at, ok }
   let lastAt = 0;
+  if (lastAnswers && typeof lastAnswers === "object") {
+    for (const id of ids) {
+      const v = Object.prototype.hasOwnProperty.call(lastAnswers, id) ? lastAnswers[id] : null;
+      if (!Array.isArray(v)) continue;
+      const at = Number(v[0]) || 0;
+      latest.set(id, { at, ok: v[1] === 1 });
+      if (at > lastAt) lastAt = at;
+    }
+  }
   for (const att of attempts) {
     const at = att.finishedAt || 0;
     for (const it of att.items || []) {

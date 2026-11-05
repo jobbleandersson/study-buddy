@@ -14,6 +14,7 @@
 
 import { currentStreak, localDayKey, addDays } from "./activity.js";
 import { masteryByTopic, masteryForSubject } from "./mastery.js";
+import { answeredCount } from "./history.js";
 import { estimatedGrade, gradeRank } from "./grade.js";
 
 export const TIER_NAMES = ["bronze", "silver", "gold", "platinum"];
@@ -50,6 +51,7 @@ function distinctSubjects(s) {
   const seen = new Set();
   for (const a of s.attempts || []) {
     if (bySet.get(a.assignmentId)) seen.add(bySet.get(a.assignmentId));
+    for (const sid of Array.isArray(a.subjects) ? a.subjects : []) if (sid) seen.add(sid);   // a shortened attempt (lib/history.js)
     for (const it of a.items || []) {
       const sid = byQuestion.get(it.questionId);
       if (sid) seen.add(sid);
@@ -114,7 +116,7 @@ export function achievementMetrics(state) {
   const frozen = state.activity?.frozenDays || [];
 
   const streak = Math.max(currentStreak(days, frozen), state.activity?.bestStreak || 0);
-  const questions = attempts.reduce((n, a) => n + (Array.isArray(a.items) ? a.items.length : 0), 0);
+  const questions = attempts.reduce((n, a) => n + answeredCount(a), 0);   // a shortened attempt keeps its count
   const perfect = attempts.filter((a) => a.wasTest && a.scorePct === 100).length;
   // Högskoleprovet tests under test conditions: a quick prognosis, a provpass (a whole test is two),
   // and the old mini-mock, which older attempts still carry.

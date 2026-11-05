@@ -13,7 +13,7 @@
 import { db } from "./db.js";
 
 /** Bump when the shape below changes: older rows are then rebuilt from their state on next read. */
-export const DIGEST_VERSION = 3;
+export const DIGEST_VERSION = 4;   // 4: reads lastAnswers and shortened attempts (js/lib/history.js)
 
 // A profile picture (js/components/avatar-editor.js) travels inside each person's synced state. That
 // blob is whatever the client PUT, so before a picture goes out to a friend it is checked against the
@@ -83,14 +83,31 @@ export function digestOf(blob) {
   const perDay = new Map();   // UTC day start (ms) -> answers given that day
   const latest = new Map();   // a Map while building: a question id like "__proto__" must stay data
   const latestAt = Date.now() + 2 * DAY_MS;   // an attempt dated further ahead than that did not happen yet
+  // Questions whose attempts the app has shortened (js/lib/history.js) keep their latest result in
+  // lastAnswers: { questionId: [atMs, 1|0] }. Read first, so a later answer in a kept attempt wins below.
+  // Client data: only well-formed pairs, ids of a sane length, dates not in the future, and a bounded look.
+  const la = state?.lastAnswers;
+  if (la && typeof la === "object" && !Array.isArray(la)) {
+    let looked = 0;
+    for (const id in la) {
+      if (++looked > MAX_ANSWERS || latest.size >= MAX_ANSWERS) break;
+      if (!Object.prototype.hasOwnProperty.call(la, id) || id.length > MAX_ID_CHARS) continue;
+      const v = la[id];
+      const at = Array.isArray(v) ? Number(v[0]) : NaN;
+      if (!Number.isFinite(at) || at <= 0 || at > latestAt || (v[1] !== 0 && v[1] !== 1)) continue;
+      latest.set(id, [at, v[1]]);
+    }
+  }
   for (const attempt of arr(state?.attempts).slice(-MAX_ATTEMPTS)) {
     const at = Number(attempt?.finishedAt) || 0;
     if (at > latestAt) continue;
     const items = arr(attempt?.items);
-    const n = Math.min(items.length, MAX_ITEMS_PER_ATTEMPT);
+    // A shortened attempt has no items but keeps how many it answered; counted for "answered this week".
+    const answered = Array.isArray(attempt?.items) ? items.length : Math.max(0, Math.floor(Number(attempt?.answered) || 0));
+    const n = Math.min(answered, MAX_ITEMS_PER_ATTEMPT);
     const day = at > 0 ? Math.floor(at / DAY_MS) * DAY_MS : 0;
     perDay.set(day, (perDay.get(day) || 0) + n);
-    for (let i = 0; i < n; i++) {
+    for (let i = 0; i < Math.min(items.length, n); i++) {
       const item = items[i];
       const id = item?.questionId;
       if (typeof id !== "string" || id.length > MAX_ID_CHARS) continue;

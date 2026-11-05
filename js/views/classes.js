@@ -167,7 +167,7 @@ export async function renderClasses(qs) {
   function assignmentRow(a, tm) {
     const entry = names?.index.sets.find((s) => s.id === a.setId);
     const mine = store.getAssignment(a.setId);
-    const p = mine ? setProgress(mine, store.attempts, tm) : null;
+    const p = mine ? setProgress(mine, store.attempts, tm, { lastAnswers: store.state.lastAnswers }) : null;
     const started = !!(p && p.seen);
     const done = started && p.known >= p.total;
     const status = started
