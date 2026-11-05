@@ -49,9 +49,11 @@ function distinctSubjects(s) {
     for (const q of a.questions || []) byQuestion.set(q.id, a.subjectId);
   }
   const seen = new Set();
+  const liveSubjects = new Set((s.subjects || []).map((x) => x?.id));
   for (const a of s.attempts || []) {
     if (bySet.get(a.assignmentId)) seen.add(bySet.get(a.assignmentId));
-    for (const sid of Array.isArray(a.subjects) ? a.subjects : []) if (sid) seen.add(sid);   // a shortened attempt (lib/history.js)
+    // A shortened attempt (lib/history.js) lists its subjects; only ones that still exist count (subjects get merged).
+    for (const sid of Array.isArray(a.subjects) ? a.subjects : []) if (sid && liveSubjects.has(sid)) seen.add(sid);
     for (const it of a.items || []) {
       const sid = byQuestion.get(it.questionId);
       if (sid) seen.add(sid);

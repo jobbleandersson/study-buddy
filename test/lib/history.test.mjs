@@ -67,6 +67,14 @@ describe("history.compactAttempts", () => {
     assert.equal(s.attempts.reduce((n, a) => n + rightCount(a), 0), rightBefore);
   });
 
+  test("a summary keeps both 'right first try' and 'right in the end'", () => {
+    const s = stateWith(KEEP_FULL + 2);
+    s.attempts[0].items = [{ questionId: "q1", correct: true, firstTry: false }, { questionId: "q2", correct: true, firstTry: true }];
+    compactAttempts(s);
+    const a = s.attempts.find((x) => x.id === "a0");
+    assert.deepEqual([a.answered, a.right, a.correct], [2, 1, 2]);
+  });
+
   test("set progress (known / seen) is unchanged by shortening", () => {
     const s = { assignments: [set], attempts: [attempt(0, [{ questionId: "q1", correct: true }, { questionId: "q2", correct: true }])] };
     for (let i = 1; i <= KEEP_FULL; i++) s.attempts.push({ id: `o${i}`, assignmentId: "other", finishedAt: 5000 + i, items: [{ questionId: "x", correct: true }] });

@@ -64,7 +64,9 @@ export function compactAttempts(state, keep = KEEP_FULL) {
       if (sid) subjects.add(sid);
     }
     const { items, unanswered, ...rest } = a;
-    return { ...rest, answered: answeredCount(a), right: rightCount(a), subjects: [...subjects], compact: true };
+    // right = right first try (scores, mastery); correct = right in the end (Framsteg's 30-day accuracy).
+    const correct = a.items.filter((it) => it && it.correct === true).length;
+    return { ...rest, answered: answeredCount(a), right: rightCount(a), correct, subjects: [...subjects], compact: true };
   });
   return old.size;
 }
