@@ -149,6 +149,16 @@ describe("two people with the same label stay tellable apart", () => {
 });
 
 describe("the name and mask helpers", () => {
+  test("a name that reads as the app or the school isn't shown to others (sweep finding S4)", () => {
+    for (const name of ["Admin PluggEra", "Läraren", "PLUGGERA", "Support-Anna", "Rektor Berg", "teacher"]) {
+      assert.equal(nameFrom({ profile: { name } }), null, name);
+    }
+    // Only whole words: ordinary names that contain the letters are kept.
+    for (const name of ["Adminah", "Larsson", "Modesty", "Linnea Lärkvik"]) {
+      assert.equal(nameFrom({ profile: { name } }), name, name);
+    }
+  });
+
   test("nameFrom keeps letters, marks, spaces, apostrophes and hyphens, at most 24 characters", () => {
     assert.equal(nameFrom({ profile: { name: "Zoë" } }), "Zoë");
     assert.equal(nameFrom({ profile: { name: "a".repeat(40) } }).length, 24);

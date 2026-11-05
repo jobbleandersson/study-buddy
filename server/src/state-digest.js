@@ -33,7 +33,19 @@ export function nameFrom(blob) {
   const n = blob?.profile?.name;
   if (typeof n !== "string") return null;
   const clean = n.replace(/[^\p{L}\p{M}\s'’-]/gu, "").replace(/\s+/g, " ").trim().slice(0, 24);
-  return clean || null;
+  if (!clean || looksOfficial(clean)) return null;   // the masked address is shown instead
+  return clean;
+}
+
+// Words that make a name read as the app or the school speaking, not a classmate: "Admin PluggEra" or "Läraren" on
+// a friend's leaderboard or in a class list. Such a name isn't shown to others (the masked address is); the student
+// still sees it on their own profile and the tutor still uses it. Whole words, any case.
+const OFFICIAL = new Set([
+  "admin", "administrator", "administratör", "pluggera", "support", "moderator", "mod",
+  "lärare", "läraren", "teacher", "rektor", "rektorn", "personal", "staff",
+]);
+export function looksOfficial(name) {
+  return String(name).toLowerCase().split(/[\s'’-]+/u).some((w) => OFFICIAL.has(w));
 }
 
 /** "jonas.berg@school.se" -> "j•••@school.se": enough for a person to recognise their own pupil, not
