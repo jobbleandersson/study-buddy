@@ -8,6 +8,7 @@ import { readDigest, displayNames } from "../state-digest.js";
 import { codeGuessLimits } from "../middleware/authLimits.js";
 import { isUniqueViolation } from "../errors.js";
 import { randomToken } from "../codes.js";
+import { validDay } from "../class-daily.js";   // one check for "a real calendar day", safe on 2026-13-45
 
 // Class mode: a teacher creates a class, students join with its code, the
 // teacher assigns ready-made library sets to the whole class and sees how
@@ -32,9 +33,6 @@ function randomCode() {
 
 const cleanName = (s) => String(s ?? "").replace(/[\x00-\x1f\x7f]/g, "").replace(/\s+/g, " ").trim().slice(0, 60);
 
-function validDay(s) {
-  return /^\d{4}-\d{2}-\d{2}$/.test(s) && new Date(`${s}T00:00:00Z`).toISOString().slice(0, 10) === s;
-}
 
 // The class, if the signed-in user teaches it; otherwise answers 404 itself.
 function teacherClass(req, res) {

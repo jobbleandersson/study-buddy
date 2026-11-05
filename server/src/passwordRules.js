@@ -24,7 +24,10 @@ function isTrivial(password) {
 /** The message to answer with if this can't be a password, or null if it can. */
 export function passwordProblem(password) {
   if (password.length < 8) return "Password must be at least 8 characters.";
-  if (password.length > 200) return "Password is too long.";   // bcrypt only reads 72 bytes; don't hash a novel
+  // bcrypt reads only the first 72 bytes: past that, two passwords that start alike are the same password, and
+  // the rest the person typed protects nothing. So a new password stops there (72 characters, a few fewer with
+  // å, ä and ö). Only new passwords: signing in with an older, longer one still works as before.
+  if (Buffer.byteLength(password, "utf8") > 72) return "Password is too long.";
   if (isTrivial(password) || COMMON.has(password.toLowerCase())) return "That password is too easy to guess. Choose another one.";
   return null;
 }

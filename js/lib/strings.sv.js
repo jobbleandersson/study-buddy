@@ -998,7 +998,7 @@ export default {
   "srv.err.userDailyCap": "Du har använt dagens AI-utrymme. Försök igen i morgon.",
   "srv.err.assignTooLarge": "Det setet är för stort för att tilldelas.",
   "srv.err.assignQueueFull": "Eleven har redan många tilldelade set som väntar.",
-  "srv.err.passwordLong": "Lösenordet är för långt (högst 200 tecken).",
+  "srv.err.passwordLong": "Lösenordet är för långt (högst 72 tecken).",
   "err.genTooLong": "Det blev för mycket att generera på en gång. Prova en kortare källa eller färre frågor.",
   "err.refused": "AI:n svarade inte på den här. Försök att fråga på ett annat sätt.",
   "set.acctParentLink": "Förälder-/lärarkoppling",

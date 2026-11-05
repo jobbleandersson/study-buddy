@@ -24,10 +24,12 @@ export const MAX_QUESTIONS_PER_CLASS = 200;
 export const MIN_SHOWN = 5;
 export const ESTABLISHED_DAYS = 3;
 
-/** "YYYY-MM-DD" and a real calendar day. */
+/** "YYYY-MM-DD" and a real calendar day. A month 13 or day 99 passes the pattern but is an Invalid Date,
+ *  whose toISOString() throws: that was a 500 and an alert mail to the owner instead of a 400. */
 export function validDay(s) {
-  return typeof s === "string" && /^\d{4}-\d{2}-\d{2}$/.test(s)
-    && new Date(`${s}T00:00:00Z`).toISOString().slice(0, 10) === s;
+  if (typeof s !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(s)) return false;
+  const d = new Date(`${s}T00:00:00Z`);
+  return !Number.isNaN(d.getTime()) && d.toISOString().slice(0, 10) === s;
 }
 
 export function addDays(day, delta) {

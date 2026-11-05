@@ -983,7 +983,7 @@ export default {
   "srv.err.userDailyCap": "You've used today's AI allowance. Try again tomorrow.",
   "srv.err.assignTooLarge": "That set is too large to assign.",
   "srv.err.assignQueueFull": "This student already has many assigned sets waiting.",
-  "srv.err.passwordLong": "That password is too long (200 characters at most).",
+  "srv.err.passwordLong": "That password is too long (72 characters at most).",
   "err.genTooLong": "That was too much to generate in one go. Try a shorter source or fewer questions.",
   "err.refused": "The AI didn't answer this one. Try asking it a different way.",
   "set.acctParentLink": "Parent / teacher linking",
