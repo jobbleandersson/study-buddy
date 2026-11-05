@@ -3,7 +3,7 @@
 // for review — plus the achievements, recall-trend and Högskoleprovet cards.
 
 import { store } from "../store.js";
-import { el, icon, ICONS } from "../lib/dom.js";
+import { el, icon, ICONS, scrollReachable } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { clozeToUnderscores } from "../components/questions.js";
 import { masteryByTopic, masteryForSubject, weakSpotQuestions } from "../lib/mastery.js";
@@ -240,16 +240,18 @@ function heatmap(today, studied, frozen, perDay) {
   const dayName = (i) => new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + i)
     .toLocaleDateString(locale, { weekday: "short" }).replace(".", "");
 
-  return el("div.pg-heat", { role: "img", "aria-label": t("prog.activitySub") }, [
-    el("div.pg-heat__scroll", {}, [
-      el("div.pg-heat__grid", { style: { "--weeks": String(weeks) } }, [
+  // On a phone the 20 weeks scroll sideways: the scrolling box is then a focusable region (scrollReachable), so the
+  // image is the grid inside it (a focusable element can't sit inside role="img").
+  return el("div.pg-heat", {}, [
+    scrollReachable(el("div.pg-heat__scroll", {}, [
+      el("div.pg-heat__grid", { style: { "--weeks": String(weeks) }, role: "img", "aria-label": t("prog.activitySub") }, [
         el("span.pg-heat__corner"),
         el("div.pg-heat__months", {}, months),
         el("div.pg-heat__days", {}, [0, 1, 2, 3, 4, 5, 6].map((i) => el("span", {}, i % 2 === 0 ? dayName(i) : ""))),
         el("div.pg-heat__cells", {}, cells),
       ]),
-    ]),
-    el("div.pg-heat__legend", {}, [
+    ]), t("prog.activityTitle")),
+    el("div.pg-heat__legend", { "aria-hidden": "true" }, [
       el("span", {}, t("prog.legendLess")),
       ...[0, 1, 2, 3, 4].map((lv) => el("i.pg-heat__cell" + (lv ? `.lv${lv}` : ""))),
       el("span", {}, t("prog.legendMore")),

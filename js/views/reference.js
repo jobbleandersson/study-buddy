@@ -9,7 +9,7 @@
 // print button that prints the subject on screen as a clean sheet. ?s=<subject>&n=<level> keeps
 // the choice in the address, so a link (or a reload) opens the same view.
 
-import { el, clear, icon, ICONS } from "../lib/dom.js";
+import { el, clear, icon, ICONS, scrollReachable } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { t, plural, getLang } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
@@ -144,7 +144,8 @@ export async function renderReference(qs) {
       ]),
       // A formula with several parts ("…, \quad …") is set as separate pieces, so a narrow card wraps
       // between them instead of breaking one in the middle.
-      item.formula ? el("div.ref__math", {}, item.formula.split(/,\s*\\quad\s*/).map((part) => el("span.ref__part", { html: math(part) }))) : null,
+      // A formula wider than the card scrolls sideways; scrollReachable lets a keyboard reach it then.
+      item.formula ? scrollReachable(el("div.ref__math", {}, item.formula.split(/,\s*\\quad\s*/).map((part) => el("span.ref__part", { html: math(part) }))), t("ref.formulaScroll", { name: item.name })) : null,
       item.table ? el("table.ref__table", {}, [
         el("thead", {}, [el("tr", {}, [el("th", {}, t("ref.colPrefix")), el("th", {}, t("ref.colName")), el("th", {}, t("ref.colFactor"))])]),
         el("tbody", {}, item.table.map(([sym, name, val]) => el("tr", {}, [

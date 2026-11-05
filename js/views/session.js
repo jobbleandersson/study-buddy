@@ -1438,7 +1438,7 @@ function runSession(config) {
     if (config.timeLimitMin) showClock(fmtClock(config.timeLimitMin * 60000));
     stage.appendChild(el("div.panel.hp-intro", {}, [
       el("p.hp-intro__code", {}, t(`hp.delprov.${dp}`)),
-      el("h3", {}, t(`hp.name.${dp}`)),
+      el("h2", {}, t(`hp.name.${dp}`)),
       el("p", {}, t(`hp.instr.${dp}`)),
       el("p.note.hp-intro__tip", {}, [icon(ICONS.spark, 15), " ", t(`hp.tip.${dp}`)]),
       el("dl.hp-intro__facts", {}, [
@@ -1464,7 +1464,7 @@ function runSession(config) {
     }
     stage.appendChild(el("div.panel.hp-intro", {}, [
       el("p.hp-intro__code", {}, t("hp.introHp")),
-      el("h3", {}, config.title),
+      el("h2", {}, config.title),
       el("p", {}, t(config.hpPrognos ? "hp.introPrognos" : "hp.introPass")),
       el("ul.hp-intro__parts", {}, [...counts].map(([dp, n]) => el("li", {}, `${t(`hp.delprov.${dp}`)} · ${n}`))),
       el("dl.hp-intro__facts", {}, [
