@@ -14,6 +14,7 @@
 
 import { currentStreak, localDayKey, addDays } from "./activity.js";
 import { masteryByTopic, masteryForSubject } from "./mastery.js";
+import { answeredCount } from "./history.js";
 import { estimatedGrade, gradeRank } from "./grade.js";
 
 export const TIER_NAMES = ["bronze", "silver", "gold", "platinum"];
@@ -48,8 +49,11 @@ function distinctSubjects(s) {
     for (const q of a.questions || []) byQuestion.set(q.id, a.subjectId);
   }
   const seen = new Set();
+  const liveSubjects = new Set((s.subjects || []).map((x) => x?.id));
   for (const a of s.attempts || []) {
     if (bySet.get(a.assignmentId)) seen.add(bySet.get(a.assignmentId));
+    // A shortened attempt (lib/history.js) lists its subjects; only ones that still exist count (subjects get merged).
+    for (const sid of Array.isArray(a.subjects) ? a.subjects : []) if (sid && liveSubjects.has(sid)) seen.add(sid);
     for (const it of a.items || []) {
       const sid = byQuestion.get(it.questionId);
       if (sid) seen.add(sid);
@@ -114,7 +118,7 @@ export function achievementMetrics(state) {
   const frozen = state.activity?.frozenDays || [];
 
   const streak = Math.max(currentStreak(days, frozen), state.activity?.bestStreak || 0);
-  const questions = attempts.reduce((n, a) => n + (Array.isArray(a.items) ? a.items.length : 0), 0);
+  const questions = attempts.reduce((n, a) => n + answeredCount(a), 0);   // a shortened attempt keeps its count
   const perfect = attempts.filter((a) => a.wasTest && a.scorePct === 100).length;
   // Högskoleprovet tests under test conditions: a quick prognosis, a provpass (a whole test is two),
   // and the old mini-mock, which older attempts still carry.

@@ -7,6 +7,8 @@
 //      A stored counter only updates when you finish a session, so it kept
 //      showing "5 days" weeks after you last opened the app.
 
+import { answeredCount } from "./history.js";
+
 export function localDayKey(d = new Date()) {
   const y = d.getFullYear();
   const m = String(d.getMonth() + 1).padStart(2, "0");
@@ -72,7 +74,7 @@ export function questionsAnsweredToday(attempts, today = localDayKey()) {
   let n = 0;
   for (const a of attempts || []) {
     if (a.finishedAt && localDayKey(new Date(a.finishedAt)) === today) {
-      n += Array.isArray(a.items) ? a.items.length : 0;
+      n += answeredCount(a);
     }
   }
   return n;
@@ -83,8 +85,8 @@ export function questionsAnsweredToday(attempts, today = localDayKey()) {
  *  no mastery recompute; works retroactively on existing history. */
 export function reviewAccuracyTrend(attempts, { limit = 12 } = {}) {
   return (attempts || [])
-    .filter((a) => a.isReview && a.finishedAt && Array.isArray(a.items) && a.items.length)
+    .filter((a) => a.isReview && a.finishedAt && answeredCount(a))
     .sort((a, b) => a.finishedAt - b.finishedAt)
     .slice(-limit)
-    .map((a) => ({ day: localDayKey(new Date(a.finishedAt)), pct: a.scorePct, n: a.items.length }));
+    .map((a) => ({ day: localDayKey(new Date(a.finishedAt)), pct: a.scorePct, n: answeredCount(a) }));
 }

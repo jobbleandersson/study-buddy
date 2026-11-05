@@ -9,6 +9,7 @@ import { serverMessage } from "./lib/server-errors.js";
 import { normalizeExam, examsFromMarkedSets, examSetDates, calendarEntries, examToMakeFor } from "./lib/exam.js";
 import { mergeStates, looksLikeBackup } from "./lib/merge-state.js";
 import { coerceStateShape, cleanSettings } from "./lib/state-shape.js";
+import { compactAttempts } from "./lib/history.js";
 import { hasLocalWork } from "./lib/local-work.js";
 import { classifyPushStatus, nextRetryDelay } from "./lib/sync-status.js";
 
@@ -1588,6 +1589,9 @@ class Store extends EventTarget {
     const unlocked = [];
     this.update((s) => {
       s.attempts.push(attempt);
+      // Past the newest 300, attempts keep a summary instead of every answer (lib/history.js), so the
+      // state stops growing without bound. Before the streak and trophy checks, which read the summary.
+      compactAttempts(s);
       const today = localDayKey();
       if (!s.activity.daysStudied.includes(today)) {
         s.activity.daysStudied.push(today);

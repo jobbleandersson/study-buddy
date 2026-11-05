@@ -27,6 +27,7 @@ const DELETED_MAX = 1000;
  *  - in-progress sessions: one finished or thrown away on either side (`sessionsCleared`) stays
  *    gone; otherwise whichever got further
  *  - attempts, achievements, studied days: union — nothing a student did is dropped
+ *  - lastAnswers (each question's latest result from shortened history): per question, the later one
  */
 export function mergeStates(server, local, now = Date.now()) {
   const s = server && typeof server === "object" && !Array.isArray(server) ? { ...server } : {};
@@ -40,6 +41,17 @@ export function mergeStates(server, local, now = Date.now()) {
   const aSeen = new Set(arr(s.attempts).map((a) => a && a.id));
   s.attempts = [...arr(s.attempts), ...arr(l.attempts).filter((a) => a && a.id && !aSeen.has(a.id))]
     .sort((a, b) => (a.finishedAt || 0) - (b.finishedAt || 0));
+
+  // each question's latest result from shortened history (lib/history.js) — per question, the later answer
+  if (s.lastAnswers || l.lastAnswers) {
+    const merged = { ...o(s.lastAnswers) };
+    for (const [q, v] of Object.entries(o(l.lastAnswers))) {
+      if (!Array.isArray(v)) continue;
+      const cur = merged[q];
+      if (!Array.isArray(cur) || (Number(v[0]) || 0) > (Number(cur[0]) || 0)) merged[q] = v;
+    }
+    s.lastAnswers = merged;
+  }
 
   // sets and tests — union by id; on a shared id the later edit wins (the server's on a tie)
   const byIdNewer = (sv, lv) => {

@@ -62,6 +62,12 @@ describe("coerceStateShape", () => {
     assert.deepEqual(s.rules, []);
     assert.deepEqual(s.tonight, {});
   });
+
+  test("lastAnswers keeps only [time, 0|1] pairs (lib/history.js)", () => {
+    const s = coerceStateShape({ lastAnswers: { a: [5, 1], b: [5, 2], c: "x", d: ["5", 0], e: [7, 0] } });
+    assert.deepEqual(s.lastAnswers, { a: [5, 1], e: [7, 0] });
+    assert.deepEqual(coerceStateShape({ lastAnswers: [1, 2] }).lastAnswers, {});
+  });
 });
 
 describe("cleanSettings", () => {

@@ -9,6 +9,7 @@ import { clozeToUnderscores } from "../components/questions.js";
 import { masteryByTopic, masteryForSubject, weakSpotQuestions } from "../lib/mastery.js";
 import { reviewReason, isMissed, REVIEW_WINDOW_DAYS } from "../lib/srs.js";
 import { localDayKey, addDays, recentDays, questionsAnsweredToday, reviewAccuracyTrend } from "../lib/activity.js";
+import { answeredCount } from "../lib/history.js";
 import { t, plural, getLang, fmtDecimal } from "../lib/i18n.js";
 import { goalRing } from "../components/goal-ring.js";
 import { homeButton } from "../components/nav.js";
@@ -34,9 +35,10 @@ export function renderProgress() {
   // Questions answered per local day — shades the activity map.
   const perDay = new Map();
   for (const at of attempts) {
-    if (!at.finishedAt || !at.items?.length) continue;
+    const n = answeredCount(at);   // a shortened attempt (lib/history.js) keeps its count
+    if (!at.finishedAt || !n) continue;
     const k = localDayKey(new Date(at.finishedAt));
-    perDay.set(k, (perDay.get(k) || 0) + at.items.length);
+    perDay.set(k, (perDay.get(k) || 0) + n);
   }
 
   // ---- key figures ----
@@ -47,6 +49,8 @@ export function renderProgress() {
   let right = 0, graded = 0;
   for (const at of attempts) {
     if (!at.finishedAt || !last30.has(localDayKey(new Date(at.finishedAt)))) continue;
+    // A shortened attempt (a very busy month: more than 300 sets in 30 days) counts by its summary.
+    if (!Array.isArray(at.items)) { graded += answeredCount(at); right += Number(at.correct) || 0; continue; }
     for (const it of at.items || []) {
       if (typeof it.correct !== "boolean") continue;
       graded++;
