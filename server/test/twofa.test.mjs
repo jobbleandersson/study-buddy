@@ -1,7 +1,7 @@
 import { test, describe, before, after } from "node:test";
 import assert from "node:assert/strict";
 import crypto from "node:crypto";
-import { startServer, makeClient, startFakeResend } from "./harness.mjs";
+import { startServer, makeClient, startFakeResend, hashToken } from "./harness.mjs";
 import { totpAt } from "../src/totp.js";
 
 const uniqueEmail = () => `twofa-${Date.now()}-${Math.random().toString(36).slice(2)}@example.com`;
@@ -203,7 +203,7 @@ describe("two-factor authentication", () => {
     const token = crypto.randomBytes(32).toString("hex");
     const now = Date.now();
     server.db.prepare("INSERT INTO password_reset_tokens (id, user_id, token, expires_at, created_at) VALUES (?, ?, ?, ?, ?)")
-      .run(crypto.randomUUID(), userId, token, now + 3600_000, now);
+      .run(crypto.randomUUID(), userId, hashToken(token), now + 3600_000, now);   // stored hashed, as the server does
 
     const reset = await client.post("/api/auth/reset-password", { token, password: "brandnewpw1" });
     assert.equal(reset.status, 200);
@@ -449,7 +449,7 @@ describe("two-factor authentication: email method", () => {
     const token = crypto.randomBytes(32).toString("hex");
     const now = Date.now();
     server.db.prepare("INSERT INTO password_reset_tokens (id, user_id, token, expires_at, created_at) VALUES (?, ?, ?, ?, ?)")
-      .run(crypto.randomUUID(), userId, token, now + 3600_000, now);
+      .run(crypto.randomUUID(), userId, hashToken(token), now + 3600_000, now);   // stored hashed, as the server does
     const reset = await client.post("/api/auth/reset-password", { token, password: "brandnewpw1" });
     assert.equal(reset.status, 200);
     assert.equal(reset.json.twoFactorRequired, undefined);

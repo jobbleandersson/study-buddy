@@ -1,6 +1,7 @@
 import Database from "better-sqlite3";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { hashToken } from "./tokens.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // On a hosting platform the normal filesystem is wiped on every deploy, so the
@@ -511,3 +512,20 @@ if (!db.prepare("PRAGMA table_info(classes)").all().some((c) => c.name === "link
   alter("ALTER TABLE classes ADD COLUMN link_token TEXT");
 }
 db.exec("CREATE UNIQUE INDEX IF NOT EXISTS classes_link_token ON classes(link_token) WHERE link_token IS NOT NULL");
+
+// Session ids and link tokens are stored hashed (tokens.js). Rows written before that held the raw value: hash
+// them in place once, so the cookies people already have and the links already in their mail keep working.
+// Recorded in `migrations` and done inside one IMMEDIATE transaction, so two processes starting together (a
+// deploy overlapping, the tests) can't both run it and hash a value twice.
+db.exec("CREATE TABLE IF NOT EXISTS migrations (name TEXT PRIMARY KEY, done_at INTEGER NOT NULL)");
+db.function("sha256_hex", { deterministic: true }, (s) => (s == null ? null : hashToken(s)));
+db.transaction(() => {
+  const claimed = db.prepare("INSERT OR IGNORE INTO migrations (name, done_at) VALUES ('hash-tokens-1', ?)").run(Date.now()).changes;
+  if (!claimed) return;
+  db.exec(`
+    UPDATE sessions SET id = sha256_hex(id);
+    UPDATE email_verify_tokens SET token = sha256_hex(token);
+    UPDATE password_reset_tokens SET token = sha256_hex(token);
+    UPDATE email_change_tokens SET token = sha256_hex(token);
+  `);
+}).immediate();

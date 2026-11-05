@@ -2,7 +2,7 @@ import { test, describe, before, after } from "node:test";
 import assert from "node:assert/strict";
 import crypto from "node:crypto";
 import bcrypt from "bcryptjs";
-import { startServer, makeClient } from "./harness.mjs";
+import { startServer, makeClient, seedSession } from "./harness.mjs";
 import { googleIdentityMatches } from "../src/routes/auth.js";
 
 // googleIdentityMatches is the one check /auth/set-password's security rests on — unit-tested
@@ -59,9 +59,7 @@ describe("POST /api/auth/set-password", () => {
     server.db.prepare(
       "INSERT INTO users (id, email, password_hash, google_sub, created_at) VALUES (?, ?, ?, ?, ?)"
     ).run(id, email, "unusable-hash", "google-sub-" + id, now);
-    server.db.prepare("INSERT INTO sessions (id, user_id, expires_at, created_at) VALUES (?, ?, ?, ?)")
-      .run(crypto.randomUUID(), id, now + 3600_000, now);
-    client.cookie = `sb_session=${server.db.prepare("SELECT id FROM sessions WHERE user_id = ?").get(id).id}`;
+    client.cookie = `sb_session=${seedSession(server.db, id)}`;   // a session stored hashed, as the server does
     return { id, email };
   }
 
@@ -87,9 +85,7 @@ describe("POST /api/auth/set-password", () => {
     server.db.prepare(
       "INSERT INTO users (id, email, password_hash, google_sub, password_set_at, created_at) VALUES (?, ?, ?, ?, ?, ?)"
     ).run(id, email, hash, "google-sub-already", now, now);
-    server.db.prepare("INSERT INTO sessions (id, user_id, expires_at, created_at) VALUES (?, ?, ?, ?)")
-      .run(crypto.randomUUID(), id, now + 3600_000, now);
-    client.cookie = `sb_session=${server.db.prepare("SELECT id FROM sessions WHERE user_id = ?").get(id).id}`;
+    client.cookie = `sb_session=${seedSession(server.db, id)}`;   // a session stored hashed, as the server does
 
     const { status, json } = await client.post("/api/auth/set-password", { credential: "whatever", password: "newpassword1" });
     assert.equal(status, 400);

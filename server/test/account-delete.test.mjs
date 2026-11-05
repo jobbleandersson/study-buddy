@@ -2,7 +2,7 @@ import { test, describe, before, after } from "node:test";
 import assert from "node:assert/strict";
 import crypto from "node:crypto";
 import bcrypt from "bcryptjs";
-import { startServer, makeClient } from "./harness.mjs";
+import { startServer, makeClient, seedSession } from "./harness.mjs";
 
 const uniqueEmail = () => `delete-${Date.now()}-${Math.random().toString(36).slice(2)}@example.com`;
 
@@ -35,11 +35,7 @@ describe("DELETE /api/account", () => {
     server.db.prepare(
       "INSERT INTO users (id, email, password_hash, google_sub, created_at) VALUES (?, ?, ?, ?, ?)"
     ).run(id, email, "unusable-hash", "google-sub-xyz", now);
-    server.db.prepare("INSERT INTO sessions (id, user_id, expires_at, created_at) VALUES (?, ?, ?, ?)")
-      .run(crypto.randomUUID(), id, now + 3600_000, now);
-    // makeClient never logged in through the API for this user, so hand it
-    // the cookie for the session row just inserted directly.
-    client.cookie = `sb_session=${server.db.prepare("SELECT id FROM sessions WHERE user_id = ?").get(id).id}`;
+    client.cookie = `sb_session=${seedSession(server.db, id)}`;   // a session stored hashed, as the server does
 
     const wrongEmail = await client.delete("/api/account", { email: "someone-else@example.com" });
     assert.equal(wrongEmail.status, 403);
@@ -58,9 +54,7 @@ describe("DELETE /api/account", () => {
     server.db.prepare(
       "INSERT INTO users (id, email, password_hash, google_sub, password_set_at, created_at) VALUES (?, ?, ?, ?, ?, ?)"
     ).run(id, email, hash, "google-sub-hybrid", now, now);
-    server.db.prepare("INSERT INTO sessions (id, user_id, expires_at, created_at) VALUES (?, ?, ?, ?)")
-      .run(crypto.randomUUID(), id, now + 3600_000, now);
-    client.cookie = `sb_session=${server.db.prepare("SELECT id FROM sessions WHERE user_id = ?").get(id).id}`;
+    client.cookie = `sb_session=${seedSession(server.db, id)}`;   // a session stored hashed, as the server does
 
     // Typing the email (the Google-only flow) doesn't work once a password exists.
     const wrongEmail = await client.delete("/api/account", { email });

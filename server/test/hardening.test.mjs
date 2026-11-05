@@ -4,7 +4,7 @@ import { test, describe, before, after } from "node:test";
 import assert from "node:assert/strict";
 import crypto from "node:crypto";
 import http from "node:http";
-import { startServer, makeClient } from "./harness.mjs";
+import { startServer, makeClient, hashToken } from "./harness.mjs";
 import { totpAt } from "../src/totp.js";
 
 const CLIENT_ID = "test-client-id.apps.googleusercontent.com";
@@ -88,7 +88,7 @@ describe("password reset on an address someone else registered", () => {
     const token = crypto.randomBytes(32).toString("hex");
     const now = Date.now();
     server.db.prepare("INSERT INTO password_reset_tokens (id, user_id, token, expires_at, created_at) VALUES (?, ?, ?, ?, ?)")
-      .run(crypto.randomUUID(), userId, token, now + 3_600_000, now);
+      .run(crypto.randomUUID(), userId, hashToken(token), now + 3_600_000, now);   // stored hashed, as the server does
     return token;
   }
 

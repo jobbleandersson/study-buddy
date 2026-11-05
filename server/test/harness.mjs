@@ -11,6 +11,18 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import Database from "better-sqlite3";
+import crypto from "node:crypto";
+import { hashToken } from "../src/tokens.js";
+
+export { hashToken };
+
+/** Sign `userId` in without the login route: a session row stored the way the server stores it (hashed) and
+ *  the raw id to put in the cookie. Returns the raw id. */
+export function seedSession(db, userId, { ttlMs = 3600_000, now = Date.now() } = {}) {
+  const raw = crypto.randomUUID();
+  db.prepare("INSERT INTO sessions (id, user_id, expires_at, created_at) VALUES (?, ?, ?, ?)").run(hashToken(raw), userId, now + ttlMs, now);
+  return raw;
+}
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SERVER_ENTRY = path.join(__dirname, "..", "src", "index.js");
@@ -190,6 +202,24 @@ export async function startFakeResend() {
     lastCode(to) {
       for (let i = mails.length - 1; i >= 0; i--) {
         if (mails[i].to === to) return mails[i].html.match(/>(\d{6})</)?.[1] ?? null;
+      }
+      return null;
+    },
+    /** The token in the newest link mailed to `to` (verify, reset or change of address): the database only
+     *  holds its hash (src/tokens.js), so this is where a test gets the real one, like a person would. */
+    lastToken(to) {
+      for (let i = mails.length - 1; i >= 0; i--) {
+        if (mails[i].to === to) return mails[i].html.match(/[?&]token=([0-9a-f]{64})/)?.[1] ?? null;
+      }
+      return null;
+    },
+    /** lastToken, waiting for the mail to arrive (the server sends it after answering). */
+    async waitToken(to, timeoutMs = 3000) {
+      const end = Date.now() + timeoutMs;
+      while (Date.now() < end) {
+        const tok = fake.lastToken(to);
+        if (tok) return tok;
+        await new Promise((r) => setTimeout(r, 20));
       }
       return null;
     },

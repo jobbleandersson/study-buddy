@@ -42,9 +42,8 @@ describe("the welcome mail", () => {
     for (let i = 0; i < 50 && !until(); i++) await new Promise((r) => setTimeout(r, 20));
   };
   const welcomes = (email) => fake.mailsTo(email).filter((m) => m.subject === WELCOME);
-  const tokenFor = (email) => server.db.prepare(
-    "SELECT token FROM email_verify_tokens WHERE used_at IS NULL AND user_id = (SELECT id FROM users WHERE email = ?) ORDER BY created_at DESC"
-  ).all(email).map((r) => r.token);
+  // The confirm links mailed to `email`, newest first: the database holds only their hashes (src/tokens.js).
+  const tokenFor = (email) => fake.mailsTo(email).map((m) => m.html.match(/[?&]token=([0-9a-f]{64})/)?.[1]).filter(Boolean).reverse();
 
   test("an email sign-up gets only the confirm link at first, and the welcome once it's confirmed", async () => {
     const email = uniqueEmail();
@@ -71,6 +70,7 @@ describe("the welcome mail", () => {
     await client.post("/api/auth/signup", { email, password: PASSWORD, consent: true });
     await settle(() => fake.mailsTo(email).length > 0);
     assert.equal((await client.post("/api/auth/verify-email/resend")).status, 200);
+    await settle(() => tokenFor(email).length === 2);
     const tokens = tokenFor(email);
     assert.equal(tokens.length, 2);
 

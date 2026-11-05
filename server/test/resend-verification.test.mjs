@@ -30,10 +30,8 @@ describe("POST /api/auth/verify-email/resend - email ON", () => {
   test("an already-verified account is told so, not offered another resend", async () => {
     const email = uniqueEmail();
     await client.post("/api/auth/signup", { email, password: "correctpw1", consent: true });
-    const token = server.db.prepare(
-      "SELECT token FROM email_verify_tokens WHERE user_id = (SELECT id FROM users WHERE email = ?)"
-    ).get(email).token;
-    await client.post("/api/auth/verify-email", { token });
+    // Confirmed (here directly: the database holds only the link's hash, and this server's mail goes nowhere).
+    server.db.prepare("UPDATE users SET email_verified_at = ? WHERE email = ?").run(Date.now(), email);
 
     const { status, json } = await client.post("/api/auth/verify-email/resend", {});
     assert.equal(status, 400);
