@@ -6,7 +6,7 @@
 // Built from the same cards and rows as Settings (components/set-ui.js).
 
 import { store } from "../store.js";
-import { el, clear, toast, icon, ICONS, wrappableEmail } from "../lib/dom.js";
+import { el, clear, toast, icon, ICONS, wrappableEmail, scrollReachable } from "../lib/dom.js";
 import { t, plural, getLang, relativeDay, daysUntil, sentenceCase } from "../lib/i18n.js";
 import { serverMessage } from "../lib/server-errors.js";
 import { homeButton } from "../components/nav.js";
@@ -320,6 +320,9 @@ export async function renderClassDetail(id) {
     ], { id: "class-assign-panel" });
   }
 
+  // Above this many students the results table gets a search box and scrolls inside its own box.
+  const BIG_CLASS = 30;
+
   function resultsPanel() {
     const body = [];
     if (!cls.members.length) {
@@ -363,9 +366,8 @@ export async function renderClassDetail(id) {
         }),
       ]));
 
-      body.push(el("div.classgrid-wrap", {}, el("table.classgrid", {}, [el("thead", {}, head), el("tbody", {}, rows)])));
-
-      // What the class misses most, per assignment.
+      // What the class misses most, per assignment: first, since it is what the teacher most needs and a big
+      // class makes the table below very long.
       for (const a of cls.assignments) {
         const topics = byId.get(a.id)?.topics || [];
         if (!topics.length) continue;
@@ -381,6 +383,32 @@ export async function renderClassDetail(id) {
             ]);
           }),
         ]));
+      }
+
+      // A big class (over BIG_CLASS): a search box over the names, and a table that scrolls inside its own box with
+      // the header kept in view, so the page isn't thousands of pixels tall.
+      const big = cls.members.length > BIG_CLASS;
+      // It scrolls (sideways on a phone, and down in a big class): scrollReachable lets a keyboard scroll it.
+      const wrap = scrollReachable(
+        el("div.classgrid-wrap" + (big ? ".classgrid-wrap--tall" : ""), {}, el("table.classgrid", {}, [el("thead", {}, head), el("tbody", {}, rows)])),
+        t("classes.resultsHeading"),
+      );
+      if (big) {
+        const none = el("p.note", { hidden: true }, t("classes.searchNone"));
+        const search = el("input", {
+          type: "search", placeholder: t("classes.searchStudents"), "aria-label": t("classes.searchStudents"), autocomplete: "off",
+          oninput: (e) => {
+            const q = e.target.value.trim().toLowerCase();
+            let shown = 0;
+            rows.forEach((r, i) => { const hit = !q || cls.members[i].name.toLowerCase().includes(q); r.hidden = !hit; if (hit) shown++; });
+            none.hidden = shown > 0;
+          },
+        });
+        body.push(el("div.classgrid-search", {}, [search]));
+        body.push(wrap);
+        body.push(none);
+      } else {
+        body.push(wrap);
       }
     }
     return card(ICONS.chart, t("classes.resultsHeading"), t("classes.resultsSub"), body);

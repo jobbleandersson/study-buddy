@@ -3870,12 +3870,12 @@ summary.gcalc__label:focus-visible { outline: none; box-shadow: var(--ring); bor
 .set-inline { display: flex; gap: var(--s-2); align-items: center; flex-wrap: wrap; }
 .set-code { display: flex; align-items: center; gap: var(--s-2); }
 /* Same look as the app's .field inputs — these sit outside a label.field. */
-.set-inline input, .set-inline select, .set-code__input {
+.set-inline input, .set-inline select, .set-code__input, .classgrid-search input {
   height: 40px; margin: 0; padding: 0 var(--s-3); border-radius: var(--r-md);
   border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); font: inherit;
   transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
 }
-.set-inline input:focus-visible, .set-inline select:focus-visible, .set-code__input:focus-visible {
+.set-inline input:focus-visible, .set-inline select:focus-visible, .set-code__input:focus-visible, .classgrid-search input:focus-visible {
   outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 22%, transparent);
 }
 .set-inline input, .set-inline select { width: 260px; max-width: 100%; }
@@ -4263,6 +4263,11 @@ summary.gcalc__label:focus-visible { outline: none; box-shadow: var(--ring); bor
 }
 .classcode { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: calc(30px * var(--fs-scale, 1)); font-weight: 700; letter-spacing: .14em; }
 .classgrid-wrap { overflow-x: auto; }
+/* A big class: the table scrolls inside its own box, header kept in view (views/classes.js BIG_CLASS). */
+.classgrid-wrap--tall { max-height: 70vh; overflow: auto; }
+.classgrid-wrap--tall thead th { position: sticky; top: 0; z-index: 1; background: var(--surface); box-shadow: 0 1px 0 var(--line); }
+.classgrid-search { margin: var(--s-3) 0; }
+.classgrid-search input { width: 100%; max-width: 360px; }
 .classgrid { border-collapse: collapse; width: 100%; font-size: var(--fs-sm); }
 .classgrid th, .classgrid td { padding: 6px 8px; text-align: left; vertical-align: middle; }
 .classgrid thead th { font-weight: 600; color: var(--ink-soft); vertical-align: bottom; min-width: 132px; }

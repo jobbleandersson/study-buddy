@@ -1296,6 +1296,8 @@ export default {
   "classes.resultsHeading": "Resultat",
   "classes.noneAssigned": "Dela ut ett set för att börja se resultat.",
   "classes.studentCol": "Elev",
+  "classes.searchStudents": "Sök elev",
+  "classes.searchNone": "Ingen elev matchar.",
   "classes.cellTip": "{seen} av {total} besvarade",
   "classes.notDoneTip": "Inte påbörjad",
   "classes.remove": "Ta bort",
