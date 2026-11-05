@@ -13,7 +13,7 @@ one of them turns up).
 
 ## Notes
 
-- **pdf.js** is on the 3.x line; 5.x is current. The known malicious-PDF script bug (CVE-2024-4367) is avoided by
+- **pdf.js** is on the 3.x line (later major versions exist: check the releases page when you review this). The known malicious-PDF script bug (CVE-2024-4367) is avoided by
   `getDocument({ isEvalSupported: false })` in `js/material.js`: keep that option on whatever version is here.
   Moving to a newer major means re-testing PDF import (the worker file and the API changed between majors).
 - **JSZip** is only given files the student chose themselves. A PDF over 60 MB is skipped, and the PDFs taken from
@@ -27,5 +27,6 @@ one of them turns up).
 
 1. Download the minified build of the new version from its release page or from jsDelivr (pinned version).
 2. Replace the file here, then update the version in the table above.
-3. Add the new service-worker cache name by deploying as usual (the server stamps it from the files' hash).
+3. Don't touch the service worker's cache version: the server stamps it from a hash of the files `sw.js` lists, so a
+   deploy of the new file is enough (a file loaded only on demand, like pdf.js, is fetched fresh when used).
 4. Run `npm test`, then try the feature in a browser: import a PDF and a ZIP, open Formelsamling, finish a set.

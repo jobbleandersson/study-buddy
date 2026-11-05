@@ -80,6 +80,8 @@ export async function extractZipText(file) {
   // of those would still crash the tab (lib/zip-limits.js).
   const pdfEntries = withinTotal(entries.filter((f) => /\.pdf$/i.test(f.name)), MAX_ZIP_BYTES, (f) => f._data?.uncompressedSize).slice(0, 20);
   if (!pdfEntries.length) throw new Error(t("err.zipNoPdf"));
+  // Every PDF in the zip, so "read 2 of 5" tells the student when some were left out (too big, or over the 20).
+  const pdfsInZip = Object.values(zip.files).filter((f) => !f.dir && /\.pdf$/i.test(f.name)).length;
 
   const parts = [];
   for (const entry of pdfEntries) {
@@ -97,7 +99,7 @@ export async function extractZipText(file) {
   return {
     text: fitText(parts.join("\n\n")),
     pdfCount: parts.length,
-    totalPdfCount: pdfEntries.length,
+    totalPdfCount: pdfsInZip,
     skippedAudio,
   };
 }
