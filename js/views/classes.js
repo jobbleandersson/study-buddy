@@ -6,7 +6,7 @@
 // Built from the same cards and rows as Settings (components/set-ui.js).
 
 import { store } from "../store.js";
-import { el, clear, toast, icon, ICONS, wrappableEmail } from "../lib/dom.js";
+import { el, clear, toast, icon, ICONS, wrappableEmail, scrollReachable } from "../lib/dom.js";
 import { t, plural, getLang, relativeDay, daysUntil, sentenceCase } from "../lib/i18n.js";
 import { serverMessage } from "../lib/server-errors.js";
 import { homeButton } from "../components/nav.js";
@@ -388,7 +388,11 @@ export async function renderClassDetail(id) {
       // A big class (over BIG_CLASS): a search box over the names, and a table that scrolls inside its own box with
       // the header kept in view, so the page isn't thousands of pixels tall.
       const big = cls.members.length > BIG_CLASS;
-      const wrap = el("div.classgrid-wrap" + (big ? ".classgrid-wrap--tall" : ""), {}, el("table.classgrid", {}, [el("thead", {}, head), el("tbody", {}, rows)]));
+      // It scrolls (sideways on a phone, and down in a big class): scrollReachable lets a keyboard scroll it.
+      const wrap = scrollReachable(
+        el("div.classgrid-wrap" + (big ? ".classgrid-wrap--tall" : ""), {}, el("table.classgrid", {}, [el("thead", {}, head), el("tbody", {}, rows)])),
+        t("classes.resultsHeading"),
+      );
       if (big) {
         const none = el("p.note", { hidden: true }, t("classes.searchNone"));
         const search = el("input", {
