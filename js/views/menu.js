@@ -126,7 +126,7 @@ export function renderMenu(mode) {
       const on = selected.has(c.dataset.set);
       if (c.classList.contains("is-picked") === on) continue;
       c.classList.toggle("is-picked", on);
-      c.setAttribute("aria-checked", String(on));
+      c.querySelector(".acard__open")?.setAttribute("aria-checked", String(on));
       const check = c.querySelector(".acard__check");
       if (check) check.replaceChildren(...(on ? [icon(ICONS.check, 16)] : []));
     }
@@ -304,18 +304,22 @@ export function renderMenu(mode) {
       if (selected.has(a.id)) selected.delete(a.id); else selected.add(a.id);
       syncPicks();
     };
-    return el("div.acard" + (ai ? ".acard--ai" : "") + (picked ? ".is-picked" : ""), {
-      role: selecting ? "checkbox" : "button", tabindex: "0", "data-set": a.id,
-      ...(selecting ? { "aria-checked": String(picked) } : {}),
-      style: { "--subject": color.solid, "--subject-ink": color.ink, "--subject-text": color.text, "--subject-tint": color.tint },
+    // The card is a plain container with two controls side by side: the title is the button that opens the set
+    // (its ::after covers the whole card, so a tap anywhere still opens it) and the ⋮ menu. A card that was itself
+    // a button with the ⋮ button inside was nested interactive content: a screen reader could skip the inner one.
+    // Its cover sits over the subject, the due date and the ring too, so their hover tips are joined into its own.
+    const tip = [a.title, subjectName, a.dueAt && t("menu.dueLabel", { date: fmtDate(a.dueAt) }),
+      m != null && t("menu.masteryTitle", { pct: Math.round(m * 100) })].filter(Boolean).join(" · ");
+    const openBtn = el("button.acard__title.acard__open", {
+      type: "button", title: tip,
+      ...(selecting ? { role: "checkbox", "aria-checked": String(picked) } : {}),
       "aria-label": selecting ? a.title : t(open ? "menu.cardAriaOpen" : "menu.cardAria",
         { title: a.title, subject: subjectName, count: a.questions.length }),
       onclick: activate,
-      onkeydown: (e) => {
-        // Only the card's own keys: Enter on its ⋮ button is that button's, and must open the menu.
-        if (e.target !== e.currentTarget) return;
-        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); activate(); }
-      },
+    }, a.title);
+    return el("div.acard" + (ai ? ".acard--ai" : "") + (picked ? ".is-picked" : ""), {
+      "data-set": a.id,
+      style: { "--subject": color.solid, "--subject-ink": color.ink, "--subject-text": color.text, "--subject-tint": color.tint },
     }, [
       selecting ? el("span.acard__check", { "aria-hidden": "true" }, picked ? icon(ICONS.check, 16) : null) : menuBtn,
       // The subject as a dot in its colour and a name that trims on one line, so a long one ("XYZ – Matematisk
@@ -323,7 +327,7 @@ export function renderMenu(mode) {
       el("div.acard__top", {}, [
         el("span.acard__subject", { title: subjectName }, [el("span.acard__dot"), el("span.acard__subjectname", {}, subjectName)]),
       ].filter(Boolean)),
-      el("div.acard__title", { title: a.title }, a.title),
+      openBtn,
       el("div.acard__foot", {}, [
         ...status,
         el("div.acard__meta", {}, [

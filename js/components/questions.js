@@ -4,7 +4,7 @@
 //
 // opts: { question, tutor, live, onDone }
 
-import { el, clear, icon, ICONS } from "../lib/dom.js";
+import { el, clear, icon, ICONS, scrollReachable } from "../lib/dom.js";
 import { VOICE_FEATURES } from "../lib/voice-features.js";
 import { renderRich } from "../lib/rich.js";
 import { figureURL } from "../lib/figures.js";
@@ -418,11 +418,14 @@ function framePanel(question) {
       ])));
   }
   if (s && s.body) {
-    return el("div.question__stimulus", {}, [
-      s.title ? el("h4.question__stimulus-label", {}, s.title) : null,
+    // A long reading text scrolls inside its box (max 42vh): scrollReachable makes it a focusable region then,
+    // or a keyboard or switch user couldn't read the end of it. The label is an h2: it comes straight after the
+    // page's h1 (an h4 skipped two levels).
+    return scrollReachable(el("div.question__stimulus", {}, [
+      s.title ? el("h2.question__stimulus-label", {}, s.title) : null,
       s.figure ? figurePanel(s.figure) : null,
       el("div.question__stimulus-body", { html: renderRich(s.body) }),
-    ].filter(Boolean));
+    ].filter(Boolean)), s.title || t("q.passage"), "region");
   }
   return null;
 }

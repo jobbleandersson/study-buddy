@@ -2515,6 +2515,7 @@ export default {
   "ref.print": "Skriv ut",
   "ref.subjects": "Ämnen",
   "ref.levels": "Nivå",
+  "ref.formulaScroll": "Formel: {name}",
   "ref.levelAll": "Alla nivåer",
   "ref.level.hs": "Högstadiet",
   "ref.level.gy": "Gymnasiet",

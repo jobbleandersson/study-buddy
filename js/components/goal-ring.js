@@ -8,7 +8,8 @@ export function goalRing(done, goal) {
   const pct = goal > 0 ? Math.min(100, Math.round((done / goal) * 100)) : 0;
   const wrap = el("span.ring.ring--goal" + (hit ? ".ring--goal-done" : ""), {
     style: { "--v": pct },
-    "aria-label": `${done} / ${goal}`,
+    // A label on a plain span is ignored by screen readers; as an image the ring is read out as "3 / 10".
+    role: "img", "aria-label": `${done} / ${goal}`,
   });
   // Past the goal the raw count just climbs ("23" in a full circle reads as a
   // bug) — swap it for a check once the ring is full. The count moves to the

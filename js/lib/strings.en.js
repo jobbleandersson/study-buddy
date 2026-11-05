@@ -2516,6 +2516,7 @@ export default {
   "ref.print": "Print",
   "ref.subjects": "Subjects",
   "ref.levels": "Level",
+  "ref.formulaScroll": "Formula: {name}",
   "ref.levelAll": "All levels",
   "ref.level.hs": "Years 7–9",
   "ref.level.gy": "Upper secondary",

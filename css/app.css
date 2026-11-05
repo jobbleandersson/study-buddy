@@ -1257,6 +1257,16 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
   opacity: 0; transition: opacity var(--dur-fast), background var(--dur-fast);
 }
 .acard:hover .acard__menu, .acard__menu:focus-visible { opacity: 1; }
+/* The title is the card's button (views/menu.js): a plain-looking button whose ::after covers the whole card, so
+   a tap anywhere opens the set, with the ⋮ menu (z-index 2) above it. The focus ring is drawn inside the card on
+   that cover, since the card clips what is outside it. */
+.acard__open {
+  appearance: none; background: none; border: 0; padding: 0; margin: 0; color: inherit; text-align: left;
+  cursor: pointer; width: 100%;
+}
+.acard__open::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+.acard__open:focus-visible { outline: none; box-shadow: none; }
+.acard__open:focus-visible::after { box-shadow: inset 0 0 0 3px var(--focus-color, var(--brand)); border-radius: var(--r-lg); }
 .acard__menu:hover { background: var(--surface-sunk); color: var(--ink); }
 @media (hover: none) { .acard__menu { opacity: 1; } }
 
@@ -6516,7 +6526,7 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .hp-fchip:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
 .hp-fchip.is-empty { color: var(--ink-faint); }
 .hp-fchip[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
-.hp-fchip[aria-pressed="true"] b { color: rgba(255, 255, 255, .8); }
+.hp-fchip[aria-pressed="true"] b { color: inherit; }   /* the chip's own white: a dimmed white was 4.3:1 on the brand blue */
 .hp-fselect { position: relative; display: inline-flex; align-items: center; }
 .hp-fselect select {
   appearance: none; -webkit-appearance: none; min-height: 36px; max-width: 260px; padding: 0 38px 0 14px;
@@ -6564,7 +6574,7 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .hp-hist__row svg { margin-left: auto; }
 
 .hp-intro { display: grid; gap: var(--s-2); }
-.hp-intro h3 { margin: 0; }
+.hp-intro h2 { margin: 0; font-size: var(--fs-lg); }   /* an h2 after the page h1, sized like the h3 it was */
 .hp-intro p { margin: 0; }
 .hp-intro__code { font-family: var(--font-display); font-weight: 800; color: var(--brand-ink); letter-spacing: .03em; }
 .hp-intro__tip { display: flex; gap: 6px; align-items: flex-start; }
@@ -7133,6 +7143,7 @@ body.route-home .topbar { background: color-mix(in srgb, var(--canvas) 70%, tran
   width: 24px; height: 24px; border-radius: var(--r-full); display: grid; place-items: center;
   border: 1.5px solid var(--line-strong); background: var(--surface); color: #fff;
   transition: background var(--dur-fast), border-color var(--dur-fast), transform var(--dur-fast);
+  pointer-events: none;   /* only a mark: a tap on it goes through to the card's button underneath */
 }
 .acard__check svg { width: 14px; height: 14px; stroke-width: 3; }
 /* Picking is instant and still: no lift on hover (it jumped under the pointer and stuck after a tap on a
@@ -7150,7 +7161,6 @@ body.route-home .topbar { background: color-mix(in srgb, var(--canvas) 70%, tran
   box-shadow: 0 0 0 1px color-mix(in oklab, var(--brand) 55%, transparent), var(--shadow-1);
 }
 .acard.is-picked .acard__check { background: var(--brand); border-color: var(--brand); }
-.grid.is-selecting .acard:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
 /* Room under the last card, so the floating bar never sits on it. */
 .grid.is-selecting { padding-bottom: 84px; }
 
