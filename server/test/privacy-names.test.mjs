@@ -153,8 +153,8 @@ describe("the name and mask helpers", () => {
     for (const name of ["Admin PluggEra", "Läraren", "PLUGGERA", "Support-Anna", "Rektor Berg", "teacher"]) {
       assert.equal(nameFrom({ profile: { name } }), null, name);
     }
-    // Only whole words: ordinary names that contain the letters are kept.
-    for (const name of ["Adminah", "Larsson", "Modesty", "Linnea Lärkvik"]) {
+    // Only whole words: ordinary names that contain the letters are kept ("Mod" is a real name too).
+    for (const name of ["Adminah", "Larsson", "Modesty", "Mod", "Linnea Lärkvik"]) {
       assert.equal(nameFrom({ profile: { name } }), name, name);
     }
   });
@@ -172,6 +172,11 @@ describe("the name and mask helpers", () => {
     assert.equal(maskEmail("åke@x.se"), "å•••@x.se");
     assert.equal(maskEmail("nonsense"), "?");
     assert.equal(maskEmail(undefined), "?");
+  });
+  test("a hidden name falls back to the masked address, never the name or the full address", () => {
+    assert.equal(digestOf({ profile: { name: "Admin PluggEra" } }).name, null);
+    assert.equal(digestOf({ profile: { name: "Mia" } }).name, "Mia");
+    assert.ok(DIGEST_VERSION >= 5, "digests saved before the filter are rebuilt, so an old official-looking name stops showing");
   });
   test("digestOf records the name, and an old digest version is rebuilt", () => {
     assert.equal(digestOf({ profile: { name: "Mia" } }).name, "Mia");
