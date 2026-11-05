@@ -3733,7 +3733,9 @@ summary.gcalc__label:focus-visible { outline: none; box-shadow: var(--ring); bor
   flex: none; width: 40px; height: 40px; border-radius: var(--r-full); display: grid; place-items: center;
   /* A per-name hue (components/set-ui.js avatar()), tinted so it reads on both themes. */
   background: var(--surface); background: color-mix(in srgb, hsl(var(--hue, 222) 70% 55%) 22%, var(--surface));
-  color: color-mix(in srgb, hsl(var(--hue, 222) 70% 50%) 62%, var(--ink));
+  /* 30% of the name's hue, the rest ink: measured over every hue (0-359) in the light, paper and dark themes, the
+     initials stay at 5.2:1 or better. At 62% the worst was 2.6:1 (paper), 3.1:1 (light), 4.0:1 (dark). */
+  color: color-mix(in srgb, hsl(var(--hue, 222) 70% 50%) 30%, var(--ink));
   font-weight: 800; font-size: calc(14px * var(--fs-scale, 1)); letter-spacing: .02em;
 }
 .set-avatar--sq { border-radius: 11px; }
