@@ -28,6 +28,8 @@ const stmts = [
   [db.prepare("DELETE FROM friend_invite_links WHERE expires_at < ? OR used_at IS NOT NULL"), (now) => now],
   [db.prepare("DELETE FROM email_verify_tokens WHERE expires_at < ? OR used_at IS NOT NULL"), (now) => now],
   [db.prepare("DELETE FROM password_reset_tokens WHERE expires_at < ? OR used_at IS NOT NULL"), (now) => now],
+  // A change of address used or run out: the row holds the new address, which may be someone else's.
+  [db.prepare("DELETE FROM email_change_tokens WHERE expires_at < ? OR used_at IS NOT NULL"), (now) => now],
   [db.prepare("DELETE FROM twofa_challenges WHERE expires_at < ? OR used_at IS NOT NULL"), (now) => now],
   [db.prepare("DELETE FROM page_views WHERE created_at < ?"), (now) => now - PAGE_VIEWS_KEEP_MS],
   [db.prepare("DELETE FROM feedback WHERE status IN ('done', 'declined') AND updated_at < ?"), (now) => now - FEEDBACK_RESOLVED_KEEP_MS],

@@ -292,6 +292,12 @@ app.use((err, req, res, next) => {
   // "entity.parse.failed") — other 4xx-tagged errors, like sendFile failing on a missing
   // index.html, are real server problems and still get logged as 500s below.
   const status = err.status || err.statusCode;
+  // A path with broken %-encoding (/api/classes/%ff): Express can't decode the parameter and passes a URIError
+  // tagged 400 but with no `type`. The visitor's fault too, so it gets the same answer, not a 500 and a mail.
+  if (err instanceof URIError && status === 400 && !res.headersSent) {
+    if (req.originalUrl.startsWith("/api/")) return res.status(400).json({ error: { message: "The request couldn't be read.", code: "bad_request" } });
+    return res.status(400).send("The request couldn't be read.");
+  }
   if (typeof err.type === "string" && status >= 400 && status < 500 && !res.headersSent) {
     const message = status === 413 ? "That request is too large." : "The request couldn't be read.";
     if (req.originalUrl.startsWith("/api/")) return res.status(status).json({ error: { message, code: "bad_request" } });
