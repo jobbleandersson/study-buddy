@@ -1,13 +1,9 @@
 import { test, describe, before, after } from "node:test";
 import assert from "node:assert/strict";
-import { mkdtempSync } from "node:fs";
-import { tmpdir } from "node:os";
-import path from "node:path";
-import crypto from "node:crypto";
 import { startServer, makeClient } from "./harness.mjs";
 
-// Sweep findings B1 (bad input answered 500 and mailed the owner), S3 (bcrypt reads 72 bytes) and S5 (old
-// email-change requests were never cleaned up).
+// Sweep findings B1 (bad input answered 500 and mailed the owner), S3 (bcrypt reads 72 bytes). S5 is in
+// sweep-email-change.test.mjs (it opens the database in-process).
 
 describe("bad input is a 400, not a server error (B1)", () => {
   let server, client;
@@ -51,23 +47,5 @@ describe("new passwords stop at 72 bytes (S3)", async () => {
   });
   test("counted in bytes: 37 'ö' are 74 bytes", () => {
     assert.equal(passwordProblem("ö".repeat(37)), "Password is too long.");
-  });
-});
-
-describe("the sweep removes used and expired email-change requests (S5)", async () => {
-  process.env.DB_PATH = path.join(mkdtempSync(path.join(tmpdir(), "sb-hygiene-")), "test.sqlite3");
-  const { db } = await import("../src/db.js");
-  const { runSweep } = await import("../src/sweep.js");
-  test("expired and used rows go, a live one stays", () => {
-    const uid = crypto.randomUUID(), now = Date.now();
-    db.prepare("INSERT INTO users (id, email, password_hash, created_at) VALUES (?, ?, 'x', ?)").run(uid, `s5-${now}@example.com`, now);
-    const add = (id, expiresAt, usedAt) => db.prepare(
-      "INSERT INTO email_change_tokens (id, user_id, new_email, token, expires_at, used_at, created_at) VALUES (?, ?, 'someone@example.com', ?, ?, ?, ?)"
-    ).run(id, uid, `tok-${id}`, expiresAt, usedAt, now);
-    add("expired", now - 1000, null);
-    add("used", now + 3600_000, now - 10);
-    add("live", now + 3600_000, null);
-    runSweep(now);
-    assert.deepEqual(db.prepare("SELECT id FROM email_change_tokens").all().map((r) => r.id), ["live"]);
   });
 });
