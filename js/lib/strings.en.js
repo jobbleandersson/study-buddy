@@ -1281,6 +1281,8 @@ export default {
   "classes.resultsHeading": "Results",
   "classes.noneAssigned": "Assign a set to start seeing results.",
   "classes.studentCol": "Student",
+  "classes.searchStudents": "Search students",
+  "classes.searchNone": "No student matches.",
   "classes.cellTip": "{seen} of {total} answered",
   "classes.notDoneTip": "Not started",
   "classes.remove": "Remove",
