@@ -235,6 +235,28 @@ describe("limits and dormancy", () => {
     } finally { await server.stop(); await fake.stop(); fs.rmSync(dir, { recursive: true, force: true }); }
   });
 
+  test("the day's spend survives a restart: a new server does not hand out a fresh budget", async () => {
+    const fake = await startFakeOpenAI();
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), "voice-test-"));
+    const env = { OPENAI_API_KEY: "k", OPENAI_API_BASE: fake.base, VOICE_DIR: dir, VOICE_DAILY_CAP_KR: String(kr(SAMPLE_SV) * 1.2) };
+    try {
+      let server = await startServer(env);
+      try {
+        const a = await signedIn(server, "restart-a@example.se");
+        assert.equal((await getAudio(server, a, sha(SAMPLE_SV))).status, 200);
+      } finally { await server.stop(); }
+      server = await startServer(env);   // same VOICE_DIR: what a deploy or a crash looks like
+      try {
+        const b = await signedIn(server, "restart-b@example.se");
+        const calls = fake.calls.length;
+        assert.equal((await getAudio(server, b, sha(SAMPLE_SV))).status, 200, "audio already made is still served");
+        const over = await getAudio(server, b, sha(SAMPLE_EN), "voice=ash&lang=en");
+        assert.equal(over.status, 503, "but the day's budget is as spent as before the restart");
+        assert.equal(fake.calls.length, calls);
+      } finally { await server.stop(); }
+    } finally { await fake.stop(); fs.rmSync(dir, { recursive: true, force: true }); }
+  });
+
   test("a piece already being made is served even when the budget has no room for another", async () => {
     const fake = await startFakeOpenAI();
     fake.mode.delayMs = 200;

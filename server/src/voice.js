@@ -95,12 +95,33 @@ export function warmIndex() {
 
 // ---------- the day's spend ----------
 
-let spent = { day: "", kr: 0, byUser: new Map() };
+// Kept in a small file next to the audio, so a restart or a deploy does not hand out a fresh day's budget (the limit
+// is per day, not per run of the server). The day is the UTC date.
+let spent = null;   // { day, kr, byUser: Map(String(userId) -> kr) }
 const today = () => new Date().toISOString().slice(0, 10);
+const spendFile = () => path.join(voiceDir(), "spend.json");
+function loadSpend() {
+  try {
+    const j = JSON.parse(fs.readFileSync(spendFile(), "utf8"));
+    if (j.day === today()) {
+      return { day: j.day, kr: Number(j.kr) || 0, byUser: new Map(Object.entries(j.byUser || {}).map(([k, v]) => [k, Number(v) || 0])) };
+    }
+  } catch { /* none yet, or unreadable: start the day at zero */ }
+  return { day: today(), kr: 0, byUser: new Map() };
+}
+function saveSpend() {
+  try {
+    fs.mkdirSync(voiceDir(), { recursive: true });
+    const tmp = `${spendFile()}.${process.pid}.tmp`;
+    fs.writeFileSync(tmp, JSON.stringify({ day: spent.day, kr: spent.kr, byUser: Object.fromEntries(spent.byUser) }));
+    fs.renameSync(tmp, spendFile());
+  } catch (e) { console.warn("[voice] could not save the day's spend:", e.message); }
+}
 function bookedToday() {
-  if (spent.day !== today()) spent = { day: today(), kr: 0, byUser: new Map() };
+  if (!spent || spent.day !== today()) spent = loadSpend();
   return spent.kr;
 }
+const bookedBy = (userId) => (bookedToday(), spent.byUser.get(String(userId)) || 0);
 // One account's share of the day's new audio. The library is public, so anyone signed in can work out the hash of
 // every piece; without a share per account one of them could spend the whole day's budget in minutes and switch the
 // voice off for everyone. Only audio the account is first to ask for counts: pieces already made are free to it.
@@ -108,7 +129,8 @@ const userShareKr = () => num(process.env.VOICE_USER_DAILY_KR, 5);
 function book(userId, kr) {
   bookedToday();
   spent.kr = Math.max(0, spent.kr + kr);
-  if (userId != null) spent.byUser.set(userId, Math.max(0, (spent.byUser.get(userId) || 0) + kr));
+  if (userId != null) spent.byUser.set(String(userId), Math.max(0, bookedBy(userId) + kr));
+  saveSpend();
 }
 
 // ---------- the disk cache ----------
@@ -195,7 +217,7 @@ export async function audioFor({ voice, lang, hash, userId = null, fetchImpl = f
   if (!inflight.has(file)) {
     if (bookedToday() + cost > dailyCapKr()) return { error: "cap" };
     const share = userShareKr();
-    if (userId != null && share > 0 && (spent.byUser.get(userId) || 0) + cost > share) return { error: "cap" };
+    if (userId != null && share > 0 && bookedBy(userId) + cost > share) return { error: "cap" };
     if (Date.now() < blockedUntil) return { error: "upstream" };
     // Booked here, in the same tick as the checks above, so pieces waiting in the queue count against the day.
     book(userId, cost);

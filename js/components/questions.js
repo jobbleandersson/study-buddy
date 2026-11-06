@@ -16,7 +16,7 @@ import { ruleSaveCard, rulePeek } from "./rule-card.js";
 import { mathKeypad } from "./math-keypad.js";
 import { heuristic, normalizeAnswer } from "../lib/answer-match.js";
 import {
-  speechSupported, isSpeaking, speakSegments, speakQuestion, stopSpeaking, getAutoRead,
+  speechSupported, isSpeaking, speakSegments, speakQuestion, stopSpeaking, speechStops, getAutoRead,
   voiceForBcp, recognitionSupported, listenOnce, similarity,
 } from "../lib/speech.js";
 import { targetPhrases, maskTargetSpans, choicesAreTarget, segmentPrompt } from "../lib/lang-detect.js";
@@ -76,7 +76,9 @@ export function renderQuestion(opts) {
   // once it's on screen. The speaker button on the card does it on demand.
   if (getAutoRead() && speechSupported()) {
     const target = opts.targetLang || null;
-    setTimeout(() => speakQuestion(opts.question, t, target), 350);
+    // Not if the student has left (or stopped the voice) in the meantime: the screen is gone, the voice would not be.
+    const stops = speechStops();
+    setTimeout(() => { if (speechStops() === stops) speakQuestion(opts.question, t, target); }, 350);
   }
   return r;
 }

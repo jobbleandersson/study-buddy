@@ -59,6 +59,14 @@ before(async () => {
 beforeEach(() => { said.length = 0; played.length = 0; asked.length = 0; have = new Set(PIECES.map(sha)); remote.stopRemote(); remote.setNaturalVoice("ash"); });
 
 describe("speakQuestion with the natural voice", () => {
+  test("stopping is counted, so a reading scheduled earlier can tell the student has left", () => {
+    const before = speech.speechStops();
+    speech.stopSpeaking();
+    assert.equal(speech.speechStops(), before + 1);
+    speech.speakSegments([{ text: "Hej" }]);   // starting a new reading is not a stop
+    assert.equal(speech.speechStops(), before + 1);
+  });
+
   test("plays every piece in order from the server's audio and says nothing in the device voice", async () => {
     let ended = 0;
     let started = 0;
