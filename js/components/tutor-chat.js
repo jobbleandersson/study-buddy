@@ -291,7 +291,8 @@ export class TutorChat {
    *  other read-aloud, so it uses the voice and speed they picked (it used to take the browser's default
    *  voice at normal speed whatever they chose) and long replies are spoken in pieces. */
   _speak(text) {
-    if (!this._canSpeak || store.settings.voice !== true) return;
+    // A reply that finishes after the student has left the set (it is still typing out, or arriving) is not read.
+    if (this._destroyed || !this._canSpeak || store.settings.voice !== true) return;
     speak(text);
   }
 
@@ -483,6 +484,7 @@ export class TutorChat {
   _scroll() { this.logEl.scrollTop = this.logEl.scrollHeight; }
 
   destroy() {
+    this._destroyed = true;
     try { this.abort?.abort(); } catch {}
     try { this._stopMic(); } catch {}
     try { if (this._canSpeak) window.speechSynthesis.cancel(); } catch {}

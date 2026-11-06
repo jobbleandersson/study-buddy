@@ -343,7 +343,13 @@ export function speakQuestion(question, t, target, opts = {}) {
   return true;
 }
 
+let silenced = 0;
+/** How many times speech has been stopped. A reading that is started later (a timer, a reply still arriving)
+ *  compares this with the value it saw when it was scheduled, and stays quiet if the student has left since. */
+export const speechStops = () => silenced;
+
 export function stopSpeaking() {
+  silenced++;
   stopRemote();
   try { window.speechSynthesis.cancel(); } catch {}
 }
