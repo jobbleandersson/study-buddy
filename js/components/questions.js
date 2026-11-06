@@ -16,7 +16,7 @@ import { ruleSaveCard, rulePeek } from "./rule-card.js";
 import { mathKeypad } from "./math-keypad.js";
 import { heuristic, normalizeAnswer } from "../lib/answer-match.js";
 import {
-  speechSupported, isSpeaking, speakSegments, stopSpeaking, questionToSegments, getAutoRead,
+  speechSupported, isSpeaking, speakSegments, speakQuestion, stopSpeaking, getAutoRead,
   voiceForBcp, recognitionSupported, listenOnce, similarity,
 } from "../lib/speech.js";
 import { targetPhrases, maskTargetSpans, choicesAreTarget, segmentPrompt } from "../lib/lang-detect.js";
@@ -76,7 +76,7 @@ export function renderQuestion(opts) {
   // once it's on screen. The speaker button on the card does it on demand.
   if (getAutoRead() && speechSupported()) {
     const target = opts.targetLang || null;
-    setTimeout(() => speakSegments(questionToSegments(opts.question, t, target)), 350);
+    setTimeout(() => speakQuestion(opts.question, t, target), 350);
   }
   return r;
 }
@@ -145,7 +145,7 @@ function speakButton(question, target) {
     if (isSpeaking()) { stopSpeaking(); btn.classList.remove("is-on"); return; }
     btn.classList.add("is-on");
     const done = () => btn.classList.remove("is-on");
-    speakSegments(questionToSegments(question, t, target), { onend: done, onerror: done });
+    speakQuestion(question, t, target, { onend: done, onerror: done });
   });
   return btn;
 }

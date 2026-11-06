@@ -10,7 +10,11 @@ import {
   getPreferredVoiceURI, setPreferredVoiceURI, getRate, setRate, speakSample, stopSpeaking,
   getTalkVoiceURI, setTalkVoiceURI, talkVoices,
 } from "../lib/speech.js";
+import {
+  remoteVoiceAvailable, setNaturalVoice, activeNaturalVoice, playRemote, stopRemote, unlockAudio, NATURAL_VOICES,
+} from "../lib/remote-voice.js";
 
+const NATURAL = "natural:";   // option values for the natural voices; a device voice is its voiceURI
 const RATE_MIN = 0.6, RATE_MAX = 1.4, RATE_STEP = 0.1;
 
 /** "Microsoft Sofie Online (Natural) - Swedish · Natural · online": the name plus what is worth knowing. */
@@ -39,12 +43,13 @@ export function voiceControls({ compact = false } = {}) {
   const rateVal = el("output.voicectl__rate", { "aria-hidden": "true" });
   const tip = el("p.note.voicectl__tip", { hidden: true });
   const onlineNote = el("p.note.voicectl__tip", { hidden: true }, t("voice.onlineNote"));
+  const naturalNote = el("p.note.voicectl__tip", { hidden: true }, t("voice.naturalNote"));
   const none = el("p.note", { hidden: true }, t("voice.none"));
   const controls = el("div.voicectl__body", {}, [
     sel,
     el("div.voicectl__row", {}, [sampleBtn, el("label.voicectl__speed", {}, [el("span", {}, t("voice.speed")), rateIn, rateVal])]),
   ]);
-  root.append(controls, none, tip, onlineNote);
+  root.append(controls, none, tip, onlineNote, naturalNote);
 
   // Which sample is playing: a newer one ignores an older one's "ended" (Chrome reports the cancelled one).
   let playing = 0;
@@ -52,33 +57,52 @@ export function voiceControls({ compact = false } = {}) {
   function play() {
     const mine = ++playing;
     sampleBtn.textContent = t("voice.stop");
-    const ok = speakSample(t("voice.sampleText"), {
-      voiceURI: sel.value, rate: getRate(), onend: () => { if (mine === playing) idle(); },
-    });
+    const done = () => { if (mine === playing) idle(); };
+    const natural = sel.value.startsWith(NATURAL) ? sel.value.slice(NATURAL.length) : null;
+    if (natural) {
+      // The server's audio for the sample sentence; the device's voice if it cannot be had.
+      unlockAudio();
+      playRemote([t("voice.sampleText")], { voice: natural, rate: getRate() }).then(({ ok, cancelled }) => {
+        if (cancelled) return;
+        if (ok || !speakSample(t("voice.sampleText"), { voiceURI: "", rate: getRate(), onend: done })) done();
+      });
+      return;
+    }
+    const ok = speakSample(t("voice.sampleText"), { voiceURI: sel.value, rate: getRate(), onend: done });
     if (!ok) idle();
   }
-  function stop() { playing++; stopSpeaking(); idle(); }
+  function stop() { playing++; stopRemote(); stopSpeaking(); idle(); }
 
   function paintVoices() {
     const voices = rankVoices(voicesForLang());
     const want = getPreferredVoiceURI();
+    // The natural voices first when the server has them (remote-voice.js), then the device's own.
+    const natural = remoteVoiceAvailable();
     sel.replaceChildren(
+      ...(natural ? NATURAL_VOICES.map((n) => el("option", { value: NATURAL + n }, t(`voice.natural_${n}`))) : []),
       el("option", { value: "" }, t("voice.auto")),
       ...voices.map((v) => el("option", { value: v.voiceURI }, voiceOptionLabel(v))),
     );
-    sel.value = voices.some((v) => v.voiceURI === want) ? want : "";
-    controls.hidden = !voices.length;
-    none.hidden = voices.length > 0;
+    sel.value = activeNaturalVoice() ? NATURAL + activeNaturalVoice()
+      : voices.some((v) => v.voiceURI === want) ? want : "";
+    controls.hidden = !voices.length && !natural;
+    none.hidden = voices.length > 0 || natural;
     onlineNote.hidden = !voices.some(voiceIsOnline);
+    naturalNote.hidden = !natural;
   }
 
   function paintTip() {
-    const text = voiceTipText(voiceAdvice());
+    // The tips are about the device's own voices: nothing to say while a natural voice is in use.
+    const text = activeNaturalVoice() ? "" : voiceTipText(voiceAdvice());
     tip.hidden = !text;
     tip.textContent = text;
   }
 
-  sel.addEventListener("change", () => { setPreferredVoiceURI(sel.value); paintTip(); play(); });
+  sel.addEventListener("change", () => {
+    if (sel.value.startsWith(NATURAL)) setNaturalVoice(sel.value.slice(NATURAL.length));
+    else { setNaturalVoice("device"); setPreferredVoiceURI(sel.value); }
+    paintTip(); play();
+  });
   sampleBtn.addEventListener("click", () => (playing && sampleBtn.textContent === t("voice.stop") ? stop() : play()));
   rateIn.value = String(getRate());
   const paintRate = () => { rateVal.textContent = `${Number(rateIn.value).toLocaleString(getLang() === "sv" ? "sv-SE" : "en-GB", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}×`; };

@@ -26,6 +26,9 @@ function findLibraryDir() {
 }
 
 const DIR = findLibraryDir();
+
+/** The data/library directory on disk, or null when this checkout has none (voice.js reads the sets itself). */
+export const libraryDir = () => DIR;
 let index = null;
 const loaded = new Map();
 

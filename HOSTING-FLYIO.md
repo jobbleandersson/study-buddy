@@ -264,6 +264,16 @@ Name another bucket service instead (Backblaze B2 and others speak the same S3 p
 
 The copy holds everything the database holds (emails, password hashes, study states): treat the bucket as private, and the privacy text says it exists.
 
+## Natural read-aloud voice (Ash)
+
+Library questions can be read aloud in an AI voice (OpenAI `gpt-4o-mini-tts`, voice `ash`, sent with no instructions) instead of the device's own. Ash was chosen in a listening test: it rated Good on every text in Swedish, Spanish, French, German and English; Nova and the cheaper `tts-1` models rated Weak. Dormant until the key is set; without it the site reads aloud exactly as before.
+
+- **Turn it on:** `fly secrets set OPENAI_API_KEY=... -a studybuddy-jobble` (the key from platform.openai.com, never in the repo or in chat). Check `voiceConfigured: true` in `/api/health`.
+- **How it works** (`server/src/voice.js`): the browser asks for a piece of a question by the SHA-256 of its text, `GET /api/voice/<hash>.mp3?voice=ash&lang=sv`. The server voices it only if the hash is in its index of the library's own text (`data/library` and `data/library-en`), so no student text, tutor reply or AI-made set ever goes to OpenAI. The mp3 is made once and kept in `VOICE_DIR` (default: a `voice` folder next to the database, on the volume).
+- **Limits** (all optional env vars): `VOICE_DAILY_CAP_KR` (default 15, an estimate of the day's new audio in kronor; resets with the server day), `VOICE_USER_DAILY_KR` (default 5, the part of that one account may start: the library is public, so without it one account could spend the day for everyone; pieces already made are free to it; 0 turns it off), `VOICE_MAX_MB` (default 300, the disk cache; the least recently used files go first). The whole library in one language is roughly 900k characters, about $22 at the deliberately high estimate the daily limit uses (the real bill is probably lower: check the OpenAI usage page); Swedish and English together are about twice that.
+- **Failure is quiet:** a missing audio file, the budget used up, OpenAI down or no sign-in all make the browser read the rest in the device voice.
+- Changing the model, the voice or an instruction in `voice.js`: bump `FILE_VERSION` so pieces are voiced afresh.
+
 ## AI limits per account
 
 Each account has a monthly AI limit in **kronor**, checked against what its requests actually cost (the price per model, from `server/src/usage.js`), not against a token count. Free: 2 kr. Plus: 30 kr. Until an account confirms its email address it has a 0.25 kr trial instead (Google and Apple sign-ins arrive confirmed). Each account also has a daily limit, and the whole server an emergency brake that only trips when something is wrong: with the per-account limits in place, ordinary use never comes near it.

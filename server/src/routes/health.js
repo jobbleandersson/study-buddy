@@ -3,6 +3,7 @@ import crypto from "node:crypto";
 import { emailEnabled } from "../email.js";
 import { siteLocked, hasGate } from "../gate.js";
 import { checkAi } from "../ai-check.js";
+import { voiceConfigured } from "../voice.js";
 
 export const health = Router();
 
@@ -19,6 +20,8 @@ health.get("/health", (req, res) => {
   res.json({
     ok: true,
     keyConfigured: !!process.env.ANTHROPIC_API_KEY,
+    // True = OPENAI_API_KEY is set (voice.js): the natural read-aloud voices exist. Dormant otherwise.
+    voiceConfigured: voiceConfigured(),
     // False = no RESEND_API_KEY set. The sign-up/sign-in screen then shows no verify/reset UI at
     // all — same dormant-until-configured shape as googleClientId below.
     emailConfigured: emailEnabled(),
