@@ -24,13 +24,13 @@ export const MODEL = "gpt-4o-mini-tts";
 export const VOICES = ["nova", "ash"];
 export const LANGS = ["sv", "en"];
 /** Part of every file name: change the instructions below and bump this, and pieces are voiced afresh. */
-export const INSTRUCTIONS_VERSION = 1;
+const INSTRUCTIONS_VERSION = 1;
 /** Longest piece voiced. A longer one is left to the device's voice. */
 export const MAX_PIECE_CHARS = 1800;
 
 const INSTRUCTIONS = {
-  sv: "Speak natural, native Swedish with correct local pronunciation and intonation, like a clear and friendly teacher reading to a student. Steady, unhurried pace.",
-  en: "Speak natural, native English with correct local pronunciation and intonation, like a clear and friendly teacher reading to a student. Steady, unhurried pace.",
+  sv: "Speak natural, native Swedish with correct local pronunciation and intonation, like a clear and friendly teacher reading to a student. Steady, unhurried pace. If a word or sentence is in another language, pronounce it as a native speaker of that language would.",
+  en: "Speak natural, native English with correct local pronunciation and intonation, like a clear and friendly teacher reading to a student. Steady, unhurried pace. If a word or sentence is in another language, pronounce it as a native speaker of that language would.",
 };
 const STRINGS = { sv: svStrings, en: enStrings };
 
@@ -38,7 +38,7 @@ const STRINGS = { sv: svStrings, en: enStrings };
 // makes $0.000025 a character. Deliberately a little high: the daily limit should trip early, not late.
 const USD_PER_CHAR = 0.000025;
 const KR_PER_USD = 10;
-export const KR_PER_CHAR = USD_PER_CHAR * KR_PER_USD;
+const KR_PER_CHAR = USD_PER_CHAR * KR_PER_USD;
 
 const num = (raw, dflt) => { const n = Number(raw); return raw != null && String(raw).trim() !== "" && Number.isFinite(n) && n >= 0 ? n : dflt; };
 const dailyCapKr = () => num(process.env.VOICE_DAILY_CAP_KR, 15);
@@ -84,11 +84,13 @@ export function buildIndex({ dir = libraryDir() } = {}) {
 }
 
 function getIndex() { return (index ??= buildIndex()); }
-/** For tests: forget the built index (and the spend, queue and block state). */
-export function resetVoice() { index = null; spent = { day: "", kr: 0 }; blockedUntil = 0; usedBytes = null; }
 
-/** How many pieces a language has: shown in the log at start-up, and handy in tests. */
-export const indexSize = (lang) => getIndex()[lang]?.size || 0;
+/** Build the index now, off the request path: reading the whole library takes about a second, during
+ *  which the one Node process answers nobody. Called shortly after start-up when the voices are on. */
+export function warmIndex() {
+  if (!voiceConfigured()) return;
+  setTimeout(() => { try { getIndex(); } catch (e) { console.warn("[voice] could not build the index:", e.message); } }, 1500).unref?.();
+}
 
 // ---------- the day's spend ----------
 
@@ -98,7 +100,6 @@ function bookedToday() {
   if (spent.day !== today()) spent = { day: today(), kr: 0 };
   return spent.kr;
 }
-export const spentTodayKr = () => bookedToday();
 
 // ---------- the disk cache ----------
 
@@ -106,7 +107,7 @@ let usedBytes = null;
 async function cacheSize(dir) {
   if (usedBytes != null) return usedBytes;
   let total = 0;
-  try { for (const f of await fsp.readdir(dir)) total += (await fsp.stat(path.join(dir, f)).catch(() => null))?.size || 0; } catch { /* no directory yet */ }
+  try { for (const f of (await fsp.readdir(dir)).filter((x) => x.endsWith(".mp3"))) total += (await fsp.stat(path.join(dir, f)).catch(() => null))?.size || 0; } catch { /* no directory yet */ }
   return (usedBytes = total);
 }
 /** Delete the least recently used files until the cache is under 90% of its limit. */
@@ -172,8 +173,9 @@ export async function audioFor({ voice, lang, hash, fetchImpl = fetch }) {
   const dir = voiceDir();
   const file = path.join(dir, `${MODEL}-${voice}-${lang}-v${INSTRUCTIONS_VERSION}-${hash}.mp3`);
   try {
-    const now = new Date();
-    await fsp.utimes(file, now, now);   // a hit: the newest file for eviction
+    const st = await fsp.stat(file);
+    // A hit makes it the newest file for eviction - but a metadata write per request is too much, so once an hour.
+    if (Date.now() - st.mtimeMs > 3600_000) { const now = new Date(); await fsp.utimes(file, now, now).catch(() => {}); }
     return { file };
   } catch { /* not made yet */ }
 
@@ -182,11 +184,11 @@ export async function audioFor({ voice, lang, hash, fetchImpl = fetch }) {
   if (Date.now() < blockedUntil) return { error: "upstream" };
 
   if (!inflight.has(file)) {
+    // Booked here, in the same tick as the check above, so pieces waiting in the queue count against the day.
+    spent.kr += cost;
     const job = (async () => {
       await slot();
       try {
-        // The day's budget is booked before the request goes out, so the ones waiting in the queue count.
-        spent.kr += cost;
         const buf = await synthesize({ voice, lang, text, fetchImpl });
         await fsp.mkdir(dir, { recursive: true });
         const before = await cacheSize(dir);   // counted before the new file lands, so it is not added twice

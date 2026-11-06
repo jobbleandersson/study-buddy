@@ -11,7 +11,7 @@ import {
   getTalkVoiceURI, setTalkVoiceURI, talkVoices,
 } from "../lib/speech.js";
 import {
-  remoteVoiceAvailable, getNaturalVoice, setNaturalVoice, activeNaturalVoice, playRemote, stopRemote, unlockAudio, NATURAL_VOICES,
+  remoteVoiceAvailable, setNaturalVoice, activeNaturalVoice, playRemote, stopRemote, unlockAudio, NATURAL_VOICES,
 } from "../lib/remote-voice.js";
 
 const NATURAL = "natural:";   // option values for the natural voices; a device voice is its voiceURI

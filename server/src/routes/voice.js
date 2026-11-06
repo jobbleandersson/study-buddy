@@ -1,7 +1,9 @@
 import { Router } from "express";
 import { requireAuth } from "../middleware/requireAuth.js";
 import { asyncHandler } from "../middleware/asyncHandler.js";
-import { audioFor } from "../voice.js";
+import { audioFor, warmIndex } from "../voice.js";
+
+warmIndex();
 
 export const voice = Router();
 
@@ -33,7 +35,7 @@ voice.get("/voice/:hash([0-9a-f]{64}).mp3", requireAuth, asyncHandler(async (req
   const out = await audioFor({ voice: String(req.query.voice || ""), lang: String(req.query.lang || ""), hash: req.params.hash });
   if (out.error) return res.status(STATUS[out.error] || 502).json({ error: { message: "No audio for that.", code: `voice_${out.error}` } });
   // The pieces are fixed text, so the browser may keep the audio; private because the route needs a sign-in.
-  res.set("Cache-Control", "private, max-age=604800");
+  res.set("Cache-Control", "private, max-age=86400");   // a day: new instructions (voice.js INSTRUCTIONS_VERSION) are heard within a day
   res.type("audio/mpeg");
   res.sendFile(out.file, { dotfiles: "allow" }, (err) => {
     if (err && !res.headersSent) res.status(404).json({ error: { message: "No audio for that.", code: "voice_unknown" } });

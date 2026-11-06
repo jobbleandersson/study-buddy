@@ -325,7 +325,9 @@ export function speak(text, opts) {
  * voices as before. Call it from the tap itself (it unlocks audio). Returns false when nothing can speak.
  */
 export function speakQuestion(question, t, target, opts = {}) {
-  const voice = target ? null : activeNaturalVoice();
+  // Only the library's own questions (ids "q-...": the ones the server has text for); a student's own or
+  // AI-made set would only cost a failed request before the device voice, and send a hash of what they wrote.
+  const voice = target || !/^q-/.test(String(question?.id)) ? null : activeNaturalVoice();
   const pieces = voice ? questionPieces(question, (k) => t(k)) : [];
   if (!voice || !pieces.length) return speakSegments(questionToSegments(question, t, target), opts);
   try { window.speechSynthesis?.cancel(); } catch {}

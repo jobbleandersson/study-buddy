@@ -16,7 +16,7 @@ import { ruleSaveCard, rulePeek } from "./rule-card.js";
 import { mathKeypad } from "./math-keypad.js";
 import { heuristic, normalizeAnswer } from "../lib/answer-match.js";
 import {
-  speechSupported, isSpeaking, speakSegments, speakQuestion, stopSpeaking, questionToSegments, getAutoRead,
+  speechSupported, isSpeaking, speakSegments, speakQuestion, stopSpeaking, getAutoRead,
   voiceForBcp, recognitionSupported, listenOnce, similarity,
 } from "../lib/speech.js";
 import { targetPhrases, maskTargetSpans, choicesAreTarget, segmentPrompt } from "../lib/lang-detect.js";
