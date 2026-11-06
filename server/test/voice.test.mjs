@@ -215,6 +215,40 @@ describe("limits and dormancy", () => {
     } finally { await server.stop(); await fake.stop(); fs.rmSync(dir, { recursive: true, force: true }); }
   });
 
+  const kr = (text) => text.length * 0.000025 * 10;   // voice.js's estimate: $0.000025 a character, 10 kr to the dollar
+
+  test("one account cannot spend more than its share of the day on new audio; others and made pieces are unaffected", async () => {
+    const fake = await startFakeOpenAI();
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), "voice-test-"));
+    const server = await startServer({ OPENAI_API_KEY: "k", OPENAI_API_BASE: fake.base, VOICE_DIR: dir, VOICE_USER_DAILY_KR: String(kr(SAMPLE_SV) * 1.5) });
+    try {
+      const a = await signedIn(server, "share-a@example.se");
+      const b = await signedIn(server, "share-b@example.se");
+      assert.equal((await getAudio(server, a, sha(SAMPLE_SV))).status, 200, "the first new piece fits");
+      const over = await getAudio(server, a, sha(SAMPLE_EN), "voice=ash&lang=en");
+      assert.equal(over.status, 503, "the second would go over A's share");
+      assert.equal((await over.json()).error.code, "voice_cap");
+      const calls = fake.calls.length;
+      assert.equal((await getAudio(server, a, sha(SAMPLE_SV))).status, 200, "a piece already made is free");
+      assert.equal(fake.calls.length, calls);
+      assert.equal((await getAudio(server, b, sha(SAMPLE_EN), "voice=ash&lang=en")).status, 200, "another account still has its own share");
+    } finally { await server.stop(); await fake.stop(); fs.rmSync(dir, { recursive: true, force: true }); }
+  });
+
+  test("a piece already being made is served even when the budget has no room for another", async () => {
+    const fake = await startFakeOpenAI();
+    fake.mode.delayMs = 200;
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), "voice-test-"));
+    const server = await startServer({ OPENAI_API_KEY: "k", OPENAI_API_BASE: fake.base, VOICE_DIR: dir, VOICE_DAILY_CAP_KR: String(kr(SAMPLE_SV) * 1.2) });
+    try {
+      const a = await signedIn(server, "flight-a@example.se");
+      const b = await signedIn(server, "flight-b@example.se");
+      const [ra, rb] = await Promise.all([getAudio(server, a, sha(SAMPLE_SV)), getAudio(server, b, sha(SAMPLE_SV))]);
+      assert.deepEqual([ra.status, rb.status], [200, 200]);
+      assert.equal(fake.calls.length, 1);
+    } finally { await server.stop(); await fake.stop(); fs.rmSync(dir, { recursive: true, force: true }); }
+  });
+
   test("the disk cache keeps to its size, oldest files first", async () => {
     const fake = await startFakeOpenAI();
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), "voice-test-"));

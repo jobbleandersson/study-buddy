@@ -332,6 +332,7 @@ export function speakQuestion(question, t, target, opts = {}) {
   if (!voice || !pieces.length) return speakSegments(questionToSegments(question, t, target), opts);
   try { window.speechSynthesis?.cancel(); } catch {}
   unlockAudio();
+  opts.onstart?.();
   playRemote(pieces, { voice, rate: getRate() * (opts.rate || 1) }).then(({ ok, spoken, cancelled }) => {
     if (cancelled) return;
     if (ok) { opts.onend?.(); return; }

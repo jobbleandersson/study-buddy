@@ -61,11 +61,13 @@ beforeEach(() => { said.length = 0; played.length = 0; asked.length = 0; have = 
 describe("speakQuestion with the natural voice", () => {
   test("plays every piece in order from the server's audio and says nothing in the device voice", async () => {
     let ended = 0;
-    assert.equal(speech.speakQuestion(LIB, t, null, { onend: () => ended++ }), true);
+    let started = 0;
+    assert.equal(speech.speakQuestion(LIB, t, null, { onstart: () => started++, onend: () => ended++ }), true);
     await settle();
     assert.deepEqual(asked, PIECES.map(sha));
     assert.equal(played.length, PIECES.length);
     assert.equal(ended, 1);
+    assert.equal(started, 1, "onstart is called on the natural path too");
     assert.deepEqual(said, []);
   });
 
@@ -126,8 +128,7 @@ describe("speakQuestion with the natural voice", () => {
     assert.equal(said.length, 1);
   });
 
-  test("the chosen voice (Ash) is the one asked for", async () => {
-    remote.setNaturalVoice("ash");
+  test("each piece is asked for in Ash, in the interface language", async () => {
     const urls = [];
     const orig = globalThis.fetch;
     globalThis.fetch = async (u, o) => { urls.push(String(u)); return orig(u, o); };

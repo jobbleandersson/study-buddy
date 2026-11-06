@@ -8,7 +8,8 @@
 import { getLang } from "./i18n.js";
 import { PROXY_URL } from "../config.js";
 
-const KEY = "studybuddy.ttsNatural";            // "device" when the student chose their own voice; unset means Ash
+const KEY = "studybuddy.ttsNatural";            // "ash" | "device"; unset until the student chooses
+const DEVICE_VOICE_KEY = "studybuddy.ttsVoice";  // speech.js: the device voice they picked before there was a natural one
 export const NATURAL_VOICES = ["ash"];          // the one voice that rated Good on every text in the listening test
 const BASE = PROXY_URL.replace(/messages$/, "voice/");   // .../api/voice/
 
@@ -23,12 +24,20 @@ export function remoteVoiceAvailable() {
   } catch { return false; }
 }
 
-/** The student's choice: "ash" (the default) or "device" for the device's own voice. Any other stored value reads as "ash". */
+/**
+ * The student's choice: "ash" or "device" (the device's own voice). Until they choose, it is Ash - unless they
+ * had already picked a voice of their device (speech.js stores it under studybuddy.ttsVoice), which is kept.
+ * Any other stored value reads as that default.
+ */
 export function getNaturalVoice() {
-  try { return localStorage.getItem(KEY) === "device" ? "device" : "ash"; } catch { return "ash"; }
+  try {
+    const v = localStorage.getItem(KEY);
+    if (v === "device" || v === "ash") return v;
+    return localStorage.getItem(DEVICE_VOICE_KEY) ? "device" : "ash";
+  } catch { return "ash"; }
 }
 export function setNaturalVoice(v) {
-  try { v === "device" ? localStorage.setItem(KEY, v) : localStorage.removeItem(KEY); } catch {}
+  try { localStorage.setItem(KEY, v === "device" ? "device" : "ash"); } catch {}
 }
 /** The natural voice to read with right now ("ash"), or null: use the device's own. */
 export function activeNaturalVoice() {

@@ -7,7 +7,8 @@
 // no student data does either. The first student to hear a piece waits a moment for it; everyone after
 // gets the file. If anything fails the browser falls back to the device's own voice (js/lib/remote-voice.js).
 //
-// Money: an estimated cost is booked per piece against a daily limit (VOICE_DAILY_CAP_KR), the disk cache
+// Money: an estimated cost is booked per piece against a daily limit (VOICE_DAILY_CAP_KR) and against the account that
+// asked first (VOICE_USER_DAILY_KR, so one account cannot spend the day), the disk cache
 // has a size limit (VOICE_MAX_MB, oldest unused first), and the whole library voiced once in one voice and
 // language is only a few dozen dollars. Dormant until OPENAI_API_KEY is set.
 
@@ -94,11 +95,20 @@ export function warmIndex() {
 
 // ---------- the day's spend ----------
 
-let spent = { day: "", kr: 0 };
+let spent = { day: "", kr: 0, byUser: new Map() };
 const today = () => new Date().toISOString().slice(0, 10);
 function bookedToday() {
-  if (spent.day !== today()) spent = { day: today(), kr: 0 };
+  if (spent.day !== today()) spent = { day: today(), kr: 0, byUser: new Map() };
   return spent.kr;
+}
+// One account's share of the day's new audio. The library is public, so anyone signed in can work out the hash of
+// every piece; without a share per account one of them could spend the whole day's budget in minutes and switch the
+// voice off for everyone. Only audio the account is first to ask for counts: pieces already made are free to it.
+const userShareKr = () => num(process.env.VOICE_USER_DAILY_KR, 5);
+function book(userId, kr) {
+  bookedToday();
+  spent.kr = Math.max(0, spent.kr + kr);
+  if (userId != null) spent.byUser.set(userId, Math.max(0, (spent.byUser.get(userId) || 0) + kr));
 }
 
 // ---------- the disk cache ----------
@@ -166,7 +176,7 @@ async function synthesize({ voice, text, fetchImpl }) {
  *   "cap"       today's voice budget is spent
  *   "upstream"  OpenAI did not deliver (try again later)
  */
-export async function audioFor({ voice, lang, hash, fetchImpl = fetch }) {
+export async function audioFor({ voice, lang, hash, userId = null, fetchImpl = fetch }) {
   if (!voiceConfigured() || !VOICES.includes(voice) || !LANGS.includes(lang)) return { error: "disabled" };
   const text = getIndex()[lang].get(hash);
   if (!text) return { error: "unknown" };
@@ -180,12 +190,15 @@ export async function audioFor({ voice, lang, hash, fetchImpl = fetch }) {
   } catch { /* not made yet */ }
 
   const cost = text.length * KR_PER_CHAR;
-  if (bookedToday() + cost > dailyCapKr()) return { error: "cap" };
-  if (Date.now() < blockedUntil) return { error: "upstream" };
-
+  // A piece somebody is already making costs this asker nothing, so it is checked first: the budget being nearly
+  // spent must not turn a free answer into a refusal (the browser then pauses the voice for a minute).
   if (!inflight.has(file)) {
-    // Booked here, in the same tick as the check above, so pieces waiting in the queue count against the day.
-    spent.kr += cost;
+    if (bookedToday() + cost > dailyCapKr()) return { error: "cap" };
+    const share = userShareKr();
+    if (userId != null && share > 0 && (spent.byUser.get(userId) || 0) + cost > share) return { error: "cap" };
+    if (Date.now() < blockedUntil) return { error: "upstream" };
+    // Booked here, in the same tick as the checks above, so pieces waiting in the queue count against the day.
+    book(userId, cost);
     const job = (async () => {
       await slot();
       try {
@@ -199,7 +212,7 @@ export async function audioFor({ voice, lang, hash, fetchImpl = fetch }) {
         evict(dir).catch(() => {});
         return file;
       } catch (e) {
-        spent.kr = Math.max(0, spent.kr - cost);   // nothing was made: give the money back
+        book(userId, -cost);   // nothing was made: give the money back
         throw e;
       } finally { release(); }
     })();

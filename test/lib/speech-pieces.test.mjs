@@ -84,17 +84,26 @@ describe("remote-voice", () => {
   });
 
   test("the choice defaults to Ash and remembers the device's own voice", () => {
+    localStorage.removeItem("studybuddy.ttsNatural");
     assert.equal(getNaturalVoice(), "ash");
     setNaturalVoice("device");
     assert.equal(getNaturalVoice(), "device");
     setNaturalVoice("ash");
     assert.equal(getNaturalVoice(), "ash");
-    setNaturalVoice("device");
-    setNaturalVoice("something-else");
-    assert.equal(getNaturalVoice(), "ash", "a value that is not a voice reads as the default");
     localStorage.setItem("studybuddy.ttsNatural", "nova");
     assert.equal(getNaturalVoice(), "ash", "a stored value from an earlier voice reads as the default");
+    setNaturalVoice("something-else");
+    assert.equal(getNaturalVoice(), "ash", "a value that is not a voice reads as the default");
+  });
+
+  test("a device voice the student had already picked stays their choice until they pick Ash", () => {
+    localStorage.removeItem("studybuddy.ttsNatural");
+    localStorage.setItem("studybuddy.ttsVoice", "Microsoft Sofie Online");
+    assert.equal(getNaturalVoice(), "device");
     setNaturalVoice("ash");
+    assert.equal(getNaturalVoice(), "ash", "choosing Ash is explicit and wins");
+    localStorage.removeItem("studybuddy.ttsVoice");
+    localStorage.removeItem("studybuddy.ttsNatural");
   });
 
   test("a gate that throws or says no keeps it off", () => {

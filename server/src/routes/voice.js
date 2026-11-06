@@ -32,7 +32,7 @@ const STATUS = { disabled: 404, unknown: 404, cap: 503, upstream: 502 };
 // The text itself is never sent: the server has to find the hash in its own index of the library.
 voice.get("/voice/:hash([0-9a-f]{64}).mp3", requireAuth, asyncHandler(async (req, res) => {
   if (!allow(req.user.userId)) return res.status(429).json({ error: { message: "Slow down a little.", code: "rate_limited" } });
-  const out = await audioFor({ voice: String(req.query.voice || ""), lang: String(req.query.lang || ""), hash: req.params.hash });
+  const out = await audioFor({ voice: String(req.query.voice || ""), lang: String(req.query.lang || ""), hash: req.params.hash, userId: req.user.userId });
   if (out.error) return res.status(STATUS[out.error] || 502).json({ error: { message: "No audio for that.", code: `voice_${out.error}` } });
   // The pieces are fixed text, so the browser may keep the audio; private because the route needs a sign-in.
   res.set("Cache-Control", "private, max-age=86400");   // a day: new voice settings (voice.js FILE_VERSION) are heard within a day
