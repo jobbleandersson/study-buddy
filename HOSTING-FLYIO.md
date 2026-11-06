@@ -264,6 +264,16 @@ Name another bucket service instead (Backblaze B2 and others speak the same S3 p
 
 The copy holds everything the database holds (emails, password hashes, study states): treat the bucket as private, and the privacy text says it exists.
 
+## Natural read-aloud voices (Nova and Ash)
+
+Library questions can be read aloud in two AI voices (OpenAI `gpt-4o-mini-tts`, voices `nova` and `ash`) instead of the device's own. Dormant until the key is set; without it the site reads aloud exactly as before.
+
+- **Turn it on:** `fly secrets set OPENAI_API_KEY=... -a studybuddy-jobble` (the key from platform.openai.com, never in the repo or in chat). Check `voiceConfigured: true` in `/api/health`.
+- **How it works** (`server/src/voice.js`): the browser asks for a piece of a question by the SHA-256 of its text, `GET /api/voice/<hash>.mp3?voice=nova&lang=sv`. The server voices it only if the hash is in its index of the library's own text (`data/library` and `data/library-en`), so no student text, tutor reply or AI-made set ever goes to OpenAI. The mp3 is made once and kept in `VOICE_DIR` (default: a `voice` folder next to the database, on the volume).
+- **Limits** (all optional env vars): `VOICE_DAILY_CAP_KR` (default 15, an estimate of the day's new audio in kronor; resets with the server day), `VOICE_MAX_MB` (default 300, the disk cache; the least recently used files go first). The whole library in one voice and language is roughly 900k characters, about $22.
+- **Failure is quiet:** a missing audio file, the budget used up, OpenAI down or no sign-in all make the browser read the rest in the device voice.
+- Changing the instructions in `voice.js`: bump `INSTRUCTIONS_VERSION` so pieces are voiced afresh.
+
 ## AI limits per account
 
 Each account has a monthly AI limit in **kronor**, checked against what its requests actually cost (the price per model, from `server/src/usage.js`), not against a token count. Free: 2 kr. Plus: 30 kr. Until an account confirms its email address it has a 0.25 kr trial instead (Google and Apple sign-ins arrive confirmed). Each account also has a daily limit, and the whole server an emergency brake that only trips when something is wrong: with the per-account limits in place, ordinary use never comes near it.

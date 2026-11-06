@@ -5,6 +5,7 @@ import { uid } from "./lib/dom.js";
 import { deepClone } from "./lib/clone.js";
 import { localDayKey, currentStreak, addDays, studiedToday, questionsAnsweredToday } from "./lib/activity.js";
 import { getLang, t } from "./lib/i18n.js";
+import { setRemoteVoiceGate } from "./lib/remote-voice.js";
 import { serverMessage } from "./lib/server-errors.js";
 import { normalizeExam, examsFromMarkedSets, examSetDates, calendarEntries, examToMakeFor } from "./lib/exam.js";
 import { mergeStates, looksLikeBackup } from "./lib/merge-state.js";
@@ -477,6 +478,7 @@ class Store extends EventTarget {
     // Whether the server can send email (RESEND_API_KEY set) — false hides every verify/reset
     // control, the same way a null googleClientId hides the Google button.
     this.emailConfigured = false;
+    this.voiceConfigured = false;   // the natural read-aloud voices (remote-voice.js), from /api/health
     // The server has a SITE_PASSWORD (server/src/gate.js): until this device has typed it (`siteUnlocked`),
     // main.js shows nothing past the front page, and the front page asks for the password.
     this.siteLocked = false;
@@ -590,6 +592,7 @@ class Store extends EventTarget {
       this.appleClientId = data?.appleClientId || null;
       this.appleRedirectUri = data?.appleRedirectUri || null;
       this.emailConfigured = !!data?.emailConfigured;
+      this.voiceConfigured = !!data?.voiceConfigured;
       this.siteLocked = !!data?.siteLocked;
       this.siteUnlocked = !!data?.unlocked;
 
@@ -602,6 +605,7 @@ class Store extends EventTarget {
       this.googleClientId = null;
       this.appleClientId = null;
       this.emailConfigured = false;
+      this.voiceConfigured = false;
     }
 
     // Behind the site password (gate.js) every other API call is refused until this device has typed it.
@@ -2451,5 +2455,7 @@ function nextCopyTitle(title, existing) {
 }
 
 export const store = new Store();
+// The natural read-aloud voices (remote-voice.js) exist when the server has them and this student is signed in.
+setRemoteVoiceGate(() => store.voiceConfigured && store.authed);
 // The connection coming and going repaints whatever shows the AI's availability.
 for (const ev of ["online", "offline"]) globalThis.addEventListener?.(ev, () => store.dispatchEvent(new CustomEvent("change")));

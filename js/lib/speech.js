@@ -5,6 +5,11 @@
 
 import { getLang } from "./i18n.js";
 import { segmentPrompt, choicesAreTarget, segmentByLanguage, LANG_BCP } from "./lang-detect.js";
+import { toSpeakable, questionPieces } from "./speech-pieces.js";
+import { activeNaturalVoice, playRemote, stopRemote, unlockAudio, remoteSpeaking } from "./remote-voice.js";
+
+// Moved to speech-pieces.js (the server needs it too); still importable from here.
+export { toSpeakable };
 
 const VOICE_KEY = "studybuddy.ttsVoice";
 const AUTO_KEY = "studybuddy.ttsAuto";
@@ -26,6 +31,12 @@ if (speechSupported()) {
   refreshVoices();
   // Chrome loads voices asynchronously — repopulate when they arrive.
   try { window.speechSynthesis.addEventListener("voiceschanged", refreshVoices); } catch {}
+}
+
+/** Silence both kinds of voice: the natural one (remote-voice.js) and the device's. */
+function cancelSpeech() {
+  stopRemote();
+  window.speechSynthesis.cancel();
 }
 
 const bcp = () => (getLang() === "sv" ? "sv-SE" : "en-GB");
@@ -160,18 +171,6 @@ export function splitForSpeech(text, max = 180) {
   return chunks;
 }
 
-/** Flatten markdown / LaTeX / cloze markup to something that reads as speech. */
-export function toSpeakable(text) {
-  return String(text || "")
-    .replace(/!?\[([^\]\n]*)\]\((?:[^()\s]|\([^()\s]*\))+\)/g, "$1")   // link or picture -> its words
-    .replace(/\{\{([^}|]*)(?:\|[^}]*)?\}\}/g, " $1 ")   // cloze -> first alternative
-    .replace(/\$\$?([^$]*)\$\$?/g, " $1 ")               // math -> inner text
-    .replace(/`([^`]*)`/g, "$1")
-    .replace(/[#*_>~\\]/g, "")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
 /** The best installed voice for a BCP-47 language ("es-ES"): the exact locale
  *  first, then any voice for that language, preferring on-device ones.
  *  null when the device has none. */
@@ -210,7 +209,7 @@ export function speakSegments(segments, { rate = 1, onstart, onend, onerror } = 
     .filter((p) => p.text.trim());
   if (!parts.length) return false;
   try {
-    window.speechSynthesis.cancel();
+    cancelSpeech();
     const speed = Math.min(1.5, Math.max(0.5, getRate() * rate));
     // Every run in sentence-sized pieces (see splitForSpeech), each in that run's voice.
     const queue = [];
@@ -240,7 +239,7 @@ export function speakSample(text, { voiceURI = "", rate = 1, onend } = {}) {
   const clean = toSpeakable(text);
   if (!speechSupported() || !clean) return false;
   try {
-    window.speechSynthesis.cancel();
+    cancelSpeech();
     const v = voiceURI ? refreshVoices().find((x) => x.voiceURI === voiceURI) : pickVoice();
     const u = new SpeechSynthesisUtterance(clean);
     if (v) u.voice = v;
@@ -288,7 +287,7 @@ export function speakTalkLine(text, role, { rate = 1, onend, onerror } = {}) {
   const clean = toSpeakable(text);
   if (!speechSupported() || !clean) return false;
   try {
-    window.speechSynthesis.cancel();
+    cancelSpeech();
     const [a, b] = talkVoices();
     const v = role ? (b || a) : a;
     // The speaker's own voice for their own language; a phrase in another language is voiced by a
@@ -319,10 +318,34 @@ export function speak(text, opts) {
   return speakSegments([{ text }], opts);
 }
 
+/**
+ * Read a question aloud. With a natural voice available (remote-voice.js) each piece - the prompt, then
+ * each option in the order shown - is played from the server's audio, and anything it cannot deliver is
+ * read by the device's voice from there on. Language sets (`target`) and every other case use the device
+ * voices as before. Call it from the tap itself (it unlocks audio). Returns false when nothing can speak.
+ */
+export function speakQuestion(question, t, target, opts = {}) {
+  const voice = target ? null : activeNaturalVoice();
+  const pieces = voice ? questionPieces(question, (k) => t(k)) : [];
+  if (!voice || !pieces.length) return speakSegments(questionToSegments(question, t, target), opts);
+  try { window.speechSynthesis?.cancel(); } catch {}
+  unlockAudio();
+  playRemote(pieces, { voice, rate: getRate() * (opts.rate || 1) }).then(({ ok, spoken, cancelled }) => {
+    if (cancelled) return;
+    if (ok) { opts.onend?.(); return; }
+    // Something failed: the pieces not yet played, in the device's voice.
+    const rest = pieces.slice(spoken).join(" ");
+    if (!speakSegments([{ text: rest }], opts)) opts.onerror?.();
+  });
+  return true;
+}
+
 export function stopSpeaking() {
+  stopRemote();
   try { window.speechSynthesis.cancel(); } catch {}
 }
 export function isSpeaking() {
+  if (remoteSpeaking()) return true;
   try { return window.speechSynthesis.speaking || window.speechSynthesis.pending; } catch { return false; }
 }
 

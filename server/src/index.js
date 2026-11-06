@@ -39,6 +39,7 @@ import { feedback } from "./routes/feedback.js";
 import { aiReports } from "./routes/ai-reports.js";
 import { practicePages } from "./routes/practice-pages.js";
 import { billing } from "./routes/billing.js";
+import { voice } from "./routes/voice.js";
 import { sharePages } from "./routes/share-pages.js";
 import { serviceWorker } from "./sw-build.js";
 import { HashBusyError, answerIfBusy } from "./passwordHash.js";
@@ -143,6 +144,8 @@ app.use((req, res, next) => {
     // the script injects a <link> to it, and without this the button renders unstyled.
     "style-src 'self' 'unsafe-inline' https://accounts.google.com/gsi/style",
     "img-src 'self' data: blob:",
+    // The natural read-aloud voice (js/lib/remote-voice.js) plays each piece of audio from a blob: it fetched.
+    "media-src 'self' blob:",
     "font-src 'self'",
     "connect-src 'self' https://accounts.google.com",
     "frame-src https://accounts.google.com https://appleid.apple.com",
@@ -224,6 +227,7 @@ app.use("/api", reviews);
 app.use("/api", feedback);
 app.use("/api", aiReports);
 app.use("/api", billing);
+app.use("/api", voice);
 // An /api path no router claimed: answer in the API's own shape, not Express's HTML "Cannot GET".
 // (The static stand-in api/health, for hosts with no server, is never reached here — the health
 // router above answers that path first.)
