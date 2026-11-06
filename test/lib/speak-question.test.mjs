@@ -41,7 +41,14 @@ const sha = (s) => crypto.createHash("sha256").update(s, "utf8").digest("hex");
 const t = (k) => k;
 const LIB = { id: "q-test-1", kind: "mc", prompt: "Vad är huvudstaden i Sverige?", choices: ["Oslo", "Stockholm"] };
 const PIECES = ["Vad är huvudstaden i Sverige?", "A.", "Oslo", "B.", "Stockholm"];
-const settle = (ms = 80) => new Promise((r) => setTimeout(r, ms));
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+// Wait for a play to be over, not a fixed time: five fake clips take 5 timer ticks, and a Windows tick can be 15 ms,
+// so a fixed 80 ms failed about one run in eight.
+const settle = async (ms = 40) => {
+  await sleep(ms);
+  for (const end = Date.now() + 3000; remote?.remoteSpeaking() && Date.now() < end;) await sleep(10);
+  await sleep(20);   // lets the end callback and the device-voice fallback run
+};
 
 let speech, remote;
 before(async () => {
@@ -49,7 +56,7 @@ before(async () => {
   remote = await import("../../js/lib/remote-voice.js");
   remote.setRemoteVoiceGate(() => true);
 });
-beforeEach(() => { said.length = 0; played.length = 0; asked.length = 0; have = new Set(PIECES.map(sha)); remote.stopRemote(); remote.setNaturalVoice("nova"); });
+beforeEach(() => { said.length = 0; played.length = 0; asked.length = 0; have = new Set(PIECES.map(sha)); remote.stopRemote(); remote.setNaturalVoice("ash"); });
 
 describe("speakQuestion with the natural voice", () => {
   test("plays every piece in order from the server's audio and says nothing in the device voice", async () => {

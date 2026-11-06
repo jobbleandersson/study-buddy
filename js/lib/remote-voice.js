@@ -1,4 +1,4 @@
-// The natural read-aloud voices (Nova, Ash). The server voices each piece of library text once and keeps
+// The natural read-aloud voice (Ash). The server voices each piece of library text once and keeps
 // the audio (server/src/voice.js); this plays it. A piece is asked for by the SHA-256 of its text, so the
 // text never leaves the device and the server voices only what the library already says. When anything
 // is missing or fails - no network, the day's voice budget spent, a piece the library does not have (the
@@ -8,8 +8,8 @@
 import { getLang } from "./i18n.js";
 import { PROXY_URL } from "../config.js";
 
-const KEY = "studybuddy.ttsNatural";            // "nova" | "ash" | "device"
-export const NATURAL_VOICES = ["nova", "ash"];
+const KEY = "studybuddy.ttsNatural";            // "device" when the student chose their own voice; unset means Ash
+export const NATURAL_VOICES = ["ash"];          // the one voice that rated Good on every text in the listening test
 const BASE = PROXY_URL.replace(/messages$/, "voice/");   // .../api/voice/
 
 let gate = () => false;
@@ -23,14 +23,14 @@ export function remoteVoiceAvailable() {
   } catch { return false; }
 }
 
-/** The student's choice: "nova" (the default), "ash", or "device" for the device's own voice. */
+/** The student's choice: "ash" (the default) or "device" for the device's own voice. Any other stored value reads as "ash". */
 export function getNaturalVoice() {
-  try { const v = localStorage.getItem(KEY); return v === "ash" || v === "device" ? v : "nova"; } catch { return "nova"; }
+  try { return localStorage.getItem(KEY) === "device" ? "device" : "ash"; } catch { return "ash"; }
 }
 export function setNaturalVoice(v) {
-  try { v === "nova" ? localStorage.removeItem(KEY) : localStorage.setItem(KEY, v); } catch {}
+  try { v === "device" ? localStorage.setItem(KEY, v) : localStorage.removeItem(KEY); } catch {}
 }
-/** The natural voice to read with right now ("nova" | "ash"), or null: use the device's own. */
+/** The natural voice to read with right now ("ash"), or null: use the device's own. */
 export function activeNaturalVoice() {
   if (!remoteVoiceAvailable()) return null;
   const v = getNaturalVoice();

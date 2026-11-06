@@ -83,17 +83,18 @@ describe("remote-voice", () => {
     assert.equal(remoteSpeaking(), false);
   });
 
-  test("the choice defaults to Nova and remembers Ash or the device's own", () => {
-    assert.equal(getNaturalVoice(), "nova");
-    setNaturalVoice("ash");
+  test("the choice defaults to Ash and remembers the device's own voice", () => {
     assert.equal(getNaturalVoice(), "ash");
     setNaturalVoice("device");
     assert.equal(getNaturalVoice(), "device");
-    setNaturalVoice("nova");
-    assert.equal(getNaturalVoice(), "nova");
+    setNaturalVoice("ash");
+    assert.equal(getNaturalVoice(), "ash");
+    setNaturalVoice("device");
     setNaturalVoice("something-else");
-    assert.equal(getNaturalVoice(), "nova", "a stored value that is not a voice reads as the default");
-    setNaturalVoice("nova");
+    assert.equal(getNaturalVoice(), "ash", "a value that is not a voice reads as the default");
+    localStorage.setItem("studybuddy.ttsNatural", "nova");
+    assert.equal(getNaturalVoice(), "ash", "a stored value from an earlier voice reads as the default");
+    setNaturalVoice("ash");
   });
 
   test("a gate that throws or says no keeps it off", () => {

@@ -46,7 +46,7 @@ async function signedIn(server, email) {
   assert.equal(r.status, 200);
   return client;
 }
-const getAudio = (server, client, hash, q = "voice=nova&lang=sv") =>
+const getAudio = (server, client, hash, q = "voice=ash&lang=sv") =>
   fetch(`${server.baseUrl}/api/voice/${hash}.mp3?${q}`, { headers: { cookie: client.cookie || "" } });
 
 const SAMPLE_SV = svStrings["voice.sampleText"];
@@ -90,42 +90,40 @@ describe("GET /api/voice/<hash>.mp3", () => {
   });
 
   test("needs a sign-in", async () => {
-    const res = await fetch(`${server.baseUrl}/api/voice/${sha(SAMPLE_SV)}.mp3?voice=nova&lang=sv`);
+    const res = await fetch(`${server.baseUrl}/api/voice/${sha(SAMPLE_SV)}.mp3?voice=ash&lang=sv`);
     assert.equal(res.status, 401);
     assert.equal(fake.calls.length, 0);
   });
 
-  test("voices a library piece once, in the chosen voice, then serves the kept file", async () => {
+  test("voices a library piece once, in Ash, then serves the kept file", async () => {
     const hash = sha(SAMPLE_SV);
     const a = await getAudio(server, client, hash);
     assert.equal(a.status, 200);
     assert.equal(a.headers.get("content-type"), "audio/mpeg");
     assert.match(a.headers.get("cache-control"), /private/);
-    assert.equal(await a.text(), `ID3fake:nova:${SAMPLE_SV}`);
+    assert.equal(await a.text(), `ID3fake:ash:${SAMPLE_SV}`);
     assert.equal(fake.calls.length, 1);
     const call = fake.calls[0];
     assert.equal(call.url, "/v1/audio/speech");
     assert.equal(call.auth, "Bearer test-openai-key");
     assert.equal(call.body.model, "gpt-4o-mini-tts");
-    assert.equal(call.body.voice, "nova");
+    assert.equal(call.body.voice, "ash");
     assert.equal(call.body.input, SAMPLE_SV);
     assert.equal(call.body.response_format, "mp3");
-    assert.match(call.body.instructions, /Swedish/);
+    assert.equal(call.body.instructions, undefined, "no pronunciation brief: the plain voice is what rated Good on every text");
 
     const b = await getAudio(server, client, hash);
     assert.equal(b.status, 200);
-    assert.equal(await b.text(), `ID3fake:nova:${SAMPLE_SV}`);
+    assert.equal(await b.text(), `ID3fake:ash:${SAMPLE_SV}`);
     assert.equal(fake.calls.length, 1, "the second ask is served from disk");
   });
 
-  test("each voice and language is its own file", async () => {
+  test("each language is its own file", async () => {
     const before = fake.calls.length;
-    const ash = await getAudio(server, client, sha(SAMPLE_SV), "voice=ash&lang=sv");
-    assert.equal(await ash.text(), `ID3fake:ash:${SAMPLE_SV}`);
-    const en = await getAudio(server, client, sha(SAMPLE_EN), "voice=nova&lang=en");
+    const en = await getAudio(server, client, sha(SAMPLE_EN), "voice=ash&lang=en");
     assert.equal(en.status, 200);
-    assert.match(fake.calls.at(-1).body.instructions, /English/);
-    assert.equal(fake.calls.length, before + 2);
+    assert.equal(await en.text(), `ID3fake:ash:${SAMPLE_EN}`);
+    assert.equal(fake.calls.length, before + 1);
   });
 
   test("a real library question is voiceable, option by option", async () => {
@@ -152,7 +150,8 @@ describe("GET /api/voice/<hash>.mp3", () => {
   test("an unknown voice or language, or a malformed hash, is refused", async () => {
     const before = fake.calls.length;
     assert.equal((await getAudio(server, client, sha(SAMPLE_SV), "voice=alloy&lang=sv")).status, 404);
-    assert.equal((await getAudio(server, client, sha(SAMPLE_SV), "voice=nova&lang=es")).status, 404);
+    assert.equal((await getAudio(server, client, sha(SAMPLE_SV), "voice=nova&lang=sv")).status, 404, "Nova rated Weak and is not offered");
+    assert.equal((await getAudio(server, client, sha(SAMPLE_SV), "voice=ash&lang=es")).status, 404);
     assert.equal((await getAudio(server, client, "../../etc/passwd")).status, 404);
     assert.equal((await getAudio(server, client, "abc")).status, 404);
     assert.equal(fake.calls.length, before);

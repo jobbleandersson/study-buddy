@@ -21,17 +21,17 @@ import svStrings from "../../js/lib/strings.sv.js";
 import enStrings from "../../js/lib/strings.en.js";
 
 export const MODEL = "gpt-4o-mini-tts";
-export const VOICES = ["nova", "ash"];
+// Ash, with no pronunciation instructions, is what the owner rated in a listening test (6 Nov 2026, 7 library texts in
+// Swedish, Spanish, French, German and English, every voice setting rated Good / OK / Weak): Ash was Good on all seven,
+// including Swedish questions with foreign words in them. Nova (tts-1 and mini) and the browser voice were Weak.
+// An instruction brief did not beat the plain voice, so none is sent.
+export const VOICES = ["ash"];
 export const LANGS = ["sv", "en"];
-/** Part of every file name: change the instructions below and bump this, and pieces are voiced afresh. */
-const INSTRUCTIONS_VERSION = 1;
+/** Part of every file name: change the voice settings (a model, an instruction) and bump this, and pieces are voiced afresh. */
+const FILE_VERSION = 2;
 /** Longest piece voiced. A longer one is left to the device's voice. */
 export const MAX_PIECE_CHARS = 1800;
 
-const INSTRUCTIONS = {
-  sv: "Speak natural, native Swedish with correct local pronunciation and intonation, like a clear and friendly teacher reading to a student. Steady, unhurried pace. If a word or sentence is in another language, pronounce it as a native speaker of that language would.",
-  en: "Speak natural, native English with correct local pronunciation and intonation, like a clear and friendly teacher reading to a student. Steady, unhurried pace. If a word or sentence is in another language, pronounce it as a native speaker of that language would.",
-};
 const STRINGS = { sv: svStrings, en: enStrings };
 
 // ~ gpt-4o-mini-tts costs about $0.015 a minute; speech runs at roughly 10 characters a second, which
@@ -143,11 +143,11 @@ function release() {
   if (next) next(); else running--;
 }
 
-async function synthesize({ voice, lang, text, fetchImpl }) {
+async function synthesize({ voice, text, fetchImpl }) {
   const res = await fetchImpl(`${apiBase()}/audio/speech`, {
     method: "POST",
     headers: { "content-type": "application/json", authorization: `Bearer ${process.env.OPENAI_API_KEY}` },
-    body: JSON.stringify({ model: MODEL, voice, input: text, instructions: INSTRUCTIONS[lang], response_format: "mp3" }),
+    body: JSON.stringify({ model: MODEL, voice, input: text, response_format: "mp3" }),
     signal: AbortSignal.timeout(30_000),
   });
   if (!res.ok) {
@@ -171,7 +171,7 @@ export async function audioFor({ voice, lang, hash, fetchImpl = fetch }) {
   const text = getIndex()[lang].get(hash);
   if (!text) return { error: "unknown" };
   const dir = voiceDir();
-  const file = path.join(dir, `${MODEL}-${voice}-${lang}-v${INSTRUCTIONS_VERSION}-${hash}.mp3`);
+  const file = path.join(dir, `${MODEL}-${voice}-${lang}-v${FILE_VERSION}-${hash}.mp3`);
   try {
     const st = await fsp.stat(file);
     // A hit makes it the newest file for eviction - but a metadata write per request is too much, so once an hour.
@@ -189,7 +189,7 @@ export async function audioFor({ voice, lang, hash, fetchImpl = fetch }) {
     const job = (async () => {
       await slot();
       try {
-        const buf = await synthesize({ voice, lang, text, fetchImpl });
+        const buf = await synthesize({ voice, text, fetchImpl });
         await fsp.mkdir(dir, { recursive: true });
         const before = await cacheSize(dir);   // counted before the new file lands, so it is not added twice
         const tmp = `${file}.${process.pid}.tmp`;
