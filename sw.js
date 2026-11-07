@@ -85,6 +85,7 @@ const APP_SHELL = [
   "./js/lib/speech.js",
   "./js/lib/speech-pieces.js",
   "./js/lib/remote-voice.js",
+  "./js/lib/leave-hooks.js",
   "./js/lib/voice-features.js",
   "./js/lib/lang-detect.js",
   "./js/lib/challenge.js",

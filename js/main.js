@@ -21,7 +21,7 @@ import { loadLibraryIndex } from "./lib/library-content.js";
 import { playFanfare } from "./lib/sound.js";
 import { mountModalA11y } from "./lib/modal-a11y.js";
 import { loadMath } from "./lib/math-render.js";
-import { stopSpeaking } from "./lib/speech.js";
+import { runLeaveHooks } from "./lib/leave-hooks.js";
 
 // Every module is in: boot.js's "couldn't start" screen stands down.
 window.__sbStarted = true;
@@ -1161,7 +1161,7 @@ async function render({ chromeOnly = false, softRefresh = false } = {}) {
   closePopover();
   // Read-aloud belongs to the screen it was started on: leaving it (home, another set, back, a language
   // switch) ends the voice, the natural one and the device's alike. Not on a soft refresh, which stays put.
-  if (!softRefresh) { try { stopSpeaking(); } catch {} }
+  if (!softRefresh) runLeaveHooks();
   if (typeof currentCleanup === "function") { try { currentCleanup(); } catch {} }
   currentCleanup = null;
 
