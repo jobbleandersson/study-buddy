@@ -139,10 +139,21 @@ describe("speakQuestion with the natural voice", () => {
     assert.equal(said.length, 1);
   });
 
-  test("a language set keeps the device voices", async () => {
+  test("a language set is read in the natural voice too: the foreign words are the point of it", async () => {
+    let ended = 0;
+    speech.speakQuestion(LIB, t, { code: "es", bcp: "es-ES" }, { onend: () => ended++ });
+    await settle();
+    assert.deepEqual(asked, [sha(PIECES[0])], "the question alone, by default");
+    assert.equal(played.length, 1);
+    assert.equal(ended, 1);
+    assert.deepEqual(said, []);
+  });
+
+  test("a language set with nothing from the server falls back to the device voices, in the target language", async () => {
+    have = new Set();
     speech.speakQuestion(LIB, t, { code: "es", bcp: "es-ES" }, {});
     await settle();
-    assert.deepEqual(asked, []);
+    assert.equal(played.length, 0);
     assert.ok(said.length >= 1);
   });
 

@@ -137,6 +137,21 @@ describe("GET /api/voice/<hash>.mp3", () => {
     assert.ok(fake.calls.length > before);
   });
 
+  test("the language sets (Spanish, French, German, English) are voiceable too, in both editions", async () => {
+    const before = fake.calls.length;
+    for (const [lang, dir, strings] of [["sv", "data/library", svStrings], ["en", "data/library-en", enStrings]]) {
+      for (const set of ["ak7-sp-greetings", "ak7-fr-greetings", "ak7-de-greetings", "ak7-en-past"]) {
+        const q = JSON.parse(fs.readFileSync(path.join(ROOT, dir, `${set}.json`), "utf8")).questions[0];
+        for (const piece of questionPieces(q, (k) => strings[k])) {
+          const res = await getAudio(server, client, sha(piece), `voice=ash&lang=${lang}`);
+          assert.equal(res.status, 200, `${set} (${lang}): ${piece}`);
+          await res.arrayBuffer();
+        }
+      }
+    }
+    assert.ok(fake.calls.length > before);
+  });
+
   test("text that is not in the library is never sent to OpenAI", async () => {
     const before = fake.calls.length;
     for (const text of ["Hej, jag är din handledare.", "Min egen fråga om kemi", ""]) {
