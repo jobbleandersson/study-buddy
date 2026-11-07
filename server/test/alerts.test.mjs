@@ -1,7 +1,7 @@
 import { test, describe, before, after, beforeEach } from "node:test";
 import assert from "node:assert/strict";
 import { startServer, makeClient, startFakeResend } from "./harness.mjs";
-import { reportServerError, reportAiSpend, routeLabel, _resetAlerts } from "../src/alerts.js";
+import { reportServerError, reportAiSpend, reportVoice, routeLabel, _resetAlerts } from "../src/alerts.js";
 
 const OWNER = "owner@example.com";
 const uniqueEmail = () => `alert-${Date.now()}-${Math.random().toString(36).slice(2)}@example.com`;
@@ -103,6 +103,31 @@ describe("reportAiSpend (the day's AI spend)", () => {
 
   test("a mailer that throws never surfaces", () => {
     assert.equal(reportAiSpend({ kind: "half", send: () => { throw new Error("x"); }, now: () => clock, enabled: true }), "off");
+  });
+});
+
+describe("reportVoice (the natural read-aloud voice)", () => {
+  const t0 = Date.parse("2026-11-07T10:00:00Z");
+  let sent, clock;
+  const send = (m) => { sent.push(m); return Promise.resolve(true); };
+  const report = (kind, extra = {}) => reportVoice({ kind, spentKr: 5, capKr: 5, status: 402, send, now: () => clock, enabled: true, ...extra });
+  beforeEach(() => { _resetAlerts(); sent = []; clock = t0; });
+
+  test("each kind mails once a UTC day, and again the next day", () => {
+    assert.equal(report("cap"), "sent");
+    assert.equal(report("cap"), "suppressed");
+    assert.equal(report("refused"), "sent");
+    assert.equal(report("refused"), "suppressed");
+    clock = t0 + 24 * 60 * 60_000;
+    assert.equal(report("cap"), "sent");
+    assert.deepEqual(sent.map((m) => m.kind), ["cap", "refused", "cap"]);
+  });
+
+  test("an unknown kind, or email being off, sends nothing; a throwing mailer never surfaces", () => {
+    assert.equal(report("other"), "off");
+    assert.equal(report("cap", { enabled: false }), "off");
+    assert.equal(sent.length, 0);
+    assert.equal(report("cap", { send: () => { throw new Error("x"); } }), "off");
   });
 });
 

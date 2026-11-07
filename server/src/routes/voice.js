@@ -1,9 +1,11 @@
 import { Router } from "express";
 import { requireAuth } from "../middleware/requireAuth.js";
 import { asyncHandler } from "../middleware/asyncHandler.js";
-import { audioFor, warmIndex } from "../voice.js";
+import { audioFor, warmIndex, setVoiceAlert } from "../voice.js";
+import { reportVoice } from "../alerts.js";
 
 warmIndex();
+setVoiceAlert(reportVoice);
 
 export const voice = Router();
 

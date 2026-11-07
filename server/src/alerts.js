@@ -8,7 +8,7 @@
 // What a mail carries: the route (query string dropped, ids replaced), the error's message and the top
 // of its stack. Never the request body, headers, cookies or who was signed in.
 
-import { emailEnabled, sendServerErrorEmail, sendNewFeedbackEmail, sendAiSpendEmail } from "./email.js";
+import { emailEnabled, sendServerErrorEmail, sendNewFeedbackEmail, sendAiSpendEmail, sendVoiceEmail } from "./email.js";
 
 const PER_KEY_MS = 60 * 60_000;
 const MAX_KEYS = 200;
@@ -145,9 +145,34 @@ export function reportAiSpend({ kind, spentUsd = 0, spentKr = 0, capUsd = 0, poo
   }
 }
 
+// ---- the natural voice (voice.js) ----
+// "cap": the day's voice budget is spent (the site reads with the device's voice until 00:00 UTC). "refused": OpenAI
+// turned a request away for good reason (no credit, a refused key). Each mails at most once a UTC day per process.
+// What a mail carries: the kind and a few figures. Never an account, an address or a piece of text.
+const voiceSent = new Set();
+const VOICE_KINDS = new Set(["cap", "refused"]);
+
+/**
+ * @returns "sent" | "suppressed" | "off" - for the tests; callers ignore it.
+ */
+export function reportVoice({ kind, spentKr = 0, capKr = 0, status = 0, reason = "", send = sendVoiceEmail, now = Date.now, enabled = emailEnabled() }) {
+  try {
+    if (!enabled || !VOICE_KINDS.has(kind)) return "off";
+    const today = new Date(now()).toISOString().slice(0, 10);
+    const key = `${today}|${kind}`;
+    if (voiceSent.has(key)) return "suppressed";
+    for (const k of voiceSent) if (!k.startsWith(today)) voiceSent.delete(k);
+    voiceSent.add(key);
+    Promise.resolve(send({ kind, spentKr, capKr, status, reason })).catch(() => {});
+    return "sent";
+  } catch {
+    return "off";
+  }
+}
+
 /** Test-only: forget every count. */
 export function _resetAlerts() {
-  seen.clear(); day = ""; sentToday = 0; spendSent.clear();
+  seen.clear(); day = ""; sentToday = 0; spendSent.clear(); voiceSent.clear();
   if (fbTimer) clearTimeout(fbTimer);
   fbPending = emptyCounts(); fbLastSent = 0; fbTimer = null; fbDay = ""; fbSentToday = 0;
 }
