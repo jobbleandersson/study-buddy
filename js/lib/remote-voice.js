@@ -73,10 +73,12 @@ export async function sha256Hex(text) {
 }
 
 // 44 bytes of WAV with no samples: played once inside a tap, it lets the same element play the real audio
-// later (iOS Safari only allows audio an element started from a tap).
+// later (iOS Safari only allows audio an element started from a tap - and counts a click or the end of a touch,
+// not always the pointer-down that comes first).
 const SILENCE = new Uint8Array([82, 73, 70, 70, 36, 0, 0, 0, 87, 65, 86, 69, 102, 109, 116, 32, 16, 0, 0, 0, 1, 0, 1, 0,
   68, 172, 0, 0, 136, 88, 1, 0, 2, 0, 16, 0, 100, 97, 116, 97, 0, 0, 0, 0]);
 let unlocked = false;
+let onUnlocked = () => {};   // the page-wide listeners below stop listening once a play has been accepted
 /** Call inside a tap or click, before anything is awaited. */
 export function unlockAudio() {
   if (typeof Audio !== "function") return;
@@ -88,13 +90,16 @@ export function unlockAudio() {
     const p = audio.play();
     unlocked = true;
     const done = () => URL.revokeObjectURL(url);
-    p?.then?.(done, () => { unlocked = false; done(); });
+    p?.then?.(() => { done(); onUnlocked(); }, () => { unlocked = false; done(); });
   } catch { unlocked = false; }
 }
-// The first tap anywhere on the page unlocks it, so a question that reads itself aloud on arrival can too.
+// The first tap anywhere on the page unlocks it, so a question that reads itself aloud on arrival can too. The
+// three events are tried in turn (a phone may refuse the pointer-down and accept the click) until one is accepted.
 if (typeof document !== "undefined") {
-  const first = () => { if (remoteVoiceAvailable()) { unlockAudio(); document.removeEventListener("pointerdown", first, true); } };
-  document.addEventListener("pointerdown", first, true);
+  const EVENTS = ["pointerdown", "touchend", "click"];
+  const first = () => { if (remoteVoiceAvailable()) unlockAudio(); };
+  onUnlocked = () => EVENTS.forEach((e) => document.removeEventListener(e, first, true));
+  EVENTS.forEach((e) => document.addEventListener(e, first, true));
 }
 
 async function fetchPiece(hash, voice, lang, signal) {

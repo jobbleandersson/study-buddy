@@ -6,6 +6,7 @@
 import { getLang } from "./i18n.js";
 import { segmentPrompt, choicesAreTarget, segmentByLanguage, LANG_BCP } from "./lang-detect.js";
 import { toSpeakable, questionPieces } from "./speech-pieces.js";
+import { onLeave } from "./leave-hooks.js";
 import { activeNaturalVoice, playRemote, stopRemote, unlockAudio, remoteSpeaking } from "./remote-voice.js";
 
 // Moved to speech-pieces.js (the server needs it too); still importable from here.
@@ -364,6 +365,9 @@ export function stopSpeaking() {
   stopRemote();
   try { window.speechSynthesis.cancel(); } catch {}
 }
+// Leaving a screen ends whatever is being read (main.js runs the leave hooks on every real navigation).
+onLeave(() => stopSpeaking());
+
 export function isSpeaking() {
   if (remoteSpeaking()) return true;
   try { return window.speechSynthesis.speaking || window.speechSynthesis.pending; } catch { return false; }

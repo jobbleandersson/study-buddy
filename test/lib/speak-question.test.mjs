@@ -67,6 +67,15 @@ describe("speakQuestion with the natural voice", () => {
     assert.equal(speech.speechStops(), before + 1);
   });
 
+  test("leaving a screen stops the voice through the leave hooks main.js runs", async () => {
+    const { runLeaveHooks } = await import("../../js/lib/leave-hooks.js");
+    speech.speakQuestion(LIB, t, null, {});
+    assert.equal(speech.isSpeaking(), true);
+    const before = speech.speechStops();
+    runLeaveHooks();
+    assert.equal(speech.speechStops(), before + 1);
+    assert.equal(speech.isSpeaking(), false);
+  });
   test("reads the question alone by default: the answer options are not asked for", async () => {
     let ended = 0;
     assert.equal(speech.speakQuestion(LIB, t, null, { onend: () => ended++ }), true);
