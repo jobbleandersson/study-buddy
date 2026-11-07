@@ -47,6 +47,12 @@ const maxBytes = () => num(process.env.VOICE_MAX_MB, 300) * 1024 * 1024;
 const apiBase = () => String(process.env.OPENAI_API_BASE || "https://api.openai.com/v1").replace(/\/+$/, "");
 const MAX_PARALLEL = 4;
 
+// The owner is told when the voice stops (routes/voice.js passes alerts.js reportVoice here, so this file stays free
+// of the mail code). Only kinds and figures go out: never an account, a piece of text or the key.
+let onVoiceAlert = () => {};
+export function setVoiceAlert(fn) { onVoiceAlert = typeof fn === "function" ? fn : () => {}; }
+const alertOwner = (info) => { try { onVoiceAlert(info); } catch { /* an alert never breaks a request */ } };
+
 export const voiceConfigured = () => !!process.env.OPENAI_API_KEY;
 export const voiceDir = () => process.env.VOICE_DIR
   || path.join(path.dirname(process.env.DB_PATH || path.join(process.cwd(), "data", "x")), "voice");
@@ -184,8 +190,13 @@ async function synthesize({ voice, text, fetchImpl }) {
   });
   if (!res.ok) {
     // Never log the text or the key: only what went wrong.
+    let code = "";
+    try { code = String((await res.json())?.error?.code || "").slice(0, 40); } catch { /* no JSON body */ }
     if ([401, 402, 403, 429].includes(res.status)) blockedUntil = Date.now() + 60_000;
-    console.warn(`[voice] OpenAI answered ${res.status}`);
+    console.warn(`[voice] OpenAI answered ${res.status}${code ? ` (${code})` : ""}`);
+    // No credit left (OpenAI answers 429 insufficient_quota) or the key is refused: the owner hears, once a day. A plain
+    // rate limit is not worth a mail.
+    if ([401, 402, 403].includes(res.status) || (res.status === 429 && code === "insufficient_quota")) alertOwner({ kind: "refused", status: res.status, reason: code });
     throw Object.assign(new Error("upstream"), { upstream: true });
   }
   return Buffer.from(await res.arrayBuffer());
@@ -215,7 +226,7 @@ export async function audioFor({ voice, lang, hash, userId = null, fetchImpl = f
   // A piece somebody is already making costs this asker nothing, so it is checked first: the budget being nearly
   // spent must not turn a free answer into a refusal (the browser then pauses the voice for a minute).
   if (!inflight.has(file)) {
-    if (bookedToday() + cost > dailyCapKr()) return { error: "cap" };
+    if (bookedToday() + cost > dailyCapKr()) { alertOwner({ kind: "cap", spentKr: spent.kr, capKr: dailyCapKr() }); return { error: "cap" }; }
     const share = userShareKr();
     if (userId != null && share > 0 && bookedBy(userId) + cost > share) return { error: "cap" };
     if (Date.now() < blockedUntil) return { error: "upstream" };

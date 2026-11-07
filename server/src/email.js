@@ -404,6 +404,26 @@ export function sendAiSpendEmail({ kind, spentUsd = 0, spentKr = 0, capUsd = 0, 
   });
 }
 
+/** The natural read-aloud voice has stopped (alerts.js reportVoice decides when). Only the kind and a few figures: no
+ *  account, address or text. "refused" is critical (the voice is down until someone acts); "cap" is not (a busy day). */
+export function sendVoiceEmail({ kind, spentKr = 0, capKr = 0, status = 0, reason = "" }) {
+  const kr = (n) => `${Number(n).toFixed(1)} kr`;
+  const usd = (n) => `$${(Number(n) / 10).toFixed(2)}`;
+  const texts = {
+    cap: [`Dagens uppläsningsbudget är slut`,
+      `<p>Uppläsningen med Ash har använt <strong>${kr(spentKr)}</strong> av dagens tak på ${kr(capKr)} (ungefär ${usd(capKr)}). Resten av dagen läser sajten upp med enhetens egen röst; ljud som redan är gjort spelas som vanligt.</p>
+       <p>Budgeten nollställs kl. 00:00 UTC (01:00 eller 02:00 svensk tid). Behöver taket höjas: <code>fly secrets set VOICE_DAILY_CAP_KR=… -a studybuddy-jobble</code>. Kolla gärna användningen på platform.openai.com.</p>`],
+    refused: [`OpenAI nekade uppläsningen`,
+      `<p>OpenAI svarade <strong>${Number(status) || "fel"}</strong>${reason ? ` (<code>${String(reason).replace(/[^a-z_]/gi, "")}</code>)` : ""} på en begäran om ljud. Oftast är tillgodohavandet slut (platform.openai.com, Billing) eller så har nyckeln <code>OPENAI_API_KEY</code> blivit ogiltig.</p>
+       <p>Tills det är löst läser sajten upp med enhetens egen röst; servern provar igen efter en minut. Inga elevuppgifter finns i det här mejlet.</p>`],
+  };
+  const [subject, body] = texts[kind] || texts.refused;
+  return sendEmail({
+    to: ALERT_TO(), critical: kind === "refused", subject: `PluggEra: ${subject}`,
+    html: layout(body, "Automatiskt mejl från PluggEras server. Samma sorts mejl skickas högst en gång per dag."),
+  });
+}
+
 /** A message from the contact form. Reply-To is the sender, so answering it in the inbox just works.
  *  Everything the visitor typed is escaped: this html lands in our own inbox. */
 export function sendContactEmail({ name, email, message }) {

@@ -10,7 +10,7 @@ import os from "node:os";
 import path from "node:path";
 import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
-import { startServer, makeClient } from "./harness.mjs";
+import { startServer, startFakeResend, makeClient } from "./harness.mjs";
 import { buildIndex, MAX_PIECE_CHARS, sha256 } from "../src/voice.js";
 import { questionPieces } from "../../js/lib/speech-pieces.js";
 import svStrings from "../../js/lib/strings.sv.js";
@@ -22,7 +22,7 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..")
 // A stand-in for api.openai.com/v1/audio/speech: records what it was asked and answers with fake mp3 bytes.
 async function startFakeOpenAI() {
   const calls = [];
-  const mode = { status: 200, delayMs: 0 };
+  const mode = { status: 200, delayMs: 0, code: "" };
   const srv = http.createServer((req, res) => {
     let raw = "";
     req.on("data", (c) => { raw += c; });
@@ -31,7 +31,7 @@ async function startFakeOpenAI() {
       try { body = JSON.parse(raw); } catch {}
       calls.push({ url: req.url, auth: req.headers.authorization, body });
       if (mode.delayMs) await new Promise((r) => setTimeout(r, mode.delayMs));
-      if (mode.status !== 200) { res.writeHead(mode.status, { "content-type": "application/json" }); res.end('{"error":{"message":"no"}}'); return; }
+      if (mode.status !== 200) { res.writeHead(mode.status, { "content-type": "application/json" }); res.end(JSON.stringify({ error: { message: "no", code: mode.code || undefined } })); return; }
       res.writeHead(200, { "content-type": "audio/mpeg" });
       res.end(Buffer.from(`ID3fake:${body.voice}:${body.input}`));
     });
@@ -284,6 +284,54 @@ describe("limits and dormancy", () => {
       assert.deepEqual([ra.status, rb.status], [200, 200]);
       assert.equal(fake.calls.length, 1);
     } finally { await server.stop(); await fake.stop(); fs.rmSync(dir, { recursive: true, force: true }); }
+  });
+
+  const OWNER = "voice-owner@example.se";
+  const waitFor = async (fn, ms = 5000) => { const end = Date.now() + ms; while (Date.now() < end) { if (fn()) return true; await new Promise((r) => setTimeout(r, 25)); } return false; };
+  const ownerServer = async (fake, resend, dir, extra = {}) => startServer({
+    OPENAI_API_KEY: "k", OPENAI_API_BASE: fake.base, VOICE_DIR: dir, RESEND_API_KEY: "test-key", RESEND_API_URL: resend.url, ALERT_EMAIL: OWNER, ...extra,
+  });
+
+  test("the owner is mailed once when the day's voice budget is spent, with no student in the mail", async () => {
+    const fake = await startFakeOpenAI(), resend = await startFakeResend();
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), "voice-test-"));
+    const server = await ownerServer(fake, resend, dir, { VOICE_DAILY_CAP_KR: "0.001" });
+    try {
+      const a = await signedIn(server, "owner-cap-a@example.se"), b = await signedIn(server, "owner-cap-b@example.se");
+      assert.equal((await getAudio(server, a, sha(SAMPLE_SV))).status, 503);
+      assert.equal((await getAudio(server, b, sha(SAMPLE_EN), "voice=ash&lang=en")).status, 503);
+      assert.ok(await waitFor(() => resend.mailsTo(OWNER).some((m) => /uppläsningsbudget/.test(m.subject))), "the owner is mailed");
+      await new Promise((r) => setTimeout(r, 200));
+      const mails = resend.mailsTo(OWNER).filter((m) => /uppläsningsbudget/.test(m.subject));
+      assert.equal(mails.length, 1, "once a day, not per request");
+      assert.equal(/owner-cap-[ab]@example.se/.test(mails[0].html), false, "no student address in the owner's mail");
+      assert.equal(fake.calls.length, 0);
+    } finally { await server.stop(); await fake.stop(); await resend.stop(); fs.rmSync(dir, { recursive: true, force: true }); }
+  });
+
+  test("the owner is mailed when OpenAI refuses for good (no credit, a bad key), not for a plain rate limit", async () => {
+    const fake = await startFakeOpenAI(), resend = await startFakeResend();
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), "voice-test-"));
+    const server = await ownerServer(fake, resend, dir);
+    try {
+      const c = await signedIn(server, "owner-refused@example.se");
+      fake.mode.status = 429;   // a rate limit: nothing to tell the owner
+      assert.equal((await getAudio(server, c, sha(SAMPLE_SV))).status, 502);
+      await new Promise((r) => setTimeout(r, 300));
+      assert.equal(resend.mailsTo(OWNER).filter((m) => /OpenAI nekade/.test(m.subject)).length, 0);
+      fake.mode.status = 429; fake.mode.code = "insufficient_quota";   // out of credit
+      // the voice pauses for a minute after a refusal, so ask for a piece through a fresh server instead
+    } finally { await server.stop(); }
+    const server2 = await ownerServer(fake, resend, dir);
+    try {
+      const d = await signedIn(server2, "owner-refused-2@example.se");
+      assert.equal((await getAudio(server2, d, sha(SAMPLE_SV))).status, 502);
+      assert.ok(await waitFor(() => resend.mailsTo(OWNER).some((m) => /OpenAI nekade/.test(m.subject))), "the owner is mailed");
+      const mail = resend.mailsTo(OWNER).find((m) => /OpenAI nekade/.test(m.subject));
+      assert.match(mail.html, /429/);
+      assert.match(mail.html, /insufficient_quota/);
+      assert.equal(/owner-refused/.test(mail.html), false, "no student address in the owner's mail");
+    } finally { await server2.stop(); await fake.stop(); await resend.stop(); fs.rmSync(dir, { recursive: true, force: true }); }
   });
 
   test("the disk cache keeps to its size, oldest files first", async () => {
