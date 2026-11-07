@@ -8,7 +8,7 @@ import { t, getLang } from "../lib/i18n.js";
 import {
   voicesForLang, rankVoices, voiceIsNatural, voiceIsOnline, voiceAdvice,
   getPreferredVoiceURI, setPreferredVoiceURI, getRate, setRate, speakSample, stopSpeaking,
-  getTalkVoiceURI, setTalkVoiceURI, talkVoices,
+  getTalkVoiceURI, setTalkVoiceURI, talkVoices, getReadOptions, setReadOptions,
 } from "../lib/speech.js";
 import {
   remoteVoiceAvailable, setNaturalVoice, activeNaturalVoice, playRemote, stopRemote, unlockAudio, NATURAL_VOICES,
@@ -45,9 +45,15 @@ export function voiceControls({ compact = false } = {}) {
   const onlineNote = el("p.note.voicectl__tip", { hidden: true }, t("voice.onlineNote"));
   const naturalNote = el("p.note.voicectl__tip", { hidden: true }, t("voice.naturalNote"));
   const none = el("p.note", { hidden: true }, t("voice.none"));
+  // Off by default: a question is read, its answer options are not. A switch here is stored through speech.js
+  // like the voice and the speed, so Settings and the reading popover show the same state.
+  const optionsIn = el("input", { type: "checkbox", id: `voice-options-${compact ? "c" : "s"}` });
+  optionsIn.checked = getReadOptions();
+  optionsIn.addEventListener("change", () => setReadOptions(optionsIn.checked));
   const controls = el("div.voicectl__body", {}, [
     sel,
     el("div.voicectl__row", {}, [sampleBtn, el("label.voicectl__speed", {}, [el("span", {}, t("voice.speed")), rateIn, rateVal])]),
+    el("label.voicectl__opt", { for: optionsIn.id }, [optionsIn, el("span", {}, t("voice.readOptions"))]),
   ]);
   root.append(controls, none, tip, onlineNote, naturalNote);
 

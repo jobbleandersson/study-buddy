@@ -13,6 +13,7 @@ export { toSpeakable };
 
 const VOICE_KEY = "studybuddy.ttsVoice";
 const AUTO_KEY = "studybuddy.ttsAuto";
+const OPTIONS_KEY = "studybuddy.ttsOptions";
 const RATE_KEY = "studybuddy.ttsRate";
 const TALK_KEY = "studybuddy.talkVoice";   // + "A" / "S"
 
@@ -58,6 +59,13 @@ export function getAutoRead() {
 }
 export function setAutoRead(on) {
   try { on ? localStorage.setItem(AUTO_KEY, "1") : localStorage.removeItem(AUTO_KEY); } catch {}
+}
+/** Whether a question's answer options are read aloud too. Off by default: the question alone. */
+export function getReadOptions() {
+  try { return localStorage.getItem(OPTIONS_KEY) === "1"; } catch { return false; }
+}
+export function setReadOptions(on) {
+  try { on ? localStorage.setItem(OPTIONS_KEY, "1") : localStorage.removeItem(OPTIONS_KEY); } catch {}
 }
 export function getRate() {
   try { return Number(localStorage.getItem(RATE_KEY)) || 1; } catch { return 1; }
@@ -328,8 +336,9 @@ export function speakQuestion(question, t, target, opts = {}) {
   // Only the library's own questions (ids "q-...": the ones the server has text for); a student's own or
   // AI-made set would only cost a failed request before the device voice, and send a hash of what they wrote.
   const voice = target || !/^q-/.test(String(question?.id)) ? null : activeNaturalVoice();
-  const pieces = voice ? questionPieces(question, (k) => t(k)) : [];
-  if (!voice || !pieces.length) return speakSegments(questionToSegments(question, t, target), opts);
+  const options = getReadOptions();
+  const pieces = voice ? questionPieces(question, (k) => t(k), { options }) : [];
+  if (!voice || !pieces.length) return speakSegments(questionToSegments(question, t, target, { options }), opts);
   try { window.speechSynthesis?.cancel(); } catch {}
   unlockAudio();
   opts.onstart?.();
@@ -410,14 +419,14 @@ export function similarity(heard, meant) {
  * student's, and the options in whichever language they're written in. Gaps
  * become a pause. `target` is { code, bcp } from lang-detect's targetLangFor.
  */
-export function questionToSegments(q, t, target) {
+export function questionToSegments(q, t, target, { options = true } = {}) {
   if (!q) return [];
-  if (!target) return [{ text: questionToSpeech(q, t) }];
+  if (!target) return [{ text: questionToSpeech(q, t, { options }) }];
   const gapped = (s) => s.replace(/_{2,}/g, ", ");
   const prompt = q.kind === "cloze" ? String(q.prompt || "").replace(/\{\{[^}]*\}\}/g, " ___ ") : q.prompt;
   const segs = segmentPrompt(prompt, target.code)
     .map((s) => ({ text: gapped(s.text), bcp: s.target ? target.bcp : null }));
-  if (q.kind === "mc" && Array.isArray(q.choices)) {
+  if (options && q.kind === "mc" && Array.isArray(q.choices)) {
     const inTarget = choicesAreTarget(q.choices, q.prompt, target.code);
     // The letter shares its option's voice, so "A" isn't spelled in Swedish
     // in front of an English or Spanish answer.
@@ -432,7 +441,7 @@ export function questionToSegments(q, t, target) {
 
 /** Turn a question into one spoken passage: the prompt, then the options for
  *  multiple choice, or the sentence with "blank" spoken for each gap. */
-export function questionToSpeech(q, t) {
+export function questionToSpeech(q, t, { options = true } = {}) {
   if (!q) return "";
   const tr = (k, v) => (t ? t(k, v) : k);
 
@@ -456,7 +465,7 @@ export function questionToSpeech(q, t) {
     return prefix + toSpeakable(String(q.prompt || "").replace(/\{\{[^}]*\}\}/g, ` ${tr("q.readBlankWord")} `));
   }
   let out = prefix + toSpeakable(q.prompt);
-  if (q.kind === "mc" && Array.isArray(q.choices)) {
+  if (options && q.kind === "mc" && Array.isArray(q.choices)) {
     const letters = ["A", "B", "C", "D", "E", "F"];
     out += ". " + q.choices.map((c, i) => `${letters[i] || i + 1}. ${toSpeakable(c)}`).join(". ");
   }

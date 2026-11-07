@@ -262,6 +262,7 @@ export default {
   "read.autoRead": "Läs upp frågor",
   "read.voice": "Röst",
   "voice.title": "Uppläsningsröst",
+  "voice.readOptions": "Läs upp svarsalternativen också",
   "voice.auto": "Automatisk (bästa tillgängliga)",
   "voice.natural": "Naturlig",
   "voice.online": "online",

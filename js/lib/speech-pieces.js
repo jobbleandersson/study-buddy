@@ -26,10 +26,10 @@ export const optionLabel = (i) => `${OPTION_LETTERS[i] || i + 1}.`;
 /**
  * The pieces of a question, in the order they are read: the framing material of a högskoleprov question,
  * the prompt (a cloze with "blank" said for each gap), then for multiple choice each option as a label
- * piece and a text piece. `tr(key)` gives the interface strings ("lucka", "Kvantitet I", ...).
- * Empty pieces are left out.
+ * piece and a text piece (left out with `options: false`: the question alone). `tr(key)` gives the interface
+ * strings ("lucka", "Kvantitet I", ...). Empty pieces are left out.
  */
-export function questionPieces(q, tr = (k) => k) {
+export function questionPieces(q, tr = (k) => k, { options = true } = {}) {
   if (!q) return [];
   const out = [];
   const add = (s) => { const x = toSpeakable(s); if (x) out.push(x); };
@@ -52,7 +52,7 @@ export function questionPieces(q, tr = (k) => k) {
     return out;
   }
   add(q.prompt);
-  if (q.kind === "mc" && Array.isArray(q.choices)) {
+  if (options && q.kind === "mc" && Array.isArray(q.choices)) {
     q.choices.forEach((c, i) => { add(optionLabel(i)); add(c); });
   }
   return out;
