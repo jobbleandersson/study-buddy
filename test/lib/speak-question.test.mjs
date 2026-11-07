@@ -56,7 +56,7 @@ before(async () => {
   remote = await import("../../js/lib/remote-voice.js");
   remote.setRemoteVoiceGate(() => true);
 });
-beforeEach(() => { said.length = 0; played.length = 0; asked.length = 0; have = new Set(PIECES.map(sha)); remote.stopRemote(); remote.setNaturalVoice("ash"); });
+beforeEach(() => { said.length = 0; played.length = 0; asked.length = 0; have = new Set(PIECES.map(sha)); remote.stopRemote(); remote.setNaturalVoice("ash"); speech.setReadOptions(false); });
 
 describe("speakQuestion with the natural voice", () => {
   test("stopping is counted, so a reading scheduled earlier can tell the student has left", () => {
@@ -67,7 +67,18 @@ describe("speakQuestion with the natural voice", () => {
     assert.equal(speech.speechStops(), before + 1);
   });
 
-  test("plays every piece in order from the server's audio and says nothing in the device voice", async () => {
+  test("reads the question alone by default: the answer options are not asked for", async () => {
+    let ended = 0;
+    assert.equal(speech.speakQuestion(LIB, t, null, { onend: () => ended++ }), true);
+    await settle();
+    assert.deepEqual(asked, [sha(PIECES[0])]);
+    assert.equal(played.length, 1);
+    assert.equal(ended, 1);
+    assert.deepEqual(said, []);
+  });
+
+  test("with the option on, plays every piece in order from the server's audio and says nothing in the device voice", async () => {
+    speech.setReadOptions(true);
     let ended = 0;
     let started = 0;
     assert.equal(speech.speakQuestion(LIB, t, null, { onstart: () => started++, onend: () => ended++ }), true);
@@ -80,12 +91,14 @@ describe("speakQuestion with the natural voice", () => {
   });
 
   test("options are asked for in the order shown, so shuffled options still match their letters", async () => {
+    speech.setReadOptions(true);
     speech.speakQuestion({ ...LIB, choices: ["Stockholm", "Oslo"] }, t, null, {});
     await settle();
     assert.deepEqual(asked, ["Vad är huvudstaden i Sverige?", "A.", "Stockholm", "B.", "Oslo"].map(sha));
   });
 
   test("a piece the server lacks: the pieces already played stay played, the rest is read by the device", async () => {
+    speech.setReadOptions(true);
     have.delete(sha("B."));
     let ended = 0;
     speech.speakQuestion(LIB, t, null, { onend: () => ended++ });
@@ -94,13 +107,18 @@ describe("speakQuestion with the natural voice", () => {
     assert.deepEqual(said, ["B. Stockholm"]);
   });
 
-  test("nothing from the server: the whole question is read by the device, as before", async () => {
+  test("nothing from the server: the question is read by the device, with the options only when asked", async () => {
     have = new Set();
     speech.speakQuestion(LIB, t, null, {});
     await settle();
     assert.equal(played.length, 0);
+    assert.deepEqual(said, ["Vad är huvudstaden i Sverige?"]);
+    said.length = 0;
+    speech.setReadOptions(true);
+    speech.speakQuestion(LIB, t, null, {});
+    await settle();
     assert.equal(said.length, 1);
-    assert.match(said[0], /Vad är huvudstaden i Sverige\?.*A\. Oslo.*B\. Stockholm/);
+    assert.match(said[0], /Vad är huvudstaden i Sverige?.*A. Oslo.*B. Stockholm/);
   });
 
   test("stopping while it plays ends it quietly: no end callback, no device voice", async () => {

@@ -106,6 +106,21 @@ describe("remote-voice", () => {
     localStorage.removeItem("studybuddy.ttsNatural");
   });
 
+  test("the answer options are read only when the student asks for them", async () => {
+    const speech = await import("../../js/lib/speech.js");
+    localStorage.removeItem("studybuddy.ttsOptions");
+    assert.equal(speech.getReadOptions(), false, "off by default");
+    speech.setReadOptions(true);
+    assert.equal(speech.getReadOptions(), true);
+    speech.setReadOptions(false);
+    assert.equal(speech.getReadOptions(), false);
+    const q = { kind: "mc", prompt: "Vad är 2 + 2?", choices: ["3", "4"] };
+    assert.deepEqual(questionPieces(q, tr, { options: false }), ["Vad är 2 + 2?"]);
+    assert.deepEqual(questionPieces(q, tr), ["Vad är 2 + 2?", "A.", "3", "B.", "4"], "the default, which the server's index uses, stays whole");
+    assert.equal(speech.questionToSpeech(q, null, { options: false }), "Vad är 2 + 2?");
+    assert.match(speech.questionToSpeech(q, null), /A. 3. B. 4/);
+  });
+
   test("a gate that throws or says no keeps it off", () => {
     setRemoteVoiceGate(() => { throw new Error("x"); });
     assert.equal(remoteVoiceAvailable(), false);

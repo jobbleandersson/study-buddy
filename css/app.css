@@ -2036,6 +2036,8 @@ body.no-chrome .sitechat__panel { display: none; }
 .voicectl__speed > span { flex: none; }
 .voicectl__speed input[type=range] { flex: 1; min-width: 60px; height: 24px; accent-color: var(--brand); }   /* 24px: WCAG 2.5.8 target */
 .voicectl__rate { flex: none; min-width: 2.6em; text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); }
+.voicectl__opt { display: flex; align-items: center; gap: var(--s-2); font-size: var(--fs-sm); color: var(--ink-soft); cursor: pointer; }
+.voicectl__opt input[type=checkbox] { flex: none; width: 20px; height: 20px; margin: 0; accent-color: var(--brand); }
 .voicectl__tip { margin: 0; font-size: var(--fs-sm); line-height: 1.4; }
 .voicectl--compact .voicectl__tip { font-size: calc(12px * var(--fs-scale, 1)); }
 .voicectl--compact .voicectl__row { gap: var(--s-2); }

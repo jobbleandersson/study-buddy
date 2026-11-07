@@ -246,6 +246,7 @@ export default {
   "read.dyslexiaFont": "Easy-read font",
   "read.autoRead": "Read questions aloud",
   "read.voice": "Voice",
+  "voice.readOptions": "Read the answer options aloud too",
   "voice.title": "Reading-aloud voice",
   "voice.auto": "Automatic (best available)",
   "voice.natural": "Natural",
